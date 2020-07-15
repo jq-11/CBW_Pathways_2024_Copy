@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Module 2 lab - Over-representation analysis (ORA) practical lab: g:Profiler | Pathways</title>
+  <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Module 2 lab - Over-representation analysis (ORA) practical lab: g:Profiler | Pathways" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Module 2 lab - Over-representation analysis (ORA) practical lab: g:Profiler | Pathways" />
+  
+  <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  
+
+<meta name="author" content="Gary Bader, Veronique Voisin, Ruth Isserlin, Lincoln Stein, Robin Haw, Micheal Hoffman, Quaid Morris" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="module-2-finding-over-represented-pathways-veronique-voisin.html"/>
+<link rel="next" href="gsea-lab.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CBW Pathways Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome <a id="welcome"></a></a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>1.1</b> Workshop Schedule</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#pre-workshop"><i class="fa fa-check"></i><b>1.2</b> Pre-Workshop Materials and Laptop Setup Instructions</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#laptop-setup-instructions"><i class="fa fa-check"></i><b>1.2.1</b> Laptop Setup Instructions</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#pre-workshop-tutorials"><i class="fa fa-check"></i><b>1.2.2</b> Pre-workshop Tutorials</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#additional-tutorials"><i class="fa fa-check"></i><b>1.2.3</b> Additional tutorials <a id="additionaltutorials"></a></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><a href="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><i class="fa fa-check"></i><b>2</b> Module 1 - Introduction to Pathway and Network Analysis (Gary Bader)</a></li>
+<li class="chapter" data-level="3" data-path="module-2-finding-over-represented-pathways-veronique-voisin.html"><a href="module-2-finding-over-represented-pathways-veronique-voisin.html"><i class="fa fa-check"></i><b>3</b> Module 2: Finding Over-represented Pathways (Veronique Voisin)</a></li>
+<li class="chapter" data-level="4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html"><i class="fa fa-check"></i><b>4</b> Module 2 lab - Over-representation analysis (ORA) practical lab: g:Profiler</a><ul>
+<li class="chapter" data-level="4.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#goal-of-the-exercise-1"><i class="fa fa-check"></i><b>4.2</b> Goal of the exercise 1</a></li>
+<li class="chapter" data-level="4.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
+<li class="chapter" data-level="4.4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-1---run-gprofiler"><i class="fa fa-check"></i><b>4.4</b> Exercise 1 - run g:Profiler</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-1---launch-gprofiler."><i class="fa fa-check"></i><b>4.4.1</b> Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-2---input-query"><i class="fa fa-check"></i><b>4.4.2</b> Step 2 - input query</a></li>
+<li class="chapter" data-level="4.4.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-3---adjust-parameters."><i class="fa fa-check"></i><b>4.4.3</b> Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="4.4.4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-4---run-query"><i class="fa fa-check"></i><b>4.4.4</b> Step 4 - Run query</a></li>
+<li class="chapter" data-level="4.4.5" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-5---explore-the-results."><i class="fa fa-check"></i><b>4.4.5</b> Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="4.4.6" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i><b>4.4.6</b> Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="4.4.7" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-7-save-the-results"><i class="fa fa-check"></i><b>4.4.7</b> Step 7: Save the results</a></li>
+<li class="chapter" data-level="4.4.8" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-8"><i class="fa fa-check"></i><b>4.4.8</b> Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i><b>4.5</b> Exercise 2: Load and use a custom .gmt file and run the query</a></li>
+<li class="chapter" data-level="4.6" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-steps"><i class="fa fa-check"></i><b>4.6</b> Optional steps</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-1"><i class="fa fa-check"></i><b>4.6.1</b> <strong>Optional 1</strong>:</a></li>
+<li class="chapter" data-level="4.6.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-2"><i class="fa fa-check"></i><b>4.6.2</b> <strong>Option 2</strong>:</a></li>
+<li class="chapter" data-level="4.6.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-3"><i class="fa fa-check"></i><b>4.6.3</b> <strong>Option 3</strong> :</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="gsea-lab.html"><a href="gsea-lab.html"><i class="fa fa-check"></i><b>5</b> Over-Representation Analysis (ORA) Practical Lab: GSEA</a><ul>
+<li class="chapter" data-level="5.1" data-path="gsea-lab.html"><a href="gsea-lab.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="gsea-lab.html"><a href="gsea-lab.html#goal-of-the-exercise"><i class="fa fa-check"></i><b>5.2</b> Goal of the exercise</a></li>
+<li class="chapter" data-level="5.3" data-path="gsea-lab.html"><a href="gsea-lab.html#data-1"><i class="fa fa-check"></i><b>5.3</b> Data</a></li>
+<li class="chapter" data-level="5.4" data-path="gsea-lab.html"><a href="gsea-lab.html#background"><i class="fa fa-check"></i><b>5.4</b> Background</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="gsea-lab.html"><a href="gsea-lab.html#start-the-exercise"><i class="fa fa-check"></i><b>5.4.1</b> Start the exercise</a></li>
+<li class="chapter" data-level="5.4.2" data-path="gsea-lab.html"><a href="gsea-lab.html#step1."><i class="fa fa-check"></i><b>5.4.2</b> Step1.</a></li>
+<li class="chapter" data-level="5.4.3" data-path="gsea-lab.html"><a href="gsea-lab.html#step-2."><i class="fa fa-check"></i><b>5.4.3</b> Step 2.</a></li>
+<li class="chapter" data-level="5.4.4" data-path="gsea-lab.html"><a href="gsea-lab.html#step3."><i class="fa fa-check"></i><b>5.4.4</b> Step3.</a></li>
+<li class="chapter" data-level="5.4.5" data-path="gsea-lab.html"><a href="gsea-lab.html#step-4."><i class="fa fa-check"></i><b>5.4.5</b> Step 4.</a></li>
+<li class="chapter" data-level="5.4.6" data-path="gsea-lab.html"><a href="gsea-lab.html#step-5."><i class="fa fa-check"></i><b>5.4.6</b> Step 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="gsea-lab.html"><a href="gsea-lab.html#additional-information"><i class="fa fa-check"></i><b>5.5</b> Additional information</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathways</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gprofiler-lab" class="section level1">
+<h1><span class="header-section-number">4</span> Module 2 lab - Over-representation analysis (ORA) practical lab: g:Profiler</h1>
+<p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p>The practical lab contains 2 exercises. The first exercises uses <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> to perform gene-set enrichment analysis and the second exercises uses <a href="https://amp.pharm.mssm.edu/Enrichr/">enrichr</a>.</p>
+</div>
+<div id="goal-of-the-exercise-1" class="section level2">
+<h2><span class="header-section-number">4.2</span> Goal of the exercise 1</h2>
+<p>Learn how to run <em>g:GOSt Functional profiling</em> from the g:Profiler website and explore the results.</p>
+</div>
+<div id="data" class="section level2">
+<h2><span class="header-section-number">4.3</span> Data</h2>
+<p>g:Profiler requires a list of genes, one per line, in a text file or spreadsheet, ready to copy and paste into a web page: for this, we use genes with frequent somatic SNVs identified in TCGA exome sequencing data of 3,200 tumors of 12 types6. The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples (Supplementary Table 1, which is derived from column B of Supplementary Table 4 in <a href="https://www.ncbi.nlm.nih.gov/pubmed/24132290">Kandoth C. et al.</a> ) (<a href="https://www.nature.com/articles/nature12634" class="uri">https://www.nature.com/articles/nature12634</a>). Genes are ranked in decreasing order of significance (FDR Q value) and mutation frequency (not shown).</p>
+</div>
+<div id="exercise-1---run-gprofiler" class="section level2">
+<h2><span class="header-section-number">4.4</span> Exercise 1 - run g:Profiler</h2>
+<p>For this exercise, our goal is to copy and paste the list of genes into g:Profiler, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results.</p>
+<p>g:Profiler performs a gene-set enrichment analysis using a hypergeometric test (Fisher’s exact test) with the option to consider the ranking of the genes in the calculation of the enrichment significance (minimum hypergeometric test). The Gene Ontology Biological Process and Reactome are going to be selected as pathway databases. The results are displayed as a table or downloadable as an EnrichmentMap type output (GEM).</p>
+<p>Before starting this exercise, download the required files:</p>
+<!--- The data files need to a direct link to the raw format of the file in order for users to be able to download them.  This is an issue when subsequent workshops are created from a previous version by copying the direcotries over.  Ideally all the re-useable data file should be separate in the repository under a data directory so that these links do not need to updated from year to year.--->
+<ul>
+<li><a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">Supplementary_Tabe1_Cancer_drivers.txt</a></li>
+</ul>
+<p>We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.</p>
+<div id="step-1---launch-gprofiler." class="section level3">
+<h3><span class="header-section-number">4.4.1</span> Step 1 - Launch g:Profiler.</h3>
+<p>Open the g:Profiler website at <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> in your web browser.</p>
+</div>
+<div id="step-2---input-query" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Step 2 - input query</h3>
+<p>Paste the gene list (<a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">Supplementary_Table1_Cancer_drivers.txt</a>) into the Query field in top-left corner of the screen.</p>
+<div class="figure">
+<img src="Module2/gprofiler/images/gp1.png" />
+
+</div>
+<div class="rmd-note">
+<p>
+The gene list can be space-separated or one per line. The organism for the analysis, Homo sapiens, is selected by default. The input list can contain a mix of gene and protein IDs, symbols and accession numbers. Duplicated and unrecognized IDs will be removed automatically, and ambiguous symbols can be refined in an interactive dialogue after submitting the query.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+open the file in a simple text editor such as Notepad or Textedit to copy the list of genes.
+</p>
+</div>
+</div>
+<div id="step-3---adjust-parameters." class="section level3">
+<h3><span class="header-section-number">4.4.3</span> Step 3 - Adjust parameters.</h3>
+<p>3a. Click on the <em>Advanced options</em> tab (black rectangle) to expand it.</p>
+<ul>
+<li><p>Set <em>Significance threshold</em> to “Benjamini-Hochberg FDR”</p></li>
+<li><p><em>User threshold</em> - select 0.05 if you want g:Profiler to return only pathways that are significant (FDR &lt; 0.05).</p></li>
+</ul>
+<div class="rmd-tip">
+<p>
+if g:Profiler does not return any results increase the threshold (0.1, then 1) to check that g:Profiler is running successfully but there are simply no significant results for your query.
+</p>
+</div>
+<p align="center">
+<img src="Module2/gprofiler/images/gp2.png" alt="workflow" width="75%" />
+</p>
+<p>3b. Click on the <em>Data sources</em> tab (black rectangle) to expand it.</p>
+UnSelect the following gene-set databases by clicking the “clear all” button. * In the <em>Gene Ontology</em> category, check <em>GO Biological Process</em> and <em>No electronic GO annotations</em>.
+<div class="rmd-note">
+<p>
+<em>No electronic GO annotations</em> option will discard less reliable GO annotations (IEAs) that are not manually reviewed.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+if g:Profiler does not return any results uncheck the <em>No electronic GO annotation</em> option to expand annotations used in the test.
+</p>
+</div>
+<ul>
+<li>In the <em>biological pathways</em> category, check <em>Reactome</em>.</li>
+</ul>
+<p align="center">
+<img src="Module2/gprofiler/images/gp3.png" alt="workflow" width="75%" />
+</p>
+</div>
+<div id="step-4---run-query" class="section level3">
+<h3><span class="header-section-number">4.4.4</span> Step 4 - Run query</h3>
+<p>Click on the <em>Run query</em> button to run g:Profiler.</p>
+<p><img src="Module2/gprofiler/images/gp3a.png" alt="workflow" width="100%" /></p>
+<p>Scroll down page to see results.</p>
+<div class="rmd-tip">
+<p>
+If after clicking on <em>Run query</em> button the analysis completes but there is the following message above results file - <em>Select the Ensembl ID with the most GO annotations (all)</em>. For each ambiguous gene select its correct mapping. Ambiguous mapping is often caused by multiple ensembl ids for a given gene and are easy to resolve as a user. Rerun query.
+</p>
+</div>
+<p><img src="Module2/gprofiler/images/gp4.png" alt="workflow" width="100%" /></p>
+</div>
+<div id="step-5---explore-the-results." class="section level3">
+<h3><span class="header-section-number">4.4.5</span> Step 5 - Explore the results.</h3>
+<ul>
+<li>Step5a:</li>
+<li>After the query has run, the results are displayed at the bottom of the page, below the input parameters.</li>
+<li>By default, the “Results” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 2 gene-set databases that we have selected GO Biological Process “<a href="GO:BP" class="uri">GO:BP</a>” and Reactome “REAC”. Numbers in parentheses are indicating the number of gene-sets that passed the threshold.</li>
+</ul>
+<p><img src="Module2/gprofiler/images/gp5.png" alt="workflow" width="100%" /></p>
+<ul>
+<li>Step5b:</li>
+<li>Click on “Detailed Results” to view the results in more depth. Two tables are displayed, one for each of the data sources selected. (If more than 2 data sources are selected there will be additional tables for each datasource) Each row of the table contains:</li>
+<li><strong>Term name</strong> - gene-set name</li>
+<li><strong>Term ID</strong> - gene-est identifier</li>
+<li><strong>Padj</strong> - FDR value</li>
+<li><strong>-log10(Padj)</strong> - enrichment score calculated using the formula -log10(padj)</li>
+<li>variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored. For any data source besides GO the cell is colored black if the gene is found in the gene-set. For the GO data source cells are colored according to the annotation evidence code. Expand the legend tab for detailed coloring mapping of GO evidence codes.<br />
+The first table displays the gene-sets significantly enriched at FDR 0.05 for the <a href="GO:BP" class="uri">GO:BP</a> database.</li>
+</ul>
+<p><img src="Module2/gprofiler/images/gp6.png" alt="workflow" width="100%" /></p>
+<p>The second table displays the results corresponding to the Reactome database.</p>
+<p><img src="Module2/gprofiler/images/gp7.png" alt="workflow" width="100%" /></p>
+</div>
+<div id="step-6-expand-the-stats-tab" class="section level3">
+<h3><span class="header-section-number">4.4.6</span> Step 6: Expand the stats tab</h3>
+<p>Expand the <em>stats</em> tab by clicking on the double arrow located at the right of the tab.</p>
+<p align="center">
+<img src="Module2/gprofiler/images/gp7a.png" alt="workflow" width="75%" />
+</p>
+<p>It displays the gene set size (T), the size of our gene list (Q) , the number of genes that overlap between our gene list and the tested gene-set (TnQ) as well as the number of genes in the background (U).</p>
+<ul>
+<li>Above the <a href="GO:BP" class="uri">GO:BP</a> result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size).</li>
+<li>Change the maximum <em>Term size</em> from 10000 to <strong>1000</strong> and observe the results in the detailed stats panel:</li>
+</ul>
+<p><img src="Module2/gprofiler/images/gp8a.png" alt="workflow" width="100%" /></p>
+<ul>
+<li>Without filtering term size, the top terms were GO terms containing that could contain 4000 or 5000 genes and that were located high in the GO hierarchy (parent term).</li>
+<li>With filtering the maximum term size to 1000, the top list contains pathways of larger interpretative values. However, please note that the adjusted pvalues was calculated using all gene-sets without size filtering.</li>
+</ul>
+</div>
+<div id="step-7-save-the-results" class="section level3">
+<h3><span class="header-section-number">4.4.7</span> Step 7: Save the results</h3>
+<ul>
+<li><p>7a. In the <em>Detailed Results</em> panel, select “GEM” . It will save the results in a text file in the “Generic Enrichment Map” format that we will use to visualize using Cytoscape.</p></li>
+<li><p>select max term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer.</p></li>
+</ul>
+<p align="center">
+<pre><code>  &lt;img src=&quot;./Module2/gprofiler/images/gp13.png&quot; alt=&quot;workflow&quot; width=&quot;75%&quot; /&gt;</code></pre>
+</p>
+<ul>
+<li>select max term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer.
+<p align="center">
+<img src="Module2/gprofiler/images/gp14.png" alt="workflow" width="75%" />
+</p></li>
+<li>7b: Open one file that you saved using Microsoft Office Excel or in an equivalent software.</li>
+</ul>
+<p>Observe the results included in this file:</p>
+<ol style="list-style-type: decimal">
+<li>Name of each gene-set</li>
+<li>Description of each gene-set</li>
+<li>significance of the overlap (pvalue)</li>
+<li>significance of the overlap (adjusted pvalue/qvalue)</li>
+<li>Phenotype</li>
+<li>Genes included in each gene-set</li>
+</ol>
+<p>:question: Question: Which term has the best corrected p-value? Which genes in our list are included in this term? Observe that same genes can be present in several lines (pathways are related when they contain a lof of genes in common).</p>
+<div class="rmd-note">
+<p>
+The table is formatted for the input into Cytoscape EnrichmentMap. It is called the <a href="https://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#generic-results-files"><em>generic format</em></a>. The p-value and FDR columns contain identical values because g:Profiler directly outputs the FDR (= corrected p-value) meaning that the p-value column is already the FDR. Phenotype 1 means that each pathway will be represented by red nodes on the enrichment map (presented during next module).
+</p>
+</div>
+<p><img src="Module2/gprofiler/images/gp15.png" alt="workflow" width="100%" /></p>
+<p>The term <em>positive regulation of activin receptor signaling pathway</em> is the most significant gene-set (=the lowest FDR value). Many gene-sets from the top of this list are related to each other and have genes in common.</p>
+<hr />
+</div>
+<div id="step-8" class="section level3">
+<h3><span class="header-section-number">4.4.8</span> Step 8</h3>
+<p>8a. Optional but recommended: Download the pathway database files. * Go to the top of the page and expand the “Data sources” tab. Click on the ‘name.gmt’ link located at bottom of this tab. It will download a zipped folder named <em>gprofiler_hsapiens.name.zip</em> containing several pathway database gmt files.</p>
+<p align="center">
+<img src="Module2/gprofiler/images/gp12.png" alt="workflow" width="60%" />
+</p>
+<p>8b: concatenate the <a href="GO:BP" class="uri">GO:BP</a> and Reactome gmt files:</p>
+<ul>
+<li>option 1: manually if you are not familiar with unix commands</li>
+<li>open a text editor such a Notepad or equivalent</li>
+<li>open hsapiens.<a href="GO:BP.name.gmt" class="uri">GO:BP.name.gmt</a> using the text editor</li>
+<li>open gmt hsapiens.REAC.name.gmt using the text editor</li>
+<li><p>copy-paste all the rows from REAC file together with all the rows in <a href="GO:BP" class="uri">GO:BP</a> file and save it as hsapiens.pathways.name.gmt .</p></li>
+<li>option 2: using the cat command if you are familiar with unix commands</li>
+<li>open your terminal window</li>
+<li>cd to the unzipped gprofiler_hsapiens.name folder</li>
+<li><p>type the following command: <code>cat hsapiens.GO:BP.name.gmt hsapiens.REAC.name.gmt &gt; hsapiens.pathways.name.gmt</code></p></li>
+</ul>
+<div class="rmd-note">
+<p>
+you will be using this optional hsapiens.pathways.name.gmt file in Cytoscape EnrichmentMap.
+</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query" class="section level2">
+<h2><span class="header-section-number">4.5</span> Exercise 2: Load and use a custom .gmt file and run the query</h2>
+<p>For this exercise, our goal is to copy and paste the list of genes into g:Profiler, upload a custom gmt file, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results. Uploading a custom gmt file enables us to use alternate pathway data sources not available in g:Profiler.</p>
+<p>We are going to use a gmt file that contains a database of pathway gene sets used for pathway enrichment analysis in the standard GMT format downloaded from <a href="http://baderlab.org/GeneSets" class="uri">http://baderlab.org/GeneSets</a> and updated monthly. This file contains pathways from eight data sources: GO, Reactome, Panther, NetPath, NCI, MSigDB curated gene sets (C2 collection, excluding Reactome and KEGG), MSigDB Hallmark (H collection) and HumanCyc. A GMT file is a text file in which each line represents a gene set for a single pathway. Each line includes a pathway ID, a name and the list of associated genes in a tab-separated format. This file has been filtered to exlclude gene-sets that contained more than 250 genes as these gene-sets are associated with more general terms.</p>
+<p>Before starting this exercise, download the required files:</p>
+<ul>
+<li><p><a href="https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module2/gprofiler_new/data2/Supplementary_Table1_Cancer_drivers.txt">Supplementary_Table1_Cancer_drivers.txt</a>.</p></li>
+<li><p><a href="https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module2/gprofiler_new/data2/Human_GOBP_AllPathways_no_GO_iea_June_24_2019_symbol_max250gssize.gmt">Baderlab_genesets.gmt</a>.</p></li>
+</ul>
+<p>We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.</p>
+<p>STEPS:</p>
+<ul>
+<li>Repeat step 1 to 3a from <a href="#exercise-1">Exercise 1</a> (go back to exercise 1 to get detailed instructions)<BR> Briefly:</li>
+<li>Step 1:
+<ul>
+<li>Open g:profiler</li>
+</ul></li>
+<li>Step 2a :
+<ul>
+<li>Copy and paste the gene list in the Query field</li>
+</ul></li>
+<li>Step 2b: Click on the <em>Advanced options</em> tab (black rectangle) to expand it.
+<ul>
+<li>Set <em>Significance threshold</em> to “Benjamini-Hochberg FDR”.</li>
+</ul></li>
+<li>Step 3a: Click on the <em>Data sources</em> tab (black rectangle) to expand it.
+<ul>
+<li><strong>Unselect all choices by clicking the “clear all” button.</strong></li>
+</ul></li>
+<li>Step 4: Click on the <em>Custom GMT</em> tab (black rectangle) to expand it.
+<ul>
+<li>Drag in the box the Baderlab gmt file <a href="./data2/Human_GOBP_AllPathways_no_GO_iea_June_24_2019_symbol_max250.gmt">Baderlab_genesets.gmt</a>.</li>
+<li>Once uploaded successfully, the name of the file is displayed in the “File name used” box.</li>
+</ul>
+<p><img src="Module2/gprofiler/images/gp16.png" alt="workflow" width="100%" /></p></li>
+<li><p>Step 5: Click on <em>Run query</em> .</p></li>
+<li><p>Step 6: Explore the detailed results</p>
+<p><img src="Module2/gprofiler/images/gp17a.png" alt="workflow" width="100%" /></p></li>
+<li><p>Step 7: Save the file as GEM</p></li>
+</ul>
+<hr />
+</div>
+<div id="optional-steps" class="section level2">
+<h2><span class="header-section-number">4.6</span> Optional steps</h2>
+<p>Please follow these optional steps if time permits and/or to explore more g:Profiler parameters.</p>
+<p>Here below are 3 optional steps that cover several options offered by g:Profiler: 1. test different data sources, 1. take the order of the gene list into account, 1. use different types of multiple hypothesis correction methods.</p>
+<p>Use the same gene list as used in exercise 1 and modify paramters listed above. Observe the results.</p>
+<p align="center">
+<img src="Module2/gprofiler/images/gp18.png" alt="workflow" width="60%" />
+</p>
+<div id="optional-1" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> <strong>Optional 1</strong>:</h3>
+<p>If time permits, play with input parameters, e.g. add <em>TRANSFAC </em> and <em>miRTarBase</em> databases, rerun the query and explore the new results.</p>
+<p align="center">
+<img src="Module2/gprofiler/images/gp21.png" alt="workflow" width="60%" />
+</p>
+<div class="rmd-note">
+<p>
+<strong>Transfac</strong> putative transcription factor binding sites (TFBSs) from TRANSFAC database are retrieved into g:GOSt through a special prediction pipeline. First, TFBSs are found by matching TRANSFAC position specific matrices using the program Match on range +/-1kb from TSS as provided by APPRIS (Annotating principal splice isoforms) via Ensembl biomart. For genes with multiple primary TSS annotations we selected one with most TF matches. The matching range for C. elegans, D. melanogaster and S. cerevisiae is 1kb upstream from ATG (translation start site). A cut-off value to minimize the number of false positive matches (provided by TRANSFAC) is then applied to remove spurious motifs. Remaining matches are split into two inclusive groups based on the amount of matches, i.e TFBSs that have at least 1 match are classified as match class 0 and TFBSs that have at least 2 matches per gene are classified as match class 1. <strong>mirTarBase</strong> is a database that holds experimentally validated information about genes that are targetted by miRNAs. We include all the organisms that are covered by mirTarBase.
+</p>
+</div>
+</div>
+<div id="option-2" class="section level3">
+<h3><span class="header-section-number">4.6.2</span> <strong>Option 2</strong>:</h3>
+<p>Re-run the g:Profiler using the <strong>ordered</strong> query checked. This will run the minimum hypergeometric test. g:Profiler then performs incremental enrichment analysis with increasingly larger numbers of genes starting from the top of the list. When this option is checked, <strong>it assumes that the genes were preordered by significance with the most significant gene at the top of the list</strong>. Compare the results between “ordered” and non ordered query.</p>
+<div class="rmd-note">
+<p>
+for this practical lab, the genes were ordered by the number of mutations found in these genes for all samples. For example, TP53, a highly mutated genes is listed at the top.
+</p>
+</div>
+<p align="center">
+<img src="Module2/gprofiler/images/gp20.png" alt="workflow" width="75%" />
+</p>
+</div>
+<div id="option-3" class="section level3">
+<h3><span class="header-section-number">4.6.3</span> <strong>Option 3</strong> :</h3>
+<p>Re-run g:Profiler and select g:SCS or Bonferonni as method to correct for multiple hypothesis testing. Do you get any significant results?</p>
+<p align="center">
+<img src="Module2/gprofiler/images/gp19.png" alt="workflow" width="75%" />
+</p>
+<div class="rmd-note">
+<p>
+you can get detailed information about these methods at <a href="https://biit.cs.ut.ee/gprofiler/page/docs" class="uri">https://biit.cs.ut.ee/gprofiler/page/docs</a> in the section <em>Significance threshold</em>.
+</p>
+</div>
+<hr />
+<div class="rmd-tip">
+<p>
+Instead of using the g:Profiler website g:profiler can be run directly from R or python see g:Profiler document for more info at <a href="https://biit.cs.ut.ee/gprofiler/page/r" class="uri">https://biit.cs.ut.ee/gprofiler/page/r</a>
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-2-finding-over-represented-pathways-veronique-voisin.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gsea-lab.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/2.1-Module2lab_gprofiler.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["CBW_Pathways.pdf", "CBW_Pathways.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

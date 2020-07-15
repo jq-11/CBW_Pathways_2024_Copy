@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Pathways</title>
+  <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Pathways" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Pathways" />
+  
+  <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  
+
+<meta name="author" content="Gary Bader, Veronique Voisin, Ruth Isserlin, Lincoln Stein, Robin Haw, Micheal Hoffman, Quaid Morris" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CBW Pathways Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome <a id="welcome"></a></a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>1.1</b> Workshop Schedule</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#pre-workshop"><i class="fa fa-check"></i><b>1.2</b> Pre-Workshop Materials and Laptop Setup Instructions</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#laptop-setup-instructions"><i class="fa fa-check"></i><b>1.2.1</b> Laptop Setup Instructions</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#pre-workshop-tutorials"><i class="fa fa-check"></i><b>1.2.2</b> Pre-workshop Tutorials</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#additional-tutorials"><i class="fa fa-check"></i><b>1.2.3</b> Additional tutorials <a id="additionaltutorials"></a></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><a href="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><i class="fa fa-check"></i><b>2</b> Module 1 - Introduction to Pathway and Network Analysis (Gary Bader)</a></li>
+<li class="chapter" data-level="3" data-path="module-2-finding-over-represented-pathways-veronique-voisin.html"><a href="module-2-finding-over-represented-pathways-veronique-voisin.html"><i class="fa fa-check"></i><b>3</b> Module 2: Finding Over-represented Pathways (Veronique Voisin)</a></li>
+<li class="chapter" data-level="4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html"><i class="fa fa-check"></i><b>4</b> Module 2 lab - Over-representation analysis (ORA) practical lab: g:Profiler</a><ul>
+<li class="chapter" data-level="4.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#goal-of-the-exercise-1"><i class="fa fa-check"></i><b>4.2</b> Goal of the exercise 1</a></li>
+<li class="chapter" data-level="4.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
+<li class="chapter" data-level="4.4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-1---run-gprofiler"><i class="fa fa-check"></i><b>4.4</b> Exercise 1 - run g:Profiler</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-1---launch-gprofiler."><i class="fa fa-check"></i><b>4.4.1</b> Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-2---input-query"><i class="fa fa-check"></i><b>4.4.2</b> Step 2 - input query</a></li>
+<li class="chapter" data-level="4.4.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-3---adjust-parameters."><i class="fa fa-check"></i><b>4.4.3</b> Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="4.4.4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-4---run-query"><i class="fa fa-check"></i><b>4.4.4</b> Step 4 - Run query</a></li>
+<li class="chapter" data-level="4.4.5" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-5---explore-the-results."><i class="fa fa-check"></i><b>4.4.5</b> Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="4.4.6" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i><b>4.4.6</b> Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="4.4.7" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-7-save-the-results"><i class="fa fa-check"></i><b>4.4.7</b> Step 7: Save the results</a></li>
+<li class="chapter" data-level="4.4.8" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-8"><i class="fa fa-check"></i><b>4.4.8</b> Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i><b>4.5</b> Exercise 2: Load and use a custom .gmt file and run the query</a></li>
+<li class="chapter" data-level="4.6" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-steps"><i class="fa fa-check"></i><b>4.6</b> Optional steps</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-1"><i class="fa fa-check"></i><b>4.6.1</b> <strong>Optional 1</strong>:</a></li>
+<li class="chapter" data-level="4.6.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-2"><i class="fa fa-check"></i><b>4.6.2</b> <strong>Option 2</strong>:</a></li>
+<li class="chapter" data-level="4.6.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-3"><i class="fa fa-check"></i><b>4.6.3</b> <strong>Option 3</strong> :</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="gsea-lab.html"><a href="gsea-lab.html"><i class="fa fa-check"></i><b>5</b> Over-Representation Analysis (ORA) Practical Lab: GSEA</a><ul>
+<li class="chapter" data-level="5.1" data-path="gsea-lab.html"><a href="gsea-lab.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="gsea-lab.html"><a href="gsea-lab.html#goal-of-the-exercise"><i class="fa fa-check"></i><b>5.2</b> Goal of the exercise</a></li>
+<li class="chapter" data-level="5.3" data-path="gsea-lab.html"><a href="gsea-lab.html#data-1"><i class="fa fa-check"></i><b>5.3</b> Data</a></li>
+<li class="chapter" data-level="5.4" data-path="gsea-lab.html"><a href="gsea-lab.html#background"><i class="fa fa-check"></i><b>5.4</b> Background</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="gsea-lab.html"><a href="gsea-lab.html#start-the-exercise"><i class="fa fa-check"></i><b>5.4.1</b> Start the exercise</a></li>
+<li class="chapter" data-level="5.4.2" data-path="gsea-lab.html"><a href="gsea-lab.html#step1."><i class="fa fa-check"></i><b>5.4.2</b> Step1.</a></li>
+<li class="chapter" data-level="5.4.3" data-path="gsea-lab.html"><a href="gsea-lab.html#step-2."><i class="fa fa-check"></i><b>5.4.3</b> Step 2.</a></li>
+<li class="chapter" data-level="5.4.4" data-path="gsea-lab.html"><a href="gsea-lab.html#step3."><i class="fa fa-check"></i><b>5.4.4</b> Step3.</a></li>
+<li class="chapter" data-level="5.4.5" data-path="gsea-lab.html"><a href="gsea-lab.html#step-4."><i class="fa fa-check"></i><b>5.4.5</b> Step 4.</a></li>
+<li class="chapter" data-level="5.4.6" data-path="gsea-lab.html"><a href="gsea-lab.html#step-5."><i class="fa fa-check"></i><b>5.4.6</b> Step 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="gsea-lab.html"><a href="gsea-lab.html#additional-information"><i class="fa fa-check"></i><b>5.5</b> Additional information</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathways</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Pathways</h1>
+<h2 class="subtitle"><em>CBW workshop</em></h2>
+<p class="author"><em>Gary Bader, Veronique Voisin, Ruth Isserlin, Lincoln Stein, Robin Haw, Micheal Hoffman, Quaid Morris</em></p>
+<p class="date"><em>last modified 2020-07-15</em></p>
+</div>
+<div id="welcome" class="section level1">
+<h1><span class="header-section-number">1</span> Welcome <a id="welcome"></a></h1>
+<p>Welcome to Pathways and Network Analysis of -Omics Data 2020.</p>
+<p>Meet your faculty <a href="https://drive.google.com/a/bioinformatics.ca/file/d/1-YV2KzEDyaU6opdlXt9Ir6VQSmCCv1DZ/view?usp=sharing">here</a>.</p>
+<p><strong>CLASS MATERIALS:</strong> You can download the printed course manual <a href="https://drive.google.com/a/bioinformatics.ca/file/d/1HcPuiYUJe69w3_0aNpAfhk7DipcacA6r/view?usp=sharing">here</a>.</p>
+<div id="schedule" class="section level2">
+<h2><span class="header-section-number">1.1</span> Workshop Schedule</h2>
+<table style="width:50%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><strong>Day 1</strong></th>
+<th align="center"></th>
+<th align="center"><strong>Day 2</strong></th>
+<th align="center"></th>
+<th align="center"><strong>Day 3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"><strong>Wednesday, June 26</strong></td>
+<td align="center"></td>
+<td align="center"><strong>Thursday, June 27</strong></td>
+<td align="center"></td>
+<td align="center"><strong>Friday, June 28</strong></td>
+</tr>
+<tr class="even">
+<td align="center">8:30</td>
+<td align="center"><font color="green"><em>Registration and Breakfast</em></font></td>
+<td align="center">8:30</td>
+<td align="center"><font color="green"><em>Breakfast</em></font></td>
+<td align="center">8:30</td>
+<td align="center"><font color="green"><em>Breakfast</em></font></td>
+</tr>
+<tr class="odd">
+<td align="center">9:00</td>
+<td align="center"><font color="purple">Welcome (Michelle Brazas)</font></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">9:30</td>
+<td align="center"><font color="purple">Module 1: Introduction to Pathway and Network Analysis (Gary Bader)</font></td>
+<td align="center">9:00</td>
+<td align="center"><font color="purple">Module 4: More Depth on Network and Pathway Analysis (Robin Haw)</font></td>
+<td align="center">9:00</td>
+<td align="center"><font color="purple">Module 6: Regulatory Network Analysis (Michael Hoffman)</font></td>
+</tr>
+<tr class="odd">
+<td align="center">11:00</td>
+<td align="center"><font color="green"><em>Coffee Break</em></font></td>
+<td align="center">10:00</td>
+<td align="center"><font color="green"><em>Coffee Break</em></font></td>
+<td align="center">10:30</td>
+<td align="center"><font color="green"><em>Coffee Break</em></font></td>
+</tr>
+<tr class="even">
+<td align="center">11:30</td>
+<td align="center"><font color="purple">Module 2: Finding Over-Represented Pathways (Veronique Voisin)</font></td>
+<td align="center">10:30</td>
+<td align="center"><font color="blue">Module 4 Lab (Robin)</font></td>
+<td align="center">11:00</td>
+<td align="center"><font color="blue">Module 6 Lab (Veronique)</font></td>
+</tr>
+<tr class="odd">
+<td align="center">12:30</td>
+<td align="center"><font color="green"><em>Lunch</em></font></td>
+<td align="center">12:30</td>
+<td align="center"><font color="green"><em>Lunch</em></font></td>
+<td align="center">12:30</td>
+<td align="center"><strong>Survey and Closing Remarks</strong></td>
+</tr>
+<tr class="even">
+<td align="center">1:30</td>
+<td align="center"><font color="blue">Module 2 Lab (Veronique Voisin)</font></td>
+<td align="center">1:30</td>
+<td align="center"><font color="purple">Module 5: Gene Function Prediction (Quaid Morris)</font></td>
+<td align="center">1:00</td>
+<td align="center"><strong>Integrated Assignment</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">3:00</td>
+<td align="center"><font color="green"><em>Coffee Break</em></font></td>
+<td align="center">3:00</td>
+<td align="center"><font color="green"><em>Coffee Break</em></font></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">3:30</td>
+<td align="center"><font color="purple">Module 3: Network Visualization and Analysis with Cytoscape (Gary Bader)</font></td>
+<td align="center">3:30</td>
+<td align="center"><font color="blue">Module 5 Lab (Veronique Voisin)</font></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">4:15</td>
+<td align="center"><font color="blue">Module 3 Lab (Veronique Voisin)</font></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">5:00</td>
+<td align="center"><font color="green"><em>Dinner</em></font></td>
+<td align="center">5:00</td>
+<td align="center"><font color="green"><em>Dinner</em></font></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="pre-workshop" class="section level2">
+<h2><span class="header-section-number">1.2</span> Pre-Workshop Materials and Laptop Setup Instructions</h2>
+<div id="laptop-setup-instructions" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Laptop Setup Instructions</h3>
+<p>Instructions to setup your laptop can be found ## Install these tools on your laptop before coming to the workshop:</p>
+<ol style="list-style-type: decimal">
+<li>A robust text editor.</li>
+</ol>
+<ul>
+<li>For Windows/PC - <a href="http://notepad-plus-plus.org/">notepad++</a><br />
+</li>
+<li>For Linux - <a href="http://projects.gnome.org/gedit/">gEdit</a><br />
+</li>
+<li>For Mac – <a href="http://www.barebones.com/products/textwrangler/download.html">TextWrangler</a></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>A file decompression tool.</li>
+</ol>
+<ul>
+<li>For Windows/PC – <a href="http://www.7-zip.org/">7zip</a>.<br />
+</li>
+<li>For Linux – <a href="http://www.gzip.org">gzip</a>.<br />
+</li>
+<li>For Mac – already there.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><p>A robust internet browser such as Firefox or Safari (Internet Explorer and Chrome are not recommended because of Java issues).</p></li>
+<li><p>Java -The software that we will be using (GSEA and Cytoscape) requires Java. Check if you have Java installed: <a href="https://www.java.com/verify/" class="uri">https://www.java.com/verify/</a> and download Java if you do not have it installed. <strong>You need Java 8. Do NOT install Java 10</strong>.</p></li>
+<li><p>A PDF viewer (Adobe Acrobat or equivalent).</p></li>
+<li><p>Install <a href="https://cytoscape.org/download-platforms.html">Cytoscape 3.7.1</a>.</p></li>
+</ol>
+<p>Choose the version corresponding to your operating system (OS, Windows or UNIX) Cytoscape requires Java8: check your version at <a href="https://www.java.com/verify/" class="uri">https://www.java.com/verify/</a> and download Java8 if you do not have it installed. Contact your system administrator if you have trouble with Java installation.</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Within the Cytoscape program, install the following Cytoscape apps.</li>
+</ol>
+<p>From the menu bar, select ‘Apps’, then ‘App Manager’.</p>
+<p>Within ‘all apps’, search for the following and install:</p>
+<ul>
+<li>EnrichmentMap 3.2.0</li>
+<li>EnrichmentMap Pipeline Collection 1.0.0 (it will install ClusterMaker2, WordCloud and AutoAnnotate)</li>
+<li>GeneMANIA 3.5.1</li>
+<li>IRegulon 1.3</li>
+<li>ReactomeFIPlugin 7.2.0 - <a href="http://apps.cytoscape.org/apps/reactomefiplugin" class="uri">http://apps.cytoscape.org/apps/reactomefiplugin</a><br />
+</li>
+<li>stringApp 1.4.2</li>
+<li>yFiles Layout Algorithms 1.0.2</li>
+</ul>
+<ol start="8" style="list-style-type: decimal">
+<li>Install the data set within GeneMANIA app.</li>
+</ol>
+<p>From the menu bar, select ‘Apps’, hover over ‘GeneMANIA’, then select ‘Choose Another Data Set’.<br />
+From the list of available data sets, select the most recent (2017-07-13/13 July 2017) and under ‘Include only these networks:’ select ‘all’. Click on ‘Download’.<br />
+An ‘Install Data’ window will pop-up. Select H.Sapiens Human (2589 MB). Click on ‘Install’.<br />
+This requires time and a good network connection to download completely, so be patient (around 15mins).</p>
+<ol start="9" style="list-style-type: decimal">
+<li>Install GSEA.</li>
+</ol>
+<ul>
+<li>Go to the <a href="http://www.broadinstitute.org/gsea/index.jsp">GSEA page</a><br />
+</li>
+<li>Register<br />
+</li>
+<li>Login</li>
+</ul>
+<p><strong>option 1 recommended:</strong></p>
+<ul>
+<li>In menu, in the javaGSEA Desktop Application section, changed <em>Launch with&quot; to </em>4GBG (for 64 bit Java only)*<br />
+</li>
+<li><p>Click on the <em>Launch</em> button. This is downloading a gsea icon. Save it on your computer. Double click on this icon to open GSEA.</p></li>
+<li>Note 1: please try to lauch GSEA before the workshop (open).</li>
+<li><p>Note 2: Most common issue with GSEA during the workshop is out of memory error because GSEA was launched with 1GB instead of 4 GB. Please make sure that you have downloaded the 4GB start icon as descrived above.</p></li>
+</ul>
+<p>** option 2 in case option 1 does not work on your computer:**</p>
+<ul>
+<li>In menu, choose Downloads</li>
+<li>Go to the javaGSEA Java Jar file section and download the gsea-3.0.jar file and save in your Documents folder (do not leave it in the “Downloads”folder).</li>
+</ul>
+<p><strong>MAC/Linux Computer</strong></p>
+<ul>
+<li>On a MAC, the Terminal window is located in Applications/Utilities. Tip: add the terminal window to your dock so it is easy to open when needed.<br />
+</li>
+<li>At the prompt, type the command in your terminal window and hit enter:</li>
+</ul>
+<pre><code>java -Xmx4G -jar ~/Documents/gsea-3.0.jar</code></pre>
+<p><strong>PC/Windows Computer</strong></p>
+<ul>
+<li>On Windows, go to the start icon and type cmd (for command prompt) in the search box.<br />
+</li>
+<li>At the prompt, type the following commands, hitting enter in between each command and waiting for the prompt before the next command:</li>
+</ul>
+<pre><code>cd Documents
+java -Xmx4G -jar gsea-3.0.jar</code></pre>
+</div>
+<div id="pre-workshop-tutorials" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Pre-workshop Tutorials</h3>
+<p>It is in your best interest to complete these before the workshop.</p>
+<div id="read-the-following-papers-before-coming-to-the-workshop" class="section level4">
+<h4><span class="header-section-number">1.2.2.1</span> Read the following papers before coming to the workshop:</h4>
+<ul>
+<li><p><strong><em>Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap</em></strong><BR> Reimand J, Isserlin R, Voisin V, Kucera M, Tannus-Lopes C, Rostamianfar A, Wadi L, Meyer M, Wong J, Xu C, Merico D, Bader GD <BR> <a href="https://www.nature.com/articles/s41596-018-0103-9">Nat Protoc. 2019 Feb;14(2):482-517</a> - <a href="http://baderlab.org/Publications#EM_2019">Available here as well</a></p></li>
+<li><p><strong><em>iRegulon: from a gene list to a gene regulatory network using large motif and track collections</em></strong><BR>Janky R, Verfaillie A, Imrichová H, Van de Sande B, Standaert L, Christiaens V, Hulselmans G, Herten K, Naval Sanchez M, Potier D, Svetlichnyy D, Kalender Atak Z, Fiers M, Marine JC, Aerts S<BR><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003731">PLoS Comput Biol. 2014 Jul 24;10(7)</a></p></li>
+<li><p><strong><em>The GeneMANIA prediction server: biological network integration for gene prioritization and predicting gene function</em></strong><BR> Warde-Farley D, Donaldson SL, Comes O, Zuberi K, Badrawi R, Chao P, Franz M, Grouios C, Kazi F, Lopes CT, Maitland A, Mostafavi S, Montojo J, Shao Q, Wright G, Bader GD, Morris Q<BR> <a href="https://academic.oup.com/nar/article/38/suppl_2/W214/1126704">Nucleic Acids Res 2010 Jul 1;38 Suppl:W214-20</a> - <a href="http://baderlab.org/Publications#GeneMANIA_original">Available here as well</a></p></li>
+<li><p><strong><em>GeneMANIA update 2018</em></strong><BR>Franz M, Rodriguez H, Lopes C, Zuberi K, Montojo J, Bader GD, Morris Q<BR> <a href="https://academic.oup.com/nar/article/46/W1/W60/5038280">Nucleic Acids Res. 2018 Jun 15</a> - <a href="http://baderlab.org/Publications#GeneMANIA_2018">Available here as well</a></p></li>
+<li><p><strong><em>How to visually interpret biological data using networks</em></strong><BR> Merico D, Gfeller D, Bader GD <BR> <a href="https://www.nature.com/articles/nbt.1567">Nature Biotechnology 2009 Oct 27, 921-924</a> - <a href="http://baderlab.org/Publications#interpret_networks">Available here as well</a></p></li>
+<li><p><strong><em>g:Profiler–a web-based toolset for functional profiling of gene lists from large-scale experiments.</em></strong><BR>Reimand J, Kull M, Peterson H, Hansen J, Vilo J <BR> <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1933153/">Nucleic Acids Res. 2007 Jul;35</a></p></li>
+<li><p><strong><em>g:Profiler: a web server for functional enrichment analysis and conversions of gene lists (2019 update)</em></strong><BR>Raudvere U, Kolberg L, Kuzmin I, Arak T, Adler P, Peterson H, Vilo J<BR><a href="https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkz369/5486750">Nucleic Acids Res. 2019 May 8</a></p></li>
+<li><p><strong><em>Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles</em></strong><BR>Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, Paulovich A, Pomeroy SL, Golub TR, Lander ES, Mesirov JP<BR><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1239896/">Proc Natl Acad Sci U S A. 2005 Oct 25;102(43)</a></p></li>
+<li><p><strong><em>Expression data analysis with Reactome</em></strong><BR>Jupe S, Fabregat A, Hermjakob H<BR><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4407007/">Curr Protoc Bioinformatics. 2015 Mar 9;49:8.20.1-9</a></p></li>
+</ul>
+</div>
+<div id="do-these-exercises-before-coming-to-the-workshop" class="section level4">
+<h4><span class="header-section-number">1.2.2.2</span> Do these exercises before coming to the workshop:</h4>
+<ol style="list-style-type: decimal">
+<li><p><a href="http://www.ncbi.nlm.nih.gov/projects/genome/glossary.shtml">Sequencing Terminology</a></p></li>
+<li><p><strong>Cytoscape Preparation tutorials</strong>: From <a href="http://tutorials.cytoscape.org">introductory tutorial to Cytoscape</a>, complete:</p></li>
+</ol>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li><a href="https://cytoscape.org/cytoscape-tutorials/protocols/tour-of-cytoscape/#/">Tour of Cytoscape</a></li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li><a href="https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/#/">Basic Data Visualization</a></li>
+</ol></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="additional-tutorials" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Additional tutorials <a id="additionaltutorials"></a></h3>
+<p>EnrichmentMap (GSEA and g:Profiler) step by step protocol: <a href="https://www.biorxiv.org/content/early/2017/12/12/232835" class="uri">https://www.biorxiv.org/content/early/2017/12/12/232835</a> and <a href="https://github.com/BaderLab/Cytoscape_workflows" class="uri">https://github.com/BaderLab/Cytoscape_workflows</a></p>
+<p>Interacting with Cytoscape using CyRest and command lines (for advanced users): <a href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/advanced-cancer-networks-and-data-rcy3.Rmd" class="uri">https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/advanced-cancer-networks-and-data-rcy3.Rmd</a></p>
+<hr />
+<p>Thank you for attending the Pathway and Network Analysis of Omics Data workshop! Help us make this workshop better by filling out <a href="https://forms.gle/D8w8qyJ1r71rFnZe9">our survey</a>.</p>
+<hr />
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["CBW_Pathways.pdf", "CBW_Pathways.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

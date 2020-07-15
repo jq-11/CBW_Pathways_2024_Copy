@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Module 1 - Introduction to Pathway and Network Analysis (Gary Bader) | Pathways</title>
+  <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Module 1 - Introduction to Pathway and Network Analysis (Gary Bader) | Pathways" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Module 1 - Introduction to Pathway and Network Analysis (Gary Bader) | Pathways" />
+  
+  <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  
+
+<meta name="author" content="Gary Bader, Veronique Voisin, Ruth Isserlin, Lincoln Stein, Robin Haw, Micheal Hoffman, Quaid Morris" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="module-2-finding-over-represented-pathways-veronique-voisin.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CBW Pathways Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome <a id="welcome"></a></a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>1.1</b> Workshop Schedule</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#pre-workshop"><i class="fa fa-check"></i><b>1.2</b> Pre-Workshop Materials and Laptop Setup Instructions</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#laptop-setup-instructions"><i class="fa fa-check"></i><b>1.2.1</b> Laptop Setup Instructions</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#pre-workshop-tutorials"><i class="fa fa-check"></i><b>1.2.2</b> Pre-workshop Tutorials</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#additional-tutorials"><i class="fa fa-check"></i><b>1.2.3</b> Additional tutorials <a id="additionaltutorials"></a></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><a href="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><i class="fa fa-check"></i><b>2</b> Module 1 - Introduction to Pathway and Network Analysis (Gary Bader)</a></li>
+<li class="chapter" data-level="3" data-path="module-2-finding-over-represented-pathways-veronique-voisin.html"><a href="module-2-finding-over-represented-pathways-veronique-voisin.html"><i class="fa fa-check"></i><b>3</b> Module 2: Finding Over-represented Pathways (Veronique Voisin)</a></li>
+<li class="chapter" data-level="4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html"><i class="fa fa-check"></i><b>4</b> Module 2 lab - Over-representation analysis (ORA) practical lab: g:Profiler</a><ul>
+<li class="chapter" data-level="4.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#goal-of-the-exercise-1"><i class="fa fa-check"></i><b>4.2</b> Goal of the exercise 1</a></li>
+<li class="chapter" data-level="4.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
+<li class="chapter" data-level="4.4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-1---run-gprofiler"><i class="fa fa-check"></i><b>4.4</b> Exercise 1 - run g:Profiler</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-1---launch-gprofiler."><i class="fa fa-check"></i><b>4.4.1</b> Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-2---input-query"><i class="fa fa-check"></i><b>4.4.2</b> Step 2 - input query</a></li>
+<li class="chapter" data-level="4.4.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-3---adjust-parameters."><i class="fa fa-check"></i><b>4.4.3</b> Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="4.4.4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-4---run-query"><i class="fa fa-check"></i><b>4.4.4</b> Step 4 - Run query</a></li>
+<li class="chapter" data-level="4.4.5" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-5---explore-the-results."><i class="fa fa-check"></i><b>4.4.5</b> Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="4.4.6" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i><b>4.4.6</b> Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="4.4.7" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-7-save-the-results"><i class="fa fa-check"></i><b>4.4.7</b> Step 7: Save the results</a></li>
+<li class="chapter" data-level="4.4.8" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-8"><i class="fa fa-check"></i><b>4.4.8</b> Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i><b>4.5</b> Exercise 2: Load and use a custom .gmt file and run the query</a></li>
+<li class="chapter" data-level="4.6" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-steps"><i class="fa fa-check"></i><b>4.6</b> Optional steps</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-1"><i class="fa fa-check"></i><b>4.6.1</b> <strong>Optional 1</strong>:</a></li>
+<li class="chapter" data-level="4.6.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-2"><i class="fa fa-check"></i><b>4.6.2</b> <strong>Option 2</strong>:</a></li>
+<li class="chapter" data-level="4.6.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-3"><i class="fa fa-check"></i><b>4.6.3</b> <strong>Option 3</strong> :</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="gsea-lab.html"><a href="gsea-lab.html"><i class="fa fa-check"></i><b>5</b> Over-Representation Analysis (ORA) Practical Lab: GSEA</a><ul>
+<li class="chapter" data-level="5.1" data-path="gsea-lab.html"><a href="gsea-lab.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="gsea-lab.html"><a href="gsea-lab.html#goal-of-the-exercise"><i class="fa fa-check"></i><b>5.2</b> Goal of the exercise</a></li>
+<li class="chapter" data-level="5.3" data-path="gsea-lab.html"><a href="gsea-lab.html#data-1"><i class="fa fa-check"></i><b>5.3</b> Data</a></li>
+<li class="chapter" data-level="5.4" data-path="gsea-lab.html"><a href="gsea-lab.html#background"><i class="fa fa-check"></i><b>5.4</b> Background</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="gsea-lab.html"><a href="gsea-lab.html#start-the-exercise"><i class="fa fa-check"></i><b>5.4.1</b> Start the exercise</a></li>
+<li class="chapter" data-level="5.4.2" data-path="gsea-lab.html"><a href="gsea-lab.html#step1."><i class="fa fa-check"></i><b>5.4.2</b> Step1.</a></li>
+<li class="chapter" data-level="5.4.3" data-path="gsea-lab.html"><a href="gsea-lab.html#step-2."><i class="fa fa-check"></i><b>5.4.3</b> Step 2.</a></li>
+<li class="chapter" data-level="5.4.4" data-path="gsea-lab.html"><a href="gsea-lab.html#step3."><i class="fa fa-check"></i><b>5.4.4</b> Step3.</a></li>
+<li class="chapter" data-level="5.4.5" data-path="gsea-lab.html"><a href="gsea-lab.html#step-4."><i class="fa fa-check"></i><b>5.4.5</b> Step 4.</a></li>
+<li class="chapter" data-level="5.4.6" data-path="gsea-lab.html"><a href="gsea-lab.html#step-5."><i class="fa fa-check"></i><b>5.4.6</b> Step 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="gsea-lab.html"><a href="gsea-lab.html#additional-information"><i class="fa fa-check"></i><b>5.5</b> Additional information</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathways</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="module-1---introduction-to-pathway-and-network-analysis-gary-bader" class="section level1">
+<h1><span class="header-section-number">2</span> Module 1 - Introduction to Pathway and Network Analysis (Gary Bader)</h1>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-2-finding-over-represented-pathways-veronique-voisin.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/1.0-Module1_Pathway_and_network_analysis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["CBW_Pathways.pdf", "CBW_Pathways.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

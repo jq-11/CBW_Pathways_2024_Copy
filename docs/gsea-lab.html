@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Over-Representation Analysis (ORA) Practical Lab: GSEA | Pathways</title>
+  <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Over-Representation Analysis (ORA) Practical Lab: GSEA | Pathways" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Over-Representation Analysis (ORA) Practical Lab: GSEA | Pathways" />
+  
+  <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  
+
+<meta name="author" content="Gary Bader, Veronique Voisin, Ruth Isserlin, Lincoln Stein, Robin Haw, Micheal Hoffman, Quaid Morris" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gprofiler-lab.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CBW Pathways Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome <a id="welcome"></a></a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>1.1</b> Workshop Schedule</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#pre-workshop"><i class="fa fa-check"></i><b>1.2</b> Pre-Workshop Materials and Laptop Setup Instructions</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#laptop-setup-instructions"><i class="fa fa-check"></i><b>1.2.1</b> Laptop Setup Instructions</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#pre-workshop-tutorials"><i class="fa fa-check"></i><b>1.2.2</b> Pre-workshop Tutorials</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#additional-tutorials"><i class="fa fa-check"></i><b>1.2.3</b> Additional tutorials <a id="additionaltutorials"></a></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><a href="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><i class="fa fa-check"></i><b>2</b> Module 1 - Introduction to Pathway and Network Analysis (Gary Bader)</a></li>
+<li class="chapter" data-level="3" data-path="module-2-finding-over-represented-pathways-veronique-voisin.html"><a href="module-2-finding-over-represented-pathways-veronique-voisin.html"><i class="fa fa-check"></i><b>3</b> Module 2: Finding Over-represented Pathways (Veronique Voisin)</a></li>
+<li class="chapter" data-level="4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html"><i class="fa fa-check"></i><b>4</b> Module 2 lab - Over-representation analysis (ORA) practical lab: g:Profiler</a><ul>
+<li class="chapter" data-level="4.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#goal-of-the-exercise-1"><i class="fa fa-check"></i><b>4.2</b> Goal of the exercise 1</a></li>
+<li class="chapter" data-level="4.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
+<li class="chapter" data-level="4.4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-1---run-gprofiler"><i class="fa fa-check"></i><b>4.4</b> Exercise 1 - run g:Profiler</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-1---launch-gprofiler."><i class="fa fa-check"></i><b>4.4.1</b> Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-2---input-query"><i class="fa fa-check"></i><b>4.4.2</b> Step 2 - input query</a></li>
+<li class="chapter" data-level="4.4.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-3---adjust-parameters."><i class="fa fa-check"></i><b>4.4.3</b> Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="4.4.4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-4---run-query"><i class="fa fa-check"></i><b>4.4.4</b> Step 4 - Run query</a></li>
+<li class="chapter" data-level="4.4.5" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-5---explore-the-results."><i class="fa fa-check"></i><b>4.4.5</b> Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="4.4.6" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i><b>4.4.6</b> Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="4.4.7" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-7-save-the-results"><i class="fa fa-check"></i><b>4.4.7</b> Step 7: Save the results</a></li>
+<li class="chapter" data-level="4.4.8" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-8"><i class="fa fa-check"></i><b>4.4.8</b> Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i><b>4.5</b> Exercise 2: Load and use a custom .gmt file and run the query</a></li>
+<li class="chapter" data-level="4.6" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-steps"><i class="fa fa-check"></i><b>4.6</b> Optional steps</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-1"><i class="fa fa-check"></i><b>4.6.1</b> <strong>Optional 1</strong>:</a></li>
+<li class="chapter" data-level="4.6.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-2"><i class="fa fa-check"></i><b>4.6.2</b> <strong>Option 2</strong>:</a></li>
+<li class="chapter" data-level="4.6.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-3"><i class="fa fa-check"></i><b>4.6.3</b> <strong>Option 3</strong> :</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="gsea-lab.html"><a href="gsea-lab.html"><i class="fa fa-check"></i><b>5</b> Over-Representation Analysis (ORA) Practical Lab: GSEA</a><ul>
+<li class="chapter" data-level="5.1" data-path="gsea-lab.html"><a href="gsea-lab.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="gsea-lab.html"><a href="gsea-lab.html#goal-of-the-exercise"><i class="fa fa-check"></i><b>5.2</b> Goal of the exercise</a></li>
+<li class="chapter" data-level="5.3" data-path="gsea-lab.html"><a href="gsea-lab.html#data-1"><i class="fa fa-check"></i><b>5.3</b> Data</a></li>
+<li class="chapter" data-level="5.4" data-path="gsea-lab.html"><a href="gsea-lab.html#background"><i class="fa fa-check"></i><b>5.4</b> Background</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="gsea-lab.html"><a href="gsea-lab.html#start-the-exercise"><i class="fa fa-check"></i><b>5.4.1</b> Start the exercise</a></li>
+<li class="chapter" data-level="5.4.2" data-path="gsea-lab.html"><a href="gsea-lab.html#step1."><i class="fa fa-check"></i><b>5.4.2</b> Step1.</a></li>
+<li class="chapter" data-level="5.4.3" data-path="gsea-lab.html"><a href="gsea-lab.html#step-2."><i class="fa fa-check"></i><b>5.4.3</b> Step 2.</a></li>
+<li class="chapter" data-level="5.4.4" data-path="gsea-lab.html"><a href="gsea-lab.html#step3."><i class="fa fa-check"></i><b>5.4.4</b> Step3.</a></li>
+<li class="chapter" data-level="5.4.5" data-path="gsea-lab.html"><a href="gsea-lab.html#step-4."><i class="fa fa-check"></i><b>5.4.5</b> Step 4.</a></li>
+<li class="chapter" data-level="5.4.6" data-path="gsea-lab.html"><a href="gsea-lab.html#step-5."><i class="fa fa-check"></i><b>5.4.6</b> Step 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="gsea-lab.html"><a href="gsea-lab.html#additional-information"><i class="fa fa-check"></i><b>5.5</b> Additional information</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathways</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gsea-lab" class="section level1">
+<h1><span class="header-section-number">5</span> Over-Representation Analysis (ORA) Practical Lab: GSEA</h1>
+<p>by Veronique Voisin</p>
+<div id="introduction-1" class="section level2">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<p>This practical lab contains one exercise. It uses <a href="http://www.broadinstitute.org/gsea/index.jsp">GSEA</a> to perform a gene-set enrichment analysis.</p>
+</div>
+<div id="goal-of-the-exercise" class="section level2">
+<h2><span class="header-section-number">5.2</span> Goal of the exercise</h2>
+<p>Learn how to run GSEA and explore the results.</p>
+</div>
+<div id="data-1" class="section level2">
+<h2><span class="header-section-number">5.3</span> Data</h2>
+<p>The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples. This cohort was previously stratified into four distinct expression subtypes <a href="http://www.ncbi.nlm.nih.gov/pubmed/21720365">PMID:21720365</a> and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.</p>
+<div id="how-was-the-data-processed" class="section level4">
+<h4><span class="header-section-number">5.3.0.1</span> How was the data processed?</h4>
+<p>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>. Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>. The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <em>Additional information</em> section.</p>
+</div>
+</div>
+<div id="background" class="section level2">
+<h2><span class="header-section-number">5.4</span> Background</h2>
+<p>The goal of this lab is to: * upload the 2 required files into GSEA, * adjust relevant parameters, * run GSEA, * open and explore the gene-set enrichment results.</p>
+<p>The 2 required files are: 1. a rank file (.rnk) 1. a pathway definition file (.gmt).</p>
+<div id="rank-file" class="section level4">
+<h4><span class="header-section-number">5.4.0.1</span> Rank File</h4>
+<p>To generate a rank file (.rnk), a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed(i.e associated with a very small pvalue, close to 0) will be assigned a high score. The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC &gt; 0, the score will have a + sign) or lower in mesenchymal (logFC &lt; 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (all genes have to be included).</p>
+<p>Tip: how to generate a rank file.</p>
+<p>:exclamation: The rank file is going to be provided for the lab, you don’t need to generate it.</p>
+<p>Calculation of the score</p>
+<p><img src="Module2/gsea/images/calculate_score.png" alt="rank_score" width="75%" /></p>
+<p><img src="Module2/gsea/images/GSEA_KS.png" alt="GSEA_KS" width="100%" /></p>
+<p>Generation of the rank file: select the gene names and score columns and save the file as tab delimited with the extension .rnk</p>
+<p><img src="Module2/gsea/images/make_rank_file.png" alt="generate rank" width="75%" /></p>
+</div>
+<div id="pathway-defintion-file" class="section level4">
+<h4><span class="header-section-number">5.4.0.2</span> Pathway defintion file</h4>
+<p>The second file that is needed for GSEA is the pathway database, a file with the .gmt extension. The pathway database (.gmt) used for the GSEA analysis was downloaded from <a href="http://baderlab.org/GeneSets" class="uri">http://baderlab.org/GeneSets</a>. This file contains gene-sets obtained from MsigDB-c2, NCI, Biocarta, IOB, Netpath, HumanCyc, Reactome and the Gene Ontology (GO) databases.</p>
+:exclamation: You don’t need to perform this step for the exercise, the .gmt file will be given to you.
+<p align="center">
+<pre><code>    &lt;img src=&quot;./Module2/gsea/images/saving_gmt.png&quot; alt=&quot;saving_gmt&quot; width=&quot;70%&quot; /&gt;
+&lt;/p&gt;</code></pre>
+<p>The .gmt is a tab delimited text file which contains one gene-set per row. For each gene-set (row), the first 2 columns contain the name and the description of the gene-set and the remaining columns contain the list of genes included in the gene-set. It is possible to create a custom gene-set using Excel or R.</p>
+<p align="center">
+<pre><code>    &lt;img src=&quot;./Module2/gsea/images/gmt_format.png&quot; alt=&quot;get_gmt&quot; width=&quot;70%&quot; /&gt;
+&lt;/p&gt;</code></pre>
+<p>GSEA performs a gene-set enrichment analysis using a modified Kolmogorov-Smirnov statistic. The output result consists of summary tables displaying enrichment statistics for each gene-set (pathway) that has been tested.</p>
+</div>
+<div id="start-the-exercise" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Start the exercise</h3>
+<p>Before starting this exercise, download the 2 required files:</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module2/Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt</a></li>
+<li><a href="https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module2/MesenchymalvsImmunoreactive_edger_ranks.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a></li>
+</ul>
+</div>
+<div id="step1." class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Step1.</h3>
+<p>Launch GSEA.</p>
+<p><img src="Module2/gsea/images/launchGSEA3.0.png" alt="Launch GSEA" width="100%" /></p>
+<div class="rmd-task">
+<p>
+Note regarding option 2: GSEA has been updated to version 3.0: if you still have the gsea_2.2 version, download the .jar file named gsea-3.0.jar from the GSEA Broad website (<a href="http://software.broadinstitute.org/gsea/downloads.jsp" class="uri">http://software.broadinstitute.org/gsea/downloads.jsp</a>), open a terminal window and run this command:
+</p>
+</div>
+<pre><code> java -Xmx4G -jar gsea-3.0.jar</code></pre>
+</div>
+<div id="step-2." class="section level3">
+<h3><span class="header-section-number">5.4.3</span> Step 2.</h3>
+<p>Load Data</p>
+<p>2a. Locate the ‘Load data’ icon at the upper left corner of the window and click on it.</p>
+<p><img src="Module2/gsea/images/GSEAloaddata.png" alt="Load data" width="100%" /></p>
+<p>2b. In the central panel, select ‘Method 1’ and ‘Browse for files’. A new window pops up.</p>
+<p><img src="Module2/gsea/images/GSEAbrowsefile2.png" alt="Browse files" width="100%" /></p>
+<p>2c. Browse your computer to locate the 2 files : <em>Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt</em> and <em>MesenchymalvsImmunoreactive_edger_ranks.rnk</em>.</p>
+2d. Click on <em>Choose</em>. A message pops us when the files are loaded successfully.
+<p align="center">
+<pre><code>    &lt;img src=&quot;./Module2/gsea/images/ORA4.png&quot; alt=&quot;Locate files&quot; width=&quot;50%&quot; /&gt;
+&lt;/p&gt;</code></pre>
+2e. Click on <em>OK</em>.
+<p align="center">
+<pre><code>    &lt;img src=&quot;./Module2/gsea/images/ORA5.png&quot; alt=&quot;Success&quot; width=&quot;50%&quot; /&gt;
+&lt;/p&gt;</code></pre>
+<div class="rmd-tip">
+<p>
+Alternatively, you can choose <em>Method 3</em> to <em>drag and drop files here</em>; you need to click on the <em>Load these files!</em> button in this case.
+</p>
+</div>
+</div>
+<div id="step3." class="section level3">
+<h3><span class="header-section-number">5.4.4</span> Step3.</h3>
+<p>Adjust parameters</p>
+<p>3a. Under the <em>Tools</em> menu select <em>GseaPreRanked</em>.</p>
+<p><img src="Module2/gsea/images/GSEAprerank.png" alt="GseaPreRanked" width="100%" /></p>
+<p>3b. <em>Run GSEA on a Pre-Ranked gene list</em> tab will appear.</p>
+<p>Specify the following parameters:</p>
+<p>3c. Gene sets database - * click on the radio button (…) located at the right of the blank field. * :clock10: Wait 5-10sec for the gene-set selection window to appear.</p>
+<p><img src="Module2/gsea/images/GSEAloadgeneset.png" alt="Gene sets database" width="100%" /></p>
+<ul>
+<li>Use the right arrow in the top field to see the Gene matrix (local gmx/gmt) tab.</li>
+<li>Click to highlight <em>Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt</em>.</li>
+<li><p>click on <em>OK</em> at the bottom of the window.</p>
+<p align="center">
+<pre><code>&lt;img src=&quot;./Module2/gsea/images/ORA8.png&quot; alt=&quot;Gene sets database&quot; width=&quot;75%&quot; /&gt;</code></pre>
+</p></li>
+<li><p><em>Human_GOBP_AllPathways_no_GO_iea_December_24_2016_symbol.gmt</em> is now visible in the field corresponding to Gene sets database.</p></li>
+</ul>
+<p><img src="Module2/gsea/images/GSEAparameter.png" alt="GSEAparameters" width="100%" /></p>
+<p>3d. Number of permutations - 100. The number of permutations is the number of times that the gene-sets will be randomized in order to create a null distribution to calculate the FDR. <BR> :exclamation: Use 2000 when you do it for your own data outside the workshop.</p>
+<p>3e. Ranked list - select by clicking on the arrow and highlighting rank file.</p>
+<p>3f. Click on <em>Show</em> button next to <em>Basic Fields</em> to display extra options.</p>
+<p>3g. Analysis name – change default <em>my_analysis</em> to name specific to analysis for example Mesen_vs_Immuno_edgeR. GSEA will use your specified name as part of the name of the results directory it creates.</p>
+<p>3h. Save results in this folder – navigate to where you want GSEA to put the results folder. By default GSEA will put the results into the directory gsea_home/output/[date] in your home directory.</p>
+<p>3i. Min size: exclude smaller sets – By default GSEA sets the lower limit to 15. In this protocol, the minimum is set to 10 to increase some of the smaller sets in the results.</p>
+<div class="rmd-tip">
+<p>
+set <em>Enrichment Statistics</em> to p1 if you want to add more weight on the most top up-regulated and top down-regulated. <em>P1</em> is a more stringent parameter and it will result in less gene-sets significant under FDR &lt;0.05.
+</p>
+</div>
+</div>
+<div id="step-4." class="section level3">
+<h3><span class="header-section-number">5.4.5</span> Step 4.</h3>
+<p>Run GSEA</p>
+<p>4a. Click on <em>Run</em> button located at the bottom right corner of the window.</p>
+<div class="rmd-tip">
+<p>
+Expand the window size if the run button is not visible
+</p>
+</div>
+<p>4b. On the panel located on the left side of the GSEA window, the bottom panel called <em>the GSEA report table</em> will show that it has created a process with a message that it is <em>Running</em>.</p>
+<p align="center">
+<pre><code>&lt;img src=&quot;./Module2/gsea/images/ORA10.png&quot; alt=&quot;Running&quot; width=&quot;50%&quot; /&gt;</code></pre>
+</p>
+<p align="center">
+<pre><code>&lt;img src=&quot;./Module2/gsea/images/ORA11.png&quot; alt=&quot;Running messages&quot; width=&quot;75%&quot; /&gt;
+&lt;/p&gt;</code></pre>
+On completion the status message will be updated to <em>Success…</em>.
+<p align="center">
+<pre><code>&lt;img src=&quot;./Module2/gsea/images/ORA12.png&quot; alt=&quot;Success&quot; width=&quot;50%&quot; /&gt;
+&lt;/p&gt;</code></pre>
+<div class="rmd-tip">
+<p>
+There is no progress bar to indicate to the user how much time is left to complete the process. Depending on the size of your dataset and compute power a GSEA run can take from a few minutes to a few hours. To check on the status of the GSEA run in the bottom left hand corner you can click on the <em>+</em> (red circle in below Figure) to see the updating status. Printouts in the format <em>shuffleGeneSet for GeneSet 5816/5821 nperm: 1000</em> indicate how many permutations have been done (5816) out of the total that need to be performed (5821).
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+if the permutations have been completed but the status is still running, it means that GSEA is creating the report
+</p>
+</div>
+<div class="rmd-troubleshooting">
+<p>
+TROUBLESHOOTING: Java Heap Space error. If GSEA returns an error <em>Java Heap space</em> it means that GSEA has run out of memory. If you are running GSEA from the webstart other than the 4GB option then you will need to download a new version that allows for more memory allocation. The current maximum memory allocation that the GSEA webstart allows for is 4GB. If you are using this version and still receive the java heap error you will need to download the GSEA java jar file and launch it from the command line as described in step 1.
+</p>
+</div>
+</div>
+<div id="step-5." class="section level3">
+<h3><span class="header-section-number">5.4.6</span> Step 5.</h3>
+<p>Examining the results</p>
+<p>5a. Click on <em>Success</em> to launch the results in html format in your default web browser.</p>
+<div class="rmd-tip">
+<p>
+If the GSEA application has been closed, you can still see the results by opening the result folder and clicking on the <em>index</em> file – index.html. (see screenshot below). The first phenotype corresponds to gene-sets enriched in genes up-regulated in the mesenchymal subtype. The second phenotype corresponds to gene-sets enriched in genes up-regulated in the immunological phenotype.
+</p>
+</div>
+<p align="center">
+<pre><code>    &lt;img src=&quot;./Module2/gsea/images/ORA13.png&quot; alt=&quot;Results1&quot; width=&quot;75%&quot; /&gt;
+&lt;/p&gt;</code></pre>
+<p>When examining the results there are a few things to look for:</p>
+<p>5b. Check the number of gene-sets that have been used for the analysis.</p>
+<div class="rmd-tip">
+<p>
+A small number (a few hundred genesets if using baderlab genesets) could indicate an issue with identifier mapping.
+</p>
+</div>
+<p>5c. Check the number of sets that have FDR less than 0.25 – in order to determine what thresholds to start with when creating the enrichment map. It is not uncommon to see a thousand gene sets pass the threshold of FDR less than 0.25. FDR less than 0.25 is a very lax threshold and for robust data we can set thresholds of FDR less than 0.05 or lower.</p>
+<p>5d. Click on <em>Snapshots</em> to see the trend for the top 20 genesets. For the positive phenotype the top genesets should show a distribution skewed to the left (positive) i.e. genesets have predominance of up-regulated genes. For the negative phenotype the top geneset should be inverted and skewed to the right (negative) i.e. geneset have predominance of down-regulated genes.</p>
+<p align="center">
+<img src="Module2/gsea/images/ORA14.png" alt="Results2" width="75%" />
+</p>
+<p align="center">
+<img src="Module2/gsea/images/ORA15.png" alt="Results3" width="75%" />
+</p>
+<p align="center">
+<img src="Module2/gsea/images/ORA16.png" alt="Results4" width="75%" />
+</p>
+<p>5e. Explore the tabular format of the results.</p>
+<div id="mesenchymal" class="section level4">
+<h4><span class="header-section-number">5.4.6.1</span> Mesenchymal</h4>
+<p><img src="Module2/gsea/images/ORA17.png" alt="Mesenchymal" width="100%" /></p>
+</div>
+<div id="immunoreactive" class="section level4">
+<h4><span class="header-section-number">5.4.6.2</span> Immunoreactive</h4>
+<p><img src="Module2/gsea/images/ORA18.png" alt="Immunoreactive" width="100%" /></p>
+<p><a href="http://www.baderlab.org/CancerStemCellProject/VeroniqueVoisin/AdditionalResources/GSEA#GSEA_enrichment_scores_and_statistics">Link to information about GSEA results</a></p>
+</div>
+</div>
+</div>
+<div id="additional-information" class="section level2">
+<h2><span class="header-section-number">5.5</span> Additional information</h2>
+<p><a href="http://www.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats">More on GSEA data format</a></p>
+<p><a href="https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/supplemental_protocol1_rnaseq.html">More on processing the RNAseq using EdgeR and generate the .rank file</a></p>
+<p><a href="http://download.baderlab.org/EM_Genesets/">More on which .gmt file to download from the Baderlab gene-set file</a>, select current release, Human, symbol, Human_GOBP_AllPathways_no_GO_iea_….gmt</p>
+<p><a href="http://www.baderlab.org/CancerStemCellProject/VeroniqueVoisin/AdditionalResources/GSEA">More on GSEA : link to the Baderlab wiki page on GSEA</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gprofiler-lab.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/2.2-Module2lab_gsea.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["CBW_Pathways.pdf", "CBW_Pathways.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+book_filename: "CBW_Pathways"
+language:
+  ui:
+delete_merged_file: true
+output_dir: docs

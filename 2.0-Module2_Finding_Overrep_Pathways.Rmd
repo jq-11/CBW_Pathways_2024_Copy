@@ -1,0 +1,12 @@
+# Module 2: Finding Over-represented Pathways (Veronique Voisin)
+
+ *<font color="#827e9c">Veronique Voisin</font>*
+  
+  [Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/1_hlJx_83Noj9Tt7AD0Ax0kmTjT_wWEW8/view?usp=sharing) 
+  
+  [Introduction to practical lab](https://drive.google.com/a/bioinformatics.ca/file/d/1cN9D6L77rsE-l9ut55tB966A8CFhWwM3/view?usp=sharing)  
+
+  [Lab practical part 1 (g:Profiler)](#gprofiler-lab)    
+
+  [Lab practical part 2 (GSEA)](#gsea-lab)    
+
