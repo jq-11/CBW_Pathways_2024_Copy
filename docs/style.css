@@ -96,3 +96,16 @@ pre code {
   font-size: 24px;
   content: "Note";
 }
+
+.rmd-cbw {
+  padding: 0em 0em 0em 3em;
+  margin-right: 2px;
+  background:  #fafbff  url("images/Bioinfo_Logo.jpg") left center/7em no-repeat /*!important*/;
+  border-style:solid;
+  border-color: #fafbff;
+}
+.rmd-cbw:before {
+  color: #fcf403;
+  font-size: 24px;
+  content: "";
+}

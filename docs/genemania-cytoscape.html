@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 5 Lab: GeneMANIA (Cytoscape version) |  Pathways</title>
+  <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 5 Lab: GeneMANIA (Cytoscape version) |  Pathways" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 5 Lab: GeneMANIA (Cytoscape version) |  Pathways" />
+  
+  <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  
+
+<meta name="author" content="Gary Bader, Veronique Voisin, Ruth Isserlin, Lincoln Stein, Robin Haw, Micheal Hoffman, Quaid Morris" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="module-5-gene-function-prediction.html"/>
+<link rel="next" href="genemania-web.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CBW Pathways Workshop</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#welcome">Welcome <a id="welcome"></a></a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Schedule</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-workshop"><i class="fa fa-check"></i>Pre-Workshop Materials and Laptop Setup Instructions</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#laptop-setup-instructions"><i class="fa fa-check"></i>Laptop Setup Instructions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-workshop-tutorials"><i class="fa fa-check"></i>Pre-workshop Tutorials</a></li>
+<li><a href="index.html#additional-tutorials">Additional tutorials <a id="additionaltutorials"></a></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><a href="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><i class="fa fa-check"></i>Module 1 - Introduction to Pathway and Network Analysis (Gary Bader)</a></li>
+<li class="chapter" data-level="" data-path="module-2-finding-over-represented-pathways-veronique-voisin.html"><a href="module-2-finding-over-represented-pathways-veronique-voisin.html"><i class="fa fa-check"></i>Module 2: Finding Over-represented Pathways (Veronique Voisin)</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html"><i class="fa fa-check"></i>Module 2 lab - g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#goal-of-the-exercise-1"><i class="fa fa-check"></i>Goal of the exercise 1</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-1---run-gprofiler"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-1---launch-gprofiler."><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-2---input-query"><i class="fa fa-check"></i>Step 2 - input query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-3---adjust-parameters."><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-4---run-query"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-5---explore-the-results."><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-7-save-the-results"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-8"><i class="fa fa-check"></i>Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i>Exercise 2: Load and use a custom .gmt file and run the query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-steps"><i class="fa fa-check"></i>Optional steps</a><ul>
+<li><a href="gprofiler-lab.html#optional-1"><strong>Optional 1</strong>:</a></li>
+<li><a href="gprofiler-lab.html#option-2"><strong>Option 2</strong>:</a></li>
+<li><a href="gprofiler-lab.html#option-3"><strong>Option 3</strong> :</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html"><i class="fa fa-check"></i>Module 2 lab - GSEA</a><ul>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#goal-of-the-exercise"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#data-1"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#background"><i class="fa fa-check"></i>Background</a><ul>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#start-the-exercise"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step1."><i class="fa fa-check"></i>Step1.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step-2."><i class="fa fa-check"></i>Step 2.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step3."><i class="fa fa-check"></i>Step3.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step-4."><i class="fa fa-check"></i>Step 4.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step-5."><i class="fa fa-check"></i>Step 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#additional-information"><i class="fa fa-check"></i>Additional information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3-network-visualization-and-analysis-with-cytoscape.html"><a href="module-3-network-visualization-and-analysis-with-cytoscape.html"><i class="fa fa-check"></i>Module 3: Network Visualization and Analysis with Cytoscape</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html"><i class="fa fa-check"></i>Module 3: g:profiler Visualization</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#goal-of-the-exercise-2"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#data-2"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#enrichmentmap"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#description-of-this-exercise"><i class="fa fa-check"></i>Description of this exercise</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#start-the-exercise-1"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#exercise-1a"><i class="fa fa-check"></i>Exercise 1a</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-2"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step3-explore-the-results"><i class="fa fa-check"></i>Step3: Explore the results:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#explore-detailed-results"><i class="fa fa-check"></i>Explore Detailed results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#exercise-1b"><i class="fa fa-check"></i>Exercise 1b</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#exercise-1c"><i class="fa fa-check"></i>Exercise 1c</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html"><i class="fa fa-check"></i>Module3: GSEA Visualization</a><ul>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#goal-of-the-exercise-3"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#data-3"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#gsea-output-and-enrichmentmap"><i class="fa fa-check"></i>GSEA output and EnrichmentMap</a><ul>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#enrichmentmap-1"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#start-the-exercise-2"><i class="fa fa-check"></i>Start the exercise</a><ul>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#step-1-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#step-2-1"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#step-3"><i class="fa fa-check"></i>Step 3</a></li>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#step-4"><i class="fa fa-check"></i>Step 4</a></li>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#step-5"><i class="fa fa-check"></i>Step 5</a></li>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#step-6"><i class="fa fa-check"></i>Step 6</a></li>
+<li class="chapter" data-level="" data-path="gsea-mod3.html"><a href="gsea-mod3.html#step-7"><i class="fa fa-check"></i>Step 7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-more-depth-on-network-and-pathway-analysis.html"><a href="module-4-more-depth-on-network-and-pathway-analysis.html"><i class="fa fa-check"></i>Module 4: More Depth on Network and Pathway Analysis</a></li>
+<li class="chapter" data-level="" data-path="reactome-lab.html"><a href="reactome-lab.html"><i class="fa fa-check"></i>Module 4 Lab: Reactome</a><ul>
+<li class="chapter" data-level="" data-path="reactome-lab.html"><a href="reactome-lab.html#aim"><i class="fa fa-check"></i>Aim</a></li>
+<li class="chapter" data-level="" data-path="reactome-lab.html"><a href="reactome-lab.html#goal"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="reactome-lab.html"><a href="reactome-lab.html#example-1-pathway-based-analysis-of-gbm-genelist"><i class="fa fa-check"></i>Example 1: Pathway-based analysis of GBM genelist</a></li>
+<li class="chapter" data-level="" data-path="reactome-lab.html"><a href="reactome-lab.html#example-2-network-based-analysis-of-gbm-gene-sample-data"><i class="fa fa-check"></i>Example 2: Network-based analysis of GBM gene-sample data</a></li>
+<li class="chapter" data-level="" data-path="reactome-lab.html"><a href="reactome-lab.html#example-3-network-based-analysis-of-ovca-somatic-mutation"><i class="fa fa-check"></i>Example 3: Network-based analysis of OvCa somatic mutation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="reactome-lab-answers.html"><a href="reactome-lab-answers.html"><i class="fa fa-check"></i>Module 4 Lab: Reactome Answers</a><ul>
+<li class="chapter" data-level="" data-path="reactome-lab-answers.html"><a href="reactome-lab-answers.html#cbw-lab-module-4-answers"><i class="fa fa-check"></i>CBW Lab Module 4 Answers</a><ul>
+<li class="chapter" data-level="" data-path="reactome-lab-answers.html"><a href="reactome-lab-answers.html#example-1"><i class="fa fa-check"></i>Example 1</a></li>
+<li class="chapter" data-level="" data-path="reactome-lab-answers.html"><a href="reactome-lab-answers.html#example-2"><i class="fa fa-check"></i>Example 2</a></li>
+<li class="chapter" data-level="" data-path="reactome-lab-answers.html"><a href="reactome-lab-answers.html#example-3."><i class="fa fa-check"></i>Example 3.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5-gene-function-prediction.html"><a href="module-5-gene-function-prediction.html"><i class="fa fa-check"></i>Module 5: Gene Function Prediction</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html"><i class="fa fa-check"></i>Module 5 Lab: GeneMANIA (Cytoscape version)</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#goal-of-this-practical-lab"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-1-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#steps"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-1-answers-detailed-explanation-and-screenshots"><i class="fa fa-check"></i>EXERCISE 1 ANSWERS: DETAILED EXPLANATION AND SCREENSHOTS</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-1---steps-1-5"><i class="fa fa-check"></i>EXERCISE 1 - STEPS 1-5</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-1---step-6"><i class="fa fa-check"></i>EXERCISE 1 - STEP 6</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-1---step-7"><i class="fa fa-check"></i>Exercise 1 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-1---step-8"><i class="fa fa-check"></i>Exercise 1 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-1---step-9"><i class="fa fa-check"></i>Exercise 1 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-1---step-10-save-an-image"><i class="fa fa-check"></i>Exercise 1 - STEP 10 (save an image)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-2-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#steps-1"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-2-answers-detailed-steps-and-screenshots"><i class="fa fa-check"></i>EXERCISE 2 ANSWERS: DETAILED STEPS AND SCREENSHOTS</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-2---steps-1-to-4"><i class="fa fa-check"></i>Exercise 2 - STEPS 1 to 4</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-2---step-5"><i class="fa fa-check"></i>Exercise 2 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-2---step-7"><i class="fa fa-check"></i>Exercise 2 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-2---step-8"><i class="fa fa-check"></i>Exercise 2 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-2---step-9"><i class="fa fa-check"></i>Exercise 2 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-2---step-11"><i class="fa fa-check"></i>Exercise 2 - STEP 11</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-3-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#steps-2"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-3-more-details-and-screenshots"><i class="fa fa-check"></i>Exercise 3: MORE DETAILS AND SCREENSHOTS</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-3---steps-1---2"><i class="fa fa-check"></i>Exercise 3 - STEPS 1 - 2</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-3---step-3"><i class="fa fa-check"></i>Exercise 3 - STEP 3</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-3---step-4"><i class="fa fa-check"></i>Exercise 3 - STEP 4</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-3---step-5"><i class="fa fa-check"></i>Exercise 3 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-3---steps-6"><i class="fa fa-check"></i>Exercise 3 - STEPS 6</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#some-definitions"><i class="fa fa-check"></i>SOME DEFINITIONS:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html"><i class="fa fa-check"></i>Module 5 Lab: GeneMANIA (web version)</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#goal-of-this-practical-lab-1"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1-questions-and-steps-to-follow-1"><i class="fa fa-check"></i>EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#steps-3"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1-answers-detailed-explanation-and-screenshots-1"><i class="fa fa-check"></i>EXERCISE 1 ANSWERS: DETAILED EXPLANATION AND SCREENSHOTS</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---steps-1-4"><i class="fa fa-check"></i>EXERCISE 1 - STEPS 1-4</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-5"><i class="fa fa-check"></i>EXERCISE 1 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-6-1"><i class="fa fa-check"></i>EXERCISE 1 - STEP 6</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-7-1"><i class="fa fa-check"></i>Exercise 1 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-8-1"><i class="fa fa-check"></i>Exercise 1 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-9-1"><i class="fa fa-check"></i>Exercise 1 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-10-layouts"><i class="fa fa-check"></i>Exercise 1 - STEP 10 (layouts)</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-11-save-an-image"><i class="fa fa-check"></i>Exercise 1 - STEP 11 (save an image)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2-questions-and-steps-to-follow-1"><i class="fa fa-check"></i>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#steps-4"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2-answers-detailed-steps-and-screenshots-1"><i class="fa fa-check"></i>EXERCISE 2 ANSWERS: DETAILED STEPS AND SCREENSHOTS</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---steps-1-to-4-1"><i class="fa fa-check"></i>Exercise 2 - STEPS 1 to 4</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-5-1"><i class="fa fa-check"></i>Exercise 2 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-6."><i class="fa fa-check"></i>Exercise 2 - STEP 6.</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-7-1"><i class="fa fa-check"></i>Exercise 2 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-8-1"><i class="fa fa-check"></i>Exercise 2 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-9-1"><i class="fa fa-check"></i>Exercise 2 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-10"><i class="fa fa-check"></i>Exercise 2 - STEP 10</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-11-1"><i class="fa fa-check"></i>Exercise 2 - STEP 11</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-12"><i class="fa fa-check"></i>Exercise 2 - STEP 12</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-13."><i class="fa fa-check"></i>Exercise 2 - STEP 13.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3-questions-and-steps-to-follow-1"><i class="fa fa-check"></i>EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#steps-5"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3-more-details-and-screenshots-1"><i class="fa fa-check"></i>Exercise 3: MORE DETAILS AND SCREENSHOTS</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---steps-1---3"><i class="fa fa-check"></i>Exercise 3 - STEPS 1 - 3</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---step-4-1"><i class="fa fa-check"></i>Exercise 3 - STEP 4</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---step-5-1"><i class="fa fa-check"></i>Exercise 3 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---steps-6-1"><i class="fa fa-check"></i>Exercise 3 - STEPS 6</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---step-7"><i class="fa fa-check"></i>Exercise 3 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---step-8"><i class="fa fa-check"></i>Exercise 3 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---step-9"><i class="fa fa-check"></i>Exercise 3 - STEP 9</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#some-definitions-1"><i class="fa fa-check"></i>SOME DEFINITIONS:</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="images/Bioinfo_Logo.jpg" align="right" width="150" /><br />
+Pathways</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="genemania_cytoscape" class="section level1">
+<h1>Module 5 Lab: GeneMANIA (Cytoscape version)</h1>
+<p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
+<p><em><font color="#827e9c">By Quaid Morris and Veronique Voisin </font></em></p>
+<div id="goal-of-this-practical-lab" class="section level2">
+<h2>Goal of this practical lab</h2>
+<p>Create GeneMANIA networks starting from a single gene to predict its function or starting from a gene list. Explore and understand the main output features of GeneMANIA such as the network composition or the enriched functions.</p>
+<p>This practical consists of 3 exercises. You can choose to do these exercises using the questions as your only guide (section ‘QUESTIONS AND STEPS TO FOLLOW) - or see the following pages for the step-by-step checklist to finding the answers (section ’ANSWERS: DETAILED STEPS AND SCREENSHOTS’).</p>
+<p>Before starting the exercises,download the files:</p>
+<ul>
+<li><p><a href="https://raw.githubusercontent.com/bioinformaticsdotca/HT-Biology_2017/master/Pathways/module5_lab/30_prostate_cancer_genes.txt">30_prostate_cancer_genes.txt</a></p></li>
+<li><p><a href="https://raw.githubusercontent.com/bioinformaticsdotca/HT-Biology_2017/master/Pathways/module5_lab/mixed_gene_list.txt">Mixed_gene_list.txt</a></p></li>
+<li><p><a href="https://raw.githubusercontent.com/bioinformaticsdotca/HT-Biology_2017/master/Pathways/module5_lab/CYB11B_pearson_correlation_prostate.txt">CYP11B_pearson_correlation_prostate.txt</a></p></li>
+</ul>
+<div class="rmd-note">
+<p>
+Network layouts are flexible and can be rearranged. What you see when you perform these exercises may not be identical to what you see in the tutorial, or what you have seen other times that you have performed the exercises. Exact layouts and predictions can also be affected by updates to the networks database that GeneMANIA uses. However it is expected that the network weights and predicted genes will be similar to those shown here.
+</p>
+</div>
+</div>
+<div id="exercise-1-questions-and-steps-to-follow" class="section level2">
+<h2>EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW</h2>
+<ol style="list-style-type: decimal">
+<li>Imagine that you are interested in exploring the function of the human GRN gene: GRN returned as the strongest hit from your omics experiment but not many information about this gene is available in functional databases. Use GeneMANIA to identify its predicted function as well as potential interaction partners.</li>
+</ol>
+<p><strong>Skills</strong>: GeneMANIA Single Gene search; Navigating Search Results; Exploring available Genes features; Rerun a new analysis using a single gene or multiple genes query from the network.</p>
+<div id="steps" class="section level3">
+<h3>STEPS</h3>
+<ol style="list-style-type: decimal">
+<li><p>Open Cytoscape.</p></li>
+<li><p>Locate the GeneMANIA search window located on the left side in <em>Control Panel</em>.</p></li>
+<li><p>In the search window, ensure that the model organism is set to <em>Homo sapiens</em> <img src="./Module5/genemania/images/Up.png" alt="homo" />.</p></li>
+<li><p>Enter the following gene: GRN</p></li>
+<li><p>Click on the search icon <img src="./Module5/genemania/images/Search.png" alt="search" /> and wait for the results.</p></li>
+<li>When your search results load, examine the network. Genes you searched with are indicated in black, related genes added by GeneMANIA are represented in gray, and colored links represent the interactions that connect the nodes (genes).
+<div class="rmd-tip">
+<p>
+zoom in and zoom out using trackpad or mouse scrolling up and down.
+</p>
+</div></li>
+<li><p>Locate the <em>Functions</em> summary tab in Results Panel. What are the functions significantly associated with this network? GRN is the central node of this network: which function would you predict for GRN? How well did GeneMANIA perform (hints: use GeneCards (<a href="http://www.genecards.org/" class="uri">http://www.genecards.org/</a>) , PubMed (<a href="http://www.ncbi.nlm.nih.gov/pubmed/" class="uri">http://www.ncbi.nlm.nih.gov/pubmed/</a>))?</p></li>
+<li><p>Locate the gene with the strongest association with GRN. <strong>Tip</strong>: this gene is the largest node on the network.</p></li>
+<li><p>Re-run an analysis by adding SORT1, HSPG2 to the search. Type ‘SORT1’ and ‘HSPG2’ in the search box that already contains ‘GRN’ (one gene per line). Click on the search button. Which functions are associated with this new network?</p></li>
+<li><p>Save the network as an image by clicking on ‘File’, ‘Export’, ‘Network to Image…’ and setting the “Export File Format” to “PDF(*.pdf)”.</p></li>
+</ol>
+</div>
+</div>
+<div id="exercise-1-answers-detailed-explanation-and-screenshots" class="section level2">
+<h2>EXERCISE 1 ANSWERS: DETAILED EXPLANATION AND SCREENSHOTS</h2>
+<div id="exercise-1---steps-1-5" class="section level3">
+<h3>EXERCISE 1 - STEPS 1-5</h3>
+<p><img src="Module5/genemania/images/GC1.png" alt="GC1.png" width="750" /></p>
+</div>
+<div id="exercise-1---step-6" class="section level3">
+<h3>EXERCISE 1 - STEP 6</h3>
+<p><img src="Module5/genemania/images/GC2.png" alt="GC2.png" width="750" /></p>
+</div>
+<div id="exercise-1---step-7" class="section level3">
+<h3>Exercise 1 - STEP 7</h3>
+<p><img src="Module5/genemania/images/GC3.png" alt="GC3.png" width="750" /></p>
+<p><strong>Question</strong> What are the functions significantly associated with this network? <strong>Answer</strong> the list of the functions associated with the network are listed in the above screenshot. “lysosomal function”, “vacuolar lumen”, “vacuolar part” are significant under a FDR threshold less than 0.0001.</p>
+<p><strong>Question</strong> GRN is the central node of this network: which function would you predict for GRN? <strong>Answer</strong> : a function related to lysosome and vacuole</p>
+<p><strong>Question</strong> How well did GeneMANIA perform (hints: use GeneCards (<a href="http://www.genecards.org/" class="uri">http://www.genecards.org/</a>) , PubMed (<a href="http://www.ncbi.nlm.nih.gov/pubmed/" class="uri">http://www.ncbi.nlm.nih.gov/pubmed/</a>))? <strong>Answer</strong> The top functions predicted by GeneMANIA for GRN were related to lysosome and vacuole. A pubmed search could confirm these results: “We experimentally verified that granulin precursor (GRN) gene, whose mutations cause frontotemporal lobar degeneration, is involved in lysosome function.” (Transcriptional gene network inference from a massive dataset elucidates transcriptome organization and gene function. Belcastro et al. Nucleic Acids Res. 2011 Nov 1;39(20):8677-88. 2011. <a href="PMID:21785136" class="uri">PMID:21785136</a>)</p>
+</div>
+<div id="exercise-1---step-8" class="section level3">
+<h3>Exercise 1 - STEP 8</h3>
+<p><strong>Question</strong> Locate the gene with the strongest association with GRN (thick edge). <strong>Answer is SORT1</strong></p>
+</div>
+<div id="exercise-1---step-9" class="section level3">
+<h3>Exercise 1 - STEP 9</h3>
+<p><img src="Module5/genemania/images/GC9.png" alt="GC9.png" width="750" /></p>
+<p><img src="Module5/genemania/images/GC9b.png" alt="GC9b.png" width="750" /></p>
+</div>
+<div id="exercise-1---step-10-save-an-image" class="section level3">
+<h3>Exercise 1 - STEP 10 (save an image)</h3>
+<p><img src="Module5/genemania/images/GC10.png" alt="GC10.png" width="750" /></p>
+<p><strong>Notes</strong> about biological interpretation of the results:</p>
+<p><strong>A paper describing the interaction between GRN and SORT1 and demonstrates how finding related genes could be relevant for elaborating therapy:</strong></p>
+<p>Targeted manipulation of the sortilin–progranulin axis rescues progranulin haploinsufficiency. Lee et al. Hum Mol Genet. 2014 March 15; 23(6): 1467–1478. Published online 2013 October 26. doi: 10.1093/hmg/ddt534. PMCID:PMC3929086 “Progranulin (GRN) mutations causing haploinsufficiency are a major cause of frontotemporal lobar degeneration (FTLD-TDP). Recent discoveries demonstrating sortilin (SORT1) is a neuronal receptor for PGRN endocytosis and a determinant of plasma PGRN levels portend the development of enhancers targeting the SORT1–PGRN axis. We demonstrate the preclinical efficacy of several approaches through which impairing PGRN’s interaction with SORT1 restores extracellular PGRN levels. “</p>
+<div class="figure">
+<img src="./Module5/genemania/images/GM11.png" alt="GM11" />
+<p class="caption">GM11</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="exercise-2-questions-and-steps-to-follow" class="section level2">
+<h2>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW</h2>
+<p>To start this exercise, you need to download the <a href="https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module5_lab/30_prostate_cancer_genes.txt">30_prostate_cancer_genes.txt</a> file from the course wiki and save it on your computer.</p>
+<p>For this exercise, you are working with a list of 30 prostate cancer genes. This list can be downloaded after the workshop from the cBioPortal website (<a href="http://www.cbioportal.org/" class="uri">http://www.cbioportal.org/</a>) under the download section, user defined list. The cBioPortal for Cancer Genomics stores genomic data from large scale, integrated cancer genomic data sets. During this exercise, you will explore the types of networks that have been used to create the GeneMANIA network from the prostate cancer gene list and you will see how changing input parameters can affect the results. The last step of the exercise consists of uploading a custom network which is a list of genes that are positively correlated with CYP11B1 in mRNA expression data of 94 prostate cancer samples (<a href="http://www.cbioportal.org/" class="uri">http://www.cbioportal.org/</a>) .</p>
+<p><strong>Skills</strong>: GeneMANIA search using a gene list; Navigating Search Results; Exploring Networks and advanced options; Uploading a custom network.</p>
+<div id="steps-1" class="section level3">
+<h3>STEPS</h3>
+<ol style="list-style-type: decimal">
+<li><p>Open Cytoscape.</p></li>
+<li><p>Locate the GeneMANIA search window located on the left side in <em>Control Panel</em>.</p></li>
+<li><p>Copy and paste genes in the file <a href="https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module5_lab/30_prostate_cancer_genes.txt">30_prostate_cancer_genes.txt</a>. Make sure that the parameter ‘Max resultant genes’ is set to ‘20’ by clicking on the menu button <img src="https://github.com/bioinformaticsdotca/CSHL_2019/raw/master/images/options.png" alt="options" /> at the right side of the search box and selecting ‘Customise advanced options’.</p></li>
+<li><p>Click on the search icon <img src="./Module5/genemania/images/Search.png" alt="search" /> and wait for the results.</p></li>
+<li><p>When your search results load, examine the network. Genes you searched with are indicated in black, related genes added by GeneMANIA are represented in gray, and colored links represent the interactions that connect the nodes (genes). Move nodes around by selecting them with a mouse to investigate how they are connected.</p></li>
+<li><p>Click any link (edge) connecting two nodes to highlight information about it. The information about the interaction is display in the <em>Edge Table</em> located in <em>Table Panel</em> (at the bottom) in the <em>networks</em> and <em>data type</em> columns. <strong>Note</strong>: Clicking on an edge between 2 nodes will display information about all interaction networks that connect these 2 nodes. It indicates the reference (publication) for these interactions. The colors indicate the type of interaction (co-expression, shared protein domains, co-localization, physical interactions and predicted).</p></li>
+<li><p>Locate and expand the ‘Networks’ summary tab in <em>Results Panel</em> (on the right) and look at what data has been used to create the network and predictions. <strong>Note</strong> that Co-expression (purple colored lines, weight over 25%) and Shared protein domains (lightgold colored lines, weight over 30%) influence the results the most, but Co-localization (blue colored lines), Physical interactions (salmon colored lines) and Predicted (orange) data are also included. At the top of the Networks summary tab, use the menu button <img src="https://github.com/bioinformaticsdotca/CSHL_2019/raw/master/images/options.png" alt="options" /> and try Expand “All, then “Top-Level” and “None” to get information about the sources of the different networks.</p></li>
+<li>Highlight all connections corresponding to each network by clicking the name of each network category. Click on “Shared protein domains” and see which genes are connected by predicted protein protein interaction. You can do the same for “Co-localization” , “Co-expression” and “Physical interactions”.
+<div class="rmd-tip">
+<p>
+these observations of the number of connections make it easier to understand why co-expression and shared protein domains get the higher percent weight on this network: they are helping to connect more genes than physical interactions and predicted; A higher weight means that this network helped more to find related genes.
+</p>
+</div></li>
+<li><p>Locate the Functions summary tab and look at what functions were significantly enriched in this list of prostate genes.</p></li>
+<li><p>“Shared protein domains” is an important part of the network. What would be the GeneMANIA results if we don’t include this source when we run GSEA? In <em>Control Panel</em>, click on the option menu button <img src="https://github.com/bioinformaticsdotca/CSHL_2019/raw/master/images/options.png" alt="options" /> which is located at the right of the search box. Uncheck ‘Shared protein domains’ and click on a point outside the box to close it. Click on the search icon <img src="./Module5/genemania/images/Search.png" alt="search" />. Explore the results.</p></li>
+<li><p>Locate the Functions summary tab in <em>Results Panel</em> and look at what functions were significantly enriched with these new settings.</p></li>
+<li><p>Try to modify additional parameters like <em>Max Resultant Genes</em> or <em>Network Weighting</em> and look at how the changes you made influenced the results.</p></li>
+</ol>
+<div id="section" class="section level5">
+<h5></h5>
+</div>
+</div>
+</div>
+<div id="exercise-2-answers-detailed-steps-and-screenshots" class="section level2">
+<h2>EXERCISE 2 ANSWERS: DETAILED STEPS AND SCREENSHOTS</h2>
+<div id="exercise-2---steps-1-to-4" class="section level3">
+<h3>Exercise 2 - STEPS 1 to 4</h3>
+<p><img src="Module5/genemania/images/GC2_1.png" alt="GC2_1.png" width="750" /></p>
+<div class="rmd-tip">
+<p>
+check that the parameter ‘Max resultant genes’ is set to ‘20’:
+</p>
+</div>
+</div>
+<div id="exercise-2---step-5" class="section level3">
+<h3>Exercise 2 - STEP 5</h3>
+<p><img src="Module5/genemania/images/GC2_5.png" alt="GC2_5.png" width="750" /></p>
+</div>
+<div id="exercise-2---step-7" class="section level3">
+<h3>Exercise 2 - STEP 7</h3>
+<p><img src="Module5/genemania/images/GC2_7.png" alt="GC2_7.png" width="750" /></p>
+</div>
+<div id="exercise-2---step-8" class="section level3">
+<h3>Exercise 2 - STEP 8</h3>
+<p><img src="Module5/genemania/images/GC2_8a.png" alt="GC2_8a.png" width="750" /></p>
+<p><img src="Module5/genemania/images/GC2_8b.png" alt="GC2_8b.png" width="750" /></p>
+</div>
+<div id="exercise-2---step-9" class="section level3">
+<h3>Exercise 2 - STEP 9</h3>
+<p>The top pathways with the strongest enrichments are: “cellular hormone metabolic process” with 23 genes in the list overlapping with this pathway. The FDR is equal to 1.2e-40.</p>
+<p><img src="Module5/genemania/images/GC2_9.png" alt="GC2_9.png" width="750" /></p>
+<p>##### ### Exercise 2 - STEP 10</p>
+<p><strong>Question</strong> “Shared protein domains” is an important part of the network. What would be the GeneMANIA results if we don’t include this source when we run GSEA? <strong>Answer</strong> If “shared protein domain” is removed, the relationships between the nodes are from the Co-expression, Co-localization, Predicted and Physical interactions networks. The genes added to the network are different compared to the first network created with “Shared protein domain”.</p>
+<p><img src="Module5/genemania/images/GC2_10a.png" alt="GC2_10a.png" width="750" /></p>
+<p><img src="Module5/genemania/images/GC2_10b.png" alt="GC2_10b.png" width="750" /></p>
+</div>
+<div id="exercise-2---step-11" class="section level3">
+<h3>Exercise 2 - STEP 11</h3>
+<p><strong>Question</strong> what functions were significantly enriched with these new settings. <strong>Answer</strong> With the new settings, “hormone biosynthetic process” is the new top enriched pathway.</p>
+<p><img src="Module5/genemania/images/GC2_11.png" alt="GC2_11.png" width="750" /></p>
+<hr />
+<hr />
+</div>
+</div>
+<div id="exercise-3-questions-and-steps-to-follow" class="section level2">
+<h2>EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW</h2>
+<p>To start this exercise, you need to download the <a href="https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module5_lab/mixed_gene_list.txt">Mixed_gene_list.txt</a> file and save it on your computer.</p>
+<p>For this exercise, you are working on a gene list created by combining 3 user defined gene lists available from the cBioportal (<a href="http://www.cbioportal.org" class="uri">http://www.cbioportal.org</a>). It contains genes implicated in the DNA damage response, the PI3K-AKT-mTOR signaling pathway and Folate transport. This list is representative of a gene list obtained from transcriptomics data. During this exercise, we will first characterize our gene list based on functions and then we will add potential drug and microRNAs targeting genes in the network, and we will save the report.</p>
+<p><strong>Skills</strong>: GeneMANIA search using a gene list; Navigating Search Results; Exploring Functions; Adding attributes; Create a report.</p>
+<div id="steps-2" class="section level3">
+<h3>STEPS</h3>
+<ol style="list-style-type: decimal">
+<li>Open Cytoscape and locate the GeneMANIA search window located on the left side in <em>Control Panel</em>.
+<div class="rmd-tip">
+<p>
+make sure that GeneMANIA is selected and not String.
+</p>
+</div></li>
+<li><p>In the search window, ensure that the model organism is set to <em>Homo sapiens</em> <img src="./Module5/genemania/images/Up.png" alt="homo" /> .</p></li>
+<li><p>Copy and paste genes in the file <a href="https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module5_lab/mixed_gene_list.txt">Mixed_gene_list.txt</a>. Click on the search icon <img src="./Module5/genemania/images/Search.png" alt="search" /> and wait for the results. Explore the network.</p></li>
+<li><p>Locate the Functions summary tab in <em>Result Panel</em> and look at functions returned by GeneMANIA.</p></li>
+<li>In the functions summary tab, check some functions to color genes included in these functions. To follow this tutorial, you can for example color the “response to insulin” , “DNA recombination” functions.
+<div class="rmd-tip">
+<p>
+You need to scroll down to found DNA recombination as this pathway has an FDR greater than the one for “response to insulin”.
+</p>
+</div>
+<ul>
+<li>To color genes:</li>
+<li>Go to <em>Control Panel</em> and select the <em>Style</em> tab.<br />
+</li>
+<li>In the <em>Nodes</em> panel, expand the <em>Fill Color</em> tab.</li>
+<li>Set <em>Column</em> to <em>annotation name</em>.</li>
+<li>Locate “DNA recombination”.</li>
+<li>Double click on the white space at the right side of the box and click on the 3 dots <img src="https://github.com/bioinformaticsdotca/CSHL_2019/raw/master/images/options2.png" alt="options2" />. A <em>Colors</em> box appears.</li>
+<li>Choose a color of your choice and click on <em>OK</em>.</li>
+<li>Locate “response to insulin”. Double click on the white space at the right side of the box and click on the 3 buttons menu. A <em>Colors</em> box appears.</li>
+<li>Choose a color of your choice and click on <em>OK</em>.</li>
+</ul></li>
+<li>Locate our favorite gene PDPK1 on the network. Click on the icon <em>First Neighbor of Selected Nodes</em> <img src="https://github.com/bioinformaticsdotca/CSHL_2019/raw/master/images/neighbour.png" alt="neighbour" />. It will highlight this gene and all its connections. Click on the icon <em>New Network from Selection (All Edges)</em> <img src="https://github.com/bioinformaticsdotca/CSHL_2019/raw/master/images/newnetwork.png" alt="new network" /> to create a subnetwork.
+<div class="rmd-tip">
+<p>
+copy “PDPK1” in the search box and the node will be highlighted in yellow.
+</p>
+</div></li>
+</ol>
+</div>
+</div>
+<div id="exercise-3-more-details-and-screenshots" class="section level2">
+<h2>Exercise 3: MORE DETAILS AND SCREENSHOTS</h2>
+<div id="exercise-3---steps-1---2" class="section level3">
+<h3>Exercise 3 - STEPS 1 - 2</h3>
+<p><img src="Module5/genemania/images/GC3_2.png" alt="GC3_2.png" width="750" /></p>
+</div>
+<div id="exercise-3---step-3" class="section level3">
+<h3>Exercise 3 - STEP 3</h3>
+<p><img src="Module5/genemania/images/GC3_3.png" alt="GC3_3.png" width="750" /></p>
+</div>
+<div id="exercise-3---step-4" class="section level3">
+<h3>Exercise 3 - STEP 4</h3>
+<p><img src="Module5/genemania/images/GC3_4.png" alt="GC3_4.png" width="750" /></p>
+</div>
+<div id="exercise-3---step-5" class="section level3">
+<h3>Exercise 3 - STEP 5</h3>
+<p><img src="Module5/genemania/images/GC3_5.png" alt="GC3_5.png" width="750" /> <img src="Module5/genemania/images/GC3_5b.png" alt="GC3_5b.png" width="750" /></p>
+</div>
+<div id="exercise-3---steps-6" class="section level3">
+<h3>Exercise 3 - STEPS 6</h3>
+<p><img src="Module5/genemania/images/GC3_6.png" alt="GC3_6.png" width="750" /> <img src="Module5/genemania/images/GC3_6b.png" alt="GC3_6b.png" width="750" /> <img src="Module5/genemania/images/GC3_6c.png" alt="GC3_6c.png" width="750" /></p>
+<hr />
+</div>
+</div>
+<div id="some-definitions" class="section level2">
+<h2>SOME DEFINITIONS:</h2>
+<p><strong>What are the networks: Definition of the types of interaction:</strong></p>
+<ul>
+<li><p><strong>Shared domains</strong>: Protein domain data. Two gene products are linked if they have the same protein domain. These data are collected from domain databases, such as InterPro, SMART and Pfam.</p></li>
+<li><p><strong>Co-localization</strong>: Genes expressed in the same tissue, or proteins found in the same location. Two genes are linked if they are both expressed in the same tissue or if their gene products are both identified in the same cellular location.</p></li>
+<li><p><strong>Co-expression</strong>: Gene expression data. Two genes are linked if their expression levels are similar across conditions in a gene expression study. Most of these data are collected from the Gene Expression Omnibus (GEO); we only collect data associated with a publication.</p></li>
+<li><p><strong>Predicted</strong>: Predicted functional relationships between genes, often protein interactions. A major source of predicted data is mapping known functional relationships from another organism via orthology.</p></li>
+</ul>
+<p><strong>What is defined by evidence sources?:</strong></p>
+<ul>
+<li><strong>Evidence sources</strong> are the information contained in the multiple databases that GeneMANIA uses to establish interaction between two genes.</li>
+</ul>
+<p><strong>Network:</strong></p>
+<ul>
+<li><p><strong>Node</strong> : circle representing the genes</p></li>
+<li><p><strong>Edge</strong>: line that links two nodes and represent an interaction between two genes (multiple lines correspond to multiple sources</p></li>
+<li><p><strong>Node size</strong>: Mapped to gene score, i.e. the degree to which GeneMANIA predicts the genes are related</p></li>
+<li><p><strong>Thickness of edge</strong>: Strength/weight of interaction</p></li>
+</ul>
+<p><strong>Layout</strong> : The layout is different each time so the user can request the layout run multiple times until the user is satisfied with the result.</p>
+<p><strong>in Networks tab:</strong></p>
+<ul>
+<li><strong>Percent weight (score)</strong> : a higher weight means that this network helped more to find related genes.</li>
+</ul>
+<p><strong>in Functions tab</strong> :</p>
+<ul>
+<li><p><strong>FDR</strong> : False discovery rate (FDR) is greater than or equal to the probability that this is a false positive.</p></li>
+<li><p><strong>Coverage</strong> : (number of genes in the network with a given function) / (all genes in the genome with the function)</p></li>
+</ul>
+<div id="in-advanced-options" class="section level4">
+<h4>In advanced options:</h4>
+<ul>
+<li><p><strong>Network weighting?</strong> GeneMANIA can use a few different methods to weight networks when combining all networks to form the final composite network that results from a search. The default settings are usually appropriate, but you can choose a weighting method in the advanced option panel. (more details at <a href="http://pages.genemania.org/help/" class="uri">http://pages.genemania.org/help/</a>).</p></li>
+<li><p><strong>Related genes</strong> : are genes added by GeneMANIA in addition to the genes from the query. It helps to grow the network and then to predict function of the query gene(s).</p></li>
+<li><p><strong>The attributes</strong> represent the differences sources of evidence that can be used to build the network.</p></li>
+</ul>
+<p><strong>Notes</strong> :</p>
+<ul>
+<li><p>prostate cancer gene list is “AKR1C3 AR CYB5A CYP11A1 CYP11B1 CYP11B2 CYP17A1 CYP19A1 CYP21A2 HSD17B1 HSD17B10 HSD17B11 HSD17B12 HSD17B13 HSD17B14 HSD17B2 HSD17B3 HSD17B4 HSD17B6 HSD17B7 HSD17B8 HSD3B1 HSD3B2 HSD3B7 RDH5 SHBG SRD5A1 SRD5A3 STAR”.</p></li>
+<li><p>mixed gene list is AKT1 AKT1S1 AKT2 ATM ATR BRCA1 BRCA2 CHEK1 CHEK2 FANCF FOLR1 FOLR2 FOLR3 FOXO1 FOXO3 MDC1 MLH1 MLST8 MSH2 MTOR PARP1 PDPK1 PIK3CA PIK3R1 PIK3R2 PTEN RAD51 RHEB RICTOR RPTOR SLC19A1 TSC1 TSC2</p></li>
+</ul>
+<div class="rmd-tip">
+<p>
+look at GeneMANIA help pages when you run an analysis on your own after the workshop: <a href="http://pages.genemania.org/help/" class="uri">http://pages.genemania.org/help/</a>.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-5-gene-function-prediction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="genemania-web.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": "https://github.com/risserlin/CBW_Pathways_bookdown/commit/master/5.1-Module5_Cytoscape_lab.Rmd",
+"text": null
+},
+"view": {
+"link": "https://github.com/risserlin/CBW_Pathways_bookdown/blob/master/5.1-Module5_Cytoscape_lab.Rmd",
+"text": null
+},
+"download": ["CBW_Pathways.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

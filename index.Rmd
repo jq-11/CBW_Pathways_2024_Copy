@@ -1,5 +1,7 @@
 --- 
-title: "Pathways" 
+title:  |  
+  ![](images/Bioinfo_Logo.jpg){width=150px align=right}  
+  Pathways 
 subtitle: "CBW workshop"
 author: "Gary Bader, Veronique Voisin, Ruth Isserlin, Lincoln Stein, Robin Haw, Micheal Hoffman, Quaid Morris"
 date: "last modified `r Sys.Date()`"
@@ -10,6 +12,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
+favicon: images/favicon.ico
 description: "Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information. "
 ---
 
@@ -26,17 +29,16 @@ Meet your faculty [here](https://drive.google.com/a/bioinformatics.ca/file/d/1-Y
 | | **Day 1** | | **Day 2** | | **Day 3** |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | | **Monday July, 27** | | **Tuesday, July 28** | | **Wednesday, July 29** |
-| 8:30 | <font color="green">*Registration and Breakfast*</font> | 8:30 | <font color="green">*Breakfast*</font> | 8:30 | <font color="green">*Breakfast*</font> |
-| 9:00 | <font color="purple">Welcome (Michelle Brazas)</font> | | | | |  
-| 9:30 | <font color="purple">Module 1: Introduction to Pathway and Network Analysis (Gary Bader)</font> | 9:00 | <font color="purple">Module 4: More Depth on Network and Pathway Analysis (Robin Haw)</font> | 9:00 | <font color="purple">Module 6: Regulatory Network Analysis (Michael Hoffman)</font> |
-| 11:00 | <font color="green">*Coffee Break*</font> | 10:00 | <font color="green">*Coffee Break*</font> | 10:30 | <font color="green">*Coffee Break*</font> |
-| 11:30 | <font color="purple">Module 2: Finding Over-Represented Pathways (Veronique Voisin)</font> | 10:30 | <font color="blue">Module 4 Lab (Robin)</font> | 11:00 |  <font color="blue">Module 6 Lab (Veronique)</font> |
-| 12:30 | <font color="green">*Lunch*</font> | 12:30 | <font color="green">*Lunch*</font> | 12:30 | **Survey and Closing Remarks** |
-| 1:30 | <font color="blue">Module 2 Lab (Veronique Voisin)</font> | 1:30 | <font color="purple">Module 5: Gene Function Prediction (Quaid Morris)</font> | 1:00 |  **Integrated Assignment** |
-| 3:00 | <font color="green">*Coffee Break*</font> | 3:00 | <font color="green">*Coffee Break*</font> | | |
-| 3:30 | <font color="purple">Module 3: Network Visualization and Analysis with Cytoscape (Gary Bader)</font> | 3:30 | <font color="blue">Module 5 Lab (Veronique Voisin)</font> |
-| 4:15 | <font color="blue">Module 3 Lab (Veronique Voisin)</font> | | | | |
-| 5:00 | <font color="green">*Dinner*</font> | 5:00 | <font color="green">*Dinner*</font> | | |
+| 10:00 | <font color="purple">Welcome</font> | 10:00 | <font color="purple">Module 4: More Depth on Network and Pathway Analysis (Robin Haw)</font> | 10:00 | <font color="blue">Review of the tools in an integrated workflow. Part1 (Veronique Voisin/Ruth Isserlin)</font> |
+| 10:30 | <font color="purple">Short Introduction to the Pathway and Network workshop (Gary Bader)</font> | | | | | 
+| 11:00 | <font color="green">*Coffee Break*</font> | 11:00 | <font color="green">*Coffee Break*</font> | 11:00 | <font color="green">*Coffee Break*</font> |
+| 11:30 | <font color="purple">Module 2: Finding Over-Represented Pathways (Veronique Voisin)</font> | 11:30 | <font color="blue">Module 4 Lab (Robin)</font> | 11:30 |  <font color="blue">Review of the tools in an integrated workflow. Part2 (Veronique Voisin/Ruth Isserlin)</font> |
+| 1:30 | <font color="green">*Lunch*</font> | 1:30 | <font color="green">*Lunch*</font> | 1:30 | **Survey and Closing Remarks** |
+| 2:30 | <font color="purple">Module 3: Network Visualtization and Analysis with Cytoscape (Ruth Isserlin)</font> | 2:00 | <font color="purple">Module 5: Regulatory Network Analysis(Michael Hoffman)</font> |  |  |
+| |  | 3:00 | <font color="blue">Module 5 lab(Veronique Voisin)</font> |  |  |
+| 3:30 | <font color="green">*Coffee Break*</font> | 4:00 | <font color="green">*Coffee Break*</font> | | |
+| 4:00 | <font color="blue">Module 3 lab (Ruth Isserlin)</font> | 4:30 | <font color="purple">Module 6 Gene Function Prediction (Veronique Voisin) + Genemania lab</font> |
+| 6:00 | <font color="green">*End of Day*</font> | 5:00 | <font color="green">*End of Day*</font> | | |
 
 ## Pre-Workshop Materials and Laptop Setup Instructions {#pre-workshop}
 
@@ -96,7 +98,7 @@ This requires time and a good network connection to download completely, so be p
  * Register  
  * Login  
  
-**option 1 recommended:**
+**Option 1 recommended:**
  
  * In menu, in the javaGSEA Desktop Application section, changed *Launch with" to *4GBG (for 64 bit Java only)*  
  * Click on the *Launch* button. This is downloading a gsea icon. Save it on your computer. Double click on this icon to 
@@ -105,7 +107,7 @@ This requires time and a good network connection to download completely, so be p
   * Note 1: please try to lauch GSEA before the workshop (open).
   * Note 2: Most common issue with GSEA during the workshop is out of memory error because GSEA was launched with 1GB instead of 4 GB. Please make sure that you have downloaded the 4GB start icon as descrived above.
  
-** option 2 in case option 1 does not work on your computer:**
+**Option 2 in case option 1 does not work on your computer:**
  
  * In menu, choose Downloads 
  * Go to the javaGSEA Java Jar file section and download the gsea-3.0.jar file and save in your Documents folder (do not leave it in the “Downloads”folder).  

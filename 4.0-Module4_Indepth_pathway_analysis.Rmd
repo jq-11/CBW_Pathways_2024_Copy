@@ -1,0 +1,10 @@
+#  Module 4: More Depth on Network and Pathway Analysis 
+
+  *<font color="#827e9c">Robin Haw</font>*
+  
+  [Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/1dSZdXv6p30DqoZIFYgX53o2e84fgKamv/view?usp=sharing)   
+  
+  [Lab Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/1afXymoPtuLo8R1UyOSrHf2MlcdZ9pDO2/view?usp=sharing)
+  
+  [Lab practical](#reactome_lab)
+
