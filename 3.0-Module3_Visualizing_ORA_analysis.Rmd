@@ -1,0 +1,15 @@
+# Module 3: Network Visualization and Analysis with Cytoscape
+
+ *<font color="#827e9c">Ruth Isserlin</font>*
+ 
+ [Lecture part 1](https://drive.google.com/a/bioinformatics.ca/file/d/15yfdApta64_hJw_h0QfRnsn7a_PnLYIh/view?usp=sharing)  
+    
+ [Lecture part 2](https://drive.google.com/a/bioinformatics.ca/file/d/1Eems2200ETVzvD-eOymoP2HgUameinCF/view?usp=sharing) 
+ 
+ ## Module 3 Lab
+ 
+ *<font color="#827e9c">Veronique Voisin</font>*  
+ 
+[Lab practical part 1 (g:Profiler)](#gprofiler_mod3)   
+
+[Lab practical part 2 (GSEA)](#gseq_mod3)  
