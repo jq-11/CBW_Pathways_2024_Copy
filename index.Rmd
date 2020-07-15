@@ -13,14 +13,13 @@ github-repo: rstudio/bookdown-demo
 description: "Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information. "
 
 ---
+# Welcome <a id="welcome"></a>
 
 ```{r eval=FALSE}
 install.packages("bookdown")
 # or the development version
 # devtools::install_github("rstudio/bookdown")
 ```
-
-# Welcome <a id="welcome"></a>
 
 Welcome to Pathways and Network Analysis of -Omics Data 2020. 
 
@@ -32,7 +31,7 @@ Meet your faculty [here](https://drive.google.com/a/bioinformatics.ca/file/d/1-Y
 
 | | **Day 1** | | **Day 2** | | **Day 3** |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| | **Wednesday, June 26** | | **Thursday, June 27** | | **Friday, June 28** |
+| | **Monday July, 27** | | **Tuesday, July 28** | | **Wednesday, July 29** |
 | 8:30 | <font color="green">*Registration and Breakfast*</font> | 8:30 | <font color="green">*Breakfast*</font> | 8:30 | <font color="green">*Breakfast*</font> |
 | 9:00 | <font color="purple">Welcome (Michelle Brazas)</font> | | | | |  
 | 9:30 | <font color="purple">Module 1: Introduction to Pathway and Network Analysis (Gary Bader)</font> | 9:00 | <font color="purple">Module 4: More Depth on Network and Pathway Analysis (Robin Haw)</font> | 9:00 | <font color="purple">Module 6: Regulatory Network Analysis (Michael Hoffman)</font> |
@@ -202,3 +201,5 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+Icons are from the [“Very Basic. Android L Lollipop” set by Ivan Boyko](https://www.iconfinder.com/iconsets/very-basic-android-l-lollipop) licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). 

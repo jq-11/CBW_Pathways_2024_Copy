@@ -1,4 +1,4 @@
-# Over-Representation Analysis (ORA) Practical Lab: GSEA {#gsea-lab}
+# Module 2 lab - GSEA {#gsea-lab}
 
 by Veronique Voisin
 

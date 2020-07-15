@@ -115,7 +115,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><a href="module-1-introduction-to-pathway-and-network-analysis-gary-bader.html"><i class="fa fa-check"></i><b>2</b> Module 1 - Introduction to Pathway and Network Analysis (Gary Bader)</a></li>
 <li class="chapter" data-level="3" data-path="module-2-finding-over-represented-pathways-veronique-voisin.html"><a href="module-2-finding-over-represented-pathways-veronique-voisin.html"><i class="fa fa-check"></i><b>3</b> Module 2: Finding Over-represented Pathways (Veronique Voisin)</a></li>
-<li class="chapter" data-level="4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html"><i class="fa fa-check"></i><b>4</b> Module 2 lab - Over-representation analysis (ORA) practical lab: g:Profiler</a><ul>
+<li class="chapter" data-level="4" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html"><i class="fa fa-check"></i><b>4</b> Module 2 lab - g:Profiler</a><ul>
 <li class="chapter" data-level="4.1" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.2" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#goal-of-the-exercise-1"><i class="fa fa-check"></i><b>4.2</b> Goal of the exercise 1</a></li>
 <li class="chapter" data-level="4.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
@@ -136,7 +136,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6.3" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-3"><i class="fa fa-check"></i><b>4.6.3</b> <strong>Option 3</strong> :</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="gsea-lab.html"><a href="gsea-lab.html"><i class="fa fa-check"></i><b>5</b> Over-Representation Analysis (ORA) Practical Lab: GSEA</a><ul>
+<li class="chapter" data-level="5" data-path="gsea-lab.html"><a href="gsea-lab.html"><i class="fa fa-check"></i><b>5</b> Module 2 lab - GSEA</a><ul>
 <li class="chapter" data-level="5.1" data-path="gsea-lab.html"><a href="gsea-lab.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
 <li class="chapter" data-level="5.2" data-path="gsea-lab.html"><a href="gsea-lab.html#goal-of-the-exercise"><i class="fa fa-check"></i><b>5.2</b> Goal of the exercise</a></li>
 <li class="chapter" data-level="5.3" data-path="gsea-lab.html"><a href="gsea-lab.html#data-1"><i class="fa fa-check"></i><b>5.3</b> Data</a></li>
@@ -178,6 +178,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="welcome" class="section level1">
 <h1><span class="header-section-number">1</span> Welcome <a id="welcome"></a></h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)
+<span class="co"># or the development version</span>
+<span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></code></pre></div>
 <p>Welcome to Pathways and Network Analysis of -Omics Data 2020.</p>
 <p>Meet your faculty <a href="https://drive.google.com/a/bioinformatics.ca/file/d/1-YV2KzEDyaU6opdlXt9Ir6VQSmCCv1DZ/view?usp=sharing">here</a>.</p>
 <p><strong>CLASS MATERIALS:</strong> You can download the printed course manual <a href="https://drive.google.com/a/bioinformatics.ca/file/d/1HcPuiYUJe69w3_0aNpAfhk7DipcacA6r/view?usp=sharing">here</a>.</p>
@@ -205,11 +208,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tbody>
 <tr class="odd">
 <td align="center"></td>
-<td align="center"><strong>Wednesday, June 26</strong></td>
+<td align="center"><strong>Monday July, 27</strong></td>
 <td align="center"></td>
-<td align="center"><strong>Thursday, June 27</strong></td>
+<td align="center"><strong>Tuesday, July 28</strong></td>
 <td align="center"></td>
-<td align="center"><strong>Friday, June 28</strong></td>
+<td align="center"><strong>Wednesday, July 29</strong></td>
 </tr>
 <tr class="even">
 <td align="center">8:30</td>
@@ -435,6 +438,7 @@ java -Xmx4G -jar gsea-3.0.jar</code></pre>
 <hr />
 <p>Thank you for attending the Pathway and Network Analysis of Omics Data workshop! Help us make this workshop better by filling out <a href="https://forms.gle/D8w8qyJ1r71rFnZe9">our survey</a>.</p>
 <hr />
+<p>Icons are from the <a href="https://www.iconfinder.com/iconsets/very-basic-android-l-lollipop">“Very Basic. Android L Lollipop” set by Ivan Boyko</a> licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
 
 </div>
 </div>
@@ -476,18 +480,18 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
-"link": null,
+"link": "https://github.com/risserlin/CBW_Pathways_bookdown/commit/master/index.Rmd",
 "text": null
 },
 "view": {
-"link": null,
+"link": "https://github.com/risserlin/CBW_Pathways_bookdown/blob/master/index.Rmd",
 "text": null
 },
-"download": ["CBW_Pathways.pdf", "CBW_Pathways.epub"],
+"download": ["CBW_Pathways.epub"],
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true

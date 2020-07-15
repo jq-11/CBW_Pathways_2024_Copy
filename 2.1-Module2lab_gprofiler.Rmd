@@ -1,8 +1,10 @@
-# Module 2 lab - Over-representation analysis (ORA) practical lab: g:Profiler {#gprofiler-lab}
+# Module 2 lab - g:Profiler {#gprofiler-lab}
 
 **This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
  
 ## Introduction
+
+Performing Over-representation analysis (ORA) with g:Profiler.
 
 The practical lab contains 2 exercises. The first exercises uses [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) to perform gene-set enrichment analysis and the second exercises uses [enrichr](https://amp.pharm.mssm.edu/Enrichr/). 
 
