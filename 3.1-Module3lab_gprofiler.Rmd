@@ -13,7 +13,7 @@ During this exercise, you will learn how to create an enrichment map from gene-s
 
 ## Data
 <!---Absolute path - should be relative but github.io not configured correctly--->
-The data used in this exercise is a list of frequently mutated genes that we used in [previous exercise](https://bioinformaticsdotca.github.io/Pathways_2019_Module2_Lab-GProfiler#data). 
+The data used in this exercise is a list of frequently mutated genes that we used in [previous exercise](#gprofiler-lab). 
 Pathway enrichment analysis has been run using g:Profiler and the results have been downloaded as a GEM format.
 
 
@@ -42,23 +42,28 @@ The goal of this exercise is to learn how to:
 
 To start the lab practical section, first create a gprofiler_files directoty on your computer and download the files below.
 
-Five files are needed for this exercise (please download these files to your computer.  Right click on the file name and save the file to a new directory):
+```{block, type="rmd-datadownload"}
+Right click on link below and select "Save Link As...".<br>
+Place it in the corresponding module directory of your CBW work directory.
+```
+
+Five files are needed for this exercise:
 
 <!--- The data files need to a direct link to the raw format of the file in order for users to be able to download them.  This is an issue when subsequent workshops are created from a previous version by copying the direcotries over.  Ideally all the re-useable data file should be separate in the repository under a data directory so that these links do not need to updated from year to year.--->
 
-1. Enrichment result 1: [gProfiler_hsapiens_GEM1.txt](https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module3/newgprofilerEM/data/gProfiler_hsapiens_GEM1.txt) 
+1. Enrichment result 1: [gProfiler_hsapiens_GEM1.txt](./Module3/gprofiler/data/gProfiler_hsapiens_GEM1.txt) 
 In g:Profiler, the parameters that we used were: GO_BP no electronic annotation, Reactome, Benjamini-HochBerg FDR 0.05. 
 
-1. Enrichment result 2: [gProfiler_hsapiens_gs250.gem.txt](https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module3/newgprofilerEM/data/gProfiler_hsapiens_gs250.gem.txt) 
+1. Enrichment result 2: [gProfiler_hsapiens_gs250.gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_gs250.gem.txt) 
 
 In g:Profiler, the parameters that we used were: GO_BP no electronic annotation, Reactome, Benjamini-HochBerg FDR 0.05. The results were filtered using the g:Profiler Term size slidebar and **only the enriched gene-sets that contain equal or less than 250 genes per gene-set** were included in the result file (gProfiler_hsapiens_gs250.gem.txt).
 
-1. Enrichment result 3: [gProfiler_hsapiens_Baderlab_max250_gem.txt](https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module3/newgprofilerEM/data/gProfiler_hsapiens_Baderlab_max250_gem.txt)
+1. Enrichment result 3: [gProfiler_hsapiens_Baderlab_max250_gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250_gem.txt)
 
-1. Pathway database 1 (.gmt):[hsapiens_GO_REAC.gmt](https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module3/newgprofilerEM/data/hsapiens_GO_REAC.gmt)
+1. Pathway database 1 (.gmt):[hsapiens_GO_REAC.gmt](./Module3/gprofiler/data/hsapiens_GO_REAC.gmt)
 This file has been created by concatenating the hsapiens.GO/BP.name.gm and the hsapiens.REAC.name.gmt files contained in the g:Profiler gprofiler_hsapiens.name folder. 
 
-1. Pathway database 2 (.gmt):[Human_GOBP_AllPathways_no_GO_iea_June_20_2019_symbol_max250gssize.gmt](https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module3/newgprofilerEM/data/Human_GOBP_AllPathways_no_GO_iea_June_20_2019_symbol_max250gssize.gmt)
+1. Pathway database 2 (.gmt):[Human_GOBP_AllPathways_no_GO_iea_June_20_2019_symbol_max250gssize.gmt](./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_June_20_2019_symbol_max250gssize.gmt)
 
 ## Exercise 1a 
 
@@ -211,7 +216,7 @@ Loading a gmt file to create an enrichment map from g:Profiler result is optiona
  Create an enrichment map from the results of g:Profiler generated using the custom Baderlab gene-set file. 
  To get a map that is easy to read and that does not display too many gene-sets, one option is to focus the analysis on gene-sets (pathways) that contain 250 genes or less. We prefiltered our pathway database prior to upload it into g:Profiler so that FDR is calculated only on these gene-sets ( as opposed to exercise 1a where the FDR was calculated on all gene-sets and then some gene-sets > 250 genes were excluded from the result file ).
  
-  * filtered gmt file: ([Human_GOBP_AllPathways_no_GO_iea_June_24_2019_symbol_max250gssize.gmt](https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module3/newgprofilerEM/data/Human_GOBP_AllPathways_no_GO_iea_June_24_2019_symbol_max250gssize.gmt)). 
+  * filtered gmt file: ([Human_GOBP_AllPathways_no_GO_iea_June_24_2019_symbol_max250gssize.gmt](./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_June_24_2019_symbol_max250gssize.gmt)). 
   
   * We have uploaded this file as a custom gmt file in g:Profiler and run the query. 
   

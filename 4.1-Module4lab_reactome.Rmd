@@ -17,7 +17,7 @@ Analyze gene lists and somatic mutation data to identify biology that contribute
   c. Click on “Signaling by EGFR” or your favourite pathway.   
   d. Right-click on highlighted pathway name to display drop-down menu, select “Show Diagram” to display Signaling by EGFR pathway.  
   e. Right-click on highlighted pathway name to display drop-down menu, select “Analyze Pathway Enrichment”   
-  f. Upload/Browse [GBM_genelist.txt](https://raw.githubusercontent.com/bioinformaticsdotca/HT-Biology_2017/master/GBM_genelist.txt) into Reactome Pathway Enrichment Analysis, and click “OK”.   
+  f. Upload/Browse [GBM_genelist.txt](./Module4/Reactome/data/GBM_genelist.txt) into Reactome Pathway Enrichment Analysis, and click “OK”.   
 
 1.	What are the most significant biological pathways when the FDR Filter is set to 0.05?
 Hint: Right-click on selected pathway in Table Panel, and click “View in Diagram”. Purple-coloured nodes reflect hits in the dataset. Right-click on highlighted nodes to invoke additional features.
@@ -27,7 +27,7 @@ Hint: Right-click on selected pathway in Table Panel, and click “View in Diagr
 1. Open up Cytoscape.   
   a.	Go to Apps>Reactome FI and Select “Gene Set/Mutational Analysis”.    
   b.	Choose “2018 (Latest)” Version.   
-  c.	Upload/Browse [GBM_genesample.txt](https://raw.githubusercontent.com/bioinformaticsdotca/HT-Biology_2017/master/GBM_genesample.txt) file.   
+  c.	Upload/Browse [GBM_genesample.txt](./Module4/Reactome/data/GBM_genesample.txt) file.   
   d.	Select “Gene/sample number pair” and Choose sample cutoff value of 4.   
   e.	Select “Fetch FI annotations”.   
   f.	Click OK.  
@@ -46,7 +46,7 @@ Hint: Right-click on selected pathway in Table Panel, and click “View in Diagr
 1.	Open up Cytoscape.   
   a.	Go to Apps>Reactome FI and Select “Gene Set/Mutational Analysis”.    
   b.	Choose “2018 (Latest)” Version.   
-  c.	Upload/Browse [OVCA_TCGA_MAF.txt](https://raw.githubusercontent.com/bioinformatics-ca/bioinformatics-ca.github.io/master/2016_workshops/cancer/OVCA_TCGA_MAF.txt) file.   
+  c.	Upload/Browse [OVCA_TCGA_MAF.txt](./Module4/Reactome/data/OVCA_TCGA_MAF.txt) file.   
   d.	Select “NCI MAF” (Mutation Annotation File) and Choose sample cutoff value of 4.   
   e.	Do not select “Fetch FI annotations”.   
   f.	Click OK.  
@@ -66,7 +66,7 @@ a.	Hint: Load Cancer Gene Index>Neoplasm>Neoplasm_by_Site>Breast Neoplasm>……
 10.	What are the targets of Docetaxel?
   a.	Hint: Overlay Cancer Drugs>Fetch Cancer Drugs. Maybe apply filters? 
 11.	How many modules are statistically significant in the CoxPH analysis?   
-  a.	Hint: Analyze Module Functions>Survival Analysis>Upload/Browse [OVCA_TCGA_Clinical.txt](https://raw.githubusercontent.com/bioinformatics-ca/bioinformatics-ca.github.io/master/2016_workshops/cancer/OVCA_TCGA_Clinical.txt). Click OK.  
+  a.	Hint: Analyze Module Functions>Survival Analysis>Upload/Browse [OVCA_TCGA_Clinical.txt](./Module4/Reactome/data/OVCA_TCGA_Clinical.txt). Click OK.  
 12.	What does the Kaplan-Meyer plot show for the most clinically significant modules?  
   a.	Hint: Click the most statistically significant module link [blue line] from the CoxPH results panel. Click OK. Click #_plot.pdf to display Kaplan-Meyer plot. Repeat this for the other significant module links. KM plot: samples having genes mutated in a module (green line), and samples having no genes mutated in the module (red line).    
 13. Taking into consideration what you have about module 7, what is your hypothesis?

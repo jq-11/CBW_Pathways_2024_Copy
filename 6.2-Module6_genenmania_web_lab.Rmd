@@ -1,4 +1,4 @@
-# Module 5 Lab: GeneMANIA (web version) {#genemania_web}
+# Module 6 Lab: GeneMANIA (web version) {#genemania_web}
 
 **This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
 
@@ -12,11 +12,16 @@ This practical consists of 3 exercises. You can choose to do these exercises usi
 
 Before starting the exercises,download the files:
 
-*	[30_prostate_cancer_genes.txt](https://raw.githubusercontent.com/bioinformaticsdotca/HT-Biology_2017/master/Pathways/module5_lab/30_prostate_cancer_genes.txt)
+```{block, type="rmd-datadownload"}
+Right click on link below and select "Save Link As...".<br>
+Place the file in your CBW work directory in the corresponding module directory.
+```
 
-*	[Mixed_gene_list.txt](https://raw.githubusercontent.com/bioinformaticsdotca/HT-Biology_2017/master/Pathways/module5_lab/mixed_gene_list.txt)
+*	[30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt)
 
-*	[CYP11B_pearson_correlation_prostate.txt](https://raw.githubusercontent.com/bioinformaticsdotca/HT-Biology_2017/master/Pathways/module5_lab/CYB11B_pearson_correlation_prostate.txt)
+*	[Mixed_gene_list.txt](./Module6/genemania/data/mixed_gene_list.txt)
+
+*	[CYP11B_pearson_correlation_prostate.txt](./Module6/genemania/data/CYB11B_pearson_correlation_prostate.txt)
 
 Optional exercise: try to redo these exercises using the Cytoscape GeneMANIA application.
 
@@ -34,43 +39,43 @@ Network layouts are flexible and can be rearranged. What you see when you perfor
 
 1. Go to GeneMANIA’s homepage at <http://www.genemania.org/>  
 
-2. In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module5/genemania/images/Up.png).  
+2. In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module6/genemania/images/Up.png).  
 
 3. Enter the following gene: GRN	
 
-4. Click on the search icon ![search](./Module5/genemania/images/Search.png) and wait for the results.	
+4. Click on the search icon ![search](./Module6/genemania/images/Search.png) and wait for the results.	
 
-5. When your search results load, examine the network. Genes you searched with are indicated with stripes, related genes added by GeneMANIA are represented in black, and colored links represent the interactions that connect the nodes (genes). **Tip**: zoom in and zoom out using trackpad or mouse scrolling up and down using the mouse or trackpad or zoom in to the maximum using the specific icon ![arrow](./Module5/genemania/images/arrow.png).
+5. When your search results load, examine the network. Genes you searched with are indicated with stripes, related genes added by GeneMANIA are represented in black, and colored links represent the interactions that connect the nodes (genes). **Tip**: zoom in and zoom out using trackpad or mouse scrolling up and down using the mouse or trackpad or zoom in to the maximum using the specific icon ![arrow](./Module6/genemania/images/arrow.png).
  	
 6. Clicking on a node gives information about the name of gene, the possibility to add, remove this gene or search with this gene only. Click on the GRN node and explore the displayed information. 	
 
-7. Locate the Functions summary tab (bottom left icon ![circle](./Module5/genemania/images/circle.png)). What are the functions significantly associated with  this network?  GRN is the central node of this network: which function would you predict for GRN? How well did GeneMANIA perform (hints: use GeneCards (<http://www.genecards.org/>) , PubMed (<http://www.ncbi.nlm.nih.gov/pubmed/>))?	
+7. Locate the Functions summary tab (bottom left icon ![circle](./Module6/genemania/images/circle.png)). What are the functions significantly associated with  this network?  GRN is the central node of this network: which function would you predict for GRN? How well did GeneMANIA perform (hints: use GeneCards (<http://www.genecards.org/>) , PubMed (<http://www.ncbi.nlm.nih.gov/pubmed/>))?	
 
 8. Locate the gene with the strongest association with GRN. **Tip**: this gene is the largest node on the network. 	
 
-9. Re-run an analysis by adding SORT1, HSPG2 to the search. Click on SORT1, click on Add  ![add](./Module5/genemania/images/add.png) or type the name of the gene in the search box. Do the same for HSPG2.  The genes are now added to the search box and a new network is automatically created.  Which functions are associated with this new network ![circle](./Module5/genemania/images/circle.png)? 	 
+9. Re-run an analysis by adding SORT1, HSPG2 to the search. Click on SORT1, click on Add  ![add](./Module6/genemania/images/add.png) or type the name of the gene in the search box. Do the same for HSPG2.  The genes are now added to the search box and a new network is automatically created.  Which functions are associated with this new network ![circle](./Module6/genemania/images/circle.png)? 	 
 
-10. On the left side of the window are located icons that we haven’t yet explored. The first 3 buttons are activating different network layouts. Try the circular ![circular](./Module5/genemania/images/circledot.png), the aligned ![aligned](./Module5/genemania/images/twodown.png), and the force_directed ![force](./Module5/genemania/images/crossing.png) layouts.  	
+10. On the left side of the window are located icons that we haven’t yet explored. The first 3 buttons are activating different network layouts. Try the circular ![circular](./Module6/genemania/images/circledot.png), the aligned ![aligned](./Module6/genemania/images/twodown.png), and the force_directed ![force](./Module6/genemania/images/crossing.png) layouts.  	
 
-11. Choose your favorite layout and save the  network as an image  using the *Network image As Shown* option from the *save*  menu ![save](./Module5/genemania/images/save.png).  	
+11. Choose your favorite layout and save the  network as an image  using the *Network image As Shown* option from the *save*  menu ![save](./Module6/genemania/images/save.png).  	
 
 ## EXERCISE 1 ANSWERS: DETAILED EXPLANATION AND SCREENSHOTS
 
 ### EXERCISE 1 - STEPS 1-4
 
-![GM1](./Module5/genemania/images/GM1.png) 
+![GM1](./Module6/genemania/images/GM1.png) 
 
 ### EXERCISE 1 - STEP 5
 
-![GM2](./Module5/genemania/images/GM2.png) 
+![GM2](./Module6/genemania/images/GM2.png) 
  
 ### EXERCISE 1 - STEP 6
 
-![GM3](./Module5/genemania/images/GM3.png)  
+![GM3](./Module6/genemania/images/GM3.png)  
 
 ### Exercise 1 - STEP 7
 
-![GM4](./Module5/genemania/images/GM4.png)  
+![GM4](./Module6/genemania/images/GM4.png)  
 
 **Question** What are the functions significantly associated with this network?
 **Answer** the list of the functions associated with the network are listed in the above screenshot. "lysosomal function", "vacuolar lumen", "vacuolar part" are significant under a FDR threshold less than 0.0001. 
@@ -90,27 +95,27 @@ The top functions predicted by GeneMANIA for GRN were related to lysosome and va
 
 ### Exercise 1 - STEP 9
 	 
-![GM5](./Module5/genemania/images/GM5.png)
+![GM5](./Module6/genemania/images/GM5.png)
 
-![GM6](./Module5/genemania/images/GM6.png)   
+![GM6](./Module6/genemania/images/GM6.png)   
 
 ### Exercise 1 - STEP 10 (layouts)
 
 #### Circular layout
 
-![GM7](./Module5/genemania/images/GM7.png) 
+![GM7](./Module6/genemania/images/GM7.png) 
  
 #### Aligned layout
  
-![GM8](./Module5/genemania/images/GM8.png) 
+![GM8](./Module6/genemania/images/GM8.png) 
  
 #### Force directed layout
  
-![GM9](./Module5/genemania/images/GM9.png) 
+![GM9](./Module6/genemania/images/GM9.png) 
 
 ### Exercise 1 - STEP 11 (save an image) 	
 
-![GM10](./Module5/genemania/images/GM10.png)  
+![GM10](./Module6/genemania/images/GM10.png)  
 
 
 **Notes** about biological interpretation of the results: 
@@ -120,13 +125,13 @@ The top functions predicted by GeneMANIA for GRN were related to lysosome and va
 Targeted manipulation of the sortilin–progranulin axis rescues progranulin haploinsufficiency. Lee et al. Hum Mol Genet. 2014 March 15; 23(6): 1467–1478. Published online 2013 October 26. doi: 10.1093/hmg/ddt534. PMCID:PMC3929086
 “Progranulin (GRN) mutations causing haploinsufficiency are a major cause of frontotemporal lobar degeneration (FTLD-TDP). Recent discoveries demonstrating sortilin (SORT1) is a neuronal receptor for PGRN endocytosis and a determinant of plasma PGRN levels portend the development of enhancers targeting the SORT1–PGRN axis. We demonstrate the preclinical efficacy of several approaches through which impairing PGRN's interaction with SORT1 restores extracellular PGRN levels. “
 
-![GM11](./Module5/genemania/images/GM11.png) 
+![GM11](./Module6/genemania/images/GM11.png) 
 
 ---
 
 ## EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW
 
-To start this exercise, you need to download the [30_prostate_cancer_genes.txt](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module5_lab/30_prostate_cancer_genes.txt) file from the course wiki and save it on your computer. 
+To start this exercise, you need to download the [30_prostate_cancer_genes.txt](./Module6/genemania/data/0_prostate_cancer_genes.txt) file from the course wiki and save it on your computer. 
 
 For this exercise, you are working with a list of 30 prostate cancer genes. This list can be downloaded after the workshop from the cBioPortal website (<http://www.cbioportal.org/>) under the download section, user defined list. The cBioPortal for Cancer Genomics stores genomic data from large scale, integrated cancer genomic data sets. During this exercise, you will explore the types of networks that have been used to create the GeneMANIA network from the prostate cancer gene list and you will see how changing input parameters can affect the results. The last step of the exercise consists of uploading a custom network which is a list of genes that are positively correlated with CYP11B1 in mRNA expression data of 94 prostate cancer samples (<http://www.cbioportal.org/>) .
 
@@ -136,11 +141,11 @@ For this exercise, you are working with a list of 30 prostate cancer genes. This
 
 1.	Go to GeneMANIA’s homepage at <http://www.genemania.org/>	
 
-2.	In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module5/genemania/images/Up.png)  .	
+2.	In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module6/genemania/images/Up.png)  .	
 
-3.	Copy and paste genes in the file [30_prostate_cancer_genes.txt](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module5_lab/30_prostate_cancer_genes.txt).  Make sure that the parameter 'Max resultant genes' is set to '20' by clicking on the 3 menu buttons at the right side of the search box and selecting 'Customise advanced options'.	
+3.	Copy and paste genes in the file [30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt).  Make sure that the parameter 'Max resultant genes' is set to '20' by clicking on the 3 menu buttons at the right side of the search box and selecting 'Customise advanced options'.	
 
-4.	Click on the search icon ![search](./Module5/genemania/images/Search.png) and wait for the results.	 
+4.	Click on the search icon ![search](./Module6/genemania/images/Search.png) and wait for the results.	 
 
 5.	When your search results load, examine the network. Genes you searched with are indicated with stripes, related genes added by GeneMANIA are represented in black, and colored links represent the interactions that connect the nodes (genes). Move nodes around by selecting them with a mouse to investigate how they are connected.
 	
@@ -148,21 +153,21 @@ For this exercise, you are working with a list of 30 prostate cancer genes. This
 ```{block, type="rmd-note"}
 Clicking on an edge between 2 nodes will display information about all interaction networks that connect  these 2 nodes. It indicates the reference (publication) for these interactions. The colors indicate the type of interaction (co-expression, shared protein domains, co-localization, physical interactions and predicted). 
 ```	
-7.	Locate and expand the 'Networks' summary tab (on the right ![lines](./Module5/genemania/images/threelines.png)) and look at what data has been used to create the network and predictions. 
+7.	Locate and expand the 'Networks' summary tab (on the right ![lines](./Module6/genemania/images/threelines.png)) and look at what data has been used to create the network and predictions. 
 ```{block, type="rmd-note"}
 that Co-expression (purple colored lines, weight over 30%) and Shared protein domains (lightgold colored  lines, weight over 30%) influence the results the most, but Co-localization (blue colored lines), Physical interactions (salmon colored lines) and Predicted (orange) data are also included. At the top of the Networks summary tab, try Expand “none”, then “top” and “all”  to get information about the sources of the different networks. 
 ```
 8.	Highlight all connections corresponding to each network by clicking the name of each network category. Click on  “Shared protein domains” and see which genes are connected by predicted protein protein interaction. You can do the same for “Co-localization” , “Co-expression”  and “Physical interactions”. **Tips**:  these observations of the number of connections make it easier to understand why co-expression and shared protein domains get the higher percent weight on this network: they are helping to connect more genes than physical interactions and predicted; A higher weight means that this network helped more to find related genes. 	
 
-9.	Locate the Functions summary tab (bottom left ![circle](./Module5/genemania/images/circle.png)) and look at what functions were  significantly enriched in this list of prostate genes.	
+9.	Locate the Functions summary tab (bottom left ![circle](./Module6/genemania/images/circle.png)) and look at what functions were  significantly enriched in this list of prostate genes.	
 
-10.	“Shared protein domains” is an important part of the network. What would be the GeneMANIA results if we don’t include this source when we run GSEA? Click on ‘Show advanced option ![options](./Module5/genemania/images/dotdotdot.png)’ which is located at the right of the search box. Uncheck ‘Shared protein domains’ and click on the search icon ![search](./Module5/genemania/images/Search.png). Explore the results.
+10.	“Shared protein domains” is an important part of the network. What would be the GeneMANIA results if we don’t include this source when we run GSEA? Click on ‘Show advanced option ![options](./Module6/genemania/images/dotdotdot.png)’ which is located at the right of the search box. Uncheck ‘Shared protein domains’ and click on the search icon ![search](./Module6/genemania/images/Search.png). Explore the results.
 	
-11.	Locate the Functions summary tab (bottom left ![circle](./Module5/genemania/images/circle.png)) and look at what functions were  significantly enriched with these new settings.	
+11.	Locate the Functions summary tab (bottom left ![circle](./Module6/genemania/images/circle.png)) and look at what functions were  significantly enriched with these new settings.	
 
-12.	Upload a custom network to GeneMANIA: Go to the menu option at the right of the search box and go to the make sure you see the 'Networks' tab, locate 'Uploaded', expand this option using the down arrow and click on “Upload a network” and browse your computer to locate and select the file [CYP11B_pearson_correlation_prostate.txt](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module5_lab/CYB11B_pearson_correlation_prostate.txt). Wait about a minute for the network to be uploaded.  Click on the search icon to launch the query if necessaryand explore the results and locate the genes linked by the custom network (**tip**: click on “Uploaded” in the Networks tab). 
+12.	Upload a custom network to GeneMANIA: Go to the menu option at the right of the search box and go to the make sure you see the 'Networks' tab, locate 'Uploaded', expand this option using the down arrow and click on “Upload a network” and browse your computer to locate and select the file [CYP11B_pearson_correlation_prostate.txt](./Module6/genemania/data/CYB11B_pearson_correlation_prostate.txt). Wait about a minute for the network to be uploaded.  Click on the search icon to launch the query if necessaryand explore the results and locate the genes linked by the custom network (**tip**: click on “Uploaded” in the Networks tab). 
 	
-13.	Try additional parameters of the ‘Customise advanced options ![options](./Module5/genemania/images/dotdotdot.png)’ tab and look at how the changes you made influenced the results. For example change ‘Network weighting’ method or ‘Max resultant genes: ’.  	
+13.	Try additional parameters of the ‘Customise advanced options ![options](./Module6/genemania/images/dotdotdot.png)’ tab and look at how the changes you made influenced the results. For example change ‘Network weighting’ method or ‘Max resultant genes: ’.  	
 
 
 ## EXERCISE 2 ANSWERS: DETAILED STEPS AND SCREENSHOTS
@@ -170,38 +175,38 @@ that Co-expression (purple colored lines, weight over 30%) and Shared protein do
 ### Exercise 2 - STEPS 1 to 4
 	
 
-![GM12](./Module5/genemania/images/GM12.png)  
+![GM12](./Module6/genemania/images/GM12.png)  
 
 
 ```{block, type="rmd-tip"}
 check that the parameter 'Max resultant genes' is set to '20':
-![GM12](./Module5/genemania/images/GM12_v2.png)  
+![GM12](./Module6/genemania/images/GM12_v2.png)  
 ```
 
 ### Exercise 2 - STEP 5
 	
-![GM13](./Module5/genemania/images/GM13.png) 
+![GM13](./Module6/genemania/images/GM13.png) 
  
 
 ### Exercise 2 - STEP 6.
 
-![GM14](./Module5/genemania/images/GM14.png)  
+![GM14](./Module6/genemania/images/GM14.png)  
 
 
 ### Exercise 2 - STEP 7
 
 	
-![GM15](./Module5/genemania/images/GM15.png) 
+![GM15](./Module6/genemania/images/GM15.png) 
 
-![GM16](./Module5/genemania/images/GM16.png) 
+![GM16](./Module6/genemania/images/GM16.png) 
 
 
 ### Exercise 2 - STEP 8
 
-![GM17](./Module5/genemania/images/GM17.png) 
+![GM17](./Module6/genemania/images/GM17.png) 
 
 
-![GM18](./Module5/genemania/images/GM18.png) 
+![GM18](./Module6/genemania/images/GM18.png) 
  
 
 ### Exercise 2 - STEP 9
@@ -209,7 +214,7 @@ check that the parameter 'Max resultant genes' is set to '20':
 The top pathways with the strongest enrichments are: "cellular hormone metabolic process" with 21 genes in the list overlapping with this pathway.
 The FDR is  equal to 6.75e-36.
 
-![GM19](./Module5/genemania/images/GM19.png) 
+![GM19](./Module6/genemania/images/GM19.png) 
  
 ### Exercise 2 - STEP 10
 
@@ -217,9 +222,9 @@ The FDR is  equal to 6.75e-36.
 **Question** “Shared protein domains” is an important part of the network. What would be the GeneMANIA results if we don’t include this source when we run GSEA? **Answer** If "shared protein domain" is removed, the relationships between the nodes are from the Co-expression, Co-localization, Predicted and Physical interactions networks.The genes added to the network are different compared to the first network created with "Shared protein domain". 
 
 	
-![GM20](./Module5/genemania/images/GM20.png) 
+![GM20](./Module6/genemania/images/GM20.png) 
  
-![GM21](./Module5/genemania/images/GM21.png) 
+![GM21](./Module6/genemania/images/GM21.png) 
 
 
 ### Exercise 2 - STEP 11
@@ -228,16 +233,16 @@ The FDR is  equal to 6.75e-36.
 **Question** what functions were  significantly enriched with these new settings. **Answer** With the new settings, "hormone biosynthetic process" is the new top enriched pathway. 
 	
 
-![GM22](./Module5/genemania/images/GM22.png)  
+![GM22](./Module6/genemania/images/GM22.png)  
 
 ### Exercise 2 - STEP 12
 
 	
-![GM23](./Module5/genemania/images/GM23.png) 
+![GM23](./Module6/genemania/images/GM23.png) 
 
-![GM24](./Module5/genemania/images/GM24.png) 
+![GM24](./Module6/genemania/images/GM24.png) 
 
-![GM25](./Module5/genemania/images/GM25.png) 
+![GM25](./Module6/genemania/images/GM25.png) 
  
 
  
@@ -245,17 +250,17 @@ The FDR is  equal to 6.75e-36.
 ### Exercise 2 - STEP 13. 	
 
 
-![GM26](./Module5/genemania/images/GM26.png) 
+![GM26](./Module6/genemania/images/GM26.png) 
  
 **How to get the 30 prostate cancer gene list**:
 
-![GM27](./Module5/genemania/images/GM27.png)   
+![GM27](./Module6/genemania/images/GM27.png)   
 
 ---
 
 ## EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW
 
-To start this exercise, you need to download the [Mixed_gene_list.txt](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module5_lab/mixed_gene_list.txt) file and save it on your computer. 
+To start this exercise, you need to download the [Mixed_gene_list.txt](./Module6/genemania/data/mixed_gene_list.txt) file and save it on your computer. 
 
 For this exercise, you are working on a gene list created by combining 3 user defined gene lists available from the cBioportal (<http://www.cbioportal.org>). It contains genes implicated in the DNA damage response, the PI3K-AKT-mTOR signaling pathway and Folate transport. This list is representative of a gene list obtained from transcriptomics data. During this exercise, we will first characterize our gene list based on functions and then we  will add potential drug and microRNAs targeting genes in the network, and we will save the report.
 
@@ -266,66 +271,66 @@ For this exercise, you are working on a gene list created by combining 3 user de
 
 1.	Go to GeneMANIA’s homepage at <http://www.genemania.org/>.	
 
-2.	In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module5/genemania/images/Up.png)  .	
+2.	In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module6/genemania/images/Up.png)  .	
 
-3.	Copy and paste genes in the file [Mixed_gene_list.txt](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module5_lab/mixed_gene_list.txt). Click on the search icon ![search](./Module5/genemania/images/Search.png)    and wait for the results.	
+3.	Copy and paste genes in the file [Mixed_gene_list.txt](./Module6/genemania/data/mixed_gene_list.txt). Click on the search icon ![search](./Module6/genemania/images/Search.png)    and wait for the results.	
 
-4.	Locate the Functions summary tab (bottom left ![circle](./Module5/genemania/images/circle.png)) and look at functions returned by GeneMANIA	
+4.	Locate the Functions summary tab (bottom left ![circle](./Module6/genemania/images/circle.png)) and look at functions returned by GeneMANIA	
 
 5.	In the functions summary tab,  check some functions to color genes included in these functions. To follow this tutorial, you can for example color the “response to insulin” , “DNA recombination” and“vitamin transport” functions. **Tip**: You need to scroll down to found DNA recombination and vitamin transport as these pathways have an FDR greater than the one for “response to insulin”. 	
 
-6.	We are going next to add miRs and drug interaction networks. Click on ‘Show advanced option   ![options](./Module5/genemania/images/dotdotdot.png)’ which is located at the right of the search box. In the 'Networks' tab, expand 'Attributes' and check “Drug-interactions-2013” and “miRNA-target-predictions-2013”. Check “Physical interactions” and “Co-expression” . Click on “Customise advanced options”. Set “Max resultant genes” to 20 and “Max resultant attributes” to 40. Click on the search icon ![search](./Module5/genemania/images/Search.png)    and wait for the results. Explore the network. **Tips**: the Drug-interactions and miRNA-target-predictions nodes are displayed in gray. The nodes connected to a drug are genes that are targeted by the drug and nodes connected to a  microRNA (miR) are genes predicted to be targeted by this miR.	
+6.	We are going next to add miRs and drug interaction networks. Click on ‘Show advanced option   ![options](./Module6/genemania/images/dotdotdot.png)’ which is located at the right of the search box. In the 'Networks' tab, expand 'Attributes' and check “Drug-interactions-2013” and “miRNA-target-predictions-2013”. Check “Physical interactions” and “Co-expression” . Click on “Customise advanced options”. Set “Max resultant genes” to 20 and “Max resultant attributes” to 40. Click on the search icon ![search](./Module6/genemania/images/Search.png)    and wait for the results. Explore the network. **Tips**: the Drug-interactions and miRNA-target-predictions nodes are displayed in gray. The nodes connected to a drug are genes that are targeted by the drug and nodes connected to a  microRNA (miR) are genes predicted to be targeted by this miR.	
 
 7.	Locate our favorite gene PDPK1 on the network, select it by moving the mouse cursor to its node and wait there for a second. It will highlight this gene and all its connections. **Tip**: make sure that the black box displaying the details for PDPK1 is closed.	
 
-8.	Generate and save a report of your results by locating the save menu ![save](./Module5/genemania/images/save.png), and selecting “Report”. The PDF report provides a detailed description of your search and results.	
+8.	Generate and save a report of your results by locating the save menu ![save](./Module6/genemania/images/save.png), and selecting “Report”. The PDF report provides a detailed description of your search and results.	
 
-9.	Investigate the “history” function by clicking on the related icon ![redo](./Module5/genemania/images/redo.png) located at the bottom of the window. A panel pops up showing the past networks generated by GeneMANIA. Clicking on one panel will relaunch the search for this network. 	
+9.	Investigate the “history” function by clicking on the related icon ![redo](./Module6/genemania/images/redo.png) located at the bottom of the window. A panel pops up showing the past networks generated by GeneMANIA. Clicking on one panel will relaunch the search for this network. 	
 
 ## Exercise 3: MORE DETAILS AND SCREENSHOTS
 
 ### Exercise 3 - STEPS 1 - 3
 
-![GM28](./Module5/genemania/images/GM28.png) 
+![GM28](./Module6/genemania/images/GM28.png) 
 
-![GM29](./Module5/genemania/images/GM29.png)  
+![GM29](./Module6/genemania/images/GM29.png)  
 
  
 ### Exercise 3 - STEP 4
 
 
-![GM30](./Module5/genemania/images/GM30.png)  
+![GM30](./Module6/genemania/images/GM30.png)  
 
 
 ### Exercise 3 - STEP 5
 
 
-![GM31](./Module5/genemania/images/GM31.png)  
+![GM31](./Module6/genemania/images/GM31.png)  
 
 
 ### Exercise 3 - STEPS 6 
 
-![GM32](./Module5/genemania/images/GM32.png) 
+![GM32](./Module6/genemania/images/GM32.png) 
 
-![GM33](./Module5/genemania/images/GM33.png)  
+![GM33](./Module6/genemania/images/GM33.png)  
 
  
 ### Exercise 3 - STEP 7
 	
 
-![GM34](./Module5/genemania/images/GM34.png)  
+![GM34](./Module6/genemania/images/GM34.png)  
 
 ### Exercise 3 - STEP 8
 
-![GM35](./Module5/genemania/images/GM35.png) 
+![GM35](./Module6/genemania/images/GM35.png) 
 
-![GM36](./Module5/genemania/images/GM36.png)  
+![GM36](./Module6/genemania/images/GM36.png)  
 
  
 ### Exercise 3 - STEP 9
 
 
-![GM37](./Module5/genemania/images/GM37.png)  
+![GM37](./Module6/genemania/images/GM37.png)  
 
 
 

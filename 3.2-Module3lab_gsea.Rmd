@@ -1,4 +1,4 @@
-#Module3: GSEA Visualization {#gsea_mod3}
+#Module 3: GSEA Visualization {#gsea_mod3}
 
 **This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
 
@@ -52,22 +52,27 @@ The output results of GSEA are 2 tables:
 
 To start the lab practical section, first download the files.
 
+```{block, type="rmd-datadownload"}
+Right click on link below and select "Save Link As...".<br>
+Place it in the corresponding module directory of your CBW work directory.
+```
+
 7 Files are needed to create the enrichment map for this exercise (please download these files on your computer):
 
-1.	GMT (file containing all pathways and corresponding genes) - [Human_GOBP_AllPathways_no_GO_iea_December_24_2015_symbol.gmt](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module3_lab/EM_GSEA_data/Human_GOBP_AllPathways_no_GO_iea_December_24_2015_symbol.gmt)
+1.	GMT (file containing all pathways and corresponding genes) - [Human_GOBP_AllPathways_no_GO_iea_December_24_2015_symbol.gmt](./Module3/gsea/data/Human_GOBP_AllPathways_no_GO_iea_December_24_2015_symbol.gmt)
 
-2.	Expression (file containing the RNAseq data for all samples and all genes) - [MesenchymalvsImmunoreactive_rnaseq_expression.txt](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module3_lab/EM_GSEA_data/MesenchymalvsImmunoreactive_rnaseq_expression.txt)
+2.	Expression (file containing the RNAseq data for all samples and all genes) - [MesenchymalvsImmunoreactive_rnaseq_expression.txt](./Module3/gsea/data/MesenchymalvsImmunoreactive_rnaseq_expression.txt)
 
-3.	Enrichments 1 (GSEA results for the “pos” mesenchymal phenotype) - [gsea_report_for_na_pos_1453222854028.xls](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module3_lab/EM_GSEA_data/gsea_report_for_na_pos_1453222854028.xls)
+3.	Enrichments 1 (GSEA results for the “pos” mesenchymal phenotype) - [gsea_report_for_na_pos_1453222854028.xls](./Module3/gsea/data/gsea_report_for_na_pos_1453222854028.xls)
 
-4.	Enrichments 1 (GSEA results for the “neg” immunoreactive phenotype) - [gsea_report_for_na_neg_1453222854028.xls](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module3_lab/EM_GSEA_data/gsea_report_for_na_neg_1453222854028.xls)
+4.	Enrichments 1 (GSEA results for the “neg” immunoreactive phenotype) - [gsea_report_for_na_neg_1453222854028.xls](./Module3/gsea/data/gsea_report_for_na_neg_1453222854028.xls)
 
-5.	Rank file (file that has been used as input to GSEA) - [MesenchymalvsImmunoreactive_edger_ranks.rnk](https://raw.githubusercontent.com/bioinformaticsdotca/CSHL_2019/master/Module15/MesenchymalvsImmunoreactive_edger_ranks2.rnk)
+5.	Rank file (file that has been used as input to GSEA) - [MesenchymalvsImmunoreactive_edger_ranks.rnk](./Module3/gsea/data/MesenchymalvsImmunoreactive_edger_ranks2.rnk)
       
 
-6.	Classes (define which samples are mesenchymal and which samples are immunoreactive) - [MesenchymalvsImmunoreactive_rnaseq_classes.cls](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module3_lab/EM_GSEA_data/MesenchymalvsImmunoreactive_rnaseq_classes.cls)
+6.	Classes (define which samples are mesenchymal and which samples are immunoreactive) - [MesenchymalvsImmunoreactive_rnaseq_classes.cls](./Module3/gsea/data/MesenchymalvsImmunoreactive_rnaseq_classes.cls)
 
-7.	Drug target database (preselection of 4 drugs and their target genes u sed in the poast -analysis exercise, <http://www.drugbank.ca/>) - [Human_DrugBank_approved_symbol_selected.gmt](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/raw/master/2016_workshops/pathways/module3_lab/EM_GSEA_data/Human_DrugBank_approved_symbol_selected.gmt)
+7.	Drug target database (preselection of 4 drugs and their target genes u sed in the poast -analysis exercise, <http://www.drugbank.ca/>) - [Human_DrugBank_approved_symbol_selected.gmt](./Module3/gsea/data/Human_DrugBank_approved_symbol_selected.gmt)
 
 
 Follow the steps described below at your own pace:

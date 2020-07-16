@@ -39,7 +39,7 @@ pre code {
 .rmd-caution:before {
   color: #ff6347;
   font-size: 24px;
-  content: "Caution";
+  content: "";
 }
 
 .rmd-original-history {
@@ -108,4 +108,17 @@ pre code {
   color: #fcf403;
   font-size: 24px;
   content: "";
+}
+
+.rmd-datadownload {
+  padding: 0em 0em 0em 3em;
+  margin-bottom: 2px;
+  background:  /*#FFFF00*/  url("images/iconfinder_downloads_309074.png") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color:#169c40;
+}
+.datadownload:before {
+  color: #169c40;
+  font-size: 24px;
+  content: "Download Instructions";
 }

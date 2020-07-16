@@ -1,4 +1,4 @@
-# Module 5: Gene Function Prediction  
+# Module 6: Gene Function Prediction  
 
   *<font color="#827e9c">Quaid Morris</font>*
   

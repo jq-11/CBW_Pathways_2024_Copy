@@ -1,4 +1,4 @@
-#  Module 4: More Depth on Network and Pathway Analysis 
+#  Module 4: In-depth Analysis of Networks and Pathways  
 
   *<font color="#827e9c">Robin Haw</font>*
   
