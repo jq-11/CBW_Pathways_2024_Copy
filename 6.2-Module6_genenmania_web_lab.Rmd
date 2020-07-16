@@ -13,7 +13,8 @@ This practical consists of 3 exercises. You can choose to do these exercises usi
 Before starting the exercises,download the files:
 
 ```{block, type="rmd-datadownload"}
-Right click on link below and select "Save Link As...".<br>
+Right click on link below and select "Save Link As...".
+
 Place the file in your CBW work directory in the corresponding module directory.
 ```
 

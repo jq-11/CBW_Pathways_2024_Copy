@@ -133,21 +133,21 @@ Go to : https://github.com/cytoscape/cytoscape-tutorials/wiki and follow :
 
 ### Additional tutorials <a id="additionaltutorials"></a>
 
-  * ***iRegulon: from a gene list to a gene regulatory network using large motif and track collections***<BR>Janky R, Verfaillie A, Imrichová H, Van de Sande B, Standaert L, Christiaens V, Hulselmans G, Herten K, Naval Sanchez M, Potier D, Svetlichnyy D, Kalender Atak Z, Fiers M, Marine JC, Aerts S<BR>[PLoS Comput Biol. 2014 Jul 24;10(7)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003731) 
+  * ***iRegulon: from a gene list to a gene regulatory network using large motif and track collections***Janky R, Verfaillie A, Imrichová H, Van de Sande B, Standaert L, Christiaens V, Hulselmans G, Herten K, Naval Sanchez M, Potier D, Svetlichnyy D, Kalender Atak Z, Fiers M, Marine JC, Aerts S [PLoS Comput Biol. 2014 Jul 24;10(7)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003731) 
 
   * ***The GeneMANIA prediction server: biological network integration for gene prioritization and predicting gene function*** Warde-Farley D, Donaldson SL, Comes O, Zuberi K, Badrawi R, Chao P, Franz M, Grouios C, Kazi F, Lopes CT, Maitland A, Mostafavi S, Montojo J, Shao Q, Wright G, Bader GD, Morris Q [Nucleic Acids Res 2010 Jul 1;38 Suppl:W214-20](https://academic.oup.com/nar/article/38/suppl_2/W214/1126704) - [Available here as well](http://baderlab.org/Publications#GeneMANIA_original)
   
-  * ***GeneMANIA update 2018***<BR>Franz M, Rodriguez H, Lopes C, Zuberi K, Montojo J, Bader GD, Morris Q [Nucleic Acids Res. 2018 Jun 15](https://academic.oup.com/nar/article/46/W1/W60/5038280) - [Available here as well](http://baderlab.org/Publications#GeneMANIA_2018)
+  * ***GeneMANIA update 2018*** Franz M, Rodriguez H, Lopes C, Zuberi K, Montojo J, Bader GD, Morris Q [Nucleic Acids Res. 2018 Jun 15](https://academic.oup.com/nar/article/46/W1/W60/5038280) - [Available here as well](http://baderlab.org/Publications#GeneMANIA_2018)
   
   * ***How to visually interpret biological data using networks*** Merico D, Gfeller D, Bader GD [Nature Biotechnology 2009 Oct 27, 921-924](https://www.nature.com/articles/nbt.1567)  - [Available here as well](http://baderlab.org/Publications#interpret_networks)
   
-  * ***g:Profiler--a web-based toolset for functional profiling of gene lists from large-scale experiments.***<BR>Reimand J, Kull M, Peterson H, Hansen J, Vilo J <BR> [Nucleic Acids Res. 2007 Jul;35](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1933153/)
+  * ***g:Profiler--a web-based toolset for functional profiling of gene lists from large-scale experiments.*** Reimand J, Kull M, Peterson H, Hansen J, Vilo J   [Nucleic Acids Res. 2007 Jul;35](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1933153/)
   
-  * ***g:Profiler: a web server for functional enrichment analysis and conversions of gene lists (2019 update)***<BR>Raudvere U, Kolberg L, Kuzmin I, Arak T, Adler P, Peterson H, Vilo J<BR>[Nucleic Acids Res. 2019 May 8](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkz369/5486750)
+  * ***g:Profiler: a web server for functional enrichment analysis and conversions of gene lists (2019 update)*** Raudvere U, Kolberg L, Kuzmin I, Arak T, Adler P, Peterson H, Vilo J [Nucleic Acids Res. 2019 May 8](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkz369/5486750)
   
-  * ***Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles***<BR>Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, Paulovich A, Pomeroy SL, Golub TR, Lander ES, Mesirov JP<BR>[Proc Natl Acad Sci U S A. 2005 Oct 25;102(43)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1239896/)
+  * ***Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles*** Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, Paulovich A, Pomeroy SL, Golub TR, Lander ES, Mesirov JP [Proc Natl Acad Sci U S A. 2005 Oct 25;102(43)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1239896/)
   
-  * ***Expression data analysis with Reactome***<BR>Jupe S, Fabregat A, Hermjakob H<BR>[Curr  Protoc Bioinformatics. 2015 Mar 9;49:8.20.1-9](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4407007/)
+  * ***Expression data analysis with Reactome*** Jupe S, Fabregat A, Hermjakob H [Curr  Protoc Bioinformatics. 2015 Mar 9;49:8.20.1-9](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4407007/)
  
 Interacting with Cytoscape using CyRest and command lines (for advanced users):
 https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/advanced-cancer-networks-and-data-rcy3.Rmd

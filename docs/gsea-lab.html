@@ -313,7 +313,7 @@
 <p>The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples. This cohort was previously stratified into four distinct expression subtypes <a href="http://www.ncbi.nlm.nih.gov/pubmed/21720365">PMID:21720365</a> and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.</p>
 <div id="how-was-the-data-processed" class="section level4">
 <h4>How was the data processed?</h4>
-<p>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>. Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>. The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <em>Additional information</em> section.</p>
+<p>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>. Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>. The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <strong>Additional information</strong> section.</p>
 </div>
 </div>
 <div id="background" class="section level2">
@@ -347,13 +347,9 @@ The rank file is going to be provided for the lab, you don’t need to generate 
 You don’t need to perform this step for the exercise, the .gmt file will be given to you.
 </p>
 </div>
-<p align="center">
-<img src="Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="70%" />
-</p>
+<p><img src="Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="70%" /></p>
 <p>The .gmt is a tab delimited text file which contains one gene-set per row. For each gene-set (row), the first 2 columns contain the name and the description of the gene-set and the remaining columns contain the list of genes included in the gene-set. It is possible to create a custom gene-set using Excel or R.</p>
-<p align="center">
-<img src="Module2/gsea/images/gmt_format.png" alt="get_gmt" width="70%" />
-</p>
+<p><img src="Module2/gsea/images/gmt_format.png" alt="get_gmt" width="70%" /></p>
 <p>GSEA performs a gene-set enrichment analysis using a modified Kolmogorov-Smirnov statistic. The output result consists of summary tables displaying enrichment statistics for each gene-set (pathway) that has been tested.</p>
 </div>
 <div id="start-the-exercise" class="section level3">
@@ -361,7 +357,10 @@ You don’t need to perform this step for the exercise, the .gmt file will be gi
 <p>Before starting this exercise, download the 2 required files:</p>
 <div class="rmd-datadownload">
 <p>
-Right click on link below and select “Save Link As…”.<br> Place it in the corresponding module directory of your CBW work directory.
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in the corresponding module directory of your CBW work directory.
 </p>
 </div>
 <ul>
@@ -387,80 +386,70 @@ Note regarding option 2: GSEA has been updated to version 3.0: if you still have
 <p><img src="Module2/gsea/images/GSEAloaddata.png" alt="Load data" width="100%" /></p>
 <p>2b. In the central panel, select ‘Method 1’ and ‘Browse for files’. A new window pops up.</p>
 <p><img src="Module2/gsea/images/GSEAbrowsefile2.png" alt="Browse files" width="100%" /></p>
-<p>2c. Browse your computer to locate the 2 files : <em>Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt</em> and <em>MesenchymalvsImmunoreactive_edger_ranks.rnk</em>.</p>
-2d. Click on <em>Choose</em>. A message pops us when the files are loaded successfully.
-<p align="center">
-<pre><code>    &lt;img src=&quot;./Module2/gsea/images/ORA4.png&quot; alt=&quot;Locate files&quot; width=&quot;50%&quot; /&gt;
-&lt;/p&gt;</code></pre>
-2e. Click on <em>OK</em>.
-<p align="center">
-<pre><code>    &lt;img src=&quot;./Module2/gsea/images/ORA5.png&quot; alt=&quot;Success&quot; width=&quot;50%&quot; /&gt;
-&lt;/p&gt;</code></pre>
+<p>2c. Browse your computer to locate the 2 files : <strong>Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt</strong> and <strong>MesenchymalvsImmunoreactive_edger_ranks.rnk</strong>.</p>
+<p>2d. Click on <strong>Choose</strong>. A message pops us when the files are loaded successfully.</p>
+<p><img src="Module2/gsea/images/ORA4.png" alt="Locate files" width="50%" /></p>
+<p>2e. Click on <strong>OK</strong>.</p>
+<p><img src="Module2/gsea/images/ORA5.png" alt="Success" width="50%" /></p>
 <div class="rmd-tip">
 <p>
-Alternatively, you can choose <em>Method 3</em> to <em>drag and drop files here</em>; you need to click on the <em>Load these files!</em> button in this case.
+Alternatively, you can choose <strong>Method 3</strong> to <strong>drag and drop files here</strong>; you need to click on the <strong>Load these files!</strong> button in this case.
 </p>
 </div>
 </div>
 <div id="step3." class="section level3">
 <h3>Step3.</h3>
 <p>Adjust parameters</p>
-<p>3a. Under the <em>Tools</em> menu select <em>GseaPreRanked</em>.</p>
+<p>3a. Under the <strong>Tools</strong> menu select <strong>GseaPreRanked</strong>.</p>
 <p><img src="Module2/gsea/images/GSEAprerank.png" alt="GseaPreRanked" width="100%" /></p>
-<p>3b. <em>Run GSEA on a Pre-Ranked gene list</em> tab will appear.</p>
+<p>3b. <strong>Run GSEA on a Pre-Ranked gene list</strong> tab will appear.</p>
 <p>Specify the following parameters:</p>
 <p>3c. Gene sets database - * click on the radio button (…) located at the right of the blank field. * :clock10: Wait 5-10sec for the gene-set selection window to appear.</p>
 <p><img src="Module2/gsea/images/GSEAloadgeneset.png" alt="Gene sets database" width="100%" /></p>
 <ul>
 <li>Use the right arrow in the top field to see the Gene matrix (local gmx/gmt) tab.</li>
-<li>Click to highlight <em>Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt</em>.</li>
-<li><p>click on <em>OK</em> at the bottom of the window.</p>
-<p align="center">
-<pre><code>&lt;img src=&quot;./Module2/gsea/images/ORA8.png&quot; alt=&quot;Gene sets database&quot; width=&quot;75%&quot; /&gt;</code></pre>
-</p></li>
-<li><p><em>Human_GOBP_AllPathways_no_GO_iea_December_24_2016_symbol.gmt</em> is now visible in the field corresponding to Gene sets database.</p></li>
+<li>Click to highlight <strong>Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt</strong>.</li>
+<li>click on <strong>OK</strong> at the bottom of the window.</li>
+</ul>
+<p><img src="Module2/gsea/images/ORA8.png" alt="Gene sets database" width="75%" /></p>
+<ul>
+<li><strong>Human_GOBP_AllPathways_no_GO_iea_December_24_2016_symbol.gmt</strong> is now visible in the field corresponding to Gene sets database.</li>
 </ul>
 <p><img src="Module2/gsea/images/GSEAparameter.png" alt="GSEAparameters" width="100%" /></p>
-<p>3d. Number of permutations - 100. The number of permutations is the number of times that the gene-sets will be randomized in order to create a null distribution to calculate the FDR. <BR></p>
+<p>3d. Number of permutations - 100. The number of permutations is the number of times that the gene-sets will be randomized in order to create a null distribution to calculate the FDR.</p>
 <div class="rmd-caution">
 <p>
 Use 2000 when you do it for your own data outside the workshop.
 </p>
 </div>
 <p>3e. Ranked list - select by clicking on the arrow and highlighting rank file.</p>
-<p>3f. Click on <em>Show</em> button next to <em>Basic Fields</em> to display extra options.</p>
-<p>3g. Analysis name – change default <em>my_analysis</em> to name specific to analysis for example Mesen_vs_Immuno_edgeR. GSEA will use your specified name as part of the name of the results directory it creates.</p>
+<p>3f. Click on <strong>Show</strong> button next to <strong>Basic Fields</strong> to display extra options.</p>
+<p>3g. Analysis name – change default <strong>my_analysis</strong> to name specific to analysis for example Mesen_vs_Immuno_edgeR. GSEA will use your specified name as part of the name of the results directory it creates.</p>
 <p>3h. Save results in this folder – navigate to where you want GSEA to put the results folder. By default GSEA will put the results into the directory gsea_home/output/[date] in your home directory.</p>
 <p>3i. Min size: exclude smaller sets – By default GSEA sets the lower limit to 15. In this protocol, the minimum is set to 10 to increase some of the smaller sets in the results.</p>
 <div class="rmd-tip">
 <p>
-set <em>Enrichment Statistics</em> to p1 if you want to add more weight on the most top up-regulated and top down-regulated. <em>P1</em> is a more stringent parameter and it will result in less gene-sets significant under FDR &lt;0.05.
+set <strong>Enrichment Statistics</strong> to p1 if you want to add more weight on the most top up-regulated and top down-regulated. <strong>P1</strong> is a more stringent parameter and it will result in less gene-sets significant under FDR &lt;0.05.
 </p>
 </div>
 </div>
 <div id="step-4." class="section level3">
 <h3>Step 4.</h3>
 <p>Run GSEA</p>
-<p>4a. Click on <em>Run</em> button located at the bottom right corner of the window.</p>
+<p>4a. Click on <strong>Run</strong> button located at the bottom right corner of the window.</p>
 <div class="rmd-tip">
 <p>
 Expand the window size if the run button is not visible
 </p>
 </div>
-<p>4b. On the panel located on the left side of the GSEA window, the bottom panel called <em>the GSEA report table</em> will show that it has created a process with a message that it is <em>Running</em>.</p>
-<p align="center">
-<pre><code>&lt;img src=&quot;./Module2/gsea/images/ORA10.png&quot; alt=&quot;Running&quot; width=&quot;50%&quot; /&gt;</code></pre>
-</p>
-<p align="center">
-<pre><code>&lt;img src=&quot;./Module2/gsea/images/ORA11.png&quot; alt=&quot;Running messages&quot; width=&quot;75%&quot; /&gt;
-&lt;/p&gt;</code></pre>
-On completion the status message will be updated to <em>Success…</em>.
-<p align="center">
-<pre><code>&lt;img src=&quot;./Module2/gsea/images/ORA12.png&quot; alt=&quot;Success&quot; width=&quot;50%&quot; /&gt;
-&lt;/p&gt;</code></pre>
+<p>4b. On the panel located on the left side of the GSEA window, the bottom panel called <strong>the GSEA report table</strong> will show that it has created a process with a message that it is <strong>Running</strong>.</p>
+<p><img src="Module2/gsea/images/ORA10.png" alt="Running" width="50%" /></p>
+<p><img src="Module2/gsea/images/ORA11.png" alt="Running messages" width="75%" /></p>
+<p>On completion the status message will be updated to <strong>Success…</strong>.</p>
+<p><img src="Module2/gsea/images/ORA12.png" alt="Success" width="50%" /></p>
 <div class="rmd-tip">
 <p>
-There is no progress bar to indicate to the user how much time is left to complete the process. Depending on the size of your dataset and compute power a GSEA run can take from a few minutes to a few hours. To check on the status of the GSEA run in the bottom left hand corner you can click on the <em>+</em> (red circle in below Figure) to see the updating status. Printouts in the format <em>shuffleGeneSet for GeneSet 5816/5821 nperm: 1000</em> indicate how many permutations have been done (5816) out of the total that need to be performed (5821).
+There is no progress bar to indicate to the user how much time is left to complete the process. Depending on the size of your dataset and compute power a GSEA run can take from a few minutes to a few hours. To check on the status of the GSEA run in the bottom left hand corner you can click on the <strong>+</strong> (red circle in below Figure) to see the updating status. Printouts in the format <strong>shuffleGeneSet for GeneSet 5816/5821 nperm: 1000</strong> indicate how many permutations have been done (5816) out of the total that need to be performed (5821).
 </p>
 </div>
 <div class="rmd-tip">
@@ -470,22 +459,20 @@ if the permutations have been completed but the status is still running, it mean
 </div>
 <div class="rmd-troubleshooting">
 <p>
-TROUBLESHOOTING: Java Heap Space error. If GSEA returns an error <em>Java Heap space</em> it means that GSEA has run out of memory. If you are running GSEA from the webstart other than the 4GB option then you will need to download a new version that allows for more memory allocation. The current maximum memory allocation that the GSEA webstart allows for is 4GB. If you are using this version and still receive the java heap error you will need to download the GSEA java jar file and launch it from the command line as described in step 1.
+Java Heap Space error. If GSEA returns an error <strong>Java Heap space</strong> it means that GSEA has run out of memory. If you are running GSEA from the webstart other than the 4GB option then you will need to download a new version that allows for more memory allocation. The current maximum memory allocation that the GSEA webstart allows for is 4GB. If you are using this version and still receive the java heap error you will need to download the GSEA java jar file and launch it from the command line as described in step 1.
 </p>
 </div>
 </div>
 <div id="step-5." class="section level3">
 <h3>Step 5.</h3>
 <p>Examining the results</p>
-<p>5a. Click on <em>Success</em> to launch the results in html format in your default web browser.</p>
+<p>5a. Click on <strong>Success</strong> to launch the results in html format in your default web browser.</p>
 <div class="rmd-tip">
 <p>
-If the GSEA application has been closed, you can still see the results by opening the result folder and clicking on the <em>index</em> file – index.html. (see screenshot below). The first phenotype corresponds to gene-sets enriched in genes up-regulated in the mesenchymal subtype. The second phenotype corresponds to gene-sets enriched in genes up-regulated in the immunological phenotype.
+If the GSEA application has been closed, you can still see the results by opening the result folder and clicking on the <strong>index</strong> file – index.html. (see screenshot below). The first phenotype corresponds to gene-sets enriched in genes up-regulated in the mesenchymal subtype. The second phenotype corresponds to gene-sets enriched in genes up-regulated in the immunological phenotype.
 </p>
 </div>
-<p align="center">
-<pre><code>    &lt;img src=&quot;./Module2/gsea/images/ORA13.png&quot; alt=&quot;Results1&quot; width=&quot;75%&quot; /&gt;
-&lt;/p&gt;</code></pre>
+<p><img src="Module2/gsea/images/ORA13.png" alt="Results1" width="75%" /></p>
 <p>When examining the results there are a few things to look for:</p>
 <p>5b. Check the number of gene-sets that have been used for the analysis.</p>
 <div class="rmd-tip">
@@ -494,16 +481,10 @@ A small number (a few hundred genesets if using baderlab genesets) could indicat
 </p>
 </div>
 <p>5c. Check the number of sets that have FDR less than 0.25 – in order to determine what thresholds to start with when creating the enrichment map. It is not uncommon to see a thousand gene sets pass the threshold of FDR less than 0.25. FDR less than 0.25 is a very lax threshold and for robust data we can set thresholds of FDR less than 0.05 or lower.</p>
-<p>5d. Click on <em>Snapshots</em> to see the trend for the top 20 genesets. For the positive phenotype the top genesets should show a distribution skewed to the left (positive) i.e. genesets have predominance of up-regulated genes. For the negative phenotype the top geneset should be inverted and skewed to the right (negative) i.e. geneset have predominance of down-regulated genes.</p>
-<p align="center">
-<img src="Module2/gsea/images/ORA14.png" alt="Results2" width="75%" />
-</p>
-<p align="center">
-<img src="Module2/gsea/images/ORA15.png" alt="Results3" width="75%" />
-</p>
-<p align="center">
-<img src="Module2/gsea/images/ORA16.png" alt="Results4" width="75%" />
-</p>
+<p>5d. Click on <strong>Snapshots</strong> to see the trend for the top 20 genesets. For the positive phenotype the top genesets should show a distribution skewed to the left (positive) i.e. genesets have predominance of up-regulated genes. For the negative phenotype the top geneset should be inverted and skewed to the right (negative) i.e. geneset have predominance of down-regulated genes.</p>
+<p><img src="Module2/gsea/images/ORA14.png" alt="Results2" width="75%" /></p>
+<p><img src="Module2/gsea/images/ORA15.png" alt="Results3" width="75%" /></p>
+<p><img src="Module2/gsea/images/ORA16.png" alt="Results4" width="75%" /></p>
 <p>5e. Explore the tabular format of the results.</p>
 <div id="mesenchymal" class="section level4">
 <h4>Mesenchymal</h4>

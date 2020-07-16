@@ -308,7 +308,6 @@
 </div>
 <div id="data-2" class="section level2">
 <h2>Data</h2>
-<!---Absolute path - should be relative but github.io not configured correctly--->
 <p>The data used in this exercise is a list of frequently mutated genes that we used in <a href="gprofiler-lab.html#gprofiler-lab">previous exercise</a>. Pathway enrichment analysis has been run using g:Profiler and the results have been downloaded as a GEM format.</p>
 </div>
 <div id="enrichmentmap" class="section level2">
@@ -330,11 +329,13 @@
 <p>To start the lab practical section, first create a gprofiler_files directoty on your computer and download the files below.</p>
 <div class="rmd-datadownload">
 <p>
-Right click on link below and select “Save Link As…”.<br> Place it in the corresponding module directory of your CBW work directory.
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in the corresponding module directory of your CBW work directory.
 </p>
 </div>
 <p>Five files are needed for this exercise:</p>
-<!--- The data files need to a direct link to the raw format of the file in order for users to be able to download them.  This is an issue when subsequent workshops are created from a previous version by copying the direcotries over.  Ideally all the re-useable data file should be separate in the repository under a data directory so that these links do not need to updated from year to year.--->
 <ol style="list-style-type: decimal">
 <li><p>Enrichment result 1: <a href="./Module3/gprofiler/data/gProfiler_hsapiens_GEM1.txt">gProfiler_hsapiens_GEM1.txt</a> In g:Profiler, the parameters that we used were: GO_BP no electronic annotation, Reactome, Benjamini-HochBerg FDR 0.05.</p></li>
 <li><p>Enrichment result 2: <a href="./Module3/gprofiler/data/gProfiler_hsapiens_gs250.gem.txt">gProfiler_hsapiens_gs250.gem.txt</a></p></li>
@@ -399,19 +400,26 @@ un-select <em>Publication Ready</em> when you explore the map in more detail to 
 <div id="explore-detailed-results" class="section level3">
 <h3>Explore Detailed results</h3>
 <ul>
-<li>In the Cytoscape menu bar, select ‘View&quot; and ’Show Graphic Details’ to display node labels. <BR> :warning: Make sure you have unselected “Publication Ready” in the EnrichmentMap control panel.</li>
+<li>In the Cytoscape menu bar, select ‘View&quot; and ’Show Graphic Details’ to display node labels.</li>
+</ul>
+<div class="rmd-caution">
+<p>
+Make sure you have unselected “Publication Ready” in the EnrichmentMap control panel.
+</p>
+</div>
+<ul>
 <li><p>Zoom in to be able to read the labels and navigate the network using the bird eye view (blue rectangle).</p></li>
 <li>Select a node and visualize the <em>Table Panel</em>
 <ul>
 <li><p>Click on a node</p></li>
-<li>For this example the node <em>“Signaling by Notch”</em> has been selected. <BR>
+<li><p>For this example the node <em>“Signaling by Notch”</em> has been selected.</p></li>
+</ul></li>
+</ul>
 <div class="rmd-tip">
 <p>
 you can type it in the search bar, quotes are important.
 </p>
-</div></li>
-</ul></li>
-</ul>
+</div>
 <p><img src="Module3/gprofiler/images/gem8.png" alt="workflow" width="100%" /></p>
 <p>When the node is selected, it is highlighted in <font color="yellow">yellow</font>. In table panel, we can see the genes included in the gene-set. A green colored box indicates that the gene is in the gene-set(pathway) and in our gene list. A gray colored box indicated that the gene is in the gene-set but not in our gene list.</p>
 </div>

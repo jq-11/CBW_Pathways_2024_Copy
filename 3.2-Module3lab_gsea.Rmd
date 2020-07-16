@@ -53,7 +53,8 @@ The output results of GSEA are 2 tables:
 To start the lab practical section, first download the files.
 
 ```{block, type="rmd-datadownload"}
-Right click on link below and select "Save Link As...".<br>
+Right click on link below and select "Save Link As...".
+
 Place it in the corresponding module directory of your CBW work directory.
 ```
 

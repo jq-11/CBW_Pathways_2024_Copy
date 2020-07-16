@@ -12,7 +12,7 @@ During this exercise, you will learn how to create an enrichment map from gene-s
 
 
 ## Data
-<!---Absolute path - should be relative but github.io not configured correctly--->
+
 The data used in this exercise is a list of frequently mutated genes that we used in [previous exercise](#gprofiler-lab). 
 Pathway enrichment analysis has been run using g:Profiler and the results have been downloaded as a GEM format.
 
@@ -43,13 +43,12 @@ The goal of this exercise is to learn how to:
 To start the lab practical section, first create a gprofiler_files directoty on your computer and download the files below.
 
 ```{block, type="rmd-datadownload"}
-Right click on link below and select "Save Link As...".<br>
+Right click on link below and select "Save Link As...".
+
 Place it in the corresponding module directory of your CBW work directory.
 ```
 
 Five files are needed for this exercise:
-
-<!--- The data files need to a direct link to the raw format of the file in order for users to be able to download them.  This is an issue when subsequent workshops are created from a previous version by copying the direcotries over.  Ideally all the re-useable data file should be separate in the repository under a data directory so that these links do not need to updated from year to year.--->
 
 1. Enrichment result 1: [gProfiler_hsapiens_GEM1.txt](./Module3/gprofiler/data/gProfiler_hsapiens_GEM1.txt) 
 In g:Profiler, the parameters that we used were: GO_BP no electronic annotation, Reactome, Benjamini-HochBerg FDR 0.05. 
@@ -142,14 +141,19 @@ On the map, a node that is coloured both green and blue is a gene-set that is fo
 
 ### Explore Detailed results 
 
-  * In the Cytoscape menu bar, select 'View" and 'Show Graphic Details' to display node labels. <BR>
-  :warning: Make sure you have unselected "Publication Ready" in the EnrichmentMap control panel. 
+  * In the Cytoscape menu bar, select 'View" and 'Show Graphic Details' to display node labels. 
+  
+```{block, type="rmd-caution"}
+Make sure you have unselected "Publication Ready" in the EnrichmentMap control panel.
+```
+
   * Zoom in to be able to read the labels and navigate the network using the bird eye view (blue rectangle).
 
   * Select a node and visualize the *Table Panel*
     * Click on a node
    
-    * For this example the node *"Signaling by Notch"* has been selected. <BR>
+    * For this example the node *"Signaling by Notch"* has been selected. 
+    
 ```{block, type="rmd-tip"}
 you can type it in the search bar, quotes are important.   
 ```

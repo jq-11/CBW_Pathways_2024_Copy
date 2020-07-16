@@ -25,10 +25,9 @@ g:Profiler performs a gene-set enrichment analysis using a hypergeometric test (
 
 Before starting this exercise, download the required files:
 
-<!--- The data files need to a direct link to the raw format of the file in order for users to be able to download them.  This is an issue when subsequent workshops are created from a previous version by copying the direcotries over.  Ideally all the re-useable data file should be separate in the repository under a data directory so that these links do not need to updated from year to year.--->
-
 ```{block, type="rmd-datadownload"}
-Right click on link below and select "Save Link As...".<br>
+Right click on link below and select "Save Link As...".
+
 Place it in the corresponding module directory of your CBW work directory.
 ```
 
@@ -244,7 +243,7 @@ We recommend saving all these files in a personal project data folder before sta
 
 STEPS:
 
- * Repeat step 1 to 3a from [Exercise 1](#exercise-1) (go back to exercise 1 to get detailed instructions)<BR> Briefly:
+ * Repeat step 1 to 3a from [Exercise 1](#exercise-1) (go back to exercise 1 to get detailed instructions) Briefly:
    * Step 1:
      * Open g:profiler
    * Step 2a :
