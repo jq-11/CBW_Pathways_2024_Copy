@@ -1,4 +1,4 @@
-# Module 5: Regulatory Network Analysis 
+# Module 5: Regulatory Network Analysis {#intro-regulatory-networks}
 
 *<font color="#827e9c">Michael Hoffman</font>*
   

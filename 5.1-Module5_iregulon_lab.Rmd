@@ -433,7 +433,7 @@ The edges should now be colored by the types of interactions.
 
 14)	Save current results  as an iRegulon (iRF) file.
 
-●	In the ‘Results Panel’ toolbar, click the ‘Save current results  as an iRegulon (iRF) file’ button  ![Save icon](./Module5/iregulon/images/save.png)..
+●	In the ‘Results Panel’ toolbar, click the ‘Save current results  as an iRegulon (iRF) file’ button  ![Save icon](./Module5/iregulon/images/save1.png)..
 
 ●	Choose a name and click the ‘Save’ button.
 ```{block, type="rmd-tip"}

@@ -1,5 +1,5 @@
 --- 
-title: Pathways 
+title: "Pathways" 
 subtitle: "CBW workshop"
 author: "Gary Bader, Veronique Voisin, Ruth Isserlin, Lincoln Stein, Robin Haw, Micheal Hoffman, Quaid Morris"
 date: "last modified `r Sys.Date()`"
@@ -18,63 +18,52 @@ description: "Course covers the bioinformatics concepts and tools available for 
 
 ## Meet your Faculty
 
-### **Gary Bader** 
+### Gary Bader
 Principal Investigator, University of Toronto 
 
-<img src="./images/faculty/gary_bader.jpeg" style="float:left;width:125px;padding-right:10px;">
+<img src="./images/faculty/gary_bader.jpeg" style="float:left;width:125px;padding-right:10px;" />
 Dr. Bader develops biological network analysis and pathway information resources. He created the Biomolecular Interation Network Database ( [BIND](http://bind.ca) ) while working on his PhD and currently helps lead development of the free Cytoscape network visualization and analysis software [Cytoscape](http://cytoscape.org/). 
 
-### **Robin Haw** 
+### Robin Haw
 Manager of Reactome Outreach and Scientific Associate, OICR
 
-<img src="./images/faculty/robin_haw.jpeg" style="float:right;width:125px;padding-left:10px;"> 
-Robin is a microbiologist with experience in bioinformatics, curation and
-outreach. Dr. Haw has a PhD in genetics and was a senior curator at
-Biomolecular Interaction Network Database (BIND) and managing
-curator at Science Signaling’s Signal Transduction Knowledge
-Environment (STKE). He has been responsible for coordinating
-outreach, Reactome presentations and training at workshops and
-conferences.
+<img src="./images/faculty/robin_haw.jpeg" style="float:right;width:125px;padding-left:10px;" />
+Robin is a microbiologist with experience in bioinformatics, curation and outreach. Dr. Haw has a PhD in genetics and was a senior curator at Biomolecular Interaction Network Database (BIND) and managing curator at Science Signaling’s Signal Transduction Knowledge Environment (STKE). He has been responsible for coordinating outreach, Reactome presentations and training at workshops and conferences.
 
-### **Quaid Morris** 
-Principal Investigator, Sloan Kettering Institute 
+### Quaid Morris
+Principal Investigator, Sloan Kettering Institute
 
-<img src="./images/faculty/quaid_morris.jpeg" style="float:left;width:125px;padding-right:10px;"> 
+<img src="./images/faculty/quaid_morris.jpeg" style="float:left;width:125px;padding-right:10px;" />
 Dr. Morris uses machine learning and statistical modeling to do research in molecular genetics. Research Interests: Machine learning and statistical modelling for genomic-scale experimental data; genomic dataset integration; microarray data analysis; protein-protein interaction networks; microRNAs; regulatory networks; transcription factor binding site prediction 
 
-### **Michael Hoffman** 
+### Michael Hoffman
 Scientist, Princess Margaret Cancer Centre Assistant Professor, Departments of Medical Biophysics and Computer Science, University of Toronto Faculty Affiliate, Vector Institute 
 
-<img src="./images/faculty/michael_hoffman.jpeg" style="float:right;width:125px;padding-left:10px;"> 
+<img src="./images/faculty/michael_hoffman.jpeg" style="float:right;width:125px;padding-left:10px;" />
 Michael Hoffman creates predictive computational models to understand interactions between genome, epigenome, and phenotype in human cancers. He implemented the genome annotation method Segway, which simplifies interpretation of large multivariate genomic datasets, and was a linchpin of the NIH ENCODE Project analysis. He was named a CIHR New Investigator and has received several awards for his academic work, including the NIH K99/R00 Pathway to Independence Award, and the Ontario Early Researcher Award. 
 
-###  **Veronique Voisin** 
+### Veronique Voisin
 Research Associate, Donnelly Centre for Cellular and Biomolecular Research, University of Toronto 
 
-<img src="./images/faculty/veronique_voisin.jpeg" style="float:left;width:125px;padding-right:10px;"> 
+<img src="./images/faculty/veronique_voisin.jpeg" style="float:left;width:125px;padding-right:10px;" />
 Veronique is currently a bioinformatician applying pathway and networks analysis to high throughput genomics data for OICR cancer stem cell program. Previously, she worked on characterizing the gene signatures of different types of leukemias using a murine model
 
-<br>
-<br>
+### Ruth Isserlin
+Research data analyst, Donnelly Centre for Cellular and Bimolecular Research, University of Toronto
 
-### **Ruth Isserlin** 
-Research data analyst, Donnelly Centre for Cellular and Bimolecular Research, University of Toronto 
-
-<img src="./images/faculty/ruth_isserlin.jpeg" style="float:right;width:125px;padding-left:10px;"> 
+<img src="./images/faculty/ruth_isserlin.jpeg" style="float:right;width:125px;padding-left:10px;" />
 Bioinformatician and data analyst in the Bader lab applying pathway and data analysis to varied data types. Developed Enrichment Map App for Cytoscape, an app to visually translate functional enrichment results from popular enrichment tools like GSEA to networks. Further developed the Enrichment Map Pipeline including development of additional Apps to help summarize and analyze resulting Enrichment Maps, including PostAnalysis, WordCloud, and AutoAnnotate App. 
 
-### **Francis Ouellette** 
+### Francis Ouellette
 CBW Scientific Coordinator 
 
-<img src="./images/faculty/francis_ouellette.jpeg" style="float:left;width:125px;padding-right:10px;"> 
+<img src="./images/faculty/francis_ouellette.jpeg" style="float:left;width:125px;padding-right:10px;" />
 Francis was one of the co-founders of the CBW in 1998. His teams were involved in the development of high throughput sequence analysis methods, as well as the development of platforms to integrate data from various open databases. Francis continues to be interested in computational biology and genomics, and the integration of all data types to help our understanding of biology. 
 
-### **Rachade Hmamouchi** 
+### Rachade Hmamouchi
 Program Manager, Canadian Bioinformatics Workshops (CBW) & McGill initiative in Computational Medicine (MiCM) 
 
-<img src="./images/faculty/rachade_hmamouchi.jpeg" style="float:right;width:125px;padding-left:10px;"> 
-Rachade is a bioinformatician by training, and over the span of her career, she has worked at universities, biotech, and industry fields. She is leading the organisation of the workshops at the CBW and at the MiCM. 
-<br><br><br><br>
+<img src="./images/faculty/rachade_hmamouchi.jpeg" style="float:right;width:125px;padding-left:10px;" /> Rachade is a bioinformatician by training, and over the span of her career, she has worked at universities, biotech, and industry fields. She is leading the organisation of the workshops at the CBW and at the MiCM. 
 
 
 ***

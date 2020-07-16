@@ -1,2 +1,2 @@
-# Module 1 -  Introduction to Pathway and Network Analysis (Gary Bader)
+# Module 1 -  Introduction to Pathway and Network Analysis (Gary Bader) {#intro}
 
