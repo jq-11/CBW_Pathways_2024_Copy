@@ -8,6 +8,8 @@ You can download the printed course manual [here](https://drive.google.com/a/bio
 
 ## Workshop Schedule {#schedule}
 
+![](./images/time_table_pic.png)
+
 | | **Day 1** | | **Day 2** | | **Day 3** |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | | **Monday July, 27** | | **Tuesday, July 28** | | **Wednesday, July 29** |
