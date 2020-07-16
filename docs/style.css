@@ -16,6 +16,14 @@ pre code {
 
 /* CUSTOM BLOCKS */
 
+h1 {
+  background-image: url("images/Bioinfo_Logo.jpg");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 10%;
+}
+
+
 .rmd-task {
   padding: 0em 0em 0em 3em;
   margin-bottom: 2px;
