@@ -1,3 +1,6 @@
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). Please see the page "[Get Started](https://bookdown.org/yihui/bookdown/get-started.html)" at https://bookdown.org/yihui/bookdown/ for how to compile this example into HTML. You may generate a copy of the book in `bookdown::pdf_book` format by calling `bookdown::render_book('index.Rmd', 'bookdown::pdf_book')`. More detailed instructions are available here https://bookdown.org/yihui/bookdown/build-the-book.html.
 
-You can find the preview of this example at https://bookdown.org/yihui/bookdown-demo/.
+# Pathway and Network Analysis of -Omics Data (July 2020)
+
+The CBW has developed a 2.5 day course covering the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information. The workshop focuses on the principles and concepts required for analyzing and conducting pathway and network analysis on a gene list from any organism, although focus will be on human and model eukaryotic organisms.
+
+**This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**

@@ -4,6 +4,8 @@
   
   [Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/1o-s4zbmfVnXICsespFrjyJ42ZjTz8dUJ/view?usp=sharing)
   
+*<font color="#827e9c">Veronique Voisin</font>*  
+  
   [Lab lecture](https://drive.google.com/a/bioinformatics.ca/file/d/1Ieg6W0irazZn69jKWopvhcEyLusYHQhy/view?usp=sharing)  
   
   [Lab practical](#regulatory_network_lab) 

@@ -1,6 +1,6 @@
 # Module 6: Gene Function Prediction  
 
-  *<font color="#827e9c">Quaid Morris</font>*
+  *<font color="#827e9c">Veronique Voisin</font>*
   
   [Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/1Lc9IXnpZeyq_LMqL10C0Igb7C4tzL04m/view?usp=sharing)
   

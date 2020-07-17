@@ -10,20 +10,6 @@ You can download the printed course manual [here](https://drive.google.com/a/bio
 
 ![](./images/time_table_pic.png)
 
-| | **Day 1** | | **Day 2** | | **Day 3** |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| | **Monday July, 27** | | **Tuesday, July 28** | | **Wednesday, July 29** |
-| 10:00 | <font color="purple">Welcome</font> | 10:00 | <font color="purple">Module 4: More Depth on Network and Pathway Analysis (Robin Haw)</font> | 10:00 | <font color="blue">Review of the tools in an integrated workflow. Part1 (Veronique Voisin/Ruth Isserlin)</font> |
-| 10:30 | <font color="purple">Short Introduction to the Pathway and Network workshop (Gary Bader)</font> | | | | | 
-| 11:00 | <font color="green">*Coffee Break*</font> | 11:00 | <font color="green">*Coffee Break*</font> | 11:00 | <font color="green">*Coffee Break*</font> |
-| 11:30 | <font color="purple">Module 2: Finding Over-Represented Pathways (Veronique Voisin)</font> | 11:30 | <font color="blue">Module 4 Lab (Robin)</font> | 11:30 |  <font color="blue">Review of the tools in an integrated workflow. Part2 (Veronique Voisin/Ruth Isserlin)</font> |
-| 1:30 | <font color="green">*Lunch*</font> | 1:30 | <font color="green">*Lunch*</font> | 1:30 | **Survey and Closing Remarks** |
-| 2:30 | <font color="purple">Module 3: Network Visualtization and Analysis with Cytoscape (Ruth Isserlin)</font> | 2:00 | <font color="purple">Module 5: Regulatory Network Analysis(Michael Hoffman)</font> |  |  |
-| |  | 3:00 | <font color="blue">Module 5 lab(Veronique Voisin)</font> |  |  |
-| 3:30 | <font color="green">*Coffee Break*</font> | 4:00 | <font color="green">*Coffee Break*</font> | | |
-| 4:00 | <font color="blue">Module 3 lab (Ruth Isserlin)</font> | 4:30 | <font color="purple">Module 6 Gene Function Prediction (Veronique Voisin) + Genemania lab</font> |
-| 6:00 | <font color="green">*End of Day*</font> | 5:00 | <font color="green">*End of Day*</font> | | |
-
 ## Pre-Workshop Materials and Laptop Setup Instructions {#pre-workshop}
 
 ### Laptop Setup Instructions
@@ -128,7 +114,7 @@ Go to : https://github.com/cytoscape/cytoscape-tutorials/wiki and follow :
 ### Pre-workshop Readings and Lectures
 
   1. Video Module 1 - [Introduction to Pathway and Network Analysis by Gary Bader](#intro)
-  1. video Module 5 - [Gene Function Prediction (GeneMania by Quaid Morris](#intro-regulatory-networks)
+  1. Video Module 5 - [Gene Function Prediction (GeneMania) by Quaid Morris](#intro-regulatory-networks)
   1. ***Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap*** Reimand J, Isserlin R, Voisin V, Kucera M, Tannus-Lopes C, Rostamianfar A, Wadi L, Meyer M, Wong J, Xu C, Merico D, Bader GD [Nat Protoc. 2019 Feb;14(2):482-517](https://www.nature.com/articles/s41596-018-0103-9) - [Available here as well](http://baderlab.org/Publications#EM_2019)
  
 ***

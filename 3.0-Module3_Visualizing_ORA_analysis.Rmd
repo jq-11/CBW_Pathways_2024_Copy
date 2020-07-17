@@ -8,7 +8,7 @@
  
  ## Module 3 Lab
  
- *<font color="#827e9c">Veronique Voisin</font>*  
+ *<font color="#827e9c">Ruth Isserlin</font>*  
  
 [Lab practical part 1 (g:Profiler)](#gprofiler_mod3)   
 

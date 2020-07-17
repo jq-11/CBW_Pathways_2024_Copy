@@ -1,7 +1,7 @@
 --- 
 title: "Pathways" 
 subtitle: "CBW workshop"
-author: "Gary Bader, Veronique Voisin, Ruth Isserlin, Lincoln Stein, Robin Haw, Micheal Hoffman, Quaid Morris"
+author: "Gary Bader, Veronique Voisin, Ruth Isserlin, Robin Haw, Michael Hoffman"
 date: "last modified `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -14,7 +14,9 @@ favicon: images/favicon.ico
 description: "Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information. "
 ---
 
-# Pathways-2020
+# Pathway and Network Analysis of -Omics Data (July 2020)
+
+The CBW has developed a 2.5 day course covering the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information. The workshop focuses on the principles and concepts required for analyzing and conducting pathway and network analysis on a gene list from any organism, although focus will be on human and model eukaryotic organisms.
 
 ## Meet your Faculty
 
@@ -30,12 +32,6 @@ Manager of Reactome Outreach and Scientific Associate, OICR
 <img src="./images/faculty/robin_haw.jpeg" style="float:right;width:125px;padding-left:10px;" />
 Robin is a microbiologist with experience in bioinformatics, curation and outreach. Dr. Haw has a PhD in genetics and was a senior curator at Biomolecular Interaction Network Database (BIND) and managing curator at Science Signaling’s Signal Transduction Knowledge Environment (STKE). He has been responsible for coordinating outreach, Reactome presentations and training at workshops and conferences.
 
-### Quaid Morris
-Principal Investigator, Sloan Kettering Institute
-
-<img src="./images/faculty/quaid_morris.jpeg" style="float:left;width:125px;padding-right:10px;" />
-Dr. Morris uses machine learning and statistical modeling to do research in molecular genetics. Research Interests: Machine learning and statistical modelling for genomic-scale experimental data; genomic dataset integration; microarray data analysis; protein-protein interaction networks; microRNAs; regulatory networks; transcription factor binding site prediction 
-
 ### Michael Hoffman
 Scientist, Princess Margaret Cancer Centre Assistant Professor, Departments of Medical Biophysics and Computer Science, University of Toronto Faculty Affiliate, Vector Institute 
 
@@ -47,6 +43,9 @@ Research Associate, Donnelly Centre for Cellular and Biomolecular Research, Univ
 
 <img src="./images/faculty/veronique_voisin.jpeg" style="float:left;width:125px;padding-right:10px;" />
 Veronique is currently a bioinformatician applying pathway and networks analysis to high throughput genomics data for OICR cancer stem cell program. Previously, she worked on characterizing the gene signatures of different types of leukemias using a murine model
+
+&nbsp;
+&nbsp;
 
 ### Ruth Isserlin
 Research data analyst, Donnelly Centre for Cellular and Bimolecular Research, University of Toronto
@@ -65,6 +64,9 @@ Program Manager, Canadian Bioinformatics Workshops (CBW) & McGill initiative in 
 
 <img src="./images/faculty/rachade_hmamouchi.jpeg" style="float:right;width:125px;padding-left:10px;" /> Rachade is a bioinformatician by training, and over the span of her career, she has worked at universities, biotech, and industry fields. She is leading the organisation of the workshops at the CBW and at the MiCM. 
 
+&nbsp;
+&nbsp;
+&nbsp;
 
 ***
 
@@ -78,5 +80,7 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+**This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
 
 Icons are from the [“Very Basic. Android L Lollipop” set by Ivan Boyko](https://www.iconfinder.com/iconsets/very-basic-android-l-lollipop) licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). 
