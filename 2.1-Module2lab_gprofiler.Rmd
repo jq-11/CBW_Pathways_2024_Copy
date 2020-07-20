@@ -6,7 +6,7 @@
 
 Performing Over-representation analysis (ORA) with g:Profiler.
 
-The practical lab contains 2 exercises. The first exercises uses [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) to perform gene-set enrichment analysis and the second exercises uses [enrichr](https://amp.pharm.mssm.edu/Enrichr/). 
+The practical lab contains 2 exercises. The first exercises uses [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) to perform gene-set enrichment analysis. 
 
 ## Goal of the exercise 1
 
@@ -17,7 +17,7 @@ Learn how to run *g:GOSt Functional profiling* from the g:Profiler website and e
 g:Profiler requires a list of genes, one per line, in a text file or spreadsheet,
 ready to copy and paste into a web page: for this, we use genes with frequent somatic SNVs identified in TCGA exome sequencing data of 3,200 tumors of 12 types6. The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples (Supplementary Table 1, which is derived from column B of Supplementary Table 4 in [Kandoth C. et al. ](https://www.ncbi.nlm.nih.gov/pubmed/24132290) ) (https://www.nature.com/articles/nature12634). Genes are ranked in decreasing order of significance (FDR Q value) and mutation frequency (not shown).
 
-## Exercise 1 - run g:Profiler
+## Exercise 1 - run g:Profiler {#exercise-1}
 
 For this exercise, our goal is to copy and paste the list of genes into g:Profiler, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results.
 
@@ -67,7 +67,7 @@ if g:Profiler does not return any results increase the threshold (0.1, then 1) t
 ```
 
 <p align="center">
-  <img src="./Module2/gprofiler/images/gp2.png" alt="workflow" width="75%" />
+  <img src="./Module2/gprofiler/images/gp2.png" alt="workflow" width="50%" />
  </p>
 
 
@@ -87,7 +87,7 @@ if g:Profiler does not return any results uncheck the *No electronic GO annotati
 * In the *biological pathways* category, check *Reactome*.
 
 <p align="center">
-  <img src="./Module2/gprofiler/images/gp3.png" alt="workflow" width="75%" />
+  <img src="./Module2/gprofiler/images/gp3.png" alt="workflow" width="50%" />
 </p>
 
 ### Step 4 - Run query
@@ -151,17 +151,15 @@ The second table displays the results corresponding to the Reactome database.
  * 7a.  In the *Detailed Results* panel, select "GEM" .  It will save the results in a text file in the "Generic Enrichment Map" format that we will use to visualize using Cytoscape.
 
    * select max term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer. 
-   
-   <p align="center">
-      <img src="./Module2/gprofiler/images/gp13.png" alt="workflow" width="75%" />
+  <p align="center">  
+  <img src="./Module2/gprofiler/images/gp13.png" alt="workflow" width="75%" />
+  </p>  
+   * select max term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer.
+  <p align="center">
+  <img src="./Module2/gprofiler/images/gp14.png" alt="workflow" width="75%" />
   </p>
   
-   * select max term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer.
-   <p align="center">
-  <img src="./Module2/gprofiler/images/gp14.png" alt="workflow" width="75%" />
- </p>
-  
- * 7b:  Open one file that you saved using Microsoft Office Excel or in an equivalent software.
+ * 7b:  Open the file that you saved using the geneset threshold of 1000 using Microsoft Office Excel or in an equivalent software.
 
 Observe the results included in this file:
 
@@ -172,7 +170,9 @@ Observe the results included in this file:
  1. Phenotype
  1. Genes included in each gene-set
 
-:question: Question: Which term has the best corrected p-value?  Which genes in our list are included in this term? Observe that same genes can be present in several lines (pathways are related when they contain a lof of genes in common).
+```{block, type="rmd-question"}
+Which term has the best corrected p-value?  Which genes in our list are included in this term? Observe that same genes can be present in several lines (pathways are related when they contain a lof of genes in common).
+```
 
 ```{block, type="rmd-note"}
 The table is formatted for the input into Cytoscape EnrichmentMap. It is called the [*generic format*](https://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#generic-results-files). The p-value and FDR columns contain identical values because g:Profiler directly outputs the FDR (= corrected p-value) meaning that the p-value column is already the FDR. Phenotype 1 means that each pathway will be represented by red nodes on the enrichment map (presented during next module). 
@@ -180,29 +180,30 @@ The table is formatted for the input into Cytoscape EnrichmentMap. It is called 
   <img src="./Module2/gprofiler/images/gp15.png" alt="workflow" width="100%" />
 
 
-The term *positive regulation of activin receptor signaling pathway* is the most significant gene-set (=the lowest FDR value).  Many gene-sets from the top of this list are related to each other and have genes in common. 
+The term *regulation of transferase activity* is the most significant gene-set (=the lowest FDR value).  Many gene-sets from the top of this list are related to each other and have genes in common. 
 
 ---
 
 ### Step 8 
 
 8a. Optional but recommended: Download the pathway database files.
-  * Go to the top of the page and expand the "Data sources" tab. Click on the 'name.gmt' link located at bottom of this tab. It will download a zipped folder named *gprofiler_hsapiens.name.zip* containing several pathway database gmt files. 
+  * Go to the top of the page and expand the "Data sources" tab. Click on the 'combined name.gmt' link located at bottom of this tab. It will download a zipped folder named *combined name.gmt* containing a pathway database gmt file with all the available sources. 
 
 <p align="center">
   <img src="./Module2/gprofiler/images/gp12.png" alt="workflow" width="60%" />
 </p>
 
-8b: concatenate the GO:BP and Reactome gmt files:
+8b:(Optional) concatenate the GO:BP and Reactome gmt files:
 
- * option 1: manually if you are not familiar with unix commands
+If you want to create a smaller gmt file that doesn't contain all of the gprofiler datasources you can instead download name.gmt.zip that contains each datasource as its own gmt file.  You will need to concatenate the sources you require into one gmt file to use for later.
+
+#### Option 1: manually if you are not familiar with unix commands
    * open a text editor such a Notepad or equivalent
    * open hsapiens.GO:BP.name.gmt using the text editor
    * open gmt hsapiens.REAC.name.gmt using the text editor
    * copy-paste all the rows from REAC file together with all the rows in GO:BP file and save it as hsapiens.pathways.name.gmt .
 
-
- * option 2: using the cat command if you are familiar with unix commands
+#### Option 2: using the cat command if you are familiar with unix commands
    * open your terminal window
    * cd to the unzipped gprofiler_hsapiens.name folder
    * type the following command: 
@@ -226,17 +227,19 @@ enrichment analysis in the standard GMT format downloaded from http://baderlab.o
 This file contains pathways from eight data sources: GO, Reactome,
 Panther, NetPath, NCI, MSigDB curated gene sets (C2 collection, excluding Reactome and
 KEGG), MSigDB Hallmark (H collection) and HumanCyc. A GMT file is a text file in which each line
-represents a gene set for a single pathway. Each line includes a pathway ID, a name and the list of
-associated genes in a tab-separated format. This file has been filtered to exlclude gene-sets that contained more than 250 genes as these gene-sets are associated with more general terms.
+represents a gene set for a single pathway. Each line includes a pathway ID, a name and the list of associated genes in a tab-separated format. This file has been filtered to exlclude gene-sets that contained more than 250 genes as these gene-sets are associated with more general terms.
 
 Before starting this exercise, download the required files:
 
+```{block, type="rmd-datadownload"}
+Right click on link below and select "Save Link As...".
 
+Place it in the corresponding module directory of your CBW work directory.
+```
 
 *  [Supplementary_Table1_Cancer_drivers.txt](https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module2/gprofiler_new/data2/Supplementary_Table1_Cancer_drivers.txt).
 
 *  [Baderlab_genesets.gmt](https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module2/gprofiler_new/data2/Human_GOBP_AllPathways_no_GO_iea_June_24_2019_symbol_max250gssize.gmt).
-
 
 
 We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.
@@ -273,11 +276,12 @@ STEPS:
 Please follow these optional steps if time permits and/or to explore more g:Profiler parameters.
 
 Here below are 3 optional steps that cover several options offered by g:Profiler:
+
   1. test different data sources, 
   1. take the order of the gene list into account,
   1. use different types of multiple hypothesis correction methods.
 
-Use the same gene list as used in exercise 1 and modify paramters listed above. Observe the results. 
+Use the same gene list as used in [exercise 1](#exercise-1) and modify paramters listed above. Observe the results. 
 
 <p align="center">
 <img src="./Module2/gprofiler/images/gp18.png" alt="workflow" width="60%" />

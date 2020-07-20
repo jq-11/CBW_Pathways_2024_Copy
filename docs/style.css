@@ -125,8 +125,22 @@ h1 {
   border-style:solid;
   border-color:#169c40;
 }
-.datadownload:before {
+.rmd-datadownload:before {
   color: #169c40;
   font-size: 24px;
   content: "Download Instructions";
 }
+
+.rmd-question {
+  padding: 0em 0em 0em 3em;
+  margin-bottom: 2px;
+  background:  /*#FFFF00*/  url("images/icons8-ask-question-50.png") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color:#b478f5;
+}
+.rmd-question:before {
+  color: #b478f5;
+  font-size: 24px;
+  content: "Question";
+}
+

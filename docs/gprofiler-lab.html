@@ -101,7 +101,7 @@
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#goal-of-the-exercise-1"><i class="fa fa-check"></i>Goal of the exercise 1</a></li>
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#data"><i class="fa fa-check"></i>Data</a></li>
-<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-1---run-gprofiler"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-1"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a><ul>
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-1---launch-gprofiler."><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-2---input-query"><i class="fa fa-check"></i>Step 2 - input query</a></li>
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-3---adjust-parameters."><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
@@ -322,7 +322,7 @@
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>Performing Over-representation analysis (ORA) with g:Profiler.</p>
-<p>The practical lab contains 2 exercises. The first exercises uses <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> to perform gene-set enrichment analysis and the second exercises uses <a href="https://amp.pharm.mssm.edu/Enrichr/">enrichr</a>.</p>
+<p>The practical lab contains 2 exercises. The first exercises uses <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> to perform gene-set enrichment analysis.</p>
 </div>
 <div id="goal-of-the-exercise-1" class="section level2">
 <h2>Goal of the exercise 1</h2>
@@ -332,7 +332,7 @@
 <h2>Data</h2>
 <p>g:Profiler requires a list of genes, one per line, in a text file or spreadsheet, ready to copy and paste into a web page: for this, we use genes with frequent somatic SNVs identified in TCGA exome sequencing data of 3,200 tumors of 12 types6. The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples (Supplementary Table 1, which is derived from column B of Supplementary Table 4 in <a href="https://www.ncbi.nlm.nih.gov/pubmed/24132290">Kandoth C. et al.</a> ) (<a href="https://www.nature.com/articles/nature12634" class="uri">https://www.nature.com/articles/nature12634</a>). Genes are ranked in decreasing order of significance (FDR Q value) and mutation frequency (not shown).</p>
 </div>
-<div id="exercise-1---run-gprofiler" class="section level2">
+<div id="exercise-1" class="section level2">
 <h2>Exercise 1 - run g:Profiler</h2>
 <p>For this exercise, our goal is to copy and paste the list of genes into g:Profiler, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results.</p>
 <p>g:Profiler performs a gene-set enrichment analysis using a hypergeometric test (Fisher’s exact test) with the option to consider the ranking of the genes in the calculation of the enrichment significance (minimum hypergeometric test). The Gene Ontology Biological Process and Reactome are going to be selected as pathway databases. The results are displayed as a table or downloadable as an EnrichmentMap type output (GEM).</p>
@@ -384,7 +384,7 @@ if g:Profiler does not return any results increase the threshold (0.1, then 1) t
 </p>
 </div>
 <p align="center">
-<img src="Module2/gprofiler/images/gp2.png" alt="workflow" width="75%" />
+<img src="Module2/gprofiler/images/gp2.png" alt="workflow" width="50%" />
 </p>
 <p>3b. Click on the <em>Data sources</em> tab (black rectangle) to expand it.</p>
 UnSelect the following gene-set databases by clicking the “clear all” button. * In the <em>Gene Ontology</em> category, check <em>GO Biological Process</em> and <em>No electronic GO annotations</em>.
@@ -402,7 +402,7 @@ if g:Profiler does not return any results uncheck the <em>No electronic GO annot
 <li>In the <em>biological pathways</em> category, check <em>Reactome</em>.</li>
 </ul>
 <p align="center">
-<img src="Module2/gprofiler/images/gp3.png" alt="workflow" width="75%" />
+<img src="Module2/gprofiler/images/gp3.png" alt="workflow" width="50%" />
 </p>
 </div>
 <div id="step-4---run-query" class="section level3">
@@ -460,17 +460,15 @@ The first table displays the gene-sets significantly enriched at FDR 0.05 for th
 <h3>Step 7: Save the results</h3>
 <ul>
 <li><p>7a. In the <em>Detailed Results</em> panel, select “GEM” . It will save the results in a text file in the “Generic Enrichment Map” format that we will use to visualize using Cytoscape.</p></li>
-<li><p>select max term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer.</p></li>
-</ul>
+<li>select max term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer.
 <p align="center">
-<pre><code>  &lt;img src=&quot;./Module2/gprofiler/images/gp13.png&quot; alt=&quot;workflow&quot; width=&quot;75%&quot; /&gt;</code></pre>
-</p>
-<ul>
+<img src="Module2/gprofiler/images/gp13.png" alt="workflow" width="75%" />
+</p></li>
 <li>select max term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer.
 <p align="center">
 <img src="Module2/gprofiler/images/gp14.png" alt="workflow" width="75%" />
 </p></li>
-<li>7b: Open one file that you saved using Microsoft Office Excel or in an equivalent software.</li>
+<li><p>7b: Open the file that you saved using the geneset threshold of 1000 using Microsoft Office Excel or in an equivalent software.</p></li>
 </ul>
 <p>Observe the results included in this file:</p>
 <ol style="list-style-type: decimal">
@@ -481,33 +479,43 @@ The first table displays the gene-sets significantly enriched at FDR 0.05 for th
 <li>Phenotype</li>
 <li>Genes included in each gene-set</li>
 </ol>
-<p>:question: Question: Which term has the best corrected p-value? Which genes in our list are included in this term? Observe that same genes can be present in several lines (pathways are related when they contain a lof of genes in common).</p>
+<div class="rmd-question">
+<p>
+Which term has the best corrected p-value? Which genes in our list are included in this term? Observe that same genes can be present in several lines (pathways are related when they contain a lof of genes in common).
+</p>
+</div>
 <div class="rmd-note">
 <p>
 The table is formatted for the input into Cytoscape EnrichmentMap. It is called the <a href="https://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#generic-results-files"><em>generic format</em></a>. The p-value and FDR columns contain identical values because g:Profiler directly outputs the FDR (= corrected p-value) meaning that the p-value column is already the FDR. Phenotype 1 means that each pathway will be represented by red nodes on the enrichment map (presented during next module).
 </p>
 </div>
 <p><img src="Module2/gprofiler/images/gp15.png" alt="workflow" width="100%" /></p>
-<p>The term <em>positive regulation of activin receptor signaling pathway</em> is the most significant gene-set (=the lowest FDR value). Many gene-sets from the top of this list are related to each other and have genes in common.</p>
+<p>The term <em>regulation of transferase activity</em> is the most significant gene-set (=the lowest FDR value). Many gene-sets from the top of this list are related to each other and have genes in common.</p>
 <hr />
 </div>
 <div id="step-8" class="section level3">
 <h3>Step 8</h3>
-<p>8a. Optional but recommended: Download the pathway database files. * Go to the top of the page and expand the “Data sources” tab. Click on the ‘name.gmt’ link located at bottom of this tab. It will download a zipped folder named <em>gprofiler_hsapiens.name.zip</em> containing several pathway database gmt files.</p>
+<p>8a. Optional but recommended: Download the pathway database files. * Go to the top of the page and expand the “Data sources” tab. Click on the ‘combined name.gmt’ link located at bottom of this tab. It will download a zipped folder named <em>combined name.gmt</em> containing a pathway database gmt file with all the available sources.</p>
 <p align="center">
 <img src="Module2/gprofiler/images/gp12.png" alt="workflow" width="60%" />
 </p>
-<p>8b: concatenate the <a href="GO:BP" class="uri">GO:BP</a> and Reactome gmt files:</p>
+<p>8b:(Optional) concatenate the <a href="GO:BP" class="uri">GO:BP</a> and Reactome gmt files:</p>
+<p>If you want to create a smaller gmt file that doesn’t contain all of the gprofiler datasources you can instead download name.gmt.zip that contains each datasource as its own gmt file. You will need to concatenate the sources you require into one gmt file to use for later.</p>
+<div id="option-1-manually-if-you-are-not-familiar-with-unix-commands" class="section level4">
+<h4>Option 1: manually if you are not familiar with unix commands</h4>
 <ul>
-<li>option 1: manually if you are not familiar with unix commands</li>
 <li>open a text editor such a Notepad or equivalent</li>
 <li>open hsapiens.<a href="GO:BP.name.gmt" class="uri">GO:BP.name.gmt</a> using the text editor</li>
 <li>open gmt hsapiens.REAC.name.gmt using the text editor</li>
-<li><p>copy-paste all the rows from REAC file together with all the rows in <a href="GO:BP" class="uri">GO:BP</a> file and save it as hsapiens.pathways.name.gmt .</p></li>
-<li>option 2: using the cat command if you are familiar with unix commands</li>
+<li>copy-paste all the rows from REAC file together with all the rows in <a href="GO:BP" class="uri">GO:BP</a> file and save it as hsapiens.pathways.name.gmt .</li>
+</ul>
+</div>
+<div id="option-2-using-the-cat-command-if-you-are-familiar-with-unix-commands" class="section level4">
+<h4>Option 2: using the cat command if you are familiar with unix commands</h4>
+<ul>
 <li>open your terminal window</li>
 <li>cd to the unzipped gprofiler_hsapiens.name folder</li>
-<li><p>type the following command: <code>cat hsapiens.GO:BP.name.gmt hsapiens.REAC.name.gmt &gt; hsapiens.pathways.name.gmt</code></p></li>
+<li>type the following command: <code>cat hsapiens.GO:BP.name.gmt hsapiens.REAC.name.gmt &gt; hsapiens.pathways.name.gmt</code></li>
 </ul>
 <div class="rmd-note">
 <p>
@@ -517,11 +525,20 @@ you will be using this optional hsapiens.pathways.name.gmt file in Cytoscape Enr
 <hr />
 </div>
 </div>
+</div>
 <div id="exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query" class="section level2">
 <h2>Exercise 2: Load and use a custom .gmt file and run the query</h2>
 <p>For this exercise, our goal is to copy and paste the list of genes into g:Profiler, upload a custom gmt file, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results. Uploading a custom gmt file enables us to use alternate pathway data sources not available in g:Profiler.</p>
 <p>We are going to use a gmt file that contains a database of pathway gene sets used for pathway enrichment analysis in the standard GMT format downloaded from <a href="http://baderlab.org/GeneSets" class="uri">http://baderlab.org/GeneSets</a> and updated monthly. This file contains pathways from eight data sources: GO, Reactome, Panther, NetPath, NCI, MSigDB curated gene sets (C2 collection, excluding Reactome and KEGG), MSigDB Hallmark (H collection) and HumanCyc. A GMT file is a text file in which each line represents a gene set for a single pathway. Each line includes a pathway ID, a name and the list of associated genes in a tab-separated format. This file has been filtered to exlclude gene-sets that contained more than 250 genes as these gene-sets are associated with more general terms.</p>
 <p>Before starting this exercise, download the required files:</p>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in the corresponding module directory of your CBW work directory.
+</p>
+</div>
 <ul>
 <li><p><a href="https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module2/gprofiler_new/data2/Supplementary_Table1_Cancer_drivers.txt">Supplementary_Table1_Cancer_drivers.txt</a>.</p></li>
 <li><p><a href="https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module2/gprofiler_new/data2/Human_GOBP_AllPathways_no_GO_iea_June_24_2019_symbol_max250gssize.gmt">Baderlab_genesets.gmt</a>.</p></li>
@@ -529,7 +546,7 @@ you will be using this optional hsapiens.pathways.name.gmt file in Cytoscape Enr
 <p>We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.</p>
 <p>STEPS:</p>
 <ul>
-<li>Repeat step 1 to 3a from <a href="#exercise-1">Exercise 1</a> (go back to exercise 1 to get detailed instructions) Briefly:</li>
+<li>Repeat step 1 to 3a from <a href="gprofiler-lab.html#exercise-1">Exercise 1</a> (go back to exercise 1 to get detailed instructions) Briefly:</li>
 <li>Step 1:
 <ul>
 <li>Open g:profiler</li>
@@ -562,8 +579,13 @@ you will be using this optional hsapiens.pathways.name.gmt file in Cytoscape Enr
 <div id="optional-steps" class="section level2">
 <h2>Optional steps</h2>
 <p>Please follow these optional steps if time permits and/or to explore more g:Profiler parameters.</p>
-<p>Here below are 3 optional steps that cover several options offered by g:Profiler: 1. test different data sources, 1. take the order of the gene list into account, 1. use different types of multiple hypothesis correction methods.</p>
-<p>Use the same gene list as used in exercise 1 and modify paramters listed above. Observe the results.</p>
+<p>Here below are 3 optional steps that cover several options offered by g:Profiler:</p>
+<ol style="list-style-type: decimal">
+<li>test different data sources,</li>
+<li>take the order of the gene list into account,</li>
+<li>use different types of multiple hypothesis correction methods.</li>
+</ol>
+<p>Use the same gene list as used in <a href="gprofiler-lab.html#exercise-1">exercise 1</a> and modify paramters listed above. Observe the results.</p>
 <p align="center">
 <img src="Module2/gprofiler/images/gp18.png" alt="workflow" width="60%" />
 </p>
