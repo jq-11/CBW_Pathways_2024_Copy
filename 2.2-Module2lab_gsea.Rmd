@@ -1,6 +1,6 @@
 # Module 2 lab - GSEA {#gsea-lab}
 
-by Veronique Voisin
+Presenter: Ruth Isserlin
 
 ## Introduction
 
@@ -16,11 +16,12 @@ The data used in this exercise is gene expression (transcriptomics) obtained fro
 
 #### How was the data processed?
 
-Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from [cBioPortal for Cancer Genomics](http://www.cbioportal.org/data_sets.jsp). Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using [edgeR](http://www.ncbi.nlm.nih.gov/pubmed/19910308). The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the **Additional information** section. 
+Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from [cBioPortal for Cancer Genomics](http://www.cbioportal.org/data_sets.jsp). Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using [edgeR](http://www.ncbi.nlm.nih.gov/pubmed/19910308). The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the [**Additional information**](#additional_information) section. 
 
 ## Background
 
 The goal of this lab is to:
+
   * upload the 2 required files into GSEA, 
   * adjust relevant parameters, 
   * run GSEA, 
@@ -34,19 +35,22 @@ The 2 required files are:
 #### Rank File
 To generate a rank file (.rnk),  a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed(i.e associated with a very small pvalue, close to 0) will be assigned a high score. The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC > 0, the score will have a + sign) or lower in mesenchymal (logFC < 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (all genes have to be included). 
 
-Tip: how to generate a rank file. 
+
 
 ```{block, type="rmd-caution"}
 The rank file is going to be provided for the lab, you don't need to generate it. 
 ```
 
-Calculation of the score
+### How to generate a rank file. 
+
+#### Calculation of the score
 
 <img src="./Module2/gsea/images/calculate_score.png" alt="rank_score" width="75%" />
 
 <img src="./Module2/gsea/images/GSEA_KS.png" alt="GSEA_KS" width="100%" />
 
-Generation of the rank file: select the gene names and score columns and save the file as tab delimited with the extension .rnk
+#### Generation of the rank file
+select the gene names and score columns and save the file as tab delimited with the extension .rnk
 
 <img src="./Module2/gsea/images/make_rank_file.png" alt="generate rank" width="75%" />
 
@@ -56,6 +60,15 @@ The second file that is needed for GSEA is the pathway database, a file with the
 ```{block, type="rmd-caution"}
 You don't need to perform this step for the exercise, the .gmt file will be given to you. 
 ```
+
+Go to:
+
+  * http://download.baderlab.org/EM_Genesets/
+  * click on current_release/
+  * Click on Human/
+  * Click on symbol/
+  * save the Human_GOBP_AllPathways_no_GO_Iiea...gmt file on your computer
+
 <img src="./Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="70%" />
 
 The .gmt is a tab delimited text file which contains one gene-set per row. For each gene-set (row), the first 2 columns contain the name and the description of the gene-set and the remaining columns contain the list of genes included in the gene-set. It is possible to create a custom gene-set using Excel or R. 
@@ -75,24 +88,28 @@ Right click on link below and select "Save Link As...".
 Place it in the corresponding module directory of your CBW work directory.
 ```
 
-* [Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt)
+* [Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt)
 * [MesenchymalvsImmunoreactive_edger_ranks.rnk](./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk)
 
 
 ### Step1.
 
-Launch GSEA.
+Launch GSEA by double clicking on the installed program icon.
 
-<img src="./Module2/gsea/images/launchGSEA3.0.png" alt="Launch GSEA" width="100%" />
+```{block, type="rmd-troubleshooting"}
+If GSEA won't launch on MacOS.
 
+Follow instructions specified on download page:
+  * ![](./Module2/gsea/images/gsea_troubleshooting.png)
 
-```{block, type="rmd-task"}
-Note regarding option 2: GSEA has been updated to version 3.0: if you still have the gsea_2.2 version, download the .jar file named gsea-3.0.jar from the GSEA Broad website (http://software.broadinstitute.org/gsea/downloads.jsp), open a terminal window and run this command:
+  * If you see this error message:
+  * <img src="./Module2/gsea/images/gsea_mac_launch_error.png" alt="get_gmt" width="50%" />
+
+  * Open Settings -> Security & Privacy
+  * Click on "Open Anyways"
+  * <img src="./Module2/gsea/images/privacy_setting.png" alt="get_gmt" width="75%" />
 ```
 
-```
- java -Xmx4G -jar gsea-3.0.jar
-```
 
 ### Step 2.
 
@@ -100,18 +117,18 @@ Load Data
 
 2a. Locate the ‘Load data’ icon at the upper left corner of the window and click on it.
 
-<img src="./Module2/gsea/images/GSEAloaddata.png" alt="Load data" width="100%" />
+<img src="./Module2/gsea/images/GSEAloaddata.png" alt="Load data" width="50%" />
 
 
 2b. In the central panel, select ‘Method 1’ and ‘Browse for files’. A new window pops up.
 
 <img src="./Module2/gsea/images/GSEAbrowsefile2.png" alt="Browse files" width="100%" />
 
-2c. Browse your computer to locate the 2 files : **Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt** and **MesenchymalvsImmunoreactive_edger_ranks.rnk**. 
+2c. Browse your computer to locate the 2 files : **Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt** and **MesenchymalvsImmunoreactive_edger_ranks.rnk**. 
 
 2d. Click on **Choose**. A message pops us when the files are loaded successfully. 
 
-<img src="./Module2/gsea/images/ORA4.png" alt="Locate files" width="50%" />
+<img src="./Module2/gsea/images/ORA4.png" alt="Locate files" width="75%" />
 
 2e. Click on **OK**.
 
@@ -134,13 +151,14 @@ Adjust parameters
 Specify the following parameters:
 
 3c. Gene sets database -
+
   * click on the radio button (…) located at the right of the blank field.
-  * :clock10: Wait 5-10sec for the gene-set selection window to appear.
+  * Wait 5-10sec for the gene-set selection window to appear.
 	
 <img src="./Module2/gsea/images/GSEAloadgeneset.png" alt="Gene sets database" width="100%" />
 
   * Use the right arrow in the top field to see the Gene matrix (local gmx/gmt) tab.
-  * Click to highlight **Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt**.
+  * Click to highlight **Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt**.
   * click on **OK** at the bottom of the window.
 
 
@@ -160,16 +178,21 @@ Use 2000 when you do it for your own data outside the workshop.
 
 3e. Ranked list - select by clicking on the arrow and highlighting rank file.
 
-3f. Click on **Show** button next to **Basic Fields** to display extra options.
+3f. Collapse/Remap to gene symbols - Change to *No_collapse*.  (Our rank file already contains the gene symbols so we don't need GSEA to try and convert probe names to gene symbols)
 
-3g. Analysis name – change default **my_analysis** to name specific to analysis for example Mesen_vs_Immuno_edgeR. GSEA will use your specified name as part of the name of the results directory it creates.
 
-3h. Save results in this folder – navigate to where you want GSEA to put the results folder. By default GSEA will put the results into the directory gsea_home/output/[date] in your home directory.
+3g. Click on **Show** button next to **Basic Fields** to display extra options.
 
-3i. Min size: exclude smaller sets – By default GSEA sets the lower limit to 15. In this protocol, the minimum is set to 10 to increase some of the smaller sets in the results.
+3h. Analysis name – change default **my_analysis** to name specific to analysis for example Mesen_vs_Immuno_edgeR. GSEA will use your specified name as part of the name of the results directory it creates.
+
+3i. Max size: exclude larger sets – By default GSEA sets the upper limit to 500. In this protocol, the maximum is set to 200 to decrease some of the larger sets in the results.
+
+3j. Min size: exclude smaller sets – By default GSEA sets the lower limit to 15. In this protocol, the minimum is set to 10 to increase some of the smaller sets in the results.
+
+3k. Save results in this folder – navigate to where you want GSEA to put the results folder. By default GSEA will put the results into the directory gsea_home/output/[date] in your home directory.
 
 ```{block, type="rmd-tip"}
-set **Enrichment Statistics** to p1 if you want to add more weight on the most top up-regulated and top down-regulated. **P1** is a more stringent parameter and it will result in less gene-sets significant under FDR <0.05.
+set **Enrichment Statistics** to p2 if you want to add more weight on the most top up-regulated and top down-regulated. **P2** is a more stringent parameter and it will result in less gene-sets significant under FDR <0.05.
 ```
 
 ### Step 4. 
@@ -238,14 +261,6 @@ When examining the results there are a few things to look for:
 <img src="./Module2/gsea/images/ORA14.png" alt="Results2" width="75%" />
 
 
-
-<img src="./Module2/gsea/images/ORA15.png" alt="Results3" width="75%" />
-
-
-
-<img src="./Module2/gsea/images/ORA16.png" alt="Results4" width="75%" />
-
-
 5e. Explore the tabular format of the results.
 
 #### Mesenchymal
@@ -259,7 +274,7 @@ When examining the results there are a few things to look for:
 [Link to information about GSEA results](http://www.baderlab.org/CancerStemCellProject/VeroniqueVoisin/AdditionalResources/GSEA#GSEA_enrichment_scores_and_statistics)
 
 
-## Additional information
+## Additional information {#additional_information}
 
 [More on GSEA data format](http://www.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats) 
 
