@@ -420,22 +420,10 @@ If after clicking on <em>Run query</em> button the analysis completes but there 
 </div>
 <div id="step-5---explore-the-results." class="section level3">
 <h3>Step 5 - Explore the results.</h3>
-<ul>
-<li>Step5a:</li>
-<li>After the query has run, the results are displayed at the bottom of the page, below the input parameters.</li>
-<li>By default, the &quot;Results&quot; tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 2 gene-set databases that we have selected GO Biological Process &quot;<a href="GO:BP" class="uri">GO:BP</a>&quot; and Reactome &quot;REAC&quot;. Numbers in parentheses are indicating the number of gene-sets that passed the threshold.</li>
-</ul>
+<p>Step5a: * After the query has run, the results are displayed at the bottom of the page, below the input parameters. * By default, the &quot;Results&quot; tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 2 gene-set databases that we have selected GO Biological Process &quot;<a href="GO:BP" class="uri">GO:BP</a>&quot; and Reactome &quot;REAC&quot;. Numbers in parentheses are indicating the number of gene-sets that passed the threshold.</p>
 <p><img src="Module2/gprofiler/images/gp5.png" alt="workflow" width="100%" /></p>
-<ul>
-<li>Step5b:</li>
-<li>Click on &quot;Detailed Results&quot; to view the results in more depth. Two tables are displayed, one for each of the data sources selected. (If more than 2 data sources are selected there will be additional tables for each datasource) Each row of the table contains:</li>
-<li><strong>Term name</strong> - gene-set name</li>
-<li><strong>Term ID</strong> - gene-est identifier</li>
-<li><strong>Padj</strong> - FDR value</li>
-<li><strong>-log10(Padj)</strong> - enrichment score calculated using the formula -log10(padj)</li>
-<li>variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored. For any data source besides GO the cell is colored black if the gene is found in the gene-set. For the GO data source cells are colored according to the annotation evidence code. Expand the legend tab for detailed coloring mapping of GO evidence codes.<br />
-The first table displays the gene-sets significantly enriched at FDR 0.05 for the <a href="GO:BP" class="uri">GO:BP</a> database.</li>
-</ul>
+<p>Step5b: * Click on &quot;Detailed Results&quot; to view the results in more depth. Two tables are displayed, one for each of the data sources selected. (If more than 2 data sources are selected there will be additional tables for each datasource) Each row of the table contains: * <strong>Term name</strong> - gene-set name * <strong>Term ID</strong> - gene-est identifier * <strong>Padj</strong> - FDR value * <strong>-log10(Padj)</strong> - enrichment score calculated using the formula -log10(padj) * variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored. For any data source besides GO the cell is colored black if the gene is found in the gene-set. For the GO data source cells are colored according to the annotation evidence code. Expand the legend tab for detailed coloring mapping of GO evidence codes.<br />
+The first table displays the gene-sets significantly enriched at FDR 0.05 for the <a href="GO:BP" class="uri">GO:BP</a> database.</p>
 <p><img src="Module2/gprofiler/images/gp6.png" alt="workflow" width="100%" /></p>
 <p>The second table displays the results corresponding to the Reactome database.</p>
 <p><img src="Module2/gprofiler/images/gp7.png" alt="workflow" width="100%" /></p>
@@ -449,18 +437,18 @@ The first table displays the gene-sets significantly enriched at FDR 0.05 for th
 <p>It displays the gene set size (T), the size of our gene list (Q) , the number of genes that overlap between our gene list and the tested gene-set (TnQ) as well as the number of genes in the background (U).</p>
 <ul>
 <li>Above the <a href="GO:BP" class="uri">GO:BP</a> result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size).</li>
-<li>Change the maximum <em>Term size</em> from 10000 to <strong>1000</strong> and observe the results in the detailed stats panel:</li>
+<li>Change the maximum <em>Term size</em> from 10000 to <strong>250</strong> and observe the results in the detailed stats panel:</li>
 </ul>
 <p><img src="Module2/gprofiler/images/gp8a.png" alt="workflow" width="100%" /></p>
 <ul>
 <li>Without filtering term size, the top terms were GO terms containing that could contain 4000 or 5000 genes and that were located high in the GO hierarchy (parent term).</li>
-<li>With filtering the maximum term size to 1000, the top list contains pathways of larger interpretative values. However, please note that the adjusted pvalues was calculated using all gene-sets without size filtering.</li>
+<li>With filtering the maximum term size to 250, the top list contains pathways of larger interpretative values. However, please note that the adjusted pvalues was calculated using all gene-sets without size filtering.</li>
 </ul>
 </div>
 <div id="step-7-save-the-results" class="section level3">
 <h3>Step 7: Save the results</h3>
+<p>7a. In the <em>Detailed Results</em> panel, select &quot;GEM&quot; . It will save the results in a text file in the &quot;Generic Enrichment Map&quot; format that we will use to visualize using Cytoscape.</p>
 <ul>
-<li><p>7a. In the <em>Detailed Results</em> panel, select &quot;GEM&quot; . It will save the results in a text file in the &quot;Generic Enrichment Map&quot; format that we will use to visualize using Cytoscape.</p></li>
 <li>select max term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer.
 <p align="center">
 <img src="Module2/gprofiler/images/gp13.png" alt="workflow" width="75%" />
@@ -469,8 +457,8 @@ The first table displays the gene-sets significantly enriched at FDR 0.05 for th
 <p align="center">
 <img src="Module2/gprofiler/images/gp14.png" alt="workflow" width="75%" />
 </p></li>
-<li><p>7b: Open the file that you saved using the geneset threshold of 1000 using Microsoft Office Excel or in an equivalent software.</p></li>
 </ul>
+<p>7b: Open the file that you saved using the geneset threshold of 250 using Microsoft Office Excel or in an equivalent software.</p>
 <p>Observe the results included in this file:</p>
 <ol style="list-style-type: decimal">
 <li>Name of each gene-set</li>
@@ -491,12 +479,15 @@ The table is formatted for the input into Cytoscape EnrichmentMap. It is called 
 </p>
 </div>
 <p><img src="Module2/gprofiler/images/gp15.png" alt="workflow" width="100%" /></p>
-<p>The term <em>regulation of transferase activity</em> is the most significant gene-set (=the lowest FDR value). Many gene-sets from the top of this list are related to each other and have genes in common.</p>
+<p>The term <em>gland development</em> is the most significant gene-set (=the lowest FDR value). Many gene-sets from the top of this list are related to each other and have genes in common.</p>
 <hr />
 </div>
 <div id="step-8" class="section level3">
 <h3>Step 8</h3>
-<p>8a. Optional but recommended: Download the pathway database files. * Go to the top of the page and expand the &quot;Data sources&quot; tab. Click on the 'combined name.gmt' link located at bottom of this tab. It will download a zipped folder named <em>combined name.gmt</em> containing a pathway database gmt file with all the available sources.</p>
+<p>8a. Optional but recommended: Download the pathway database files.</p>
+<ul>
+<li>Go to the top of the page and expand the &quot;Data sources&quot; tab. Click on the 'combined name.gmt' link located at bottom of this tab. It will download a file named <em>combined name.gmt</em> containing a pathway database gmt file with all the available sources.</li>
+</ul>
 <p align="center">
 <img src="Module2/gprofiler/images/gp12.png" alt="workflow" width="60%" />
 </p>

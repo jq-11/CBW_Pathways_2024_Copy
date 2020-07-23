@@ -8,7 +8,7 @@ By Veronique Voisin, Ruth Isserlin, Gary Bader
 
 **Create an enrichment map and navigate through the network**
 
-During this exercise, you will learn how to create an enrichment map from gene-set enrichment results. The enrichment results chosen for this exercise are generated using g:Profiler but an enrichment map can be created directly from output from [GSEA](http://software.broadinstitute.org/gsea/index.jsp) or [BinGo](http://apps.cytoscape.org/apps/bingo) or alternately from any gene-set tool using the generic enrichment results format.
+During this exercise, you will learn how to create an enrichment map from gene-set enrichment results. The enrichment results chosen for this exercise are generated using g:Profiler but an enrichment map can be created directly from output from [GSEA](http://software.broadinstitute.org/gsea/index.jsp),  [BinGo](http://apps.cytoscape.org/apps/bingo), [Enrichr](https://amp.pharm.mssm.edu/Enrichr/) or alternately from any gene-set tool using the generic enrichment results format.
 
 
 ## Data
@@ -33,6 +33,7 @@ We run and saved g:Profiler results using different parameters.
 An enrichment map represents the result of enrichment analysis as a network where significantly enriched gene-sets that share a lot of genes in common will form identifiable clusters. The visualization of the results as these biological themes will ease the interpretation of the results. 
 
 The goal of this exercise is to learn how to:
+
   1. upload g:Profiler results into Cytoscape EnrichmentMap to create a map.
   1. upload several g:Profiler results at the same time to create one map and learn how to distinguish the results.
   1. to compare the differences resulting from the use of different g:Profiler parameters at the enrichment map level. 
@@ -50,19 +51,22 @@ Place it in the corresponding module directory of your CBW work directory.
 
 Five files are needed for this exercise:
 
-1. Enrichment result 1: [gProfiler_hsapiens_GEM1.txt](./Module3/gprofiler/data/gProfiler_hsapiens_GEM1.txt) 
-In g:Profiler, the parameters that we used were: GO_BP no electronic annotation, Reactome, Benjamini-HochBerg FDR 0.05. 
-
-1. Enrichment result 2: [gProfiler_hsapiens_gs250.gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_gs250.gem.txt) 
-
-In g:Profiler, the parameters that we used were: GO_BP no electronic annotation, Reactome, Benjamini-HochBerg FDR 0.05. The results were filtered using the g:Profiler Term size slidebar and **only the enriched gene-sets that contain equal or less than 250 genes per gene-set** were included in the result file (gProfiler_hsapiens_gs250.gem.txt).
-
-1. Enrichment result 3: [gProfiler_hsapiens_Baderlab_max250_gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250_gem.txt)
-
-1. Pathway database 1 (.gmt):[hsapiens_GO_REAC.gmt](./Module3/gprofiler/data/hsapiens_GO_REAC.gmt)
-This file has been created by concatenating the hsapiens.GO/BP.name.gm and the hsapiens.REAC.name.gmt files contained in the g:Profiler gprofiler_hsapiens.name folder. 
-
-1. Pathway database 2 (.gmt):[Human_GOBP_AllPathways_no_GO_iea_June_20_2019_symbol_max250gssize.gmt](./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_June_20_2019_symbol_max250gssize.gmt)
+  1. Enrichment result 1:   [gProfiler_hsapiens_max10000.gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_max10000.gem.txt) 
+  * In g:Profiler, the parameters that we used to generate this file were:
+    * GO_BP no electronic annotation, 
+    * Reactome, 
+    * Benjamini-HochBerg FDR 0.05
+    * No restriction on the number of genes in a geneset
+  2. Enrichment result 2:[gProfiler_hsapiens_max250.gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_max250.gem.txt) 
+  * In g:Profiler, the parameters that we used were: 
+    * GO_BP no electronic annotation, 
+    * Reactome, 
+    * Benjamini-HochBerg FDR 0.05. 
+    * The results were filtered using the g:Profiler Term size slidebar and only the enriched gene-sets that contain equal or less than 250 genes per gene-set were included in the result file (gProfiler_hsapiens_max250.gem.txt).
+  3. Enrichment result 3:[gProfiler_hsapiens_Baderlab_max250_gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250_gem.txt)
+  4. Pathway database 1 (.gmt):[gprofiler_full_hsapiens.name.gmt](./Module3/gprofiler/data/gprofiler_full_hsapiens.name.gmt)
+  * This file can be downloaded directly or can be been created by concatenating the hsapiens.GO/BP.name.gm and the hsapiens.REAC.name.gmt files contained in the g:Profiler gprofiler_hsapiens.name folder. 
+  5. Pathway database 2 (.gmt):[Human_GOBP_AllPathways_no_GO_iea_June_20_2019_symbol_max250gssize.gmt](./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_June_20_2019_symbol_max250gssize.gmt)
 
 ## Exercise 1a 
 
@@ -78,7 +82,7 @@ Launch Cytoscape and open the EnrichmentMap App
 
   *	Click on Apps -> EnrichmentMap
 
-<img src="https://github.com/bioinformaticsdotca/Pathways_2019/blob/master/Module3/img/EM1.png?raw=true"  />
+<img src="./Module3/gprofiler/images/EM1.png"  />
 
  * A 'Create Enrichment Map' window is now opened.
 
@@ -86,20 +90,20 @@ Launch Cytoscape and open the EnrichmentMap App
 
 Create an enrichment map from 2 datasets and with a gmt file.
 
-2a. In the 'Create Enrichment Map' window, drag and drop the 2 enrichment files gProfiler_hsapiens_GEM1.txt and 
-gProfiler_hsapiens_gs250.gem.txt.
+2a. In the 'Create Enrichment Map' window, drag and drop the 2 enrichment files gProfiler_hsapiens_max10000.gem.txt and 
+gProfiler_hsapiens_max250.gem.txt.
 
 <img src="./Module3/gprofiler/images/gem0.png" alt="workflow" width="100%" />
 
-2b. In the white box, click on "gProfiler_hsapiens_gs250.gem (Generic/gProfiler) 
+2b. In the white box, click on "gProfiler_hsapiens_max250.gem (Generic/gProfiler) 
 
-2c. On the right side, go to the *GMT* field, click on the 3 radio button (...) and locate the file hsapiens_GO_REAC.gmt that you have saved on your computer to upload it.
+2c. On the right side, go to the *GMT* field, click on the 3 radio button (...) and locate the file gprofiler_full_hsapiens.name.gmt that you have saved on your computer to upload it.
 
 <img src="./Module3/gprofiler/images/gem1.png" alt="workflow" width="100%" />
 
-2d. In the white box, click on "gProfiler_hsapiens_GEM1 (Generic/gProfiler) 
+2d. In the white box, click on "gProfiler_hsapiens_max10000 (Generic/gProfiler) 
 
-2e. On the right side, go to the *GMT* field, click on the 3 radio button (...) and locate the file hsapiens_GO_REAC.gmt that you have saved on your computer to upload it.
+2e. On the right side, go to the *GMT* field, click on the 3 radio button (...) and locate the file gprofiler_full_hsapiens.name.gmt that you have saved on your computer to upload it.
 
 2f. Locate the *FDR q-value cutoff* field and set the value to 0.001
 
@@ -116,6 +120,7 @@ gProfiler_hsapiens_gs250.gem.txt.
 ### Step3: Explore the results:
 
 In the EnrichmentMap control panel located at the left:
+
   * select the 2 Data Sets (checked by default)
   * set Chart Data o *Color by Data Set*
   * select *Publication Ready* to remove gene-set label to have a global view of the map. 
@@ -129,16 +134,17 @@ un-select *Publication Ready* when you explore the map in more detail to see the
 </p>
 
 On the map, a node that is coloured both green and blue is a gene-set that is found in the both of the 2 gProfiler result sets that we have been uploaded. 
-  * A node that is blue is a gene-set that is found only in the file *gProfiler_hsapiens_GEM1* . 
-  * A blue edge represents genes that overlap between gene-sets found in the file *gProfiler_hsapiens_GEM1*.
-  * A green edge represents genes that overlap between gene-sets found in the file gProfiler_hsapiens_gs250.gem. 
+  * A node that is blue is a gene-set that is found only in the file *gProfiler_hsapiens_max10000* . 
+  * A blue edge represents genes that overlap between gene-sets found in the file *gProfiler_hsapiens_max10000*.
+  * A green edge represents genes that overlap between gene-sets found in the file *gProfiler_hsapiens_max250.gem*. 
 
  <img src="./Module3/gprofiler/images/gem6.png" alt="workflow" width="100%" />
  
  We can see clusters of blue nodes. All these nodes contain gene-sets that have more than 250 genes. Explore the detailed view (see below) to see if this cluster corresponds to informative terms. 
  
- :question: Would you have lost information by filtering gene-sets larger than 250 genes?
-
+```{block, type="rmd-question"}
+Would you have lost information by filtering gene-sets larger than 250 genes?
+```
 ### Explore Detailed results 
 
   * In the Cytoscape menu bar, select 'View" and 'Show Graphic Details' to display node labels. 
@@ -174,9 +180,9 @@ Create an enrichment map without a gmt file to compare the results with Exercise
    <img src="./Module3/gprofiler/images/gem7.png" alt="workflow" width="50%" />
   </p> 
   
-  * In the white box, select the "gProfiler_hsapiens_gs250.gem (Generic/gProfiler) file 
+  * In the white box, select the "gProfiler_hsapiens_max250.gem (Generic/gProfiler) file 
   * Locate the GMT field and delete the file name , leaving it blank.
-  * In the white box, select the "gProfiler_hsapiens_GEM1 (Generic/gProfiler) file 
+  * In the white box, select the "gProfiler_hsapiens_max10000 (Generic/gProfiler) file 
   * Locate the GMT field and delete the file name , leaving it blank.
   * Use same parameters as in [exercise 1a](#exercise-1a): FDR q-value cutoff of 0.001 and Connectivity to sparse.
   * Click on *Build*
@@ -187,6 +193,7 @@ Create an enrichment map without a gmt file to compare the results with Exercise
  Explore the results:
  
  In the EnrichmentMap control panel located at the left:
+ 
   * select the 2 Data Sets (selecteded by default)
   * set Chart Data o *Color by Data Set*
   * select *Publication Ready* to remove gene-set label to have a global view of the map. 
@@ -200,9 +207,10 @@ uncheck this box when you explore the map in details to see the gene-set names.
   </p>
 
 On the map, a node that is coloured both green and blue is a gene-set that is found in the both of the 2 gProfiler result sets that we have been uploaded. 
-  * A node that is blue is a gene-set that is found only in the file *gProfiler_hsapiens_GEM1* . 
-  * A blue edge represents genes that overlap between gene-sets found in the file *gProfiler_hsapiens_GEM1*.
-  * A green edge represents genes that overlap between gene-sets found in the file gProfiler_hsapiens_gs250.gem. 
+
+  * A node that is blue is a gene-set that is found only in the file *gProfiler_hsapiens_max10000* . 
+  * A blue edge represents genes that overlap between gene-sets found in the file *gProfiler_hsapiens_max10000*.
+  * A green edge represents genes that overlap between gene-sets found in the file gProfiler_hsapiens_max250.gem. 
 
  
  <img src="./Module3/gprofiler/images/gem4.png" alt="workflow" width="100%" />
@@ -211,6 +219,7 @@ On the map, a node that is coloured both green and blue is a gene-set that is fo
 **Conclusion of exercises 1 a and 1b:**
 
 Loading a gmt file to create an enrichment map from g:Profiler result is optional. However, there are 2 main beneficial aspects to uploading a gmt file:
+
   1. the map will be less condensed and easier to read and interpret.  
   1. clicking on a node will display all genes in the gene-set and not only genes included in our query list. 
 
