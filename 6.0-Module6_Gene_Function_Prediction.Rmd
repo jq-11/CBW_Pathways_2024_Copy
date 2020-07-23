@@ -2,7 +2,7 @@
 
   *<font color="#827e9c">Veronique Voisin</font>*
   
-  [Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/1Lc9IXnpZeyq_LMqL10C0Igb7C4tzL04m/view?usp=sharing)
+  [Lecture](./lectures/Pathways2020_Module6_lectureGeneFunctionPrediction_veronique.pdf)  
   
   [Lab practical - Cytoscape](#genemania_cytoscape)   
   
