@@ -75,8 +75,6 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#michael-hoffman"><i class="fa fa-check"></i>Michael Hoffman</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#veronique-voisin"><i class="fa fa-check"></i>Veronique Voisin</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#ruth-isserlin"><i class="fa fa-check"></i>Ruth Isserlin</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#francis-ouellette"><i class="fa fa-check"></i>Francis Ouellette</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rachade-hmamouchi"><i class="fa fa-check"></i>Rachade Hmamouchi</a></li>
 </ul></li>
 </ul></li>
 <li><a href="welcome.html#welcome">Welcome <a id="welcome"></a></a><ul>
@@ -320,11 +318,11 @@
 <div id="gsea_mod3" class="section level1">
 <h1>Module 3: GSEA Visualization</h1>
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
-<p><em><font color="#827e9c">By Veronique Voisin</font></em></p>
+<p><em><font color="#827e9c">By Veronique Voisin, Ruth Isserlin, Gary Bader</font></em></p>
 <div id="goal-of-the-exercise" class="section level2">
 <h2>Goal of the exercise:</h2>
 <p><strong>Create an enrichment map and navigate through the network</strong></p>
-<p>During this exercise, you will learn how to create an EnrichmentMap from gene-set enrichment results. The enrichment tool chosen for this exercise is GSEA but an enrichment map can be created from various gene-set tools using the generic format or the more specific g:Profiler, DAVID or BiNGO formats.</p>
+<p>During this exercise, you will learn how to create an EnrichmentMap from gene-set enrichment results. The enrichment tool chosen for this exercise is GSEA but an enrichment map can be created from various gene-set tools using the generic format or the more specific <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>,<a href="https://amp.pharm.mssm.edu/Enrichr/">Enrichr</a>, <a href="https://david.ncifcrf.gov/">DAVID</a> or <a href="http://apps.cytoscape.org/apps/bingo">BinGo</a> formats.</p>
 <p><strong>Post analysis (add drug target gene-sets to the network)</strong></p>
 <p>As second part of the exercise, you will learn how to expand the network by adding an extra layer of information.</p>
 <p><strong>Autoannotate</strong></p>
@@ -332,7 +330,7 @@
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>The data used in this exercise is gene expression data obtained from high throughput RNA sequencing. They correspond to Ovarian serous cystadenocarcinoma samples. We use precomputed results of the GSEA analysis [<a href="https://github.com/bioinformaticsdotca/HT-Biology_2017/blob/master/Pathways/Module15/mod2_lab_GSEA.md">GSEA part</a>] to create an enrichment map with the aim to transform the tabular format in a network to better visualize the relationships between the significant gene-sets:</p>
+<p>The data used in this exercise is gene expression data obtained from high throughput RNA sequencing. They correspond to Ovarian serous cystadenocarcinoma samples. We use precomputed results of the GSEA analysis <a href="gsea-lab.html#gsea-lab">Module 2 lab - gsea</a> to create an enrichment map with the aim to transform the tabular format in a network to better visualize the relationships between the significant gene-sets:</p>
 <p><img src="Module3/gsea/images/workflow.png" alt="workflow" width="750" /></p>
 </div>
 <div id="gsea-output-and-enrichmentmap" class="section level2">
@@ -367,10 +365,10 @@ Place it in the corresponding module directory of your CBW work directory.
 </div>
 <p>7 Files are needed to create the enrichment map for this exercise (please download these files on your computer):</p>
 <ol style="list-style-type: decimal">
-<li><p>GMT (file containing all pathways and corresponding genes) - <a href="./Module3/gsea/data/Human_GOBP_AllPathways_no_GO_iea_December_24_2015_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_December_24_2015_symbol.gmt</a></p></li>
+<li><p>GMT (file containing all pathways and corresponding genes) - <a href="./Module3/gsea/data/Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt</a></p></li>
 <li><p>Expression (file containing the RNAseq data for all samples and all genes) - <a href="./Module3/gsea/data/MesenchymalvsImmunoreactive_rnaseq_expression.txt">MesenchymalvsImmunoreactive_rnaseq_expression.txt</a></p></li>
-<li><p>Enrichments 1 (GSEA results for the “pos” mesenchymal phenotype) - <a href="./Module3/gsea/data/gsea_report_for_na_pos_1453222854028.xls">gsea_report_for_na_pos_1453222854028.xls</a></p></li>
-<li><p>Enrichments 1 (GSEA results for the “neg” immunoreactive phenotype) - <a href="./Module3/gsea/data/gsea_report_for_na_neg_1453222854028.xls">gsea_report_for_na_neg_1453222854028.xls</a></p></li>
+<li><p>Enrichments 1 (GSEA results for the “pos” mesenchymal phenotype) - <a href="./Module3/gsea/data/gsea_report_for_na_pos_1595281162211.xls">gsea_report_for_na_pos_1595281162211.xls</a></p></li>
+<li><p>Enrichments 1 (GSEA results for the “neg” immunoreactive phenotype) - <a href="./Module3/gsea/data/gsea_report_for_na_neg_1595281162211.xls">gsea_report_for_na_neg_1595281162211.xls</a></p></li>
 <li><p>Rank file (file that has been used as input to GSEA) - <a href="./Module3/gsea/data/MesenchymalvsImmunoreactive_edger_ranks2.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a></p></li>
 <li><p>Classes (define which samples are mesenchymal and which samples are immunoreactive) - <a href="./Module3/gsea/data/MesenchymalvsImmunoreactive_rnaseq_classes.cls">MesenchymalvsImmunoreactive_rnaseq_classes.cls</a></p></li>
 <li><p>Drug target database (preselection of 4 drugs and their target genes u sed in the poast -analysis exercise, <a href="http://www.drugbank.ca/" class="uri">http://www.drugbank.ca/</a>) - <a href="./Module3/gsea/data/Human_DrugBank_approved_symbol_selected.gmt">Human_DrugBank_approved_symbol_selected.gmt</a></p></li>
@@ -397,9 +395,9 @@ Place it in the corresponding module directory of your CBW work directory.
 <ul>
 <li><p><em>Name</em>: leave default or a name of your choice like &quot;GSEAmap&quot;</p></li>
 <li><p><em>Analysis Type</em>: GSEA</p></li>
-<li><p><em>Enrichments Pos</em>: gsea_report_for_na_pos_1453222854028.xls</p></li>
-<li><p><em>Enrichments Ned</em>: gsea_report_for_na_neg_1453222854028.xls</p></li>
-<li><p><em>GMT</em> : Human_GOBP_AllPathways_no_GO_iea_December_24_2015_symbol.gmt</p></li>
+<li><p><em>Enrichments Pos</em>: gsea_report_for_na_pos_1595281162211.xls</p></li>
+<li><p><em>Enrichments Ned</em>: gsea_report_for_na_neg_1595281162211.xls</p></li>
+<li><p><em>GMT</em> : Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt</p></li>
 <li><p><em>Ranks</em>: MesenchymalvsImmunoreactive_edger_ranks.rnk</p></li>
 <li><em>Expressions</em> : MesenchymalvsImmunoreactive_rnaseq_expression.txt.
 <div class="rmd-tip">
@@ -441,22 +439,22 @@ layout will be different for each user (there is a random seed in the layout alg
 <p>Navigate the enrichment map to gain a better understanding of a EnrichmentMap network.</p>
 <p>General layout of Cytoscape panel: In addition to the main window where the network is displayed, there are 2 panels: the Control Panel on the left side and the Table Panel at the bottom of the window.</p>
 <p>Steps:</p>
-<p><strong>3a</strong>. In the Cytocape menu bar, select <em>View</em> and * Show Graphic details*. It will turn the squared nodes into circles and the gene-set labels will be visible.</p>
+<p><strong>3a</strong>. In the Cytocape menu bar, select <em>View</em> and <em>Show Graphic details</em>. It will turn the squared nodes into circles and the gene-set labels will be visible.</p>
 <p><img src="Module3/gsea/images/EM5.png" alt="EM" width="350" /></p>
 <p><strong>3b</strong>: Zoom in or out using + or - in toolbar or scroll button on mouse until you are able to read the labels comfortably.</p>
 <p><img src="Module3/gsea/images/EM6.png" alt="EM" width="350" /></p>
 <p><strong>3c</strong>: Use the bird’s eye view (located at the bottom of the control panel) to navigate around the network by moving the blue rectangle using the mouse or trackpad.</p>
 <p><img src="Module3/gsea/images/EM7.png" alt="EM" width="350" /></p>
 <p><strong>3d</strong>: Click on an individual node of interest.</p>
-<p>For this example, you could use <em>Integrins signalling pathway</em>.</p>
+<p>For this example, you could use <em>Integrin signalling pathway</em>.</p>
 <div class="rmd-tip">
 <p>
-If you are unable to locate <em>Integrins signalling pathway</em>, type &quot;Integrins signalling pathway&quot; in the search box (quotes are important). Selected nodes appear yellow (or highlighted) in the network.
+If you are unable to locate <em>Integrin signalling pathway</em>, type &quot;Integrin signalling pathway&quot; in the search box (quotes are important). Selected nodes appear yellow (or highlighted) in the network.
 </p>
 </div>
-<p><strong>3e</strong>. In the Table Panel in the * EM Heat map* tab change:</p>
+<p><strong>3e</strong>. In the Table Panel in the <em>EM Heat map</em> tab change:</p>
 <ul>
-<li><p>Expressions: &quot;Row Norm*</p></li>
+<li><p>Expressions: Row Norm*</p></li>
 <li><p>Compress: -None-</p></li>
 </ul>
 <p><img src="Module3/gsea/images/EM8.png" alt="EM" width="750" /></p>
@@ -469,7 +467,7 @@ Genes in the heatmap that are highlighted yellowm (rank column) represent genes 
 <div id="step-4" class="section level3">
 <h3>Step 4</h3>
 <p>Use Filters to automatically select nodes on the map: Move the blue nodes to the left side of the window and the red nodes to the right side of the window.</p>
-<p><strong>4a</strong>. Locate the <em>Select</em> tab from the <em>Control Panel</em>.</p>
+<p><strong>4a</strong>. Locate the <em>Filter</em> tab on the side bar of the <em>Control Panel</em>.</p>
 <p><strong>4b</strong>. Click on the + sign to view the menu and select <em>Column Filter</em>.</p>
 <p><strong>4c</strong>. From the <em>Choose column …</em> box, select <em>Node: ES_dataset1</em> and set filter values from -0.953 and 0 inclusive.</p>
 <p><strong>4d</strong>. The blue nodes are now automatically selected. Zoom out to be able to look at the entire network and drag all blue nodes to the left side of the screen.</p>
@@ -482,11 +480,11 @@ Genes in the heatmap that are highlighted yellowm (rank column) represent genes 
 <h3>Step 5</h3>
 <p>Add drug target gene-sets to the network (Add Signature Gene-Sets...).</p>
 <p><strong>5a</strong>. In Control Panel, go to the EnrichmentMap tab and click on &quot;Add Signature Gene Sets...&quot; located below the white 'Data Sets:' window. A window named &quot;EnrichmentMap: Add Signature Gene Sets (Post-Analysis) is now opened.</p>
+<p><img src="Module3/gsea/images/drug1.png" alt="EM" width="250" /></p>
 <p><strong>5b</strong>. Using the 'Load from File...' button, select the <em>Human_DrugBank_approved_symbol_selected.gmt</em> file that you saved on your computer.</p>
+<p><img src="Module3/gsea/images/drug2.png" alt="EM" width="750" /></p>
 <p><strong>5c</strong>. Click on &quot;Finish&quot;.</p>
 <p>Note: Four additional nodes are now added to the network and visible as grey diamonds. Dotted orange edges represent their overlap with the nodes of our network. These additional nodes represent gene targets of some approved drugs and these genes are either specific of the mesenchymal type (dotted orange edges connected to red nodes) or specific of the immunoreactive type (dotted orange edges connected to blue nodes).</p>
-<p><img src="Module3/gsea/images/drug1.png" alt="EM" width="250" /></p>
-<p><img src="Module3/gsea/images/drug2.png" alt="EM" width="750" /></p>
 <p><img src="Module3/gsea/images/drug3.png" alt="EM" width="750" /></p>
 <p><img src="Module3/gsea/images/drug4.png" alt="EM" width="750" /></p>
 <div class="rmd-tip">
@@ -498,8 +496,16 @@ more info using this link: <a href="https://enrichmentmap.readthedocs.io/en/late
 <div id="step-6" class="section level3">
 <h3>Step 6</h3>
 <p>Auto-annotate the network with cluster labels.</p>
-<p>Important note 1: the Apps WordCloud, ClusterMaker and Autoannotate have to be installed.</p>
-<p>Important note 2: if you run step 5, delete the drug targets diamond nodes and associated edge before performing step 6: select the 4 nodes and associated dotted orange edges by browsing the mouse and click &quot;delete&quot; on your keyboard or in the Cytoscape menu, 'Edit', 'Delete Selected Nodes and Edges'.</p>
+<div class="rmd-note">
+<p>
+The Apps WordCloud, ClusterMaker and Autoannotate have to be installed.
+</p>
+</div>
+<div class="rmd-note">
+<p>
+if you run step 5, delete the drug targets diamond nodes and associated edge before performing step 6: select the 4 nodes and associated dotted orange edges by browsing the mouse and click &quot;delete&quot; on your keyboard or in the Cytoscape menu, 'Edit', 'Delete Selected Nodes and Edges'.
+</p>
+</div>
 <p><strong>6a</strong>. In the menu bar, select <em>Apps</em>, <em>AutoAnnotate</em>, <em>New Annotation Set …</em>. An <em>Autoannotate: Create Annotation Set</em> window pops up. Leave default settings and click on <em>Create Annotations</em>.</p>
 <p><img src="Module3/gsea/images/EM12.png" alt="EM" width="350" /></p>
 <p>In the case that an <em>AutoAnnotate</em> window pops up with the message <em>AutoAnnotate will manage all groups in this network view</em>, click <em>OK</em>.</p>

@@ -53,20 +53,6 @@ Research data analyst, Donnelly Centre for Cellular and Bimolecular Research, Un
 <img src="./images/faculty/ruth_isserlin.jpeg" style="float:right;width:125px;padding-left:10px;" />
 Bioinformatician and data analyst in the Bader lab applying pathway and data analysis to varied data types. Developed Enrichment Map App for Cytoscape, an app to visually translate functional enrichment results from popular enrichment tools like GSEA to networks. Further developed the Enrichment Map Pipeline including development of additional Apps to help summarize and analyze resulting Enrichment Maps, including PostAnalysis, WordCloud, and AutoAnnotate App. 
 
-### Francis Ouellette
-CBW Scientific Coordinator 
-
-<img src="./images/faculty/francis_ouellette.jpeg" style="float:left;width:125px;padding-right:10px;" />
-Francis was one of the co-founders of the CBW in 1998. His teams were involved in the development of high throughput sequence analysis methods, as well as the development of platforms to integrate data from various open databases. Francis continues to be interested in computational biology and genomics, and the integration of all data types to help our understanding of biology. 
-
-### Rachade Hmamouchi
-Program Manager, Canadian Bioinformatics Workshops (CBW) & McGill initiative in Computational Medicine (MiCM) 
-
-<img src="./images/faculty/rachade_hmamouchi.jpeg" style="float:right;width:125px;padding-left:10px;" /> Rachade is a bioinformatician by training, and over the span of her career, she has worked at universities, biotech, and industry fields. She is leading the organisation of the workshops at the CBW and at the MiCM. 
-
-&nbsp;
-&nbsp;
-&nbsp;
 
 ***
 

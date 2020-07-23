@@ -2,13 +2,13 @@
 
 **This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
 
- *<font color="#827e9c">By Veronique Voisin</font>*
+ *<font color="#827e9c">By Veronique Voisin, Ruth Isserlin, Gary Bader</font>*
 
 ## Goal of the exercise:
 
 **Create an enrichment map and navigate through the network**
 
-During this exercise, you will learn how to create an EnrichmentMap from gene-set enrichment results. The enrichment tool chosen for this exercise is GSEA but an enrichment map can be created from various gene-set tools using the generic format or the more specific g:Profiler, DAVID or BiNGO formats.
+During this exercise, you will learn how to create an EnrichmentMap from gene-set enrichment results. The enrichment tool chosen for this exercise is GSEA but an enrichment map can be created from various gene-set tools using the generic format or the more specific [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost),[Enrichr](https://amp.pharm.mssm.edu/Enrichr/), [DAVID](https://david.ncifcrf.gov/) or [BinGo](http://apps.cytoscape.org/apps/bingo) formats.
 
 **Post analysis (add drug target gene-sets to the network)**
 
@@ -21,7 +21,7 @@ A last optional exercise guides you toward the creation of automatically generat
 ## Data
 
 The data used in this exercise is gene expression data obtained from high throughput RNA sequencing.
-They correspond to Ovarian serous cystadenocarcinoma samples. We use precomputed results of the GSEA analysis [[GSEA part](https://github.com/bioinformaticsdotca/HT-Biology_2017/blob/master/Pathways/Module15/mod2_lab_GSEA.md)] to create an enrichment map with the aim to transform the tabular format in a network to better visualize the relationships between the significant gene-sets:
+They correspond to Ovarian serous cystadenocarcinoma samples. We use precomputed results of the GSEA analysis [Module 2 lab - gsea](#gsea-lab) to create an enrichment map with the aim to transform the tabular format in a network to better visualize the relationships between the significant gene-sets:
 
 
 <img src="./Module3/gsea/images/workflow.png" alt="workflow" width="750" />
@@ -60,13 +60,13 @@ Place it in the corresponding module directory of your CBW work directory.
 
 7 Files are needed to create the enrichment map for this exercise (please download these files on your computer):
 
-1.	GMT (file containing all pathways and corresponding genes) - [Human_GOBP_AllPathways_no_GO_iea_December_24_2015_symbol.gmt](./Module3/gsea/data/Human_GOBP_AllPathways_no_GO_iea_December_24_2015_symbol.gmt)
+1.	GMT (file containing all pathways and corresponding genes) - [Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt](./Module3/gsea/data/Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt)
 
 2.	Expression (file containing the RNAseq data for all samples and all genes) - [MesenchymalvsImmunoreactive_rnaseq_expression.txt](./Module3/gsea/data/MesenchymalvsImmunoreactive_rnaseq_expression.txt)
 
-3.	Enrichments 1 (GSEA results for the “pos” mesenchymal phenotype) - [gsea_report_for_na_pos_1453222854028.xls](./Module3/gsea/data/gsea_report_for_na_pos_1453222854028.xls)
+3.	Enrichments 1 (GSEA results for the “pos” mesenchymal phenotype) - [gsea_report_for_na_pos_1595281162211.xls](./Module3/gsea/data/gsea_report_for_na_pos_1595281162211.xls)
 
-4.	Enrichments 1 (GSEA results for the “neg” immunoreactive phenotype) - [gsea_report_for_na_neg_1453222854028.xls](./Module3/gsea/data/gsea_report_for_na_neg_1453222854028.xls)
+4.	Enrichments 1 (GSEA results for the “neg” immunoreactive phenotype) - [gsea_report_for_na_neg_1595281162211.xls](./Module3/gsea/data/gsea_report_for_na_neg_1595281162211.xls)
 
 5.	Rank file (file that has been used as input to GSEA) - [MesenchymalvsImmunoreactive_edger_ranks.rnk](./Module3/gsea/data/MesenchymalvsImmunoreactive_edger_ranks2.rnk)
       
@@ -108,11 +108,11 @@ Create an enrichment map
 
 *	*Analysis Type*:  GSEA
 
-* *Enrichments Pos*: gsea_report_for_na_pos_1453222854028.xls
+* *Enrichments Pos*: gsea_report_for_na_pos_1595281162211.xls
 
-* *Enrichments Ned*: gsea_report_for_na_neg_1453222854028.xls
+* *Enrichments Ned*: gsea_report_for_na_neg_1595281162211.xls
 
-*	*GMT* : Human_GOBP_AllPathways_no_GO_iea_December_24_2015_symbol.gmt
+*	*GMT* : Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt
 
 *	*Ranks*: MesenchymalvsImmunoreactive_edger_ranks.rnk
 
@@ -155,7 +155,7 @@ General layout of Cytoscape panel: In addition to the main window where the netw
 
 Steps: 
 
-**3a**. In the Cytocape menu bar, select *View* and * Show Graphic details*. It will turn the squared nodes into circles and the gene-set labels will be visible. 
+**3a**. In the Cytocape menu bar, select *View* and *Show Graphic details*. It will turn the squared nodes into circles and the gene-set labels will be visible. 
   
 <img src="./Module3/gsea/images/EM5.png" alt="EM" width="350" />
 
@@ -171,15 +171,15 @@ Steps:
   
 **3d**: Click on an individual node of interest.
 
-For this example, you could use *Integrins signalling pathway*. 
+For this example, you could use *Integrin signalling pathway*. 
 
 ```{block, type="rmd-tip"}
-If you are unable to locate *Integrins signalling pathway*, type "Integrins signalling pathway" in the search box (quotes are important).  Selected nodes appear yellow (or highlighted) in the network.
+If you are unable to locate *Integrin signalling pathway*, type "Integrin signalling pathway" in the search box (quotes are important).  Selected nodes appear yellow (or highlighted) in the network.
 ```
 
-**3e**. In the Table Panel in the * EM Heat map* tab change:
+**3e**. In the Table Panel in the *EM Heat map* tab change:
 
-* Expressions: "Row Norm*
+* Expressions: Row Norm*
 
 * Compress: -None-
 
@@ -193,7 +193,7 @@ Genes in the heatmap that are highlighted yellowm (rank column)  represent genes
 
 Use Filters to automatically select nodes on the map: Move the blue nodes to the left side of the window and the red nodes to the right side of the window.
 
-**4a**. Locate the *Select* tab from the *Control Panel*.
+**4a**. Locate the *Filter* tab on the side bar of the *Control Panel*.
 
 **4b**. Click on the + sign to view the menu and select *Column Filter*.
 
@@ -218,15 +218,15 @@ Add drug target gene-sets to the network (Add Signature Gene-Sets...).
 
 **5a**. In Control Panel, go to the EnrichmentMap tab and click on "Add Signature Gene Sets..." located below the white 'Data Sets:' window. A window named "EnrichmentMap: Add Signature Gene Sets (Post-Analysis) is now opened.
 
+<img src="./Module3/gsea/images/drug1.png" alt="EM" width="250" />
+
 **5b**. Using the 'Load from File...' button, select the *Human_DrugBank_approved_symbol_selected.gmt* file that you saved on your computer.
+
+<img src="./Module3/gsea/images/drug2.png" alt="EM" width="750" />
 
 **5c**. Click on "Finish". 
   
 Note: Four additional nodes are now added to the network and visible as grey diamonds. Dotted orange edges represent their overlap with the nodes of our network. These additional nodes represent gene targets of some approved drugs and these genes are either specific of the mesenchymal type (dotted orange edges connected to red nodes) or specific of the immunoreactive type (dotted orange edges connected to blue nodes).
-
-<img src="./Module3/gsea/images/drug1.png" alt="EM" width="250" />
-
-<img src="./Module3/gsea/images/drug2.png" alt="EM" width="750" />
 
 <img src="./Module3/gsea/images/drug3.png" alt="EM" width="750" />
 
@@ -239,11 +239,13 @@ more info using this link: https://enrichmentmap.readthedocs.io/en/latest/PostAn
 
 Auto-annotate the network with cluster labels.
 
-Important note 1: the Apps WordCloud, ClusterMaker and Autoannotate have to be installed.
+```{block, type="rmd-note"}
+The Apps WordCloud, ClusterMaker and Autoannotate have to be installed.
+```
 
-Important note 2: if you run step 5, delete the drug targets diamond nodes and associated edge before performing step 6:
-select the 4 nodes and associated dotted orange edges by browsing the mouse and click "delete" on your keyboard or in the Cytoscape menu, 'Edit', 'Delete Selected Nodes and Edges'.
-
+```{block, type="rmd-note"}
+if you run step 5, delete the drug targets diamond nodes and associated edge before performing step 6: select the 4 nodes and associated dotted orange edges by browsing the mouse and click "delete" on your keyboard or in the Cytoscape menu, 'Edit', 'Delete Selected Nodes and Edges'.
+```
 
 **6a**. In the menu bar, select *Apps*, *AutoAnnotate*, *New Annotation Set …*. An *Autoannotate: Create Annotation Set* window pops up. Leave default settings and click on *Create Annotations*.  
 
