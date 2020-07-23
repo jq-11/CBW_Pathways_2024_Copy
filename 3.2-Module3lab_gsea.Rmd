@@ -68,7 +68,7 @@ Place it in the corresponding module directory of your CBW work directory.
 
 4.	Enrichments 1 (GSEA results for the “neg” immunoreactive phenotype) - [gsea_report_for_na_neg_1595281162211.xls](./Module3/gsea/data/gsea_report_for_na_neg_1595281162211.xls)
 
-5.	Rank file (file that has been used as input to GSEA) - [MesenchymalvsImmunoreactive_edger_ranks.rnk](./Module3/gsea/data/MesenchymalvsImmunoreactive_edger_ranks2.rnk)
+5.	Rank file (file that has been used as input to GSEA) - [MesenchymalvsImmunoreactive_edger_ranks.rnk](./Module3/gsea/data/MesenchymalvsImmunoreactive_edger_ranks.rnk)
       
 
 6.	Classes (define which samples are mesenchymal and which samples are immunoreactive) - [MesenchymalvsImmunoreactive_rnaseq_classes.cls](./Module3/gsea/data/MesenchymalvsImmunoreactive_rnaseq_classes.cls)
