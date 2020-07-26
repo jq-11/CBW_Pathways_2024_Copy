@@ -32,29 +32,29 @@ The Affymetrix data are stored in the Gene Expression Omnibus (GEO) repository u
 
 <img src="./IntegratedAssignment/images/in2.png" alt="IN2" width="750" />
 
-For g:Profiler, genes with a FDR equal or less than 0.0001 and a logFC of 2 were retrieved and stored in a text file. For GSEA, a rank file has been created by ranking the genes from the highest t statistics value (up-regulated in BE compared to NE) to the lowest t values (down-regulated in BE compared to NE). The code used to process the data is available from the [course page](./IntegratedAssignment/data/code_integrated_assignment_BEvsNE.R). Please feel free to adapt it and use it with your own data.
+For g:Profiler, genes with a FDR equal or less than 0.0001 and a logFC of 2 were retrieved and stored in a text file. For GSEA, a rank file has been created by ranking the genes from the highest t statistics value (up-regulated in BE compared to NE) to the lowest t values (down-regulated in BE compared to NE). The code used to process the data is available from this [link](./IntegratedAssignment/data/code_integrated_assignment_BEvsNE.R). Please feel free to adapt it and use it with your own data.
 
 ## PART 1: run g:Profiler
 
 1.  Open g:Profiler
 
-2.  In Options, make sure **All results** is **not** checked (this keeps significant results only), and select **GO molecular function**, **No electronic GO annotations**, and Reactome.
+2.  In **Options**, make sure **All results** is **not** checked (this keeps significant results only)
 
-5.  Set Benjamini-Hochberg in the 'Significance threshold' box.
+3.  In **Advanced option**, Set Benjamini-Hochberg in the 'Significance threshold' box.
 
-4.  'Set minimum size of functional category to 3 and maximum to 500. Set 2 for the *Size of query/ term intersection*.': ***These options are not available in the current version of g:Profiler. They might be available again in the next release.***. 
+4. In **Data sources** , select **GO molecular function**, **No electronic GO annotations**, and Reactome.
 
-6.  Run analysis of the genes differentially altered between BE and normal: copy and paste the gene list into the g:Profiler input window [BEonly_genelist.txt](./IntegratedAssignment/data/BEonly_genelist_v2.txt).
+5.  Run analysis of the genes differentially altered between BE and normal: copy and paste the gene list into the g:Profiler input window [BEonly_genelist.txt](./IntegratedAssignment/data/BEonly_genelist_v2.txt).
 
 <img src="./IntegratedAssignment/images/gprofilerinput.png" alt="gprofiler_BE_map.png" width="750" />
 
-7.  **Question:** What is the most significant GO:term? What is the p-value for this GO:term?
+6.  **Question:** What is the most significant GO:term? What is the p-value for this GO:term?
 
-8.  **Question:** Is this p-value already corrected for multiple hypothesis testing? What type of correction is used for your current analysis?
+7.  **Question:** Is this p-value already corrected for multiple hypothesis testing? What type of correction is used for your current analysis?
 
 ## PART 2: save as Generic Enrichment Map output (BE)
 
-Now we have to generate an output from the enrichment analysis and save it in appropriate format for EnrichmentMap. Scroll down, select the tab for *Detailed results*, and export the data in Generic EnrichmentMap (GEM) format and save it on your computer. We will need this file to create an enrichment map.
+Now we have to generate an output from the enrichment analysis and save it in appropriate format for EnrichmentMap. Set the maximum term size to 1000. Scroll down, select the tab for *Detailed results*, and export the data in Generic EnrichmentMap (GEM) format and save it on your computer. We will need this file to create an enrichment map.
 
 ## PART 3: save as Generic Enrichment Map output (NE)
 
@@ -70,7 +70,7 @@ Create an enrichment map to visualize the outputs from g:Profiler. Let's create 
 
 3.  Go: Apps and click on EnrichmentMap. A 'Create Enrichment Map' dialog box appears.
 
-4.  Drag and Drop the 2 g:Profiler result files in the 'Data Sets:' window. It populated automatically two data sets on for the BE results and one for the NE results. Make sure that for the 2 datasets the 'Analysis Type' is set to 'Generic/gProfiler' and that the g:Profiler result file has been correctly uploaded in the 'Enrichments' field.
+4.  Drag and Drop the 2 g:Profiler result files in the 'Data Sets:' window. It populated automatically two data sets on for the BE results and one for the NE results. Make sure that for the 2 datasets the 'Analysis Type' is set to 'Generic/gProfiler/enrichr' and that the g:Profiler result file has been correctly uploaded in the 'Enrichments' field.
 
 5. As 'Network Name', uncheck 'Use Default' and write "BEvsNE" or the name of your choice for this network.
 
@@ -86,7 +86,7 @@ Create an enrichment map to visualize the outputs from g:Profiler. Let's create 
 
 <img src="./IntegratedAssignment/images/gprofiler_EMinput.png" alt="gprofiler_EMinput.png" width="750" />
 
-<img src="./IntegratedAssignment/images/gprofilerEM.png" alt="gprofilerEM.png" width="750" />
+<img src="./IntegratedAssignment/images/gprofilerresultGOv3.png" alt="gprofilerresultGOv3.png" width="750" />
 
 11.  Try different layouts if you'd like. Zoom in  and move nodes around to be able to read the labels.
 
@@ -102,11 +102,44 @@ Note: you also could create and upload an expression file when you build the enr
 **Question** What conclusions can you make based on these networks?
 
 
+
+## Answers g:Profiler
+
+**Question**: What is the most significant GO:term? What is the p-value for this GO:term 
+
+<img src="./IntegratedAssignment/images/gprofilerresultGOv2.png" alt="gprofilerresultGOv2.png" width="750" />
+
+**Answer**: extracellular matrix/structure organization
+
+
+**Question**: Is this p-value already corrected for multiple testing? What type of correction is used for your current analysis? 
+
+**Answer**: yes, it is already corrected for multiple hypothesis testing. I set the Significance threshold box to  "Benjaminin-Hochberg FDR". 
+
+
+Re-run the analysis with User p-value threshold set to 0.0001. 
+
+**Question**: What has been changed?
+
+**Answer:** Only the gene-set with adjusted pvalue equal or less than 0.0001 are displayed. The list is reduced compared to the results obtained with the default settings. 
+
+Ordered query: 
+
+**Question**: Do you seen any changes in the output in comparison to the analysis of the unordered gene list (PART 2) 
+
+**Answer** Although some terms are similar, their pvalues changed as well as the number of term genes used to calculate the pvalue.
+
+
+**Question** What can you conclude about these networks? 
+
+**Answer** The pathways are relevant to the biological model under study. The changes are related to the transformation of the epithelial cells into mesenchymal ones. 
+ 
+
 ## PART 5: GSEA (run and create an enrichment map)
 
 1. Launch GSEA.
 
-2.  Run GSEA using the rank file that has been created from the differential expression test comparing BE vs NE [BEvsNE_ranks.rnk](./IntegratedAssignment/data/BEvsNE_ranks.rnk) and the pathway file [Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt](./IntegratedAssignment/data/Human_GOBP_AllPathways_no_GO_iea_May_24_2016_symbol.gmt).
+2.  Run GSEA using the rank file that has been created from the differential expression test comparing BE vs NE [BEvsNE_ranks.rnk](./IntegratedAssignment/data/BEvsNE_ranks.rnk) and the pathway file [Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt](./IntegratedAssignment/data/Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt).
 
   * open GSEA and first import the files using the "Load data" window: upload the .rnk and .gmt files (the gmt file can be found by clicking the three dots next to 'Gene sets database' and clicking on 'Gene matrix (local gmx/gmt) ).
   * Go the 'Run GSEAPreranked' window and select the correct gmt file and the rank file
@@ -116,7 +149,7 @@ For time reasons - Use 100 permutations for the lab exercise but use 1000 for yo
 ```
   * Choose a name for your analysis, a destination folder and run GSEA.
   
-<img src="./IntegratedAssignment/images/INA3.png" alt="INA3.png" width="750" />
+<img src="./IntegratedAssignment/images/IA_gsea_input.png" alt="IA_gsea_input.png" width="750" />
 
 
 3.  Create an enrichment map:
@@ -129,18 +162,19 @@ For time reasons - Use 100 permutations for the lab exercise but use 1000 for yo
 Optional: Autoannotate your map (see below screenshot for results)
 Note: you may get slightly different results as 100 permutations is not enough to get reliable results. It is better to use 1000 permuatations.
 
-<img src="./IntegratedAssignment/images/BEvsNE_GSEAmap_Q0_01.png" alt="GSEA_map.png" width="750" />
+<img src="./IntegratedAssignment/images/IA_gsea_em.png" alt="IA_gsea_em.png" width="750" />
 
+### Answers GSEA
 
 ## PART 6: iRegulon
 
  1. Export extracellular matrix genes. 
-  * Using your GSEA map at q-value 0.01, select all nodes from the extracellular matrix/collagen cluster (after autoannotating). Go to Table Panel, and click on the Settings icon (located on the right, shaped like a ship wheel) and click on 'Export as TXT'. Save the text file under the name 'extracellularmatrix_cluster_genes.txt' or use this file [extracellularmatrix_cluster_genes.txt](./IntegratedAssignment/data/extracellularmatrix_cluster_genes.txt).
+  * Using your GSEA map at q-value 0.01, select all nodes from the extracellular matrix organization node. Go to Table Panel (below the main window), and click on the menu icon (located on the right, 3 lines) and click on 'Export as TXT' (all genes). Save the text file under the name 'extracellularmatrix_cluster_genes.txt' or use this file [extracellular_matrix_organization.txt](./IntegratedAssignment/data/extracellular_matrix_organization.txt).
  
  2. Import the extracellular matrix genes as a network.
   * In Cytoscape, go to the menu bar and select, File, Import, Network from File... 
-  * Browse your computer and select the 'extracellularmatrix_cluster_genes.txt' file and click on open.
-  * An 'Import Network From Table' window opens and in the table preview, make sure that the 'Gene' column is the source node (green dot). Click on 'OK'. A 'Confirmation' dialog box saying that 'No edges will be created in the network' opens. Click on 'Yes'.
+  * Browse your computer and select the 'extracellular_matrix_organization.txt' file and click on open.
+  * An 'Import Network From Table' window opens and in the table preview, make sure that the 'Gene' column is the source node (green dot). Click on 'OK'. A 'Confirmation' dialog box saying that 'No edges will be created in the network' opens. Click on 'Yes'. 
   
  3. Select nodes and run iRegulon.
    * If successful, you should see a grid of gray nodes. If you are zoomed out, they might be very faint. Zoom in until you see them, then zoom out until you see all the nodes and select them all using the mouse.
@@ -148,7 +182,7 @@ Note: you may get slightly different results as 100 permutations is not enough t
    * Click on 'Submit'.
    * Observe the iRegulon results in the Results Panel.
  
- 4. Add the first 2 hits (TCF12 and BATF) to the network.
+ 4. Add TCF12 and BATF to the network.
    * Go to the "Transcription Factors' tab and click on the first hit (TCF12) to select it.
    * Add it to the network using the green '+' button .
    * Execute the same steps for the second hit (BATF).
@@ -170,7 +204,9 @@ Note: you may get slightly different results as 100 permutations is not enough t
  Screenshot of resulting network:
  
  
-<img src="./IntegratedAssignment/images/IA_iregulon.png" alt="IA_iregulon" width="750" />
+<img src="./IntegratedAssignment/images/IA_iregulon_map.png" alt="IA_iregulon_map.png" width="750" />
+
+
 
 ## DATASET 2
 Stomach cancer or gastric cancer is a cancer developing from the lining of the stomach. The most common cause is infection by the bacteria Helicopter pylori, which accounts for more than 60% of cases. Certain types of 'H. pylori' have greater risks than others. Other common causes include eating pickled vegetables and smoking.
@@ -192,7 +228,7 @@ Create a network using ReactomeFI.
 3. Upload STAD_MutSig.txt and built a network without linkers:
 
 
-<img src="./IntegratedAssignment/images/reactomefiinput.png" alt="reactomefiinput.png" width="750" />
+<img src="./IntegratedAssignment/images/IA_reactome_input.png" alt="IA_reactome_input.png" width="750" />
 
 ```{block, type="rmd-note"}
 The network may look slightly different compared to below screenshot if the underlying database has been updated since the screenshot was taken
@@ -202,35 +238,58 @@ The network may look slightly different compared to below screenshot if the unde
 upload your file or copy and paste the gene names in the gene set field.
 ```
 
-<img src="./IntegratedAssignment/images/INAPart2_2.png" alt="reactomeFI_viz_network.png" width="750" />
+<img src="./IntegratedAssignment/images/IA_reactome_map.png" alt="IA_reactome_map.png" width="750" />
 
 4. Fetch FI annotation (Hint: right click on a blank space, Reactome FI, Fetch FI Annotations). You should see arrows (directed graph).
 
 5. Run Pathway enrichment (Hint: right click on the network panel and select Reactome FI > Analyze network functions > Pathway enrichment). 
 **Question** What is the pathway with the lowest (best) FDR?
 
-6. Do a subnetwork of ErbB signaling pathway (K). 
+6. Do a subnetwork of Endometrial cancer (K). 
 
 ```{block, type="rmd-tip"}
 select the pathway in the table, that should highlight the genes in yellow. Use the subnetwork icon on the Cytoscape tool bar to create it ("New network from selection").
 ```
 
-<img src="./IntegratedAssignment/images/INAPart2_3.png" alt="reactomeFI_viz_network.png" width="750" />
+<img src="./IntegratedAssignment/images/IA_reactome_subnetwork1.png" alt="reactomeFI_viz_subnetwork1.png" width="750" />
 
-<img src="./IntegratedAssignment/images/INAPart2_4.png" alt="reactomeFI_viz_network.png" width="750" />
+<img src="./IntegratedAssignment/images/IA_reactome_subnetwork2.png" alt="reactomeFI_viz_subnetwork2.png" width="750" />
 
 7. Go back to the full network (in the Control panel on the left, click the highest level of 'STAD_MutSig'). Cluster the network and perform pathway enrichment on the network. 
 **Questions** How many clusters did the analysis retrieve?  What is the FDR value of the most significant pathway of module 0
 
-<img src="./IntegratedAssignment/images/INAPart2_5.png" alt="reactomeFI_viz_network.png" width="750" />
+<img src="./IntegratedAssignment/images/IA_reactome_cluster.png" alt="IA_reactome_cluster.png" width="750" />
+
+
+### Answers REACTOME FI
+
+Pathway enrichment on the whole network. 
+
+**Question** What is the pathway with the lowest (best) FDR? 
+
+**Answer** The pathway with the lowest FDR is Endometrial cancer (K) . 
+
+<img src="./IntegratedAssignment/images/IA_reactome_pathway.png" alt="IA_reactome_pathway.png" width="750" />
+
+
+Cluster the network and perform pathway enrichment on the network.
+
+**Question** How many clusters did the analysis retrieve?  
+
+**Answer** The analysis retrieved 9 clusters named module 0 to module 8. 
+
+
+**Question** What is the FDR value of the most significant pathway of module 0?
+
+**Answer** FLT3 signaling (first row)
+
+<img src="./IntegratedAssignment/images/IA_reactome_cluster2.png" alt="IA_reactome_cluster2.png" width="750" />
+
 
 ## PART 2: GeneMANIA
 
 Use the same mutation data  [STAD_MutSig.txt](./IntegratedAssignment/images/STAD_MutSig.txt) to create a network using GeneMANIA in order to visualize which genes are known to physically interact with each other.
 
-Install the latest version of the Cytoscape GeneMANIA app (Version 3.5.0)
- * Go the Cytoscape menu bar and select Apps, App Manager... . In the App Manager dialog box, go to the 'Check for Updates' tab and update GeneMANIA if necessary. Note: if the 'Check for Updates' tab is blank, it means that you have installed the most recent versions of all apps.
- 
 
 1. Create the network
 
@@ -290,6 +349,13 @@ Hint: you can click on a function of your choice to see corresponding nodes high
 Note: on the above the screenshot, the CCBN1 color of the edges were changed by bypassing the style (select the edges, right click, edit, ByPass Style, Set Bypass to Selected Edges , change color in Byp. column)
 
 ---
+### Answers GeneMANIA
+**Question** What is the number of nodes in the CTNBB1 network. 
+
+**Answer**
+There are 22 nodes.
+<img src="./IntegratedAssignment/images/INA9.png" alt="INA9" width="750" />
+
 
 
 **Optional part 1: Launch a GeneMANIA search using the "Local Search" option (for big networks)**
