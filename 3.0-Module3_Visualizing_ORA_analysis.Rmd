@@ -2,11 +2,11 @@
 
  *<font color="#827e9c">Ruth Isserlin</font>*
  
- [Lecture part 1](https://drive.google.com/a/bioinformatics.ca/file/d/15yfdApta64_hJw_h0QfRnsn7a_PnLYIh/view?usp=sharing)  
+ [Lecture part 1](./lectures/Pathways_2020_Module3-part1-Cytoscape-RI.pdf)
     
- [Lecture part 2](https://drive.google.com/a/bioinformatics.ca/file/d/1Eems2200ETVzvD-eOymoP2HgUameinCF/view?usp=sharing) 
+ [Lecture part 2](./lectures/Pathways_2020_Module3-part2-EM-RI.pdf) 
  
- ## Module 3 Lab
+## Module 3 Lab
  
  *<font color="#827e9c">Ruth Isserlin</font>*  
  
