@@ -16,7 +16,7 @@
 
 ---
  
- [Lab practical answers](./Module4/Reactome/lab/CBW_2020_Module_4_Lab_Questions.pdf)
+ [Lab practical answers](./Module4/Reactome/lab/CBW_2020_Module_4_Lab_Answers.pdf)
 
 
 
