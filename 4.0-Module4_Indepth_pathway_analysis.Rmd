@@ -2,9 +2,9 @@
 
   *<font color="#827e9c">Robin Haw</font>*
   
-  [Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/1dSZdXv6p30DqoZIFYgX53o2e84fgKamv/view?usp=sharing)   
+  [Lecture](./lectures/Pathways_2020_lecture_Module_4_Robin.pdf)   
   
-  [Lab Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/1afXymoPtuLo8R1UyOSrHf2MlcdZ9pDO2/view?usp=sharing)
+  [Lab Lecture](./lectures/Pathways_2020_Module_4_Lab_Robin.pdf)
   
   [Lab practical](#reactome_lab)
 
