@@ -352,6 +352,7 @@ Note: on the above the screenshot, the CCBN1 color of the edges were changed by 
 
 ---
 ### Answers GeneMANIA
+
 **Question** What is the number of nodes in the CTNBB1 network. 
 
 **Answer**
