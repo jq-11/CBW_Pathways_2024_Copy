@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Module 5 Lab: Gene Regulation and Motif Analysis Practical Lab | Pathways</title>
+  <title>Module 5 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon | Pathways</title>
   <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Module 5 Lab: Gene Regulation and Motif Analysis Practical Lab | Pathways" />
+  <meta property="og:title" content="Module 5 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon | Pathways" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Module 5 Lab: Gene Regulation and Motif Analysis Practical Lab | Pathways" />
+  <meta name="twitter:title" content="Module 5 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon | Pathways" />
   
   <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   
@@ -179,7 +179,7 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="module-4-in-depth-analysis-of-networks-and-pathways.html"><a href="module-4-in-depth-analysis-of-networks-and-pathways.html"><i class="fa fa-check"></i>Module 4: In-depth Analysis of Networks and Pathways</a></li>
 <li class="chapter" data-level="" data-path="intro-regulatory-networks.html"><a href="intro-regulatory-networks.html"><i class="fa fa-check"></i>Module 5: Regulatory Network Analysis</a></li>
-<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html"><i class="fa fa-check"></i>Module 5 Lab: Gene Regulation and Motif Analysis Practical Lab</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html"><i class="fa fa-check"></i>Module 5 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon</a><ul>
 <li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#iregulon-lab"><i class="fa fa-check"></i>iRegulon lab</a></li>
 <li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#goal"><i class="fa fa-check"></i>Goal</a></li>
 <li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#exercise-1.-detect-regulons-from-co-expressed-genes"><i class="fa fa-check"></i>Exercise 1. Detect regulons from co-expressed genes</a><ul>
@@ -324,7 +324,7 @@
 
             <section class="normal" id="section-">
 <div id="regulatory_network_lab" class="section level1">
-<h1>Module 5 Lab: Gene Regulation and Motif Analysis Practical Lab</h1>
+<h1>Module 5 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon</h1>
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
 <p><em><font color="#827e9c">By Veronique Voisin </font></em></p>
 <div id="iregulon-lab" class="section level2">
@@ -354,7 +354,8 @@ in case the iRegulon server is not working, it is possible to work with precompu
 </div>
 <div id="exercise-1.-detect-regulons-from-co-expressed-genes" class="section level2">
 <h2>Exercise 1. Detect regulons from co-expressed genes</h2>
-<p>In this exercise, we are using genes frequently mutated in the prostate cancer. iRegulon requires a network from the start, and we will use a GeneMANIA network that we previously saved for this purpose. Using iRegulon, we will look for transcription factors (TFs) that may regulate a set of genes in this network.</p>
+<p>In this exercise, we are using genes frequently mutated in prostate cancer. iRegulon requires a network from the start, and we will use a GeneMANIA network that we previously saved for this purpose. Using iRegulon, we will look for transcription factors (TFs) that may regulate a set of genes in this network.
+Note: iRegulon also accepts a simple gene list as input to create the network</p>
 <p>To start this exercise, download to your computer the <a href="./Module5/iregulon/data/prostate_cancer_genemania_network.txt">prostate_cancer_genemania_network.txt</a> file.</p>
 <div id="skills-learned-in-this-exercise" class="section level3">
 <h3>Skills learned in this exercise:</h3>
@@ -457,47 +458,27 @@ mouse over column names to get a tooltip describing their meaning in more detail
 <p class="caption">6</p>
 </div>
 <ol start="7" style="list-style-type: decimal">
-<li>Explore the enrichment results in the Motifs tab from the Results Panel. It is a list of all DNA binding motifs that appear in more than one gene region from the prostate cancer gene list. They are ranked by the strongest Normalized Enrichment Score (NES). Some DNA binding motifs in the databases are related to a specific transcription factor, but others are not.</li>
+<li>Explore the enrichment results in the Motifs tab from the Results Panel. It is a list of all DNA binding motifs that appear in more than one gene region from the prostate cancer gene list. They are ranked by the strongest Normalized Enrichment Score (NES). Some DNA binding motifs in the databases are related to a specific transcription factor, but others are not.
+● Check that ‘Motifs’ is the selected tab of the ‘Results Panel’.</li>
 </ol>
-<p>● Check that ‘Motifs’ is the selected tab of the ‘Results Panel’.</p>
-● Which is the first motif with an associated TF? (
-<div class="rmd-tip">
-<p>
-use the information displayed in the “TFs” column.
-</p>
-</div>
 <p>● Click on the row for this motif to display the motif’s sequence logo and related information at the bottom part of Results Panel.</p>
-<p>● Click on the sequence logo to zoom in on it.</p>
-● What are the potential target genes for this TF?
+<p><img src="Module5/iregulon/images/7.png" alt="7" />
+On the above screenshot, there is an enrichment in the prostate gene list for a motif called
+YOL108C from the yetfasco database. The motif logo is displayed and it is very similar to the MITF binding motif. The genes from our network carrying this motif in their promoter region are indicated in red (TargetName). The rank indicates the number of motifs that they carry in their promoter region.</p>
 <div class="rmd-tip">
 <p>
-look at the ‘Target Name’ column.
+Additional explanation about the results are located at the end of this document and in more detail in the iRegulon reference paper.
 </p>
-</div>
-<div class="rmd-tip">
-<p>
-some explanation about the results are located at the end of this document and in more detail in the iRegulon reference paper.
-</p>
-</div>
-<div class="figure">
-<img src="Module5/iregulon/images/7.png" alt="" />
-<p class="caption">7</p>
 </div>
 <ol start="8" style="list-style-type: decimal">
 <li>Explore the enrichment results in the Tracks tab. It is a list of all ChIP-seq datasets (or “tracks”) sorted by strongest enrichment from genes inour network.</li>
 </ol>
 <p>● Select the ‘Tracks’ tab of the ‘Results Panel’.</p>
-<p>● Find a ‘ClusterCode’ assigned to more than one track. What is the name of the associated TF?</p>
-<p>● What is the difference between the two tracks?</p>
-<p>● Compare and contrast the target genes for the two tracks.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/8.png" alt="" />
-<p class="caption">8</p>
-</div>
-<p>Answer:</p>
-<p>T4 is a track cluster associated with 2 tracks. The first track is ranked number 4 and the second track is ranked number 8. The transcription factor is TCF12. The 2 tracks are probably biological replicates (Rep1, Rep2) of a same Chip-seq experiment. They have only 1 target in common (DHRS2) but 4 targets (DHRS) are from the same protein family (shared protein domains). On the Transcription Factors view (see section below), all these target genes are combined under cluster T4 corresponding to TCF12. T7 is also associated with 2 tracks and correspond to SMC3.</p>
+<p>● Find a ‘ClusterCode’ assigned to more than one track.</p>
+<p><img src="Module5/iregulon/images/8.png" alt="8" />
+T4 is a track cluster associated with 2 tracks and is highlighted in the table as an example.The 2 tracks are biological replicates (Rep1, Rep2) of a same chIP-seq experiment. The transcription factor used for this chIP_seq experiment is TCF12. The first track is ranked number 4 and the second track is ranked number 8. The genes with TCF12 peaks in their promoter regions are listed in red under “TargetName”.</p>
 <ol start="9" style="list-style-type: decimal">
-<li>Explore the enrichment results in the Transcription Factors tabview. Each row is a TF that is a potential co-regulator of the genes in our network. Each row represents a cluster that combines related motifs or tracks or both.</li>
+<li>Explore the enrichment results in the Transcription Factors tabview. This is the most important tab as each row is a transcription factor that is a potential co-regulator of the genes in our network. Each row represents a cluster that combines the results of the related motifs (Motifs tab) or tracks (Tracks tab) or both.</li>
 </ol>
 <p>● Select the ‘Transcription Factors’ tab of the ‘Results Panels’.</p>
 <p>● Click on ‘MTF1’ and explore the results.</p>
@@ -505,9 +486,7 @@ some explanation about the results are located at the end of this document and i
 <img src="Module5/iregulon/images/9.png" alt="" />
 <p class="caption">9</p>
 </div>
-<p>Answer:
-MTF1 is associated with the motif cluster M1. This cluster contains 6 related motifs and 11 potential target genes.
-One motif (homer-M00129) selected as example in the above screenshot is directly annotated to the TFs NRF1 and ZSCAN10 as indicated by green checked signs.</p>
+<p>MTF1 is associated with the motif cluster M1. This cluster contains 6 related motifs and 11 potential target genes. One motif (homer-M00129) selected as example in the above screenshot is directly annotated to the TFs NRF1 and ZSCAN10 as indicated by green checked signs.</p>
 <ol start="10" style="list-style-type: decimal">
 <li>How did iRegulon perform? Is MTF1 (metal-transcription factor 1) known to be expressed or to play a role in prostate cancer?</li>
 </ol>
@@ -520,7 +499,7 @@ Open your web browser and search the web for [MTF1 “prostate cancer”].
 <img src="Module5/iregulon/images/10.png" alt="" />
 <p class="caption">10</p>
 </div>
-<p>This network MTF1 within genes and miRs important for prostate cancer.
+<p>This network highlights MTF1 and interactions with other genes and miRs. This is a network involved in prostate cancer.
 <a href="PMID:14568174" class="uri">PMID:14568174</a>
 <a href="PMID:23157640" class="uri">PMID:23157640</a></p>
 <ol start="11" style="list-style-type: decimal">
@@ -848,7 +827,7 @@ iRegulon uses precomputed results to calculate for each motif the AUC (Area Unde
 <img src="Module5/iregulon/images/enrichr10.png" alt="" />
 <p class="caption">enrichr10.png</p>
 </div>
-<p>● Locate the ‘Cytoscape ’Style’ tab ‘Fill Color’ property and expand the tab using the arrow on the right</p>
+<p>● Locate the ‘Cytoscape ’Style’ tab ‘Fill Color’ property in the Node tab and expand the tab using the arrow on the right</p>
 <p>● Remove the current mapping using the trash can icon.</p>
 <div class="figure">
 <img src="Module5/iregulon/images/enrichr12.png" alt="" />
@@ -877,6 +856,7 @@ iRegulon uses precomputed results to calculate for each motif the AUC (Area Unde
 </div>
 <div id="end-of-practical-lab" class="section level3">
 <h3>end of practical lab</h3>
+<p>Congratulations!</p>
 
 </div>
 </div>
