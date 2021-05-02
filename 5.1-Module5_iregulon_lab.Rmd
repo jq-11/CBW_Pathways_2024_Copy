@@ -1,4 +1,4 @@
-# Module 5 Lab: Gene Regulation and Motif Analysis Practical Lab {#regulatory_network_lab}
+# Module 5 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon {#regulatory_network_lab}
 
 **This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
 
@@ -28,7 +28,8 @@ in case the iRegulon server is not working, it is possible to work with precompu
 
 ## Exercise 1. Detect regulons from co-expressed genes
 
-In this exercise, we are using genes frequently mutated in the prostate cancer. iRegulon requires a network from the start, and we will use a GeneMANIA network that we previously saved for this purpose. Using iRegulon, we will look for transcription factors (TFs) that may regulate a set of genes in this network.  
+In this exercise, we are using genes frequently mutated in prostate cancer. iRegulon requires a network from the start, and we will use a GeneMANIA network that we previously saved for this purpose. Using iRegulon, we will look for transcription factors (TFs) that may regulate a set of genes in this network. 
+Note: iRegulon also accepts a simple gene list as input to create the network
  
 To start this exercise, download to your computer the [prostate_cancer_genemania_network.txt](./Module5/iregulon/data/prostate_cancer_genemania_network.txt) file.
 
@@ -135,52 +136,31 @@ mouse over column names to get a tooltip describing their meaning in more detail
 
 
 7)	Explore the enrichment results in the Motifs tab from the Results Panel. It is a list of all DNA binding motifs that appear in more than one gene region from the prostate cancer gene list. They are ranked by the strongest Normalized Enrichment Score (NES). Some DNA binding motifs in the databases are related to a specific transcription factor, but others are not.
-
 ●	Check that ‘Motifs’ is the selected tab of the ‘Results Panel’.
-
-●	Which is the first motif with an associated TF? (
-```{block, type="rmd-tip"}
-use the information displayed in the “TFs” column.
-```
 
 ●	Click on the row for this motif to display the motif’s sequence logo and related information at the bottom part of Results Panel.
 
-●	Click on the sequence logo to zoom in on it.
-
-●	What are the potential target genes for this TF? 
-```{block, type="rmd-tip"}
-look at the ‘Target Name’ column. 
-```
-
-```{block, type="rmd-tip"}
-some explanation about the results are located at the end of this document and in more detail in the iRegulon reference paper. 
-``` 
-
 ![7](./Module5/iregulon/images/7.png) 
+On the above screenshot, there is an enrichment in the prostate gene list for a motif called
+YOL108C from the yetfasco database.  The motif logo is displayed and it is very similar to the MITF binding motif. The genes from our network carrying this motif in their promoter region are indicated in red (TargetName). The rank indicates the number of motifs that they carry in their promoter region.
 
-
+```{block, type="rmd-tip"}
+Additional explanation about the results are located at the end of this document and in more detail in the iRegulon reference paper. 
+``` 
 
 
 8)	Explore the enrichment results in the Tracks tab. It is a list of all ChIP-seq datasets (or “tracks”) sorted by strongest enrichment from genes inour network. 
 
 ●	Select the  ‘Tracks’ tab of the ‘Results Panel’.
 
-●	Find a ‘ClusterCode’ assigned to more than one track. What is the name of the associated TF? 
-
-●	What is the difference between the two tracks?
-
-●	Compare and contrast the target genes for the two tracks.	
+●	Find a ‘ClusterCode’ assigned to more than one track.	
 
 
 ![8](./Module5/iregulon/images/8.png) 
- 
-
-Answer:
-
-T4 is a track cluster associated with 2 tracks. The first track is ranked number 4 and the second track is ranked number 8. The transcription factor is TCF12. The 2 tracks are probably biological replicates (Rep1, Rep2) of a same Chip-seq experiment. They have only 1 target in common (DHRS2) but 4 targets (DHRS) are from the same protein family (shared protein domains). On the Transcription Factors view (see section below), all these target genes are combined under cluster T4 corresponding to TCF12. T7 is also associated with 2 tracks and correspond to SMC3.
+T4 is a track cluster associated with 2 tracks and is highlighted in the table as an example.The 2 tracks are biological replicates (Rep1, Rep2) of a same chIP-seq experiment. The transcription factor used for this chIP_seq experiment is TCF12. The first track is ranked number 4 and the second track is ranked number 8.  The genes with TCF12 peaks in their promoter regions are listed in red under "TargetName".
 
 
-9)	Explore the enrichment results in the Transcription Factors tabview. Each row is a TF that is a potential co-regulator of the genes in our network. Each row represents a cluster that combines related motifs or tracks or both.
+9)	Explore the enrichment results in the Transcription Factors tabview. This is the most important tab as each row is a transcription factor that is a potential co-regulator of the genes in our network. Each row represents a cluster that combines the results of the related motifs (Motifs tab) or tracks (Tracks tab) or both.
 
 ●	Select the ‘Transcription Factors’ tab of the ‘Results Panels’. 
 
@@ -190,9 +170,8 @@ T4 is a track cluster associated with 2 tracks. The first track is ranked number
 
 ![9](./Module5/iregulon/images/9.png)  
 
-Answer: 
-MTF1 is associated with the motif cluster M1. This cluster contains 6 related motifs and  11 potential target genes. 
-One motif (homer-M00129) selected as example in the above screenshot is directly annotated to the TFs NRF1 and ZSCAN10 as indicated by green checked signs. 
+
+MTF1 is associated with the motif cluster M1. This cluster contains 6 related motifs and  11 potential target genes. One motif (homer-M00129) selected as example in the above screenshot is directly annotated to the TFs NRF1 and ZSCAN10 as indicated by green checked signs. 
 
 
 10)	How did iRegulon perform? Is MTF1 (metal-transcription factor 1) known to be expressed or to play a role in prostate cancer?
@@ -203,7 +182,7 @@ Open your web browser and search the web for [MTF1 “prostate cancer”].
 
 ![10](./Module5/iregulon/images/10.png) 
  
-This network MTF1 within genes and miRs  important for prostate cancer.
+This network highlights MTF1 and interactions with other genes and miRs. This is a network involved in prostate cancer.
 PMID:14568174
 PMID:23157640
 
@@ -568,7 +547,7 @@ Before starting the exercise, download the files:
 
 ![enrichr10.png](./Module5/iregulon/images/enrichr10.png)
 
-● Locate the 'Cytoscape 'Style' tab 'Fill Color' property and expand the tab using the arrow on the right
+● Locate the 'Cytoscape 'Style' tab 'Fill Color' property in the Node tab and expand the tab using the arrow on the right
 
 ● Remove the current mapping using the trash can icon.
 
@@ -599,7 +578,7 @@ Before starting the exercise, download the files:
 
 
 ### end of practical lab
-
+Congratulations!
 
 
 
