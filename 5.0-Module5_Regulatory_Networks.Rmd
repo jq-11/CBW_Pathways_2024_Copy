@@ -1,11 +1,22 @@
 # Module 5: Regulatory Network Analysis {#intro-regulatory-networks}
 
-*<font color="#827e9c">Michael Hoffman</font>*
-  
- [Lecture](./lectures/Pathways2020_Module5_lecture_Gene regulation and motif analysis_Michael.pdf)  
+*<font color="#827e9c">Michael Hoffman and Veronique Voisin</font>*
 
-*<font color="#827e9c">Veronique Voisin</font>*  
+## Lecture  
+ [Lecture slides](./lectures/Pathways2021_Module5_lecture_Gene regulation and motif analysis_Michael.pdf)  
+
+## Practical lab 1: chIP_seq data - GREAT and MEME-chIP
+  [chIP_seq Lab slides](./lectures/Pathways_2021_Module5_lab_chipseq.pdf)  
+
+  [chIP_seq Lab practical](#regulatory_network_chipseq_lab)
+
+## Practical lab 2: gene list - iREgulon
+
+  [iREgulon Lab slides](./lectures/Pathways_2021_Module5_lab_iregulon.pdf)  
+
+  [iREgulon Lab practical](#regulatory_network_lab)
   
-  [Lab lecture](./lectures/Pathways_2020_Module5_lab_iregulon.pdf)  
-  
-  [Lab practical](#regulatory_network_lab) 
+## Additional slides about the tools Segway and BEHST presented during the lecture 
+
+  [Segway slides](./lectures/Pathways_2021_Module5_segway.pdf)  
+  [BEHST slides](./lectures/Pathways_2021_Module5_behst.pdf)  
