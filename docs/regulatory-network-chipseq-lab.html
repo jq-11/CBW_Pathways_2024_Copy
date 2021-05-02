@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 5 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathways</title>
+  <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 5 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathways" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 5 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathways" />
+  
+  <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  
+
+<meta name="author" content="Gary Bader, Veronique Voisin, Ruth Isserlin, Robin Haw, Michael Hoffman" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="regulatory-network-lab.html"/>
+<link rel="next" href="module-6-gene-function-prediction.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CBW Pathways Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pathway and Network Analysis of -Omics Data ( May 2021 )</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#meet-your-faculty"><i class="fa fa-check"></i>Meet your Faculty</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#gary-bader"><i class="fa fa-check"></i>Gary Bader</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#robin-haw"><i class="fa fa-check"></i>Robin Haw</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#michael-hoffman"><i class="fa fa-check"></i>Michael Hoffman</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#veronique-voisin"><i class="fa fa-check"></i>Veronique Voisin</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ruth-isserlin"><i class="fa fa-check"></i>Ruth Isserlin</a></li>
+</ul></li>
+</ul></li>
+<li><a href="welcome.html#welcome">Welcome <a id="welcome"></a></a><ul>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html"><i class="fa fa-check"></i>Class Materials</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#schedule"><i class="fa fa-check"></i>Workshop Schedule</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#pre-workshop"><i class="fa fa-check"></i>Pre-Workshop Materials and Laptop Setup Instructions</a><ul>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#laptop-setup-instructions"><i class="fa fa-check"></i>Laptop Setup Instructions</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#basic-programs"><i class="fa fa-check"></i>Basic programs</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#java-11-installation"><i class="fa fa-check"></i>Java 11 Installation</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#cytoscape-installation"><i class="fa fa-check"></i>Cytoscape Installation</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#gsea-installation"><i class="fa fa-check"></i>GSEA Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#pre-workshop-tutorials"><i class="fa fa-check"></i>Pre-workshop Tutorials</a><ul>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#cytoscape-preparation-tutorials"><i class="fa fa-check"></i>Cytoscape Preparation tutorials</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#pre-workshop-readings-and-lectures"><i class="fa fa-check"></i>Pre-workshop Readings and Lectures</a></li>
+<li><a href="welcome.html#additional-tutorials">Additional tutorials <a id="additionaltutorials"></a></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>Module 1 - Introduction to Pathway and Network Analysis (Gary Bader)</a></li>
+<li class="chapter" data-level="" data-path="module-2-finding-over-represented-pathways-veronique-voisin.html"><a href="module-2-finding-over-represented-pathways-veronique-voisin.html"><i class="fa fa-check"></i>Module 2: Finding Over-represented Pathways (Veronique Voisin)</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html"><i class="fa fa-check"></i>Module 2 lab - g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#goal-of-the-exercise-1"><i class="fa fa-check"></i>Goal of the exercise 1</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-1"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-1---launch-gprofiler."><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-2---input-query"><i class="fa fa-check"></i>Step 2 - input query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-3---adjust-parameters."><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-4---run-query"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-5---explore-the-results."><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-7-save-the-results"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-8"><i class="fa fa-check"></i>Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i>Exercise 2: Load and use a custom .gmt file and run the query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-steps"><i class="fa fa-check"></i>Optional steps</a><ul>
+<li><a href="gprofiler-lab.html#optional-1"><strong>Optional 1</strong>:</a></li>
+<li><a href="gprofiler-lab.html#option-2"><strong>Option 2</strong>:</a></li>
+<li><a href="gprofiler-lab.html#option-3"><strong>Option 3</strong> :</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html"><i class="fa fa-check"></i>Module 2 lab - GSEA</a><ul>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#goal-of-the-exercise"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#data-1"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#background"><i class="fa fa-check"></i>Background</a><ul>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#how-to-generate-a-rank-file."><i class="fa fa-check"></i>How to generate a rank file.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#start-the-exercise"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step1."><i class="fa fa-check"></i>Step1.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step-2."><i class="fa fa-check"></i>Step 2.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step3."><i class="fa fa-check"></i>Step3.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step-4."><i class="fa fa-check"></i>Step 4.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step-5."><i class="fa fa-check"></i>Step 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#additional_information"><i class="fa fa-check"></i>Additional information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3-network-visualization-and-analysis-with-cytoscape.html"><a href="module-3-network-visualization-and-analysis-with-cytoscape.html"><i class="fa fa-check"></i>Module 3: Network Visualization and Analysis with Cytoscape</a><ul>
+<li class="chapter" data-level="" data-path="module-3-network-visualization-and-analysis-with-cytoscape.html"><a href="module-3-network-visualization-and-analysis-with-cytoscape.html#module-3-lab"><i class="fa fa-check"></i>Module 3 Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html"><i class="fa fa-check"></i>Module 3 Lab: g:profiler Visualization</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#goal-of-the-exercise-2"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#data-2"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#enrichmentmap"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#description-of-this-exercise"><i class="fa fa-check"></i>Description of this exercise</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#start-the-exercise-1"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#exercise-1a"><i class="fa fa-check"></i>Exercise 1a</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-2"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step3-explore-the-results"><i class="fa fa-check"></i>Step3: Explore the results:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#explore-detailed-results"><i class="fa fa-check"></i>Explore Detailed results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#exercise-1b"><i class="fa fa-check"></i>Exercise 1b</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#exercise-1c"><i class="fa fa-check"></i>Exercise 1c</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#goal-of-the-exercise-3"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#data-3"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#gsea-output-and-enrichmentmap"><i class="fa fa-check"></i>GSEA output and EnrichmentMap</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#enrichmentmap-1"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#start-the-exercise-2"><i class="fa fa-check"></i>Start the exercise</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-1-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-2-1"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-3"><i class="fa fa-check"></i>Step 3</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-4"><i class="fa fa-check"></i>Step 4</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-5"><i class="fa fa-check"></i>Step 5</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-6"><i class="fa fa-check"></i>Step 6</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-7"><i class="fa fa-check"></i>Step 7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#goal-of-the-exercise-4"><i class="fa fa-check"></i>Goal of the exercise:</a><ul>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#set-up"><i class="fa fa-check"></i>Set Up</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-1---launch-rstudio"><i class="fa fa-check"></i>Step 1 - launch RStudio</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-2---create-a-new-project"><i class="fa fa-check"></i>Step 2 - create a new project</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-3---open-example-up-rnotebook"><i class="fa fa-check"></i>Step 3 - Open example up RNotebook</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-4---define-notebook-parameters"><i class="fa fa-check"></i>Step 4 - Define Notebook parameters</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#step-5---step-through-notebook-to-run-the-analysis"><i class="fa fa-check"></i>Step 5 - Step through notebook to run the analysis</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-mod3.html"><a href="gprofiler-mod3.html#additional-resources"><i class="fa fa-check"></i>Additional resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-in-depth-analysis-of-networks-and-pathways.html"><a href="module-4-in-depth-analysis-of-networks-and-pathways.html"><i class="fa fa-check"></i>Module 4: In-depth Analysis of Networks and Pathways</a></li>
+<li class="chapter" data-level="" data-path="intro-regulatory-networks.html"><a href="intro-regulatory-networks.html"><i class="fa fa-check"></i>Module 5: Regulatory Network Analysis</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html"><i class="fa fa-check"></i>Module 5 Lab: Gene Regulation and Motif Analysis Practical Lab</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#iregulon-lab"><i class="fa fa-check"></i>iRegulon lab</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#goal"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#exercise-1.-detect-regulons-from-co-expressed-genes"><i class="fa fa-check"></i>Exercise 1. Detect regulons from co-expressed genes</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#skills-learned-in-this-exercise"><i class="fa fa-check"></i>Skills learned in this exercise:</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#steps"><i class="fa fa-check"></i>Steps</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#exercise-2.-create-a-metatargetome-using-iregulon-and-merge-2-networks-in-cytoscape."><i class="fa fa-check"></i>Exercise 2. Create a metatargetome using iRegulon and merge 2 networks in Cytoscape.</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#steps-1"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#use-or-precomputed-iregulon-results"><i class="fa fa-check"></i>Use or precomputed iRegulon results:</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#notes-about-iregulon"><i class="fa fa-check"></i>Notes about iRegulon:</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#notes-about-cytoscape"><i class="fa fa-check"></i>Notes about Cytoscape:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#exercise-3.-use-enrichr-with-the-prostate-gene-list."><i class="fa fa-check"></i>Exercise 3. Use Enrichr with the prostate gene list.</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#goal-1"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#steps-2"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-lab.html"><a href="regulatory-network-lab.html#end-of-practical-lab"><i class="fa fa-check"></i>end of practical lab</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html"><i class="fa fa-check"></i>Module 5 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#goal-of-this-practical-lab"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#introducing-the-dataset-used-during-this-practical-lab"><i class="fa fa-check"></i>Introducing the dataset used during this practical lab</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-1.-run-great-in-order-to-perform-pathway-analysis"><i class="fa fa-check"></i>Exercise 1. Run GREAT in order to perform pathway analysis</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-2.-build-an-enrichment-map-to-visualize-great-results"><i class="fa fa-check"></i>Exercise 2. Build an enrichment map to visualize GREAT results</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-3-optional-auto-annotate-the-distal-enrichment-map-build-the-proximal-map-and-compare-both-the-proximal-and-distal-maps"><i class="fa fa-check"></i>Exercise 3 (optional): auto-annotate the distal enrichment map, build the proximal map and compare both the proximal and distal maps</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#optional-exercise-3a-autoannotate-the-enrichment-map"><i class="fa fa-check"></i>Optional exercise 3a: AutoAnnotate the enrichment map:</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#optional-exercise-3b-repeat-the-process-of-building-an-enrichment-map-using-the-proximal-data-proximal_gobp_greatexportall.tsv."><i class="fa fa-check"></i>Optional exercise 3b: Repeat the process of building an enrichment map using the proximal data (Proximal_GOBP_greatExportAll.tsv).</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#optional-exercise-3c-repeat-the-process-by-building-both-the-proximal-and-distal-enrichment-maps-at-the-same-time."><i class="fa fa-check"></i>Optional exercise 3c: Repeat the process by building both the Proximal and Distal enrichment maps at the same time.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-4-add-runx1-targets-and-runx1-ko-up-and-down-regulated-genes-on-the-distal-enrichment-map-as-a-new-gene-set."><i class="fa fa-check"></i>Exercise 4: Add RUNX1 targets and RUNX1 KO up and down regulated genes on the distal enrichment map as a new gene-set.</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#step-4a-add-the-.gmt-file-to-the-enrichment-map"><i class="fa fa-check"></i>step 4a: Add the .gmt file to the enrichment map:</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#step-4b-optional-change-the-edge-style-of-the-signature-gene-sets"><i class="fa fa-check"></i>Step 4b Optional: Change the edge style of the signature gene-sets:</a></li>
+</ul></li>
+<li><a href="regulatory-network-chipseq-lab.html#exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip">Exercise 5: Learning how to run MEME-chip from the MEME suite (<span>https://meme-suite.org/meme/tools/meme-chip</span>)</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-5a-downloading-sequences-from-.bed-coordinates"><i class="fa fa-check"></i>Exercise 5a: Downloading sequences from .bed coordinates</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-5b-run-meme-chip"><i class="fa fa-check"></i>Exercise 5b: Run MEME-chIP</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#optional-exercise-6-get-the-iregulon-runx1-targets-and-find-the-mouse-orthologs-using-gorth-from-gprofiler-to-create-the-gmt-file-used-in-exercise-4."><i class="fa fa-check"></i>Optional Exercise 6: Get the iRegulon RUNX1 targets and find the mouse orthologs using g:Orth (from g:Profiler) to create the gmt file used in Exercise 4.</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#as-reference-you-dont-need-to-go-through-these-steps-during-the-practical-lab-analysis-of-the-runx1-affy-transcriptomics-using-geo2r."><i class="fa fa-check"></i>As reference (you don’t need to go through these steps during the practical lab): Analysis of the RUNX1 Affy transcriptomics using GEO2R.</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#end-of-lab"><i class="fa fa-check"></i>End of Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6-gene-function-prediction.html"><a href="module-6-gene-function-prediction.html"><i class="fa fa-check"></i>Module 6: Gene Function Prediction</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html"><i class="fa fa-check"></i>Module 6 Lab: GeneMANIA (Cytoscape version)</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#goal-of-this-practical-lab-1"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-1-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#steps-3"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-1-answers"><i class="fa fa-check"></i>EXERCISE 1 ANSWERS</a></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-2-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#steps-4"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#exercise-3-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#steps-5"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-cytoscape.html"><a href="genemania-cytoscape.html#some-definitions"><i class="fa fa-check"></i>SOME DEFINITIONS:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html"><i class="fa fa-check"></i>Module 6 Lab: GeneMANIA (web version)</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#goal-of-this-practical-lab-2"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1-questions-and-steps-to-follow-1"><i class="fa fa-check"></i>EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#steps-6"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1-answers-detailed-explanation-and-screenshots"><i class="fa fa-check"></i>EXERCISE 1 ANSWERS: DETAILED EXPLANATION AND SCREENSHOTS</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---steps-1-4"><i class="fa fa-check"></i>EXERCISE 1 - STEPS 1-4</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-5"><i class="fa fa-check"></i>EXERCISE 1 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-6"><i class="fa fa-check"></i>EXERCISE 1 - STEP 6</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-7"><i class="fa fa-check"></i>Exercise 1 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-8"><i class="fa fa-check"></i>Exercise 1 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-9"><i class="fa fa-check"></i>Exercise 1 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-10-layouts"><i class="fa fa-check"></i>Exercise 1 - STEP 10 (layouts)</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-1---step-11-save-an-image"><i class="fa fa-check"></i>Exercise 1 - STEP 11 (save an image)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2-questions-and-steps-to-follow-1"><i class="fa fa-check"></i>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#steps-7"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2-answers-detailed-steps-and-screenshots"><i class="fa fa-check"></i>EXERCISE 2 ANSWERS: DETAILED STEPS AND SCREENSHOTS</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---steps-1-to-4"><i class="fa fa-check"></i>Exercise 2 - STEPS 1 to 4</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-5"><i class="fa fa-check"></i>Exercise 2 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-6."><i class="fa fa-check"></i>Exercise 2 - STEP 6.</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-7"><i class="fa fa-check"></i>Exercise 2 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-8"><i class="fa fa-check"></i>Exercise 2 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-9"><i class="fa fa-check"></i>Exercise 2 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-10"><i class="fa fa-check"></i>Exercise 2 - STEP 10</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-11"><i class="fa fa-check"></i>Exercise 2 - STEP 11</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-12"><i class="fa fa-check"></i>Exercise 2 - STEP 12</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-2---step-13."><i class="fa fa-check"></i>Exercise 2 - STEP 13.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3-questions-and-steps-to-follow-1"><i class="fa fa-check"></i>EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#steps-8"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3-more-details-and-screenshots"><i class="fa fa-check"></i>Exercise 3: MORE DETAILS AND SCREENSHOTS</a><ul>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---steps-1---3"><i class="fa fa-check"></i>Exercise 3 - STEPS 1 - 3</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---step-4"><i class="fa fa-check"></i>Exercise 3 - STEP 4</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---step-5"><i class="fa fa-check"></i>Exercise 3 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---steps-6"><i class="fa fa-check"></i>Exercise 3 - STEPS 6</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---step-7"><i class="fa fa-check"></i>Exercise 3 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---step-8"><i class="fa fa-check"></i>Exercise 3 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#exercise-3---step-9"><i class="fa fa-check"></i>Exercise 3 - STEP 9</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania-web.html"><a href="genemania-web.html#some-definitions-1"><i class="fa fa-check"></i>SOME DEFINITIONS:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html"><i class="fa fa-check"></i>Integrated Assignment</a><ul>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#final-slides"><i class="fa fa-check"></i>Final slides</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#goal-2"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#dataset-1"><i class="fa fa-check"></i>DATASET 1</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#background-1"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#data-processing"><i class="fa fa-check"></i>Data processing</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#part-1-run-gprofiler"><i class="fa fa-check"></i>PART 1: run g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#part-2-save-as-generic-enrichment-map-output-be"><i class="fa fa-check"></i>PART 2: save as Generic Enrichment Map output (BE)</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#part-3-save-as-generic-enrichment-map-output-ne"><i class="fa fa-check"></i>PART 3: save as Generic Enrichment Map output (NE)</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#part-4-create-an-enrichment-map"><i class="fa fa-check"></i>PART 4: create an enrichment map</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#answers-gprofiler"><i class="fa fa-check"></i>Answers g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#part-5-gsea-run-and-create-an-enrichment-map"><i class="fa fa-check"></i>PART 5: GSEA (run and create an enrichment map)</a><ul>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#answers-gsea"><i class="fa fa-check"></i>Answers GSEA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#part-6-iregulon"><i class="fa fa-check"></i>PART 6: iRegulon</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#dataset-2"><i class="fa fa-check"></i>DATASET 2</a></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#part-1-reactomefi"><i class="fa fa-check"></i>PART 1: ReactomeFI</a><ul>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#answers-reactome-fi"><i class="fa fa-check"></i>Answers REACTOME FI</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="integrated-assignment.html"><a href="integrated-assignment.html#part-2-genemania"><i class="fa fa-check"></i>PART 2: GeneMANIA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ass-automation.html"><a href="ass-automation.html"><i class="fa fa-check"></i>Integrated Assignment Bonus - Automation</a><ul>
+<li class="chapter" data-level="" data-path="ass-automation.html"><a href="ass-automation.html#goal-of-the-exercise-5"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathways</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regulatory_network_chipseq_lab" class="section level1">
+<h1>Module 5 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq</h1>
+<p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
+<p><em><font color="#827e9c">By Veronique Voisin </font></em></p>
+<div id="goal-of-this-practical-lab" class="section level2">
+<h2>Goal of this practical lab</h2>
+<ul>
+<li>Perform pathway analysis starting with a chIP_seq bed file and visualize the results using Cytoscape/EnrichmentMap.</li>
+<li>Be able to use the tool GREAT with distal and proximal parameters.</li>
+<li>Run MEME-chip to find over-enrichment of transcription factors.</li>
+<li>Optional: learn how to use iRegulon to find targets of a transcription factor of interest and find orthologs using the tool g:Profiler/g:orth.</li>
+</ul>
+<p>This practical lab consists of 6 exercises and 2 of them are optional. Follow the step-by-step checklist trough the exercises.</p>
+<p>Before starting the lab, download the files:</p>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place the file in your CBW work directory in the corresponding module directory.
+</p>
+</div>
+<ul>
+<li><a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.bed">GSE128767_RUNX1_ChIP.peaks.bed</a></li>
+<li><a href="./Module5/chipseqlab/chipseqlab_data/Distal_GOBP_greatExportAll.tsv">Distal_GOBP_greatExportAll.tsv</a></li>
+<li><a href="./Module5/chipseqlab/chipseqlab_data/Proximal_GOBP_greatExportAll.tsv">Proximal_GOBP_greatExportAll.tsv</a></li>
+<li><a href="./Module5/chipseqlab/chipseqlab_data/RUNX1_Affy.gmt">RUNX1_Affy.gmt</a></li>
+<li><a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta">GSE128767_RUNX1_ChIP.peaks.fasta</a></li>
+</ul>
+<div class="rmd-note">
+<p>
+Note about the EnrichmentMap layout: Network layouts are flexible and can be rearranged. What you see when you perform these exercises may not be identical to what you see in the tutorial, or what you have seen other times that you have performed the exercises.
+</p>
+</div>
+</div>
+<div id="introducing-the-dataset-used-during-this-practical-lab" class="section level2">
+<h2>Introducing the dataset used during this practical lab</h2>
+<p>ChIP-seq for RUNX1 from pools of mouse CD1 fetal ovaries (E14.5)
+NCBI GEO: GSE128767</p>
+<p>From the paper:Nicol B, Grimm SA, Chalmel F, Lecluze E et al. RUNX1 maintains the identity of the fetal ovary through an interplay with FOXL2. Nat Commun 2019 Nov 11;10(1):5116. PMID: 31712577</p>
+<p>Abstract: Sex determination of the gonads begins with <strong>fate specification</strong> of gonadal supporting cells into either ovarian granulosa cells or testicular Sertoli cells. This process of fate specification hinges on a balance of transcriptional control. We discovered that the <strong>transcription factor RUNX1</strong> is enriched in the <strong>fetal ovary</strong> in rainbow trout, turtle, mouse, and human. In the mouse, RUNX1 marks the supporting cell lineage and becomes granulosa cell-specific as the gonads differentiate. RUNX1 plays complementary/redundant roles with FOXL2 to maintain fetal granulosa cell identity, and combined loss of RUNX1 and FOXL2 results in masculinization of the fetal ovaries. To determine whether interplay between RUNX1 and FOXL2 occurs at the chromatin level, <strong>we performed genome-wide analysis of RUNX1 chromatin occupancy in E14.5 ovaries. The top de novo motif identified in RUNX1 ChIP-seq matched the RUNX motif</strong>. We found that RUNX1 chromatin occupancy was partially overlapping with FOXL2 chromatin occupancy in fetal ovaries.</p>
+<p><img src="Module5/chipseqlab/chipseqlab_image/img2.png" alt="img2" />
+They found that RUNX1 is expressed in the fetal ovary at day 14 in mice and that it is necessary for a good development of the ovary.</p>
+<p><img src="Module5/chipseqlab/chipseqlab_image/img3.png" alt="img3" />
+A KO of Runx1 and another TF Foxl2 abolished the normal development of the ovary.</p>
+<p>Why did we choose this dataset?</p>
+<ul>
+<li>RUNX1 is a transcription factor that is interesting to study as it has major biological functions.</li>
+<li>chIP-seq peaks are stored in a bed file that can be download from GEO entry.</li>
+<li>Linked to transcriptomic data (GSE129038)</li>
+<li>Quality of the data</li>
+</ul>
+<p>Starting the analysis, the first information that we need to get before doing the analysis is the model organism and genome version. In the GEO entry (<a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3684638" class="uri">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3684638</a>), the information is found by clicking on one of the sample and under “Data processing” :
+* The organism is <strong>mus musculus* and the reference genome is </strong>mm10**
+* 3 files are available from the GEO entry (see below).</p>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/img4.png" alt="" />
+<p class="caption">img4</p>
+</div>
+<ul>
+<li>The bed file provided by the authors (GSE128767_RUNX1_ChIP.peaks.bed)
+has the right format to be used for the pathway analysis using GREAT;
+The first 3 fields contain the chromosome name, start and end. They are the 3 required fields. The fourth column is optional and consists of the chromosomal position, followed by MACS2 score value and FDR.</li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/img5.png" alt="" />
+<p class="caption">img5</p>
+</div>
+</div>
+<div id="exercise-1.-run-great-in-order-to-perform-pathway-analysis" class="section level2">
+<h2>Exercise 1. Run GREAT in order to perform pathway analysis</h2>
+<ul>
+<li>Open a web browser and go to <a href="http://great.stanford.edu/public/html/" class="uri">http://great.stanford.edu/public/html/</a></li>
+<li>In “Species Assembly”, choose Mouse: GRCm38(UCSC mm10, Dec. 2011)</li>
+<li>In “Test regions”, Click on “Choose file” and locate the file GSE128767_RUNX1_ChIP.peaks.bed that you save on your computer.</li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/%20img7.png" alt="" />
+<p class="caption">img7</p>
+</div>
+<ul>
+<li>In “Association rule settings” , click on “Show settings” to see the current rule set to associate genes to peaks</li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/img8.png" alt="" />
+<p class="caption">img8</p>
+</div>
+<ul>
+<li><p>Do not change the settings. We are doing a distal analysis where genes (genomic regions) are associated with peaks within 5k upstream of the transcription start site of the genes (TSS), 1kb downstream and up to 1000 kb to nearest gene.</p></li>
+<li><p>Click on the “Submit” button at the end of the page</p></li>
+<li><p>Explore the results.</p></li>
+<li><p>After expanding the “Job Description” tab and checking the parameters, click on “View all genomic region-gene associations” (blue font)</p></li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/img10.png" alt="" />
+<p class="caption">img10</p>
+</div>
+<ul>
+<li>These 2 tables contain the list of the chIP-seq peaks and corresponding associated genes.
+<img src="Module5/chipseqlab/chipseqlab_image/img10b.png" alt="img10b" /></li>
+<li>In the “Region-Gene Association Graphs”, we can see that the peaks were mainly associated with genes located +-5kb of the TSS in addition to the presence of some distal peaks as expected based on the association rule that we have used.</li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/distal.png" alt="" />
+<p class="caption">distal</p>
+</div>
+<ul>
+<li>Let’s explore the pathway analysis results and look at the GO Biological Process table.</li>
+</ul>
+<p><img src="Module5/chipseqlab/chipseqlab_image/distal_true2.png" alt="distal" />
+As we defined a distal rule to associate peaks with genes, we are going to look at the <strong>binomial FDR</strong>. The binomial test assesses whether the number of genomic regions annotated with the tested pathway is significantly larger than the number of genomic regions not annotated with tested pathway.
+The fold enrichment is the proportion of genomic regions annotated with the tested pathway and genomic regions not annotated with tested pathway.</p>
+<ul>
+<li>Export the GO BP result on your local computer:
+Under the “GO Biological Process” title, locate the “Table controls:” and select the option “All ontology data as .tsv”. A file called greatExportAll.tsv will be saved on your computer. Rename the file “Distal_GOBP_greatExportAll.tsv”. We will import this file later in Cytoscape/EnrichmentMap.</li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/img13.png" alt="" />
+<p class="caption">img13</p>
+</div>
+<ul>
+<li><p>We are now trying a proximal approach to define genes associated with peaks. Go back to the main GREAT page. Make sure the bed file is still uploaded and the genome is set to mm10.</p></li>
+<li><p>Locate the “Association rule settings” and click on “Show settings”.
+Set Proximal 1kb upstream, 1kb downstream plus Distal up to 1kb . Uncheck the “Include curated regulatory domains” box.
+<img src="Module5/chipseqlab/chipseqlab_image/img9.png" alt="img9" /></p></li>
+<li><p>Click on Submit.</p></li>
+<li><p>Explore the results.</p></li>
+<li><p>In the “Region-Gene Association Graphs” , we can see that according to the proximal rule in our settings, genes are associated with peaks that are all within the +-5kb rule (in fact the +-1kb rule) and there is no more distal peaks.</p></li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/proximal.png" alt="" />
+<p class="caption">proximal</p>
+</div>
+<ul>
+<li><p>Explore the GOBP results and export the results on your computer.
+<img src="Module5/chipseqlab/chipseqlab_image/proximal2.png" alt="proximal2" />
+Using this rule, genes will be associated with peaks only if these ones are within 1kb of the transcription start site of the genes. It reduces the problem to a gene list and in this case, a Fisher’s exact (Hyper FDR Q-Val) test can be applied to test for pathway enrichment.</p></li>
+<li><p>Save the file as Proximal_GOBP_greatExportAll.tsv.
+<img src="Module5/chipseqlab/chipseqlab_image/img13.png" alt="img13" /></p></li>
+</ul>
+</div>
+<div id="exercise-2.-build-an-enrichment-map-to-visualize-great-results" class="section level2">
+<h2>Exercise 2. Build an enrichment map to visualize GREAT results</h2>
+<ul>
+<li>Open Cytoscape</li>
+<li>In the menu bar, select Apps and then EnrichmentMap</li>
+<li>Drag and drop the GREAT result file Distal_GOBP_greatExportAll.tsv</li>
+<li>Set the FDR q value cut-off to 0.001</li>
+<li>Click on Build</li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/img14.png" alt="" />
+<p class="caption">img14</p>
+</div>
+<ul>
+<li><p>A “Set Parameters” dialog box opens: Choose “Binomial p-value”.
+<img src="Module5/chipseqlab/chipseqlab_image/img15.png" alt="img15" /></p></li>
+<li><p>Explore the map.
+<img src="Module5/chipseqlab/chipseqlab_image/proximal_map.png" alt="proximal_map" /></p></li>
+</ul>
+</div>
+<div id="exercise-3-optional-auto-annotate-the-distal-enrichment-map-build-the-proximal-map-and-compare-both-the-proximal-and-distal-maps" class="section level2">
+<h2>Exercise 3 (optional): auto-annotate the distal enrichment map, build the proximal map and compare both the proximal and distal maps</h2>
+<div id="optional-exercise-3a-autoannotate-the-enrichment-map" class="section level3">
+<h3>Optional exercise 3a: AutoAnnotate the enrichment map:</h3>
+<p>In the menu bar, select Apps and then AutoAnnotate. A dialog box opens. Click on “Create Annotations”.</p>
+<p><img src="Module5/chipseqlab/chipseqlab_image/img16.png" alt="img16" />
+Arrange the display by clicking on each module name listed on the right tab and then move them apart from the other modules using a mouse or a trackpad.</p>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/proximal_map_AA.png" alt="" />
+<p class="caption">proximal_map_AA</p>
+</div>
+<ul>
+<li><strong>Question</strong>: What are the main biological function enriched in genes associated with RUNX1 peaks? Is it relevant in relation to what we know about the role of RUNX1 in development?</li>
+</ul>
+</div>
+<div id="optional-exercise-3b-repeat-the-process-of-building-an-enrichment-map-using-the-proximal-data-proximal_gobp_greatexportall.tsv." class="section level3">
+<h3>Optional exercise 3b: Repeat the process of building an enrichment map using the proximal data (Proximal_GOBP_greatExportAll.tsv).</h3>
+<p>Because this is proximal data, the problem is reduced to a gene list and you can use the Fisher’s exact test (FDR 0.001) to looked at the enrichment results</p>
+</div>
+<div id="optional-exercise-3c-repeat-the-process-by-building-both-the-proximal-and-distal-enrichment-maps-at-the-same-time." class="section level3">
+<h3>Optional exercise 3c: Repeat the process by building both the Proximal and Distal enrichment maps at the same time.</h3>
+<ul>
+<li>Drag both files in the EnrichmentMap input box.</li>
+<li>Use FDR 0.0001 for both and binomial test.</li>
+<li>Check which nodes are in common between the 2 datasets. Color the data by datasets.</li>
+</ul>
+</div>
+</div>
+<div id="exercise-4-add-runx1-targets-and-runx1-ko-up-and-down-regulated-genes-on-the-distal-enrichment-map-as-a-new-gene-set." class="section level2">
+<h2>Exercise 4: Add RUNX1 targets and RUNX1 KO up and down regulated genes on the distal enrichment map as a new gene-set.</h2>
+<p>During this exercise, we will connect the proximal chIP-seq enrichment map with the RUNX1 targets as well as the genes that are dysregulated after RUNX1 KO. We have already created a .gmt file that contains these gene lists (RUNX1_Affy.gmt). The format of a .gmt file is a tab delimited text file with one row per gene-set. Each gene-set contains the name of the gene-set, a description of the gene-set followed by the names of the genes. The file extension is changed from .txt to .gmt.</p>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/gmt.png" alt="" />
+<p class="caption">gmt</p>
+</div>
+<ul>
+<li>Note: We extracted the RUNX1 targets using the iRegulon Cytoscape app and the optional exercise 6 describes the steps. We extracted 200 genes to built the RUNX1 target gene list.
+This RUNX1 study had transcriptomics data (microarray) in addition to the chIP-seq data. The microarray data are giving an overview of all genes that are changing between a fetal ovary with normal development and a fetal ovary after RUNX1 knock-out (KO) (GSE129038). We have used the tool GEO2R to get the top 500 up and down regulated genes (see description of the steps at the end the document).</li>
+</ul>
+<div id="step-4a-add-the-.gmt-file-to-the-enrichment-map" class="section level3">
+<h3>step 4a: Add the .gmt file to the enrichment map:</h3>
+<ul>
+<li><p>In Cytoscape, go to the Network tab and make sure that the Distal_GOBP_greatExportAll network is selected.</p></li>
+<li><p>Go to the EnrichmentMap tab and click on “Add Signature Gene Sets…”.
+<img src="Module5/chipseqlab/chipseqlab_image/PA01.png" alt="PA01" /></p></li>
+<li><p>Click on “Load from File….” located on the right hand size and select the file “RUNX1_Affy.gmt” that you have saved on your computer.</p></li>
+<li><p>Set “Test” to “Hypergeometric Test” with the “Cutoff” set to 0.05.</p></li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/PA02.png" alt="" />
+<p class="caption">PA02</p>
+</div>
+<p>The 3 gene-sets are now added to the map. Each line (edge) shows pathways that have genes in common with the signature gene-sets.</p>
+</div>
+<div id="step-4b-optional-change-the-edge-style-of-the-signature-gene-sets" class="section level3">
+<h3>Step 4b Optional: Change the edge style of the signature gene-sets:</h3>
+<ul>
+<li><p>Click on one signature gene-set node on the map to select it (it should appear in yellow).</p></li>
+<li><p>In the Cytoscape menu bar, do “Select”, “Edges”, “Select Adjacent Edges”
+<img src="Module5/chipseqlab/chipseqlab_image/pa1.png" alt="pa1" /></p></li>
+<li><p>Go to “Style” and in the “Edge” table, in the bypass column Byp. , click on the box and select a color.
+<img src="Module5/chipseqlab/chipseqlab_image/pa2.png" alt="pa2" /></p></li>
+<li><p>Repeat for all genes</p></li>
+<li><p>In “ Style” and in the “Edge” table, go to Width and set Column to “EM k_Intersection”</p></li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/em3.png" alt="" />
+<p class="caption">em3</p>
+</div>
+</div>
+</div>
+<div id="exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip" class="section level2">
+<h2>Exercise 5: Learning how to run MEME-chip from the MEME suite (<a href="https://meme-suite.org/meme/tools/meme-chip" class="uri">https://meme-suite.org/meme/tools/meme-chip</a>)</h2>
+<ul>
+<li><p>The first step is to format the data. MEME suite accepts sequences as input and not chromosome coordinates. The bed file contains the chromosome coordinates of the peaks. Therefore, we first have to fetch all the peak sequences. UCSC genome browser (<a href="https://genome.ucsc.edu/" class="uri">https://genome.ucsc.edu/</a>) has some tools to help us.</p></li>
+<li><p>If needed, you can use the finalized formatted file (GSE128767_RUNX1_ChIP.peaks.fasta) but we encourage you to follow the next steps to learn on how to do it yourself.</p></li>
+<li><p>The step that we took to create it are described below and were adapted from <a href="https://fasta.bioch.virginia.edu/cshl/stubbs/meme-ex/meme.html" class="uri">https://fasta.bioch.virginia.edu/cshl/stubbs/meme-ex/meme.html</a>.</p></li>
+</ul>
+<div id="exercise-5a-downloading-sequences-from-.bed-coordinates" class="section level3">
+<h3>Exercise 5a: Downloading sequences from .bed coordinates</h3>
+<ul>
+<li>Open the UCSC browser main page (<a href="http://genome.ucsc.edu/" class="uri">http://genome.ucsc.edu/</a>).</li>
+<li>Click on Genomes in the menu bar and select mouse GRCm38/mm10. The UCSC Genome Browser window opens in a new tab.</li>
+</ul>
+<p><img src="Module5/chipseqlab/chipseqlab_image/meme1.png" alt="meme1" />
+<img src="Module5/chipseqlab/chipseqlab_image/meme2.png" alt="meme2" /></p>
+<ul>
+<li><p>Below the tracks, click on the button “add custom tracks”. A new window will open.
+<img src="Module5/chipseqlab/chipseqlab_image/meme3.png" alt="meme3" /></p></li>
+<li><p>Upload the bed file (GSE128767_RUNX1_ChIP.peaks.bed); make sure that “Table Browser” is selected and press the “go” button.
+<img src="Module5/chipseqlab/chipseqlab_image/meme4.png" alt="meme4" /></p></li>
+<li><p>Select “sequence” as “output format” and “plain text” as “file type returned”.
+<img src="Module5/chipseqlab/chipseqlab_image/meme5.png" alt="meme5" /></p></li>
+<li><p>A new window will open where you can choose various options for your sequence (e.g. repeat masking). Note that for meme and similar programs it is important to “mask repeats” to “N”; otherwise, sequences in repetitive elements will dominate your motif list.
+<img src="Module5/chipseqlab/chipseqlab_image/meme6.png" alt="meme6" /></p></li>
+<li><p>Select get sequence. A fasta file will appear; save this as plain text (copy and paste in a text editor).</p></li>
+<li><p>You will need to modify the UCSC header that comes with the sequences to use them for meme:</p>
+<ul>
+<li>Go to <a href="https://fasta.bioch.virginia.edu/fasta_www2/clean_fasta.html" class="uri">https://fasta.bioch.virginia.edu/fasta_www2/clean_fasta.html</a></li>
+<li>upload or copy and paste the plain text file from the above step</li>
+<li>check Extract CHR:coordinates from UCSC</li>
+<li>Click on “Clean Sequence”</li>
+<li>Save this as plain text under the name GSE128767_RUNX1_ChIP.peaks.fasta
+<img src="Module5/chipseqlab/chipseqlab_image/meme7.png" alt="meme7" />
+<img src="Module5/chipseqlab/chipseqlab_image/meme8.png" alt="meme8" /></li>
+</ul></li>
+</ul>
+</div>
+<div id="exercise-5b-run-meme-chip" class="section level3">
+<h3>Exercise 5b: Run MEME-chIP</h3>
+<ul>
+<li><p>Open <a href="https://meme-suite.org/meme/tools/meme-chip" class="uri">https://meme-suite.org/meme/tools/meme-chip</a>.
+<img src="Module5/chipseqlab/chipseqlab_image/meme9.png" alt="meme9" /></p></li>
+<li><p>In Input the primary sequences box, upload the file GSE128767_RUNX1_ChIP.peaks.fasta .</p></li>
+<li><p>Click on “Start Search”.</p></li>
+<li><p><strong>Important</strong>: Save the url so you can access your result later even if you close the MEME window.</p></li>
+<li><p>MEME-ChIP will run for about 1 hour: look at the results below from the MEME-chip result, try to answer the questions and follow next steps. Check your MEME-ChIP results at the end of the practical lab.</p></li>
+</ul>
+<p><img src="Module5/chipseqlab/chipseqlab_image/meme10.png" alt="meme10" />
+<img src="Module5/chipseqlab/chipseqlab_image/meme11.png" alt="meme11" />
+<img src="Module5/chipseqlab/chipseqlab_image/meme12.png" alt="meme12" /></p>
+<ul>
+<li>Here below are the results of the top motifs that were found significantly enriched in the peak sequences.
+<strong>Question</strong>:To which transcription factor does it correspond? Why is the centered distribution of the motif important (what does it mean)?</li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/meme13.png" alt="" />
+<p class="caption">meme13</p>
+</div>
+</div>
+</div>
+<div id="optional-exercise-6-get-the-iregulon-runx1-targets-and-find-the-mouse-orthologs-using-gorth-from-gprofiler-to-create-the-gmt-file-used-in-exercise-4." class="section level2">
+<h2>Optional Exercise 6: Get the iRegulon RUNX1 targets and find the mouse orthologs using g:Orth (from g:Profiler) to create the gmt file used in Exercise 4.</h2>
+<ul>
+<li><p>In Cytoscape, locate “App” in the menu bar and select “iRegulon” and then “Query TF-target database”
+<img src="Module5/chipseqlab/chipseqlab_image/iregulon1.png" alt="iregulon1" /></p></li>
+<li><p>A “Query TF-target database for a factor” dialog box opens. Enter “RUNX1” in the “Transcription Factor” field and in “Network”, set “Number nodes (approx.)” to 200. Click on “Submit”
+<img src="Module5/chipseqlab/chipseqlab_image/iregulon2.png" alt="iregulon2" /></p></li>
+<li><p>To arrange the style, go to the Cytoscape menu bar and select “Layout” and “yFiles Organic Layout”. Go the Cytoscape menu and select “View” “Always Show Graphic Details” to see the gene names.</p></li>
+<li><p>Below the network, click on “Node Table” and click on the “Export Table to File…” icon. Click on “OK”.</p></li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/iregulon3.png" alt="" />
+<p class="caption">iregulon3</p>
+</div>
+<ul>
+<li>Open the file Metatargetome for RUNX1_1 default node.csv and copy the gene list. Open g:Profiler/g:orth at <a href="https://biit.cs.ut.ee/gprofiler/orth" class="uri">https://biit.cs.ut.ee/gprofiler/orth</a>. Paste the gene list into “Query” and in Options set Organism to Home sapiens and Target to Mus musculus. Click on the orange button “Run query”.</li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/gorth1.png" alt="" />
+<p class="caption">gorth1</p>
+</div>
+<ul>
+<li>Click on the icon next to the “ortholog name” column to copy the gene list. This is the gene list containing the mouse orthologs of the RUNX1 targets that we used in Exercise 4.</li>
+</ul>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/gorth2.png" alt="" />
+<p class="caption">gorth2</p>
+</div>
+</div>
+<div id="as-reference-you-dont-need-to-go-through-these-steps-during-the-practical-lab-analysis-of-the-runx1-affy-transcriptomics-using-geo2r." class="section level2">
+<h2>As reference (you don’t need to go through these steps during the practical lab): Analysis of the RUNX1 Affy transcriptomics using GEO2R.</h2>
+<ul>
+<li>Go to the GEO page corresponding to the Affymetrix transcriptomics <a href="data:https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129038" class="uri">data:https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129038</a></li>
+<li>Click on Analyze with GEO2R</li>
+<li>Define your groups and click on Analyze</li>
+<li>Export the table</li>
+<li>Rank the genes using the absolute value of t</li>
+<li>Remove the gene name duplicates</li>
+<li>Select the top 500 genes up regulated using the largest t value and the 500 genes down regulated using the smallest t value</li>
+</ul>
+</div>
+<div id="end-of-lab" class="section level2">
+<h2>End of Lab</h2>
+<p>Congratulations!!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regulatory-network-lab.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-6-gene-function-prediction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": "https://github.com/risserlin/CBW_Pathways_bookdown/commit/master/5.2-Module5_chipseq_lab.Rmd",
+"text": null
+},
+"view": {
+"link": "https://github.com/risserlin/CBW_Pathways_bookdown/blob/master/5.2-Module5_chipseq_lab.Rmd",
+"text": null
+},
+"download": ["CBW_Pathways.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
