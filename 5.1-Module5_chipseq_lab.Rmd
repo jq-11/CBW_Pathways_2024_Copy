@@ -11,7 +11,7 @@
 * Run MEME-chip to find over-enrichment of transcription factors.
 * Optional: learn how to use iRegulon to find targets of a transcription factor of interest and find orthologs using the tool g:Profiler/g:orth.
 
-This practical lab consists of 6 exercises and 2 of them are optional. Follow the step-by-step checklist trough the exercises.  
+This practical lab consists of 6 exercises and 2 of them are optional. Follow the step-by-step checklist through the exercises.  
 
 Before starting the lab, download the files:
 
@@ -28,133 +28,170 @@ Place the file in your CBW work directory in the corresponding module directory.
 *	[GSE128767_RUNX1_ChIP.peaks.fasta](./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta)
 
 ```{block, type="rmd-note"}
-Note about the EnrichmentMap layout: Network layouts are flexible and can be rearranged. What you see when you perform these exercises may not be identical to what you see in the tutorial, or what you have seen other times that you have performed the exercises. 
+EnrichmentMap and Cytoscape layouts: Network layouts are flexible and can be rearranged. What you see when you perform these exercises may not be identical in appearance to what you see in the screenshots in the practical lab, or what you have seen other times that you have performed the exercises. 
 ```
 
-## Introducing the dataset used during this practical lab
+## Dataset used during this practical lab
 
-ChIP-seq for RUNX1 from pools of mouse CD1 fetal ovaries (E14.5)
-NCBI GEO: GSE128767
+ChIP-seq for RUNX1 from pools of mouse CD1 fetal ovaries (E14.5)<br>
+NCBI GEO: [GSE128767](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767)
 
-From the paper:Nicol B, Grimm SA, Chalmel F, Lecluze E et al. RUNX1 maintains the identity of the fetal ovary through an interplay with FOXL2. Nat Commun 2019 Nov 11;10(1):5116. PMID: 31712577
+From the paper:<br>  **RUNX1 maintains the identity of the fetal ovary through an interplay with FOXL2**<br> Nicol B, Grimm SA, Chalmel F, Lecluze E et al. <br>[Nat Commun 2019 Nov 11;10(1):5116](https://www.nature.com/articles/s41467-019-13060-1).<br> [PMID: 31712577](https://pubmed.ncbi.nlm.nih.gov/31712577/)
 
-Abstract: Sex determination of the gonads begins with **fate specification** of gonadal supporting cells into either ovarian granulosa cells or testicular Sertoli cells. This process of fate specification hinges on a balance of transcriptional control. We discovered that the **transcription factor RUNX1** is enriched in the **fetal ovary** in rainbow trout, turtle, mouse, and human. In the mouse, RUNX1 marks the supporting cell lineage and becomes granulosa cell-specific as the gonads differentiate. RUNX1 plays complementary/redundant roles with FOXL2 to maintain fetal granulosa cell identity, and combined loss of RUNX1 and FOXL2 results in masculinization of the fetal ovaries. To determine whether interplay between RUNX1 and FOXL2 occurs at the chromatin level, **we performed genome-wide analysis of RUNX1 chromatin occupancy in E14.5 ovaries. The top de novo motif identified in RUNX1 ChIP-seq matched the RUNX motif**. We found that RUNX1 chromatin occupancy was partially overlapping with FOXL2 chromatin occupancy in fetal ovaries.
+**Abstract**:<br> Sex determination of the gonads begins with **fate specification** of gonadal supporting cells into either ovarian granulosa cells or testicular Sertoli cells. This process of fate specification hinges on a balance of transcriptional control. We discovered that the **transcription factor RUNX1** is enriched in the **fetal ovary** in rainbow trout, turtle, mouse, and human. In the mouse, RUNX1 marks the supporting cell lineage and becomes granulosa cell-specific as the gonads differentiate. RUNX1 plays complementary/redundant roles with FOXL2 to maintain fetal granulosa cell identity, and combined loss of RUNX1 and FOXL2 results in masculinization of the fetal ovaries. To determine whether interplay between RUNX1 and FOXL2 occurs at the chromatin level, **we performed genome-wide analysis of RUNX1 chromatin occupancy in E14.5 ovaries. The top de novo motif identified in RUNX1 ChIP-seq matched the RUNX motif**. We found that RUNX1 chromatin occupancy was partially overlapping with FOXL2 chromatin occupancy in fetal ovaries.
 
-![img2](./Module5/chipseqlab/chipseqlab_image/img2.png) 
+![Figure 1](./Module5/chipseqlab/chipseqlab_image/img2.png) 
+
 They found that RUNX1 is expressed in the fetal ovary at day 14 in mice and that it is necessary for a good development of the ovary.
 
-![img3](./Module5/chipseqlab/chipseqlab_image/img3.png) 
+![Figure 2](./Module5/chipseqlab/chipseqlab_image/img3.png) 
+
 A KO of Runx1 and another TF Foxl2 abolished the normal development of the ovary.
 
 Why did we choose this dataset?
 
 *	RUNX1 is a transcription factor that is interesting to study as it has major biological functions. 
 *	chIP-seq peaks are stored in a bed file that can be download from GEO entry.
-*	Linked to transcriptomic data (GSE129038)
+*	Linked to transcriptomic data [GSE129038](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129038)
 *	Quality of the data
 
 
-Starting the analysis, the first information that we need to get before doing the analysis is the model organism and genome version. In the GEO entry (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3684638), the information is found by  clicking on one of the sample and under “Data processing” :
-* The organism is **mus musculus* and the reference genome is **mm10**
-* 3 files are available from the GEO entry (see below).
+The first piece of information that we need to get before starting the analysis is the model organism and genome version. 
+    * In the main GEO entry [GSE128767](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767) 
+    * click on one of the samples (for example -  [GSM3684638](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3684638)).  
+    * On the sample page scroll down to the "Data processing" section
+        * The organism is **mus musculus** and the reference genome is **mm10**
+        * 3 files are available from the GEO entry (see below).
 
-![img4](./Module5/chipseqlab/chipseqlab_image/img4.png) 
-
-* The bed file provided by the authors (GSE128767_RUNX1_ChIP.peaks.bed)
-has the right format to be used for the pathway analysis  using GREAT;
+* The bed file provided by the authors (GSE128767_RUNX1_ChIP.peaks.bed) (linked on the main dataset page under supplementary file - [GSE128767](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767) )
+has the right format to be used by [GREAT](http://great.stanford.edu/public/html/) for the pathway analysis;
 The first 3 fields contain the chromosome name, start and end. They are the 3 required fields. The fourth column is optional and consists of the chromosomal position, followed by MACS2 score value and FDR. 
 
-![img5](./Module5/chipseqlab/chipseqlab_image/img5.png) 
+![Figure 3 - Dataset BED file](./Module5/chipseqlab/chipseqlab_image/img4.png) 
+
+![Figure 4 - Example view of BED file](./Module5/chipseqlab/chipseqlab_image/img5.png) 
 
 
 
 
-## Exercise 1. Run GREAT in order to perform pathway analysis
+## Exercise 1 - Run pathway analysis using GREAT
+
+### Perform pathway enrichment
 
 * Open a web browser and go to http://great.stanford.edu/public/html/
 * In “Species Assembly”, choose Mouse: GRCm38(UCSC mm10, Dec. 2011)
 * In “Test regions”, Click on “Choose file” and locate the file GSE128767_RUNX1_ChIP.peaks.bed that you save on your computer.
 
-![img7](./Module5/chipseqlab/chipseqlab_image/ img7.png) 
+![Figure 5 - GREAT interface](./Module5/chipseqlab/chipseqlab_image/ img7.png) 
 
 * In “Association rule settings” , click on “Show settings” to see the current rule set to associate genes to peaks
 
-![img8](./Module5/chipseqlab/chipseqlab_image/img8.png) 
+![Figure 6 - GREAT Association rules used in analysis](./Module5/chipseqlab/chipseqlab_image/img8.png) 
 
 * Do not change the settings. We are doing a distal analysis where genes (genomic regions) are associated with peaks within 5k upstream of the transcription start site of the genes (TSS), 1kb downstream and up to 1000 kb to nearest gene.
 * Click on the “Submit” button at the end of the page
 
-* Explore the results.
-* After expanding the “Job Description” tab and checking the parameters, click on “View all genomic region-gene associations” (blue font)
+### Explore the results.
+* Expand the “Job Description” tab to check the parameters, 
 
-![img10](./Module5/chipseqlab/chipseqlab_image/img10.png)
 
- * These 2 tables contain the list of the chIP-seq peaks and corresponding associated genes.
-![img10b](./Module5/chipseqlab/chipseqlab_image/img10b.png)
+![Figure 7 - Job Description](./Module5/chipseqlab/chipseqlab_image/img10.png)
+
+* click on “View all genomic region-gene associations” (blue font)
+* In a new tab there will be 2 tables containing the list of the chIP-seq peaks and corresponding associated genes.
+* Download both of the tables (region -> gene and gene -> region)
+
+![Figure 8 - genomic region-gene association tables.](./Module5/chipseqlab/chipseqlab_image/img10b.png)
+
+* Return to the main GREAT results page.
 * In the “Region-Gene Association Graphs”, we can see that the peaks were mainly associated with genes located +-5kb of the TSS in addition to the presence of some distal peaks as expected based on the association rule that we have used.
 
-![distal](./Module5/chipseqlab/chipseqlab_image/distal.png)
+![Figure 9 - Region-gene association graphs](./Module5/chipseqlab/chipseqlab_image/distal.png)
 
 * Let’s explore the pathway analysis results and look at the GO Biological Process table.
 
-![distal](./Module5/chipseqlab/chipseqlab_image/distal_true2.png)
-As we defined a distal rule to associate peaks with genes, we are going to look at the **binomial FDR**. The binomial test assesses whether the number of genomic regions annotated with the tested pathway is significantly larger than the number of genomic regions not annotated with tested pathway.
-The fold enrichment is the proportion of genomic regions annotated with the tested pathway and genomic regions not annotated with tested pathway.
+* scroll down to the "GO Biological Process" section.
+
+![Figure 10 - GO Biological Process results](./Module5/chipseqlab/chipseqlab_image/distal_true2.png)
+
+As we defined a distal rule to associate peaks with genes, we are going to look at the **binomial FDR**. The binomial test assesses whether the number of genomic regions annotated with the tested pathway is significantly larger than the number of genomic regions not annotated with the tested pathway.
+The fold enrichment is the proportion of genomic regions annotated with the tested pathway and genomic regions not annotated with the tested pathway.
 
 
 * Export the GO BP result on your local computer:
-Under the “GO Biological Process” title, locate the “Table controls:” and select the option “All ontology data as .tsv”. A file called greatExportAll.tsv will be saved on your computer. Rename the file "Distal_GOBP_greatExportAll.tsv". We will import this file later in Cytoscape/EnrichmentMap.
+    * Under the “GO Biological Process” title, locate the “Table controls:” 
+    * select the option “All ontology data as .tsv”. 
+    * A file called greatExportAll.tsv will be saved on your computer. 
+    * Rename the file "Distal_GOBP_greatExportAll.tsv". We will import this file later in Cytoscape/EnrichmentMap.
 
-![img13](./Module5/chipseqlab/chipseqlab_image/img13.png)
+![Figure 11 - Download Go Biological Process results](./Module5/chipseqlab/chipseqlab_image/img13.png)
 
-* We are now trying a proximal approach to define genes associated with peaks. Go back to the main GREAT page. Make sure the bed file is still uploaded and the genome is set to mm10.
+### Perform pathway enrichment - Proximal approach
+
+We are now trying a proximal approach to define genes associated with peaks. 
+
+* Go back to the main GREAT page. Make sure the bed file is still uploaded and the genome is set to mm10.
 * Locate the “Association rule settings” and click on “Show settings”.
-Set Proximal 1kb upstream, 1kb downstream plus Distal up to 1kb . Uncheck the “Include curated regulatory domains” box. 
-![img9](./Module5/chipseqlab/chipseqlab_image/img9.png)
+* Set Proximal 1kb upstream, 1kb downstream plus Distal up to 1kb . 
+* Uncheck the “Include curated regulatory domains” box. 
+
+![Figure 12 - GREAT Association rules used in proximal analysis ](./Module5/chipseqlab/chipseqlab_image/img9.png)
 
 * Click on Submit.
 
-* Explore the results.
-* In the “Region-Gene Association Graphs” , we can see that according to the proximal rule in our settings, genes are associated with peaks that are all within the +-5kb rule (in fact the +-1kb rule) and there is no more distal peaks.
+### Explore the results. - proximal analysis
+* In the “Region-Gene Association Graphs” , we can see that using the proximal rule in our settings, genes are associated with peaks that are all within the +-5kb rule (in fact the +-1kb rule) and there are no more distal peaks.
 
-![proximal](./Module5/chipseqlab/chipseqlab_image/proximal.png)
+![Figure 13 - Proximal Region-gene association graphs](./Module5/chipseqlab/chipseqlab_image/proximal.png)
 
 * Explore the GOBP results and export the results on your computer. 
-![proximal2](./Module5/chipseqlab/chipseqlab_image/proximal2.png)
-Using this rule, genes will be associated with peaks only if these ones are within 1kb of the transcription start site of the genes. It reduces the problem to a gene list and in this case, a Fisher’s exact (Hyper FDR Q-Val) test can be applied to test for pathway enrichment. 
 
-* Save the file as Proximal_GOBP_greatExportAll.tsv. 
-![img13](./Module5/chipseqlab/chipseqlab_image/img13.png)
+![Figure 14 - Proximal GO BP results](./Module5/chipseqlab/chipseqlab_image/proximal2.png)
 
-## Exercise 2. Build an enrichment map to visualize GREAT results
+Using this rule, genes will be associated with peaks only if they are within 1kb of the transcription start site of the genes. It reduces the problem to a gene list and in this case, a Fisher’s exact (Hyper FDR Q-Val) test can be applied to test for pathway enrichment. 
+
+* Export the GO BP result on your local computer:
+    * Under the “GO Biological Process” title, locate the “Table controls:” 
+    * select the option “All ontology data as .tsv”. 
+    * A file called greatExportAll.tsv will be saved on your computer. 
+    * Rename the file "Proximal_GOBP_greatExportAll.tsv". We will import this file later in Cytoscape/EnrichmentMap.
+
+![Figure 15 - Export Proximal GOBP enrichment results ](./Module5/chipseqlab/chipseqlab_image/img13.png)
+
+## Exercise 2 -  Build an enrichment map to visualize GREAT results
+
 * Open Cytoscape
-* In the menu bar, select Apps and then EnrichmentMap
-* Drag and drop the GREAT result file Distal_GOBP_greatExportAll.tsv
+* In the menu bar, select Apps --> EnrichmentMap
+* Drag and drop the GREAT result file Distal_GOBP_greatExportAll.tsv into the DataSet box.
 * Set the FDR q value cut-off to 0.001
 * Click on Build
 
 
 
-![img14](./Module5/chipseqlab/chipseqlab_image/img14.png)
+![Figure 16 - Enrichment map input panel](./Module5/chipseqlab/chipseqlab_image/img14.png)
 
 * A "Set Parameters" dialog box opens: Choose "Binomial p-value".
-![img15](./Module5/chipseqlab/chipseqlab_image/img15.png)
+
+![Figure 17 - Statistical Test choice panel](./Module5/chipseqlab/chipseqlab_image/img15.png)
 
 * Explore the map.
-![proximal_map](./Module5/chipseqlab/chipseqlab_image/proximal_map.png)
+
+![Figure 18 - Enrichment map with distal enriched pathways](./Module5/chipseqlab/chipseqlab_image/proximal_map.png)
 
 
-## Exercise 3 (optional): auto-annotate the distal enrichment map, build the proximal map and compare both the proximal and distal maps
+## Exercise 3 (optional): Auto-annotate the distal enrichment map, build the proximal map and compare both the proximal and distal maps
 
 ### Optional exercise 3a: AutoAnnotate the enrichment map: 
-In the menu bar, select Apps and then AutoAnnotate. A dialog box opens. Click on “Create Annotations”. 
+* In the menu bar, select Apps and then AutoAnnotate. 
+* A dialog box opens. 
+* Click on “Create Annotations”. 
 
-![img16](./Module5/chipseqlab/chipseqlab_image/img16.png)
-Arrange the display by clicking on each module name listed on the right tab and then move them apart from the other modules using a mouse or a trackpad.
+![Figure 19 - Autoannotate panel](./Module5/chipseqlab/chipseqlab_image/img16.png)
+Arrange the display by clicking on each module name listed in the right panel and then move them apart from the other modules using a mouse or a trackpad.
 
-![proximal_map_AA](./Module5/chipseqlab/chipseqlab_image/proximal_map_AA.png)
+![Figure 20 - Manually layed out Enrichment map of enriched pathways for distal set](./Module5/chipseqlab/chipseqlab_image/proximal_map_AA.png)
 
-* **Question**: What are the main biological function enriched in genes associated with RUNX1 peaks? Is it relevant in relation to what we know about the role of RUNX1 in development?
+* **Question**: What are the main biological functions enriched in genes associated with RUNX1 peaks? Is it relevant in relation to what we know about the role of RUNX1 in development?
 
 ### Optional exercise 3b: Repeat the process of building an enrichment map using the proximal data (Proximal_GOBP_greatExportAll.tsv).
 Because this is proximal data, the problem is reduced to a gene list and you can use the Fisher’s exact test (FDR 0.001) to looked at the enrichment results
@@ -162,26 +199,31 @@ Because this is proximal data, the problem is reduced to a gene list and you can
 ### Optional exercise 3c: Repeat the process by building both the Proximal and Distal enrichment maps at the same time. 
 * Drag both files in the EnrichmentMap input box.
 * Use FDR 0.0001 for both and binomial test.
-* Check which nodes are in common between the 2 datasets.  Color the data by datasets. 
+* Check which nodes are in common between the 2 datasets.  
+* Color the data by datasets. 
 
 ## Exercise 4: Add RUNX1 targets and RUNX1 KO up and down regulated genes on the distal enrichment map as a new gene-set.
 
 During this exercise, we will connect the proximal chIP-seq enrichment map with the RUNX1 targets as well as the genes that are dysregulated after RUNX1 KO. We have already created a .gmt file that contains these gene lists (RUNX1_Affy.gmt). The format of a .gmt file is a tab delimited text file with one row per gene-set. Each gene-set contains the name of the gene-set, a description of the gene-set followed by the names of the genes. The file extension is changed from .txt to .gmt.
 
-![gmt](./Module5/chipseqlab/chipseqlab_image/gmt.png)
+![Figure 20 - example of gmt file](./Module5/chipseqlab/chipseqlab_image/gmt.png)
 
-* Note: We extracted the RUNX1 targets using the iRegulon Cytoscape app and the optional exercise 6 describes the steps. We extracted 200 genes to built the RUNX1 target gene list.
-This RUNX1 study had transcriptomics data (microarray) in addition to the chIP-seq data. The microarray data are giving an overview of all genes that are changing between a fetal ovary with normal development and a fetal ovary after RUNX1 knock-out (KO) (GSE129038). We have used the tool GEO2R to get the top 500 up and down regulated genes (see description of the steps at the end the document).
+* Note: We extracted the RUNX1 targets using the iRegulon Cytoscape app and the optional exercise 6 describes the steps. We extracted 200 genes to build the RUNX1 target gene list.
+
+This RUNX1 study had transcriptomics data (microarray) in addition to the chIP-seq data. The microarray data gives an overview of all genes that are changing between a fetal ovary with normal development and a fetal ovary after RUNX1 knock-out (KO) (GSE129038). We have used the tool GEO2R to get the top 500 up and down regulated genes (see description of the steps at the end the document).
 
 ### step 4a: Add the .gmt file to the enrichment map:
-* In Cytoscape,  go to the Network tab and make sure that the Distal_GOBP_greatExportAll network is selected.
-* Go to the EnrichmentMap tab and click on “Add Signature Gene Sets…”.
-![PA01](./Module5/chipseqlab/chipseqlab_image/PA01.png)
+* Go to the EnrichmentMap tab 
+* Make sure that the Distal_GOBP_greatExportAll network is selected.
+* click on “Add Signature Gene Sets…”.
+
+![Figure 21 - Add Signature sets](./Module5/chipseqlab/chipseqlab_image/PA01.png)
 
 * Click on “Load from File….” located on the right hand size and select the file “RUNX1_Affy.gmt” that you have saved on your computer.
 * Set “Test” to “Hypergeometric Test” with the “Cutoff” set to 0.05.
+* Click on "finish"
 
-![PA02](./Module5/chipseqlab/chipseqlab_image/PA02.png)
+![Figure 22 - Signature sets input panel ](./Module5/chipseqlab/chipseqlab_image/PA02.png)
 
 
 The 3 gene-sets are now added to the map. Each line (edge) shows pathways that have genes in common with the signature gene-sets.
@@ -189,15 +231,18 @@ The 3 gene-sets are now added to the map. Each line (edge) shows pathways that h
 ### Step 4b Optional: Change the edge style of the signature gene-sets:
 
 * Click on one signature gene-set node on the map to select it (it should appear in yellow). 
-* In the Cytoscape menu bar, do “Select”, “Edges”, “Select Adjacent Edges” 
-![pa1](./Module5/chipseqlab/chipseqlab_image/pa1.png)
+* In the Cytoscape menu bar, click “Select” --> “Edges” -->“Select Adjacent Edges” 
+
+![Figure 23 - Select adjacent edges](./Module5/chipseqlab/chipseqlab_image/pa1.png)
 
 * Go to “Style” and in the “Edge” table, in the bypass column Byp. , click on the box and select a color.
-![pa2](./Module5/chipseqlab/chipseqlab_image/pa2.png)
-* Repeat for all genes
-* In “ Style” and in the “Edge” table, go to Width and set Column to “EM k_Intersection”
 
-![em3](./Module5/chipseqlab/chipseqlab_image/em3.png)
+![Figure 24 - Bypass selected edge color](./Module5/chipseqlab/chipseqlab_image/pa2.png)
+
+* Repeat for all genes:
+    * In “ Style” and in the “Edge” table, go to Width and set Column to “EM k_Intersection”
+
+![Figure 25 - Final figure](./Module5/chipseqlab/chipseqlab_image/em3.png)
 
 ## Exercise 5: Learning how to run MEME-chip from the MEME suite (https://meme-suite.org/meme/tools/meme-chip)
 * The first step is to format the data. MEME suite accepts sequences as input and not chromosome coordinates. The bed file contains the chromosome coordinates of the peaks. Therefore, we first have to fetch all the peak sequences. UCSC genome browser (https://genome.ucsc.edu/) has some tools to help us.
@@ -256,7 +301,7 @@ The 3 gene-sets are now added to the map. Each line (edge) shows pathways that h
 
 ![meme13](./Module5/chipseqlab/chipseqlab_image/meme13.png)
 
-## Optional Exercise 6: Get the iRegulon RUNX1 targets and find the mouse orthologs using g:Orth (from g:Profiler) to create the gmt file used in Exercise 4.
+## Exercise 6 (optional): Get the iRegulon RUNX1 targets and find the mouse orthologs using g:Orth (from g:Profiler) to create the gmt file used in Exercise 4.
 
 * In Cytoscape, locate “App” in the menu bar and select “iRegulon” and then “Query TF-target database”
 ![iregulon1](./Module5/chipseqlab/chipseqlab_image/iregulon1.png)
@@ -278,7 +323,7 @@ The 3 gene-sets are now added to the map. Each line (edge) shows pathways that h
 
 ![gorth2](./Module5/chipseqlab/chipseqlab_image/gorth2.png)
 
-## As reference (you don't need to go through these steps during the practical lab): Analysis of the RUNX1 Affy transcriptomics using GEO2R.
+**As reference (you don't need to go through these steps during the practical lab): Analysis of the RUNX1 Affy transcriptomics using GEO2R.** 
 * Go to the GEO page corresponding to the Affymetrix transcriptomics data:https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129038
 * Click on Analyze with GEO2R
 * Define your groups and click on Analyze

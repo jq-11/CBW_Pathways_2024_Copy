@@ -104,9 +104,13 @@ practical-lab-2-gene-list---iregulon
 additional-slides-about-the-tools-segway-and-behst-presented-during-the-lecture
 regulatory_network_chipseq_lab
 goal-of-this-practical-lab
-introducing-the-dataset-used-during-this-practical-lab
-exercise-1.-run-great-in-order-to-perform-pathway-analysis
-exercise-2.-build-an-enrichment-map-to-visualize-great-results
+dataset-used-during-this-practical-lab
+exercise-1---run-pathway-analysis-using-great
+perform-pathway-enrichment
+explore-the-results.
+perform-pathway-enrichment---proximal-approach
+explore-the-results.---proximal-analysis
+exercise-2---build-an-enrichment-map-to-visualize-great-results
 exercise-3-optional-auto-annotate-the-distal-enrichment-map-build-the-proximal-map-and-compare-both-the-proximal-and-distal-maps
 optional-exercise-3a-autoannotate-the-enrichment-map
 optional-exercise-3b-repeat-the-process-of-building-an-enrichment-map-using-the-proximal-data-proximal_gobp_greatexportall.tsv.
@@ -117,8 +121,7 @@ step-4b-optional-change-the-edge-style-of-the-signature-gene-sets
 exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip
 exercise-5a-downloading-sequences-from-.bed-coordinates
 exercise-5b-run-meme-chip
-optional-exercise-6-get-the-iregulon-runx1-targets-and-find-the-mouse-orthologs-using-gorth-from-gprofiler-to-create-the-gmt-file-used-in-exercise-4.
-as-reference-you-dont-need-to-go-through-these-steps-during-the-practical-lab-analysis-of-the-runx1-affy-transcriptomics-using-geo2r.
+exercise-6-optional-get-the-iregulon-runx1-targets-and-find-the-mouse-orthologs-using-gorth-from-gprofiler-to-create-the-gmt-file-used-in-exercise-4.
 end-of-lab
 regulatory_network_lab
 iregulon-lab
