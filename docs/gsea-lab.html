@@ -348,17 +348,17 @@
 <p>The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples. This cohort was previously stratified into four distinct expression subtypes <a href="http://www.ncbi.nlm.nih.gov/pubmed/21720365">PMID:21720365</a> and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.</p>
 <div id="how-was-the-data-processed" class="section level4">
 <h4>How was the data processed?</h4>
-<p>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>. <br>Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>.<br>The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <a href="gsea-lab.html#additional_information"><strong>Additional information</strong></a> section.</p>
+<p>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>. Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>. The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <a href="gsea-lab.html#additional_information"><strong>Additional information</strong></a> section.</p>
 </div>
 </div>
 <div id="background" class="section level2">
 <h2>Background</h2>
 <p>The goal of this lab is to:</p>
 <ul>
-<li>Upload the 2 required files into GSEA,</li>
-<li>Adjust relevant parameters,</li>
-<li>Run GSEA,</li>
-<li>Open and explore the gene-set enrichment results.</li>
+<li>upload the 2 required files into GSEA,</li>
+<li>adjust relevant parameters,</li>
+<li>run GSEA,</li>
+<li>open and explore the gene-set enrichment results.</li>
 </ul>
 <p>The 2 required files are:</p>
 <ol style="list-style-type: decimal">
@@ -367,7 +367,7 @@
 </ol>
 <div id="rank-file" class="section level4">
 <h4>Rank File</h4>
-<p>To generate a rank file (.rnk), a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed(i.e associated with a very small pvalue, close to 0) will be assigned a high score.<br>The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC &gt; 0, the score will have a + sign) or lower in mesenchymal (logFC &lt; 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (<strong>all genes have to be included</strong>).</p>
+<p>To generate a rank file (.rnk), a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed(i.e associated with a very small pvalue, close to 0) will be assigned a high score. The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC &gt; 0, the score will have a + sign) or lower in mesenchymal (logFC &lt; 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (all genes have to be included).</p>
 <div class="rmd-caution">
 <p>
 The rank file is going to be provided for the lab, you don’t need to generate it.
@@ -391,16 +391,16 @@ The rank file is going to be provided for the lab, you don’t need to generate 
 <p>The second file that is needed for GSEA is the pathway database, a file with the .gmt extension. The pathway database (.gmt) used for the GSEA analysis was downloaded from <a href="http://baderlab.org/GeneSets" class="uri">http://baderlab.org/GeneSets</a>. This file contains gene-sets obtained from MsigDB-c2, NCI, Biocarta, IOB, Netpath, HumanCyc, Reactome and the Gene Ontology (GO) databases.</p>
 <div class="rmd-caution">
 <p>
-You don’t need to perform this step for the exercise, the .gmt file will be given to you. <br> <strong>Please note that gmt files from October 2020 - May 2021 currently have an issue created during the build and need to be fixed</strong>
+You don’t need to perform this step for the exercise, the .gmt file will be given to you.
 </p>
 </div>
 <p>Go to:</p>
 <ul>
 <li><a href="http://download.baderlab.org/EM_Genesets/" class="uri">http://download.baderlab.org/EM_Genesets/</a></li>
-<li>click on September_01_2020/</li>
+<li>click on current_release/</li>
 <li>Click on Human/</li>
 <li>Click on symbol/</li>
-<li>save the Human_GOBP_AllPathways_no_GO_iea…gmt file on your computer</li>
+<li>save the Human_GOBP_AllPathways_no_GO_Iiea…gmt file on your computer</li>
 </ul>
 <p><img src="Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="70%" /></p>
 <p>The .gmt is a tab delimited text file which contains one gene-set per row. For each gene-set (row), the first 2 columns contain the name and the description of the gene-set and the remaining columns contain the list of genes included in the gene-set. It is possible to create a custom gene-set using Excel or R.</p>
@@ -420,7 +420,7 @@ Place it in the corresponding module directory of your CBW work directory.
 </p>
 </div>
 <ul>
-<li><a href="./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</a></li>
+<li><a href="./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt</a></li>
 <li><a href="./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a></li>
 </ul>
 </div>
@@ -470,8 +470,8 @@ Click on “Open Anyways”
 <p><img src="Module2/gsea/images/GSEAloaddata.png" alt="Load data" width="50%" /></p>
 <p>2b. In the central panel, select ‘Method 1’ and ‘Browse for files’. A new window pops up.</p>
 <p><img src="Module2/gsea/images/GSEAbrowsefile2.png" alt="Browse files" width="100%" /></p>
-<p>2c. Browse your computer to locate the 2 files : <strong>Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</strong> and <strong>MesenchymalvsImmunoreactive_edger_ranks.rnk</strong>.</p>
-<p>2d. Click on <strong>Open</strong>. A message pops us when the files are loaded successfully.</p>
+<p>2c. Browse your computer to locate the 2 files : <strong>Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt</strong> and <strong>MesenchymalvsImmunoreactive_edger_ranks.rnk</strong>.</p>
+<p>2d. Click on <strong>Choose</strong>. A message pops us when the files are loaded successfully.</p>
 <p><img src="Module2/gsea/images/ORA4.png" alt="Locate files" width="75%" /></p>
 <p>2e. Click on <strong>OK</strong>.</p>
 <p><img src="Module2/gsea/images/ORA5.png" alt="Success" width="50%" /></p>
@@ -496,12 +496,12 @@ Alternatively, you can choose <strong>Method 3</strong> to <strong>drag and drop
 <p><img src="Module2/gsea/images/GSEAloadgeneset.png" alt="Gene sets database" width="100%" /></p>
 <ul>
 <li>Use the right arrow in the top field to see the Gene matrix (local gmx/gmt) tab.</li>
-<li>Click to highlight <strong>Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</strong>.</li>
+<li>Click to highlight <strong>Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt</strong>.</li>
 <li>click on <strong>OK</strong> at the bottom of the window.</li>
 </ul>
 <p><img src="Module2/gsea/images/ORA8.png" alt="Gene sets database" width="75%" /></p>
 <ul>
-<li><strong>Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</strong> is now visible in the field corresponding to Gene sets database.</li>
+<li><strong>Human_GOBP_AllPathways_no_GO_iea_December_24_2016_symbol.gmt</strong> is now visible in the field corresponding to Gene sets database.</li>
 </ul>
 <p><img src="Module2/gsea/images/GSEAparameter.png" alt="GSEAparameters" width="100%" /></p>
 <p>3d. Number of permutations - 100. The number of permutations is the number of times that the gene-sets will be randomized in order to create a null distribution to calculate the FDR.</p>
@@ -519,7 +519,7 @@ Use 2000 when you do it for your own data outside the workshop.
 <p>3k. Save results in this folder – navigate to where you want GSEA to put the results folder. By default GSEA will put the results into the directory gsea_home/output/[date] in your home directory.</p>
 <div class="rmd-tip">
 <p>
-set <strong>Enrichment Statistics</strong> to p2 if you want to add more weight on the most top up-regulated and top down-regulated. <br> <strong>P2</strong> is a more stringent parameter and it will result in less gene-sets significant under FDR &lt;0.05.
+set <strong>Enrichment Statistics</strong> to p2 if you want to add more weight on the most top up-regulated and top down-regulated. <strong>P2</strong> is a more stringent parameter and it will result in less gene-sets significant under FDR &lt;0.05.
 </p>
 </div>
 </div>
@@ -539,7 +539,7 @@ Expand the window size if the run button is not visible
 <p><img src="Module2/gsea/images/ORA12.png" alt="Success" width="50%" /></p>
 <div class="rmd-tip">
 <p>
-There is no progress bar to indicate to the user how much time is left to complete the process. Depending on the size of your dataset and compute power a GSEA run can take from a few minutes to a few hours. To check on the status of the GSEA run in the bottom left hand corner you can click on the <strong>+</strong> (red circle in below Figure) to see the updating status. Printouts in the format <strong>shuffleGeneSet for GeneSet 5816/6878 nperm: 100</strong> indicate how many permutations have been done (5816) out of the total that need to be performed (6878).
+There is no progress bar to indicate to the user how much time is left to complete the process. Depending on the size of your dataset and compute power a GSEA run can take from a few minutes to a few hours. To check on the status of the GSEA run in the bottom left hand corner you can click on the <strong>+</strong> (red circle in below Figure) to see the updating status. Printouts in the format <strong>shuffleGeneSet for GeneSet 5816/5821 nperm: 1000</strong> indicate how many permutations have been done (5816) out of the total that need to be performed (5821).
 </p>
 </div>
 <div class="rmd-tip">
