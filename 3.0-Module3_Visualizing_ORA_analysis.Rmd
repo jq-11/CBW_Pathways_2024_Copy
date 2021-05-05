@@ -6,7 +6,7 @@
     
  [Lecture part 2](./lectures/Pathways_2021_Module3-part2-EM-RI.pdf) 
  
-## Module 3 Lab
+**Module 3 Lab**
  
  *<font color="#827e9c">Ruth Isserlin</font>*  
  
