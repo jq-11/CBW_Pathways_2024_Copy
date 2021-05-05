@@ -32,7 +32,7 @@ step-4---run-query
 step-5---explore-the-results.
 step-6-expand-the-stats-tab
 step-7-save-the-results
-step-8
+step-8-optional-but-recommended
 option-1-manually-if-you-are-not-familiar-with-unix-commands
 option-2-using-the-cat-command-if-you-are-familiar-with-unix-commands
 exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query

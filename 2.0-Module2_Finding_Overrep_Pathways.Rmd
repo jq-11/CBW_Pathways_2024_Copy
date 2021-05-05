@@ -2,9 +2,9 @@
 
  *<font color="#827e9c">Veronique Voisin and Ruth Isserlin</font>*
   
-  [Lecture](./lectures/Pathways_2020_Module2_ORA_veronique.pdf) 
+  [Lecture](./lectures/Pathways_2021_Module2_ORA_veronique.pdf) 
   
-  [Introduction to practical lab](./lectures/Pathways_2020_Module2_lab_introduction_RI.pdf)  
+  [Introduction to practical lab](./lectures/Pathways_2021_Module2_lab_introduction_RI.pdf)  
 
   [Lab practical part 1 (g:Profiler)](#gprofiler-lab)    
 

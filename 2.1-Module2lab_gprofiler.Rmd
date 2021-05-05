@@ -4,9 +4,9 @@
  
 ## Introduction
 
-Performing Over-representation analysis (ORA) with g:Profiler.
+Performing Over-Representation Analysis (ORA) with [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost).
 
-The practical lab contains 2 exercises. The first exercises uses [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) to perform gene-set enrichment analysis. 
+The practical lab contains 2 exercises. The first exercise uses [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) to perform gene-set enrichment analysis. 
 
 ## Goal of the exercise 1
 
@@ -15,13 +15,13 @@ Learn how to run *g:GOSt Functional profiling* from the g:Profiler website and e
 ## Data
 
 g:Profiler requires a list of genes, one per line, in a text file or spreadsheet,
-ready to copy and paste into a web page: for this, we use genes with frequent somatic SNVs identified in TCGA exome sequencing data of 3,200 tumors of 12 types6. The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples (Supplementary Table 1, which is derived from column B of Supplementary Table 4 in [Kandoth C. et al. ](https://www.ncbi.nlm.nih.gov/pubmed/24132290) ) (https://www.nature.com/articles/nature12634). Genes are ranked in decreasing order of significance (FDR Q value) and mutation frequency (not shown).
+ready to copy and paste into a web page: for this, we use genes with frequent somatic SNVs identified in TCGA exome sequencing data of 3,200 tumors of 12 types. The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples (Supplementary Table 1, which is derived from column B of Supplementary Table 4 in [Kandoth C. et al.](https://www.nature.com/articles/nature12634). Genes are ranked in decreasing order of significance (FDR Q value) and mutation frequency (not shown).
 
 ## Exercise 1 - run g:Profiler {#exercise-1}
 
 For this exercise, our goal is to copy and paste the list of genes into g:Profiler, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results.
 
-g:Profiler performs a gene-set enrichment analysis using a hypergeometric test (Fisher’s exact test) with the option to consider the ranking of the genes in the calculation of the enrichment significance (minimum hypergeometric test). The Gene Ontology Biological Process and Reactome are going to be selected as pathway databases. The results are displayed as a table or downloadable as an EnrichmentMap type output (GEM). 
+g:Profiler performs a gene-set enrichment analysis using a hypergeometric test (Fisher’s exact test) with the option to consider the ranking of the genes in the calculation of the enrichment significance (minimum hypergeometric test). The Gene Ontology Biological Process and Reactome are going to be used as pathway databases. The results are displayed as a table or downloadable as an Generic Enrichment Map (GEM) output file. 
 
 Before starting this exercise, download the required files:
 
@@ -30,6 +30,7 @@ Right click on link below and select "Save Link As...".
 
 Place it in the corresponding module directory of your CBW work directory.
 ```
+
 
 * [Supplementary_Tabe1_Cancer_drivers.txt](./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt)
 
@@ -47,11 +48,11 @@ Paste the gene list ([Supplementary_Table1_Cancer_drivers.txt](./Module2/gprofil
 ![](./Module2/gprofiler/images/gp1.png)
 
 ```{block, type="rmd-note"}
-The gene list can be space-separated or one per line. The organism for the analysis, Homo sapiens, is selected by default. The input list can contain a mix of gene and protein IDs, symbols and accession numbers. Duplicated and unrecognized IDs will be removed automatically, and ambiguous symbols can be refined in an interactive dialogue after submitting the query. 
+The gene list can be space-separated or one per line.<br> The organism for the analysis, Homo sapiens, is selected by default.<br> The input list can contain a mix of gene and protein IDs, symbols and accession numbers.<br> Duplicated and unrecognized IDs will be removed automatically, and ambiguous symbols can be refined in an interactive dialogue after submitting the query. 
 ```
 
 ```{block, type="rmd-tip"}
-open the file in a simple text editor such as Notepad or Textedit to copy the list of genes.  
+open the file in a simple text editor such as Notepad or Textedit to copy the list of genes. <br> Or right click on the file name above and select **Open link in new tab**
 ```
 
 ### Step 3 - Adjust parameters. 
@@ -73,11 +74,11 @@ if g:Profiler does not return any results increase the threshold (0.1, then 1) t
 
 3b. Click on the *Data sources* tab (black rectangle) to expand it.
 
- UnSelect the following gene-set databases by clicking the "clear all" button.
- * In the *Gene Ontology* category, check  *GO Biological Process* and *No electronic GO annotations*.
+* UnSelect all gene-set databases by clicking the "clear all" button.
+* In the *Gene Ontology* category, check  *GO Biological Process* and *No electronic GO annotations*.
+
 ```{block, type="rmd-note"}
-*No electronic GO annotations* option will discard
-less reliable GO annotations (IEAs) that are not manually reviewed.
+*No electronic GO annotations* option will discard less reliable GO annotations (inferred from electronic annotations (IEAs)) that are not manually reviewed.
 ```
 
 ```{block, type="rmd-tip"}
@@ -107,19 +108,22 @@ If after clicking on *Run query* button the analysis completes but there is the 
 
 ### Step 5 - Explore the results. 
 
-Step5a:
-  * After the query has run, the results are displayed at the bottom of the page, below the input parameters.
-  * By default, the "Results" tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 2 gene-set databases that we have selected GO Biological Process "GO:BP" and  Reactome "REAC". Numbers in parentheses are indicating the number of gene-sets that passed the threshold.
+Step 5a:
+
+* After the query has run, the results are displayed at the bottom of the page, below the input parameters.
+* By default, the "Results" tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 2 gene-set databases that we have selected, GO Biological Process(GO:BP) and  Reactome(REAC). Numbers in parentheses are indicating the number of gene-sets that passed the threshold.
 
 <img src="./Module2/gprofiler/images/gp5.png" alt="workflow" width="100%" />
 
 Step5b:
-  * Click on "Detailed Results" to view the results in more depth. Two tables are displayed, one for each of the data sources selected. (If more than 2 data sources are selected there will be additional tables for each datasource) Each row of the table contains:
- * **Term name** - gene-set name
- * **Term ID** - gene-est identifier
- * **Padj** - FDR value 
- * **-log10(Padj)** - enrichment score calculated using the formula -log10(padj)
- * variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored.  For any data source besides GO the cell is colored black if the gene is found in the gene-set.  For the GO data source cells are colored according to the annotation evidence code. Expand the legend tab for detailed coloring mapping of GO evidence codes.  
+
+* Click on "Detailed Results" to view the results in more depth. Two tables are displayed, one for each of the data sources selected. (If more than 2 data sources are selected there will be additional tables for each datasource) Each row of the table contains:
+    * **Term name** - gene-set name
+    * **Term ID** - gene-est identifier
+    * **Padj** - FDR value 
+    * **-log10(Padj)** - enrichment score calculated using the formula -log10(padj)
+    * variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored.  For any data source besides GO the cell is colored black if the gene is found in the gene-set.  For the GO data source cells are colored according to the annotation evidence code. Expand the legend tab for detailed coloring mapping of GO evidence codes. 
+    
 The first table displays the gene-sets significantly enriched at FDR 0.05 for the GO:BP database.
 
 <img src="./Module2/gprofiler/images/gp6.png" alt="workflow" width="100%" />
@@ -150,13 +154,17 @@ The second table displays the results corresponding to the Reactome database.
  
 7a.  In the *Detailed Results* panel, select "GEM" .  It will save the results in a text file in the "Generic Enrichment Map" format that we will use to visualize using Cytoscape.
 
-   * select max term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer. 
+   * select max term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_maxterm10000.gem.txt)
   <p align="center">  
   <img src="./Module2/gprofiler/images/gp13.png" alt="workflow" width="75%" />
   </p>  
-   * select max term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer.
+   * select max term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_maxterm1000.gem.txt)
   <p align="center">
   <img src="./Module2/gprofiler/images/gp14.png" alt="workflow" width="75%" />
+  </p>
+   * select max term size to 250 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_maxterm250.gem.txt)
+  <p align="center">
+  <img src="./Module2/gprofiler/images/gp14a.png" alt="workflow" width="75%" />
   </p>
   
 7b:  Open the file that you saved using the geneset threshold of 250 using Microsoft Office Excel or in an equivalent software.
@@ -171,22 +179,23 @@ Observe the results included in this file:
  1. Genes included in each gene-set
 
 ```{block, type="rmd-question"}
-Which term has the best corrected p-value?  Which genes in our list are included in this term? Observe that same genes can be present in several lines (pathways are related when they contain a lof of genes in common).
+Which term has the best corrected p-value?  <br> Which genes in our list are included in this term? <br> Observe that same genes can be present in several lines (pathways are related when they contain a lof of genes in common).
 ```
 
 ```{block, type="rmd-note"}
 The table is formatted for the input into Cytoscape EnrichmentMap. It is called the [*generic format*](https://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#generic-results-files). The p-value and FDR columns contain identical values because g:Profiler directly outputs the FDR (= corrected p-value) meaning that the p-value column is already the FDR. Phenotype 1 means that each pathway will be represented by red nodes on the enrichment map (presented during next module). 
 ```
+
   <img src="./Module2/gprofiler/images/gp15.png" alt="workflow" width="100%" />
 
 
-The term *gland development* is the most significant gene-set (=the lowest FDR value).  Many gene-sets from the top of this list are related to each other and have genes in common. 
+The term *regulation of cell cycle G1/S phase transition* is the most significant gene-set (=the lowest FDR value).  Many gene-sets from the top of this list are related to each other and have genes in common. 
 
 ---
 
-### Step 8 
+### Step 8 (Optional but recommended)
 
-8a. Optional but recommended: Download the pathway database files.
+8a. Download the pathway database files.
 
   * Go to the top of the page and expand the "Data sources" tab. Click on the 'combined name.gmt' link located at bottom of this tab. It will download a file named *combined name.gmt* containing a pathway database gmt file with all the available sources. 
 
@@ -194,9 +203,9 @@ The term *gland development* is the most significant gene-set (=the lowest FDR v
   <img src="./Module2/gprofiler/images/gp12.png" alt="workflow" width="60%" />
 </p>
 
-8b:(Optional) concatenate the GO:BP and Reactome gmt files:
+8b. concatenate the GO:BP and Reactome gmt files:
 
-If you want to create a smaller gmt file that doesn't contain all of the gprofiler datasources you can instead download name.gmt.zip that contains each datasource as its own gmt file.  You will need to concatenate the sources you require into one gmt file to use for later.
+If you want to create a smaller gmt file that doesn't contain all of the gprofiler datasources you can instead download *name.gmt.zip* that contains each datasource as its own gmt file.  You will need to concatenate the sources you require into one gmt file to use for later.
 
 #### Option 1: manually if you are not familiar with unix commands
    * open a text editor such a Notepad or equivalent
@@ -223,12 +232,21 @@ you will be using this optional hsapiens.pathways.name.gmt file in Cytoscape Enr
 
 For this exercise, our goal is to copy and paste the list of genes into g:Profiler, upload a custom gmt file, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results. Uploading a custom gmt file enables us to use alternate pathway data sources not available in g:Profiler.
 
-We are going to use a gmt file that contains a database of pathway gene sets used for pathway
-enrichment analysis in the standard GMT format downloaded from http://baderlab.org/GeneSets and updated monthly.
-This file contains pathways from eight data sources: GO, Reactome,
-Panther, NetPath, NCI, MSigDB curated gene sets (C2 collection, excluding Reactome and
-KEGG), MSigDB Hallmark (H collection) and HumanCyc. A GMT file is a text file in which each line
-represents a gene set for a single pathway. Each line includes a pathway ID, a name and the list of associated genes in a tab-separated format. This file has been filtered to exlclude gene-sets that contained more than 250 genes as these gene-sets are associated with more general terms.
+We are going to use a gmt file that contains a database of pathway gene sets used for pathway enrichment analysis in the standard GMT format downloaded from http://baderlab.org/GeneSets and updated monthly.
+
+This file contains pathways from eight data sources: 
+
+* GO, 
+* Reactome,
+* Panther, 
+* NetPath, 
+* NCI, 
+* MSigDB curated gene sets (C2 collection, excluding Reactome and
+KEGG), 
+* MSigDB Hallmark (H collection) and 
+* HumanCyc. 
+
+A GMT file is a text file in which each line represents a gene set for a single pathway. Each line includes a pathway ID, a name and the list of associated genes in a tab-separated format. This file has been filtered to exlclude gene-sets that contained more than 250 genes as these gene-sets are associated with more general terms.
 
 Before starting this exercise, download the required files:
 
@@ -238,9 +256,9 @@ Right click on link below and select "Save Link As...".
 Place it in the corresponding module directory of your CBW work directory.
 ```
 
-*  [Supplementary_Table1_Cancer_drivers.txt](https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module2/gprofiler_new/data2/Supplementary_Table1_Cancer_drivers.txt).
+* [Supplementary_Tabe1_Cancer_drivers.txt](./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt)
 
-*  [Baderlab_genesets.gmt](https://raw.githubusercontent.com/bioinformaticsdotca/Pathways_2019/master/Module2/gprofiler_new/data2/Human_GOBP_AllPathways_no_GO_iea_June_24_2019_symbol_max250gssize.gmt).
+*  [Baderlab_genesets.gmt (from September 2020)](./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_maxgssize250.gmt).
 
 
 We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.
@@ -257,7 +275,7 @@ STEPS:
    * Step 3a: Click on the *Data sources* tab (black rectangle) to expand it.
      * **Unselect all choices by clicking the "clear all" button.**
    * Step 4:  Click on the *Custom GMT* tab (black rectangle) to expand it.
-     * Drag in the box the Baderlab gmt file [Baderlab_genesets.gmt](./data2/Human_GOBP_AllPathways_no_GO_iea_June_24_2019_symbol_max250.gmt).
+     * Drag in the box the Baderlab gmt file [Baderlab_genesets.gmt](./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_maxgssize250.gmt).
      * Once uploaded successfully, the name of the file is displayed in the "File name used" box. 
     
     <img src="./Module2/gprofiler/images/gp16.png" alt="workflow" width="100%" />
@@ -296,15 +314,15 @@ If time permits, play with input parameters, e.g. add *TRANSFAC * and *miRTarBas
  </p>
  
 ```{block, type="rmd-note"}
-**Transfac**  putative transcription factor binding sites (TFBSs) from TRANSFAC database are retrieved into g:GOSt through a special prediction pipeline. First, TFBSs are found by matching TRANSFAC position specific matrices using the program Match on range +/-1kb from TSS as provided by APPRIS (Annotating principal splice isoforms) via Ensembl biomart. For genes with multiple primary TSS annotations we selected one with most TF matches. The matching range for C. elegans, D. melanogaster and S. cerevisiae is 1kb upstream from ATG (translation start site). A cut-off value to minimize the number of false positive matches (provided by TRANSFAC) is then applied to remove spurious motifs. Remaining matches are split into two inclusive groups based on the amount of matches, i.e TFBSs that have at least 1 match are classified as match class 0 and TFBSs that have at least 2 matches per gene are classified as match class 1.
+**Transfac**  putative transcription factor binding sites (TFBSs) from TRANSFAC database are retrieved into g:GOSt through a special prediction pipeline. First, TFBSs are found by matching TRANSFAC position specific matrices using the program Match on range +/-1kb from TSS as provided by APPRIS (Annotating principal splice isoforms) via Ensembl biomart. For genes with multiple primary TSS annotations we selected one with most TF matches. The matching range for C. elegans, D. melanogaster and S. cerevisiae is 1kb upstream from ATG (translation start site). A cut-off value to minimize the number of false positive matches (provided by TRANSFAC) is then applied to remove spurious motifs. Remaining matches are split into two inclusive groups based on the amount of matches, i.e TFBSs that have at least 1 match are classified as match class 0 and TFBSs that have at least 2 matches per gene are classified as match class 1.<br><br>
 **mirTarBase** is a database that holds experimentally validated information about genes that are targetted by miRNAs. We include all the organisms that are covered by mirTarBase.
 ```
 
 ### **Option 2**:
-Re-run the g:Profiler using the **ordered** query checked. This will run the minimum hypergeometric test. g:Profiler then performs incremental enrichment analysis with increasingly larger numbers of genes starting from the top of the list. When this option is checked, **it assumes that the genes were preordered by significance with the most significant gene at the top of the list**. Compare the results between "ordered" and non ordered query.
+Re-run the g:Profiler using the **ordered** query checked.<br> This will run the minimum hypergeometric test. g:Profiler then performs incremental enrichment analysis with increasingly larger numbers of genes starting from the top of the list. When this option is checked, **it assumes that the genes were preordered by significance with the most significant gene at the top of the list**.<br> Compare the results between "ordered" and non ordered query.
 
 ```{block, type="rmd-note"}
-for this practical lab, the genes were ordered by the number of mutations found in these genes for all samples. For example, TP53, a highly mutated genes is listed at the top. 
+for this practical lab, the genes were ordered by the number of mutations found in these genes for all samples. <br>For example, TP53, a highly mutated genes is listed at the top. 
 ```
 
 <p align="center">

@@ -2,9 +2,9 @@
 
  *<font color="#827e9c">Ruth Isserlin</font>*
  
- [Lecture part 1](./lectures/Pathways_2020_Module3-part1-Cytoscape-RI.pdf)
+ [Lecture part 1](./lectures/Pathways_2021_Module3-part1-Cytoscape-RI.pdf)
     
- [Lecture part 2](./lectures/Pathways_2020_Module3-part2-EM-RI.pdf) 
+ [Lecture part 2](./lectures/Pathways_2021_Module3-part2-EM-RI.pdf) 
  
 ## Module 3 Lab
  
