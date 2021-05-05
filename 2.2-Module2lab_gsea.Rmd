@@ -16,16 +16,16 @@ The data used in this exercise is gene expression (transcriptomics) obtained fro
 
 #### How was the data processed?
 
-Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from [cBioPortal for Cancer Genomics](http://www.cbioportal.org/data_sets.jsp). Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using [edgeR](http://www.ncbi.nlm.nih.gov/pubmed/19910308). The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the [**Additional information**](#additional_information) section. 
+Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from [cBioPortal for Cancer Genomics](http://www.cbioportal.org/data_sets.jsp). <br>Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using [edgeR](http://www.ncbi.nlm.nih.gov/pubmed/19910308).<br>The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the [**Additional information**](#additional_information) section. 
 
 ## Background
 
 The goal of this lab is to:
 
-  * upload the 2 required files into GSEA, 
-  * adjust relevant parameters, 
-  * run GSEA, 
-  * open and explore the gene-set enrichment results. 
+  * Upload the 2 required files into GSEA, 
+  * Adjust relevant parameters, 
+  * Run GSEA, 
+  * Open and explore the gene-set enrichment results. 
   
 The 2 required files are:
 
@@ -33,7 +33,7 @@ The 2 required files are:
   1. a pathway definition file (.gmt).
 
 #### Rank File
-To generate a rank file (.rnk),  a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed(i.e associated with a very small pvalue, close to 0) will be assigned a high score. The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC > 0, the score will have a + sign) or lower in mesenchymal (logFC < 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (all genes have to be included). 
+To generate a rank file (.rnk),  a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed(i.e associated with a very small pvalue, close to 0) will be assigned a high score.<br>The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC > 0, the score will have a + sign) or lower in mesenchymal (logFC < 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (**all genes have to be included**). 
 
 
 
@@ -58,16 +58,17 @@ select the gene names and score columns and save the file as tab delimited with 
 The second file that is needed for GSEA is the pathway database, a file with the .gmt extension. The pathway database (.gmt) used for the GSEA analysis was downloaded from <http://baderlab.org/GeneSets>. This file contains gene-sets obtained from  MsigDB-c2, NCI, Biocarta, IOB, Netpath, HumanCyc, Reactome and the Gene Ontology (GO) databases. 
 
 ```{block, type="rmd-caution"}
-You don't need to perform this step for the exercise, the .gmt file will be given to you. 
+You don't need to perform this step for the exercise, the .gmt file will be given to you. <br>
+**Please note that gmt files from October 2020 - May 2021 currently have an issue created during the build and need to be fixed**
 ```
 
 Go to:
 
   * http://download.baderlab.org/EM_Genesets/
-  * click on current_release/
+  * click on September_01_2020/
   * Click on Human/
   * Click on symbol/
-  * save the Human_GOBP_AllPathways_no_GO_Iiea...gmt file on your computer
+  * save the Human_GOBP_AllPathways_no_GO_iea...gmt file on your computer
 
 <img src="./Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="70%" />
 
@@ -88,7 +89,7 @@ Right click on link below and select "Save Link As...".
 Place it in the corresponding module directory of your CBW work directory.
 ```
 
-* [Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt)
+* [Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt)
 * [MesenchymalvsImmunoreactive_edger_ranks.rnk](./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk)
 
 
@@ -124,9 +125,9 @@ Load Data
 
 <img src="./Module2/gsea/images/GSEAbrowsefile2.png" alt="Browse files" width="100%" />
 
-2c. Browse your computer to locate the 2 files : **Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt** and **MesenchymalvsImmunoreactive_edger_ranks.rnk**. 
+2c. Browse your computer to locate the 2 files : **Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt** and **MesenchymalvsImmunoreactive_edger_ranks.rnk**. 
 
-2d. Click on **Choose**. A message pops us when the files are loaded successfully. 
+2d. Click on **Open**. A message pops us when the files are loaded successfully. 
 
 <img src="./Module2/gsea/images/ORA4.png" alt="Locate files" width="75%" />
 
@@ -158,14 +159,14 @@ Specify the following parameters:
 <img src="./Module2/gsea/images/GSEAloadgeneset.png" alt="Gene sets database" width="100%" />
 
   * Use the right arrow in the top field to see the Gene matrix (local gmx/gmt) tab.
-  * Click to highlight **Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt**.
+  * Click to highlight **Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt**.
   * click on **OK** at the bottom of the window.
 
 
 <img src="./Module2/gsea/images/ORA8.png" alt="Gene sets database" width="75%" />
 
 	
-  * **Human_GOBP_AllPathways_no_GO_iea_December_24_2016_symbol.gmt** is now visible in the field corresponding to Gene sets database.
+  * **Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt** is now visible in the field corresponding to Gene sets database.
 
 <img src="./Module2/gsea/images/GSEAparameter.png" alt="GSEAparameters" width="100%" />
 
@@ -192,7 +193,7 @@ Use 2000 when you do it for your own data outside the workshop.
 3k. Save results in this folder – navigate to where you want GSEA to put the results folder. By default GSEA will put the results into the directory gsea_home/output/[date] in your home directory.
 
 ```{block, type="rmd-tip"}
-set **Enrichment Statistics** to p2 if you want to add more weight on the most top up-regulated and top down-regulated. **P2** is a more stringent parameter and it will result in less gene-sets significant under FDR <0.05.
+set **Enrichment Statistics** to p2 if you want to add more weight on the most top up-regulated and top down-regulated. <br> **P2** is a more stringent parameter and it will result in less gene-sets significant under FDR <0.05.
 ```
 
 ### Step 4. 
@@ -221,7 +222,7 @@ On completion the status message will be updated to **Success…**.
 
 
 ```{block, type="rmd-tip"}
-There is no progress bar to indicate to the user how much time is left to complete the process. Depending on the size of your dataset and compute power a GSEA run can take from a few minutes to a few hours. To check on the status of the GSEA run in the bottom left hand corner you can click on the **+** (red circle in below Figure) to see the updating status. Printouts in the format **shuffleGeneSet for GeneSet 5816/5821 nperm: 1000** indicate how many permutations have been done (5816) out of the total that need to be performed (5821).
+There is no progress bar to indicate to the user how much time is left to complete the process. Depending on the size of your dataset and compute power a GSEA run can take from a few minutes to a few hours. To check on the status of the GSEA run in the bottom left hand corner you can click on the **+** (red circle in below Figure) to see the updating status. Printouts in the format **shuffleGeneSet for GeneSet 5816/6878 nperm: 100** indicate how many permutations have been done (5816) out of the total that need to be performed (6878).
 ```
 
 ```{block, type="rmd-tip"}

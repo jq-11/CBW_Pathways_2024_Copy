@@ -1,0 +1,23 @@
+producer_class	xtools.gsea.GseaPreranked
+producer_timestamp	1620239732698
+param	rpt_label	Mesen_vs_Immuno_edgeR
+param	rnd_seed	timestamp
+param	set_min	10
+param	zip_report	false
+param	create_svgs	false
+param	scoring_scheme	weighted
+param	rnk	/Users/ruthisserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/CBW_Pathways_2021/Module2/gsea/data/MesenchymalvsImmunoreactive_edger_ranks.rnk
+param	norm	meandiv
+param	out	/Users/ruthisserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/CBW_Pathways_2021/Module3/gsea/data
+param	mode	Max_probe
+param	include_only_symbols	true
+param	help	false
+param	set_max	200
+param	gmx	/Users/ruthisserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/CBW_Pathways_2021/Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt
+param	make_sets	true
+param	plot_top_x	20
+param	gui	false
+param	nperm	100
+param	collapse	No_Collapse
+
+file	/Users/ruthisserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/CBW_Pathways_2021/Module3/gsea/data/Mesen_vs_Immuno_edgeR.GseaPreranked.1620239732698/index.html
