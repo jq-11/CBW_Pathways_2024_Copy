@@ -75,6 +75,7 @@ step3-explore-the-results
 explore-detailed-results
 exercise-1b
 exercise-1c
+gsea_mod3
 goal-of-the-exercise-3
 data-3
 gsea-output-and-enrichmentmap
@@ -87,6 +88,7 @@ step-4
 step-5
 step-6
 step-7
+automation
 goal-of-the-exercise-4
 set-up
 step-1---launch-rstudio
