@@ -104,7 +104,7 @@ module-4-in-depth-analysis-of-networks-and-pathways
 intro-regulatory-networks
 lecture
 practical-lab-1-chip_seq-data---great-and-meme-chip
-practical-lab-2-gene-list---iregulon
+practical-lab-2-gene-list---iregulon-and-enrichrenrichmentmap
 additional-slides-about-the-tools-segway-and-behst-presented-during-the-lecture
 regulatory_network_chipseq_lab
 goal-of-this-practical-lab

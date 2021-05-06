@@ -3,14 +3,14 @@
 *<font color="#827e9c">Michael Hoffman and Veronique Voisin</font>*
 
 ## Lecture  
- [Lecture slides](./lectures/Pathways2021_Module5_lecture_Gene regulation and motif analysis_Michael.pdf)  
+ [Lecture slides](./lectures/Pathways_2021_Module5_lecture_MH.pdf)  
 
 ## Practical lab 1: chIP_seq data - GREAT and MEME-chIP
   [chIP_seq Lab slides](./lectures/Pathways_2021_Module5_lab_chipseq.pdf)  
 
   [chIP_seq Lab practical](#regulatory_network_chipseq_lab)
 
-## Practical lab 2: gene list - iREgulon
+## Practical lab 2: gene list - iREgulon and enrichr/EnrichmentMap
 
   [iREgulon Lab slides](./lectures/Pathways_2021_Module5_lab_iregulon.pdf)  
 

@@ -2,7 +2,7 @@
 
   *<font color="#827e9c">Robin Haw</font>*
   
-  [Lecture](./lectures/Pathways_2020_lecture_Module_4_Robin.pdf)   
+  [Lecture](./lectures/Pathways_2021_Module4_lecture_RH.pdf)   
   
   [Lab Lecture](./lectures/Pathways_2020_Module_4_Lab_Robin.pdf)
   
