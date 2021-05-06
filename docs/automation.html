@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -177,8 +241,23 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="automation.html"><a href="automation.html"><i class="fa fa-check"></i>Module 3 Lab: (Bonus) Automation</a><ul>
-<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#goal-of-the-exercise-4"><i class="fa fa-check"></i>Goal of the exercise:</a><ul>
-<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#set-up"><i class="fa fa-check"></i>Set Up</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#goal-of-the-exercise-4"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#set-up---option-1---install-rrstudio"><i class="fa fa-check"></i>Set Up - Option 1 - Install R/Rstudio</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#set-up---option-2---docker-image-with-rrstudio"><i class="fa fa-check"></i>Set Up - Option 2 - Docker image with R/Rstudio</a><ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#what-is-docker"><i class="fa fa-check"></i>What is docker?</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#docker---basic-term-definition"><i class="fa fa-check"></i>Docker - Basic term definition</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#container"><i class="fa fa-check"></i>Container</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#image"><i class="fa fa-check"></i>Image</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#docker-volumes"><i class="fa fa-check"></i>Docker Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#r_docker"><i class="fa fa-check"></i>Install Docker</a><ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#macos-linux"><i class="fa fa-check"></i>MacOS / Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#create-your-first-notebook-using-docker"><i class="fa fa-check"></i>Create your first notebook using Docker</a><ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#start-coding"><i class="fa fa-check"></i>Start coding!</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#start-using-automation"><i class="fa fa-check"></i>Start using automation</a><ul>
 <li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-1---launch-rstudio"><i class="fa fa-check"></i>Step 1 - launch RStudio</a></li>
 <li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-2---create-a-new-project"><i class="fa fa-check"></i>Step 2 - create a new project</a></li>
 <li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-3---open-example-up-rnotebook"><i class="fa fa-check"></i>Step 3 - Open example up RNotebook</a></li>
@@ -351,15 +430,10 @@
 <h2>Goal of the exercise:</h2>
 <p><strong>Run an enrichment analysis and Create an enrichment map automatically from R/Rstudio</strong></p>
 <p>During this exercise, you will apply what you have learnt in Module 2 labs and Module 3 labs but instead of performing them manually you will automate the process using R/Rstudio. We will use all the same data and programs we used in the previous labs but we will control them from R.</p>
-<div id="set-up" class="section level3">
-<h3>Set Up</h3>
-<p>Before starting this exercise,</p>
-<ol style="list-style-type: decimal">
-<li>Install R and RStudio (if not already installed)</li>
-</ol>
-<ul>
-<li>For these exercises you also require Rstudio. If you do not already have RStudio installed please follow the below instructions to install it.</li>
-</ul>
+<p>Before starting this exercise you need to set up R/Rstudio. You can do that directly on your machine or through docker.</p>
+</div>
+<div id="set-up---option-1---install-rrstudio" class="section level2">
+<h2>Set Up - Option 1 - Install R/Rstudio</h2>
 <ol style="list-style-type: lower-alpha">
 <li>Install R.</li>
 </ol>
@@ -371,15 +445,232 @@
 <li>If installing on Windows select “install R for the first time” to get to the required package.</li>
 </ul>
 <p><img src="Module3/automation/images/downloadR_win.png" alt="Load data" /></p>
+<p><a href="https://rstudio.com/">RStudio</a> is a free IDE (Integrated Development Environment) for <strong>R</strong>. RStudio is a wrapper<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> for <strong>R</strong> and as far as basic R is concerned, all the underlying functions are the same, only the user interface is different (and there are a few additional functions that are very useful e.g. for managing projects).</p>
+<p>Here is a small list of differences between <strong>R</strong> and RStudio.</p>
+<p><strong>pros (some pretty significant ones actually):</strong></p>
 <ul>
-<li>Download and install</li>
+<li>Integrated version control.</li>
+<li>Support for “projects” that package scripts and other assets.</li>
+<li>Syntax-aware code colouring.</li>
+<li>A consistent interface across all supported platforms. (Base R GUIs are not all the same for e.g. Mac OS X and Windows.)</li>
+<li>Code autocompletion in the script editor. (Depending on your point of view this can be a help or an annoyance. I used to hate it. After using it for a while I find it useful.)</li>
+<li>“Function signaturtes” (a list of named parameters) displayed when you hover over a function name.</li>
+<li>The ability to set breakpoints for debugging in the script editor.</li>
+<li>Support for knitr, and rmarkdown; also support for R notebooks … (This supports “literate programming” and is actually a big advance in software development)</li>
+<li>Support for R notebooks.</li>
 </ul>
-<p><img src="Module3/automation/images/downloadR_win2.png" alt="Load data" /></p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Install R Studio.</li>
+<p><strong>cons (all minor actually):</strong></p>
+<ul>
+<li>The tiled interface uses more desktop space than the windows of the R GUI.</li>
+<li>There are sometimes (rarely) situations where R functions do not behave in exactly the same way in RStudio.</li>
+<li>The supported R version is not always immediately the most recent release.</li>
+</ul>
+<div class="rmd-note">
+<ul>
+<li>
+Navigate to the <a href="https://rstudio.com/products/rstudio/download/">RStudio download</a> Website.
+</li>
+<li>
+Find the right version of the RStudio Desktop installer for your computer, download it and install the software.
+</li>
+<li>
+Open RStudio.
+</li>
+<li>
+Focus on the bottom left pane of the window, this is the “console” pane.
+<p align="center">
+<img src="Module3/automation/images/Rstudio_start.png" alt="R startup" width="75%" align="center" />
+</p>
+</li>
+<li>
+Type getwd().
+</li>
+<li>
+This prints out the path of the current working directory. Make a (mental) note where this is. We usually always need to change this “default directory” to a project directory.
+</li>
+</ul>
+</div>
+</div>
+<div id="set-up---option-2---docker-image-with-rrstudio" class="section level2">
+<h2>Set Up - Option 2 - Docker image with R/Rstudio</h2>
+<p>Changing versions and environments are a continuing struggle with bioinformatics pipelines and computational pipelines in general. An analysis written and performed a year ago might not run or produce the same results when it is run today. Recording package and system versions or not updating certain packages rarely work in the long run.</p>
+<p>One the best solutions to reproducibility issues is containing your workflow or pipeline in its own coding environment where everything from the operating system, programs and packages are defined and can be built from a set of given instructions. There are many systems that offer this type of control including:</p>
+<ul>
+<li><a href="https://www.docker.com/">Docker</a>.</li>
+<li><a href="https://sylabs.io/">Singularity</a></li>
+</ul>
+<p>“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.” <span class="citation">(<span class="citeproc-not-found" data-reference-id="docker"><strong>???</strong></span>)</span></p>
+<p><strong>Why are containers great for Bioiformatics?</strong></p>
+<ul>
+<li>allows you to create environments to run bioinformatis pipelines.</li>
+<li>create a consistent environment to use for your pipelines.</li>
+<li>test modifications to the pipeline without disrupting your current set up.</li>
+<li>Coming back to an analysis years later and there is no need to install older versions of packages or programming languages. Simply create a container and re-run.</li>
+</ul>
+<div id="what-is-docker" class="section level3">
+<h3>What is docker?</h3>
+<ul>
+<li>Docker is a container platform, similar to a virtual machine but better.</li>
+<li>We can run multiple <strong>containers</strong> on our docker server. A <strong>container</strong> is an instance of an <strong>image</strong>. The <strong>image</strong> is built based on a set of instructions but consists of an operating system, installed programs and packages. (When backing up your computer you might taken an image of it and restored your machine from this image. It the same concept but the image is built based on a set of elementary commands found in your Dockerfile.) - for overview see <a href="https://docs.docker.com/get-started/overview/">here</a></li>
+<li>Often images are built off of previous images with specific additions you need for you pipeline. (For example, for this course we use a base image supplied by bioconductor<a href="https://hub.docker.com/r/bioconductor/bioconductor_docker/tags?page=1&amp;ordering=last_updated">release 3.11</a> and comes by default with basic Bioconductor packages but it builds on the base R-docker images called <a href="https://www.rocker-project.org/">rocker</a>.)</li>
+</ul>
+</div>
+<div id="docker---basic-term-definition" class="section level3">
+<h3>Docker - Basic term definition</h3>
+</div>
+<div id="container" class="section level3">
+<h3>Container</h3>
+<ul>
+<li>An instance of an image.</li>
+<li>the self-contained running system.<br />
+</li>
+<li>There can be multiple containers derived from the same image.</li>
+</ul>
+</div>
+<div id="image" class="section level3">
+<h3>Image</h3>
+<ul>
+<li>An image contains the blueprint of a container.</li>
+<li>In docker, the image is built from a Dockerfile</li>
+</ul>
+</div>
+<div id="docker-volumes" class="section level3">
+<h3>Docker Volumes</h3>
+<ul>
+<li>Anything written on a container will be erased when the container is erased ( or crashes) but anything written on a filesystem that is separate from the contain will persist even after a container is turned off.<br />
+</li>
+<li>A <a href="https://docs.docker.com/storage/volumes/">volume</a> is a way to assocaited data with a container that will persist even after the container. * maps a drive on the host system to a drive on the container.</li>
+<li>In the above docker run command (that creates our container) the statement:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="automation.html#cb2-1"></a><span class="op">-</span>v <span class="op">$</span>{PWD}<span class="op">:</span><span class="er">/</span>home<span class="op">/</span>rstudio<span class="op">/</span>projects</span></code></pre></div>
+<ul>
+<li>maps the directory ${PWD} to the directory /home/rstudio/projects on the container. Anything saved in /home/rstudio/projects will actually be saved in ${PWD}</li>
+<li>An example:
+<ul>
+<li>I use the following commmand to create my docker container:</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="automation.html#cb3-1"></a>docker run <span class="op">-</span>e PASSWORD=changeit <span class="op">--</span>rm \</span>
+<span id="cb3-2"><a href="automation.html#cb3-2"></a>  <span class="op">-</span>v <span class="op">/</span>Users<span class="op">/</span>risserlin<span class="op">/</span>code<span class="op">:</span><span class="er">/</span>home<span class="op">/</span>rstudio<span class="op">/</span>projects \</span>
+<span id="cb3-3"><a href="automation.html#cb3-3"></a>  <span class="op">-</span>p <span class="dv">8787</span><span class="op">:</span><span class="dv">8787</span> \</span>
+<span id="cb3-4"><a href="automation.html#cb3-4"></a>  risserlin<span class="op">/</span>workshop_base_image</span></code></pre></div>
+<ul>
+<li>I create a notebook called task3.Rmd and save it in /home/rstudio/projects.
+<div class="rmd-caution">
+<p>
+Note: Do not save it in /home/rstudio/ which is the default directory RStudio will start in
+</p>
+</div></li>
+<li>On my host computer, if I go to /Users/risserlin/code I will find the file task3.Rmd</li>
+</ul>
+</div>
+</div>
+<div id="r_docker" class="section level2">
+<h2>Install Docker</h2>
+<div class="rmd-note">
+<ol style="list-style-type: decimal">
+<li>
+Download and install <a href="https://www.docker.com/products/docker-desktop">docker desktop</a>.
+</li>
+<li>
+Follow slightly different instructions for Windows or MacOS/Linux
+</li>
 </ol>
-<pre><code>* Go To https://rstudio.com/products/rstudio/download/#download
-* Install RStudio for your platform</code></pre>
+</div>
+<div id="windows" class="section level3">
+<h3>Windows</h3>
+<ul>
+<li>it might prompt you to install additional updates (for example - <a href="https://docs.Microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package" class="uri">https://docs.Microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package</a>) and require multiple restarts of your system or docker.</li>
+<li>launch docker desktop app.</li>
+<li>Open windows Power shell</li>
+<li>navigate to directory on your system where you plan on keeping all your code. For example: C:\USERS\risserlin\code</li>
+<li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="automation.html#cb4-1"></a>docker run <span class="op">-</span>e PASSWORD=changeit <span class="op">--</span>rm \</span>
+<span id="cb4-2"><a href="automation.html#cb4-2"></a>  <span class="op">-</span>v <span class="op">$</span>{PWD}<span class="op">:</span><span class="er">/</span>home<span class="op">/</span>rstudio<span class="op">/</span>projects <span class="op">-</span>p <span class="dv">8787</span><span class="op">:</span><span class="dv">8787</span> \</span>
+<span id="cb4-3"><a href="automation.html#cb4-3"></a>  risserlin<span class="op">/</span>workshop_base_image</span></code></pre></div>
+<p align="center">
+<img src="Module3/automation/images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
+</p>
+<ul>
+<li>Windows defender firewall might pop up with warning. Click on <em>Allow access</em>.</li>
+<li>In docker desktop you see all containers you are running and easily manage them.
+<p align="center">
+<img src="Module3/automation/images/docker_windows_desktop.png" alt="R startup" width="75%" align="center" />
+</p></li>
+</ul>
+</div>
+<div id="macos-linux" class="section level3">
+<h3>MacOS / Linux</h3>
+<ul>
+<li>Open Terminal</li>
+<li>navigate to directory on your system where you plan on keeping all your code. For example: /Users/risserlin/code</li>
+<li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="automation.html#cb5-1"></a>docker run <span class="op">-</span>e PASSWORD=changeit <span class="op">--</span>rm \</span>
+<span id="cb5-2"><a href="automation.html#cb5-2"></a>  <span class="op">-</span>v <span class="st">&quot;$(pwd)&quot;</span><span class="op">:</span><span class="er">/</span>home<span class="op">/</span>rstudio<span class="op">/</span>projects <span class="op">-</span>p <span class="dv">8787</span><span class="op">:</span><span class="dv">8787</span> \</span>
+<span id="cb5-3"><a href="automation.html#cb5-3"></a>  risserlin<span class="op">/</span>workshop_base_image</span></code></pre></div>
+<p align="center">
+<img src="Module3/automation/images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
+</p>
+</div>
+</div>
+<div id="create-your-first-notebook-using-docker" class="section level2">
+<h2>Create your first notebook using Docker</h2>
+<div id="start-coding" class="section level3">
+<h3>Start coding!</h3>
+<ul>
+<li>Open a web browser to localhost:8787
+<p align="center">
+<img src="Module3/automation/images/docker_rstudio_initial.png" alt="R startup" width="75%" align="center" />
+</p></li>
+<li>enter username: rstudio</li>
+<li>enter password: changeit</li>
+<li>changing the parameter <em>-e PASSWORD=changeit</em> in the above docker command will change the password you need to specify</li>
+</ul>
+<div class="rmd-troubleshooting">
+When you go to localhost:8787 all you get is:
+<p align="center">
+<img src="Module3/automation/images/no_site.png" alt="no prompt" width="75%" align="center" />
+</p>
+<ul>
+<li>
+Make sure your docker container is running. (If you rebooted your machine you will need to restart the container on reboot.)
+</li>
+<li>
+Make sure you got the right port.
+</li>
+</ul>
+</div>
+<p>After logging in, you will see an Rstudio window just like when you install it directly on your computer. This RStudio will be running in your docker container and will be a completely separate instance from the one you have installed on your machine (with a different set of packages and potentially versions installed).</p>
+<p align="center">
+<img src="Module3/automation/images/docker_rstudio.png" alt="R startup" width="75%" align="center" />
+</p>
+<div class="rmd-caution">
+<p>
+Make sure that you have mapped a volume on your computer to a volume in your container so that files you create are also saved on your computer. That way, turning off or deleting your container or image will not effect your files.<br>
+</p>
+<ul>
+<li>
+The parameter <strong>-v ${PWD}:/home/rstudio/projects</strong> maps your current directory (i.e. the directory you are in when launching the container) to the directory /home/rstudio/projects on your container.
+</li>
+<li>
+You do not need to use the ${PWD} convention. You can also specify the exact path of the directory you want to map to your container.
+</li>
+<li>
+Make sure to save all your scripts and notebooks in the projects directory.
+</li>
+</ul>
+</div>
+<ol style="list-style-type: decimal">
+<li>Create your first notebook in your docker Rstudio.</li>
+<li>Save it.</li>
+<li>Find your newly created file on your computer.</li>
+</ol>
+</div>
+</div>
+<div id="start-using-automation" class="section level2">
+<h2>Start using automation</h2>
 <ol start="2" style="list-style-type: decimal">
 <li>Download example R notebooks from <a href="https://github.com/BaderLab/Cytoscape_workflows" class="uri">https://github.com/BaderLab/Cytoscape_workflows</a>.</li>
 </ol>
@@ -400,7 +691,6 @@
 <p>
 If you are new to git and want to learn more about code versioning then we recommend you read the following <a href="https://guides.github.com/introduction/git-handbook/">tutorial</a> And check out <a href="https://desktop.github.com/">Github Desktop</a> - a desktop application to communicate with github.
 </p>
-</div>
 </div>
 <div id="step-1---launch-rstudio" class="section level3">
 <h3>Step 1 - launch RStudio</h3>
@@ -474,6 +764,14 @@ Setting up Notebooks with parameters allows you to re-run the same notebook with
 This is not the same as the GSEA application that we used in Module 2 gsea lab. <img src="Module3/automation/images/gsea_command_jar.png" alt="open project" width="50%"/>
 </p>
 </div>
+<div class="rmd-tip">
+<p>
+If you are using the <strong>docker</strong> implementation GSEA is already in the docker and you don’t need to downlaod anything else. Just set this parameter as:<br>
+</p>
+<p>
+<strong>gsea_jar: /home/rstudio/GSEA_4.1.0/gsea-cli.sh</strong>
+</p>
+</div>
 </div>
 <div id="step-5---step-through-notebook-to-run-the-analysis" class="section level3">
 <h3>Step 5 - Step through notebook to run the analysis</h3>
@@ -498,6 +796,12 @@ This is not the same as the GSEA application that we used in Module 2 gsea lab. 
 
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>A “wrapper” program uses another program’s functionality in its own context. RStudio is a wrapper for <strong>R</strong> since it does not duplicate <strong>R</strong>’s functions, it runs the actual R in the background.<a href="automation.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

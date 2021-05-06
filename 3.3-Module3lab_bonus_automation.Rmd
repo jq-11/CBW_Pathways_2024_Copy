@@ -10,12 +10,9 @@
 
 During this exercise, you will apply what you have learnt in Module 2 labs and Module 3 labs but instead of performing them manually you will automate the process using R/Rstudio.  We will use all the same data and programs we used in the previous labs but we will control them from R. 
 
-### Set Up
+Before starting this exercise you need to set up R/Rstudio.  You can do that directly on your machine or through docker. 
 
-Before starting this exercise, 
-
-1. Install R and RStudio (if not already installed)
-  * For these exercises you also require Rstudio.  If you do not already have RStudio installed please follow the below instructions to install it. 
+## Set Up - Option 1 - Install R/Rstudio 
 
   a. Install R.
   * Go to: https://cran.rstudio.com/
@@ -26,14 +23,174 @@ Before starting this exercise,
     
   <img src="./Module3/automation/images/downloadR_win.png" alt="Load data" />
 
-  * Download and install
+[RStudio](https://rstudio.com/) is a free IDE (Integrated Development Environment) for **R**. RStudio is a wrapper^[A "wrapper" program uses another program's functionality in its own context. RStudio is a wrapper for **R** since it does not duplicate **R**'s functions, it runs the actual R in the background.] for **R** and as far as basic R is concerned, all the underlying functions are the same, only the user interface is different (and there are a few additional functions that are very useful e.g. for managing projects).
+
+Here is a small list of differences between **R** and RStudio.
+
+**pros (some pretty significant ones actually):**
+
+  * Integrated version control.
+  * Support for "projects" that package scripts and other assets.
+  * Syntax-aware code colouring.
+  * A consistent interface across all supported platforms. (Base R GUIs are not all the same for e.g. Mac OS X and Windows.)
+  * Code autocompletion in the script editor. (Depending on your point of view this can be a help or an annoyance. I used to hate it. After using it for a while I find it useful.)
+  * "Function signaturtes" (a list of named parameters) displayed when you hover over a function name.
+  * The ability to set breakpoints for debugging in the script editor.
+  * Support for knitr, and rmarkdown; also support for R notebooks ... (This supports "literate programming" and is actually a big advance in software development)
+  * Support for R notebooks.
+
+**cons (all minor actually):**
+
+  * The tiled interface uses more desktop space than the windows of the R GUI.
+  * There are sometimes (rarely) situations where R functions do not behave in exactly the same way in RStudio.
+  * The supported R version is not always immediately the most recent release.
+
+```{block, type="rmd-note"}
+  * Navigate to the [RStudio download](https://rstudio.com/products/rstudio/download/) Website.
+  * Find the right version of the RStudio Desktop installer for your computer, download it and install the software.
+  * Open RStudio.
+  * Focus on the bottom left pane of the window, this is the "console" pane.
+<p align="center"><img src="./Module3/automation/images/Rstudio_start.png" alt="R startup" width="75%" align="center" /></p>  
+  * Type getwd().
+  * This prints out the path of the current working directory. Make a (mental) note where this is. We usually always need to change this "default directory" to a project directory.
+``` 
+
+
+## Set Up - Option 2 - Docker image with R/Rstudio
+
+Changing versions and environments are a continuing struggle with bioinformatics pipelines and computational pipelines in general.  An analysis written and performed a year ago might not run or produce the same results when it is run today.  Recording package and system versions or not updating certain packages rarely work in the long run.  
+
+One the best solutions to reproducibility issues is containing your workflow or pipeline in its own coding environment where everything from the operating system, programs and packages are defined and can be built from a set of given instructions. There are many systems that offer this type of control including:
+
+  * [Docker](https://www.docker.com/).
+  * [Singularity](https://sylabs.io/)
+  
+"A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another." [@docker] 
+
+**Why are containers great for Bioiformatics?**
+
+  * allows you to create environments to run bioinformatis pipelines.
+  * create a consistent environment to use for your pipelines.
+  * test modifications to the pipeline without disrupting your current set up.
+  * Coming back to an analysis years later and there is no need to install older versions of packages or programming languages. Simply create a container and re-run.  
+
+
+### What is docker?
+
+  * Docker is a container platform, similar to a virtual machine but better.
+  * We can run multiple **containers** on our docker server.  A **container** is an instance of an **image**.  The **image** is built based on a set of instructions but consists of an operating system, installed programs and packages.  (When backing up your computer you might taken an image of it and restored your machine from this image.  It the same concept but the image is built based on a set of elementary commands found in your Dockerfile.) - for overview see [here](https://docs.docker.com/get-started/overview/)
+  * Often images are built off of previous images with specific additions you need for you pipeline.  (For example, for this course we use a base image supplied by bioconductor[release 3.11](https://hub.docker.com/r/bioconductor/bioconductor_docker/tags?page=1&ordering=last_updated) and comes by default with basic Bioconductor packages but it builds on the base R-docker images called [rocker](https://www.rocker-project.org/).)
+
+### Docker - Basic term definition
+
+### Container
+  * An instance of an image.
+  * the self-contained running system.  
+  * There can be multiple containers derived from the same image.
+
+### Image
+  * An image contains the blueprint of a container.
+  * In docker, the image is built from a Dockerfile
+
+
+### Docker Volumes
+
+  * Anything written on a container will be erased when the container is erased ( or crashes) but anything written on a filesystem that is separate from the contain will persist even after a container is turned off.  
+  * A [volume](https://docs.docker.com/storage/volumes/) is a way to assocaited data with a container that will persist even after the container.   * maps a drive on the host system to a drive on the container.
+  *  In the above docker run command (that creates our container) the statement:
+```{r, eval=FALSE}
+-v ${PWD}:/home/rstudio/projects
+```
+
+  * maps the directory \$\{PWD\} to the directory /home/rstudio/projects on the container.  Anything saved in /home/rstudio/projects will actually be saved in \$\{PWD\}
+  * An example:
+    * I use the following commmand to create my docker container:
+
+```{r eval=FALSE}
+docker run -e PASSWORD=changeit --rm \
+  -v /Users/risserlin/code:/home/rstudio/projects \
+  -p 8787:8787 \
+  risserlin/workshop_base_image
+```
+
+  * I create a notebook called task3.Rmd and save it in /home/rstudio/projects.
+```{block type="rmd-caution"}
+Note: Do not save it in /home/rstudio/ which is the default directory RStudio will start in
+```
+  * On my host computer, if I go to /Users/risserlin/code I will find the file task3.Rmd
     
-  <img src="./Module3/automation/images/downloadR_win2.png" alt="Load data" />   
+##  Install Docker {#r_docker}
 
-  b. Install R Studio.
+```{block, type="rmd-note"}
+  1. Download and install [docker desktop](https://www.docker.com/products/docker-desktop).
+  1. Follow slightly different instructions for Windows or MacOS/Linux
+```
+ 
+### Windows
+  * it might prompt you to install additional updates (for example - https://docs.Microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package) and require multiple restarts of your system or docker.
+  * launch docker desktop app.
+  * Open windows Power shell 
+  * navigate to directory on your system where you plan on keeping all your code.  For example: C:\\USERS\\risserlin\\code
+  * Run the following command: (the only difference with the windows command is the way the current directory is written.  \$\{PWD\} instead of \"\$(pwd)\")
 
-    * Go To https://rstudio.com/products/rstudio/download/#download
-    * Install RStudio for your platform
+```{r eval=FALSE}
+docker run -e PASSWORD=changeit --rm \
+  -v ${PWD}:/home/rstudio/projects -p 8787:8787 \
+  risserlin/workshop_base_image
+```
+<p align="center"><img src="./Module3/automation/images/docker_creation_output.png" alt="R startup" width="75%" align="center" /></p>  
+  * Windows defender firewall might pop up with warning.  Click on *Allow access*.
+  * In docker desktop you see all containers you are running and easily manage them. 
+<p align="center"><img src="./Module3/automation/images/docker_windows_desktop.png" alt="R startup" width="75%" align="center" /></p>   
+
+
+### MacOS / Linux
+  * Open Terminal
+  * navigate to directory on your system where you plan on keeping all your code.  For example: /Users/risserlin/code
+  * Run the following command: (the only difference with the windows command is the way the current directory is written.   \$\{PWD\} instead of \"\$(pwd)\")
+
+```{r eval=FALSE}
+docker run -e PASSWORD=changeit --rm \
+  -v "$(pwd)":/home/rstudio/projects -p 8787:8787 \
+  risserlin/workshop_base_image
+```
+<p align="center"><img src="./Module3/automation/images/docker_creation_output.png" alt="R startup" width="75%" align="center" /></p> 
+
+## Create your first notebook using Docker
+
+### Start coding!
+
+  * Open a web browser to localhost:8787
+<p align="center"><img src="./Module3/automation/images/docker_rstudio_initial.png" alt="R startup" width="75%" align="center" /></p> 
+  * enter username: rstudio 
+  * enter password: changeit 
+  * changing the parameter *-e PASSWORD=changeit* in the above docker command will change the password you need to specify
+  
+```{block no_prompt, type="rmd-troubleshooting"}
+When you go to localhost:8787 all you get is:
+<p align="center"><img src="./Module3/automation/images/no_site.png" alt="no prompt" width="75%" align="center" /></p> 
+  * Make sure your docker container is running.  (If you rebooted your machine you will need to restart the container on reboot.)
+  * Make sure you got the right port.  
+```
+
+After logging in, you will see an Rstudio window just like when you install it directly on your computer. This RStudio will be running in your docker container and will be a completely separate instance from the one you have installed on your machine (with a different set of packages and potentially versions installed).
+
+<p align="center"><img src="./Module3/automation/images/docker_rstudio.png" alt="R startup" width="75%" align="center" /></p> 
+
+```{block, type="rmd-caution"}
+Make sure that you have mapped a volume on your computer to a volume in your container so that files you create are also saved on your computer.  That way, turning off or deleting your container or image will not effect your files.<br>
+
+* The parameter **-v ${PWD}:/home/rstudio/projects** maps your current directory (i.e. the directory you are in when launching the container) to the directory /home/rstudio/projects on your container.
+* You do not need to use the ${PWD} convention.  You can also specify the exact path of the directory you want to map to your container. 
+* Make sure to save all your scripts and notebooks in the projects directory.
+```
+
+  1. Create your first notebook in your docker Rstudio. 
+  1. Save it.
+  1. Find your newly created file on your computer.
+ 
+
+## Start using automation
     
 2. Download example R notebooks from https://github.com/BaderLab/Cytoscape_workflows.
 
@@ -119,6 +276,14 @@ For this initial analysis change:
 This is not the same as the GSEA application that we used in Module 2 gsea lab.
 <img src="./Module3/automation/images/gsea_command_jar.png" alt="open project" width="50%"/>
 ```
+
+
+```{block, type="rmd-tip"}
+If you are using the **docker** implementation GSEA is already in the docker and you don't need to downlaod anything else.  Just set this parameter as:<br>
+
+**gsea_jar: /home/rstudio/GSEA_4.1.0/gsea-cli.sh**
+
+```  
 
 ### Step 5 - Step through notebook to run the analysis
 
