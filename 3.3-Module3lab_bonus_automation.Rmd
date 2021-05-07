@@ -3,6 +3,20 @@
 **This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
 
  *<font color="#827e9c">By Ruth Isserlin</font>*
+
+Although a lot of what we have demonstrated in Cytoscape up until now has been manual most of the features we use can be automated through multiple access points including:
+
+
+* R/Rstudio using [RCy3](https://bioconductor.org/packages/release/bioc/html/RCy3.html) - a bioconductor package that makes communicating with cytoscape as simple as calling a method. 
+* Python using [py2cytoscape](https://py2cytoscape.readthedocs.io/en/latest/).
+* directly through cyrest using rest calls - you can use any programming language with the rest API.  See [Cytoscape Automation](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1758-4) 
+
+Automation becomes helpful when performing pipelines multiple times on similiar datasets or integrating cytoscape data into your other pipelines. 
+
+Below we demonstrate how to perform the enrichment map pipeline from R but automation is not limited to this access point.  You can automate it from any flavour of programming.  
+
+Check out all the ways you can interact with Cytoscape [here](http://manual.cytoscape.org/en/stable/Programmatic_Access_to_Cytoscape_Features_Scripting.html) including directly through the cytoscape command window. 
+
  
 ## Goal of the exercise:
 
