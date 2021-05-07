@@ -294,7 +294,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#step-4b-optional-change-the-edge-style-of-the-signature-gene-sets"><i class="fa fa-check"></i>Step 4b Optional: Change the edge style of the signature gene-sets:</a></li>
 </ul></li>
 <li><a href="regulatory-network-chipseq-lab.html#exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip">Exercise 5: Learning how to run MEME-chip from the MEME suite (<span>https://meme-suite.org/meme/tools/meme-chip</span>)</a><ul>
-<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-5a-downloading-sequences-from-.bed-coordinates"><i class="fa fa-check"></i>Exercise 5a: Downloading sequences from .bed coordinates</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#format-the-data"><i class="fa fa-check"></i>Format the Data</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-5a-download-sequences-from-.bed-coordinates"><i class="fa fa-check"></i>Exercise 5a: Download sequences from .bed coordinates</a></li>
 <li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-5b-run-meme-chip"><i class="fa fa-check"></i>Exercise 5b: Run MEME-chIP</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-6-optional-get-the-iregulon-runx1-targets-and-find-the-mouse-orthologs-using-gorth-from-gprofiler-to-create-the-gmt-file-used-in-exercise-4."><i class="fa fa-check"></i>Exercise 6 (optional): Get the iRegulon RUNX1 targets and find the mouse orthologs using g:Orth (from g:Profiler) to create the gmt file used in Exercise 4.</a></li>
@@ -528,7 +529,8 @@ Note: you also could create and upload an expression file when you build the enr
 <li><p>Run GSEA using the rank file that has been created from the differential expression test comparing BE vs NE <a href="./IntegratedAssignment/data/BEvsNE_ranks.rnk">BEvsNE_ranks.rnk</a> and the pathway file <a href="./IntegratedAssignment/data/Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt</a>.</p></li>
 </ol>
 <ul>
-<li>open GSEA and first import the files using the “Load data” window: upload the .rnk and .gmt files (the gmt file can be found by clicking the three dots next to ‘Gene sets database’ and clicking on ’Gene matrix (local gmx/gmt) ).</li>
+<li>open GSEA and first import the files using the “Load data” window: upload the .rnk and .gmt files (the gmt file can be found by clicking the three dots next to ‘Gene sets database’ and clicking on ’Gene matrix (local gmx/gmt) ).
+<ul>
 <li>Go the ‘Run GSEAPreranked’ window and select the correct gmt file and the rank file</li>
 <li>Use <strong>100</strong> permutations for the lab exercise.
 <div class="rmd-caution">
@@ -537,14 +539,17 @@ For time reasons - Use 100 permutations for the lab exercise but use 1000 for yo
 </p>
 </div></li>
 <li>Choose a name for your analysis, a destination folder and run GSEA.</li>
+</ul></li>
 </ul>
 <p><img src="IntegratedAssignment/images/IA_gsea_input.png" alt="IA_gsea_input.png" width="750" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Create an enrichment map:</li>
 </ol>
 <ul>
-<li><p>Open Cytoscape and the EnrichmentMap app. The enrichment results are 2 excel files called gsea_report_for_na_neg and gsea_report_for_na_pos within the GSEA folder saved on your computer but you should be able to drag and drop the whole GSEA folder and that will populate the required fields automatically.</p></li>
-<li><p>use an FDR q-value cutoff of 0.01. Upload the expression file <a href="./IntegratedAssignment/data/BE_vs_NE_expression.txt">BE_vs_NE_expression.txt</a>(right click, save link as).</p></li>
+<li><p>Open Cytoscape and the EnrichmentMap app. The enrichment results are 2 excel files called gsea_report_for_na_neg and gsea_report_for_na_pos within the GSEA folder saved on your computer but you should be able to drag and drop the whole GSEA folder and that will populate the required fields automatically.</p>
+<ul>
+<li>use an FDR q-value cutoff of 0.01. Upload the expression file <a href="./IntegratedAssignment/data/BE_vs_NE_expression.txt">BE_vs_NE_expression.txt</a>(right click, save link as).</li>
+</ul></li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
 <li>Examine the results as you did for the g:Profiler map (e.g move nodes around, use the slide bar to adjust q value to 0.01 and redo the layout, separate blue and red nodes). Save the file. Save an image. Keep your session open for Part 8.</li>
@@ -568,35 +573,39 @@ Note: you may get slightly different results as 100 permutations is not enough t
 <li>Import the extracellular matrix genes as a network.</li>
 </ol>
 <ul>
-<li>In Cytoscape, go to the menu bar and select, File, Import, Network from File…</li>
+<li>In Cytoscape, go to the menu bar and select, File, Import, Network from File…
+<ul>
 <li>Browse your computer and select the ‘extracellular_matrix_organization.txt’ file and click on open.</li>
 <li>An ‘Import Network From Table’ window opens and in the table preview, make sure that the ‘Gene’ column is the source node (green dot). Click on ‘OK’. A ‘Confirmation’ dialog box saying that ‘No edges will be created in the network’ opens. Click on ‘Yes’.</li>
+</ul></li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>Select nodes and run iRegulon.</li>
-</ol>
+<li>Select nodes and run iRegulon.
 <ul>
 <li>If successful, you should see a grid of gray nodes. If you are zoomed out, they might be very faint. Zoom in until you see them, then zoom out until you see all the nodes and select them all using the mouse.</li>
 <li>Go the Cytoscape menu and select ‘Apps’, ‘iRegulon’, ‘Predict regulators and targets’.</li>
 <li>Click on ‘Submit’.</li>
 <li>Observe the iRegulon results in the Results Panel.</li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
+</ul></li>
 <li>Add TCF12 and BATF to the network.</li>
 </ol>
 <ul>
-<li>Go to the "Transcription Factors’ tab and click on the first hit (TCF12) to select it.</li>
+<li>Go to the "Transcription Factors’ tab and click on the first hit (TCF12) to select it.
+<ul>
 <li>Add it to the network using the green ‘+’ button .</li>
 <li>Execute the same steps for the second hit (BATF).</li>
 <li>If successful, you should see targets of TCF12 and BATF linked to these 2 genes by edges (lines).</li>
+</ul></li>
 </ul>
 <ol start="5" style="list-style-type: decimal">
 <li>Create a subnetwork with all nodes connected to TCF12 and BATF.</li>
 </ol>
 <ul>
-<li>using the mouse select TCF12 and all edges around this node and pressing the shift key, select also BATF and all the edges around this node. All selected edges should now be highlighted in red and the 2 transcription factors in yellow.</li>
+<li>using the mouse select TCF12 and all edges around this node and pressing the shift key, select also BATF and all the edges around this node. All selected edges should now be highlighted in red and the 2 transcription factors in yellow.
+<ul>
 <li>In the Cytoscape menu bar, go to Select, Nodes, Nodes connected by selected edges. More nodes should be selected now and the edges still highlighted in red.</li>
 <li>Select the subnetwork icon (‘New Network from Selection (all edges)’)from the Cytoscape toolbar. If successful, you should have created a subnetwork containing only the targeted genes and the two transcription factors.</li>
+</ul></li>
 </ul>
 <ol start="6" style="list-style-type: decimal">
 <li>Arrange the network such that we can distinguish genes linked to TCF12 only , linked to BATF only or linked to both transcription factors.</li>
@@ -608,8 +617,10 @@ Note: you may get slightly different results as 100 permutations is not enough t
 <li>Optional. Import the .rnk file that we use for GSEA <a href="./IntegratedAssignment/data/BEvsNE_ranks.rnk">BEvsNE_ranks.rnk</a> as attribute and color the nodes accordingly to the score values.</li>
 </ol>
 <ul>
-<li>in the menu bar, select, <em>File</em>, <em>Import</em>, <em>Table from File…</em>, select the rank file and click on ‘Open’. A dialog box (‘Import Columns From Table’) opens. Click on ‘Advanced options’ and uncheck ‘Use first line as column names’ and click ‘OK’. Rename Column2 as ‘myscore’. Click ‘OK’.</li>
+<li>in the menu bar, select, <em>File</em>, <em>Import</em>, <em>Table from File…</em>, select the rank file and click on ‘Open’. A dialog box (‘Import Columns From Table’) opens. Click on ‘Advanced options’ and uncheck ‘Use first line as column names’ and click ‘OK’. Rename Column2 as ‘myscore’. Click ‘OK’.
+<ul>
 <li>in Control Panel, go to Style and in the Node tab, expand the ‘Fill Color’ tab. Retrieve and select the ‘myscore’ column in the ‘column’ fied. Make sure that the ‘Mapping type’ is set to ‘Continuous Mapping’. The score should ranged from -13.16 to 13.16. Adjust the color if necessary.</li>
+</ul></li>
 </ul>
 <p>Screenshot of resulting network:</p>
 <p><img src="IntegratedAssignment/images/IA_iregulon_map.png" alt="IA_iregulon_map.png" width="750" /></p>

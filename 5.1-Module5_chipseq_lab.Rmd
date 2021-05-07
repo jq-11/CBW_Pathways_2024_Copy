@@ -190,8 +190,9 @@ Using this rule, genes will be associated with peaks only if they are within 1kb
 Arrange the display by clicking on each module name listed in the right panel and then move them apart from the other modules using a mouse or a trackpad.
 
 ![Figure 20 - Manually layed out Enrichment map of enriched pathways for distal set](./Module5/chipseqlab/chipseqlab_image/proximal_map_AA.png)
-
-* **Question**: What are the main biological functions enriched in genes associated with RUNX1 peaks? Is it relevant in relation to what we know about the role of RUNX1 in development?
+```{block, type="rmd-question"}
+What are the main biological functions enriched in genes associated with RUNX1 peaks? <br> Is it relevant in relation to what we know about the role of RUNX1 in development?
+```
 
 ### Optional exercise 3b: Repeat the process of building an enrichment map using the proximal data (Proximal_GOBP_greatExportAll.tsv).
 Because this is proximal data, the problem is reduced to a gene list and you can use the Fisher’s exact test (FDR 0.001) to looked at the enrichment results
@@ -245,85 +246,161 @@ The 3 gene-sets are now added to the map. Each line (edge) shows pathways that h
 ![Figure 25 - Final figure](./Module5/chipseqlab/chipseqlab_image/em3.png)
 
 ## Exercise 5: Learning how to run MEME-chip from the MEME suite (https://meme-suite.org/meme/tools/meme-chip)
-* The first step is to format the data. MEME suite accepts sequences as input and not chromosome coordinates. The bed file contains the chromosome coordinates of the peaks. Therefore, we first have to fetch all the peak sequences. UCSC genome browser (https://genome.ucsc.edu/) has some tools to help us.
 
-* If needed, you can use the finalized formatted file (GSE128767_RUNX1_ChIP.peaks.fasta) but we encourage you to follow the next steps to learn on how to do it yourself.
+### Format the Data
+
+* MEME suite accepts sequences as input and not chromosome coordinates. The bed file contains the chromosome coordinates of the peaks. Therefore, we first need to fetch all the peak sequences. UCSC genome browser (https://genome.ucsc.edu/) has some tools to help us.
+
+* If needed, you can use the finalized formatted file [GSE128767_RUNX1_ChIP.peaks.fasta](./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta) **but we encourage you to follow the below steps to learn how to do it yourself**.
 
 * The step that we took to create it are described below and were adapted from https://fasta.bioch.virginia.edu/cshl/stubbs/meme-ex/meme.html.
 
-### Exercise 5a: Downloading sequences from .bed coordinates
+### Exercise 5a: Download sequences from .bed coordinates
+
 * Open the UCSC browser main page (http://genome.ucsc.edu/). 
-* Click on Genomes in the menu bar and select  mouse GRCm38/mm10. The UCSC Genome Browser window opens in a new tab.
+* Click on *Genomes* in the menu bar and select  *Mouse GRCm38/mm10*. 
+
+<p align="center">
+  <img src="./Module5/chipseqlab/chipseqlab_image/meme1.png" alt="USCS main page" width="50%" />
+ </p>
 
 
-![meme1](./Module5/chipseqlab/chipseqlab_image/meme1.png)
-![meme2](./Module5/chipseqlab/chipseqlab_image/meme2.png)
+* The UCSC Genome Browser window opens in a new tab.
+* Below the tracks, click on the button *add custom tracks*. A new window will open.
+
+![UCSC genome browser](./Module5/chipseqlab/chipseqlab_image/meme2.png)
 
 
+* Upload the bed file [GSE128767_RUNX1_ChIP.peaks.bed](./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.bed);  press the "Submit" button. 
 
-* Below the tracks, click on the button “add custom tracks”. A new window will open.
 ![meme3](./Module5/chipseqlab/chipseqlab_image/meme3.png)
 
-* Upload the bed file (GSE128767_RUNX1_ChIP.peaks.bed); make sure that "Table Browser" is selected and press the "go" button. 
+
+* A new window will appear with your updated track. Make sure that "Table Browser" is selected and click on *go*.
+
 ![meme4](./Module5/chipseqlab/chipseqlab_image/meme4.png)
-* Select “sequence” as "output format" and “plain text” as "file type returned". 
+
+* A new window will appear.  Select *sequence* as *output format* and *plain text* as *file type returned*. Click on *get output*.
 ![meme5](./Module5/chipseqlab/chipseqlab_image/meme5.png)
+
 * A new window will open where you can choose various options for your sequence (e.g. repeat masking). Note that for meme and similar programs it is important to "mask repeats" to "N"; otherwise, sequences in repetitive elements will dominate your motif list.
+    * Select *Mask repeats*
+    * next to *Mask repeats* change option to *to N*
+    * click on *Get sequences*
+    
 ![meme6](./Module5/chipseqlab/chipseqlab_image/meme6.png)
 
-* Select get sequence. A fasta file will appear; save this as plain text (copy and paste in a text editor).
+* A fasta file will appear; save this as plain text (copy and paste in a text editor or right click on the page and select *Save As...* and save the file to your computer).
 * You will need to modify the UCSC header that comes with the sequences to use them for meme:
 
   * Go to https://fasta.bioch.virginia.edu/fasta_www2/clean_fasta.html
   * upload or copy and paste the plain text file from the above step
   * check Extract CHR:coordinates from UCSC
   * Click on “Clean Sequence”
-  * Save this as plain text under the name GSE128767_RUNX1_ChIP.peaks.fasta
 ![meme7](./Module5/chipseqlab/chipseqlab_image/meme7.png)
-![meme8](./Module5/chipseqlab/chipseqlab_image/meme8.png)
+  * Save this as plain text under the name GSE128767_RUNX1_ChIP.peaks.fasta (copy and paste in a text editor or **right click and Save as will not work for this file**) - it will look like the below file.
 
+<p align="center">
+  <img src="./Module5/chipseqlab/chipseqlab_image/meme8.png" alt="resulting file" width="50%" />
+ </p>
 ### Exercise 5b: Run MEME-chIP
 
 * Open https://meme-suite.org/meme/tools/meme-chip.
+* Expand *Motif Discovery*
+* Click on *MEME-Chip*
+
 ![meme9](./Module5/chipseqlab/chipseqlab_image/meme9.png)
 
-* In Input the primary sequences box, upload the file GSE128767_RUNX1_ChIP.peaks.fasta . 
-* Click on “Start Search”. 
-* **Important**: Save the url so you can access your result later even if you close the MEME window. 
-* MEME-ChIP will run for about 1 hour: look at the results below from the MEME-chip result, try to answer the questions and follow next steps. Check your MEME-ChIP results at the end of the practical lab.
+* Under *Input the primary sequences* box, upload the file [GSE128767_RUNX1_ChIP.peaks.fasta](./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta) . 
+* Click on *Start Search*.
 
-![meme10](./Module5/chipseqlab/chipseqlab_image/meme10.png)
-![meme11](./Module5/chipseqlab/chipseqlab_image/meme11.png)
-![meme12](./Module5/chipseqlab/chipseqlab_image/meme12.png)
+<p align="center">
+  <img src="./Module5/chipseqlab/chipseqlab_image/meme10.png" alt="resulting file" width="75%" />
 
-* Here below are the results of the top motifs that were found significantly enriched in the peak sequences.
-**Question**:To which transcription factor does it correspond? Why is the centered distribution of the motif important (what does it mean)?
+
+```{block, type="rmd-note"}
+**Important**: Save the url so you can access your result later even if you close the MEME window. <br>
+
+For example my url is - https://meme-suite.org/meme/info/status?service=MEMECHIP&id=appMEMECHIP_5.3.31620409506563-973419203 <br>
+
+
+<p align="center">
+  <img src="./Module5/chipseqlab/chipseqlab_image/meme11.png" alt="resulting file" width="50%" />
+
+```
+
+* MEME-ChIP will run for about 1 hour: 
+    * look at the results below from the MEME-chip result, 
+    * try to answer the questions and follow next steps. 
+    * Check your MEME-ChIP results at the end of the practical lab.
+
+
+* When your job is complete you should see the following page on your saved link:
+
+<p align="center">
+  <img src="./Module5/chipseqlab/chipseqlab_image/meme12.png" alt="jobs results page" width="50%" />
+
+
+* results of the top motifs that were found significantly enriched in the peak sequences.<br>
 
 ![meme13](./Module5/chipseqlab/chipseqlab_image/meme13.png)
+
+```{block, type="rmd-question"}
+To which transcription factor does it correspond? <br> Why is the centered distribution of the motif important (what does it mean)?
+```
+
+
 
 ## Exercise 6 (optional): Get the iRegulon RUNX1 targets and find the mouse orthologs using g:Orth (from g:Profiler) to create the gmt file used in Exercise 4.
 
 * In Cytoscape, locate “App” in the menu bar and select “iRegulon” and then “Query TF-target database”
-![iregulon1](./Module5/chipseqlab/chipseqlab_image/iregulon1.png)
+
+<p align="center">
+  <img src="./Module5/chipseqlab/chipseqlab_image/iregulon1.png" alt="iregulon" width="50%" />
 
 
-* A “Query TF-target database for a factor” dialog box opens. Enter “RUNX1” in the “Transcription Factor” field and in “Network”, set “Number nodes (approx.)” to 200. Click on “Submit”
-![iregulon2](./Module5/chipseqlab/chipseqlab_image/iregulon2.png)
+* A “Query TF-target database for a factor” dialog box opens. 
+    * Enter “RUNX1” in the *Transcription Factor* field and 
+    * in *Network*, set “Number nodes (approx.)” to 200. 
+    * Click on *Submit*
 
-* To arrange the style, go to the Cytoscape menu bar and select “Layout” and “yFiles Organic Layout”. Go the Cytoscape menu and select “View” “Always Show Graphic Details” to see the gene names.
-* Below the network, click on “Node Table” and click on the “Export Table to File…” icon. Click on “OK”.
+<p align="center">
+  <img src="./Module5/chipseqlab/chipseqlab_image/iregulon2.png" alt="iregulon" width="75%" />
 
-![iregulon3](./Module5/chipseqlab/chipseqlab_image/iregulon3.png)
 
-* Open the file Metatargetome for RUNX1_1 default node.csv and copy the gene list. Open g:Profiler/g:orth at https://biit.cs.ut.ee/gprofiler/orth.  Paste the gene list into “Query” and in Options set Organism to Home sapiens and Target to Mus musculus. Click on the orange button “Run query”. 
+* To arrange the style, 
+    * go to the Cytoscape menu bar and select *Layout* --> *yFiles Organic Layout*.
+    * Go the Cytoscape menu and select *View* --> *Always Show Graphic Details* to see the gene names.
+    
+* Below the network in the Table Panel:
+    * click on *Node Table* and 
+    * click on the *Export Table to File…* icon. 
+    * Click on *OK*.
 
-![gorth1](./Module5/chipseqlab/chipseqlab_image/gorth1.png)
+<p align="center">
+  <img src="./Module5/chipseqlab/chipseqlab_image/iregulon3.png" alt="iregulon" width="75%" />
+
+* A File *Metatargetome for RUNX1_1 default node.csv* is now saved to your computer.
+
+
+* Open the file *Metatargetome for RUNX1_1 default node.csv* and 
+    * copy the gene list.
+    * Open g:Profiler/g:orth at https://biit.cs.ut.ee/gprofiler/orth.  
+    * Paste the gene list into *Query* and 
+    * in Options set Organism to Home sapiens and Target to Mus musculus. 
+    * Click on the orange button *Run query*. 
+
+<p align="center">
+  <img src="./Module5/chipseqlab/chipseqlab_image/gorth1.png" alt="gorth1" width="75%" />
+
+
 
 * Click on the icon next to the  “ortholog name” column to copy the gene list. This is the gene list containing the mouse orthologs of the RUNX1 targets that we used in Exercise 4.
 
 ![gorth2](./Module5/chipseqlab/chipseqlab_image/gorth2.png)
 
 **As reference (you don't need to go through these steps during the practical lab): Analysis of the RUNX1 Affy transcriptomics using GEO2R.** 
+
 * Go to the GEO page corresponding to the Affymetrix transcriptomics data:https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129038
 * Click on Analyze with GEO2R
 * Define your groups and click on Analyze

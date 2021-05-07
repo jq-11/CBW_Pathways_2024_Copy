@@ -137,7 +137,8 @@ exercise-4-add-runx1-targets-and-runx1-ko-up-and-down-regulated-genes-on-the-dis
 step-4a-add-the-.gmt-file-to-the-enrichment-map
 step-4b-optional-change-the-edge-style-of-the-signature-gene-sets
 exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip
-exercise-5a-downloading-sequences-from-.bed-coordinates
+format-the-data
+exercise-5a-download-sequences-from-.bed-coordinates
 exercise-5b-run-meme-chip
 exercise-6-optional-get-the-iregulon-runx1-targets-and-find-the-mouse-orthologs-using-gorth-from-gprofiler-to-create-the-gmt-file-used-in-exercise-4.
 end-of-lab
