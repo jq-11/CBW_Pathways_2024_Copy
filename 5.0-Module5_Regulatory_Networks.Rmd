@@ -18,5 +18,7 @@
   
 ## Additional slides about the tools Segway and BEHST presented during the lecture 
 
-  [Segway slides](./lectures/Pathways_2021_Module5_segway.pdf)  
-  [BEHST slides](./lectures/Pathways_2021_Module5_behst.pdf)  
+  [Segway slides](./lectures/Pathways_2021_Segway_GMTK02_UTMIST_2021.pdf)  
+  [Segway protocol_draft](./lectures/Pathways_2021_segway_semi_automated_genome_annotation_post_submission_draft.pdf)  
+  
+  [BEHST slides](./lectures/Pathways_2021_BEHST07_Asilomar_Chromatin_2020.pdf)  
