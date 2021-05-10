@@ -6,13 +6,13 @@
  [Lecture slides](./lectures/Pathways_2021_Module5_lecture_MH.pdf)  
 
 ## Practical lab 1: chIP_seq data - GREAT and MEME-chIP
-  [chIP_seq Lab slides](./lectures/Pathways_2021_Module5_lab_chipseq.pdf)  
+  [chIP_seq Lab slides](./lectures/Pathways_2021_Module5_practical_lab_CHIPseq_lab_vv.pdf)  
 
   [chIP_seq Lab practical](#regulatory_network_chipseq_lab)
 
 ## Practical lab 2: gene list - iREgulon and enrichr/EnrichmentMap
 
-  [iREgulon Lab slides](./lectures/Pathways_2021_Module5_lab_iregulon.pdf)  
+  [iREgulon Lab slides](./lectures/Pathways_2021_Module5lab_iregulon.pdf)  
 
   [iREgulon Lab practical](#regulatory_network_lab)
   
