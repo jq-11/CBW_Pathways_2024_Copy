@@ -1,5 +1,5 @@
 # Module 1 -  Introduction to Pathway and Network Analysis (Gary Bader) {#intro}
 
-[Lecture](./lectures/Pathways_2020_Module1_lectureGeneListIntro-Bader-live.pdf)  
+[Lecture](./lectures/Pathways_Toronto_2021_Module1-GeneListIntro-Bader-live.pdf)  
 
 
