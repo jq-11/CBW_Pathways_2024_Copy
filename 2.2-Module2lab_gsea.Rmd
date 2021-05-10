@@ -59,7 +59,6 @@ The second file that is needed for GSEA is the pathway database, a file with the
 
 ```{block, type="rmd-caution"}
 You don't need to perform this step for the exercise, the .gmt file will be given to you. <br>
-**Please note that gmt files from October 2020 - May 2021 currently have an issue created during the build and need to be fixed**
 ```
 
 Go to:
