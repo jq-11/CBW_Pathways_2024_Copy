@@ -56,17 +56,19 @@ Why did we choose this dataset?
 *	Quality of the data
 
 
-The 3 piecew of information that we need to get before starting the analysis are:
- * the model organism: mus musculus
- * genome version: mm10
- * bed file : 	[GSE128767_RUNX1_ChIP.peaks.bed](./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.bed)
+The 3 pieces of information that we need to get before starting the analysis are:
+
+* the model organism: mus musculus
+* genome version: mm10
+* bed file : 	[GSE128767_RUNX1_ChIP.peaks.bed](./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.bed)
  
  We have indicated below how we retrieved these information **but you don't need to do it for the lab**:
-    * In the main GEO entry [GSE128767](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767) 
-    * click on one of the samples (for example -  [GSM3684638](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3684638)).  
-    * On the sample page scroll down to the "Data processing" section
-        * The organism is **mus musculus** and the reference genome is **mm10**
-        * 3 files are available from the GEO entry (see below).
+ 
+* In the main GEO entry [GSE128767](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767) 
+* click on one of the samples (for example -  [GSM3684638](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3684638)).  
+* On the sample page scroll down to the "Data processing" section
+ * The organism is **mus musculus** and the reference genome is **mm10**
+ * 3 files are available from the GEO entry (see below).
 
 ![Figure 3 - Dataset BED file](./Module5/chipseqlab/chipseqlab_image/img4.png) 
 
