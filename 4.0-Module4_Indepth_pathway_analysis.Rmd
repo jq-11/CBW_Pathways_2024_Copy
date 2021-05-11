@@ -4,7 +4,7 @@
   
   [Lecture](./lectures/Pathways_2021_Module4_lecture_RH.pdf)   
   
-  [Lab Lecture](./lectures/Pathways_2020_Module_4_Lab_Robin.pdf)
+  [Lab Lecture](./lectures/Pathways_2021_Module4_lab.pdf)
   
   [Lab practical](./Module4/Reactome/lab/CBW_2020_Module_4_Lab_Questions.pdf)
 
