@@ -5,7 +5,7 @@
 **This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
 
 ## Final slides
-[Lecture](./lectures/Pathways_2020_finalslides.pdf)  
+[Lecture](./lectures/Pathways_2021_finalslides.pdf)  
 
 
 ## Goal 
@@ -88,7 +88,9 @@ Create an enrichment map to visualize the outputs from g:Profiler. Let's create 
 
 <img src="./IntegratedAssignment/images/gprofiler_EMinput.png" alt="gprofiler_EMinput.png" width="750" />
 
-<img src="./IntegratedAssignment/images/gprofilerresultGOv3.png" alt="gprofilerresultGOv3.png" width="750" />
+<img src="./IntegratedAssignment/images/IAgprofiler1_2021.png" alt="IAgprofiler1_2021.png" width="750" />
+
+<img src="./IntegratedAssignment/images/IAgprofiler2_2021.png" alt="IAgprofiler2_2021.png" width="750" />
 
 11.  Try different layouts if you'd like. Zoom in  and move nodes around to be able to read the labels.
 
@@ -110,6 +112,7 @@ Note: you also could create and upload an expression file when you build the enr
 **Question**: What is the most significant GO:term? What is the p-value for this GO:term 
 
 <img src="./IntegratedAssignment/images/gprofilerresultGOv2.png" alt="gprofilerresultGOv2.png" width="750" />
+Note: you might get slightly different results compared to the screenshot if the pathway database has been updated.
 
 **Answer**: extracellular matrix/structure organization
 
@@ -229,8 +232,9 @@ Create a network using ReactomeFI.
 2. Choose App -> Reactome FI -> Gene set/mutation analysis
 3. Upload STAD_MutSig.txt and built a network without linkers:
 
+Note: Choose **2019** to get results comparable to those shown below but use the most uptodate version when analyzing your own data!
 
-<img src="./IntegratedAssignment/images/IA_reactome_input.png" alt="IA_reactome_input.png" width="750" />
+<img src="./IntegratedAssignment/images/reactome1_2021.png" alt="reactome1_2021.png" width="750" />
 
 ```{block, type="rmd-note"}
 The network may look slightly different compared to below screenshot if the underlying database has been updated since the screenshot was taken
@@ -393,7 +397,7 @@ STRING (Search Tool for the Retrieval of Interacting Genes/Proteins) is a biolog
  
 <img src="./IntegratedAssignment/images/stringinput.png" alt="string.png" width="750" />
  
-<img src="./IntegratedAssignment/images/string.png" alt="string.png" width="750" /> 
+<img src="./IntegratedAssignment/images/string.png" alt="string_2021.png" width="750" /> 
 
 --
 
