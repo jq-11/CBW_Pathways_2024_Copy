@@ -2,7 +2,7 @@
 
 **This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
 
-*<font color="#827e9c">By Veronique Voisin </font>*
+*<font color="#827e9c">By Veronique Voisin and Ruth Isserlin </font>*
 
 ## Goal of this practical lab 
 
@@ -56,22 +56,25 @@ Why did we choose this dataset?
 *	Quality of the data
 
 
-The first piece of information that we need to get before starting the analysis is the model organism and genome version. 
+The 3 piecew of information that we need to get before starting the analysis are:
+ * the model organism: mus musculus
+ * genome version: mm10
+ * bed file : 	[GSE128767_RUNX1_ChIP.peaks.bed](./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.bed)
+ 
+ We have indicated below how we retrieved these information **but you don't need to do it for the lab**:
     * In the main GEO entry [GSE128767](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767) 
     * click on one of the samples (for example -  [GSM3684638](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3684638)).  
     * On the sample page scroll down to the "Data processing" section
         * The organism is **mus musculus** and the reference genome is **mm10**
         * 3 files are available from the GEO entry (see below).
 
+![Figure 3 - Dataset BED file](./Module5/chipseqlab/chipseqlab_image/img4.png) 
+
 * The bed file provided by the authors (GSE128767_RUNX1_ChIP.peaks.bed) (linked on the main dataset page under supplementary file - [GSE128767](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767) )
 has the right format to be used by [GREAT](http://great.stanford.edu/public/html/) for the pathway analysis;
 The first 3 fields contain the chromosome name, start and end. They are the 3 required fields. The fourth column is optional and consists of the chromosomal position, followed by MACS2 score value and FDR. 
 
-![Figure 3 - Dataset BED file](./Module5/chipseqlab/chipseqlab_image/img4.png) 
-
 ![Figure 4 - Example view of BED file](./Module5/chipseqlab/chipseqlab_image/img5.png) 
-
-
 
 
 ## Exercise 1 - Run pathway analysis using GREAT
@@ -179,7 +182,7 @@ Using this rule, genes will be associated with peaks only if they are within 1kb
 ![Figure 18 - Enrichment map with distal enriched pathways](./Module5/chipseqlab/chipseqlab_image/proximal_map.png)
 
 
-## Exercise 3 (optional): Auto-annotate the distal enrichment map, build the proximal map and compare both the proximal and distal maps
+## Exercise 3 (optional): Practice building enrichment maps and auto-annotation
 
 ### Optional exercise 3a: AutoAnnotate the enrichment map: 
 * In the menu bar, select Apps and then AutoAnnotate. 
@@ -203,7 +206,7 @@ Because this is proximal data, the problem is reduced to a gene list and you can
 * Check which nodes are in common between the 2 datasets.  
 * Color the data by datasets. 
 
-## Exercise 4: Add RUNX1 targets and RUNX1 KO up and down regulated genes on the distal enrichment map as a new gene-set.
+## Exercise 4: Add RUNX1 targets and RUNX1 KO genes on the distal enrichment map.
 
 During this exercise, we will connect the proximal chIP-seq enrichment map with the RUNX1 targets as well as the genes that are dysregulated after RUNX1 KO. We have already created a .gmt file that contains these gene lists (RUNX1_Affy.gmt). The format of a .gmt file is a tab delimited text file with one row per gene-set. Each gene-set contains the name of the gene-set, a description of the gene-set followed by the names of the genes. The file extension is changed from .txt to .gmt.
 
@@ -213,7 +216,7 @@ During this exercise, we will connect the proximal chIP-seq enrichment map with 
 
 This RUNX1 study had transcriptomics data (microarray) in addition to the chIP-seq data. The microarray data gives an overview of all genes that are changing between a fetal ovary with normal development and a fetal ovary after RUNX1 knock-out (KO) (GSE129038). We have used the tool GEO2R to get the top 500 up and down regulated genes (see description of the steps at the end the document).
 
-### step 4a: Add the .gmt file to the enrichment map:
+### step 4a: post analysis:
 * Go to the EnrichmentMap tab 
 * Make sure that the Distal_GOBP_greatExportAll network is selected.
 * click on “Add Signature Gene Sets…”.
@@ -251,7 +254,7 @@ The 3 gene-sets are now added to the map. Each line (edge) shows pathways that h
 
 * MEME suite accepts sequences as input and not chromosome coordinates. The bed file contains the chromosome coordinates of the peaks. Therefore, we first need to fetch all the peak sequences. UCSC genome browser (https://genome.ucsc.edu/) has some tools to help us.
 
-* If needed, you can use the finalized formatted file [GSE128767_RUNX1_ChIP.peaks.fasta](./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta) **but we encourage you to follow the below steps to learn how to do it yourself**.
+* If needed, you can use the finalized formatted file [GSE128767_RUNX1_ChIP.peaks.fasta](./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta) to run MEME-chIP **but we encourage you to follow the below steps to learn how to do it yourself**.
 
 * The step that we took to create it are described below and were adapted from https://fasta.bioch.virginia.edu/cshl/stubbs/meme-ex/meme.html.
 
@@ -291,6 +294,8 @@ The 3 gene-sets are now added to the map. Each line (edge) shows pathways that h
 ![meme6](./Module5/chipseqlab/chipseqlab_image/meme6.png)
 
 * A fasta file will appear; save this as plain text (copy and paste in a text editor or right click on the page and select *Save As...* and save the file to your computer).
+  *	here is the file in case you need it: [GSE128767_RUNX1_ChIP.peaks_INTERMEDIATE.fasta](./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks_INTERMEDIATE.fasta)
+
 * You will need to modify the UCSC header that comes with the sequences to use them for meme:
 
   * Go to https://fasta.bioch.virginia.edu/fasta_www2/clean_fasta.html

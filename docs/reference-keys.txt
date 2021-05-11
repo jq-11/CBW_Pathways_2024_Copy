@@ -129,12 +129,12 @@ explore-the-results.
 perform-pathway-enrichment---proximal-approach
 explore-the-results.---proximal-analysis
 exercise-2---build-an-enrichment-map-to-visualize-great-results
-exercise-3-optional-auto-annotate-the-distal-enrichment-map-build-the-proximal-map-and-compare-both-the-proximal-and-distal-maps
+exercise-3-optional-practice-building-enrichment-maps-and-auto-annotation
 optional-exercise-3a-autoannotate-the-enrichment-map
 optional-exercise-3b-repeat-the-process-of-building-an-enrichment-map-using-the-proximal-data-proximal_gobp_greatexportall.tsv.
 optional-exercise-3c-repeat-the-process-by-building-both-the-proximal-and-distal-enrichment-maps-at-the-same-time.
-exercise-4-add-runx1-targets-and-runx1-ko-up-and-down-regulated-genes-on-the-distal-enrichment-map-as-a-new-gene-set.
-step-4a-add-the-.gmt-file-to-the-enrichment-map
+exercise-4-add-runx1-targets-and-runx1-ko-genes-on-the-distal-enrichment-map.
+step-4a-post-analysis
 step-4b-optional-change-the-edge-style-of-the-signature-gene-sets
 exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip
 format-the-data

@@ -284,13 +284,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#explore-the-results.---proximal-analysis"><i class="fa fa-check"></i>Explore the results. - proximal analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-2---build-an-enrichment-map-to-visualize-great-results"><i class="fa fa-check"></i>Exercise 2 - Build an enrichment map to visualize GREAT results</a></li>
-<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-3-optional-auto-annotate-the-distal-enrichment-map-build-the-proximal-map-and-compare-both-the-proximal-and-distal-maps"><i class="fa fa-check"></i>Exercise 3 (optional): Auto-annotate the distal enrichment map, build the proximal map and compare both the proximal and distal maps</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-3-optional-practice-building-enrichment-maps-and-auto-annotation"><i class="fa fa-check"></i>Exercise 3 (optional): Practice building enrichment maps and auto-annotation</a><ul>
 <li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#optional-exercise-3a-autoannotate-the-enrichment-map"><i class="fa fa-check"></i>Optional exercise 3a: AutoAnnotate the enrichment map:</a></li>
 <li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#optional-exercise-3b-repeat-the-process-of-building-an-enrichment-map-using-the-proximal-data-proximal_gobp_greatexportall.tsv."><i class="fa fa-check"></i>Optional exercise 3b: Repeat the process of building an enrichment map using the proximal data (Proximal_GOBP_greatExportAll.tsv).</a></li>
 <li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#optional-exercise-3c-repeat-the-process-by-building-both-the-proximal-and-distal-enrichment-maps-at-the-same-time."><i class="fa fa-check"></i>Optional exercise 3c: Repeat the process by building both the Proximal and Distal enrichment maps at the same time.</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-4-add-runx1-targets-and-runx1-ko-up-and-down-regulated-genes-on-the-distal-enrichment-map-as-a-new-gene-set."><i class="fa fa-check"></i>Exercise 4: Add RUNX1 targets and RUNX1 KO up and down regulated genes on the distal enrichment map as a new gene-set.</a><ul>
-<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#step-4a-add-the-.gmt-file-to-the-enrichment-map"><i class="fa fa-check"></i>step 4a: Add the .gmt file to the enrichment map:</a></li>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#exercise-4-add-runx1-targets-and-runx1-ko-genes-on-the-distal-enrichment-map."><i class="fa fa-check"></i>Exercise 4: Add RUNX1 targets and RUNX1 KO genes on the distal enrichment map.</a><ul>
+<li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#step-4a-post-analysis"><i class="fa fa-check"></i>step 4a: post analysis:</a></li>
 <li class="chapter" data-level="" data-path="regulatory-network-chipseq-lab.html"><a href="regulatory-network-chipseq-lab.html#step-4b-optional-change-the-edge-style-of-the-signature-gene-sets"><i class="fa fa-check"></i>Step 4b Optional: Change the edge style of the signature gene-sets:</a></li>
 </ul></li>
 <li><a href="regulatory-network-chipseq-lab.html#exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip">Exercise 5: Learning how to run MEME-chip from the MEME suite (<span>https://meme-suite.org/meme/tools/meme-chip</span>)</a><ul>
@@ -426,7 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="regulatory_network_chipseq_lab" class="section level1">
 <h1>Module 5 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq</h1>
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
-<p><em><font color="#827e9c">By Veronique Voisin </font></em></p>
+<p><em><font color="#827e9c">By Veronique Voisin and Ruth Isserlin </font></em></p>
 <div id="goal-of-this-practical-lab" class="section level2">
 <h2>Goal of this practical lab</h2>
 <ul>
@@ -481,21 +481,25 @@ NCBI GEO: <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767"
 <li>Linked to transcriptomic data <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129038">GSE129038</a></li>
 <li>Quality of the data</li>
 </ul>
-<p>The first piece of information that we need to get before starting the analysis is the model organism and genome version.
+<p>The 3 piecew of information that we need to get before starting the analysis are:
+* the model organism: mus musculus
+* genome version: mm10
+* bed file : <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.bed">GSE128767_RUNX1_ChIP.peaks.bed</a></p>
+<p>We have indicated below how we retrieved these information <strong>but you don’t need to do it for the lab</strong>:
 * In the main GEO entry <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767">GSE128767</a>
 * click on one of the samples (for example - <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3684638">GSM3684638</a>).<br />
 * On the sample page scroll down to the “Data processing” section
 * The organism is <strong>mus musculus</strong> and the reference genome is <strong>mm10</strong>
 * 3 files are available from the GEO entry (see below).</p>
+<div class="figure">
+<img src="Module5/chipseqlab/chipseqlab_image/img4.png" alt="" />
+<p class="caption">Figure 3 - Dataset BED file</p>
+</div>
 <ul>
 <li>The bed file provided by the authors (GSE128767_RUNX1_ChIP.peaks.bed) (linked on the main dataset page under supplementary file - <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767">GSE128767</a> )
 has the right format to be used by <a href="http://great.stanford.edu/public/html/">GREAT</a> for the pathway analysis;
 The first 3 fields contain the chromosome name, start and end. They are the 3 required fields. The fourth column is optional and consists of the chromosomal position, followed by MACS2 score value and FDR.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img4.png" alt="" />
-<p class="caption">Figure 3 - Dataset BED file</p>
-</div>
 <div class="figure">
 <img src="Module5/chipseqlab/chipseqlab_image/img5.png" alt="" />
 <p class="caption">Figure 4 - Example view of BED file</p>
@@ -653,8 +657,8 @@ The fold enrichment is the proportion of genomic regions annotated with the test
 <p class="caption">Figure 18 - Enrichment map with distal enriched pathways</p>
 </div>
 </div>
-<div id="exercise-3-optional-auto-annotate-the-distal-enrichment-map-build-the-proximal-map-and-compare-both-the-proximal-and-distal-maps" class="section level2">
-<h2>Exercise 3 (optional): Auto-annotate the distal enrichment map, build the proximal map and compare both the proximal and distal maps</h2>
+<div id="exercise-3-optional-practice-building-enrichment-maps-and-auto-annotation" class="section level2">
+<h2>Exercise 3 (optional): Practice building enrichment maps and auto-annotation</h2>
 <div id="optional-exercise-3a-autoannotate-the-enrichment-map" class="section level3">
 <h3>Optional exercise 3a: AutoAnnotate the enrichment map:</h3>
 <ul>
@@ -686,8 +690,8 @@ What are the main biological functions enriched in genes associated with RUNX1 p
 </ul>
 </div>
 </div>
-<div id="exercise-4-add-runx1-targets-and-runx1-ko-up-and-down-regulated-genes-on-the-distal-enrichment-map-as-a-new-gene-set." class="section level2">
-<h2>Exercise 4: Add RUNX1 targets and RUNX1 KO up and down regulated genes on the distal enrichment map as a new gene-set.</h2>
+<div id="exercise-4-add-runx1-targets-and-runx1-ko-genes-on-the-distal-enrichment-map." class="section level2">
+<h2>Exercise 4: Add RUNX1 targets and RUNX1 KO genes on the distal enrichment map.</h2>
 <p>During this exercise, we will connect the proximal chIP-seq enrichment map with the RUNX1 targets as well as the genes that are dysregulated after RUNX1 KO. We have already created a .gmt file that contains these gene lists (RUNX1_Affy.gmt). The format of a .gmt file is a tab delimited text file with one row per gene-set. Each gene-set contains the name of the gene-set, a description of the gene-set followed by the names of the genes. The file extension is changed from .txt to .gmt.</p>
 <div class="figure">
 <img src="Module5/chipseqlab/chipseqlab_image/gmt.png" alt="" />
@@ -697,8 +701,8 @@ What are the main biological functions enriched in genes associated with RUNX1 p
 <li>Note: We extracted the RUNX1 targets using the iRegulon Cytoscape app and the optional exercise 6 describes the steps. We extracted 200 genes to build the RUNX1 target gene list.</li>
 </ul>
 <p>This RUNX1 study had transcriptomics data (microarray) in addition to the chIP-seq data. The microarray data gives an overview of all genes that are changing between a fetal ovary with normal development and a fetal ovary after RUNX1 knock-out (KO) (GSE129038). We have used the tool GEO2R to get the top 500 up and down regulated genes (see description of the steps at the end the document).</p>
-<div id="step-4a-add-the-.gmt-file-to-the-enrichment-map" class="section level3">
-<h3>step 4a: Add the .gmt file to the enrichment map:</h3>
+<div id="step-4a-post-analysis" class="section level3">
+<h3>step 4a: post analysis:</h3>
 <ul>
 <li>Go to the EnrichmentMap tab</li>
 <li>Make sure that the Distal_GOBP_greatExportAll network is selected.</li>
@@ -754,7 +758,7 @@ What are the main biological functions enriched in genes associated with RUNX1 p
 <h3>Format the Data</h3>
 <ul>
 <li><p>MEME suite accepts sequences as input and not chromosome coordinates. The bed file contains the chromosome coordinates of the peaks. Therefore, we first need to fetch all the peak sequences. UCSC genome browser (<a href="https://genome.ucsc.edu/" class="uri">https://genome.ucsc.edu/</a>) has some tools to help us.</p></li>
-<li><p>If needed, you can use the finalized formatted file <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta">GSE128767_RUNX1_ChIP.peaks.fasta</a> <strong>but we encourage you to follow the below steps to learn how to do it yourself</strong>.</p></li>
+<li><p>If needed, you can use the finalized formatted file <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta">GSE128767_RUNX1_ChIP.peaks.fasta</a> to run MEME-chIP <strong>but we encourage you to follow the below steps to learn how to do it yourself</strong>.</p></li>
 <li><p>The step that we took to create it are described below and were adapted from <a href="https://fasta.bioch.virginia.edu/cshl/stubbs/meme-ex/meme.html" class="uri">https://fasta.bioch.virginia.edu/cshl/stubbs/meme-ex/meme.html</a>.</p></li>
 </ul>
 </div>
@@ -804,7 +808,10 @@ What are the main biological functions enriched in genes associated with RUNX1 p
 <p class="caption">meme6</p>
 </div>
 <ul>
-<li><p>A fasta file will appear; save this as plain text (copy and paste in a text editor or right click on the page and select <em>Save As…</em> and save the file to your computer).</p></li>
+<li><p>A fasta file will appear; save this as plain text (copy and paste in a text editor or right click on the page and select <em>Save As…</em> and save the file to your computer).</p>
+<ul>
+<li>here is the file in case you need it: <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks_INTERMEDIATE.fasta">GSE128767_RUNX1_ChIP.peaks_INTERMEDIATE.fasta</a></li>
+</ul></li>
 <li><p>You will need to modify the UCSC header that comes with the sequences to use them for meme:</p>
 <ul>
 <li>Go to <a href="https://fasta.bioch.virginia.edu/fasta_www2/clean_fasta.html" class="uri">https://fasta.bioch.virginia.edu/fasta_www2/clean_fasta.html</a></li>
