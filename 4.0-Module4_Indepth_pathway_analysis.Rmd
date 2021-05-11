@@ -6,7 +6,7 @@
   
   [Lab Lecture](./lectures/Pathways_2021_Module4_lab.pdf)
   
-  [Lab practical](./Module4/Reactome/lab/CBW_2020_Module_4_Lab_Questions.pdf)
+  [Lab practical](./lectures/CBW_2021_Module_4_Lab_Questions.pdf)
 
  *  Downloald  [GBM_genelist.txt](./Module4/Reactome/data/GBM_genelist.txt) file.  
  *  Downloald  [GBM_genesample.txt](./Module4/Reactome/data/GBM_genesample.txt) file.  
@@ -16,7 +16,7 @@
 
 ---
  
- [Lab practical answers](./Module4/Reactome/lab/CBW_2020_Module_4_Lab_Answers.pdf)
+ [Lab practical answers](./lectures/CBW_2021_Module_4_Lab_Answers.pdf)
 
 
 
