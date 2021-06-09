@@ -46,9 +46,9 @@ Place it in the corresponding module directory of your CBW work directory.
 * [cluster3.txt](./Can_Module8/data/cluster3.txt)
 * [background.txt](./Can_Module8/data/background.txt) 
 
-We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol. 
+We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.   
 
-### Step 1 - Launch g:Profiler.
+### Step 1 - Launch g:Profiler.  
 
 Open the g:Profiler website at [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) in your web browser.
 
