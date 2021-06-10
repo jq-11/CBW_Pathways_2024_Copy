@@ -26,7 +26,14 @@ The 14 clusters  were further further classified into 5 cell types.
 <img src="./Can_Module8/images/scRNA2.png" alt="workflow" width="100%" />
 
 
-The gene lists were obtained from differential gene expression analyses comparing cells from each cluster vs. the rest of the cells using Seurat's function 'FindAllMarkers(..., only.pos=T, min.pct = 0, return.thresh = 1, logfc.threshold = 0)'. For each cluster, the top 250 genes with FDR value equal or less than 0.05 were retrieved. All genes present in at least 1 cluster will be used as background (16066 genes) for the pathway enrichment analysis.
+The gene lists were obtained from differential gene expression (DGE) analyses comparing cells from each cluster vs. the rest of the cells using Seurat's function 'FindAllMarkers(..., only.pos=T, min.pct = 0, return.thresh = 1, logfc.threshold = 0)'. For each cluster, the top 250 genes with FDR value equal or less than 0.05 were retrieved. All genes present in at least 1 cluster will be used as background (16066 genes) for the pathway enrichment analysis.
+
+<img src="./Can_Module8/images/scRNA2a.png" alt="workflow" width="100%" />
+
+DGE: Table (top genes of cluster 3 versus all clusters)
+<img src="./Can_Module8/images/scRNA2b.png" alt="workflow" width="100%" />
+
+link to file: [Richards_NatCancer_2021_DGE_GlobalClustering_SCT_wilcox.tsv.bz2](./Can_Module8/data/Richards_NatCancer_2021_DGE_GlobalClustering_SCT_wilcox.tsv.bz2)
 
 ## Exercise 1 - run g:Profiler {#exercise-1}
 
@@ -39,7 +46,7 @@ Before starting this exercise, download the required files:
 ```{block, type="rmd-datadownload"}
 Right click on link below and select "Save Link As...".
 
-Place it in the corresponding module directory of your CBW work directory.
+Place it in a folder on your computer : for example create a pathway_analysis folder and save all the files needed for this module in this directory.
 ```
 
 
@@ -110,7 +117,7 @@ Click on the *Run query* button to run g:Profiler.
 Scroll down page to see results. 
 
 ```{block, type="rmd-tip"}
-If after clicking on *Run query* button the analysis completes but there is the following message above results file - *Select the Ensembl ID with the most GO annotations (all)*. For each ambiguous gene select its correct mapping. Ambiguous mapping is often caused by multiple ensembl ids for a given gene and are easy to resolve as a user. Rerun query.
+If after clicking on *Run query* button the analysis completes but there is the following message above results file - *Select the Ensembl ID with the most GO annotations (all)*. For each ambiguous gene select its correct mapping. Ambiguous mapping is often caused by multiple ensembl ids for a given gene and are easy to resolve as a user. To choose the correct mapping, check the option that has the correct gene name and/or then that has the most GO annotations. Rerun query.
 ```
 
 
@@ -119,7 +126,7 @@ If after clicking on *Run query* button the analysis completes but there is the 
 Step 5a:
 
 * After the query has run, the results are displayed at the bottom of the page, below the input parameters.
-* By default, the "Results" tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 3 gene-set databases that we have selected, GO Biological Process(GO:BP) and  Reactome(REAC) and Wikipathways(WP). Numbers in parentheses are indicating the number of gene-sets that passed the threshold.
+* By default, the "Results" tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 3 gene-set databases that we have selected, GO Biological Process(GO:BP) and  Reactome(REAC) and Wikipathways(WP). Numbers in parentheses are indicating the number of gene-sets that passed the threshold (0 gene-sets passed the 0.05 threshold for Reactome).
 
 <img src="./Can_Module8/images/gp5.png" alt="workflow" width="100%" />
 
@@ -201,7 +208,7 @@ The terms *myelin* and *axon ensheathment* are the most significant gene-sets (=
 
 
 ```{block, type="rmd-note"}
-you will be using this optional hsapiens.pathways.name.gmt file in Cytoscape EnrichmentMap.
+you will be using this optional gprofiler_full_hsapiens.name.gmt file in Cytoscape EnrichmentMap.
 ```     
 
 ---
@@ -256,14 +263,14 @@ Two files are needed for this exercise:
     * Wikipathways
     * Benjamini-HochBerg FDR 0.05
     * gene-set size from 10 to 500
-    
+Note: this file is similar to the one that you have created in exercise 1. Use this link to follow exercise 2.
 
   2. Pathway database 1 (.gmt):[gprofiler_full_hsapiens.name.gmt](./Can_Module8/data/gprofiler_full_hsapiens.name.gmt)
 
 ```{block, type="rmd-datadownload"}
 Right click on link below and select "Save Link As...".
 
-Place it in the corresponding module directory of your CBW work directory.
+Place it in the corresponding module directory of your pathway_analysis folder on your computer.
 ```
 
 
@@ -290,6 +297,7 @@ Launch Cytoscape and open the EnrichmentMap App
 Create an enrichment map from 1 dataset and with a gmt file.
 
 2a. In the 'Create Enrichment Map' window, drag and drop the enrichment file  [Cluster3_noEIA_gProfiler.gem.txt](./Can_Module8/data/Cluster3_noEIA_gProfiler.gem.txt).
+Tip: if drag and drop does not work, you can click ‘...’ next to enrichments and upload the file. The analysis type needs to be set to generic/gprofiler.
 
 <img src="./Can_Module8/images/gem0.png" alt="workflow" width="100%" />
 
@@ -336,6 +344,8 @@ Make sure you have unselected "Publication Ready" in the EnrichmentMap control p
  * In the *AutoAnnotate Display* window located on the right side, uncheck *Scale font by cluster size* and check *Word Wrap*.
  
   <img src="./Can_Module8/images/EM3.png" alt="workflow" width="60%"/>
+  
+ Tip: if you are having difficulty separating  nodes/clusters, you can hold shift and click and drag a square around a nodes of interest to highlight them, then move them all at once.
     
 
 ```{block, type="rmd-caution"}
@@ -418,7 +428,7 @@ Create an enrichment map from multiple datasets.
 
 * a status bar should pop up showing progress of the Enrichment map build.
 
-2d. Once the map is build, locate the EnrichmentMap tab on the right and set *Chart Data* to *Color by Data Set*.
+2d. Once the map is build, locate the EnrichmentMap tab on the right and set *Chart Data* to *Color by Data Set*. You can also check "publication ready" to remove node labels.
 
 <p align="center">
 <img src="./Can_Module8/images/em2_2.png" alt="workflow" width="100%" />
@@ -432,7 +442,7 @@ Create an enrichment map from multiple datasets.
 <img src="./Can_Module8/images/em2_4.png" alt="workflow" width="100%" />
 </p>
 
- * Adjust the colors so it corresponds to the single cell RNAseq UMAP plot (see top of the document for reference).
+ * Adjust the colors so it corresponds approximately to the single cell RNAseq UMAP plot (see top of the document for reference). 
  
 <p align="center">
 <img src="./Can_Module8/images/em2_5.png" alt="workflow" width="50%" />

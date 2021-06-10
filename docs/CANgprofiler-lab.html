@@ -476,7 +476,11 @@ ready to copy and paste into a web page: for this, we use genes identified in si
 <p><img src="Can_Module8/images/scRNA1.png" alt="workflow" width="100%" /></p>
 <p>The 14 clusters were further further classified into 5 cell types.</p>
 <p><img src="Can_Module8/images/scRNA2.png" alt="workflow" width="100%" /></p>
-<p>The gene lists were obtained from differential gene expression analyses comparing cells from each cluster vs. the rest of the cells using Seurat’s function ‘FindAllMarkers(…, only.pos=T, min.pct = 0, return.thresh = 1, logfc.threshold = 0)’. For each cluster, the top 250 genes with FDR value equal or less than 0.05 were retrieved. All genes present in at least 1 cluster will be used as background (16066 genes) for the pathway enrichment analysis.</p>
+<p>The gene lists were obtained from differential gene expression (DGE) analyses comparing cells from each cluster vs. the rest of the cells using Seurat’s function ‘FindAllMarkers(…, only.pos=T, min.pct = 0, return.thresh = 1, logfc.threshold = 0)’. For each cluster, the top 250 genes with FDR value equal or less than 0.05 were retrieved. All genes present in at least 1 cluster will be used as background (16066 genes) for the pathway enrichment analysis.</p>
+<p><img src="Can_Module8/images/scRNA2a.png" alt="workflow" width="100%" /></p>
+<p>DGE: Table (top genes of cluster 3 versus all clusters)
+<img src="Can_Module8/images/scRNA2b.png" alt="workflow" width="100%" /></p>
+<p>link to file: <a href="./Can_Module8/data/Richards_NatCancer_2021_DGE_GlobalClustering_SCT_wilcox.tsv.bz2">Richards_NatCancer_2021_DGE_GlobalClustering_SCT_wilcox.tsv.bz2</a></p>
 </div>
 <div id="exercise-1" class="section level2">
 <h2>Exercise 1 - run g:Profiler</h2>
@@ -488,7 +492,7 @@ ready to copy and paste into a web page: for this, we use genes identified in si
 Right click on link below and select “Save Link As…”.
 </p>
 <p>
-Place it in the corresponding module directory of your CBW work directory.
+Place it in a folder on your computer : for example create a pathway_analysis folder and save all the files needed for this module in this directory.
 </p>
 </div>
 <ul>
@@ -554,7 +558,7 @@ if g:Profiler does not return any results uncheck the <em>No electronic GO annot
 <p>Scroll down page to see results.</p>
 <div class="rmd-tip">
 <p>
-If after clicking on <em>Run query</em> button the analysis completes but there is the following message above results file - <em>Select the Ensembl ID with the most GO annotations (all)</em>. For each ambiguous gene select its correct mapping. Ambiguous mapping is often caused by multiple ensembl ids for a given gene and are easy to resolve as a user. Rerun query.
+If after clicking on <em>Run query</em> button the analysis completes but there is the following message above results file - <em>Select the Ensembl ID with the most GO annotations (all)</em>. For each ambiguous gene select its correct mapping. Ambiguous mapping is often caused by multiple ensembl ids for a given gene and are easy to resolve as a user. To choose the correct mapping, check the option that has the correct gene name and/or then that has the most GO annotations. Rerun query.
 </p>
 </div>
 </div>
@@ -563,7 +567,7 @@ If after clicking on <em>Run query</em> button the analysis completes but there 
 <p>Step 5a:</p>
 <ul>
 <li>After the query has run, the results are displayed at the bottom of the page, below the input parameters.</li>
-<li>By default, the “Results” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 3 gene-set databases that we have selected, GO Biological Process(<a href="GO:BP" class="uri">GO:BP</a>) and Reactome(REAC) and Wikipathways(WP). Numbers in parentheses are indicating the number of gene-sets that passed the threshold.</li>
+<li>By default, the “Results” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 3 gene-set databases that we have selected, GO Biological Process(<a href="GO:BP" class="uri">GO:BP</a>) and Reactome(REAC) and Wikipathways(WP). Numbers in parentheses are indicating the number of gene-sets that passed the threshold (0 gene-sets passed the 0.05 threshold for Reactome).</li>
 </ul>
 <p><img src="Can_Module8/images/gp5.png" alt="workflow" width="100%" /></p>
 <p>Step5b:</p>
@@ -638,7 +642,7 @@ The table is formatted for the input into Cytoscape EnrichmentMap. It is called 
 </p>
 <div class="rmd-note">
 <p>
-you will be using this optional hsapiens.pathways.name.gmt file in Cytoscape EnrichmentMap.
+you will be using this optional gprofiler_full_hsapiens.name.gmt file in Cytoscape EnrichmentMap.
 </p>
 </div>
 <hr />
@@ -692,7 +696,8 @@ An enrichment map represents the result of enrichment analysis as a network wher
 <li>Reactome,</li>
 <li>Wikipathways</li>
 <li>Benjamini-HochBerg FDR 0.05</li>
-<li>gene-set size from 10 to 500</li>
+<li>gene-set size from 10 to 500
+Note: this file is similar to the one that you have created in exercise 1. Use this link to follow exercise 2.</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li>Pathway database 1 (.gmt):<a href="./Can_Module8/data/gprofiler_full_hsapiens.name.gmt">gprofiler_full_hsapiens.name.gmt</a></li>
@@ -703,7 +708,7 @@ An enrichment map represents the result of enrichment analysis as a network wher
 Right click on link below and select “Save Link As…”.
 </p>
 <p>
-Place it in the corresponding module directory of your CBW work directory.
+Place it in the corresponding module directory of your pathway_analysis folder on your computer.
 </p>
 </div>
 <div id="step-1-2" class="section level3">
@@ -725,7 +730,8 @@ Place it in the corresponding module directory of your CBW work directory.
 <div id="step-2-2" class="section level3">
 <h3>Step 2</h3>
 <p>Create an enrichment map from 1 dataset and with a gmt file.</p>
-<p>2a. In the ‘Create Enrichment Map’ window, drag and drop the enrichment file <a href="./Can_Module8/data/Cluster3_noEIA_gProfiler.gem.txt">Cluster3_noEIA_gProfiler.gem.txt</a>.</p>
+<p>2a. In the ‘Create Enrichment Map’ window, drag and drop the enrichment file <a href="./Can_Module8/data/Cluster3_noEIA_gProfiler.gem.txt">Cluster3_noEIA_gProfiler.gem.txt</a>.
+Tip: if drag and drop does not work, you can click ‘…’ next to enrichments and upload the file. The analysis type needs to be set to generic/gprofiler.</p>
 <p><img src="Can_Module8/images/gem0.png" alt="workflow" width="100%" /></p>
 <p>2b. On the right side, go to the <em>GMT</em> field, click on the 3 radio button (…) and locate the file gprofiler_full_hsapiens.name.gmt that you have saved on your computer to upload it.</p>
 <p>2c. Locate the <em>FDR q-value cutoff</em> field and set the value to 0.01</p>
@@ -771,6 +777,7 @@ Make sure you have unselected “Publication Ready” in the EnrichmentMap contr
 <li><p>In the <em>AutoAnnotate Display</em> window located on the right side, uncheck <em>Scale font by cluster size</em> and check <em>Word Wrap</em>.</p>
 <p><img src="Can_Module8/images/EM3.png" alt="workflow" width="60%"/></p></li>
 </ul>
+<p>Tip: if you are having difficulty separating nodes/clusters, you can hold shift and click and drag a square around a nodes of interest to highlight them, then move them all at once.</p>
 <div class="rmd-caution">
 <p>
 SAVE YOUR CYTOSCAPE SESSION (.cys) FILE !
@@ -848,7 +855,7 @@ SAVE YOUR CYTOSCAPE SESSION (.cys) FILE !
 <ul>
 <li>a status bar should pop up showing progress of the Enrichment map build.</li>
 </ul>
-<p>2d. Once the map is build, locate the EnrichmentMap tab on the right and set <em>Chart Data</em> to <em>Color by Data Set</em>.</p>
+<p>2d. Once the map is build, locate the EnrichmentMap tab on the right and set <em>Chart Data</em> to <em>Color by Data Set</em>. You can also check “publication ready” to remove node labels.</p>
 <p align="center">
 <img src="Can_Module8/images/em2_2.png" alt="workflow" width="100%" />
 </p>
@@ -860,7 +867,7 @@ SAVE YOUR CYTOSCAPE SESSION (.cys) FILE !
 <img src="Can_Module8/images/em2_4.png" alt="workflow" width="100%" />
 </p>
 <ul>
-<li>Adjust the colors so it corresponds to the single cell RNAseq UMAP plot (see top of the document for reference).</li>
+<li>Adjust the colors so it corresponds approximately to the single cell RNAseq UMAP plot (see top of the document for reference).</li>
 </ul>
 <p align="center">
 <img src="Can_Module8/images/em2_5.png" alt="workflow" width="50%" />
