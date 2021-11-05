@@ -4,6 +4,8 @@
   
   [Lecture](./lectures/Pathways_2021_Module4_lecture_RH.pdf)   
   
+  [Recorded video](https://www.youtube.com/watch?v=6rKCUOqGtXA&list=PL3izGL6oi0S-xaoH8p9LnJD8RQm8eNWF2&index=5)
+  
   [Lab Lecture](./lectures/Pathways_2021_Module4_lab.pdf)
   
   [Lab practical](./lectures/CBW_2021_Module_4_Lab_Questions.pdf)

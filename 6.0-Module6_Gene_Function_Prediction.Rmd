@@ -4,6 +4,10 @@
   
   [Lecture](./lectures/Pathways2021_Module6.pdf)  
   
+  [Recorded video 1](https://www.youtube.com/watch?v=2KrUq9ad2xc)
+  
+  [Recorded video 2](https://www.youtube.com/watch?v=4ShwH35UTJQ&list=PL3izGL6oi0S-xaoH8p9LnJD8RQm8eNWF2&index=7)
+  
   [Lab practical - Cytoscape](#genemania_cytoscape)   
   
   [Lab practical - Web](#genemania_web)  
