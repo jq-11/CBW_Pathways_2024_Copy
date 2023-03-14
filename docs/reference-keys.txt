@@ -4,6 +4,7 @@ gary-bader
 lincoln-stein
 veronique-voisin
 ruth-isserlin
+michelle-brazas-phd
 welcome
 class-materials
 schedule
