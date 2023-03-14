@@ -1,5 +1,5 @@
 
-# Pathway and Network Analysis of -Omics Data (Jun3 2023)
+# Pathway and Network Analysis of -Omics Data (June 2023)
 
 The CBW has developed a 2.5 day course covering the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information. The workshop focuses on the principles and concepts required for analyzing and conducting pathway and network analysis on a gene list from any organism, although focus will be on human and model eukaryotic organisms.
 
