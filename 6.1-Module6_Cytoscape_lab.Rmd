@@ -239,7 +239,7 @@ copy "PDPK1" in the search box and the node will be highlighted in yellow.
 <img src="./Module6/genemania/images/GC3_6b.png" alt="GC3_6b.png" width="750" />
 <img src="./Module6/genemania/images/GC3_6c.png" alt="GC3_6c.png" width="750" />
 
-----
+---
 
 ## SOME DEFINITIONS:
 

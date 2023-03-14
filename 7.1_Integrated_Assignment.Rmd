@@ -355,6 +355,7 @@ Hint: you can click on a function of your choice to see corresponding nodes high
 Note: on the above the screenshot, the CCBN1 color of the edges were changed by bypassing the style (select the edges, right click, edit, ByPass Style, Set Bypass to Selected Edges , change color in Byp. column)
 
 ---
+
 ### Answers GeneMANIA
 
 **Question** What is the number of nodes in the CTNBB1 network. 
@@ -385,6 +386,7 @@ There are 2 ways to perform a GeneMANIA search. The first option using the Netwo
 The network and predicted functions should be the same as the ones obtained in part 2. Feel free to explore the network or follow the same steps as part 2.  
 
 ---
+
 **Optional part 2: Use STRING from the Network Search Bar**
 
 STRING (Search Tool for the Retrieval of Interacting Genes/Proteins) is a biological database and web resource of known and predicted protein–protein interactions.

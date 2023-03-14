@@ -1,7 +1,7 @@
 --- 
 title: "Pathways" 
 subtitle: "CBW workshop"
-author: "Gary Bader, Veronique Voisin, Ruth Isserlin, Robin Haw, Michael Hoffman"
+author: "Gary Bader, Veronique Voisin, Ruth Isserlin"
 date: "last modified `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -14,7 +14,7 @@ favicon: images/favicon.ico
 description: "Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information. "
 ---
 
-# Pathway and Network Analysis of -Omics Data ( May 2021 )
+# Pathway and Network Analysis of -Omics Data ( May 2023 )
 
 The CBW has developed a 2.5 day course covering the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information. The workshop focuses on the principles and concepts required for analyzing and conducting pathway and network analysis on a gene list from any organism, although focus will be on human and model eukaryotic organisms.
 
@@ -26,17 +26,12 @@ Principal Investigator, University of Toronto
 <img src="./images/faculty/gary_bader.jpeg" style="float:left;width:125px;padding-right:10px;" />
 Dr. Bader develops biological network analysis and pathway information resources. He created the Biomolecular Interation Network Database ( [BIND](http://bind.ca) ) while working on his PhD and currently helps lead development of the free Cytoscape network visualization and analysis software [Cytoscape](http://cytoscape.org/). 
 
-### Robin Haw
-Manager of Reactome Outreach and Scientific Associate, OICR
+### Lincoln Stein
+Head, Adaptive Oncology, OICR
 
-<img src="./images/faculty/robin_haw.jpeg" style="float:right;width:125px;padding-left:10px;" />
-Robin is a microbiologist with experience in bioinformatics, curation and outreach. Dr. Haw has a PhD in genetics and was a senior curator at Biomolecular Interaction Network Database (BIND) and managing curator at Science Signaling’s Signal Transduction Knowledge Environment (STKE). He has been responsible for coordinating outreach, Reactome presentations and training at workshops and conferences.
+<img src="./images/faculty/lincoln_stein.jpeg" style="float:left;width:125px;padding-right:10px;" />
+Dr. Stein played an integral role in many large-scale data initiatives including the development of the first physical clone map of the human genome, and running the data coordinating centre and the data portal for the SNP Consortium and the HapMap Consortium. Dr. Stein has also led the creation and development of Wormbase, a community model organism database for C. elegans, and Reactome, which is now the largest open community database of biological reactions and pathways. At OICR, Dr. Stein has led several international cancer data sharing and research initiatives, including the creation and development of the data coordination centre for the International Cancer Genome Consortium and other related projects. He continues to collaborate with national and international partners to create and promote data sharing standards, protocols and implementations.
 
-### Michael Hoffman
-Scientist, Princess Margaret Cancer Centre Assistant Professor, Departments of Medical Biophysics and Computer Science, University of Toronto Faculty Affiliate, Vector Institute 
-
-<img src="./images/faculty/michael_hoffman.jpeg" style="float:right;width:125px;padding-left:10px;" />
-Michael Hoffman creates predictive computational models to understand interactions between genome, epigenome, and phenotype in human cancers. He implemented the genome annotation method Segway, which simplifies interpretation of large multivariate genomic datasets, and was a linchpin of the NIH ENCODE Project analysis. He was named a CIHR New Investigator and has received several awards for his academic work, including the NIH K99/R00 Pathway to Independence Award, and the Ontario Early Researcher Award. 
 
 ### Veronique Voisin
 Research Associate, Donnelly Centre for Cellular and Biomolecular Research, University of Toronto 
@@ -52,6 +47,13 @@ Research data analyst, Donnelly Centre for Cellular and Bimolecular Research, Un
 
 <img src="./images/faculty/ruth_isserlin.jpeg" style="float:right;width:125px;padding-left:10px;" />
 Bioinformatician and data analyst in the Bader lab applying pathway and data analysis to varied data types. Developed Enrichment Map App for Cytoscape, an app to visually translate functional enrichment results from popular enrichment tools like GSEA to networks. Further developed the Enrichment Map Pipeline including development of additional Apps to help summarize and analyze resulting Enrichment Maps, including PostAnalysis, WordCloud, and AutoAnnotate App. 
+
+###Michelle Brazas, PhD
+Acting Scientific Director Canadian Bioinformatics Workshops (CBW), Toronto, ON, CA
+support@bioinformatics.ca
+
+<img src="./images/faculty/michelle_brazas.jpeg" style="float:right;width:125px;padding-left:10px;" />
+Dr. Michelle Brazas is the Associate Director for Adaptive Oncology at the Ontario Institute for Cancer Research (OICR), and acting Scientific Director at Bioinformatics.ca. Previously, Dr. Brazas was the Program Manager for Bioinformatics.ca and a faculty member in Biotechnology at BCIT. Michelle co-founded and runs the Toronto Bioinformatics User Group (TorBUG) now in its 11th season, and plays an active role in the International Society of Computational Biology where she sits on the Board of Directors and Executive Board. 
 
 
 ***

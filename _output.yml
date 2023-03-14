@@ -9,8 +9,8 @@ bookdown::gitbook:
         <li><a href="./">CBW Pathways Workshop</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    view : https://github.com/risserlin/CBW_Pathways_bookdown/blob/master/%s
-    history : https://github.com/risserlin/CBW_Pathways_bookdown/commit/master/%s
+    view : https://github.com/BaderLab/CBW_Pathways_2023/master/%s
+    history : https://github.com/BaderLab/CBW_Pathways_2023/commit/master/%s
     download: ["epub"]
     sharing:
       github: yes

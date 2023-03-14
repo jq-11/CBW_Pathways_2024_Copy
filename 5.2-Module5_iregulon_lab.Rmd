@@ -179,7 +179,7 @@ MTF1 is associated with the motif cluster M1. This cluster contains 6 related mo
 
 ```{block, type="rmd-tip"}
 Open your web browser and search the web for [MTF1 “prostate cancer”].	
-````
+```
 
 ![10](./Module5/iregulon/images/10.png) 
  
@@ -230,7 +230,7 @@ This adds MTF1 to the network as a yellow node, with the edges linking to its 11
 ![12b](./Module5/iregulon/images/12b.png) 
 ```{block, type="rmd-tip"}
 If the node colors are not purple, go to Style and choose 'iRegulon Visual Style'.	
-````
+```
 
 ![gp1_12c](./Module5/iregulon/images/gp1_12c.png) 
 

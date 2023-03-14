@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Page not found | Pathways</title>
+  <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Page not found | Pathways" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Page not found | Pathways" />
+  
+  <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
+  
+
+<meta name="author" content="Gary Bader, Veronique Voisin, Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CBW Pathways Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pathway and Network Analysis of -Omics Data ( May 2023 )</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#meet-your-faculty"><i class="fa fa-check"></i>Meet your Faculty</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#gary-bader"><i class="fa fa-check"></i>Gary Bader</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#lincoln-stein"><i class="fa fa-check"></i>Lincoln Stein</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#veronique-voisin"><i class="fa fa-check"></i>Veronique Voisin</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ruth-isserlin"><i class="fa fa-check"></i>Ruth Isserlin</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html"><i class="fa fa-check"></i>Welcome <a id="welcome"></a></a>
+<ul>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#class-materials"><i class="fa fa-check"></i>Class Materials</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#schedule"><i class="fa fa-check"></i>Workshop Schedule</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#pre-workshop"><i class="fa fa-check"></i>Pre-Workshop Materials and Laptop Setup Instructions</a>
+<ul>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#laptop-setup-instructions"><i class="fa fa-check"></i>Laptop Setup Instructions</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#basic-programs"><i class="fa fa-check"></i>Basic programs</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#java-11-installation"><i class="fa fa-check"></i>Java 11 Installation</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#cytoscape-installation"><i class="fa fa-check"></i>Cytoscape Installation</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#gsea-installation"><i class="fa fa-check"></i>GSEA Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#pre-workshop-tutorials"><i class="fa fa-check"></i>Pre-workshop Tutorials</a>
+<ul>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#cytoscape-preparation-tutorials"><i class="fa fa-check"></i>Cytoscape Preparation tutorials</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#pre-workshop-readings-and-lectures"><i class="fa fa-check"></i>Pre-workshop Readings and Lectures</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#additional-tutorials"><i class="fa fa-check"></i>Additional tutorials <a id="additionaltutorials"></a></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>Module 1 - Introduction to Pathway and Network Analysis (Gary Bader)</a></li>
+<li class="chapter" data-level="" data-path="module-2-finding-over-represented-pathways-veronique-voisin.html"><a href="module-2-finding-over-represented-pathways-veronique-voisin.html"><i class="fa fa-check"></i>Module 2: Finding Over-represented Pathways (Veronique Voisin)</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html"><i class="fa fa-check"></i>Module 2 lab - g:Profiler</a>
+<ul>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#goal-of-the-exercise-1"><i class="fa fa-check"></i>Goal of the exercise 1</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-1"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a>
+<ul>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-1---launch-gprofiler."><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-2---input-query"><i class="fa fa-check"></i>Step 2 - input query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-3---adjust-parameters."><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-4---run-query"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-5---explore-the-results."><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-7-save-the-results"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-8-optional-but-recommended"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i>Exercise 2: Load and use a custom .gmt file and run the query</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-steps"><i class="fa fa-check"></i>Optional steps</a>
+<ul>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-1"><i class="fa fa-check"></i><strong>Optional 1</strong>:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-2"><i class="fa fa-check"></i><strong>Option 2</strong>:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#option-3"><i class="fa fa-check"></i><strong>Option 3</strong> :</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html"><i class="fa fa-check"></i>Module 2 lab - GSEA</a>
+<ul>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#goal-of-the-exercise"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#data-1"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#background"><i class="fa fa-check"></i>Background</a>
+<ul>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#how-to-generate-a-rank-file."><i class="fa fa-check"></i>How to generate a rank file.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#start-the-exercise"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step1."><i class="fa fa-check"></i>Step1.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step-2."><i class="fa fa-check"></i>Step 2.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step3."><i class="fa fa-check"></i>Step3.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step-4."><i class="fa fa-check"></i>Step 4.</a></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#step-5."><i class="fa fa-check"></i>Step 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea-lab.html"><a href="gsea-lab.html#additional_information"><i class="fa fa-check"></i>Additional information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3-network-visualization-and-analysis-with-cytoscape.html"><a href="module-3-network-visualization-and-analysis-with-cytoscape.html"><i class="fa fa-check"></i>Module 3: Network Visualization and Analysis with Cytoscape</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html"><i class="fa fa-check"></i>Module 3 Lab: g:profiler Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#goal-of-the-exercise-2"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#data-2"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#enrichmentmap"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#description-of-this-exercise"><i class="fa fa-check"></i>Description of this exercise</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#start-the-exercise-1"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#exercise-1a---compare-different-gprofiler-geneset-size-results"><i class="fa fa-check"></i>Exercise 1a - compare different gprofiler geneset size results</a>
+<ul>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#step-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#step-2"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#step3-explore-the-results"><i class="fa fa-check"></i>Step3: Explore the results:</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#explore-detailed-results"><i class="fa fa-check"></i>Explore Detailed results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#exercise-1b---is-specifying-the-gmt-file-important"><i class="fa fa-check"></i>Exercise 1b - Is specifying the gmt file important?</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#exercise-1c---create-em-from-results-using-baderlab-genesets"><i class="fa fa-check"></i>Exercise 1c - create EM from results using Baderlab genesets</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#exercise-1c-optional---investigate-individual-pathways-in-genemania-or-string"><i class="fa fa-check"></i>Exercise 1c (optional) - investigate individual pathways in GeneMANIA or String</a>
+<ul>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#genemania"><i class="fa fa-check"></i>GeneMANIA</a></li>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#string"><i class="fa fa-check"></i>String</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html"><i class="fa fa-check"></i>Module 3 Lab: GSEA Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#goal-of-the-exercise-3"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#data-3"><i class="fa fa-check"></i>Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#enrichmentmap-1"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#exercise-1---gsea-output-and-enrichmentmap"><i class="fa fa-check"></i>Exercise 1 - GSEA output and EnrichmentMap</a>
+<ul>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#step-1-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#step-2-1"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#step-3"><i class="fa fa-check"></i>Step 3</a></li>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#step-4"><i class="fa fa-check"></i>Step 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#exercise-2---post-analysis-add-drug-target-gene-sets-to-the-network"><i class="fa fa-check"></i>Exercise 2 - Post analysis (add drug target gene-sets to the network)</a>
+<ul>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#step-5"><i class="fa fa-check"></i>Step 5</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#exercise-3---autoannotate-the-network"><i class="fa fa-check"></i>Exercise 3 - Autoannotate the Network</a>
+<ul>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#step-6"><i class="fa fa-check"></i>Step 6</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#exercise-4-optional---explore-results-in-genemania-or-string"><i class="fa fa-check"></i>Exercise 4 (Optional) - Explore results in GeneMANIA or STRING</a>
+<ul>
+<li class="chapter" data-level="" data-path="gsea_mod3.html"><a href="gsea_mod3.html#step-7"><i class="fa fa-check"></i>Step 7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html"><i class="fa fa-check"></i>Module 3 Lab: (Bonus) Automation</a>
+<ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#goal-of-the-exercise-4"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#set-up---option-1---install-rrstudio"><i class="fa fa-check"></i>Set Up - Option 1 - Install R/Rstudio</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#set-up---option-2---docker-image-with-rrstudio"><i class="fa fa-check"></i>Set Up - Option 2 - Docker image with R/Rstudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#what-is-docker"><i class="fa fa-check"></i>What is docker?</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#docker---basic-term-definition"><i class="fa fa-check"></i>Docker - Basic term definition</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#container"><i class="fa fa-check"></i>Container</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#image"><i class="fa fa-check"></i>Image</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#docker-volumes"><i class="fa fa-check"></i>Docker Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#r_docker"><i class="fa fa-check"></i>Install Docker</a>
+<ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#macos-linux"><i class="fa fa-check"></i>MacOS / Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#create-your-first-notebook-using-docker"><i class="fa fa-check"></i>Create your first notebook using Docker</a>
+<ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#start-coding"><i class="fa fa-check"></i>Start coding!</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#start-using-automation"><i class="fa fa-check"></i>Start using automation</a>
+<ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-1---launch-rstudio"><i class="fa fa-check"></i>Step 1 - launch RStudio</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-2---create-a-new-project"><i class="fa fa-check"></i>Step 2 - create a new project</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-3---open-example-up-rnotebook"><i class="fa fa-check"></i>Step 3 - Open example up RNotebook</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-4---define-notebook-parameters"><i class="fa fa-check"></i>Step 4 - Define Notebook parameters</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-5---step-through-notebook-to-run-the-analysis"><i class="fa fa-check"></i>Step 5 - Step through notebook to run the analysis</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#additional-resources"><i class="fa fa-check"></i>Additional resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-in-depth-analysis-of-networks-and-pathways.html"><a href="module-4-in-depth-analysis-of-networks-and-pathways.html"><i class="fa fa-check"></i>Module 4: In-depth Analysis of Networks and Pathways</a></li>
+<li class="chapter" data-level="" data-path="intro-regulatory-networks.html"><a href="intro-regulatory-networks.html"><i class="fa fa-check"></i>Module 5: Regulatory Network Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-regulatory-networks.html"><a href="intro-regulatory-networks.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="intro-regulatory-networks.html"><a href="intro-regulatory-networks.html#practical-lab-1-chip_seq-data---great-and-meme-chip"><i class="fa fa-check"></i>Practical lab 1: chIP_seq data - GREAT and MEME-chIP</a></li>
+<li class="chapter" data-level="" data-path="intro-regulatory-networks.html"><a href="intro-regulatory-networks.html#practical-lab-2-gene-list---iregulon-and-enrichrenrichmentmap"><i class="fa fa-check"></i>Practical lab 2: gene list - iREgulon and enrichr/EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="intro-regulatory-networks.html"><a href="intro-regulatory-networks.html#additional-slides-about-the-tools-segway-and-behst-presented-during-the-lecture"><i class="fa fa-check"></i>Additional slides about the tools Segway and BEHST presented during the lecture</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html"><i class="fa fa-check"></i>Module 5 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq</a>
+<ul>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#goal-of-this-practical-lab"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#dataset-used-during-this-practical-lab"><i class="fa fa-check"></i>Dataset used during this practical lab</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#exercise-1---run-pathway-analysis-using-great"><i class="fa fa-check"></i>Exercise 1 - Run pathway analysis using GREAT</a>
+<ul>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#perform-pathway-enrichment"><i class="fa fa-check"></i>Perform pathway enrichment</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#explore-the-results."><i class="fa fa-check"></i>Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#perform-pathway-enrichment---proximal-approach"><i class="fa fa-check"></i>Perform pathway enrichment - Proximal approach</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#explore-the-results.---proximal-analysis"><i class="fa fa-check"></i>Explore the results. - proximal analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#exercise-2---build-an-enrichment-map-to-visualize-great-results"><i class="fa fa-check"></i>Exercise 2 - Build an enrichment map to visualize GREAT results</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#exercise-3-optional-practice-building-enrichment-maps-and-auto-annotation"><i class="fa fa-check"></i>Exercise 3 (optional): Practice building enrichment maps and auto-annotation</a>
+<ul>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#optional-exercise-3a-autoannotate-the-enrichment-map"><i class="fa fa-check"></i>Optional exercise 3a: AutoAnnotate the enrichment map:</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#optional-exercise-3b-repeat-the-process-of-building-an-enrichment-map-using-the-proximal-data-proximal_gobp_greatexportall.tsv."><i class="fa fa-check"></i>Optional exercise 3b: Repeat the process of building an enrichment map using the proximal data (Proximal_GOBP_greatExportAll.tsv).</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#optional-exercise-3c-repeat-the-process-by-building-both-the-proximal-and-distal-enrichment-maps-at-the-same-time."><i class="fa fa-check"></i>Optional exercise 3c: Repeat the process by building both the Proximal and Distal enrichment maps at the same time.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#exercise-4-add-runx1-targets-and-runx1-ko-genes-on-the-distal-enrichment-map."><i class="fa fa-check"></i>Exercise 4: Add RUNX1 targets and RUNX1 KO genes on the distal enrichment map.</a>
+<ul>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#step-4a-post-analysis"><i class="fa fa-check"></i>step 4a: post analysis:</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#step-4b-optional-change-the-edge-style-of-the-signature-gene-sets"><i class="fa fa-check"></i>Step 4b Optional: Change the edge style of the signature gene-sets:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip"><i class="fa fa-check"></i>Exercise 5: Learning how to run MEME-chip from the MEME suite (https://meme-suite.org/meme/tools/meme-chip)</a>
+<ul>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#format-the-data"><i class="fa fa-check"></i>Format the Data</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#exercise-5a-download-sequences-from-.bed-coordinates"><i class="fa fa-check"></i>Exercise 5a: Download sequences from .bed coordinates</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#exercise-5b-run-meme-chip"><i class="fa fa-check"></i>Exercise 5b: Run MEME-chIP</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#exercise-6-optional-get-the-iregulon-runx1-targets-and-find-the-mouse-orthologs-using-gorth-from-gprofiler-to-create-the-gmt-file-used-in-exercise-4."><i class="fa fa-check"></i>Exercise 6 (optional): Get the iRegulon RUNX1 targets and find the mouse orthologs using g:Orth (from g:Profiler) to create the gmt file used in Exercise 4.</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_chipseq_lab.html"><a href="regulatory_network_chipseq_lab.html#end-of-lab"><i class="fa fa-check"></i>End of Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html"><i class="fa fa-check"></i>Module 5 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon</a>
+<ul>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#iregulon-lab"><i class="fa fa-check"></i>iRegulon lab</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#goal"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#exercise-1.-detect-regulons-from-co-expressed-genes"><i class="fa fa-check"></i>Exercise 1. Detect regulons from co-expressed genes</a>
+<ul>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#skills-learned-in-this-exercise"><i class="fa fa-check"></i>Skills learned in this exercise:</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#steps"><i class="fa fa-check"></i>Steps</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#exercise-2.-create-a-metatargetome-using-iregulon-and-merge-2-networks-in-cytoscape."><i class="fa fa-check"></i>Exercise 2. Create a metatargetome using iRegulon and merge 2 networks in Cytoscape.</a>
+<ul>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#steps-1"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#use-or-precomputed-iregulon-results"><i class="fa fa-check"></i>Use or precomputed iRegulon results:</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#notes-about-iregulon"><i class="fa fa-check"></i>Notes about iRegulon:</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#notes-about-cytoscape"><i class="fa fa-check"></i>Notes about Cytoscape:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#exercise-3.-use-enrichr-with-the-prostate-gene-list."><i class="fa fa-check"></i>Exercise 3. Use Enrichr with the prostate gene list.</a>
+<ul>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#goal-1"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#steps-2"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#end-of-practical-lab"><i class="fa fa-check"></i>end of practical lab</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6-gene-function-prediction.html"><a href="module-6-gene-function-prediction.html"><i class="fa fa-check"></i>Module 6: Gene Function Prediction</a></li>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html"><i class="fa fa-check"></i>Module 6 Lab: GeneMANIA (Cytoscape version)</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#goal-of-this-practical-lab-1"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#exercise-1-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#steps-3"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#exercise-1-answers"><i class="fa fa-check"></i>EXERCISE 1 ANSWERS</a></li>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#exercise-2-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#steps-4"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#exercise-3-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#steps-5"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#some-definitions"><i class="fa fa-check"></i>SOME DEFINITIONS:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html"><i class="fa fa-check"></i>Module 6 Lab: GeneMANIA (web version)</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#goal-of-this-practical-lab-2"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-1-questions-and-steps-to-follow-1"><i class="fa fa-check"></i>EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#steps-6"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-1-answers-detailed-explanation-and-screenshots"><i class="fa fa-check"></i>EXERCISE 1 ANSWERS: DETAILED EXPLANATION AND SCREENSHOTS</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-1---steps-1-4"><i class="fa fa-check"></i>EXERCISE 1 - STEPS 1-4</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-1---step-5"><i class="fa fa-check"></i>EXERCISE 1 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-1---step-6"><i class="fa fa-check"></i>EXERCISE 1 - STEP 6</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-1---step-7"><i class="fa fa-check"></i>Exercise 1 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-1---step-8"><i class="fa fa-check"></i>Exercise 1 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-1---step-9"><i class="fa fa-check"></i>Exercise 1 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-1---step-10-layouts"><i class="fa fa-check"></i>Exercise 1 - STEP 10 (layouts)</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-1---step-11-save-an-image"><i class="fa fa-check"></i>Exercise 1 - STEP 11 (save an image)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2-questions-and-steps-to-follow-1"><i class="fa fa-check"></i>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#steps-7"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2-answers-detailed-steps-and-screenshots"><i class="fa fa-check"></i>EXERCISE 2 ANSWERS: DETAILED STEPS AND SCREENSHOTS</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2---steps-1-to-4"><i class="fa fa-check"></i>Exercise 2 - STEPS 1 to 4</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2---step-5"><i class="fa fa-check"></i>Exercise 2 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2---step-6."><i class="fa fa-check"></i>Exercise 2 - STEP 6.</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2---step-7"><i class="fa fa-check"></i>Exercise 2 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2---step-8"><i class="fa fa-check"></i>Exercise 2 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2---step-9"><i class="fa fa-check"></i>Exercise 2 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2---step-10"><i class="fa fa-check"></i>Exercise 2 - STEP 10</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2---step-11"><i class="fa fa-check"></i>Exercise 2 - STEP 11</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2---step-12"><i class="fa fa-check"></i>Exercise 2 - STEP 12</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-2---step-13."><i class="fa fa-check"></i>Exercise 2 - STEP 13.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-3-questions-and-steps-to-follow-1"><i class="fa fa-check"></i>EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#steps-8"><i class="fa fa-check"></i>STEPS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-3-more-details-and-screenshots"><i class="fa fa-check"></i>Exercise 3: MORE DETAILS AND SCREENSHOTS</a>
+<ul>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-3---steps-1---3"><i class="fa fa-check"></i>Exercise 3 - STEPS 1 - 3</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-3---step-4"><i class="fa fa-check"></i>Exercise 3 - STEP 4</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-3---step-5"><i class="fa fa-check"></i>Exercise 3 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-3---steps-6"><i class="fa fa-check"></i>Exercise 3 - STEPS 6</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-3---step-7"><i class="fa fa-check"></i>Exercise 3 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-3---step-8"><i class="fa fa-check"></i>Exercise 3 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#exercise-3---step-9"><i class="fa fa-check"></i>Exercise 3 - STEP 9</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#some-definitions-1"><i class="fa fa-check"></i>SOME DEFINITIONS:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html"><i class="fa fa-check"></i>Integrated Assignment</a>
+<ul>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#final-slides"><i class="fa fa-check"></i>Final slides</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#goal-2"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#dataset-1"><i class="fa fa-check"></i>DATASET 1</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#background-1"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#data-processing"><i class="fa fa-check"></i>Data processing</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-1-run-gprofiler"><i class="fa fa-check"></i>PART 1: run g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-2-save-as-generic-enrichment-map-output-be"><i class="fa fa-check"></i>PART 2: save as Generic Enrichment Map output (BE)</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-3-save-as-generic-enrichment-map-output-ne"><i class="fa fa-check"></i>PART 3: save as Generic Enrichment Map output (NE)</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-4-create-an-enrichment-map"><i class="fa fa-check"></i>PART 4: create an enrichment map</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#answers-gprofiler"><i class="fa fa-check"></i>Answers g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-5-gsea-run-and-create-an-enrichment-map"><i class="fa fa-check"></i>PART 5: GSEA (run and create an enrichment map)</a>
+<ul>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#answers-gsea"><i class="fa fa-check"></i>Answers GSEA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-6-iregulon"><i class="fa fa-check"></i>PART 6: iRegulon</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#dataset-2"><i class="fa fa-check"></i>DATASET 2</a></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-1-reactomefi"><i class="fa fa-check"></i>PART 1: ReactomeFI</a>
+<ul>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#answers-reactome-fi"><i class="fa fa-check"></i>Answers REACTOME FI</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-2-genemania"><i class="fa fa-check"></i>PART 2: GeneMANIA</a>
+<ul>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#answers-genemania"><i class="fa fa-check"></i>Answers GeneMANIA</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ass_automation.html"><a href="ass_automation.html"><i class="fa fa-check"></i>Integrated Assignment Bonus - Automation</a>
+<ul>
+<li class="chapter" data-level="" data-path="ass_automation.html"><a href="ass_automation.html#goal-of-the-exercise-5"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><i class="fa fa-check"></i>Module 08 -1 lab - scRNA pathway analysis using g:Profiler {#scRNA gprofiler-lab}</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#goal-of-the-exercise-1-1"><i class="fa fa-check"></i>Goal of the exercise 1</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#data-4"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-1"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-1---launch-gprofiler.-1"><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-2---input-query-1"><i class="fa fa-check"></i>Step 2 - input query</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-3---adjust-parameters.-1"><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-4---run-query-1"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-5---explore-the-results.-1"><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-6-expand-the-stats-tab-1"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-7-save-the-results-1"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-8-optional-but-recommended-1"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#exercise-2"><i class="fa fa-check"></i>Exercise 2 - Cytoscape/EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#goal-of-the-exercise-6"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#data-5"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#enrichmentmap-2"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#description-of-this-exercise-1"><i class="fa fa-check"></i>Description of this exercise</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#start-the-exercise-2"><i class="fa fa-check"></i>Start the exercise</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-1-2"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-2-2"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-3-explore-detailed-results"><i class="fa fa-check"></i>Step 3: Explore Detailed results</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-4-optional-autoannotate-the-enrichment-map"><i class="fa fa-check"></i>Step 4 [OPTIONAL]: AutoAnnotate the enrichment map</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#exercise-3"><i class="fa fa-check"></i>Exercise 3 [OPTIONAL]- Cytoscape/EnrichmentMap using multiple datasets</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#goal-of-the-exercise-7"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#data-6"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#start-the-exercise-3"><i class="fa fa-check"></i>Start the exercise</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-1-3"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-08--1-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-2-3"><i class="fa fa-check"></i>Step 2</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathways</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": "https://github.com/BaderLab/CBW_Pathways_2023/commit/master/%s",
+"text": null
+},
+"view": {
+"link": "https://github.com/BaderLab/CBW_Pathways_2023/master/%s",
+"text": null
+},
+"download": ["CBW_Pathways.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
