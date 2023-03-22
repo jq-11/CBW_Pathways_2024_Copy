@@ -4,8 +4,6 @@
   
   [Lecture](./lectures/Pathways_2021_Module2_ORA_VV.pdf) 
   
-  [Recorded Lecture](https://www.youtube.com/watch?v=jnPghXqj52s&list=PL3izGL6oi0S-xaoH8p9LnJD8RQm8eNWF2&index=3)
-  
   [Introduction to practical lab](./lectures/Pathways_2021_Module2_lab_introduction_RI.pdf)  
 
   [Lab practical part 1 (g:Profiler)](#gprofiler-lab)    
