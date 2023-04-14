@@ -1,0 +1,147 @@
+# Module 4 Lab: ReactomeFI {#ReactomeFI}
+
+**This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
+
+ *<font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font>*
+
+## Goal of this practical lab 
+
+**Aim**: This practical lab will provide you with an opportunity to perform pathway and network analysis using the Reactome Functional Interaction (FI) network and the ReactomeFIViz Cytoscape app. 
+
+**Goal**: Analyze gene lists and somatic mutation data to identify biology that contributes to GBM and ovarian cancer.
+
+## Data: download the following files on your computer before starting the practical lab.
+
+ *  Downloald  [GBM_genelist.txt](./Module4/Reactome/data/GBM_genelist.txt) file.  
+ *  Downloald  [GBM_genesample.txt](./Module4/Reactome/data/GBM_genesample.txt) file.  
+ *  Downloald  [OVCA_TCGA_Clinical.txt](./Module4/Reactome/data/OVCA_TCGA_Clinical.txt) file.  
+ *  Downloald  [OVCA_TCGA_MAF.txt](./Module4/Reactome/data/OVCA_TCGA_MAF.txt) file.  
+
+## Exercise 1: Pathway-based analysis of GBM genelist
+
+**Objectives:**
+The objective of this exercise is to navigate the Reactome pathways using the Cytoscape ReactomeFI app. 
+
+
+**Steps:**
+- Open up Cytoscape. 
+
+- Go to Apps >Reactome FI>Reactome Pathways. Once the app is opened, the list of pathways contained in the Reactome database are listed on the left window. The pathways are organized in main categories and clicking on the left arrow will display the sub-categories. 
+
+ <p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_1.png" alt="start" width="100%" />
+ </p>
+ 
+
+- Pathways are available for Homo sapiens and Mus Musculus. Make sure that **Homo sapiens** is selected.
+
+<p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_1b.png" alt="start" width="100%" />
+ </p>
+
+- Find and expand the **Transport of small molecules** event branch. In the expanded menu,find and expand **O2/CO2 exchange in erythrocytes**. Select **Erythrocyte take up carbon dioxide and release oxygen** and right-click on the highlighted pathway and select **Show Diagram**.
+
+
+<p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_2.png" alt="start" width="75%" />
+ </p>
+ 
+- Observe the diagram. Zoom in and out. Move some nodes around. Change color of a branch :select a line, right click, select highlight and choose color.
+
+<p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_4.png" alt="start" width="100%" />
+ </p>
+
+
+- Right click on a line or a compound to reveal its source. It displays information about the biochemical reaction like the input and output molecules and some reference papers.
+
+<p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_4b.png" alt="start" width="100%" />
+ </p>
+
+
+- Save the image as pdf: Right-click on the diagram and select **Export Diagram**
+
+
+<p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_5.png" alt="start" width="100%" />
+ </p>
+
+
+- Transform it into a network and back to Diagram. Right-click on a blank space of the diagram and select **Convert to FI Network**. It has the advantage that we can now work with this network and use the Cytoscape analysis and visual features.
+
+
+Step1
+<p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_6a.png" alt="start" width="70%" />
+ </p>
+
+Step2
+<p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_6b.png" alt="start" width="70%" />
+ </p>
+ 
+Note that only genes and not the metabolites are included in this network. The Reactome diagram shows how the oxygenated form of hemoglobin A undergoes two chemical reactions when CO2 is present. These reactions make Hba to lose its affinity for oxygen. It also shows how, in erythrocytes, CYB5Rs participates in the reduction of methemoglobin (MetHb) to hemoglobin A (HbA). The participating genes are then Hba, Hbb and Cyb5R genes and will be displayed in the network.
+
+ 
+- Convert the network back to the diagram. Right-click on a blank space of the network and select **ReactomeFI** and then **Convert to Diagram**. 
+Step1
+<p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_6c.png" alt="start" width="70%" />
+ </p>
+ 
+Step2
+ <p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_6d.png" alt="start" width="70%" />
+ </p>
+
+
+- Show it in Reactome (Website). Locate the menu of pathways on the left window and right click on **Erythrocytes take up carbon dioxide and release oxygen**. Select **View in Reactome**. It will open a new page in your web browser. 
+
+Step1
+<p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_7a.png" alt="start" width="70%" />
+ </p>
+ 
+Step2
+ <p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_7b.png" alt="start" width="80%" />
+ </p>
+
+
+Some useful information are displayed like a summary of the pathway and reference papers used to build the diagram. 
+It can be exported as a pdf image or as a BioPAX format which is a file format specification for the exchange of biological pathway data. 
+
+Furthermore, it is linked to the reactome.org pathway browser that can be opened in a new window. You can observe that the Cytoscape app is replicating the functionalities of the web-based pathway browser.
+
+Step1
+<p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_8a.png" alt="start" width="80%" />
+ </p>
+ 
+Step2
+ <p align="center">
+ <img src="./Module4/Reactome/images/lab1/ReactomeFI_8b.png" alt="start" width="80%" />
+ </p>
+
+
+## Execise 2: Pathway-based analysis of GBM genelist
+
+**Objectives:**
+The objective of this exercise is to perform a pathway-based analysis
+ 
+
+**Data:**
+ *  Downloald  [GBM_genelist.txt](./Module4/Reactome/data/GBM_genelist.txt) file.  
+ 
+**Steps:**
+- Unfurl the “Signal Transduction” events in the event hierarchy, by clicking the triangle to the left of the event name, in the “Reactome” tab on the left. 
+
+- Right-click on the highlighted pathway name in the display drop-down menu, select “Analyze Pathway Enrichment” 
+
+- Upload/Browse/"Copy-and-paste" the “GBM_genelist.txt” data into the Reactome Pathway Enrichment Analysis, and click “OK”. 
+
+
+
+
+

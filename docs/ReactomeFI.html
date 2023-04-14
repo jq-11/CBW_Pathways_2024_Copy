@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Module 2 lab - GSEA | Pathways</title>
+  <title>Module 4 Lab: ReactomeFI | Pathways</title>
   <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Module 2 lab - GSEA | Pathways" />
+  <meta property="og:title" content="Module 4 Lab: ReactomeFI | Pathways" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Module 2 lab - GSEA | Pathways" />
+  <meta name="twitter:title" content="Module 4 Lab: ReactomeFI | Pathways" />
   
   <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="gprofiler-lab.html"/>
-<link rel="next" href="module-3-network-visualization-and-analysis-with-cytoscape.html"/>
+<link rel="prev" href="module-4-in-depth-analysis-of-networks-and-pathways.html"/>
+<link rel="next" href="intro-regulatory-networks.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -540,297 +540,127 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="gsea-lab" class="section level1 hasAnchor">
-<h1>Module 2 lab - GSEA<a href="gsea-lab.html#gsea-lab" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Presenter: Ruth Isserlin</p>
-<div id="introduction-1" class="section level2 hasAnchor">
-<h2>Introduction<a href="gsea-lab.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This practical lab contains one exercise. It uses <a href="http://www.broadinstitute.org/gsea/index.jsp">GSEA</a> to perform a gene-set enrichment analysis.</p>
+<div id="ReactomeFI" class="section level1 hasAnchor">
+<h1>Module 4 Lab: ReactomeFI<a href="ReactomeFI.html#ReactomeFI" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
+<p><em><font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font></em></p>
+<div id="goal-of-this-practical-lab" class="section level2 hasAnchor">
+<h2>Goal of this practical lab<a href="ReactomeFI.html#goal-of-this-practical-lab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Aim</strong>: This practical lab will provide you with an opportunity to perform pathway and network analysis using the Reactome Functional Interaction (FI) network and the ReactomeFIViz Cytoscape app.</p>
+<p><strong>Goal</strong>: Analyze gene lists and somatic mutation data to identify biology that contributes to GBM and ovarian cancer.</p>
 </div>
-<div id="goal-of-the-exercise" class="section level2 hasAnchor">
-<h2>Goal of the exercise<a href="gsea-lab.html#goal-of-the-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Learn how to run GSEA and explore the results.</p>
-</div>
-<div id="data-1" class="section level2 hasAnchor">
-<h2>Data<a href="gsea-lab.html#data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples. This cohort was previously stratified into four distinct expression subtypes <a href="http://www.ncbi.nlm.nih.gov/pubmed/21720365">PMID:21720365</a> and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.</p>
-<div id="how-was-the-data-processed" class="section level4 hasAnchor">
-<h4>How was the data processed?<a href="gsea-lab.html#how-was-the-data-processed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>. <br>Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>.<br>The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <a href="gsea-lab.html#additional_information"><strong>Additional information</strong></a> section.</p>
-</div>
-</div>
-<div id="background" class="section level2 hasAnchor">
-<h2>Background<a href="gsea-lab.html#background" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The goal of this lab is to:</p>
+<div id="data-download-the-following-files-on-your-computer-before-starting-the-practical-lab." class="section level2 hasAnchor">
+<h2>Data: download the following files on your computer before starting the practical lab.<a href="ReactomeFI.html#data-download-the-following-files-on-your-computer-before-starting-the-practical-lab." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Upload the 2 required files into GSEA,</li>
-<li>Adjust relevant parameters,</li>
-<li>Run GSEA,</li>
-<li>Open and explore the gene-set enrichment results.</li>
-</ul>
-<p>The 2 required files are:</p>
-<ol style="list-style-type: decimal">
-<li>a rank file (.rnk)</li>
-<li>a pathway definition file (.gmt).</li>
-</ol>
-<div id="rank-file" class="section level4 hasAnchor">
-<h4>Rank File<a href="gsea-lab.html#rank-file" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To generate a rank file (.rnk), a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed(i.e associated with a very small pvalue, close to 0) will be assigned a high score.<br>The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC &gt; 0, the score will have a + sign) or lower in mesenchymal (logFC &lt; 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (<strong>all genes have to be included</strong>).</p>
-<div class="rmd-caution">
-<p>
-The rank file is going to be provided for the lab, you don’t need to
-generate it.
-</p>
-</div>
-</div>
-<div id="how-to-generate-a-rank-file." class="section level3 hasAnchor">
-<h3>How to generate a rank file.<a href="gsea-lab.html#how-to-generate-a-rank-file." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="calculation-of-the-score" class="section level4 hasAnchor">
-<h4>Calculation of the score<a href="gsea-lab.html#calculation-of-the-score" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="Module2/gsea/images/calculate_score.png" alt="rank_score" width="75%" /></p>
-<p><img src="Module2/gsea/images/GSEA_KS.png" alt="GSEA_KS" width="100%" /></p>
-</div>
-<div id="generation-of-the-rank-file" class="section level4 hasAnchor">
-<h4>Generation of the rank file<a href="gsea-lab.html#generation-of-the-rank-file" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>select the gene names and score columns and save the file as tab delimited with the extension .rnk</p>
-<p><img src="Module2/gsea/images/make_rank_file.png" alt="generate rank" width="75%" /></p>
-</div>
-<div id="pathway-defintion-file" class="section level4 hasAnchor">
-<h4>Pathway defintion file<a href="gsea-lab.html#pathway-defintion-file" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The second file that is needed for GSEA is the pathway database, a file with the .gmt extension. The pathway database (.gmt) used for the GSEA analysis was downloaded from <a href="http://baderlab.org/GeneSets" class="uri">http://baderlab.org/GeneSets</a>. This file contains gene-sets obtained from MsigDB-c2, NCI, Biocarta, IOB, Netpath, HumanCyc, Reactome and the Gene Ontology (GO) databases.</p>
-<div class="rmd-caution">
-<p>
-You don’t need to perform this step for the exercise, the .gmt file
-will be given to you. <br>
-</p>
-</div>
-<p>Go to:</p>
-<ul>
-<li><a href="http://download.baderlab.org/EM_Genesets/" class="uri">http://download.baderlab.org/EM_Genesets/</a></li>
-<li>click on September_01_2020/</li>
-<li>Click on Human/</li>
-<li>Click on symbol/</li>
-<li>save the Human_GOBP_AllPathways_no_GO_iea…gmt file on your computer</li>
-</ul>
-<p><img src="Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="70%" /></p>
-<p>The .gmt is a tab delimited text file which contains one gene-set per row. For each gene-set (row), the first 2 columns contain the name and the description of the gene-set and the remaining columns contain the list of genes included in the gene-set. It is possible to create a custom gene-set using Excel or R.</p>
-<p><img src="Module2/gsea/images/gmt_format.png" alt="get_gmt" width="70%" /></p>
-<p>GSEA performs a gene-set enrichment analysis using a modified Kolmogorov-Smirnov statistic. The output result consists of summary tables displaying enrichment statistics for each gene-set (pathway) that has been tested.</p>
-</div>
-</div>
-<div id="start-the-exercise" class="section level3 hasAnchor">
-<h3>Start the exercise<a href="gsea-lab.html#start-the-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Before starting this exercise, download the 2 required files:</p>
-<div class="rmd-datadownload">
-<p>
-Right click on link below and select “Save Link As…”.
-</p>
-<p>
-Place it in the corresponding module directory of your CBW work
-directory.
-</p>
-</div>
-<ul>
-<li><a href="./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</a></li>
-<li><a href="./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a></li>
-</ul>
-</div>
-<div id="step1." class="section level3 hasAnchor">
-<h3>Step1.<a href="gsea-lab.html#step1." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Launch GSEA by double clicking on the installed program icon.</p>
-<div class="rmd-troubleshooting">
-<p>
-If GSEA won’t launch on MacOS.
-</p>
-<p>
-Follow instructions specified on download page: * <img
-src="Module2/gsea/images/gsea_troubleshooting.png" />
-</p>
-<ul>
-<li>
-<p>
-If you see this error message:
-</p>
+<li>Downloald <a href="./Module4/Reactome/data/GBM_genelist.txt">GBM_genelist.txt</a> file.<br />
 </li>
-<li>
-<p>
-<img src="Module2/gsea/images/gsea_mac_launch_error.png" alt="get_gmt" width="50%" />
-</p>
+<li>Downloald <a href="./Module4/Reactome/data/GBM_genesample.txt">GBM_genesample.txt</a> file.<br />
 </li>
-<li>
-<p>
-Open Settings -&gt; Security &amp; Privacy
-</p>
+<li>Downloald <a href="./Module4/Reactome/data/OVCA_TCGA_Clinical.txt">OVCA_TCGA_Clinical.txt</a> file.<br />
 </li>
-<li>
-<p>
-Click on “Open Anyways”
-</p>
-</li>
-<li>
-<p>
-<img src="Module2/gsea/images/privacy_setting.png" alt="get_gmt" width="75%" />
-</p>
-</li>
+<li>Downloald <a href="./Module4/Reactome/data/OVCA_TCGA_MAF.txt">OVCA_TCGA_MAF.txt</a> file.</li>
 </ul>
 </div>
-</div>
-<div id="step-2." class="section level3 hasAnchor">
-<h3>Step 2.<a href="gsea-lab.html#step-2." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Load Data</p>
-<p>2a. Locate the ‘Load data’ icon at the upper left corner of the window and click on it.</p>
-<p><img src="Module2/gsea/images/GSEAloaddata.png" alt="Load data" width="50%" /></p>
-<p>2b. In the central panel, select ‘Method 1’ and ‘Browse for files’. A new window pops up.</p>
-<p><img src="Module2/gsea/images/GSEAbrowsefile2.png" alt="Browse files" width="100%" /></p>
-<p>2c. Browse your computer to locate the 2 files : <strong>Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</strong> and <strong>MesenchymalvsImmunoreactive_edger_ranks.rnk</strong>.</p>
-<p>2d. Click on <strong>Open</strong>. A message pops us when the files are loaded successfully.</p>
-<p><img src="Module2/gsea/images/ORA4.png" alt="Locate files" width="75%" /></p>
-<p>2e. Click on <strong>OK</strong>.</p>
-<p><img src="Module2/gsea/images/ORA5.png" alt="Success" width="50%" /></p>
-<div class="rmd-tip">
-<p>
-Alternatively, you can choose <strong>Method 3</strong> to
-<strong>drag and drop files here</strong>; you need to click on the
-<strong>Load these files!</strong> button in this case.
-</p>
-</div>
-</div>
-<div id="step3." class="section level3 hasAnchor">
-<h3>Step3.<a href="gsea-lab.html#step3." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Adjust parameters</p>
-<p>3a. Under the <strong>Tools</strong> menu select <strong>GseaPreRanked</strong>.</p>
-<p><img src="Module2/gsea/images/GSEAprerank.png" alt="GseaPreRanked" width="100%" /></p>
-<p>3b. <strong>Run GSEA on a Pre-Ranked gene list</strong> tab will appear.</p>
-<p>Specify the following parameters:</p>
-<p>3c. Gene sets database -</p>
+<div id="exercise-1-pathway-based-analysis-of-gbm-genelist" class="section level2 hasAnchor">
+<h2>Exercise 1: Pathway-based analysis of GBM genelist<a href="ReactomeFI.html#exercise-1-pathway-based-analysis-of-gbm-genelist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Objectives:</strong>
+The objective of this exercise is to navigate the Reactome pathways using the Cytoscape ReactomeFI app.</p>
+<p><strong>Steps:</strong>
+- Open up Cytoscape.</p>
 <ul>
-<li>click on the radio button (…) located at the right of the blank field.</li>
-<li>Wait 5-10sec for the gene-set selection window to appear.</li>
+<li>Go to Apps &gt;Reactome FI&gt;Reactome Pathways. Once the app is opened, the list of pathways contained in the Reactome database are listed on the left window. The pathways are organized in main categories and clicking on the left arrow will display the sub-categories.</li>
 </ul>
-<p><img src="Module2/gsea/images/GSEAloadgeneset.png" alt="Gene sets database" width="100%" /></p>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1.png" alt="start" width="100%" />
+</p>
 <ul>
-<li>Use the right arrow in the top field to see the Gene matrix (local gmx/gmt) tab.</li>
-<li>Click to highlight <strong>Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</strong>.</li>
-<li>click on <strong>OK</strong> at the bottom of the window.</li>
+<li>Pathways are available for Homo sapiens and Mus Musculus. Make sure that <strong>Homo sapiens</strong> is selected.</li>
 </ul>
-<p><img src="Module2/gsea/images/ORA8.png" alt="Gene sets database" width="75%" /></p>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1b.png" alt="start" width="100%" />
+</p>
 <ul>
-<li><strong>Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</strong> is now visible in the field corresponding to Gene sets database.</li>
+<li>Find and expand the <strong>Transport of small molecules</strong> event branch. In the expanded menu,find and expand <strong>O2/CO2 exchange in erythrocytes</strong>. Select <strong>Erythrocyte take up carbon dioxide and release oxygen</strong> and right-click on the highlighted pathway and select <strong>Show Diagram</strong>.</li>
 </ul>
-<p><img src="Module2/gsea/images/GSEAparameter.png" alt="GSEAparameters" width="100%" /></p>
-<p>3d. Number of permutations - 100. The number of permutations is the number of times that the gene-sets will be randomized in order to create a null distribution to calculate the FDR.</p>
-<div class="rmd-caution">
-<p>
-Use 2000 when you do it for your own data outside the workshop.
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2.png" alt="start" width="75%" />
+</p>
+<ul>
+<li>Observe the diagram. Zoom in and out. Move some nodes around. Change color of a branch :select a line, right click, select highlight and choose color.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_4.png" alt="start" width="100%" />
+</p>
+<ul>
+<li>Right click on a line or a compound to reveal its source. It displays information about the biochemical reaction like the input and output molecules and some reference papers.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_4b.png" alt="start" width="100%" />
+</p>
+<ul>
+<li>Save the image as pdf: Right-click on the diagram and select <strong>Export Diagram</strong></li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_5.png" alt="start" width="100%" />
+</p>
+<ul>
+<li>Transform it into a network and back to Diagram. Right-click on a blank space of the diagram and select <strong>Convert to FI Network</strong>. It has the advantage that we can now work with this network and use the Cytoscape analysis and visual features.</li>
+</ul>
+Step1
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_6a.png" alt="start" width="70%" />
+</p>
+Step2
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_6b.png" alt="start" width="70%" />
+</p>
+<p>Note that only genes and not the metabolites are included in this network. The Reactome diagram shows how the oxygenated form of hemoglobin A undergoes two chemical reactions when CO2 is present. These reactions make Hba to lose its affinity for oxygen. It also shows how, in erythrocytes, CYB5Rs participates in the reduction of methemoglobin (MetHb) to hemoglobin A (HbA). The participating genes are then Hba, Hbb and Cyb5R genes and will be displayed in the network.</p>
+<ul>
+<li>Convert the network back to the diagram. Right-click on a blank space of the network and select <strong>ReactomeFI</strong> and then <strong>Convert to Diagram</strong>.
+Step1
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_6c.png" alt="start" width="70%" />
+</p></li>
+</ul>
+Step2
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_6d.png" alt="start" width="70%" />
+</p>
+<ul>
+<li>Show it in Reactome (Website). Locate the menu of pathways on the left window and right click on <strong>Erythrocytes take up carbon dioxide and release oxygen</strong>. Select <strong>View in Reactome</strong>. It will open a new page in your web browser.</li>
+</ul>
+Step1
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_7a.png" alt="start" width="70%" />
+</p>
+Step2
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_7b.png" alt="start" width="80%" />
+</p>
+<p>Some useful information are displayed like a summary of the pathway and reference papers used to build the diagram.
+It can be exported as a pdf image or as a BioPAX format which is a file format specification for the exchange of biological pathway data.</p>
+<p>Furthermore, it is linked to the reactome.org pathway browser that can be opened in a new window. You can observe that the Cytoscape app is replicating the functionalities of the web-based pathway browser.</p>
+Step1
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_8a.png" alt="start" width="80%" />
+</p>
+Step2
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_8b.png" alt="start" width="80%" />
 </p>
 </div>
-<p>3e. Ranked list - select by clicking on the arrow and highlighting rank file.</p>
-<p>3f. Collapse/Remap to gene symbols - Change to <em>No_collapse</em>. (Our rank file already contains the gene symbols so we don’t need GSEA to try and convert probe names to gene symbols)</p>
-<p>3g. Click on <strong>Show</strong> button next to <strong>Basic Fields</strong> to display extra options.</p>
-<p>3h. Analysis name – change default <strong>my_analysis</strong> to name specific to analysis for example Mesen_vs_Immuno_edgeR. GSEA will use your specified name as part of the name of the results directory it creates.</p>
-<p>3i. Max size: exclude larger sets – By default GSEA sets the upper limit to 500. In this protocol, the maximum is set to 200 to decrease some of the larger sets in the results.</p>
-<p>3j. Min size: exclude smaller sets – By default GSEA sets the lower limit to 15. In this protocol, the minimum is set to 10 to increase some of the smaller sets in the results.</p>
-<p>3k. Save results in this folder – navigate to where you want GSEA to put the results folder. By default GSEA will put the results into the directory gsea_home/output/[date] in your home directory.</p>
-<div class="rmd-tip">
-<p>
-set <strong>Enrichment Statistics</strong> to p2 if you want to add
-more weight on the most top up-regulated and top down-regulated. <br>
-<strong>P2</strong> is a more stringent parameter and it will result in
-less gene-sets significant under FDR &lt;0.05.
-</p>
-</div>
-</div>
-<div id="step-4." class="section level3 hasAnchor">
-<h3>Step 4.<a href="gsea-lab.html#step-4." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Run GSEA</p>
-<p>4a. Click on <strong>Run</strong> button located at the bottom right corner of the window.</p>
-<div class="rmd-tip">
-<p>
-Expand the window size if the run button is not visible
-</p>
-</div>
-<p>4b. On the panel located on the left side of the GSEA window, the bottom panel called <strong>the GSEA report table</strong> will show that it has created a process with a message that it is <strong>Running</strong>.</p>
-<p><img src="Module2/gsea/images/ORA10.png" alt="Running" width="50%" /></p>
-<p><img src="Module2/gsea/images/ORA11.png" alt="Running messages" width="75%" /></p>
-<p>On completion the status message will be updated to <strong>Success…</strong>.</p>
-<p><img src="Module2/gsea/images/ORA12.png" alt="Success" width="50%" /></p>
-<div class="rmd-tip">
-<p>
-There is no progress bar to indicate to the user how much time is
-left to complete the process. Depending on the size of your dataset and
-compute power a GSEA run can take from a few minutes to a few hours. To
-check on the status of the GSEA run in the bottom left hand corner you
-can click on the <strong>+</strong> (red circle in below Figure) to see
-the updating status. Printouts in the format <strong>shuffleGeneSet for
-GeneSet 5816/6878 nperm: 100</strong> indicate how many permutations
-have been done (5816) out of the total that need to be performed
-(6878).
-</p>
-</div>
-<div class="rmd-tip">
-<p>
-if the permutations have been completed but the status is still
-running, it means that GSEA is creating the report
-</p>
-</div>
-<div class="rmd-troubleshooting">
-<p>
-Java Heap Space error. If GSEA returns an error <strong>Java Heap
-space</strong> it means that GSEA has run out of memory. If you are
-running GSEA from the webstart other than the 4GB option then you will
-need to download a new version that allows for more memory allocation.
-The current maximum memory allocation that the GSEA webstart allows for
-is 4GB. If you are using this version and still receive the java heap
-error you will need to download the GSEA java jar file and launch it
-from the command line as described in step 1.
-</p>
-</div>
-</div>
-<div id="step-5." class="section level3 hasAnchor">
-<h3>Step 5.<a href="gsea-lab.html#step-5." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Examining the results</p>
-<p>5a. Click on <strong>Success</strong> to launch the results in html format in your default web browser.</p>
-<div class="rmd-tip">
-<p>
-If the GSEA application has been closed, you can still see the
-results by opening the result folder and clicking on the
-<strong>index</strong> file – index.html. (see screenshot below). The
-first phenotype corresponds to gene-sets enriched in genes up-regulated
-in the mesenchymal subtype. The second phenotype corresponds to
-gene-sets enriched in genes up-regulated in the immunological
-phenotype.
-</p>
-</div>
-<p><img src="Module2/gsea/images/ORA13.png" alt="Results1" width="75%" /></p>
-<p>When examining the results there are a few things to look for:</p>
-<p>5b. Check the number of gene-sets that have been used for the analysis.</p>
-<div class="rmd-tip">
-<p>
-A small number (a few hundred genesets if using baderlab genesets)
-could indicate an issue with identifier mapping.
-</p>
-</div>
-<p>5c. Check the number of sets that have FDR less than 0.25 – in order to determine what thresholds to start with when creating the enrichment map. It is not uncommon to see a thousand gene sets pass the threshold of FDR less than 0.25. FDR less than 0.25 is a very lax threshold and for robust data we can set thresholds of FDR less than 0.05 or lower.</p>
-<p>5d. Click on <strong>Snapshots</strong> to see the trend for the top 20 genesets. For the positive phenotype the top genesets should show a distribution skewed to the left (positive) i.e. genesets have predominance of up-regulated genes. For the negative phenotype the top geneset should be inverted and skewed to the right (negative) i.e. geneset have predominance of down-regulated genes.</p>
-<p><img src="Module2/gsea/images/ORA14.png" alt="Results2" width="75%" /></p>
-<p>5e. Explore the tabular format of the results.</p>
-<div id="mesenchymal" class="section level4 hasAnchor">
-<h4>Mesenchymal<a href="gsea-lab.html#mesenchymal" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="Module2/gsea/images/ORA17.png" alt="Mesenchymal" width="100%" /></p>
-</div>
-<div id="immunoreactive" class="section level4 hasAnchor">
-<h4>Immunoreactive<a href="gsea-lab.html#immunoreactive" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="Module2/gsea/images/ORA18.png" alt="Immunoreactive" width="100%" /></p>
-<p><a href="http://www.baderlab.org/CancerStemCellProject/VeroniqueVoisin/AdditionalResources/GSEA#GSEA_enrichment_scores_and_statistics">Link to information about GSEA results</a></p>
-</div>
-</div>
-</div>
-<div id="additional_information" class="section level2 hasAnchor">
-<h2>Additional information<a href="gsea-lab.html#additional_information" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="http://www.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats">More on GSEA data format</a></p>
-<p><a href="https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/supplemental_protocol1_rnaseq.html">More on processing the RNAseq using EdgeR and generate the .rank file</a></p>
-<p><a href="http://download.baderlab.org/EM_Genesets/">More on which .gmt file to download from the Baderlab gene-set file</a>, select current release, Human, symbol, Human_GOBP_AllPathways_no_GO_iea_….gmt</p>
-<p><a href="http://www.baderlab.org/CancerStemCellProject/VeroniqueVoisin/AdditionalResources/GSEA">More on GSEA : link to the Baderlab wiki page on GSEA</a></p>
+<div id="execise-2-pathway-based-analysis-of-gbm-genelist" class="section level2 hasAnchor">
+<h2>Execise 2: Pathway-based analysis of GBM genelist<a href="ReactomeFI.html#execise-2-pathway-based-analysis-of-gbm-genelist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Objectives:</strong>
+The objective of this exercise is to perform a pathway-based analysis</p>
+<p><strong>Data:</strong>
+* Downloald <a href="./Module4/Reactome/data/GBM_genelist.txt">GBM_genelist.txt</a> file.</p>
+<p><strong>Steps:</strong>
+- Unfurl the “Signal Transduction” events in the event hierarchy, by clicking the triangle to the left of the event name, in the “Reactome” tab on the left.</p>
+<ul>
+<li><p>Right-click on the highlighted pathway name in the display drop-down menu, select “Analyze Pathway Enrichment”</p></li>
+<li><p>Upload/Browse/“Copy-and-paste” the “GBM_genelist.txt” data into the Reactome Pathway Enrichment Analysis, and click “OK”.</p></li>
+</ul>
 
 </div>
 </div>
@@ -839,8 +669,8 @@ could indicate an issue with identifier mapping.
           </div>
         </div>
       </div>
-<a href="gprofiler-lab.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="module-3-network-visualization-and-analysis-with-cytoscape.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="module-4-in-depth-analysis-of-networks-and-pathways.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intro-regulatory-networks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -875,11 +705,11 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": "https://github.com/BaderLab/CBW_Pathways_2023/commit/master/2.2-Module2lab_gsea.Rmd",
+"link": "https://github.com/BaderLab/CBW_Pathways_2023/commit/master/4.1-Module4_ReactomeFI_lab.Rmd",
 "text": null
 },
 "view": {
-"link": "https://github.com/BaderLab/CBW_Pathways_2023/master/2.2-Module2lab_gsea.Rmd",
+"link": "https://github.com/BaderLab/CBW_Pathways_2023/master/4.1-Module4_ReactomeFI_lab.Rmd",
 "text": null
 },
 "download": ["CBW_Pathways.epub"],
