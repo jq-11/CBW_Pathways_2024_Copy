@@ -144,3 +144,16 @@ h1 {
   content: "Question";
 }
 
+.rmd-bonus {
+  padding: 0em 0em 0em 3em;
+  margin-bottom: 2px;
+  background:  #f5cca6  url("images/bonus_icon.png") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color:#080707;
+}
+.rmd-bonus:before {
+  color: #a2aef2;
+  font-size: 24px;
+  content: "Bonus Work";
+}
+

@@ -284,4 +284,16 @@ When examining the results there are a few things to look for:
 
 [More on GSEA : link to the Baderlab wiki page on GSEA](http://www.baderlab.org/CancerStemCellProject/VeroniqueVoisin/AdditionalResources/GSEA)
 
+## Bonus - Automation. 
 
+Run analysis directly from R for easy integration into existing pipelines.
+
+```{block, type="rmd-bonus"}
+Instead of using the GSEA application you can run it directly from R using the GSEA java jar that you can download from here - https://www.gsea-msigdb.org/gsea/downloads.jsp
+
+![](./images/GSEA_jar_download.png)
+
+Follow the step by step instructions on how to run from R here - https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/run-gsea-from-within-r.html
+
+First, make sure your environment is set up correctly by following there instructions - https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html
+```
