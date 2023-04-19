@@ -16,7 +16,7 @@ You can download the printed course manual [here](https://drive.google.com/a/bio
 
 ### Laptop Setup Instructions
 
-A Check list to setup your laptop can be found [here](https://forms.gle/xB95kB8JAKKrDejM8)
+A Check list to setup your laptop can be found [here](https://forms.gle/vyFPcA1P9pqvTL2B9)
 
 Install these tools on your laptop before coming to the workshop:
 
@@ -36,49 +36,35 @@ Install these tools on your laptop before coming to the workshop:
       * Firefox 
       * Safari
       * Chrome
+      * Microsoft Edge
   
   1. A PDF Viewer
       * Adobe Acrobat or equivalent
 
-### Java 11 Installation
-We will be using Cytoscape and GSEA both of which require Java 11.  Before proceeding, check to see if you already have Java 11 installed: 
-
-  * Go to https://www.java.com/verify/  - **OR** 
-  * Open a terminal window and run the following command: java -version
-
-If you do not have Java installed or you have an older version of Java installed please proceed with the following steps:
-
-  1. Download and install Java 11:
-      * Go to https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
-      * create a free Oracle account - Top right hand corner --> View Accounts --> Create Account
-      * Download the java installer that corresponds to your platform (MAC, Windows or Linux)
-      * ![](./images/java_installation.png)
-      * Open the installer and follow the steps
-      * An "Install Succeeded" should appear at the end of the installer dialog box
-      * You can check that you correctly installed java by typing java -version in terminal window
-      * ![](./images/java_version_cmd.png)
-
 ### Cytoscape Installation
-Please install the latest version of [Cytoscape 3.8.2](https://cytoscape.org/download-platforms.html) as well as a group of Cytoscape Apps that we will be using for different parts of the course.  
+Please install the latest version of [Cytoscape 3.10.0](https://cytoscape.org/download-platforms.html) as well as a group of Cytoscape Apps that we will be using for different parts of the course.  
 
-  1. Install Cytoscape 3.8.2:
+  1. Install Cytoscape 3.10.0:
       * Go to: https://cytoscape.org/download-platforms.html
       * Choose the version corresponding to your operating system (OS, Windows or UNIX)
       * Follow instructions to install cytoscape
       * Verify that Cytoscape has been installed correctly by launching the newly installed application
-      * Contact your system administrator if you have trouble with Java installation
-
-  1. Install the following Cytoscape Apps - Apps are installed from within Cytoscape. In order to install Apps launch Cytoscape  
-      * ![](./images/Cytoscape_app_manager.png)
-      * From the menu bar, select ‘Apps’, then ‘App Manager’.
-      * Within 'all apps', search for the following and install:  
-          * EnrichmentMap 3.3.2
-          * EnrichmentMap Pipeline Collection 1.1.0 (it will install ClusterMaker2, WordCloud and AutoAnnotate)
+      
+  1. Install the following Cytoscape Apps - Apps are installed from within Cytoscape. 
+      * In order to install Apps launch Cytoscape  
+      * From the menu bar, select ‘Apps’, then ‘App Store’, then 'Show App Store'. ![](./images/cytoscape_app_menu.png)
+      * App Store will appear in left hand Panel ![](./images/Cytoscape_app_manager.png)
+      * Within search bar at the top of the panel, search for the app listed below.  Once you click on search icon a web browser will be launched with the apps that match your search.
+      * Select the correct app (there might be a few that match your search term).
+      * Click on "Install" ![](./images/app_store_download.png)
+      * install the following:  
+          * EnrichmentMap 3.3.5
+          * EnrichmentMap Pipeline Collection 1.1.0 (it will install ClusterMaker2 v2.3.4, WordCloud v3.1.4 and AutoAnnotate v1.4.0)
           * GeneMANIA 3.5.2
           * IRegulon  1.3
-          * ReactomeFIPlugin 8.0.3 - http://apps.cytoscape.org/apps/reactomefiplugin 
-          * stringApp 1.6.0
-          * yFiles Layout Algorithms	1.1.1
+          * ReactomeFIPlugin 8.0.5 - http://apps.cytoscape.org/apps/reactomefiplugin 
+          * stringApp 2.0.1
+          * yFiles Layout Algorithms	1.1.3
     
   1. Install the data set within GeneMANIA app. **This requires time and a good network connection to download completely (~15mins)**
       * From the menu bar, select ‘Apps’, hover over ‘GeneMANIA’, then select ‘Choose Another Data Set’.
@@ -86,21 +72,21 @@ Please install the latest version of [Cytoscape 3.8.2](https://cytoscape.org/dow
       * An ‘Install Data’ window will pop-up. Select H.Sapiens Human (2589 MB). Click on ‘Install’.
   
 ### GSEA Installation  
-Please install the latest version of GSEA (4.1.0)  
+Please install the latest version of GSEA (4.3.2)  
 
   1. Download GSEA
       * Go to the [GSEA page](http://www.broadinstitute.org/gsea/index.jsp)    
       * Register (using an institutional email address) 
       * Login 
       * Locate the Download page and download the version corresponding to your system
-          * MAC users:  download GSEA_4.1.0.app.zip
-          * Window users: download GSEA_Win_4.1.0-installer.exe
-          * Unix users: download GSEA_Linux_4.1.0.zip
+          * MAC users:  download GSEA_4.3.2.app.zip
+          * Window users: download GSEA_Win_4.3.2-installer.exe
+          * Unix users: download GSEA_Linux_4.3.2.zip
           * ![](./images/gsea_download_exe.png)
       * Launch GSEA to test it.
   
   1. Download GSEA for command line :  this is necessary for all platform users to run GSEA from a script (integrated workflow on day 3)
-      * Download  GSEA_4.1.0.zip (and keep it for later use during the workshop)
+      * Download  GSEA_4.3.2.zip (and keep it for later use during the workshop)
       * ![](./images/gsea_download_command.png)
 
 ## Pre-workshop Tutorials

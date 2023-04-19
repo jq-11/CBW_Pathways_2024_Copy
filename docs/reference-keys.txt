@@ -11,7 +11,6 @@ schedule
 pre-workshop
 laptop-setup-instructions
 basic-programs
-java-11-installation
 cytoscape-installation
 gsea-installation
 pre-workshop-tutorials

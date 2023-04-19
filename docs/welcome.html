@@ -176,7 +176,6 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#laptop-setup-instructions"><i class="fa fa-check"></i>Laptop Setup Instructions</a></li>
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#basic-programs"><i class="fa fa-check"></i>Basic programs</a></li>
-<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#java-11-installation"><i class="fa fa-check"></i>Java 11 Installation</a></li>
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#cytoscape-installation"><i class="fa fa-check"></i>Cytoscape Installation</a></li>
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#gsea-installation"><i class="fa fa-check"></i>GSEA Installation</a></li>
 </ul></li>
@@ -558,7 +557,7 @@ div.csl-indent {
 <h2>Pre-Workshop Materials and Laptop Setup Instructions<a href="welcome.html#pre-workshop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="laptop-setup-instructions" class="section level3 hasAnchor">
 <h3>Laptop Setup Instructions<a href="welcome.html#laptop-setup-instructions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A Check list to setup your laptop can be found <a href="https://forms.gle/xB95kB8JAKKrDejM8">here</a></p>
+<p>A Check list to setup your laptop can be found <a href="https://forms.gle/vyFPcA1P9pqvTL2B9">here</a></p>
 <p>Install these tools on your laptop before coming to the workshop:</p>
 </div>
 <div id="basic-programs" class="section level3 hasAnchor">
@@ -585,6 +584,7 @@ div.csl-indent {
 <li>Firefox</li>
 <li>Safari</li>
 <li>Chrome</li>
+<li>Microsoft Edge</li>
 </ul></li>
 <li>A PDF Viewer
 <ul>
@@ -592,53 +592,35 @@ div.csl-indent {
 </ul></li>
 </ol>
 </div>
-<div id="java-11-installation" class="section level3 hasAnchor">
-<h3>Java 11 Installation<a href="welcome.html#java-11-installation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We will be using Cytoscape and GSEA both of which require Java 11. Before proceeding, check to see if you already have Java 11 installed:</p>
-<ul>
-<li>Go to <a href="https://www.java.com/verify/" class="uri">https://www.java.com/verify/</a> - <strong>OR</strong></li>
-<li>Open a terminal window and run the following command: java -version</li>
-</ul>
-<p>If you do not have Java installed or you have an older version of Java installed please proceed with the following steps:</p>
-<ol style="list-style-type: decimal">
-<li>Download and install Java 11:
-<ul>
-<li>Go to <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html" class="uri">https://www.oracle.com/java/technologies/javase-jdk11-downloads.html</a></li>
-<li>create a free Oracle account - Top right hand corner –&gt; View Accounts –&gt; Create Account</li>
-<li>Download the java installer that corresponds to your platform (MAC, Windows or Linux)</li>
-<li><img src="images/java_installation.png" /></li>
-<li>Open the installer and follow the steps</li>
-<li>An “Install Succeeded” should appear at the end of the installer dialog box</li>
-<li>You can check that you correctly installed java by typing java -version in terminal window</li>
-<li><img src="images/java_version_cmd.png" /></li>
-</ul></li>
-</ol>
-</div>
 <div id="cytoscape-installation" class="section level3 hasAnchor">
 <h3>Cytoscape Installation<a href="welcome.html#cytoscape-installation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Please install the latest version of <a href="https://cytoscape.org/download-platforms.html">Cytoscape 3.8.2</a> as well as a group of Cytoscape Apps that we will be using for different parts of the course.</p>
+<p>Please install the latest version of <a href="https://cytoscape.org/download-platforms.html">Cytoscape 3.10.0</a> as well as a group of Cytoscape Apps that we will be using for different parts of the course.</p>
 <ol style="list-style-type: decimal">
-<li>Install Cytoscape 3.8.2:
+<li>Install Cytoscape 3.10.0:
 <ul>
 <li>Go to: <a href="https://cytoscape.org/download-platforms.html" class="uri">https://cytoscape.org/download-platforms.html</a></li>
 <li>Choose the version corresponding to your operating system (OS, Windows or UNIX)</li>
 <li>Follow instructions to install cytoscape</li>
 <li>Verify that Cytoscape has been installed correctly by launching the newly installed application</li>
-<li>Contact your system administrator if you have trouble with Java installation</li>
 </ul></li>
-<li>Install the following Cytoscape Apps - Apps are installed from within Cytoscape. In order to install Apps launch Cytoscape
+<li>Install the following Cytoscape Apps - Apps are installed from within Cytoscape.
 <ul>
-<li><img src="images/Cytoscape_app_manager.png" /></li>
-<li>From the menu bar, select ‘Apps’, then ‘App Manager’.</li>
-<li>Within ‘all apps’, search for the following and install:
+<li>In order to install Apps launch Cytoscape<br />
+</li>
+<li>From the menu bar, select ‘Apps’, then ‘App Store’, then ‘Show App Store’. <img src="images/cytoscape_app_menu.png" /></li>
+<li>App Store will appear in left hand Panel <img src="images/Cytoscape_app_manager.png" /></li>
+<li>Within search bar at the top of the panel, search for the app listed below. Once you click on search icon a web browser will be launched with the apps that match your search.</li>
+<li>Select the correct app (there might be a few that match your search term).</li>
+<li>Click on “Install” <img src="images/app_store_download.png" /></li>
+<li>install the following:
 <ul>
-<li>EnrichmentMap 3.3.2</li>
-<li>EnrichmentMap Pipeline Collection 1.1.0 (it will install ClusterMaker2, WordCloud and AutoAnnotate)</li>
+<li>EnrichmentMap 3.3.5</li>
+<li>EnrichmentMap Pipeline Collection 1.1.0 (it will install ClusterMaker2 v2.3.4, WordCloud v3.1.4 and AutoAnnotate v1.4.0)</li>
 <li>GeneMANIA 3.5.2</li>
 <li>IRegulon 1.3</li>
-<li>ReactomeFIPlugin 8.0.3 - <a href="http://apps.cytoscape.org/apps/reactomefiplugin" class="uri">http://apps.cytoscape.org/apps/reactomefiplugin</a></li>
-<li>stringApp 1.6.0</li>
-<li>yFiles Layout Algorithms 1.1.1</li>
+<li>ReactomeFIPlugin 8.0.5 - <a href="http://apps.cytoscape.org/apps/reactomefiplugin" class="uri">http://apps.cytoscape.org/apps/reactomefiplugin</a></li>
+<li>stringApp 2.0.1</li>
+<li>yFiles Layout Algorithms 1.1.3</li>
 </ul></li>
 </ul></li>
 <li>Install the data set within GeneMANIA app. <strong>This requires time and a good network connection to download completely (~15mins)</strong>
@@ -651,7 +633,7 @@ div.csl-indent {
 </div>
 <div id="gsea-installation" class="section level3 hasAnchor">
 <h3>GSEA Installation<a href="welcome.html#gsea-installation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Please install the latest version of GSEA (4.1.0)</p>
+<p>Please install the latest version of GSEA (4.3.2)</p>
 <ol style="list-style-type: decimal">
 <li>Download GSEA
 <ul>
@@ -661,16 +643,16 @@ div.csl-indent {
 <li>Login</li>
 <li>Locate the Download page and download the version corresponding to your system
 <ul>
-<li>MAC users: download GSEA_4.1.0.app.zip</li>
-<li>Window users: download GSEA_Win_4.1.0-installer.exe</li>
-<li>Unix users: download GSEA_Linux_4.1.0.zip</li>
+<li>MAC users: download GSEA_4.3.2.app.zip</li>
+<li>Window users: download GSEA_Win_4.3.2-installer.exe</li>
+<li>Unix users: download GSEA_Linux_4.3.2.zip</li>
 <li><img src="images/gsea_download_exe.png" /></li>
 </ul></li>
 <li>Launch GSEA to test it.</li>
 </ul></li>
 <li>Download GSEA for command line : this is necessary for all platform users to run GSEA from a script (integrated workflow on day 3)
 <ul>
-<li>Download GSEA_4.1.0.zip (and keep it for later use during the workshop)</li>
+<li>Download GSEA_4.3.2.zip (and keep it for later use during the workshop)</li>
 <li><img src="images/gsea_download_command.png" /></li>
 </ul></li>
 </ol>
