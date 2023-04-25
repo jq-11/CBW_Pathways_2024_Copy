@@ -561,8 +561,8 @@ ready to copy and paste into a web page: for this, we use genes with frequent so
 </div>
 <div id="exercise-1" class="section level2 hasAnchor">
 <h2>Exercise 1 - run g:Profiler<a href="gprofiler-lab.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For this exercise, our goal is to copy and paste the list of genes into g:Profiler, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results.</p>
-<p>g:Profiler performs a gene-set enrichment analysis using a hypergeometric test (Fisher’s exact test) with the option to consider the ranking of the genes in the calculation of the enrichment significance (minimum hypergeometric test). The Gene Ontology Biological Process and Reactome are going to be used as pathway databases. The results are displayed as a table or downloadable as an Generic Enrichment Map (GEM) output file.</p>
+<p>For this exercise, our goal is to run an analysis with g:Profiler. We will copy and paste the list of genes into the g:Profiler web interface, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results.</p>
+<p>g:Profiler performs a gene-set enrichment analysis using a hypergeometric test (Fisher’s exact test) with the option to consider the ranking of the genes in the calculation of the enrichment significance (minimum hypergeometric test). The <a href="http://geneontology.org/">Gene Ontology</a> Biological Process, <a href="https://reactome.org/">Reactome</a> and <a href="https://www.wikipathways.org/">WikiPathways</a> sources are going to be used as pathway databases. The results are displayed as a table or downloadable as an Generic Enrichment Map (GEM) output file.</p>
 <p>Before starting this exercise, download the required files:</p>
 <div class="rmd-datadownload">
 <p>
@@ -592,7 +592,12 @@ organism for the analysis, Homo sapiens, is selected by default.<br> The
 input list can contain a mix of gene and protein IDs, symbols and
 accession numbers.<br> Duplicated and unrecognized IDs will be removed
 automatically, and ambiguous symbols can be refined in an interactive
-dialogue after submitting the query.
+dialogue after submitting the query.<br> <strong>Highlight driver terms
+in GO</strong> is a recently (April 2023) added feature that tries to
+reduce the number of GO terms returned by g:Profiler and highlight a
+non-redundant set of GO terms. For more detailed information on this
+feature see <a
+href="https://biit.cs.ut.ee/gprofiler/page/docs#highlighting-description">here</a>
 </p>
 </div>
 <div class="rmd-tip">
@@ -640,7 +645,7 @@ test.
 </p>
 </div>
 <ul>
-<li>In the <em>biological pathways</em> category, check <em>Reactome</em>.</li>
+<li>In the <em>biological pathways</em> category, check <em>Reactome</em> and check <em>WikiPathways</em>.</li>
 </ul>
 <p align="center">
 <img src="Module2/gprofiler/images/gp3.png" alt="workflow" width="50%" />
@@ -668,12 +673,12 @@ Rerun query.
 <p>Step 5a:</p>
 <ul>
 <li>After the query has run, the results are displayed at the bottom of the page, below the input parameters.</li>
-<li>By default, the “Results” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 2 gene-set databases that we have selected, GO Biological Process(<a href="GO:BP" class="uri">GO:BP</a>) and Reactome(REAC). Numbers in parentheses are indicating the number of gene-sets that passed the threshold.</li>
+<li>By default, the “Overview” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 3 gene-set databases that we have selected, GO Biological Process(<a href="GO:BP" class="uri">GO:BP</a>) and Reactome(REAC) and WikiPathways(WP). Numbers in parentheses are indicating the number of gene-sets that passed the threshold.</li>
 </ul>
 <p><img src="Module2/gprofiler/images/gp5.png" alt="workflow" width="100%" /></p>
 <p>Step5b:</p>
 <ul>
-<li>Click on “Detailed Results” to view the results in more depth. Two tables are displayed, one for each of the data sources selected. (If more than 2 data sources are selected there will be additional tables for each datasource) Each row of the table contains:
+<li>Click on “Detailed Results” to view the results in more depth. Three tables are displayed, one for each of the data sources selected. (If more than 3 data sources are selected there will be additional tables for each datasource) Each row of the table contains:
 <ul>
 <li><strong>Term name</strong> - gene-set name</li>
 <li><strong>Term ID</strong> - gene-est identifier</li>
@@ -686,6 +691,8 @@ Rerun query.
 <p><img src="Module2/gprofiler/images/gp6.png" alt="workflow" width="100%" /></p>
 <p>The second table displays the results corresponding to the Reactome database.</p>
 <p><img src="Module2/gprofiler/images/gp7.png" alt="workflow" width="100%" /></p>
+<p>The third table displays the results corresponding to the WikiPathways database.</p>
+<p><img src="Module2/gprofiler/images/gp6a.png" alt="workflow" width="100%" /></p>
 </div>
 <div id="step-6-expand-the-stats-tab" class="section level3 hasAnchor">
 <h3>Step 6: Expand the stats tab<a href="gprofiler-lab.html#step-6-expand-the-stats-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -696,23 +703,26 @@ Rerun query.
 <p>It displays the gene set size (T), the size of our gene list (Q) , the number of genes that overlap between our gene list and the tested gene-set (TnQ) as well as the number of genes in the background (U).</p>
 <ul>
 <li>Above the <a href="GO:BP" class="uri">GO:BP</a> result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size).</li>
-<li>Change the maximum <em>Term size</em> from 10000 to <strong>250</strong> and observe the results in the detailed stats panel:</li>
+<li>Change the maximum <em>Term size</em> from 10000 to <strong>250</strong> and</li>
+<li>Change the minimum <em>Term size</em> from 1 to <strong>3</strong> and</li>
+<li>observe the results in the detailed stats panel:</li>
 </ul>
 <p><img src="Module2/gprofiler/images/gp8a.png" alt="workflow" width="100%" /></p>
 <ul>
-<li>Without filtering term size, the top terms were GO terms containing that could contain 4000 or 5000 genes and that were located high in the GO hierarchy (parent term).</li>
-<li>With filtering the maximum term size to 250, the top list contains pathways of larger interpretative values. However, please note that the adjusted pvalues was calculated using all gene-sets without size filtering.</li>
+<li>Without filtering term size, the top terms were GO terms containing more than 4000 or 5000 genes and often terms located high in the GO hierarchy (parent term).</li>
+<li>With filtering the maximum term size to 250, the top list contains pathways with larger interpretative values. However, please note that the adjusted p-values were calculated using all gene-sets without size filtering.</li>
 </ul>
 </div>
 <div id="step-7-save-the-results" class="section level3 hasAnchor">
 <h3>Step 7: Save the results<a href="gprofiler-lab.html#step-7-save-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>7a. In the <em>Detailed Results</em> panel, select “GEM” . It will save the results in a text file in the “Generic Enrichment Map” format that we will use to visualize using Cytoscape.</p>
 <ul>
-<li>select max term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_maxterm10000.gem.txt)
+<li>keep the minimum term size set to 3 (for all the three files we create below)</li>
+<li>set maximum term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_maxterm10000.gem.txt)
 <p align="center">
 <img src="Module2/gprofiler/images/gp13.png" alt="workflow" width="75%" />
 </p></li>
-<li>select max term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_maxterm1000.gem.txt)
+<li>set maximum term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_maxterm1000.gem.txt)
 <p align="center">
 <img src="Module2/gprofiler/images/gp14.png" alt="workflow" width="75%" />
 </p></li>
@@ -721,7 +731,7 @@ Rerun query.
 <img src="Module2/gprofiler/images/gp14a.png" alt="workflow" width="75%" />
 </p></li>
 </ul>
-<p>7b: Open the file that you saved using the geneset threshold of 250 using Microsoft Office Excel or in an equivalent software.</p>
+<p>7b: Open the file that you saved using the gene-set threshold of 250 using Microsoft Office Excel or in an equivalent software.</p>
 <p>Observe the results included in this file:</p>
 <ol style="list-style-type: decimal">
 <li>Name of each gene-set</li>
@@ -734,8 +744,8 @@ Rerun query.
 <div class="rmd-question">
 <p>
 Which term has the best corrected p-value? <br> Which genes in our
-list are included in this term? <br> Observe that same genes can be
-present in several lines (pathways are related when they contain a lof
+list are included in this term? <br> Observe that some genes can be
+present on several lines (pathways are related when they contain a lof
 of genes in common).
 </p>
 </div>
@@ -764,7 +774,7 @@ that each pathway will be represented by red nodes on the enrichment map
 <p align="center">
 <img src="Module2/gprofiler/images/gp12.png" alt="workflow" width="60%" />
 </p>
-<p>8b. concatenate the <a href="GO:BP" class="uri">GO:BP</a> and Reactome gmt files:</p>
+<p>8b. concatenate the <a href="GO:BP" class="uri">GO:BP</a>, Reactome and WikiPathways gmt files:</p>
 <p>If you want to create a smaller gmt file that doesn’t contain all of the gprofiler datasources you can instead download <em>name.gmt.zip</em> that contains each datasource as its own gmt file. You will need to concatenate the sources you require into one gmt file to use for later.</p>
 <div id="option-1-manually-if-you-are-not-familiar-with-unix-commands" class="section level4 hasAnchor">
 <h4>Option 1: manually if you are not familiar with unix commands<a href="gprofiler-lab.html#option-1-manually-if-you-are-not-familiar-with-unix-commands" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -772,7 +782,10 @@ that each pathway will be represented by red nodes on the enrichment map
 <li>open a text editor such a Notepad or equivalent</li>
 <li>open hsapiens.GO:BP.name.gmt using the text editor</li>
 <li>open gmt hsapiens.REAC.name.gmt using the text editor</li>
-<li>copy-paste all the rows from REAC file together with all the rows in <a href="GO:BP" class="uri">GO:BP</a> file and save it as hsapiens.pathways.name.gmt .</li>
+<li>copy-paste all the rows from REAC file together with all the rows in <a href="GO:BP" class="uri">GO:BP</a> file.</li>
+<li>open gmt hsapiens.WP.name.gmt using the text editor</li>
+<li>copy-paste all the rows from WP file together with all the rows in <a href="GO:BP" class="uri">GO:BP</a> file.</li>
+<li>save the file as hsapiens.pathways.name.gmt .</li>
 </ul>
 </div>
 <div id="option-2-using-the-cat-command-if-you-are-familiar-with-unix-commands" class="section level4 hasAnchor">
@@ -782,7 +795,7 @@ that each pathway will be represented by red nodes on the enrichment map
 <li>cd to the unzipped gprofiler_hsapiens.name folder</li>
 <li>type the following command:</li>
 </ul>
-<pre><code> cat hsapiens.GO:BP.name.gmt hsapiens.REAC.name.gmt &gt; hsapiens.pathways.name.gmt</code></pre>
+<pre><code> cat hsapiens.GO:BP.name.gmt hsapiens.REAC.name.gmt hsapiens.WP.name.gmt &gt; hsapiens.pathways.name.gmt</code></pre>
 <div class="rmd-note">
 <p>
 you will be using this optional hsapiens.pathways.name.gmt file in
@@ -822,7 +835,7 @@ directory.
 </div>
 <ul>
 <li><p><a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">Supplementary_Tabe1_Cancer_drivers.txt</a></p></li>
-<li><p><a href="./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_maxgssize250.gmt">Baderlab_genesets.gmt (from September 2020)</a>.</p></li>
+<li><p><a href="./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Baderlab_genesets.gmt (from April 2023)</a>.</p></li>
 </ul>
 <p>We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.</p>
 <p>STEPS:</p>
@@ -847,7 +860,7 @@ directory.
 </ul></li>
 <li>Step 4: Click on the <em>Custom GMT</em> tab (black rectangle) to expand it.
 <ul>
-<li>Drag in the box the Baderlab gmt file <a href="./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_maxgssize250.gmt">Baderlab_genesets.gmt</a>.</li>
+<li>Drag in the box the Baderlab gmt file <a href="./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Baderlab_genesets.gmt</a>.</li>
 <li>Once uploaded successfully, the name of the file is displayed in the “File name used” box.</li>
 </ul></li>
 </ul>
