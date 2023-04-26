@@ -204,6 +204,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-7-save-the-results"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-8-optional-but-recommended"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
+<li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#step-9-optional-by-recommended"><i class="fa fa-check"></i>Step 9 (Optional by recommended)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i>Exercise 2: Load and use a custom .gmt file and run the query</a></li>
 <li class="chapter" data-level="" data-path="gprofiler-lab.html"><a href="gprofiler-lab.html#optional-steps"><i class="fa fa-check"></i>Optional steps</a>
@@ -625,11 +626,24 @@ are simply no significant results for your query.
 <p align="center">
 <img src="Module2/gprofiler/images/gp2.png" alt="workflow" width="50%" />
 </p>
+<div class="rmd-tip">
+<p>
+In order to get all the results, even those that don’t pass
+correction, select <em>all results</em>. By default, g:Profiler will
+only return the sets that pass the defined threshold. Often you need the
+ability to tweak the thresholds in the resulting EM beyond the strict
+FDR &lt; 0.05 threshold and therefore require all the results.
+</p>
+</div>
 <p>3b. Click on the <em>Data sources</em> tab (black rectangle) to expand it.</p>
 <ul>
 <li>UnSelect all gene-set databases by clicking the “clear all” button.</li>
 <li>In the <em>Gene Ontology</em> category, check <em>GO Biological Process</em> and <em>No electronic GO annotations</em>.</li>
+<li>In the <em>biological pathways</em> category, check <em>Reactome</em> and check <em>WikiPathways</em>.</li>
 </ul>
+<p align="center">
+<img src="Module2/gprofiler/images/gp3.png" alt="workflow" width="50%" />
+</p>
 <div class="rmd-note">
 <p>
 <em>No electronic GO annotations</em> option will discard less
@@ -644,12 +658,6 @@ electronic GO annotation</em> option to expand annotations used in the
 test.
 </p>
 </div>
-<ul>
-<li>In the <em>biological pathways</em> category, check <em>Reactome</em> and check <em>WikiPathways</em>.</li>
-</ul>
-<p align="center">
-<img src="Module2/gprofiler/images/gp3.png" alt="workflow" width="50%" />
-</p>
 </div>
 <div id="step-4---run-query" class="section level3 hasAnchor">
 <h3>Step 4 - Run query<a href="gprofiler-lab.html#step-4---run-query" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -718,15 +726,15 @@ Rerun query.
 <p>7a. In the <em>Detailed Results</em> panel, select “GEM” . It will save the results in a text file in the “Generic Enrichment Map” format that we will use to visualize using Cytoscape.</p>
 <ul>
 <li>keep the minimum term size set to 3 (for all the three files we create below)</li>
-<li>set maximum term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_maxterm10000.gem.txt)
+<li>set maximum term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_gs_min3_max10000.gem.txt)
 <p align="center">
 <img src="Module2/gprofiler/images/gp13.png" alt="workflow" width="75%" />
 </p></li>
-<li>set maximum term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_maxterm1000.gem.txt)
+<li>set maximum term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_gs_min3_max1000.gem.txt)
 <p align="center">
 <img src="Module2/gprofiler/images/gp14.png" alt="workflow" width="75%" />
 </p></li>
-<li>select max term size to 250 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_maxterm250.gem.txt)
+<li>select max term size to 250 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_gs_min3_max250.gem.txt)
 <p align="center">
 <img src="Module2/gprofiler/images/gp14a.png" alt="workflow" width="75%" />
 </p></li>
@@ -802,8 +810,46 @@ you will be using this optional hsapiens.pathways.name.gmt file in
 Cytoscape EnrichmentMap.
 </p>
 </div>
-<hr />
 </div>
+</div>
+<div id="step-9-optional-by-recommended" class="section level3 hasAnchor">
+<h3>Step 9 (Optional by recommended)<a href="gprofiler-lab.html#step-9-optional-by-recommended" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="9" style="list-style-type: decimal">
+<li>Get and record the version of g:Profiler used in your analysis. It is important to note in your future publication using your enrichment results the methods and the version of software used for any analysis. g:Profiler is updated on a regular basis so you can not simply come back to the webpage at time of publication and get the version. Also, if you ever want to verify the results that you have and re-run the analysis it is important to use the same version as the initial analysis (or your results might differ). g:Profiler maintains an <a href="https://biit.cs.ut.ee/gprofiler/page/archives">archive</a> so it is easy to revisit previous versions.</li>
+</ol>
+<p align="center">
+<img src="Module2/gprofiler/images/gp_archive.png" alt="workflow" width="100%" />
+</p>
+<ul>
+<li>The g:Profiler version can be found in two places -
+<ul>
+<li>At the bottom of overview tab the version is listed
+<p align="center">
+<img src="Module2/gprofiler/images/gp_version1.png" alt="workflow" width="100%" />
+</p></li>
+<li>Or Click on the <em>Query Info</em> tab to see all the parameters, including the g:Profiler version, used for the analysis
+<p align="center">
+<img src="Module2/gprofiler/images/gp_version2.png" alt="workflow" width="100%" />
+</p></li>
+</ul></li>
+</ul>
+<div class="rmd-note">
+<p>
+Deciphering the version from the listed tag e109_eg56_p17_1d3191d
+:<br> * e109 - Ensembl version 109 <br> * eg56 - Ensembl genomes version
+56<br>
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+The version info can be recorded anywhere (for example in your lab
+notebook) but a convenient place is to embedded it in the g:Profiler
+geneset file name used for the analysis. <br>Instead of naming the file
+<br> * hsapiens.pathways.name.gmt<br> Name it <br> *
+hsapiens.pathways_e109_eg56_p17_1d3191d.name.gmt<br>
+</p>
+</div>
+<hr />
 </div>
 </div>
 <div id="exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query" class="section level2 hasAnchor">

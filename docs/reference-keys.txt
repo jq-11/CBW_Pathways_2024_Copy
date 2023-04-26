@@ -35,6 +35,7 @@ step-7-save-the-results
 step-8-optional-but-recommended
 option-1-manually-if-you-are-not-familiar-with-unix-commands
 option-2-using-the-cat-command-if-you-are-familiar-with-unix-commands
+step-9-optional-by-recommended
 exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query
 optional-steps
 optional-1
