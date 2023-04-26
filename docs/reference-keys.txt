@@ -1,4 +1,4 @@
-pathway-and-network-analysis-of--omics-data-may-2023
+section
 meet-your-faculty
 gary-bader
 lincoln-stein
@@ -175,7 +175,7 @@ steps-3
 exercise-1-answers
 exercise-2-questions-and-steps-to-follow
 steps-4
-section-1
+section-2
 exercise-3-questions-and-steps-to-follow
 steps-5
 some-definitions

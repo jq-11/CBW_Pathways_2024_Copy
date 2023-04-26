@@ -1,7 +1,6 @@
 --- 
-title: "Pathways" 
-subtitle: "CBW workshop"
-author: "Gary Bader, Veronique Voisin, Ruth Isserlin"
+title: "Pathway and Network Analysis of -Omics Data ( June 2023 )" 
+author: "Gary Bader, Ruth Isserlin, Chaitra Sarathy, Veronique Voisin"
 date: "last modified `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -13,10 +12,9 @@ github-repo: rstudio/bookdown-demo
 favicon: images/favicon.ico
 description: "Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information. "
 ---
+#
 
-# Pathway and Network Analysis of -Omics Data ( May 2023 )
-
-The CBW has developed a 2.5 day course covering the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information. The workshop focuses on the principles and concepts required for analyzing and conducting pathway and network analysis on a gene list from any organism, although focus will be on human and model eukaryotic organisms.
+![](./images/cbw_pathways_cover_2023.png)
 
 ## Meet your Faculty
 

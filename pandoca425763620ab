@@ -1,0 +1,14 @@
+<p>Make sure that you have mapped a volume on your computer to a volume
+in your container so that files you create are also saved on your
+computer. That way, turning off or deleting your container or image will
+not effect your files.<br></p>
+<ul>
+<li>The parameter <strong>-v ${PWD}:/home/rstudio/projects</strong> maps
+your current directory (i.e. the directory you are in when launching the
+container) to the directory /home/rstudio/projects on your
+container.</li>
+<li>You do not need to use the ${PWD} convention. You can also specify
+the exact path of the directory you want to map to your container.</li>
+<li>Make sure to save all your scripts and notebooks in the projects
+directory.</li>
+</ul>
