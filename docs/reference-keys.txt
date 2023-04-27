@@ -1,4 +1,5 @@
-section
+canadian-bioinformatics-workshops
+welcome
 meet-your-faculty
 gary-bader
 lincoln-stein
@@ -6,7 +7,6 @@ veronique-voisin
 ruth-isserlin
 chaitra-sarathy-phd
 michelle-brazas-phd
-welcome
 class-materials
 schedule
 pre-workshop
@@ -175,7 +175,7 @@ steps-3
 exercise-1-answers
 exercise-2-questions-and-steps-to-follow
 steps-4
-section-2
+section-1
 exercise-3-questions-and-steps-to-follow
 steps-5
 some-definitions

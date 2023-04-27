@@ -2,6 +2,57 @@
 
 Welcome to Pathways and Network Analysis of -Omics Data 2023  
 
+## Meet your Faculty
+
+### Gary Bader
+Principal Investigator, University of Toronto 
+
+<img src="./images/faculty/gary_bader.jpeg" style="float:left;width:125px;padding-right:10px;" />
+Dr. Bader develops biological network analysis and pathway information resources. He created the Biomolecular Interation Network Database ( [BIND](http://bind.ca) ) while working on his PhD and currently helps lead development of the free Cytoscape network visualization and analysis software [Cytoscape](http://cytoscape.org/). 
+
+### Lincoln Stein
+Head, Adaptive Oncology, OICR
+
+<img src="./images/faculty/lincoln_stein.jpeg" style="float:right;width:125px;padding-left:10px;" />
+Dr. Stein played an integral role in many large-scale data initiatives including the development of the first physical clone map of the human genome, and running the data coordinating centre and the data portal for the SNP Consortium and the HapMap Consortium. Dr. Stein has also led the creation and development of Wormbase, a community model organism database for C. elegans, and Reactome, which is now the largest open community database of biological reactions and pathways. At OICR, Dr. Stein has led several international cancer data sharing and research initiatives, including the creation and development of the data coordination centre for the International Cancer Genome Consortium and other related projects. He continues to collaborate with national and international partners to create and promote data sharing standards, protocols and implementations.
+
+
+### Veronique Voisin
+Research Associate, Donnelly Centre for Cellular and Biomolecular Research, University of Toronto 
+
+<img src="./images/faculty/veronique_voisin.jpeg" style="float:left;width:125px;padding-right:10px;" />
+Veronique is currently a bioinformatician applying pathway and networks analysis to high throughput genomics data for OICR cancer stem cell program. Previously, she worked on characterizing the gene signatures of different types of leukemias using a murine model
+
+&nbsp;
+&nbsp;
+
+### Ruth Isserlin
+Research data analyst, Donnelly Centre for Cellular and Bimolecular Research, University of Toronto
+
+<img src="./images/faculty/ruth_isserlin.jpeg" style="float:right;width:125px;padding-left:10px;" />
+Bioinformatician and data analyst in the Bader lab applying pathway and data analysis to varied data types. Developed Enrichment Map App for Cytoscape, an app to visually translate functional enrichment results from popular enrichment tools like GSEA to networks. Further developed the Enrichment Map Pipeline including development of additional Apps to help summarize and analyze resulting Enrichment Maps, including PostAnalysis, WordCloud, and AutoAnnotate App. 
+
+### Chaitra Sarathy, PhD
+Scientific Associate, Princess Margaret Cancer Centre, University Health Network
+
+<img src="./images/faculty/Chaitra_Sarathy.jpeg" style="float:right;width:125px;padding-left:10px;" />
+Chaitra is a computational biologist with experience in software development. During her PhD, she applied mathematical modelling, network analysis and multi-omics integration to study complex diseases. She has contributed to open-source toolboxes (openCOBRA) and developed softwares (EFMviz & ComMet) to analyse genome-scale metabolic models. She currently works in the Bader lab's MODiL team (Multi Omics Data Integration and Analysis) and with groups at PMCC, where she develops pipelines to analyse various omics data types and discover new drug targets in cancer.
+
+
+### Michelle Brazas, PhD
+Acting Scientific Director Canadian Bioinformatics Workshops (CBW), Toronto, ON, CA
+support@bioinformatics.ca
+
+<img src="./images/faculty/michelle_brazas.jpeg" style="float:left;width:125px;padding-right:10px;" />
+Dr. Michelle Brazas is the Associate Director for Adaptive Oncology at the Ontario Institute for Cancer Research (OICR), and acting Scientific Director at Bioinformatics.ca. Previously, Dr. Brazas was the Program Manager for Bioinformatics.ca and a faculty member in Biotechnology at BCIT. Michelle co-founded and runs the Toronto Bioinformatics User Group (TorBUG) now in its 11th season, and plays an active role in the International Society of Computational Biology where she sits on the Board of Directors and Executive Board. 
+
+
+***
+
+Thank you for attending the Pathway and Network Analysis of Omics Data workshop! Help us make this workshop better by filling out [our survey](https://forms.gle/D8w8qyJ1r71rFnZe9).
+
+*** 
+
 ## Class Materials 
 
 TEST VERONQIUE
