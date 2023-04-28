@@ -318,8 +318,12 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#goal-of-this-practical-lab"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
 <li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#data-download-the-following-files-on-your-computer-before-starting-the-practical-lab."><i class="fa fa-check"></i>Data: download the following files on your computer before starting the practical lab.</a></li>
-<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-1-pathway-based-analysis-of-gbm-genelist"><i class="fa fa-check"></i>Exercise 1: Pathway-based analysis of GBM genelist</a></li>
-<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#execise-2-pathway-based-analysis-of-gbm-genelist"><i class="fa fa-check"></i>Execise 2: Pathway-based analysis of GBM genelist</a></li>
+<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-1a-explore-reactome-pathways"><i class="fa fa-check"></i>Exercise 1a: Explore Reactome Pathways</a></li>
+<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-1b-pathway-enrichment-analysis-using-a-simple-gene-list"><i class="fa fa-check"></i>Exercise 1b: Pathway enrichment analysis using a simple gene list</a></li>
+<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-1c-pathway-based-analysis-using-a-rank-gene-list-gsea"><i class="fa fa-check"></i>Exercise 1c: Pathway-based analysis using a rank gene list (GSEA)</a></li>
+<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-2-use-the-reactome-functional-interaction-fi-network"><i class="fa fa-check"></i>Exercise 2: Use the Reactome Functional Interaction (FI) Network</a></li>
+<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-3-perform-scrna-seq-data-analysis-and-visualization"><i class="fa fa-check"></i>Exercise 3: Perform scRNA-seq Data Analysis and Visualization</a></li>
+<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-4-automation-using-a-jupiter-notebook"><i class="fa fa-check"></i>Exercise 4: Automation using a Jupiter Notebook</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="intro-regulatory-networks.html"><a href="intro-regulatory-networks.html"><i class="fa fa-check"></i>Module 5: Regulatory Network Analysis</a>
 <ul>
@@ -552,18 +556,29 @@ div.csl-indent {
 </div>
 <div id="data-download-the-following-files-on-your-computer-before-starting-the-practical-lab." class="section level2 hasAnchor">
 <h2>Data: download the following files on your computer before starting the practical lab.<a href="ReactomeFI.html#data-download-the-following-files-on-your-computer-before-starting-the-practical-lab." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Downloald <a href="./Module4/Reactome/data/GBM_genelist.txt">GBM_genelist.txt</a> file.<br />
-</li>
-<li>Downloald <a href="./Module4/Reactome/data/GBM_genesample.txt">GBM_genesample.txt</a> file.<br />
-</li>
-<li>Downloald <a href="./Module4/Reactome/data/OVCA_TCGA_Clinical.txt">OVCA_TCGA_Clinical.txt</a> file.<br />
-</li>
-<li>Downloald <a href="./Module4/Reactome/data/OVCA_TCGA_MAF.txt">OVCA_TCGA_MAF.txt</a> file.</li>
-</ul>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+We recommend saving all these files in a personal project data folder
+before starting with the name of the module (module4). We also recommend
+creating an additional result data folder to save the files generated
+while performing the protocol (module4_result).
+</p>
 </div>
-<div id="exercise-1-pathway-based-analysis-of-gbm-genelist" class="section level2 hasAnchor">
-<h2>Exercise 1: Pathway-based analysis of GBM genelist<a href="ReactomeFI.html#exercise-1-pathway-based-analysis-of-gbm-genelist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Download <a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">PanCancer_drivers_genelist.txt</a></p></li>
+<li><p>Download <a href="./Module4/Reactome/data/Pancancer_frequency.txt">PanCancer_drivers_genelist_with_mutation_frequency.txt</a></p></li>
+<li><p>Download <a href="./Module4/Reactome/data/OVCA_TCGA_Clinical.txt">OVCA_TCGA_Clinical.txt</a> file.</p></li>
+<li><p>Download <a href="./Module4/Reactome/data/OVCA_TCGA_MAF.txt">OVCA_TCGA_MAF.txt</a> file.</p></li>
+</ul>
+<p>##OLD FILES
+* Download <a href="./Module4/Reactome/data/GBM_genelist.txt">GBM_genelist.txt</a> file.<br />
+* Download <a href="./Module4/Reactome/data/GBM_genesample.txt">GBM_genesample.txt</a> file.</p>
+</div>
+<div id="exercise-1a-explore-reactome-pathways" class="section level2 hasAnchor">
+<h2>Exercise 1a: Explore Reactome Pathways<a href="ReactomeFI.html#exercise-1a-explore-reactome-pathways" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Objectives:</strong>
 The objective of this exercise is to navigate the Reactome pathways using the Cytoscape ReactomeFI app.</p>
 <p><strong>Steps:</strong>
@@ -636,7 +651,7 @@ Step1
 </p>
 Step2
 <p align="center">
-<img src="Module4/Reactome/images/lab1/ReactomeFI_7b.png" alt="start" width="80%" />
+<img src="Module4/Reactome/images/lab1/ReactomeFI_7b.png" alt="start" width="100%" />
 </p>
 <p>Some useful information are displayed like a summary of the pathway and reference papers used to build the diagram.
 It can be exported as a pdf image or as a BioPAX format which is a file format specification for the exchange of biological pathway data.</p>
@@ -647,21 +662,282 @@ Step1
 </p>
 Step2
 <p align="center">
-<img src="Module4/Reactome/images/lab1/ReactomeFI_8b.png" alt="start" width="80%" />
+<img src="Module4/Reactome/images/lab1/ReactomeFI_8b.png" alt="start" width="100%" />
 </p>
 </div>
-<div id="execise-2-pathway-based-analysis-of-gbm-genelist" class="section level2 hasAnchor">
-<h2>Execise 2: Pathway-based analysis of GBM genelist<a href="ReactomeFI.html#execise-2-pathway-based-analysis-of-gbm-genelist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-1b-pathway-enrichment-analysis-using-a-simple-gene-list" class="section level2 hasAnchor">
+<h2>Exercise 1b: Pathway enrichment analysis using a simple gene list<a href="ReactomeFI.html#exercise-1b-pathway-enrichment-analysis-using-a-simple-gene-list" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Objectives:</strong>
-The objective of this exercise is to perform a pathway-based analysis</p>
-<p><strong>Data:</strong>
-* Downloald <a href="./Module4/Reactome/data/GBM_genelist.txt">GBM_genelist.txt</a> file.</p>
-<p><strong>Steps:</strong>
-- Unfurl the “Signal Transduction” events in the event hierarchy, by clicking the triangle to the left of the event name, in the “Reactome” tab on the left.</p>
+The objective of this exercise is to perform a pathway-based analysis using a sample gene list as input.</p>
+<p><strong>Data:</strong></p>
+<p>For this lab, we use genes with frequent somatic SNVs identified in TCGA exome sequencing data of 3,200 tumors of 12 types. The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples (Pan-cancer tab from Supplementary Table 4 in <a href="https://www.nature.com/articles/nature12634">Kandoth C. et al.</a>.</p>
 <ul>
-<li><p>Right-click on the highlighted pathway name in the display drop-down menu, select “Analyze Pathway Enrichment”</p></li>
-<li><p>Upload/Browse/“Copy-and-paste” the “GBM_genelist.txt” data into the Reactome Pathway Enrichment Analysis, and click “OK”.</p></li>
+<li>Gene list: <a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">Pan_Cancer_drivers.txt</a></li>
 </ul>
+<p><strong>Steps:</strong></p>
+<ul>
+<li><p>In Cytoscape, locate the menu bar, select File -&gt; Close</p></li>
+<li><p>Go to Apps &gt;Reactome FI&gt;Reactome Pathways. Locate the menu of pathways on the left window in the Reactome tab from the Control Panel.</p></li>
+<li><p>Scroll down and find the <strong>Signal Transduction</strong> pathway in the event hierarchy and select it.</p></li>
+<li><p>Right-click on the highlighted <strong>Signal Transduction</strong> name and select <strong>Analyze Pathway Enrichment</strong> .</p></li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2a.png" alt="start" width="80%" />
+</p>
+<ul>
+<li><strong><em>Browse</em></strong> and upload the <strong>Pan_Cancer_drivers.txt</strong> data into the Reactome Pathway Enrichment Analysis, and click <strong>OK</strong>.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2b.png" alt="start" width="80%" />
+</p>
+<p>Question
+1: What are the most significant biological pathways based on the FDR?</p>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2c.png" alt="start" width="80%" />
+</p>
+<ul>
+<li>Hint: Take a look at the list of significant pathways in the <strong>Reactome Pathway Enrichment</strong> tab of Table Panel.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2d.png" alt="start" width="80%" />
+</p>
+<p>Pathway enrichment results are displayed as a table labeled as “Reactome Pathway Enrichment” in the “Table Panel” at the bottom of the main Cytoscape window.</p>
+<p>The pathway with the most significant enrichment is called “Generic Transcription Pathway”. This pathway contains 1235 genes and 42 genes were contained in our Pan_Cancer gene list that we used as intput.</p>
+<p>The statistical enrichment test pvalue associated with this pathway is close to 0 (0.00968) and it means that this size of the overlap (42 genes) was not likely to be obtained by chance only.</p>
+<p>The total number of genes in the pathway is located in the third column named ‘NumberOfProteinInPathway’. The number of genes from our input gene list and overlapping with the tested pathway is indicated in the column named ‘ProteinFromGeneSet’. The pathways that are the most enriched have a low FDR value.</p>
+<ul>
+<li>In the <strong>Reactome Pathway Enrichment</strong> table, select <strong>Transcriptional regulation by RUNX3</strong>. Right-click on the pathway and select <strong>View in Diagram</strong>.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2e2.png" alt="start" width="80%" />
+</p>
+<ul>
+<li>Zoom in and out to observe the diagram. Purple-coloured nodes reflect genes that are present in our input gene list (GBM_genelist.txt).
+Right-click on highlighted nodes to invoke additional features.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2e1.png" alt="start" width="80%" />
+</p>
+<div class="rmd-tip">
+<p>
+If the Reactome Pathway Enrichment Table is not visible anymore in
+the Table Panel. Go to Cytoscape menu bar, <strong>View</strong>.
+Uncheck and chek <strong>Show Table Panel</strong>.
+</p>
+</div>
+<ul>
+<li>Transform it into a network. Right-click on a blank space of the diagram and select <strong>Convert to FI Network</strong>. It has the advantage that we can now work with this network and use the Cytoscape analysis and visual features. Purple-coloured nodes reflect genes that are present in our input gene list.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2f.png" alt="start" width="80%" />
+</p>
+<div class="rmd-tip">
+<p>
+Redo the layout if a clearer view is needed. Go to the Cytoscape menu
+bar and then select <strong>Layout</strong> , <strong>yFiles Organic
+Layout</strong>.
+</p>
+</div>
+<ul>
+<li>Transform it back into a diagram. Right-click on a blank space and select <strong>Convert to Diagram</strong>.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2f2.png" alt="start" width="80%" />
+</p>
+<ul>
+<li>Open Reactome Reacfoam: The Reacfoam view provides a holistic view of all (exclude disease) human pathways in the Reactome database. Go to the menu of pathways in the Control Panel (left window) and right-click on a blank space. Select <strong>Open Reactome Reacfoam</strong>.<br />
+
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2g.png" alt="start" width="80%" />
+</p></li>
+</ul>
+<p>Reactome Reacfoam will open in the default web browser.</p>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_2h.png" alt="start" width="80%" />
+</p>
+<div class="rmd-note">
+<p>
+The color gradient indicates which categories of pathways have a
+stronger enrichment in the gene list that we have provided.
+</p>
+</div>
+</div>
+<div id="exercise-1c-pathway-based-analysis-using-a-rank-gene-list-gsea" class="section level2 hasAnchor">
+<h2>Exercise 1c: Pathway-based analysis using a rank gene list (GSEA)<a href="ReactomeFI.html#exercise-1c-pathway-based-analysis-using-a-rank-gene-list-gsea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Objectives:</strong>
+ReactomeFIViz provides support to perform GSEA analysis for Reactome pathways using a rank file.
+<strong>Data:</strong>
+To perform the GSEA pathway enrichment analysis, you need to provide a tab-delimited text file containing two columns: the first for gene symbols (human only) and the second for gene scores.</p>
+<p>The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples. This cohort was previously stratified into four distinct expression subtypes <a href="http://www.ncbi.nlm.nih.gov/pubmed/21720365">PMID:21720365</a> and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.</p>
+<p>How was the data processed?</p>
+<p>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>. <br>Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>.<br>The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <a href="gsea-lab.html#additional_information"><strong>Additional information</strong></a> section.</p>
+<p>Download (right-click and save link): <a href="./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a></p>
+<div class="rmd-warning">
+<p>
+The first row is reserved for the column headers, and will not be
+imported for analysis.
+</p>
+</div>
+<p><strong>Steps:</strong>
+- Start with a fresh session. Go to the Cytocape menu bar and select <strong>File</strong>, <strong>Close</strong>.</p>
+<ul>
+<li><p>Go to the menu bar and <strong>Apps</strong>, <strong>Reactome FI</strong>, <strong>Reactome Pathways</strong>.The Reactome tab in the Control Panel on the left opens and the list of pathways is visible.</p></li>
+<li><p>Select <strong>Autophagy</strong> and righ-click on a blank space. The option menu opens. Select <strong>Perform GSEA Analysis</strong>.</p></li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1c_1.png" alt="start" width="80%" />
+</p>
+<p>A <strong>Reactome GSEA Analysis window</strong> pops up.</p>
+<ul>
+<li>Browse and select <a href="./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a>.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1c_2.png" alt="start" width="80%" />
+</p>
+<div class="rmd-warning">
+<p>
+The number of permutations is 100 by default. To achieve more
+precision, we set up the permutations to 2000. It takes approximately 10
+minutes to run.
+</p>
+<p>
+For faster results during this practical lab, you may run it with 100
+permutations. It will affect the NES, P-value and FDR values.
+</p>
+</div>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1c_3.png" alt="start" width="80%" />
+</p>
+<ul>
+<li>Once GSEA has finished to run, a <strong>Reactome GSEA Analysis</strong> appears in the Table Panel.
+It displays the list of pathways ordered by the best FDR values. Click on the <strong>Normalized enrichment score</strong> tab to order the pathways from Up to Down.</li>
+</ul>
+<p>The pathways that are up and with FDR less than 0.05 are enriched in genes up regulated in the mesenchymal type of ovarian cancer.</p>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1c_4.png" alt="start" width="80%" />
+</p>
+<p>The pathways that are down and with FDR less than 0.05 are enriched in genes down regulated in the mesenchymal type of ovarian cancer. Therefore, these genes are specific to the immunoreactive type.</p>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1c_5.png" alt="start" width="80%" />
+</p>
+<p>Interferon Signaling is the pathway that has the strongest enrichment in genes down-regulated in the mesenchymal type. Let’s visualize is a diagram to get details about the pathway.</p>
+<ul>
+<li>Locate and select <strong>Interferon gamma signaling</strong> in the <strong>Reactome GSEA Analysis</strong> table. Right-click on the highlighted name and select <strong>View in Diagram</strong> from the popup menu.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1c_6.png" alt="start" width="80%" />
+</p>
+<ul>
+<li>Explore the diagram by zooming in and out. Look at the list of genes in the *Gene scores and ranks** table (click on some genes).</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1c_7.png" alt="start" width="80%" />
+</p>
+<ul>
+<li>Fetch cancer drug: right-click and select <strong>Fetch cancer drug</strong>.</li>
+</ul>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1c_8.png" alt="start" width="80%" />
+</p>
+</div>
+<div id="exercise-2-use-the-reactome-functional-interaction-fi-network" class="section level2 hasAnchor">
+<h2>Exercise 2: Use the Reactome Functional Interaction (FI) Network<a href="ReactomeFI.html#exercise-2-use-the-reactome-functional-interaction-fi-network" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Objectives:</strong>
+The objective of this exercise is to create a Reactome Functional Interaction (FI) network using the pan-cancer gene list from exercise 1.
+In this exercise, we create a network using all genes in our list. In the network that we are creating, each gene is a node and all genes known to interact or are predicted to interact with each other will be connected.
+We remember that this gene list comes from genes found with frequently mutated in diverse types of cancer. Interestingly, this network might show us that although they were found in different cancers, they are biologically connected and might function in common biological pathways and protein complexes and represent hallmarks of cancer.</p>
+<p><strong>Data:</strong>
+Download:
+- <a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">Pan_Cancer_drivers.txt</a>
+- <a href="./Module4/Reactome/data/pancancer_frequency_table.txt">pancancer_frequency_table.txt</a></p>
+<p><strong>Steps:</strong>
+Create the network:
+- Open up Cytoscape.<br />
+- Go to Apps&gt;Reactome FI and Select “Gene Set/Mutational Analysis”.<br />
+- Choose “2021 (Latest)” Version.
+- Upload/Browse <a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">Pan_Cancer_drivers.txt</a> file.
+- Select <strong>Gene set</strong>
+- Select <strong>Fetch FI annotations</strong>.
+- Select <strong>Show genes not linked to other</strong>
+- Click OK.</p>
+<p align="center">
+<img src="Module4/Reactome/images/lab2/ReactomeFI_ex2_1.png" alt="start" width="80%" />
+</p>
+Created network:
+<p align="center">
+<img src="Module4/Reactome/images/lab2/ReactomeFI_ex2_2.png" alt="start" width="80%" />
+</p>
+<ul>
+<li><strong>Question 1: Describe the size and composition of the network?</strong>
+<p align="center">
+<img src="Module4/Reactome/images/lab2/ReactomeFI_ex2_3.png" alt="start" width="80%" />
+</p></li>
+</ul>
+<p>The total number of genes in the network is 128.
+103 of these genes are connected to each other by functional interactions. You can get this information by selecting all genes that you see connected to each others.
+The total number of edges which represent the interactions is 473.
+The genes that are interacting together might work together in some same protein complexes in the cells.</p>
+<p>[TO DO ADD DETAILS ON FUNCTION INTERACTION NATURE: DIRECT AND PREDICTED]</p>
+<ul>
+<li><strong>Question 2: After clustering, how many modules are there?</strong>
+ReactomeFI has a clustering option which groups genes that are more connected to each other into modules.</li>
+</ul>
+<p>To create the clustering:
+- Right-click on a blank space of the network and select <strong>ReactomeFI</strong> and <strong>Cluster FI Network</strong>.</p>
+<p align="center">
+<img src="Module4/Reactome/images/lab2/ReactomeFI_ex2_4.png" alt="start" width="80%" />
+</p>
+<p>Nodes are now colored per modules.</p>
+<p align="center">
+<img src="Module4/Reactome/images/lab2/ReactomeFI_ex2_5.png" alt="start" width="80%" />
+</p>
+<p>Look at the table <strong>Network Module Browser</strong> that displays the number of modules. It is located in the Table Panel located below the network. Click on each module to highlight each genes in the module.</p>
+<p align="center">
+<img src="Module4/Reactome/images/lab2/ReactomeFI_ex2_6.png" alt="start" width="80%" />
+</p>
+<p>The connected network was divided into 5 modules. Module 0 contains the highest number of genes (31).
+The MCL clustering algorithm is used to cluster the network and it is based on the number of interaction (edges) between the nodes.</p>
+<ul>
+<li><strong>Question 3: What are the most significant pathways in each module?</strong></li>
+</ul>
+<p>Pathway analysis can be performed on the whole set of genes from the network (right-click, Analyze Network Functions, Pathway Enrichment). Interestingly, it can also be performed individually on each module. This way, the original network can be divided in smaller modules of interacting proteins and label these modules using the module pathway enrichment results.</p>
+<ul>
+<li><p>Right-click on a blank space of the network window</p></li>
+<li><p>Select <strong>Reactome FI</strong> &gt; <strong>Analyze Module Functions</strong> &gt; <strong>Pathway enrichment</strong></p>
+<p align="center">
+<p><img src="Module4/Reactome/images/lab2/ReactomeFI_ex2_7.png" alt="start" width="100%" /></p>
+</p></li>
+</ul>
+<p>A <strong>Choose Module Size</strong> window appears. This parameter enables to choose to perform pathway analysis on module with sufficient number of genes. Leave the module size to 5.</p>
+<p>Once the pathway analysis has finished running, a <strong>Pathways in Modules</strong> table appears in the Table Panel located below the network. Pathways are ordered by best FDR values (closer to 0) for each module.</p>
+<p align="center">
+<img src="Module4/Reactome/images/lab2/ReactomeFI_ex2_8a.png" alt="start" width="100%" />
+</p>
+<p>Click on some pathways for each module. It will highlight in the network genes in these pathways that are part of our network.</p>
+<p>For example, RAF/MAP kinase cascade (R) is the most significant pathway of module 1. 14 genes in this pathway are in module 1 which has a total of 27 genes. The associated FDR value is 6.55e-15 which is very low to 0 and it means that this overlap of 27 genes isn’t likely to be obtained by chance only.</p>
+<p><strong>OPTIONAL:</strong>
+- try GO Biological Process enrichment on modules: <strong>Reactome FI</strong> &gt; <strong>Analyze Module Functions</strong> &gt; <strong>GO Biological Process</strong>
+- try pathway or GO BP enrichment on the full network: <strong>Reactome FI</strong> &gt; <strong>Analyze Network Functions</strong> &gt; <strong>GO Biological Process</strong></p>
+<div class="rmd-note">
+<p>
+It is possible to undock tables for better clarity using the pin icon
+located at the top right corner of the Table Panel.
+</p>
+</div>
+<p>Note: visualized drugs as well like in exercise 2
+##TODO
+Tip! You also can create a network with a simple gene list.</p>
+<p>HERE EXPLAIN ALL FORMATS</p>
+</div>
+<div id="exercise-3-perform-scrna-seq-data-analysis-and-visualization" class="section level2 hasAnchor">
+<h2>Exercise 3: Perform scRNA-seq Data Analysis and Visualization<a href="ReactomeFI.html#exercise-3-perform-scrna-seq-data-analysis-and-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>need to install python
+need h5 file</p>
+</div>
+<div id="exercise-4-automation-using-a-jupiter-notebook" class="section level2 hasAnchor">
+<h2>Exercise 4: Automation using a Jupiter Notebook<a href="ReactomeFI.html#exercise-4-automation-using-a-jupiter-notebook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>##Reference guide /bonus exercises:
+Reference: <a href="https://reactome.org/tools/reactome-fiviz" class="uri">https://reactome.org/tools/reactome-fiviz</a></p>
 
 </div>
 </div>
