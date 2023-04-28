@@ -12,11 +12,15 @@ Learn how to run GSEA and explore the results.
 
 ## Data
 
-The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples. This cohort was previously stratified into four distinct expression subtypes [PMID:21720365](http://www.ncbi.nlm.nih.gov/pubmed/21720365) and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.
+The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples. 
+
+This cohort was previously stratified into four distinct expression subtypes [PMID:21720365](http://www.ncbi.nlm.nih.gov/pubmed/21720365) and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.
 
 #### How was the data processed?
 
-Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from [cBioPortal for Cancer Genomics](http://www.cbioportal.org/data_sets.jsp). <br>Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using [edgeR](http://www.ncbi.nlm.nih.gov/pubmed/19910308).<br>The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the [**Additional information**](#additional_information) section. 
+  * Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from [cBioPortal for Cancer Genomics](http://www.cbioportal.org/data_sets.jsp).
+  * Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using [edgeR](http://www.ncbi.nlm.nih.gov/pubmed/19910308).
+  * The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the [**Additional information**](#additional_information) section. 
 
 ## Background
 
@@ -61,19 +65,20 @@ The second file that is needed for GSEA is the pathway database, a file with the
 You don't need to perform this step for the exercise, the .gmt file will be given to you. <br>
 ```
 
+
 Go to:
 
   * http://download.baderlab.org/EM_Genesets/
-  * click on September_01_2020/
+  * click on April_02_2023/
   * Click on Human/
   * Click on symbol/
   * save the Human_GOBP_AllPathways_no_GO_iea...gmt file on your computer
 
-<img src="./Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="70%" />
+<img src="./Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="90%" />
 
 The .gmt is a tab delimited text file which contains one gene-set per row. For each gene-set (row), the first 2 columns contain the name and the description of the gene-set and the remaining columns contain the list of genes included in the gene-set. It is possible to create a custom gene-set using Excel or R. 
 
-<img src="./Module2/gsea/images/gmt_format.png" alt="get_gmt" width="70%" />
+<img src="./Module2/gsea/images/gmt_format.png" alt="get_gmt" width="90%" />
 
 GSEA performs a gene-set enrichment analysis using a modified Kolmogorov-Smirnov statistic.  The output result consists of summary tables displaying enrichment statistics for each gene-set (pathway) that has been tested.
 
@@ -88,7 +93,7 @@ Right click on link below and select "Save Link As...".
 Place it in the corresponding module directory of your CBW work directory.
 ```
 
-* [Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt)
+* [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt)
 * [MesenchymalvsImmunoreactive_edger_ranks.rnk](./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk)
 
 
@@ -132,7 +137,7 @@ Load Data
 
 2e. Click on **OK**.
 
-<img src="./Module2/gsea/images/ORA5.png" alt="Success" width="50%" />
+<img src="./Module2/gsea/images/ORA5.png" alt="Success" width="75%" />
 	
 ```{block, type="rmd-tip"}
 Alternatively, you can choose **Method 3** to **drag and drop files here**; you need to click on the **Load these files!** button in this case.
@@ -165,7 +170,7 @@ Specify the following parameters:
 <img src="./Module2/gsea/images/ORA8.png" alt="Gene sets database" width="75%" />
 
 	
-  * **Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt** is now visible in the field corresponding to Gene sets database.
+  * **Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt** is now visible in the field corresponding to Gene sets database.
 
 <img src="./Module2/gsea/images/GSEAparameter.png" alt="GSEAparameters" width="100%" />
 

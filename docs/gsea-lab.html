@@ -554,10 +554,15 @@ div.csl-indent {
 </div>
 <div id="data-1" class="section level2 hasAnchor">
 <h2>Data<a href="gsea-lab.html#data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples. This cohort was previously stratified into four distinct expression subtypes <a href="http://www.ncbi.nlm.nih.gov/pubmed/21720365">PMID:21720365</a> and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.</p>
+<p>The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples.</p>
+<p>This cohort was previously stratified into four distinct expression subtypes <a href="http://www.ncbi.nlm.nih.gov/pubmed/21720365">PMID:21720365</a> and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.</p>
 <div id="how-was-the-data-processed" class="section level4 hasAnchor">
 <h4>How was the data processed?<a href="gsea-lab.html#how-was-the-data-processed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>. <br>Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>.<br>The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <a href="gsea-lab.html#additional_information"><strong>Additional information</strong></a> section.</p>
+<ul>
+<li>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>.</li>
+<li>Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>.</li>
+<li>The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <a href="gsea-lab.html#additional_information"><strong>Additional information</strong></a> section.</li>
+</ul>
 </div>
 </div>
 <div id="background" class="section level2 hasAnchor">
@@ -608,14 +613,14 @@ will be given to you. <br>
 <p>Go to:</p>
 <ul>
 <li><a href="http://download.baderlab.org/EM_Genesets/" class="uri">http://download.baderlab.org/EM_Genesets/</a></li>
-<li>click on September_01_2020/</li>
+<li>click on April_02_2023/</li>
 <li>Click on Human/</li>
 <li>Click on symbol/</li>
 <li>save the Human_GOBP_AllPathways_no_GO_iea…gmt file on your computer</li>
 </ul>
-<p><img src="Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="70%" /></p>
+<p><img src="Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="90%" /></p>
 <p>The .gmt is a tab delimited text file which contains one gene-set per row. For each gene-set (row), the first 2 columns contain the name and the description of the gene-set and the remaining columns contain the list of genes included in the gene-set. It is possible to create a custom gene-set using Excel or R.</p>
-<p><img src="Module2/gsea/images/gmt_format.png" alt="get_gmt" width="70%" /></p>
+<p><img src="Module2/gsea/images/gmt_format.png" alt="get_gmt" width="90%" /></p>
 <p>GSEA performs a gene-set enrichment analysis using a modified Kolmogorov-Smirnov statistic. The output result consists of summary tables displaying enrichment statistics for each gene-set (pathway) that has been tested.</p>
 </div>
 </div>
@@ -632,7 +637,7 @@ directory.
 </p>
 </div>
 <ul>
-<li><a href="./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</a></li>
+<li><a href="./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt</a></li>
 <li><a href="./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a></li>
 </ul>
 </div>
@@ -687,7 +692,7 @@ Click on “Open Anyways”
 <p>2d. Click on <strong>Open</strong>. A message pops us when the files are loaded successfully.</p>
 <p><img src="Module2/gsea/images/ORA4.png" alt="Locate files" width="75%" /></p>
 <p>2e. Click on <strong>OK</strong>.</p>
-<p><img src="Module2/gsea/images/ORA5.png" alt="Success" width="50%" /></p>
+<p><img src="Module2/gsea/images/ORA5.png" alt="Success" width="75%" /></p>
 <div class="rmd-tip">
 <p>
 Alternatively, you can choose <strong>Method 3</strong> to
@@ -716,7 +721,7 @@ Alternatively, you can choose <strong>Method 3</strong> to
 </ul>
 <p><img src="Module2/gsea/images/ORA8.png" alt="Gene sets database" width="75%" /></p>
 <ul>
-<li><strong>Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</strong> is now visible in the field corresponding to Gene sets database.</li>
+<li><strong>Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt</strong> is now visible in the field corresponding to Gene sets database.</li>
 </ul>
 <p><img src="Module2/gsea/images/GSEAparameter.png" alt="GSEAparameters" width="100%" /></p>
 <p>3d. Number of permutations - 100. The number of permutations is the number of times that the gene-sets will be randomized in order to create a null distribution to calculate the FDR.</p>
