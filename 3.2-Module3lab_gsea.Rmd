@@ -8,7 +8,7 @@
 
 **Exercise 1 - Create an enrichment map and navigate through the network**
 
-During this exercise, you will learn how to create an EnrichmentMap from gene-set enrichment results. The enrichment tool chosen for this exercise is GSEA but an enrichment map can be created from output from [GSEA](http://software.broadinstitute.org/gsea/index.jsp), 
+During this exercise, you will learn how to create an EnrichmentMap from gene-set enrichment results. The enrichment tool chosen for this exercise is [GSEA](http://software.broadinstitute.org/gsea/index.jsp) but an enrichment map can be created from output from [GSEA](http://software.broadinstitute.org/gsea/index.jsp), 
 [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost),
 [GREAT](http://great.stanford.edu/public/html/),
 [BinGo](http://apps.cytoscape.org/apps/bingo), [Enrichr](https://amp.pharm.mssm.edu/Enrichr/) or alternately from any gene-set tool using the generic enrichment results format.
@@ -19,33 +19,33 @@ As second part of the exercise, you will learn how to expand the network by addi
 
 **Exercise 3 - Autoannotate**
 
-A last optional exercise guides you toward the creation of automatically generated cluster labels to the network.
+A last optional exercise guides you through the creation of automatically generated cluster labels to the network.
 
 ## Data
 
 The data used in this exercise is gene expression data obtained from high throughput RNA sequencing.
-They correspond to Ovarian serous cystadenocarcinoma samples. We use precomputed results of the GSEA analysis [Module 2 lab - gsea](#gsea-lab) to create an enrichment map with the aim to transform the tabular format in a network to better visualize the relationships between the significant gene-sets:
+The data correspond to Ovarian serous cystadenocarcinoma samples. We use precomputed results of the GSEA analysis [Module 2 lab - gsea](#gsea-lab) to create an enrichment map with the aim to transform the tabular format to a network so we can better visualize the relationships between the significant gene-sets:
 
 
 <img src="./Module3/gsea/images/workflow.png" alt="workflow" width="750" />
 
-The output results of GSEA are 2 tables:
+GSEA outpus an entire directory of files and results.  For the purpose of this analysis we only need two tables found in the output directory. The output result tables are:
 
-*	One table (*pos*) contains all pathways with an enrichment score (significant or not) related to enrichment of the mesenchymal category (positive score).
+*	One table (*pos*) contains all pathways with an enrichment score (significant or not) related to enrichment of the mesenchymal category (positive score). (By default called - gsea_report_for_na_pos_#############.tsv)
 
-*	One table (*neg*) contains all pathways with an enrichment score (significant or not) related to enrichment of the immunoreactive category (negative score).
+*	One table (*neg*) contains all pathways with an enrichment score (significant or not) related to enrichment of the immunoreactive category (negative score). (By default called - gsea_report_for_na_neg_#############.tsv)
 
 *	These 2 tables are uploaded using the EnrichmentMap App which will create a network of mesenchymal and immunoreactive pathways that have a significant score (FDR <= 0.0001) for clearer visualization of the results.
 
 ### EnrichmentMap
 
-*	A <font color="red">red circle (node)</font> is a pathway specific of the mesenchymal type.
+*	A <font color="red">red circle (node)</font> is a pathway specific of the mesenchymal type. (or pathway with mostly positively ranked genes)
 
-*	A <font color="blue">blue circle (node)</font> is a pathway specific of the immunoreactive type.
+*	A <font color="blue">blue circle (node)</font> is a pathway specific of the immunoreactive type. (or pathway with mostly negatively ranked genes)
 
 *	An edge represents genes in common between 2 pathways (nodes).
 
-*	A cluster of nodes represent overlapping and related pathways and may represent a common biological process.
+*	A cluster of nodes represent overlapping and related pathways and may represent a common biological process or theme.
 
 *	Clicking on a node will display the genes included in each pathway.
 
@@ -62,11 +62,11 @@ Place it in the corresponding module directory of your CBW work directory.
 
 7 Files are needed to create the enrichment map for this exercise (please download these files on your computer or alternately use the GSEA directory created in [module 2 lab - gsea](#gsea-lab) for files 1,2,3) :
 
-1.	GMT (file containing all pathways and corresponding genes) - [Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt](./Module3/gsea/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt)
+1.	GMT (file containing all pathways and corresponding genes) - [Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt](./Module3/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt)
 
-2.	Enrichments 1 (GSEA results for the “pos” mesenchymal phenotype) - [gsea_report_for_na_pos_1620239732698.tsv](./Module3/gsea/data/gsea_report_for_na_pos_1620239732698.tsv)
+2.	Enrichments 1 (GSEA results for the “pos” mesenchymal phenotype) - [gsea_report_for_na_pos_1682691208724.tsv](./Module3/gsea/data/gsea_report_for_na_pos_1682691208724.tsv)
 
-3.	Enrichments 2 (GSEA results for the “neg” immunoreactive phenotype) - [gsea_report_for_na_neg_1620239732698.tsv](./Module3/gsea/data/gsea_report_for_na_neg_1620239732698.tsv)
+3.	Enrichments 2 (GSEA results for the “neg” immunoreactive phenotype) - [gsea_report_for_na_neg_1682691208724.tsv](./Module3/gsea/data/gsea_report_for_na_neg_1682691208724.tsv)
 
 4.	Expression (file containing the RNAseq data for all samples and all genes) - [MesenchymalvsImmunoreactive_rnaseq_expression.txt](./Module3/gsea/data/MesenchymalvsImmunoreactive_rnaseq_expression.txt)
 
@@ -110,11 +110,11 @@ Create an enrichment map
 
 *	*Analysis Type*:  GSEA
 
-* *Enrichments Pos*: gsea_report_for_na_pos_1620239732698.tsv
+* *Enrichments Pos*: gsea_report_for_na_pos_1682691208724.tsv
 
-* *Enrichments Ned*: gsea_report_for_na_neg_1620239732698.tsv
+* *Enrichments Ned*: gsea_report_for_na_neg_1682691208724.tsv
 
-*	*GMT* : Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt
+*	*GMT* : Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt
 
 *	*Ranks*: MesenchymalvsImmunoreactive_edger_ranks.rnk
 
@@ -200,7 +200,7 @@ Use Filters to automatically select nodes on the map: Move the blue nodes to the
 
 **4b**. Click on the + sign to view the menu and select *Column Filter*.
 
-**4c**. From the *Choose column …* box, select *Node: ES_dataset1* and set filter values from -0.953 and 0 inclusive.
+**4c**. From the *Choose column …* box, select *Node: NES_dataset1* and set filter values from -2.94 and 0 inclusive.
 
 **4d**. The blue nodes are now automatically selected. Zoom out to be able to look at the entire network and drag all blue nodes to the left side of the screen.
   
@@ -213,7 +213,11 @@ Use Filters to automatically select nodes on the map: Move the blue nodes to the
 <img src="./Module3/gsea/images/EM10.png" alt="EM" width="750" />
 
 ```{block, type="rmd-note"}
-The red pathways (nodes) are specific to the mesenchymal phenotype. They were listed in the *pos* table of the GSEA results. The enrichment score (ES) values in this table are all positive values.<br> The blue pathways are specific to the immunoreactive phenotype and were listed in the *neg* table of the GSEA results. The ES values in this table are all negative values. <br><br>This is the information we used as the filtering criteria.
+The red pathways (nodes) are specific to the mesenchymal phenotype. They were listed in the *pos* table of the GSEA results. The enrichment score (ES) values in this table are all positive values.<br> 
+
+The blue pathways are specific to the immunoreactive phenotype and were listed in the *neg* table of the GSEA results. The ES values in this table are all negative values. <br><br>
+
+This is the information we used as the filtering criteria.
 ```
 
 ## Exercise 2 - Post analysis (add drug target gene-sets to the network)
@@ -222,7 +226,7 @@ The red pathways (nodes) are specific to the mesenchymal phenotype. They were li
 
 Add drug target gene-sets to the network (Add Signature Gene-Sets...).
 
-**5a**. In Control Panel, go to the EnrichmentMap tab and click on "Add Signature Gene Sets..." located below the white 'Data Sets:' box. A window named "EnrichmentMap: Add Signature Gene Sets (Post-Analysis) is now opened.
+**5a**. In Control Panel, go to the EnrichmentMap tab and click on "Options..." located above the 'Data Sets:' box. Select "Add Signature Gene Sets...". A window named "EnrichmentMap: Add Signature Gene Sets (Post-Analysis) is now opened.
 
 <img src="./Module3/gsea/images/drug1.png" alt="EM" width="250" />
 
@@ -235,7 +239,11 @@ Add drug target gene-sets to the network (Add Signature Gene-Sets...).
 **5c**. Click on "Finish". 
 
 ```{block, type="rmd-note"}
-Four additional nodes are now added to the network and visible as grey diamonds. Dotted orange edges represent their overlap with the nodes of our network. These additional nodes represent gene targets of some approved drugs and these genes are either specific of the mesenchymal type (dotted orange edges connected to red nodes) or specific of the immunoreactive type (dotted orange edges connected to blue nodes).
+Four additional nodes are now added to the network and visible as grey diamonds. 
+
+Dotted orange edges represent their overlap with the nodes of our network. 
+
+These additional nodes represent gene targets of some approved drugs and these genes are either specific of the mesenchymal type (dotted orange edges connected to red nodes) or specific of the immunoreactive type (dotted orange edges connected to blue nodes).
 ```  
 
 
@@ -257,7 +265,14 @@ The Apps WordCloud, ClusterMaker and Autoannotate have to be installed. (they sh
 ```
 
 ```{block, type="rmd-note"}
-if you ran step 5, <br>**delete the drug targets diamond nodes and associated edge before performing step 6**:<br> select the 4 nodes and associated dotted orange edges by browsing the mouse and click "delete" on your keyboard or in the Cytoscape menu, 'Edit', 'Delete Selected Nodes and Edges'.<br><br> **Alternately, in the Enrichment Map Input Panel in the Datasets box, un-select "Human_Drugbank_approved_symbol_selected" to hide the post analysis nodes.** 
+if you ran step 5, <br>
+
+**delete the drug targets diamond nodes and associated edge before performing step 6**:<br> 
+  * select the 4 nodes and associated dotted orange edges by browsing the mouse and 
+  * click "delete" on your keyboard or
+  * in the Cytoscape menu, 'Edit', 'Delete Selected Nodes and Edges'.<br><br>
+  
+**Alternately, in the Enrichment Map Input Panel in the Datasets box, un-select "Human_Drugbank_approved_symbol_selected" to hide the post analysis nodes.** 
 ```
 
 **6a**. In the menu bar, select *Apps*, *AutoAnnotate*, *New Annotation Set …*. An *Autoannotate: Create Annotation Set* window pops up. Leave default settings and click on *Create Annotations*.  
