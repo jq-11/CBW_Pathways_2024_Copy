@@ -548,14 +548,14 @@ div.csl-indent {
 <div id="gprofiler_mod3" class="section level1 hasAnchor">
 <h1>Module 3 Lab: g:profiler Visualization<a href="gprofiler_mod3.html#gprofiler_mod3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
-<p>By Veronique Voisin, Ruth Isserlin, Gary Bader</p>
+<p>By Gary Bader, Ruth Isserlin, Chaitra Sarathy, Veronique Voisin</p>
 <div id="goal-of-the-exercise-2" class="section level2 hasAnchor">
 <h2>Goal of the exercise<a href="gprofiler_mod3.html#goal-of-the-exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Create an enrichment map and navigate through the network</strong></p>
-<p>During this exercise, you will learn how to create an enrichment map from gene-set enrichment results. The enrichment results chosen for this exercise are generated using g:Profiler but an enrichment map can be created directly from output from <a href="http://software.broadinstitute.org/gsea/index.jsp">GSEA</a>,
+<p>During this exercise, you will learn how to create an enrichment map from gene-set enrichment results. The enrichment results chosen for this exercise are generated using <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> but an enrichment map can be created directly from output from <a href="http://software.broadinstitute.org/gsea/index.jsp">GSEA</a>,
 <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>,
 <a href="http://great.stanford.edu/public/html/">GREAT</a>,
-<a href="http://apps.cytoscape.org/apps/bingo">BinGo</a>, <a href="https://amp.pharm.mssm.edu/Enrichr/">Enrichr</a> or alternately from any gene-set tool using the generic enrichment results format.</p>
+<a href="http://apps.cytoscape.org/apps/bingo">BinGo</a>, <a href="https://amp.pharm.mssm.edu/Enrichr/">Enrichr</a> or alternately from any gene-set tool using the generic enrichment results(GEM) format.</p>
 </div>
 <div id="data-2" class="section level2 hasAnchor">
 <h2>Data<a href="gprofiler_mod3.html#data-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -570,15 +570,16 @@ Pathway enrichment analysis has been run using g:Profiler and the results have b
 <li><p>A cluster of nodes represent overlapping and related pathways and may represent a common biological process.</p></li>
 <li><p>Clicking on a node will display the genes included in each pathway.</p></li>
 </ul>
+<p><img src="Module3/gprofiler/images/example_cluster.png"  /></p>
 </div>
 <div id="description-of-this-exercise" class="section level2 hasAnchor">
 <h2>Description of this exercise<a href="gprofiler_mod3.html#description-of-this-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We run and saved g:Profiler results using different parameters.
+<p>We will run the saved g:Profiler results (from <a href="gprofiler-lab.html#gprofiler-lab">Module 2 - gprofiler lab</a>) using different parameters.
 An enrichment map represents the result of enrichment analysis as a network where significantly enriched gene-sets that share a lot of genes in common will form identifiable clusters. The visualization of the results as these biological themes will ease the interpretation of the results.</p>
 <p>The goal of this exercise is to learn how to:</p>
 <ol style="list-style-type: decimal">
 <li>upload g:Profiler results into Cytoscape EnrichmentMap to create a map.</li>
-<li>upload several g:Profiler results at the same time to create one map and learn how to distinguish the results.</li>
+<li>upload several g:Profiler results at the same time to create one map and learn how to distinguish and compare the results.</li>
 <li>to compare the differences resulting from the use of different g:Profiler parameters at the enrichment map level.</li>
 </ol>
 </div>
@@ -596,38 +597,40 @@ directory.
 </div>
 <p>Five files are needed for this exercise:</p>
 <ol style="list-style-type: decimal">
-<li>Enrichment result 1: <a href="./Module3/gprofiler/data/gProfiler_hsapiens_lab2_results_GEM_maxterm10000.gem.txt">gProfiler_hsapiens_lab2_results_GEM_maxterm10000.gem.txt</a></li>
+<li>Enrichment result 1: <a href="./Module3/gprofiler/data/gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000.gem.txt">gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000.gem.txt</a></li>
 </ol>
 <ul>
 <li>In g:Profiler, the parameters that we used to generate this file were:
 <ul>
 <li>GO_BP no electronic annotation,</li>
 <li>Reactome,</li>
+<li>WikiPathways,</li>
 <li>Benjamini-HochBerg FDR 0.05</li>
-<li>No restriction on the number of genes in a geneset</li>
+<li>The results were filtered using the g:Profiler Term size slidebar and only the enriched gene-sets that contain more than 3 or equal or less than 10000 genes per gene-set were included in the result file.</li>
 </ul></li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
-<li>Enrichment result 2:<a href="./Module3/gprofiler/data/gProfiler_hsapiens_lab2_results_GEM_maxterm250.gem.txt">gProfiler_hsapiens_lab2_results_GEM_maxterm250.gem.txt</a></li>
+<li>Enrichment result 2:<a href="./Module3/gprofiler/data/gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt">gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt</a></li>
 </ol>
 <ul>
 <li>In g:Profiler, the parameters that we used were:
 <ul>
 <li>GO_BP no electronic annotation,</li>
 <li>Reactome,</li>
+<li>WikiPathways,</li>
 <li>Benjamini-HochBerg FDR 0.05.</li>
-<li>The results were filtered using the g:Profiler Term size slidebar and only the enriched gene-sets that contain equal or less than 250 genes per gene-set were included in the result file (gProfiler_hsapiens_max250.gem.txt).</li>
+<li>The results were filtered using the g:Profiler Term size slidebar and only the enriched gene-sets that contain more than 3 and equal or less than 250 genes per gene-set were included in the result file.</li>
 </ul></li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>Enrichment result 3:<a href="./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250_gem.txt">gProfiler_hsapiens_Baderlab_max250_gem.txt</a></li>
-<li>Pathway database 1 (.gmt):<a href="./Module3/gprofiler/data/gprofiler_full_hsapiens.name.gmt">gprofiler_full_hsapiens.name.gmt</a></li>
+<li>Enrichment result 3:<a href="./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250.gem.txt">gProfiler_hsapiens_Baderlab_max250.gem.txt</a></li>
+<li>Pathway database 1:<a href="./Module3/gprofiler/data/gprofiler_full_hsapiens.name.gmt">gprofiler_full_hsapiens.name.gmt</a></li>
 </ol>
 <ul>
-<li>This file can be downloaded directly or can be been created by concatenating the hsapiens.GO/BP.name.gm and the hsapiens.REAC.name.gmt files contained in the g:Profiler gprofiler_hsapiens.name folder.</li>
+<li>This file can be downloaded directly or can be been created by concatenating the hsapiens.GO/BP.name.gmt, hsapiens.WP.namt.gmt and the hsapiens.REAC.name.gmt files contained in the g:Profiler gprofiler_hsapiens.name folder.</li>
 </ul>
 <ol start="5" style="list-style-type: decimal">
-<li>Pathway database 2 (.gmt):<a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_maxgssize250.gmt">Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_max250gssize.gmt</a></li>
+<li>Pathway database 2:<a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt</a></li>
 </ol>
 </div>
 <div id="exercise-1a---compare-different-gprofiler-geneset-size-results" class="section level2 hasAnchor">
@@ -649,17 +652,40 @@ directory.
 <div id="step-2" class="section level3 hasAnchor">
 <h3>Step 2<a href="gprofiler_mod3.html#step-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Create an enrichment map from 2 datasets and with a gmt file.</p>
-<p>2a. In the ‘Create Enrichment Map’ window, drag and drop the 2 enrichment files gProfiler_hsapiens_max10000.gem.txt and
-gProfiler_hsapiens_max250.gem.txt.</p>
+<p>2a. In the ‘Create Enrichment Map’ window, drag and drop the 2 enrichment files gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000.gem.txt and
+gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt.</p>
 <p><img src="Module3/gprofiler/images/gem0.png" alt="workflow" width="100%" /></p>
-<p>2b. In the white box, click on “gProfiler_hsapiens_max250.gem (Generic/gProfiler)</p>
+<p>2b. In the white box, click on “gProfiler_hsapiens_lab2_results_GEM_termmin3_max250 (Generic/gProfiler)</p>
 <p>2c. On the right side, go to the <em>GMT</em> field, click on the 3 radio button (…) and locate the file gprofiler_full_hsapiens.name.gmt that you have saved on your computer to upload it.</p>
 <p><img src="Module3/gprofiler/images/gem1.png" alt="workflow" width="100%" /></p>
-<p>2d. In the white box, click on “gProfiler_hsapiens_max10000 (Generic/gProfiler)</p>
+<p>2d. In the white box, click on “gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000 (Generic/gProfiler)</p>
 <p>2e. On the right side, go to the <em>GMT</em> field, click on the 3 radio button (…) and locate the file gprofiler_full_hsapiens.name.gmt that you have saved on your computer to upload it.</p>
 <p>2f. Locate the <em>FDR q-value cutoff</em> field and set the value to 0.001</p>
 <p>2g. Select the <em>Connectivity</em> slide bar to <em>sparse</em>.</p>
 <p><img src="Module3/gprofiler/images/gem2.png" alt="workflow" width="100%" /></p>
+<div class="rmd-tip">
+<p>
+Intstead of specifying the gmt file for each dataset separately, if
+all the dataasets in your analysis use the same gmt file, you can
+specify a common gmt file to be used by all datasets.
+</p>
+<ul>
+<li>
+Click on <em>Common Files (included in all datasets)</em>
+</li>
+<li>
+On the right side, go to the <em>GMT file</em> field, click on the 3
+radio button (…) and locate the file gprofiler_full_hsapiens.name.gmt
+that you have saved on your computer to upload it.
+</li>
+</ul>
+<p>
+<img src="Module3/gprofiler/images/common_gmt.png" alt="workflow" width="100%" />
+</p>
+<p>
+This can also be done for a shared expression file.
+</p>
+</div>
 <p>2h. Click on <em>Build</em>.</p>
 <ul>
 <li>a status bar should pop up showing progress of the Enrichment map build.</li>
@@ -687,10 +713,10 @@ detail to see the gene-set names.
 </p>
 <p>On the map, a node that is coloured both green and blue is a gene-set that is found in the both of the 2 gProfiler result sets that we have been uploaded.</p>
 <ul>
-<li>A node that is blue is a gene-set that is found only in the file <em>gProfiler_hsapiens_max10000</em> .</li>
-<li>A node that is green is a gene-set that is found only in the file <em>gProfiler_hsapiens_max250</em> .</li>
-<li>A blue edge represents genes that overlap between gene-sets found in the file <em>gProfiler_hsapiens_max10000</em>.</li>
-<li>A green edge represents genes that overlap between gene-sets found in the file <em>gProfiler_hsapiens_max250.gem</em>.</li>
+<li>A node that is blue is a gene-set that is found only in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000</em> .</li>
+<li>A node that is green is a gene-set that is found only in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max250</em> .</li>
+<li>A blue edge represents genes that overlap between gene-sets found in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000</em>.</li>
+<li>A green edge represents genes that overlap between gene-sets found in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem</em>.</li>
 </ul>
 <p><img src="Module3/gprofiler/images/gem6.png" alt="workflow" width="100%" /></p>
 <p>We can see clusters of blue nodes. All these nodes contain gene-sets that have more than 250 genes. Explore the detailed view (see below) to see if this cluster corresponds to informative terms.</p>
@@ -726,8 +752,10 @@ you can type it in the search bar, quotes are important.
 </p>
 </div>
 <p><img src="Module3/gprofiler/images/gem8.png" alt="workflow" width="50%" /></p>
-<p>When the node is selected, it is highlighted in <font color="yellow">yellow</font>.
-In table panel, we can see the genes included in the gene-set. A green colored box indicates that the gene is in the gene-set(pathway) and in our gene list. A gray colored box indicated that the gene is in the gene-set but not in our gene list.</p>
+<p>When the node is selected, it is highlighted in <font color="yellow">yellow</font>.</p>
+<p>In table panel, we can see the genes included in the gene-set.</p>
+<p>A green colored box indicates that the gene is in the gene-set(pathway) and in our gene list.</p>
+<p>A gray colored box indicated that the gene is in the gene-set but not in our gene list.</p>
 <p><img src="Module3/gprofiler/images/gem8a.png" alt="workflow" width="100%" /></p>
 </div>
 </div>
@@ -740,9 +768,9 @@ In table panel, we can see the genes included in the gene-set. A green colored b
 <p align="center">
 <img src="Module3/gprofiler/images/gem7.png" alt="workflow" width="50%" />
 </p></li>
-<li>In the white box, select the “gProfiler_hsapiens_max250.gem (Generic/gProfiler) file</li>
+<li>In the white box, select the “gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem (Generic/gProfiler) file</li>
 <li>Locate the GMT field and delete the file name , leaving it blank.</li>
-<li>In the white box, select the “gProfiler_hsapiens_max10000 (Generic/gProfiler) file</li>
+<li>In the white box, select the “gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000 (Generic/gProfiler) file</li>
 <li>Locate the GMT field and delete the file name , leaving it blank.</li>
 <li>Use same parameters as in <a href="#exercise-1a">exercise 1a</a>: FDR q-value cutoff of 0.001 and Connectivity to sparse.</li>
 <li>Click on <em>Build</em></li>
@@ -766,12 +794,12 @@ gene-set names.
 </p>
 <p>On the map, a node that is coloured both green and blue is a gene-set that is found in the both of the 2 gProfiler result sets that we have been uploaded.</p>
 <ul>
-<li>A node that is blue is a gene-set that is found only in the file <em>gProfiler_hsapiens_max10000</em> .
+<li>A node that is blue is a gene-set that is found only in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000</em> .
 <ul>
-<li>A node that is green is a gene-set that is found only in the file <em>gProfiler_hsapiens_max250</em> .</li>
+<li>A node that is green is a gene-set that is found only in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max250</em> .</li>
 </ul></li>
-<li>A blue edge represents genes that overlap between gene-sets found in the file <em>gProfiler_hsapiens_max10000</em>.</li>
-<li>A green edge represents genes that overlap between gene-sets found in the file gProfiler_hsapiens_max250.gem.</li>
+<li>A blue edge represents genes that overlap between gene-sets found in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000</em>.</li>
+<li>A green edge represents genes that overlap between gene-sets found in the file gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.</li>
 </ul>
 <p><img src="Module3/gprofiler/images/gem4.png" alt="workflow" width="100%" /></p>
 <p><strong>Conclusion of exercises 1 a and 1b:</strong></p>
@@ -787,7 +815,7 @@ gene-set names.
 <p>Create an enrichment map from the results of g:Profiler generated using the custom Baderlab gene-set file. <br>
 To get a map that is easy to read and that does not display too many gene-sets, one option is to focus the analysis on gene-sets (pathways) that contain 250 genes or less. We prefiltered our pathway database prior to upload it into g:Profiler so that FDR is calculated only on these gene-sets ( as opposed to exercise 1a where the FDR was calculated on all gene-sets and then some gene-sets &gt; 250 genes were excluded from the result file ).</p>
 <ul>
-<li><p>filtered gmt file: (<a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_maxgssize250.gmt">Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_maxgssize250.gmt</a>.</p></li>
+<li><p>filtered gmt file: (<a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt</a>.</p></li>
 <li><p>We have uploaded this file as a custom gmt file in g:Profiler and run the query. (in Module 2 lab)</p></li>
 <li><p>To create an enrichment map of these results:</p></li>
 <li><p>Go to Control Panel and select the EnrichmentMap tab.</p></li>
@@ -795,9 +823,9 @@ To get a map that is easy to read and that does not display too many gene-sets, 
 <p align="center">
 <p><img src="Module3/gprofiler/images/gem7.png" alt="workflow" width="50%" /></p>
 </p></li>
-<li><p>Drag the file that we created in Module 2 lab <a href="./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250_gem.txt">gProfiler_hsapiens_Baderlab_max250_gem.txt</a> and the filtered gmt file (<a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_maxgssize250.gmt">Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_maxgssize250.gmt</a> into the Datasets box on Enrichment map panel.</p></li>
-<li><p>In the white box, select the “gProfiler_hsapiens_Baderlab_max250_gem.txt (Generic/gProfiler) file</p></li>
-<li><p>Locate the GMT field and upload the file “Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol_max250gssize.gmt”.</p></li>
+<li><p>Drag the file that we created in Module 2 lab <a href="./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250.gem.txt">gProfiler_hsapiens_Baderlab_max250.gem.txt</a> and the filtered gmt file (<a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt</a> into the Datasets box on Enrichment map panel.</p></li>
+<li><p>In the white box, select the “gProfiler_hsapiens_Baderlab_max250.gem.txt (Generic/gProfiler) file</p></li>
+<li><p>Locate the GMT field and upload the file “Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt”.</p></li>
 </ul>
 <p><img src="Module3/gprofiler/images/gem9.png" alt="workflow" width="100%" /></p>
 <p>Explore the results:</p>
@@ -837,12 +865,12 @@ on the selected node.<br>
 <li><p>Right click on the node <em>“Signaling by Notch”</em> and Select <em>Apps</em> –&gt; <em>Enrichmemt Map - Show in GeneMANIA</em></p>
 <p><img src="Module3/gprofiler/images/gem11.png" alt="workflow" width="75%" /></p></li>
 <li><p>A GeneMANIA Query Panel will pop up.</p></li>
-<li><p>Select <em>Select genes with expression</em> to reduce the query set to just the genes in the given that pathway that was in your original dataset (for example we search for a set of 127 genes in g:profiler but the given pathway has 233 genes associated with it of which only 11 genes are found in our original query set )</p></li>
+<li><p>Select <em>Select genes with expression</em> to reduce the query set to just the genes in the given pathway that was in your original dataset (for example we search for a set of 127 genes in g:profiler but the given pathway has 233 genes associated with it of which only 10 genes are found in our original query set )</p></li>
 <li><p>Click on <em>OK</em></p>
 <p><img src="Module3/gprofiler/images/gem12.png" alt="workflow" width="75%" /></p></li>
 <li><p>A GeneMANIA network will show up with the connections between the genes found in your query set and the pathway “Signaling by Notch”</p>
 <p><img src="Module3/gprofiler/images/gem13.png" alt="workflow" width="75%" /></p></li>
-<li><p>We will go more in depth into <a href="genemania_cytoscape.html#genemania_cytoscape">GeneMANIA in module 6</a></p></li>
+<li><p>We will go more in depth into <a href="genemania_cytoscape.html#genemania_cytoscape">GeneMANIA in module 5</a></p></li>
 </ul>
 </div>
 <div id="string" class="section level3 hasAnchor">
@@ -866,7 +894,7 @@ on the selected node.<br>
 <li><p>Right click on the node <em>“Signaling by Notch”</em> and Select <em>Apps</em> –&gt; <em>Enrichmemt Map - Show in String</em></p>
 <p><img src="Module3/gprofiler/images/gem14.png" alt="workflow" width="100%" /></p></li>
 <li><p>A String Query Panel will pop up.</p></li>
-<li><p>Select <em>Select genes with expression</em> to reduce the query set to just the genes in the given that pathway that was in your original dataset (for example we search for a set of 127 genes in g:profiler but the given pathway has 233 genes associated with it of which only 11 genes are found in our original query set )</p></li>
+<li><p>Select <em>Select genes with expression</em> to reduce the query set to just the genes in the given that pathway that was in your original dataset (for example we search for a set of 127 genes in g:profiler but the given pathway has 233 genes associated with it of which only 10 genes are found in our original query set )</p></li>
 <li><p>Click on <em>OK</em></p>
 <p><img src="Module3/gprofiler/images/gem15.png" alt="workflow" width="75%" /></p></li>
 <li><p>A String network will show up with the connections between the genes found in your query set and the pathway “Signaling by Notch”</p>
