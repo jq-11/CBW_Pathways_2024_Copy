@@ -1,22 +1,17 @@
 #  Module 4: In-depth Analysis of Networks and Pathways  
 
-  *<font color="#827e9c">Robin Haw</font>*
+  *<font color="#827e9c">Lincoln Stein</font>*
   
   [Lecture](./lectures/Pathways_2021_Module4_lecture_RH.pdf)   
   
   [Lab Lecture](./lectures/Pathways_2021_Module4_lab.pdf)
   
-  [Lab practical](./lectures/CBW_2021_Module_4_Lab_Questions.pdf)
+  [Lab practical](#ReactomeFI)   
 
- *  Downloald  [GBM_genelist.txt](./Module4/Reactome/data/GBM_genelist.txt) file.  
- *  Downloald  [GBM_genesample.txt](./Module4/Reactome/data/GBM_genesample.txt) file.  
- *  Downloald  [OVCA_TCGA_Clinical.txt](./Module4/Reactome/data/OVCA_TCGA_Clinical.txt) file.  
- *  Downloald  [OVCA_TCGA_MAF.txt](./Module4/Reactome/data/OVCA_TCGA_MAF.txt) file.  
- 
+
+
 
 ---
  
- [Lab practical answers](./lectures/CBW_2021_Module_4_Lab_Answers.pdf)
-
 
 
