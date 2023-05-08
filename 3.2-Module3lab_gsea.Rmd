@@ -318,19 +318,23 @@ Each node in the Enrichment map represents a biological process or pathway.  It 
 
 ### Step 7
 
-Visualize genes in a pathway/node of interest using the apps STRING and GeneMANIA. This will create a protein-protein  interaction network using the genes included in the pathway. Note: We will go more in depth into [GeneMANIA in module 6](#genemania_cytoscape)
+Visualize genes in a pathway/node of interest using the apps STRING and GeneMANIA. This will create a protein-protein  interaction network using the genes included in the pathway. Note: We will go more in depth into [GeneMANIA in module 5](#genemania_cytoscape)
 
 **7a**: Click on an individual node of interest.
 
-For this example, you could use *BMP receptor signaling*. 
+For this example, you could use *cellular response to BMP*. 
 
 ```{block, type="rmd-tip"}
-If you are unable to locate *BMP receptor signaling*, type "BMP receptor signaling" in the search box (quotes are important).  The selected node appears yellow (or highlighted) in the network. If you have annotated your network, it should be included in the *BMP stimulus receptor * cluster.
+If you are unable to locate *cellular response to BMP*, type "cellular response to BMP" in the search box (quotes are important).  The selected node appears yellow (or highlighted) in the network. If you have annotated your network, it should be included in the *restricted smad bmp* cluster.
 ```
 
 **7b**: Right Click on the node of interest to diplay the option menu. Select *Apps*,--> *EnrichmentMap - Show in STRING*<br>
 
 <img src="./Module3/gsea/images/Stringa.png" alt="workflow" width="500" />
+
+```{block, type="rmd-tip"}
+Patience.  :) . It might take a few seconds for the *String Protein Query* window to open.
+```
 
 * A *STRING Protein Query* box appears.
 * select *Select genes with expression*.
@@ -356,9 +360,9 @@ Explore the features and data of each Cytoscape app.<br>What happens to the netw
 <img src="./Module3/gsea/images/find_network.png" alt="workflow" width="500" />
 
 
-**7d**: Search again for the node labelled *BMP receptor signaling* as in Step 7a. 
+**7d**: Search again for the node labelled *cellular response to BMP* as in Step 7a. 
 
-* Right Click on the node of interest to diplay the option menu. Select *Apps*,--> *EnrichmentMap - Show in STRING*<br>
+* Right Click on the node of interest to diplay the option menu. Select *Apps*,--> *EnrichmentMap - Show in GeneMANIA*<br>
 
 
 <img src="./Module3/gsea/images/Stringa-genemania.png" alt="workflow" width="500" />
