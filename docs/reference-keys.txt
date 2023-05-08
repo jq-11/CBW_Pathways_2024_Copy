@@ -80,6 +80,7 @@ exercise-1c---create-em-from-results-using-baderlab-genesets
 exercise-1c-optional---investigate-individual-pathways-in-genemania-or-string
 genemania
 string
+bonus---automation.-2
 gsea_mod3
 goal-of-the-exercise-3
 data-3
@@ -95,6 +96,7 @@ exercise-3---autoannotate-the-network
 step-6
 exercise-4-optional---explore-results-in-genemania-or-string
 step-7
+bonus---automation.-3
 automation
 goal-of-the-exercise-4
 set-up---option-1---install-rrstudio

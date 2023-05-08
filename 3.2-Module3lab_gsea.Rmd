@@ -392,4 +392,16 @@ It is possible to view gene expression data for the nodes in the STRING network.
 SAVE YOUR SESSION FILE!
 ```
  
+___
 
+## Bonus - Automation. 
+
+Run analysis directly from R for easy integration into existing pipelines.
+
+```{block, type="rmd-bonus"}
+Instead of creating an Enrichment map manually through the user interface you can create an enrichment map directly using the [RCy3 bioconductor package](https://www.bioconductor.org/packages/release/bioc/html/RCy3.html) or through direct rest calls with [Cytoscape cyrest](https://apps.cytoscape.org/apps/cyrest).  
+
+Follow the step by step instructions on how to run from R here - https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gsea-results.html
+
+First, make sure your environment is set up correctly by following there instructions - https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html
+```
