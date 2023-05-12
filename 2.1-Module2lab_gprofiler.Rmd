@@ -32,7 +32,7 @@ Place it in the corresponding module directory of your CBW work directory.
 ```
 
 
-* [Supplementary_Tabe1_Cancer_drivers.txt](./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt)
+* [Pancancer_genelist.txt](./Module2/gprofiler/data/Pancancer_genelist.txt)
 
 We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.
 
@@ -43,7 +43,7 @@ Open the g:Profiler website at [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost
 
 ### Step 2 - input query
 
-Paste the gene list ([Supplementary_Table1_Cancer_drivers.txt](./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt)) into the Query field in top-left corner of the screen. 
+Paste the gene list ([Pancancer_genelist.txt](./Module2/gprofiler/data/Pancancer_genelist.txt)) into the Query field in top-left corner of the screen. 
 
 ![](./Module2/gprofiler/images/gp1.png)
 
@@ -304,7 +304,7 @@ Right click on link below and select "Save Link As...".
 Place it in the corresponding module directory of your CBW work directory.
 ```
 
-* [Supplementary_Tabe1_Cancer_drivers.txt](./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt)
+* [Pancancer_genelist.txt](./Module2/gprofiler/data/Pancancer_genelist.txt)
 
 *  [Baderlab_genesets.gmt (from April 2023)](./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt).
 

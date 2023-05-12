@@ -126,6 +126,7 @@ data-download-the-following-files-on-your-computer-before-starting-the-practical
 exercise-1a-explore-reactome-pathways
 exercise-1b-pathway-enrichment-analysis-using-a-simple-gene-list
 question-1-what-are-the-most-significant-biological-pathways-based-on-the-fdr
+answer-to-question-1
 exercise-1c-pathway-based-analysis-using-a-rank-gene-list-gsea
 exercise-2-use-the-reactome-functional-interaction-fi-network
 question-1-describe-the-size-and-composition-of-the-network

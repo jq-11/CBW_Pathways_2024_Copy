@@ -323,6 +323,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-1a-explore-reactome-pathways"><i class="fa fa-check"></i>Exercise 1a: Explore Reactome Pathways</a></li>
 <li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-1b-pathway-enrichment-analysis-using-a-simple-gene-list"><i class="fa fa-check"></i>Exercise 1b: Pathway enrichment analysis using a simple gene list</a></li>
 <li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#question-1-what-are-the-most-significant-biological-pathways-based-on-the-fdr"><i class="fa fa-check"></i>Question 1: What are the most significant biological pathways based on the FDR?</a></li>
+<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#answer-to-question-1"><i class="fa fa-check"></i>Answer to Question 1</a></li>
 <li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-1c-pathway-based-analysis-using-a-rank-gene-list-gsea"><i class="fa fa-check"></i>Exercise 1c: Pathway-based analysis using a rank gene list (GSEA)</a></li>
 <li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-2-use-the-reactome-functional-interaction-fi-network"><i class="fa fa-check"></i>Exercise 2: Use the Reactome Functional Interaction (FI) Network</a>
 <ul>
@@ -569,7 +570,7 @@ div.csl-indent {
 <p><em><font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font></em></p>
 <div id="goal-of-this-practical-lab" class="section level2 hasAnchor">
 <h2>Goal of this practical lab<a href="ReactomeFI.html#goal-of-this-practical-lab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Aim</strong>: This practical lab will provide you with an opportunity to perform pathway and network analysis using the Reactome Functional Interaction (FI) network and the ReactomeFIViz Cytoscape app.</p>
+<p><strong>Aim</strong>: This practical lab will provide you with an opportunity to perform pathway and network analysis using the Reactome Functional Interaction (FI) network and the <a href="https://apps.cytoscape.org/apps/reactomefiplugin">ReactomeFIViz Cytoscape app</a>.</p>
 <p><strong>Goal</strong>: Analyze gene lists to identify biology that contributes to cancer.</p>
 </div>
 <div id="data-download-the-following-files-on-your-computer-before-starting-the-practical-lab." class="section level2 hasAnchor">
@@ -585,7 +586,7 @@ save the files generated while performing the protocol.
 </p>
 </div>
 <ul>
-<li>Download <a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">PanCancer_drivers_genelist.txt</a></li>
+<li>Download <a href="./Module2/gprofiler/data/Pancancer_genelist.txt">PanCancer_drivers_genelist.txt</a></li>
 <li>Download <a href="./Module4/Reactome/data/Pancancer_frequency.txt">PanCancer_drivers_genelist_with_mutation_frequency.txt</a></li>
 <li>Download <a href="./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a></li>
 </ul>
@@ -604,47 +605,159 @@ The objective of this exercise is to navigate the Reactome pathways using the Cy
 <li><p>Pathways are available for Homo sapiens and Mus Musculus. Make sure that <strong>Homo sapiens</strong> is selected.</p></li>
 </ul>
 <p align="center">
-<img src="Module4/Reactome/images/lab1/ReactomeFI_1b.png" alt="start" width="100%" />
+<img src="Module4/Reactome/images/lab1/ReactomeFI_1b.png" alt="start" width="75%" />
 </p>
-<p>The pathways are organized in main categories and clicking on the left arrow will display the sub-categories.</p>
+<p>The pathways are organized into main categories. Clicking on the left arrow will expand that category and display all its sub-categories/pathways.</p>
 <ul>
-<li>Find and expand the <strong>Transport of small molecules</strong> event branch. In the expanded menu,find and expand <strong>O2/CO2 exchange in erythrocytes</strong>. Select <strong>Erythrocyte take up carbon dioxide and release oxygen</strong> and right-click on the highlighted pathway and select <strong>Show Diagram</strong>.</li>
+<li>Find and expand the <strong>Transport of small molecules</strong> event branch.</li>
+<li>In the expanded menu,find and expand <strong>O2/CO2 exchange in erythrocytes</strong>.</li>
+<li>Select <strong>Erythrocyte take up carbon dioxide and release oxygen</strong>.<br />
+</li>
+<li>Right-click on the highlighted pathway and select <strong>Show Diagram</strong>.</li>
 </ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_2.png" alt="start" width="75%" />
 </p>
 <ul>
-<li>Observe the diagram. Zoom in and out. Move some nodes around. Change color of a branch :select a line, right click, select highlight and choose color.</li>
+<li>Explore the pathway diagram.
+<ol style="list-style-type: lower-roman">
+<li>Zoom in and out.</li>
+<li>Move nodes around.</li>
+<li>Change color of a branch</li>
+</ol>
+<ul>
+<li>select a line,</li>
+<li>right click,</li>
+<li>select highlight,</li>
+<li>choose color.</li>
+</ul></li>
 </ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_4.png" alt="start" width="100%" />
 </p>
 <ul>
-<li>Right click on a line or a compound to reveal its source. It displays information about the biochemical reaction like the input and output molecules and some reference papers.</li>
+<li>Explore individual molecules and reactions.
+<ol style="list-style-type: lower-roman">
+<li>Right click on a line or a compound.</li>
+<li>Select <em>View Reactome Source</em> in right click context menu.</li>
+<li>This displays information about the biochemical reaction or molecule selected including the input and output molecules and associated reference papers.</li>
+</ol></li>
 </ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_4b.png" alt="start" width="100%" />
 </p>
 <ul>
-<li>Save the image as pdf: Right-click on the diagram and select <strong>Export Diagram</strong></li>
+<li>Save the reactome pathway diagram as pdf:
+<ol style="list-style-type: lower-roman">
+<li>Right-click on the diagram and select <strong>Export Diagram</strong></li>
+</ol></li>
 </ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_5.png" alt="start" width="100%" />
 </p>
+<div class="rmd-note">
+What is the difference between a pathway diagram and network?
+<p align="center">
+<img src="Module4/Reactome/images/lab1/pathway_vs_network.png" alt="start" width="100%" />
+</p>
+<p>
+<em>Pathway diagram</em>
+</p>
 <ul>
-<li>Transform it into a network and back to a diagram. Right-click on a blank space of the diagram and select <strong>Convert to FI Network</strong>. It has the advantage that we can now work with this network and use the Cytoscape analysis and visual features.</li>
+<li>
+biochemical view of pathways with cause and effect of each
+interaction captured.
+</li>
+<li>
+shows the flow and structure of pathway.
+</li>
+<li>
+represents different events and states of the same molecules.
+</li>
+<li>
+includes information on genes, proteins, metabolic pathways,
+molcular interactions, biochemical reactions.
+</li>
 </ul>
-Step1
+<p>
+<em>Network</em>
+</p>
+<ul>
+<li>
+represents relationships between entities. Entities can be genes,
+RNA, proteins or anything defined by the creator.<br />
+</li>
+<li>
+enables visualization of multiple data types together.
+</li>
+<li>
+No context or dynamics. Simply shows the connectivity between
+nodes.
+</li>
+</ul>
+</div>
+<ul>
+<li>Transform pathway diagram into a network and back to a diagram.
+<ol style="list-style-type: lower-roman">
+<li>Right-click on a blank space in the diagram</li>
+<li>select <strong>Convert to FI Network</strong>.</li>
+</ol></li>
+</ul>
+<div class="rmd-tip">
+<p>
+Transforming the pathway diagram into a network has the advantage
+that we can now use all the features of Cytoscape.
+</p>
+<p>
+Notice when viewing the pathway diagram you have to use the zoom bar
+at the bottom of the pathway diagram as opposed to the zoom buttons in
+the top menu bar in Cytoscape. Also. when using the pathway diagram you
+can not use any of the builtin layouts that come with Cytoscape. Because
+Cytoscape is a network analysis software it has been optimized for
+networks. In the ReactomeFI app they recreate the pathway diagram by
+manually drawing an interactive picture of it. You can still move the
+nodes and edges manually but employing any of the built in layouts and
+features would potentially ruin the picture.
+</p>
+</div>
+Step1 - Convert diagram to network
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_6a.png" alt="start" width="70%" />
 </p>
-Step2
+Step2 - explore network represenation
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_6b.png" alt="start" width="70%" />
 </p>
-<p>Note that only genes and not the metabolites are included in this network. The Reactome diagram shows how the oxygenated form of hemoglobin A undergoes two chemical reactions when CO2 is present. These reactions make Hba to lose its affinity for oxygen. It also shows how, in erythrocytes, CYB5Rs participates in the reduction of methemoglobin (MetHb) to hemoglobin A (HbA). The participating genes are then Hba, Hbb and Cyb5R genes and will be displayed in the network.</p>
+<div class="rmd-note">
+<p>
+Note that only genes (and not the metabolites) are included in this
+network.
+</p>
+<p>
+The Reactome pathway diagram demonstrates how the oxygenated form of
+hemoglobin A <a
+href="https://www.uniprot.org/uniprotkb/P69905/entry">HBA1</a> undergoes
+two chemical reactions in the presence of CO2. These reactions cause HBA
+to lose its affinity for oxygen.
+</p>
+<p>
+Additionally, this pathway diagram demonstrates how, in erythrocytes,
+CYB5Rs participates in the reduction of methemoglobin (MetHb) to
+hemoglobin A <a
+href="https://www.uniprot.org/uniprotkb/P69905/entry">HBA1</a>. The
+participating genes are then <a
+href="https://www.uniprot.org/uniprotkb/P69905/entry">HBA</a>, <a
+href="https://www.uniprot.org/uniprotkb/P68871/entry">HBB</a> and Cyb5R
+genes and will be displayed in the network.
+</p>
+</div>
 <ul>
-<li>Convert the network back to the diagram. Right-click on a blank space of the network and select <strong>ReactomeFI</strong> and then <strong>Convert to Diagram</strong>.</li>
+<li>Convert the network back to a pathway diagram.
+<ol style="list-style-type: lower-roman">
+<li>Right-click on a blank space of the network.</li>
+<li>select <strong>ReactomeFI</strong></li>
+<li>then <strong>Convert to Diagram</strong>.</li>
+</ol></li>
 </ul>
 Step1
 <p align="center">
@@ -656,24 +769,31 @@ Step2
 </p>
 <ul>
 <li>Open the diagram from the Reactome website:
-Locate the menu of pathways on the left window and right click on <strong>Erythrocytes take up carbon dioxide and release oxygen</strong>. Select <strong>View in Reactome</strong>. It will open a new page in your web browser.</li>
+<ol style="list-style-type: lower-roman">
+<li>Locate the menu of pathways in the left hand window</li>
+<li>right click on <strong>Erythrocytes take up carbon dioxide and release oxygen</strong>.</li>
+<li>Select <strong>View in Reactome</strong>.</li>
+<li>This will open a new page in your web browser with detailing information about the pathway on the Reactome website.</li>
+</ol></li>
 </ul>
-Step1
+Step1 - View in Reactome
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_7a.png" alt="start" width="70%" />
 </p>
-Step2
+Step2 - redirect to Reactome in web browser
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_7b.png" alt="start" width="100%" />
 </p>
-<p>Some useful information are displayed like a summary of the pathway and reference papers used to build the diagram.
-It can be exported as a pdf image or as a BioPAX format which is a file format specification for the exchange of biological pathway data.</p>
-<p>Furthermore, it is linked to the reactome.org pathway browser that can be opened in a new window. You can observe that the Cytoscape app is replicating the functionalities of the web-based pathway browser.</p>
-Step1
+<p>Some useful information is displayed in the web view including:
+* a summary of the pathway and
+* reference papers used to build the diagram.</p>
+<p>The pathway can be exported as an image in a range of format choices including svg, png, pptx or pdf or as a recognized exchange format including BioPAX, SBML or SBGN.</p>
+<p>Furthermore, it is linked to the reactome.org pathway browser that can be opened in a new window. (See link below the pathway diagram, <em>“Click othe image above or here to open this pathway in the Pathway Browser”</em>) The Cytoscape ReactomeFI app is a replica of this web-based pathway browser.</p>
+Step1 - click on link
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_8a.png" alt="start" width="80%" />
 </p>
-Step2
+Step2 - Pathway browser in web browser.
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_8b.png" alt="start" width="100%" />
 </p>
@@ -683,14 +803,15 @@ Step2
 <p><strong>Objectives:</strong>
 The objective of this exercise is to perform a pathway-based analysis using a sample gene list as input.</p>
 <p><strong>Data:</strong></p>
-<p>For this lab, we use genes with frequent somatic SNVs identified in TCGA exome sequencing data of 3,200 tumors of 12 types. The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples (Pan-cancer tab from Supplementary Table 4 in <a href="https://www.nature.com/articles/nature12634">Kandoth C. et al.</a>.</p>
+<p>For this lab, we will use a set of genes found to have frequent somatic single nucleotide variations (SNVs) identified in TCGA exome sequencing data of 3,200 tumors from 12 different cancer types. The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples (Pan-cancer tab from Supplementary Table 4 in <a href="https://www.nature.com/articles/nature12634">Kandoth C. et al.</a>.</p>
 <ul>
-<li>Gene list: <a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">Pan_Cancer_drivers.txt</a></li>
+<li>Gene list: <a href="./Module2/gprofiler/data/Pancancer_genelist.txt">Pancancer_genelist.txt</a></li>
 </ul>
 <p><strong>Steps:</strong></p>
 <ul>
-<li><p>In Cytoscape, locate the menu bar, select File -&gt; Close</p></li>
-<li><p>Go to Apps &gt;Reactome FI&gt;Reactome Pathways. Locate the menu of pathways on the left window in the Reactome tab from the Control Panel.</p></li>
+<li><p>In Cytoscape, locate the menu bar, select File -&gt; Close . (This will clear the previous session we created in 1A in order to start with a clean slate.)</p></li>
+<li><p>Select Apps -&gt; Reactome FI -&gt; Reactome Pathways.</p></li>
+<li><p>Locate the list of Reactome pathways in the left hand panel in the Reactome tab in the Control Panel.</p></li>
 <li><p>Scroll down and find the <strong>Signal Transduction</strong> pathway in the event hierarchy and select it.</p></li>
 <li><p>Right-click on the highlighted <strong>Signal Transduction</strong> name and select <strong>Analyze Pathway Enrichment</strong> .</p></li>
 </ul>
@@ -698,7 +819,7 @@ The objective of this exercise is to perform a pathway-based analysis using a sa
 <img src="Module4/Reactome/images/lab1/ReactomeFI_2a.png" alt="start" width="80%" />
 </p>
 <ul>
-<li><strong><em>Browse</em></strong> and upload the <strong>Pan_Cancer_drivers.txt</strong> file ,click <strong>OK</strong>.</li>
+<li><strong><em>Browse</em></strong> and select the <strong>Pancancer_genelist.txt</strong> file ,click <strong>OK</strong>.</li>
 </ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_2b.png" alt="start" width="80%" />
@@ -713,18 +834,63 @@ The objective of this exercise is to perform a pathway-based analysis using a sa
 <img src="Module4/Reactome/images/lab1/ReactomeFI_2d.png" alt="start" width="80%" />
 </p>
 <p>Pathway enrichment results are displayed as a table labeled as “Reactome Pathway Enrichment” in the “Table Panel” at the bottom of the main Cytoscape window.</p>
-<p>The pathway with the most significant enrichment is called “Generic Transcription Pathway”. This pathway contains 1235 genes and 42 genes were contained in our Pan_Cancer gene list that we used as intput.</p>
-<p>The statistical enrichment test pvalue associated with this pathway is close to 0 (0.00968) and it means that this size of the overlap (42 genes) is not likely to be obtained by chance only.</p>
-<p>The total number of genes in the pathway is located in the third column named ‘NumberOfProteinInPathway’. The number of genes from our input gene list and overlapping with the tested pathway is indicated in the column named ‘ProteinFromGeneSet’. The pathways that are the most enriched have a low FDR value.</p>
+</div>
+<div id="answer-to-question-1" class="section level2 hasAnchor">
+<h2>Answer to Question 1<a href="ReactomeFI.html#answer-to-question-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The pathway with the most significant enrichment FDR is called <em>Generic Transcription Pathway</em>. This pathway contains 1235 genes of which 42 genes are also found in the Pan_Cancer gene list that we used as intput.</p>
+<p>The statistical enrichment test pvalue associated with this pathway is close to 0 (7.98 E-14) and it means that this size of the overlap (42 genes) is not likely to be obtained by chance alone.</p>
+<p>Reactome Pathway enrichment table contains -</p>
 <ul>
-<li>In the <strong>Reactome Pathway Enrichment</strong> table, select <strong>Transcriptional regulation by RUNX3</strong>. Right-click on the pathway and select <strong>View in Diagram</strong>.</li>
+<li>ReactomePathway - pathway name</li>
+<li>RatioOfProteinInPathway - this is not the ratio of our query to the size of the pathway. This is the ratio of proteins found in this pathway as compared to the total number of entities.<br />
+</li>
+<li>NumberOfProteinPathway - total number of genes in the pathway</li>
+<li>ProteinFromGeneSet - number of genes from our input gene list that overlaps with this pathway</li>
+<li>P-value</li>
+<li>FDR</li>
+<li>HitGenes - genes from out input gene list that overlap with this pathway</li>
 </ul>
+<p>The pathways that are the most enriched have a low FDR value.</p>
+<div class="rmd-tip">
+<p>
+You can click on any of the column labels in the Reactome Pathway
+Enrichment table to sort the table by that column.
+</p>
+</div>
+<ul>
+<li>In the <strong>Reactome Pathway Enrichment</strong> table,
+<ol style="list-style-type: lower-roman">
+<li>select <strong>Transcriptional regulation by RUNX3</strong>.<br />
+</li>
+<li>Right-click on the pathway</li>
+<li>select <strong>View in Diagram</strong>.</li>
+</ol></li>
+</ul>
+<div class="rmd-tip">
+<p>
+To find this pathway more easily:
+</p>
+<ul>
+<li>
+click on the column title “ReactionPathway” to sort the table
+alphabetically by pathway name
+</li>
+<li>
+scroll down to the pathway <strong>Transcriptional regulation by
+RUNX3</strong>
+</li>
+</ul>
+</div>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_2e2.png" alt="start" width="80%" />
 </p>
 <ul>
-<li>Zoom in and out to observe the diagram. Purple-coloured nodes reflect genes that are present in our input gene list (GBM_genelist.txt).
-Right-click on highlighted nodes to invoke additional features.</li>
+<li>Explore the pathway diagram
+<ol style="list-style-type: lower-roman">
+<li>Zoom in and out to observe the diagram.</li>
+<li>Purple-coloured nodes reflect genes that are present in our input gene list (Pancancer_genelist.txt).</li>
+<li>Right-click on highlighted nodes to invoke additional features.</li>
+</ol></li>
 </ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_2e1.png" alt="start" width="80%" />
@@ -732,40 +898,73 @@ Right-click on highlighted nodes to invoke additional features.</li>
 <div class="rmd-tip">
 <p>
 If the Reactome Pathway Enrichment Table is not visible anymore in
-the Table Panel. Go to Cytoscape menu bar, <strong>View</strong>.
+the Table Panel.
+</p>
+<ul>
+<li>
+Go to Cytoscape menu bar, <strong>View</strong>.
+</li>
+<li>
 Uncheck and chek <strong>Show Table Panel</strong>.
+</li>
+</ul>
+<p>
+If this doesn’t work it is possible the table panel is just too small
+to see. You can try expanding it so you can see it or pop it out of the
+window so that it is its own window. (For smaller laptop screens that
+might be easiest thing to do)
+</p>
+<p align="center">
+<img src="Module4/Reactome/images/lab1/ReactomeFI_cantfindtablepanel.png" alt="start" width="80%" />
 </p>
 </div>
 <ul>
-<li><p>Transform the diagram into a network:
-Right-click on a blank space of the diagram and select <strong>Convert to FI Network</strong>.</p>
-<p>The advantage of a network is that we can now use the Cytoscape analysis and visual features. Purple-coloured nodes reflect genes that are present in our input gene list.</p></li>
+<li>Transform the diagram into a network:
+<ol style="list-style-type: lower-roman">
+<li>Right-click on a blank space of the diagram</li>
+<li>select <strong>Convert to FI Network</strong>.</li>
+</ol>
+The advantage of a network over the pathway diagram is that we can now use the Cytoscape analysis and visual features. Nodes with purple-coloured borders reflect genes that are present in our input gene list.</li>
 </ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_2f.png" alt="start" width="80%" />
 </p>
 <div class="rmd-tip">
 <p>
-Redo the layout if a clearer view is needed. Go to the Cytoscape menu
-bar and then select <strong>Layout</strong>, <strong>yFiles Organic
-Layout</strong>.
+Redo the layout if a clearer view is needed.
 </p>
+<ul>
+<li>
+Go to the Cytoscape menu bar
+</li>
+<li>
+select <strong>Layout</strong>, –&gt; <strong>yFiles Organic
+Layout</strong>.
+</li>
+</ul>
 </div>
 <ul>
-<li>Transform it back into a diagram:
-Right-click on a blank space and select <strong>Convert to Diagram</strong>.</li>
+<li>Transform network back to a diagram:
+<ol style="list-style-type: lower-roman">
+<li>Right-click on a blank space</li>
+<li>select <strong>Reactome FI</strong> –&gt; <strong>Convert to Diagram</strong>.</li>
+</ol></li>
 </ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_2f2.png" alt="start" width="80%" />
 </p>
 <ul>
 <li>Open Reactome Reacfoam:
-The Reacfoam view provides a holistic view of all (exclude disease) human pathways in the Reactome database. Go to the menu of pathways in the Control Panel (left window) and right-click on a blank space. Select <strong>Open Reactome Reacfoam</strong>.<br />
-
+<ol style="list-style-type: lower-roman">
+<li>The Reacfoam view provides a holistic view of all (excluding disease) human pathways in the Reactome database.</li>
+<li>Go to the menu of pathways in the Control Panel (left window) and</li>
+<li>right-click on a blank space.</li>
+<li>Select <strong>Open Reactome Reacfoam</strong>.</li>
+</ol></li>
+</ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_2g.png" alt="start" width="80%" />
-</p></li>
-</ul>
+</p>
 <p>Reactome Reacfoam will open in the default web browser.</p>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_2h.png" alt="start" width="80%" />
@@ -773,7 +972,8 @@ The Reacfoam view provides a holistic view of all (exclude disease) human pathwa
 <div class="rmd-note">
 <p>
 The color gradient indicates which categories of pathways have a
-stronger enrichment in the gene list that we have provided.
+stronger enrichment in the gene list that we have provided with lighter
+yellow having more significant FDR values.
 </p>
 </div>
 </div>
@@ -784,9 +984,25 @@ stronger enrichment in the gene list that we have provided.
 <p><strong>Data:</strong></p>
 <p>To perform the GSEA pathway enrichment analysis, you need to provide a tab-delimited text file containing two columns: the first for gene symbols (human only) and the second for gene scores.</p>
 <p>The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples. This cohort was previously stratified into four distinct expression subtypes <a href="http://www.ncbi.nlm.nih.gov/pubmed/21720365">PMID:21720365</a> and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.</p>
-<p>Data processing:</p>
+<p><strong>Data processing:</strong></p>
 <p>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>. Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>.The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <a href="gsea-lab.html#additional_information"><strong>Additional information</strong></a> section.</p>
-<p>Download (right-click and save link): <a href="./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a></p>
+<div class="rmd-note">
+<p>
+This is the same data used in Module2 GSEA lab.
+</p>
+</div>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in the corresponding module directory of your CBW work
+directory.
+</p>
+</div>
+<ul>
+<li><a href="./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a></li>
+</ul>
 <div class="rmd-note">
 <p>
 The first row is reserved for the column headers, and will not be
@@ -795,10 +1011,27 @@ imported for analysis.
 </div>
 <p><strong>Steps:</strong></p>
 <ul>
-<li><p>Start with a fresh session. Go to the Cytocape menu bar and select <strong>File</strong>, <strong>Close</strong>.</p></li>
-<li><p>Go to the menu bar and <strong>Apps</strong>, <strong>Reactome FI</strong>, <strong>Reactome Pathways</strong>.The Reactome tab in the Control Panel on the left opens and the list of pathways is visible.</p></li>
-<li><p>Select <strong>Autophagy</strong> and right-click on a blank space. The option menu opens. Select <strong>Perform GSEA Analysis</strong>.</p></li>
+<li>Start with a fresh session:
+<ol style="list-style-type: lower-roman">
+<li>Go to the Cytocape menu bar and</li>
+<li>select <strong>File</strong>, –&gt; <strong>Close</strong>.</li>
+</ol></li>
+<li>Open ReactomeFI app:
+<ol style="list-style-type: lower-roman">
+<li>Go to the menu bar Select <strong>Apps</strong>,–&gt; <strong>Reactome FI</strong>,–&gt; <strong>Reactome Pathways</strong>.The Reactome tab in the Control Panel on the left opens and the list of pathways is visible.</li>
+</ol></li>
+<li>Select <strong>Autophagy</strong> and right-click on a blank space. The option menu opens. Select <strong>Perform GSEA Analysis</strong>.</li>
 </ul>
+<div class="rmd-tip">
+<p>
+Why do I have to select <strong>Autophagy</strong>? Am I doing the
+GSEA Analysis just on this pathway?
+</p>
+<p>
+A little quirk in the ReactomeFI app. In order to see the context
+menu with all your options you need to have a pathway selected.
+</p>
+</div>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_1c_1.png" alt="start" width="80%" />
 </p>
@@ -812,44 +1045,58 @@ imported for analysis.
 <div class="rmd-note">
 <p>
 The number of permutations is 100 by default. To achieve more
-precision, we set up the permutations to 2000. It takes approximately 10
-minutes to run.
+precision, we set the permutations to 2000. It will take approximately
+10 minutes to run.
 </p>
 <p>
 For faster results during this practical lab, you may run it with 100
-permutations. It will affect the NES, P-value and FDR values.
+permutations. Keep in mind that this lower threshold will affect the
+NES, P-value and FDR values in your results.
 </p>
 </div>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_1c_3.png" alt="start" width="80%" />
 </p>
 <ul>
-<li>Once GSEA has finished to run, a <strong>Reactome GSEA Analysis</strong> appears in the Table Panel.
-It displays the list of pathways ordered by the best FDR values. Click on the <strong>Normalized enrichment score</strong> tab to order the pathways from Up to Down.</li>
+<li>Once GSEA has finished, a <strong>Reactome GSEA Analysis</strong> tab appears in the Table Panel.
+This table displays the list of pathways in increasing order from the lowest FDR values.
+<ol style="list-style-type: lower-roman">
+<li>Click on the <strong>Normalized enrichment score</strong> column title to order the pathways from Up (positive NES) to Down (negative NES).</li>
+</ol></li>
 </ul>
 <p>The pathways that are up and with FDR less than 0.05 are enriched in genes up regulated in the mesenchymal type of ovarian cancer.</p>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_1c_4.png" alt="start" width="80%" />
 </p>
-<p>The pathways that are down and with FDR less than 0.05 are enriched in genes down regulated in the mesenchymal type of ovarian cancer. Therefore, these genes are specific to the immunoreactive type.</p>
+<p>The pathways that are down (negative NES) with FDR values less than 0.05 are enriched in genes down regulated in the mesenchymal type of ovarian cancer. Therefore, these genes are specific to the immunoreactive type.</p>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_1c_5.png" alt="start" width="80%" />
 </p>
-<p>Interferon Signaling is the pathway that has the strongest enrichment in genes down-regulated in the mesenchymal type. Let’s visualize is a diagram to get details about the pathway.</p>
+<p>Interferon Signaling is the pathway that has the strongest enrichment (lowest NES value) in genes down-regulated in the mesenchymal type (or alternately, upregulated in the immunoreactive type).</p>
 <ul>
-<li>Locate and select <strong>Interferon gamma signaling</strong> in the <strong>Reactome GSEA Analysis</strong> table. Right-click on the highlighted name and select <strong>View in Diagram</strong> from the popup menu.</li>
+<li><p>Let’s visualize this in a pathway diagram to get details about the pathway.</p>
+<p>i.Locate and select <strong>Interferon gamma signaling</strong> in the <strong>Reactome GSEA Analysis</strong> table.</p>
+<ol style="list-style-type: lower-roman">
+<li>Right-click on the highlighted name</li>
+<li>select <strong>View in Diagram</strong> from the popup menu.</li>
+</ol></li>
 </ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_1c_6.png" alt="start" width="80%" />
 </p>
-<ul>
-<li>Explore the diagram by zooming in and out. Look at the list of genes in the <strong>Gene scores and ranks</strong> table (click on some genes).</li>
-</ul>
+<ol style="list-style-type: lower-roman">
+<li>Explore the diagram by zooming in and out.</li>
+<li>Look at the list of genes in the <strong>Gene scores and ranks</strong> table (click on some genes).</li>
+</ol>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_1c_7.png" alt="start" width="80%" />
 </p>
 <ul>
-<li>Fetch cancer drug: right-click and select <strong>Fetch cancer drug</strong>.</li>
+<li>Fetch cancer drug:
+<ol style="list-style-type: lower-roman">
+<li>right-click anywhere on diagram</li>
+<li>select <strong>Fetch cancer drug</strong>.</li>
+</ol></li>
 </ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab1/ReactomeFI_1c_8.png" alt="start" width="80%" />
@@ -858,23 +1105,38 @@ It displays the list of pathways ordered by the best FDR values. Click on the <s
 <div id="exercise-2-use-the-reactome-functional-interaction-fi-network" class="section level2 hasAnchor">
 <h2>Exercise 2: Use the Reactome Functional Interaction (FI) Network<a href="ReactomeFI.html#exercise-2-use-the-reactome-functional-interaction-fi-network" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Objectives:</strong></p>
-<p>The objective of this exercise is to create a Reactome Functional Interaction (FI) network using the pan-cancer gene list from exercise 1.
-In this exercise, we create a network using all genes in our list. In the network that we are creating, each gene is a node and all genes known to interact or are predicted to interact with each other are connected.
-We remember that this gene list comes from genes found with frequently mutated in diverse types of cancer. Interestingly, this network might show us that although they were found in different cancers, they might be biologically connected and might function in common biological pathways and protein complexes and represent hallmarks of cancer.</p>
+<p>The objective of this exercise is to create a Reactome Functional Interaction (FI) network using the pan-cancer gene list from exercise 1.</p>
+<p>In this exercise, we create a network using all genes in our list. In the network that we are creating, each gene is a node and all genes known to interact or are predicted to interact with each other are connected.</p>
+<p>Please remember, this gene list comes from the set of genes frequently mutated in diverse types of cancer (it is the same list used in our previous module). Interestingly, this network might show us that although these genes were associated with different cancers, they might be biologically connected and might function in common biological pathways and protein complexes and represent hallmarks of cancer.</p>
 <p><strong>Data:</strong></p>
-<p>Download:
-- <a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">Pan_Cancer_drivers.txt</a>
-- <a href="./Module4/Reactome/data/pancancer_frequency_table.txt">pancancer_frequency_table.txt</a></p>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in the corresponding module directory of your CBW work
+directory.
+</p>
+</div>
+<p>Download:</p>
+<ul>
+<li><a href="./Module2/gprofiler/data/Pancancer_genelist.txt">Pancancer_genelist.txt</a></li>
+<li><a href="./Module4/Reactome/data/pancancer_frequency_table.txt">pancancer_frequency_table.txt</a></li>
+</ul>
 <p><strong>Steps:</strong></p>
-<p>Create the network:
-- Open up Cytoscape.<br />
-- Go to Apps&gt;Reactome FI and Select “Gene Set/Mutational Analysis”.<br />
-- Choose “2021 (Latest)” Version.
-- Upload/Browse <a href="./Module2/gprofiler/data/Supplementary_Table1_Cancer_drivers.txt">Pan_Cancer_drivers.txt</a> file.
-- Select <strong>Gene set</strong>
-- Select <strong>Fetch FI annotations</strong>.
-- Select <strong>Show genes not linked to other</strong>
-- Click OK.</p>
+<ul>
+<li>Create the network:
+<ol style="list-style-type: lower-roman">
+<li>Open up Cytoscape.<br />
+</li>
+<li>Go to <em>Apps</em> –&gt; <em>Reactome FI</em> –&gt; <em>Gene Set/Mutational Analysis</em></li>
+<li>Choose “2021 (Latest)” Version.</li>
+<li>Upload/Browse <a href="./Module2/gprofiler/data/Pancancer_genelist.txt">Pancancer_genelist.txt</a> file. i. Select <strong>Gene set</strong></li>
+<li>Select <strong>Fetch FI annotations</strong>.</li>
+<li>Select <strong>Show genes not linked to other</strong></li>
+<li>Click OK.</li>
+</ol></li>
+</ul>
 <p align="center">
 <img src="Module4/Reactome/images/lab2/ReactomeFI_ex2_1.png" alt="start" width="80%" />
 </p>
