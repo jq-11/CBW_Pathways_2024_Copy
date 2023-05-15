@@ -25,9 +25,452 @@ We recommend saving all these files in a personal project data folder. We also r
  * Download [PanCancer_drivers_genelist_with_mutation_frequency.txt](./Module4/Reactome/data/Pancancer_frequency.txt)
  *  Download  [MesenchymalvsImmunoreactive_edger_ranks.rnk](./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk)
 
+## Exercise 1: Use the Reactome Functional Interaction (FI) Network
+
+**Objectives:** 
+
+The objective of this exercise is to create a Reactome Functional Interaction (FI) network using the pan-cancer gene list from exercise 1. 
+
+In this exercise, we create a network using all genes in our list. In the network that we are creating, each gene is a node and all genes known to interact or are predicted to interact with each other are connected. 
+
+Please remember, this gene list comes from the set of genes frequently mutated in diverse types of cancer (it is the same list used in our previous module). Interestingly, this network might show us that although these genes were associated with different cancers, they might be biologically connected and might function in common biological pathways and protein complexes and represent hallmarks of cancer.
+
+**Data:** 
+
+```{block, type="rmd-datadownload"}
+Right click on link below and select "Save Link As...".
+
+Place it in the corresponding module directory of your CBW work directory.
+```
+
+Download: 
+
+  * [Pancancer_genelist.txt](./Module2/gprofiler/data/Pancancer_genelist.txt)
+  * [pancancer_frequency_table.txt](./Module4/Reactome/data/pancancer_frequency_table.txt)
+
+**Steps:**
+
+  * Create the network:
+    i. Open up Cytoscape.  
+    i. Go to *Apps* --> *Reactome FI* --> *Gene Set/Mutational Analysis*
+    i. Choose "2021 (Latest)" Version. 
+    i. Upload/Browse [Pancancer_genelist.txt](./Module2/gprofiler/data/Pancancer_genelist.txt) file.     i. Select **Gene set** 
+    i. Select **Fetch FI annotations**.
+    i. Select **Show genes not linked to other**
+    i. Click OK.
+
+ <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_1.png" alt="start" width="80%" />
+ </p>
+
+  * Resulting network:
+ <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_2.png" alt="start" width="80%" />
+ </p>
+
+### Question 1: Describe the size and composition of the network?
+
+ <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_3.png" alt="start" width="80%" />
+ </p>
+
+The total number of genes in the network is 127. 
+
+103 of these genes are connected to each other by functional interactions. You can get this information by selecting all genes that you see connected to each others.
+
+The total number of edges or interactions is 473. 
+
+The genes that are interacting together might work together in some sort of protein complex in the cells. 
+
+The FI network was constructed by merging interactions extracted from human curated pathways from Reactome with interactions predicted using a machine learning approach. The non curated sources of information include:
+
+  * protein-protein interactions, 
+  * gene co-expression, 
+  * protein domain interaction, 
+  * Gene Ontology (GO) annotations
+  * text-mined protein interactions.
+  
+  Solid edge between 2 nodes are interaction from curated pathways and dashed line are predicted interaction. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2898064/).
+ 
+ <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_solid_vs_dotted.png" alt="start" width="80%" />
+ </p>
 
 
-## Exercise 1a: Explore Reactome Pathways
+### Question 2: After clustering, how many modules are there?
+
+ReactomeFI has a clustering option which groups genes that are more connected to each other into modules.
+
+  * Cluster the network:
+    i. Right-click on a blank space of the network
+    i. select **ReactomeFI** --> **Cluster FI Network**.
+
+ <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_4.png" alt="start" width="80%" />
+ </p>
+ 
+Nodes are now colored by modules.
+
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_5.png" alt="start" width="80%" />
+ </p>
+ 
+  i. Look at the table **Network Module Browser** to find out the number of modules.It is located in the Table Panel located below the network. 
+  i. Click on each module to highlight each genes in the module.
+
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_6.png" alt="start" width="80%" />
+ </p>
+
+  * The connected network has been divided into 5 modules. Module 0 contains the most genes (31).
+  * The MCL clustering algorithm is used to cluster the network and it is based on the number of interaction (edges) between the nodes.
+
+
+  *  **Redo the layout for clarity**:
+    i. Go to Cytoscape menu bar, 
+    i. select **Layout** --> **yFiles Organic Layout**.
+
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_9.png" alt="start" width="80%" />
+ </p>
+ 
+  * Explore the resulting network.
+ 
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_10.png" alt="start" width="80%" />
+ </p>
+ 
+
+ 
+```{block, type="rmd-bonus"}
+Can you recreate the below image using one of the Cytoscape layout options?
+
+ <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_groupattributelayout.png" alt="start" width="80%" />
+ </p>
+ 
+```
+ 
+### Query information about the interaction between 2 genes:
+
+
+  * Click on a solid line.
+
+```{block, type="rmd-tip"}
+You might need to zoom in on the network in order to select an individual edge. 
+```
+
+  i. Once the edge is highlighted in red, right click on it and select **ReactomeFI** --> **Query FI Source**. 
+
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_12.png" alt="start" width="80%" />
+ </p>
+ 
+ QueryFI Source will open a window with a list of the set of pathways that this interaction is found in.
+ 
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_13.png" alt="start" width="80%" />
+ </p>
+ 
+  * Click on a dashed line.  
+    i. Once it is highlighted in red, 
+    i. right click on it and select **ReactomeFI** --> **Query FI Source**.
+
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_14.png" alt="start" width="80%" />
+ </p>
+ 
+ The Query FI source will include a list of prediction sources as well as the overall score associated with this prediction.
+ 
+```{block, type="rmd-tip"}
+The FI score can be used to filter interactions and keep the interactions with the highest scores.
+``` 
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_15.png" alt="start" width="80%" />
+ </p>
+ 
+  * To get an information about a gene. 
+    i. Right-click on a gene 
+    i. select **ReactomeFI** --> **Query Gene Card**
+    i. This will open a web page containing all the information about the gene that is contained in the [gene cards database](https://www.genecards.org/).  
+    i.  You can also select **Fetch FI** to get information about this gene in the ReactomeFI network
+    i.  You can also select **Fetch Cancer Gene Index** to get information about this gene in the [Cancer gene index](https://wiki.nci.nih.gov/display/cageneindex/Creation+of+the+Cancer+Gene+Index)
+    i.  You can also select **Query Cosmic** to get information about this gene in [Cosmic](https://cancer.sanger.ac.uk/cosmic)
+ 
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_16.png" alt="start" width="80%" />
+ </p>
+ 
+ 
+### Question 3: What are the most significant pathways in each module?
+
+Pathway analysis can be performed on the whole set of genes from the network. It can also be performed individually on each module.
+
+  * right-click, Analyze **Network** Functions,--> Pathway Enrichment,  as opposed to, 
+  * right-click, Analyze **Module** Functions,--> Pathaway enrichment. 
+  
+  This way, the original network can be divided into smaller modules of interacting proteins and labelled according to the module pathway enrichment results.
+
+  * Pathway enrichment of Modules
+    i. Right-click on a blank space of the network window
+    i. Select **Reactome FI** --> **Analyze Module Functions** --> **Pathway enrichment**
+
+<p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_7.png" alt="start" width="100%" />
+</p>
+
+  i. A **Choose Module Size** window appears. 
+  i. This parameter enables the user to select a minimum number of genes required in the module in order to include itin the pathway analysis. 
+  i. Leave the module size as the default of 5.
+  i. Once the pathway analysis has finished running, a **Pathways in Modules** table appears in the Table Panel located below the network. Pathways are ordered by best FDR values (closer to 0) for each module. 
+
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_8a.png" alt="start" width="100%" />
+ </p>
+ 
+  i. Click on some of the pathways for each module. It will highlight the genes in our network that are part the selected pathway.
+  * For example,
+    i. Select *RAF/MAP kinase cascade (R)*.
+      * It is one of the most significant pathways of module 1. 
+      * There are 14 genes in this pathway that are also in module 1. 
+      * Module 1 has a total of 27 genes. (The number of genes in each module can be found in the **Network Module Browser** tab)
+      * The associated FDR value is 6.55e-15 which is very close to 0 and it means that this overlap of 14 genes isn't likely to be obtained by chance only.
+ 
+ 
+**Try it out yourselves:**
+
+- try *GO Biological Process* enrichment on modules: 
+    i. **Reactome FI** --> **Analyze Module Functions** --> **GO Biological Process**
+- try *pathway* or *GO Biological Process*  enrichment on the full network: 
+    i. **Reactome FI** --> **Analyze Network Functions** --> **GO Biological Process**
+    i. **Reactome FI** --> **Analyze Network Functions** --> **Pathway Enrichment**
+
+<p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_11.png" alt="start" width="100%" />
+</p>
+
+
+```{block, type="rmd-note"}
+It is possible to undock tables for better clarity using the pin icon located at the top right corner of the Table Panel. 
+```
+
+
+### Set the size of the nodes proportional to the mutation frequencies in each cancer
+
+Our gene list contains the genes with high frequency in several cancers. Table  [PanCancer_drivers_genelist_with_mutation_frequency.txt](./Module4/Reactome/data/Pancancer_frequency.txt) contains the mutation frequency of these genes in 10 cancer types. We are going to import this table into Cytoscape and set the size of the nodes using these column values.
+
+- In the Cytoscape menu bar, 
+    i. select **Import** --> **Table from File...**
+
+<p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_17.png" alt="start" width="75%" />
+</p>
+
+  i. In the window **Import Columns From Table**, make sure that **Import Data as:** is set to **Node Table Columns**.
+  i. Click **OK**.
+ 
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_18.png" alt="start" width="50%" />
+ </p>
+ 
+ Now that the table is imported, we can use the values in the table columns as Properties to set a style or to filter the network. 
+ 
+ We are going to set the size of the nodes.
+ 
+  i. Look for the **Style** tab in the Control Panel located at the left of the Cytoscape window. Select.
+  i. Click on the down arrow beside **Properties** and select **Size** on the list.
+
+
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_19.png" alt="start" width="50%" />
+ </p>
+ 
+  i. Select the **Size** field and expand it using the down arrow.
+  i. In the  **Column** field, click on **--select value--** and choose **BLCA Freq**. 
+
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_21.png" alt="start" width="75%" />
+ </p>
+ 
+  i. In the **Mapping Type**, click on **--select value--** and choose **Continuous Mapping**.
+  i. Click on the diagram
+
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_22.png" alt="start" width="50%" />
+ </p>
+ 
+
+  i. Set the first pivot **Handle Position** and the second pivot **Handle Position** to 100.  To set the pivot click on the arrow you would like to set and then adjust the value specified next to Node Size.  Make sure to press enter once you have updated the value in order for it to be registered.
+  i. Click OK
+ 
+ 
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_23.png" alt="start" width="50%" />
+ </p>
+ 
+- Now the biggest nodes correspond to genes with highest mutation frequency in the BCLA cancer (Bladder cancer). 
+ 
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_24.png" alt="start" width="100%" />
+ </p>
+
+ ```{block, type="rmd-tip"}
+ You can change the column value to other cancer types and observe the differences.
+```
+
+### Play around with the styles: change transparency and colors
+
+Here are the steps if you need to change the colors of the module to create a figure for publication.
+
+- In Style, go to the ** Transparency** field and replace 100 by 200. Try different numbers.
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_25.png" alt="start" width="80%" />
+ </p>
+
+- If some of the colors are too dark, it is possible to modify the cluster colour by selecting the field **Fill Color** in properties in the Styles tab:
+    i. double-click on a color.
+  
+<p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_26.png" alt="start" width="80%" />
+</p>
+
+  i. choose a new one. (This will need to be done for each colour you want to change.)
+
+<p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_29.png" alt="start" width="80%" />
+</p>
+
+- The resulting network
+
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_30.png" alt="start" width="100%" />
+ </p>
+
+### Create a pie chart
+
+As we have the mutation frequencies for several cancer types, it would be useful to be able to compare all cancer frequencies at the same time in the same network. It is possible to do this by plotting a pie chart for each gene (node) with each pie slice representing the mutation frequency for each cancer. 
+
+  * Here are the steps to do it:
+    i. In Style, click on the down arrow close to **Properties** and select **Paint**, -->  **Custom Paint1** --> **Image/Chart 1**. 
+    
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_31.png" alt="start" width="75%" />
+ </p>
+ 
+  i. A **Graphics** windows pops up. 
+  i. In **Chart**, select the piechart icon.
+  i. In **Available Columns**, select the columns that you want to include in your pie chart (here 8 cancer types) and click on the arrow to move them over to the *Selected Columns*.
+
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_32.png" alt="start" width="74%" />
+ </p>
+ 
+  i. They are now placed in the **Selected Columns** window. Click on **Apply**.
+
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_33.png" alt="start" width="75%" />
+ </p>
+ 
+ ```{block, type="rmd-tip"}
+ Expanding **Customize** will open a tab that shows the color legend for the pie chart. All colours of the pie chart are customizable. 
+ ```
+ 
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_35b.png" alt="start" width="50%" />
+ </p>
+ 
+```{block, type="rmd-bonus"}
+
+Notice in the screenshot below we changed node shape to be square so that we can still see the module the gene belongs to as well as the cancer frequencies in the pie chart.  Can you replicate this?
+
+``` 
+
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_37.png" alt="start" width="100%" />
+ </p>
+ 
+
+ 
+### Create a subnetwork
+ 
+ - Now that the network is clustered in modules and related pathways, we want to create a subnetwork to highlight connections that we found interesting. For this exercise, we want to create a network of the genes involved in the **Gastric cancer (K)** pathway. 
+
+  * Here are the steps to follow:
+    i. In the table panel, locate the **Pathways in Network** table.
+    
+```{block, type="rmd-tip"}
+In order to generate the pathway network table, right-click on a blank space, **Reactome FI** --> **Analyze Network Functions** --> **Pathway Enrichment**.
+
+   (hint: this was one of the steps that you had to try yourselves, )
+  
+```
+
+  i. Select **Gastric Cancer (K)** from the list of pathways.It will highlight the genes in this pathway in yellow.
+
+```{block, type="rmd-tip"}
+It should be the top enriched pathway.  If you can't see it trying changing the sorting of the table by clicking on the column headers -- specifically the FDR column
+```
+
+  i. Above the network find and click on the **New Network from Selection** icon and select **From Selected Nodes, All Edges**. 
+ 
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_39.png" alt="start" width="75%" />
+ </p>
+ 
+A new network containing only the selected nodes is now created.
+ 
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_40.png" alt="start" width="100%" />
+ </p>
+ 
+ 
+
+### Fetch Cancer drugs on the created subnetwork
+
+  * Working with the newly created gastric cancer enriched network.
+  * Right-click on a blank space and select **Reactome FI**, **Overlay Drugs**, **Fetch Cancer Drugs**. 
+ 
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_43.png" alt="start" width="100%" />
+ </p>
+ 
+  * The numerous drugs known to target the genes in this subnetwork are now added  as green diamond shaped nodes.
+
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_44.png" alt="start" width="75%" />
+ </p>
+
+  * Here is the network after redoing the layout for clarity (Layout -->  YFiles Organic Layout)
+  
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_45.png" alt="start" width="100%" />
+ </p>
+
+### Save the network as an image for publication
+
+As we have finalized our network analysis, we would like to export the network as an image.
+
+- In the Cytoscape menu, select **File**, --> **Export**,--> **Network to Image**. 
+
+  <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_41.png" alt="start" width="75%" />
+ </p>
+ 
+- Browse to the directory where you want to save the image, give it a name and click on **OK**.
+
+   <p align="center">
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_42.png" alt="start" width="100%" />
+ </p>
+
+
+
+```{block, type="rmd-tip"}
+In addition to export an image of your network, save your session regularly.
+```
+
+
+
+## Exercise 2a: Explore Reactome Pathways
 **Objectives:**
 The objective of this exercise is to navigate the Reactome pathways using the Cytoscape ReactomeFI app. 
 
@@ -194,7 +637,7 @@ Step2 - Pathway browser in web browser.
  </p>
 
 
-## Exercise 1b: Pathway enrichment analysis using a simple gene list
+## Exercise 2b: Pathway enrichment analysis using a simple gene list
 
 **Objectives:**
 The objective of this exercise is to perform a pathway-based analysis using a sample gene list as input.
@@ -210,7 +653,7 @@ For this lab, we will use a set of genes found to have frequent somatic single n
 
 **Steps:** 
 
-- In Cytoscape, locate the menu bar, select File -> Close .  (This will clear the previous session we created in 1A in order to start with a clean slate.)
+- In Cytoscape, locate the menu bar, select File -> Close .  (This will clear the previous session we created in 2A in order to start with a clean slate.)
 
 - Select Apps -> Reactome FI -> Reactome Pathways. 
 
@@ -230,7 +673,7 @@ For this lab, we will use a set of genes found to have frequent somatic single n
  <img src="./Module4/Reactome/images/lab1/ReactomeFI_2b.png" alt="start" width="80%" />
  </p>
 
-## Question 1: What are the most significant biological pathways based on the FDR?
+### Question 1: What are the most significant biological pathways based on the FDR?
 
 - **Hint**: Take a look at the list of significant pathways in the **Reactome Pathway Enrichment**  tab of Table Panel.
 
@@ -240,7 +683,7 @@ For this lab, we will use a set of genes found to have frequent somatic single n
 
 Pathway enrichment results are displayed as a table labeled as "Reactome Pathway Enrichment" in the "Table Panel" at the bottom of the main Cytoscape window.
 
-## Answer to Question 1
+### Answer to Question 1
 
 The pathway with the most significant enrichment FDR is called *Generic Transcription Pathway*. This pathway contains 1235 genes of which 42 genes are also found in the Pan_Cancer gene list that we used as intput. 
 
@@ -352,7 +795,7 @@ Reactome Reacfoam will open in the default web browser.
 The color gradient indicates which categories of pathways have a stronger enrichment in the gene list that we have provided with lighter yellow having more significant FDR values.
 ```
 
-## Exercise 1c: Pathway-based analysis using a rank gene list (GSEA)
+## Exercise 2c: Pathway-based analysis using a rank gene list (GSEA)
 
 
 **Objectives:**
@@ -369,9 +812,6 @@ The data used in this exercise is gene expression (transcriptomics) obtained fro
 
 Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from [cBioPortal for Cancer Genomics](http://www.cbioportal.org/data_sets.jsp). Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using [edgeR](http://www.ncbi.nlm.nih.gov/pubmed/19910308).The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the [**Additional information**](#additional_information) section. 
 
-```{block, type="rmd-note"}
-This is the same data used in Module2 GSEA lab.
-```
 
 ```{block, type="rmd-datadownload"}
 Right click on link below and select "Save Link As...".
@@ -382,6 +822,8 @@ Place it in the corresponding module directory of your CBW work directory.
   * [MesenchymalvsImmunoreactive_edger_ranks.rnk](./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk)
 
 ```{block, type="rmd-note"}
+This is the same data used in Module2 GSEA lab.
+
 The first row is reserved for the column headers, and will not be imported for analysis. 
 ```
 
@@ -400,7 +842,7 @@ The first row is reserved for the column headers, and will not be imported for a
 ```{block, type="rmd-tip"}
 Why do I have to select **Autophagy**?   Am I doing the GSEA Analysis just on this pathway?
 
-A little quirk in the ReactomeFI app.  In order to see the context menu with all your options you need to have a pathway selected.  
+This is just a little quirk in the ReactomeFI app.  In order to see the context menu with all your options you need to have a pathway selected.  
 
 ```
 
@@ -471,362 +913,6 @@ Interferon Signaling is the pathway that has the strongest enrichment (lowest NE
  </p>
 
  
-## Exercise 2: Use the Reactome Functional Interaction (FI) Network
-
-**Objectives:** 
-
-The objective of this exercise is to create a Reactome Functional Interaction (FI) network using the pan-cancer gene list from exercise 1. 
-
-In this exercise, we create a network using all genes in our list. In the network that we are creating, each gene is a node and all genes known to interact or are predicted to interact with each other are connected. 
-
-Please remember, this gene list comes from the set of genes frequently mutated in diverse types of cancer (it is the same list used in our previous module). Interestingly, this network might show us that although these genes were associated with different cancers, they might be biologically connected and might function in common biological pathways and protein complexes and represent hallmarks of cancer.
-
-**Data:** 
-
-```{block, type="rmd-datadownload"}
-Right click on link below and select "Save Link As...".
-
-Place it in the corresponding module directory of your CBW work directory.
-```
-
-Download: 
-
-  * [Pancancer_genelist.txt](./Module2/gprofiler/data/Pancancer_genelist.txt)
-  * [pancancer_frequency_table.txt](./Module4/Reactome/data/pancancer_frequency_table.txt)
-
-**Steps:**
-
-  * Create the network:
-    i. Open up Cytoscape.  
-    i. Go to *Apps* --> *Reactome FI* --> *Gene Set/Mutational Analysis*
-    i. Choose "2021 (Latest)" Version. 
-    i. Upload/Browse [Pancancer_genelist.txt](./Module2/gprofiler/data/Pancancer_genelist.txt) file.     i. Select **Gene set** 
-    i. Select **Fetch FI annotations**.
-    i. Select **Show genes not linked to other**
-    i. Click OK.
-
- <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_1.png" alt="start" width="80%" />
- </p>
-
-Created network:
- <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_2.png" alt="start" width="80%" />
- </p>
-
-### Question 1: Describe the size and composition of the network?
- <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_3.png" alt="start" width="80%" />
- </p>
-
-The total number of genes in the network is 128. 
-103 of these genes are connected to each other by functional interactions. You can get this information by selecting all genes that you see connected to each others.
-The total number of edges which represent the interactions is 473. 
-The genes that are interacting together might work together in some same protein complexes in the cells. 
-
-The FI network was constructed by merging interactions extracted from human curated pathways with interactions predicted using a machine learning approach. The non curated sources of information include protein-protein interactions, gene coexpression, protein domain interaction, Gene Ontology (GO) annotations and text-mined protein interactions.Solid edge between 2 nodes are interaction from curated pathways and dashed line are predicted interaction. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2898064/).
-
-
-### Question 2: After clustering, how many modules are there?
-ReactomeFI has a clustering option which groups genes that are more connected to each other into modules.
-
-To create the clustering:
-- Right-click on a blank space of the network and select **ReactomeFI** and **Cluster FI Network**.
-
- <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_4.png" alt="start" width="80%" />
- </p>
- 
-Nodes are now colored per modules.
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_5.png" alt="start" width="80%" />
- </p>
- 
-
-Look at the table **Network Module Browser** that displays the number of modules. It is located in the Table Panel located below the network. Click on each module to highlight each genes in the module.
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_6.png" alt="start" width="80%" />
- </p>
-
-The connected network was divided into 5 modules. Module 0 contains the highest number of genes (31).
-The MCL clustering algorithm is used to cluster the network and it is based on the number of interaction (edges) between the nodes.
-
-
-- **Redo the layout for clarity**: Go to Cytoscape menu bar, select **Layout** and then **yFiles Organic Layout**.
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_9.png" alt="start" width="80%" />
- </p>
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_10.png" alt="start" width="80%" />
- </p>
- 
- Explore the network.
- 
- 
-## Query information about the interaction between 2 genes:
-
-
-- Click on a solid line. Tip: you might need to zoom in to do it. Once it is highlighted in red, right click on it and select **ReactomeFI** and **Query FI Source**. 
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_12.png" alt="start" width="80%" />
- </p>
- 
- It will reveals a name of pathway in which this interaction is included as well as some reference papers for the interaction.
- 
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_13.png" alt="start" width="80%" />
- </p>
- 
-- Click on a dashed line.  Once it is highlighted in red, right click on it and select **ReactomeFI** and **Query FI Source**.
-
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_14.png" alt="start" width="80%" />
- </p>
- 
- It will include the score for the prediction of the interaction.
- 
-```{block, type="rmd-tip"}
-The FI score can be used to filter interactions and keep the interactions with the highest scores.
-``` 
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_15.png" alt="start" width="80%" />
- </p>
- 
- - To get an information about a gene. Right-click on a gene and select **ReactomeFI** and **Query Gene Card**
- 
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_16.png" alt="start" width="80%" />
- </p>
- 
- 
-## Question 3: What are the most significant pathways in each module?
-
-Pathway analysis can be performed on the whole set of genes from the network (right-click, Analyze Network Functions, Pathway Enrichment). Interestingly, it can also be performed individually on each module. This way, the original network can be divided in smaller modules of interacting proteins and label these modules using the module pathway enrichment results.
-
-- Right-click on a blank space of the network window
-- Select **Reactome FI** > **Analyze Module Functions** > **Pathway enrichment**
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_7.png" alt="start" width="100%" />
- </p>
-
-A **Choose Module Size** window appears. This parameter enables to choose to perform pathway analysis on module with sufficient number of genes. Leave the module size to 5.
-
-Once the pathway analysis has finished running, a **Pathways in Modules** table appears in the Table Panel located below the network. Pathways are ordered by best FDR values (closer to 0) for each module. 
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_8a.png" alt="start" width="100%" />
- </p>
- 
-Click on some pathways for each module. It will highlight in the network genes in these pathways that are part of our network.
-
-For example, RAF/MAP kinase cascade (R) is the most significant pathway of module 1. 14 genes in this pathway are in module 1 which has a total of 27 genes. The associated FDR value is 6.55e-15 which is very low to 0 and it means that this overlap of 27 genes isn't likely to be obtained by chance only.
- 
- 
-**OPTIONAL:**
-- try GO Biological Process enrichment on modules: **Reactome FI** > **Analyze Module Functions** > **GO Biological Process**
-- try pathway or GO BP enrichment on the full network: **Reactome FI** > **Analyze Network Functions** > **GO Biological Process**
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_11.png" alt="start" width="100%" />
- </p>
-
-
-```{block, type="rmd-note"}
-It is possible to undock tables for better clarity using the pin icon located at the top right corner of the Table Panel. 
-```
-
-
-### Set the size of the nodes proportional to the mutation frequencies in each cancer
-
-Our gene list contains the genes with high frequency in several cancers. Table  [PanCancer_drivers_genelist_with_mutation_frequency.txt](./Module4/Reactome/data/Pancancer_frequency.txt) contains the mutation frequency of these genes in 10 cancer types. We are going to import this table into Cytoscape and set the size of the nodes using these column values.
-
-- In the Cytoscape menu bar, select **Import**, **Table from File...**
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_17.png" alt="start" width="100%" />
- </p>
- 
- In the window **Import Columns From Table**, make sure that **Import Data as:** is set to **Node Table Columns**. Click **OK**.
- 
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_18.png" alt="start" width="100%" />
- </p
- 
- Now that the table is imported, we can use the values in the table columns as Properties to set a style or to filter the network. 
- We are going to set the size of the nodes.
- 
-- Look for the **Style** tab in the Control Panel located at the left of the Cytoscape window. Select.
-
-- Click on the down arrow beside **Properties** and select **Size** on the list.
-
-
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_19.png" alt="start" width="100%" />
- </p>
- 
- - Select the **Size** field and expand it using the down arrow.
-- In the  **Column** field, click on **--select value--** and choose **BLCA Freq**. 
-
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_21.png" alt="start" width="100%" />
- </p>
- 
-- In the **Mapping Type**, click on **--select value--** and choose **Continuous Mapping**.
-- Click on the diagram
-
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_22.png" alt="start" width="100%" />
- </p>
- 
-
-- Set the first pivot **Handle Position** and the second pivot **Handle Position** to 100
-- Click OK
- 
- 
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_23.png" alt="start" width="100%" />
- </p>
- 
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_24.png" alt="start" width="100%" />
- </p>
-
-Now the biggest nodes correspond to genes with highest mutation frequency in the BCLA cancer (Bladder cancer). 
-
- ```{block, type="rmd-tip"}
- You can change the column value to other cancer types and observe the differences.
-```
-
-### Play with style: change transparency and colors
-
-Here are the steps if you need to change the colors of the module to create a figure for publication.
-
-- In Style, go to the ** Transparency** field and replace 100 by 200. Try different numbers.
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_25.png" alt="start" width="80%" />
- </p>
-
-- In some colors are too dark, it is possible to modify the cluster color but selecting the field **Fill Color** in properties:
-  - double-click on a color and choose the new one.
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_26.png" alt="start" width="80%" />
- </p>
-
-
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_29.png" alt="start" width="80%" />
- </p>
-
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_30.png" alt="start" width="100%" />
- </p>
-
-### Create a pie chart
-
-As we have the mutation frequencies for several cancer types, that would be useful to be able to compare all cancers on the same network. It is possible by plotting a pie chart for each gene (node) with each pie slice representing the mutation frequency for each cancer. 
-Here are the steps to do it:
-
-- In Style, click on the down arrow close to **Properties** and select **Paint**, **Custom Paint1** and **Image/Chart 1**. 
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_31.png" alt="start" width="100%" />
- </p>
- 
- - A **Graphics** windows pops up. In **Chart**, select the bargraph icon.
- - In **Available Columns**, select the columns that you want to include in your pie chart (here 8 cancer types) and click on the arrow.
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_32.png" alt="start" width="100%" />
- </p>
-
-- They are now placed in the **Selected Columns** window. Click on **Apply**.
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_33.png" alt="start" width="100%" />
- </p>
- 
- ```{block, type="rmd-tip"}
- Expanding **Customize** will open a tab that shows the color legend for the pie chart. It is customizable. 
- ```
- 
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_35b.png" alt="start" width="100%" />
- </p>
- 
- 
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_37.png" alt="start" width="100%" />
- </p>
- 
-### Create a subnetwork
- 
- - Now that the network is clustered in modules and related pathways, we want to create a subnetwork to highlight connections that we found interesting. For this exercise, we want to do a network of the genes involved in the **Gastric cancer (K)** pathway. 
-
-Here are the steps to follow:
- - In the table panel, locate the **Pathways in Network** table. It will highlight the genes in this pathway in yellow.
- - Above the network find and click on the **New Network from Selection** icon and select **From Selected Nodes, All Edges**. 
- 
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_39.png" alt="start" width="100%" />
- </p>
- 
-```{block, type="rmd-tip"}
-In order to generate the pathway network table, right-click on a blank space, **ReactomeFI**, **Analyze Network Functions**, **Pathway Enrichment**.
-``` 
-
-A new network containing only the selected nodes is now created.
- 
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_40.png" alt="start" width="100%" />
- </p>
- 
- 
-
-### Fetch Cancer drugs on the created subnetwork
-
-- Right-click on a blank space and select **Reactome FI**, **Overlay Drugs**, **Fetch Cancer Drugs**. 
- 
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_43.png" alt="start" width="100%" />
- </p>
- 
-The numerous drugs known to target genes in this subnetworks are now added to the networkk as green diamond shaped nodes.
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_44.png" alt="start" width="100%" />
- </p>
-
-Here is the network after redoing the layout for clarity (Layout, YFiles Organic Layout)
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_45.png" alt="start" width="100%" />
- </p>
-
-### Save the network as an image for publication
-As we have finalized our network analysis, we would like to export the network as an image.
-
-- In the Cytoscape menu, select **File**, **Export**, **Network to Image**. 
-
-  <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_41.png" alt="start" width="100%" />
- </p>
- 
-- Browse to the directory where you want to save the image, give it a name and click on **OK**.
-
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_42.png" alt="start" width="100%" />
- </p>
-
-
-
-```{block, type="rmd-tip"}
-In addition to export an image of your network, save your session regularly.
-```
-
 
 ## Exercise 3: Perform scRNA-seq Data Analysis and Visualization
 need to install python
