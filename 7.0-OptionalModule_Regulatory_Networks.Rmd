@@ -1,4 +1,4 @@
-# Module 5: Regulatory Network Analysis {#intro-regulatory-networks}
+# Optional Module: Regulatory Network Analysis {#intro-regulatory-networks}
 
 *<font color="#827e9c">Michael Hoffman and Veronique Voisin</font>*
 
