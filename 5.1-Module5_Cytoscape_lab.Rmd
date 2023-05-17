@@ -28,15 +28,21 @@ Network layouts are flexible and can be rearranged. What you see when you perfor
 
 ## EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW
 
-1)	Imagine that you are interested in exploring the function of the human GRN gene: GRN returned as the strongest hit from your omics experiment but not many information about this gene is available in functional databases. Use GeneMANIA to identify its predicted function as well as potential interaction partners. 
+1)	Imagine that you are interested in exploring the function of the human GRN gene: GRN returned as the strongest hit from your omics experiment but not much information about this gene is available in functional databases. Use GeneMANIA to identify its predicted function as well as potential interaction partners. 
 
-**Skills**: GeneMANIA Single Gene search; Navigating Search Results; Exploring  available Genes features;  Rerun a new analysis using a single gene or multiple genes query from the network.
+**Skills**: 
+  * GeneMANIA Single Gene search; 
+  * Navigating Search Results; 
+  * Exploring  available Genes features;  
+  * Rerun a new analysis using a single gene or multiple genes queried from the network.
 
 ### STEPS
 
 1. Open Cytoscape.
 
-2. Locate the GeneMANIA search window located on the left side in *Control Panel*. 
+2. In the network tab Locate the Network search bar located at the top of the *Control Panel*.  Make sure that the database selected is GeneMANIA
+<img src="./Module6/genemania/images/Genemania.png" width="75%" />
+
 
 3. In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module6/genemania/images/Up.png).  
 
@@ -46,7 +52,7 @@ Network layouts are flexible and can be rearranged. What you see when you perfor
 
 <img src="./Module6/genemania/images/gc_1.1.png" alt="gc_1.1.png" width="750" />
 
-6. When your search results load, examine the network. Genes you searched with are indicated in black, related genes added by GeneMANIA are represented in gray, and colored links represent the interactions that connect the nodes (genes). 
+6. When your search results load, examine the network. Genes you searched which are indicated in black, related genes added by GeneMANIA are represented in gray, and colored links represent the interactions that connect the nodes (genes). 
 
 <img src="./Module6/genemania/images/GC2.png" alt="GC2.png" width="750" />
 

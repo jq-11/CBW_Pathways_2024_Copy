@@ -1,0 +1,1 @@
+Random	 node source	interaction	node target1	BAR1	pp	MCM12	PIS1	pp	MCM13	ALPHA2	pp	MCM14	STE12	pp	MCM15	MFA1	pp	MCM16	ALPHA2	pp	MFA17	ALPHA2	pp	BAR18	ALPHA2	pp	STE29	ALPHA2	pp	STE1210	STE12	pp	STE2
