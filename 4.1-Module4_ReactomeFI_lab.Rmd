@@ -912,13 +912,8 @@ Interferon Signaling is the pathway that has the strongest enrichment (lowest NE
  <img src="./Module4/Reactome/images/lab1/ReactomeFI_1c_8.png" alt="start" width="80%" />
  </p>
 
- 
 
-## Exercise 3: Perform scRNA-seq Data Analysis and Visualization
-need to install python
-need h5 file
-
-## Exercise 4: Automation using a Jupiter Notebook (advanced users)
+## Automation ( for advanced users)
 
 To facilitate adoption of this app in bioinformatics software pipeline and workflow development, a CyREST API for ReactomeFIViz was developed. CyREST is the technology that powers Cytoscape Automation, which enables you to create reproducible workflows executed entirely within Cytoscape or by external tools (e.g., Jupyter, R, GenomeSpace, etc) [https://apps.cytoscape.org/apps/cyrest]. 
 You can find below a case to demonstrate the use of this API in a Jupiter Notebook (https://jupyter.org/).

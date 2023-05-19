@@ -352,8 +352,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#answer-to-question-1"><i class="fa fa-check"></i>Answer to Question 1</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-2c-pathway-based-analysis-using-a-rank-gene-list-gsea"><i class="fa fa-check"></i>Exercise 2c: Pathway-based analysis using a rank gene list (GSEA)</a></li>
-<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-3-perform-scrna-seq-data-analysis-and-visualization"><i class="fa fa-check"></i>Exercise 3: Perform scRNA-seq Data Analysis and Visualization</a></li>
-<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#exercise-4-automation-using-a-jupiter-notebook-advanced-users"><i class="fa fa-check"></i>Exercise 4: Automation using a Jupiter Notebook (advanced users)</a></li>
+<li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#automation-for-advanced-users"><i class="fa fa-check"></i>Automation ( for advanced users)</a></li>
 <li class="chapter" data-level="" data-path="ReactomeFI.html"><a href="ReactomeFI.html#reference-guide-bonus-exercises"><i class="fa fa-check"></i>Reference guide /bonus exercises:</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="module-5-gene-function-prediction.html"><a href="module-5-gene-function-prediction.html"><i class="fa fa-check"></i>Module 5: Gene Function Prediction</a></li>
@@ -556,6 +555,16 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="optional-module-scrna-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="optional-module-scrna-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-2-3"><i class="fa fa-check"></i>Step 2</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html"><i class="fa fa-check"></i>scRNA data downstream analysis with scNetViz</a>
+<ul>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#introduction-3"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#goal-of-the-practical-lab"><i class="fa fa-check"></i>Goal of the practical lab</a></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#data-8"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#steps-9"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#optional-color-the-nodes-of-cluster-15-proportial-to-the-logfc."><i class="fa fa-check"></i>OPTIONAL: color the nodes of cluster 15 proportial to the logFC.</a></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#automation-for-advanced-users-1"><i class="fa fa-check"></i>Automation (for advanced users)</a></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#scnetviz-references"><i class="fa fa-check"></i>scNetViz References</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a  href=""><img src="./images/sponsors_2023.png" width="200"></a><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -613,21 +622,26 @@ shown here.
 <div id="exercise-1-questions-and-steps-to-follow" class="section level2 hasAnchor">
 <h2>EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW<a href="genemania_cytoscape.html#exercise-1-questions-and-steps-to-follow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li>Imagine that you are interested in exploring the function of the human GRN gene: GRN returned as the strongest hit from your omics experiment but not many information about this gene is available in functional databases. Use GeneMANIA to identify its predicted function as well as potential interaction partners.</li>
+<li>Imagine that you are interested in exploring the function of the human GRN gene: GRN returned as the strongest hit from your omics experiment but not much information about this gene is available in functional databases. Use GeneMANIA to identify its predicted function as well as potential interaction partners.</li>
 </ol>
-<p><strong>Skills</strong>: GeneMANIA Single Gene search; Navigating Search Results; Exploring available Genes features; Rerun a new analysis using a single gene or multiple genes query from the network.</p>
+<p><strong>Skills</strong>:
+* GeneMANIA Single Gene search;
+* Navigating Search Results;
+* Exploring available Genes features;<br />
+* Rerun a new analysis using a single gene or multiple genes queried from the network.</p>
 <div id="steps" class="section level3 hasAnchor">
 <h3>STEPS<a href="genemania_cytoscape.html#steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><p>Open Cytoscape.</p></li>
-<li><p>Locate the GeneMANIA search window located on the left side in <em>Control Panel</em>.</p></li>
+<li><p>In the network tab Locate the Network search bar located at the top of the <em>Control Panel</em>. Make sure that the database selected is GeneMANIA
+<img src="Module6/genemania/images/Genemania.png" width="75%" /></p></li>
 <li><p>In the search window, ensure that the model organism is set to <em>Homo sapiens</em> <img src="Module6/genemania/images/Up.png" alt="homo" />.</p></li>
 <li><p>Enter the following gene: GRN</p></li>
 <li><p>Click on the search icon <img src="Module6/genemania/images/Search.png" alt="search" /> and wait for the results.</p></li>
 </ol>
 <p><img src="Module6/genemania/images/gc_1.1.png" alt="gc_1.1.png" width="750" /></p>
 <ol start="6" style="list-style-type: decimal">
-<li>When your search results load, examine the network. Genes you searched with are indicated in black, related genes added by GeneMANIA are represented in gray, and colored links represent the interactions that connect the nodes (genes).</li>
+<li>When your search results load, examine the network. Genes you searched which are indicated in black, related genes added by GeneMANIA are represented in gray, and colored links represent the interactions that connect the nodes (genes).</li>
 </ol>
 <p><img src="Module6/genemania/images/GC2.png" alt="GC2.png" width="750" /></p>
 <div class="rmd-tip">
