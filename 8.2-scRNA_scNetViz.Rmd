@@ -228,7 +228,7 @@ Pathway enrichment analysis with marker genes can help identify cell types based
 
  
 ## Automation (for advanced users)
-scNetViz provides its own automation commands, useful for scripts to control scNetViz operations. Details
+scNetViz provides its own automation commands and useful for scripts to control scNetViz operations. Details
 available in the Swagger documentation (Help ! Automation ! CyREST Command API)) and in the scVIzNet reference paper.
 
 ## scNetViz References 
