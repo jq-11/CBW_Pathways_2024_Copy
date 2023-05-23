@@ -314,7 +314,7 @@ Our gene list contains the genes with high frequency in several cancers. Table  
  <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_24.png" alt="start" width="100%" />
  </p>
 
- ```{block, type="rmd-tip"}
+```{block, type="rmd-tip"}
  You can change the column value to other cancer types and observe the differences.
 ```
 

@@ -233,8 +233,10 @@ We will select the bait protein VPR and all its associated prey proteins to use 
   i. Next to **Select Categories** select *Gene Ontology Biological Process*, *Reactome*, *Wikipathways*.  To select multiple options click and hold *command* key on Mac or *Shift* on Windows. <br> <img src="./Module3/cytoscape_primer/images/enrichment_table_filter_options.png" width="75%" />
   i. click on **OK**
   i. The EnrichmentTable will update to only include the sets from  *Gene Ontology Biological Process*, *Reactome*, *Wikipathways*.<br> <img src="./Module3/cytoscape_primer/images/enrichment_table_filter_results.png" width="75%" />
-  
-<ol start=7 type="1">
+
+## Exercise 3B - create Enrichment Map and Enhanced graphics nodes from EnrichmentTable {#enrichmenttabl-features}
+
+<ol start=1 type="1">
 <li> To create an Enrichment Map from the EnrichmentTable results, Click on the EM logo in the top left hand bar in the ErichmentTable Panel.<br>  <img src="./Module3/cytoscape_primer/images/enrichment_table_em_button.png" width="75%" /> </li>
 </ol>
   i. This will bring up an EM options panel with very limited parameter adjustments.  You can only change the name of the network and the connectivity threshold.  You have already specified the p-value threshold when you originally performed the analysis.  If you want to create your network with a more permissive q-value you need to go back to the EnrichmentTable search panel. Click on **OK**<br>  <img src="./Module3/cytoscape_primer/images/enrichment_table_em_params.png" width="75%" />

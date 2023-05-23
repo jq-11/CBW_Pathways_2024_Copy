@@ -35,7 +35,7 @@ DGE: Table (top genes of cluster 3 versus all clusters)
 
 link to file: [Richards_NatCancer_2021_DGE_GlobalClustering_SCT_wilcox.tsv.bz2](./Can_Module8/data/Richards_NatCancer_2021_DGE_GlobalClustering_SCT_wilcox.tsv.bz2)
 
-## Exercise 1 - run g:Profiler {#exercise-1}
+## Exercise 1 - run g:Profiler {#can-module8-exercise-1}
 
 For this exercise, our goal is to copy and paste the list of genes into g:Profiler, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results.
 
@@ -228,7 +228,7 @@ During this exercise, you will learn how to create an enrichment map from gene-s
 
 ## Data
 
-The data used in this exercise is pathway enrichment result from the list of genes that we found in cluster 3 in  [exercise 1](#exercise-1). 
+The data used in this exercise is pathway enrichment result from the list of genes that we found in cluster 3 in  [exercise 1](#can-module8-exercise-1). 
 Pathway enrichment analysis has been run using g:Profiler and the results have been downloaded as a GEM format.
 
 
