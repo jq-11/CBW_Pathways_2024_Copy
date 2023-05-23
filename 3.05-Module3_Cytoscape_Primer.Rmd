@@ -173,4 +173,23 @@ Cytoscape supplies a few demo networks that you can play around with.  When you 
 
 ## Exercise 3 - Perform basic enrichment analysis using EnrichmentTable
 
+In Module 2 we performed detailed enrichment analysis with g:profiler and GSEA.  We supplied gene lists and ranked expression sets in order to perform the analysis.  What if you want to run a quick enrichment analysis with a given network or a given subset of the network?  The easiest way to do this is to use the cytoscape app EnrichmentTable.  EnrichmentTable will query g:profiler directly with the given network or subnetwork.  Not all of the parameters can be tweaked from the enrichmentmap table but can be an easy way to quickly see enrichment results.
+
+Select the bait VPR and all its associated prey proteins to use for an enrichment analysis. 
+
+  1. In the search bar enter "VPR".  Press enter.
+  <img src="./Module3/cytoscape_primer/images/affinity_purification_vpr_search.png" width="75%" />
+  
+  1. VPR is now the only highlighted node in the network.  In order to select all its associated preys we need to select all the nodes that are connected to VPR, all of VPR's first neighbours.  There are two ways to select the first neighbours:
+    i. In the top menu bar click on **Select** --> **Nodes** --> **First neighbors of selected nodes** --> **undirected**
+    i. Click on the **first neighbor** button, <img src="./Module3/cytoscape_primer/images/first_neighbour.png" />, in the quick links button set.
+  1. Click on the "Enrichment Table" in the Table Panel.
+  1. Click on the cog icon in the top right hand corner of the Enrichment Table panel
+  <img src="./Module3/cytoscape_primer/images/enrichment_table_panel.png" width="75%" />
+  
+  1. This will bring up a panel with the adjustable settings.  Change **Multiple testing correction** to fdr.
+    <img src="./Module3/cytoscape_primer/images/enrichment_table_params.png" width="75%" />
+ 
+  
+
 ## Exercise 4 - Load network from NDex

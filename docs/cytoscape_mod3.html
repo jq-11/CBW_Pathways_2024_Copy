@@ -793,6 +793,20 @@ select all of the prey proteins associated with “VPR”
 </div>
 <div id="exercise-3---perform-basic-enrichment-analysis-using-enrichmenttable" class="section level2 hasAnchor">
 <h2>Exercise 3 - Perform basic enrichment analysis using EnrichmentTable<a href="cytoscape_mod3.html#exercise-3---perform-basic-enrichment-analysis-using-enrichmenttable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In Module 2 we performed detailed enrichment analysis with g:profiler and GSEA. We supplied gene lists and ranked expression sets in order to perform the analysis. What if you want to run a quick enrichment analysis with a given network or a given subset of the network? The easiest way to do this is to use the cytoscape app EnrichmentTable. EnrichmentTable will query g:profiler directly with the given network or subnetwork. Not all of the parameters can be tweaked from the enrichmentmap table but can be an easy way to quickly see enrichment results.</p>
+<p>Select the bait VPR and all its associated prey proteins to use for an enrichment analysis.</p>
+<ol style="list-style-type: decimal">
+<li><p>In the search bar enter “VPR”. Press enter.
+<img src="Module3/cytoscape_primer/images/affinity_purification_vpr_search.png" width="75%" /></p></li>
+<li><p>VPR is now the only highlighted node in the network. In order to select all its associated preys we need to select all the nodes that are connected to VPR, all of VPR’s first neighbours. There are two ways to select the first neighbours:
+i. In the top menu bar click on <strong>Select</strong> –&gt; <strong>Nodes</strong> –&gt; <strong>First neighbors of selected nodes</strong> –&gt; <strong>undirected</strong>
+i. Click on the <strong>first neighbor</strong> button, <img src="Module3/cytoscape_primer/images/first_neighbour.png" />, in the quick links button set.</p></li>
+<li><p>Click on the “Enrichment Table” in the Table Panel.</p></li>
+<li><p>Click on the cog icon in the top right hand corner of the Enrichment Table panel
+<img src="Module3/cytoscape_primer/images/enrichment_table_panel.png" width="75%" /></p></li>
+<li><p>This will bring up a panel with the adjustable settings. Change <strong>Multiple testing correction</strong> to fdr.
+<img src="Module3/cytoscape_primer/images/enrichment_table_params.png" width="75%" /></p></li>
+</ol>
 </div>
 <div id="exercise-4---load-network-from-ndex" class="section level2 hasAnchor">
 <h2>Exercise 4 - Load network from NDex<a href="cytoscape_mod3.html#exercise-4---load-network-from-ndex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
