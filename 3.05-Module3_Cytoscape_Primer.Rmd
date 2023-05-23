@@ -23,7 +23,8 @@ Right click on link below and select "Save Link As...".
 
 Place it in the corresponding module directory of your CBW work directory.
 ```
-
+<br>
+<br>
 Two files are needed for this exercise:
 
   * [networktable.txt](./Module3/cytoscape_primer/data/network_table.txt)
@@ -54,7 +55,8 @@ Two files are needed for this exercise:
   <img src="./Module3/cytoscape_primer/images/cyto_table_import_options.png"  width="75%"/>
   
 ```
-
+<br>
+<br>
  <ol start=5 type="1">
 <li>  Click “Open”.
 </ol>  
@@ -81,7 +83,8 @@ Two files are needed for this exercise:
   1. You should be able to see the imported attributes in the node table. 
   <img src="./Module3/cytoscape_primer/images/cyto_import_attribute_loaded.png" width="75%" />
 
-
+<br>
+<br>
 ```{block, type="rmd-note"}
   i. The key column is assumed to be the first column in your table.  
   i. The key is the column in the loaded attribute file used to match your attributes to your network. 
@@ -91,7 +94,8 @@ Two files are needed for this exercise:
   <img src="./Module3/cytoscape_primer/images/cyto_import_attribute_table_key.png" width="75%" />
 
 ```
-
+<br>
+<br>
 
 
 ```{block, type="rmd-tip"}  
@@ -137,7 +141,8 @@ Two files are needed for this exercise:
   <img src="./Module3/cytoscape_primer/images/cyto_size_nodes.png" width="75%" />
   
   1. Your resulting network maps expression to the colour of the node and the size of the node to the number of mutations.
-  
+  <br>
+<br>
 ```{block, type="rmd-bonus"}
 
   1. Adjust the setting on the colour mapping.  Change the colour scheme.  Change the maximum and minimum values.
@@ -165,7 +170,8 @@ Cytoscape supplies a few demo networks that you can play around with.  When you 
     <img src="./Module3/cytoscape_primer/images/affinity_purification_network.png" width="75%" />
 
   1. Using this larger network play around with the different layouts
-  
+  <br>
+<br>
 ```{block, type="rmd-bonus"}  
   1. Search for the node "VPR"
   1. select all of the prey proteins associated with "VPR"
@@ -176,13 +182,15 @@ Cytoscape supplies a few demo networks that you can play around with.  When you 
 In Module 2 we performed detailed enrichment analysis with g:profiler and GSEA.  We supplied gene lists and ranked expression sets in order to perform the analysis.  What if you want to run a quick enrichment analysis with a given network or a given subset of the network?  The easiest way to do this is to use the cytoscape app EnrichmentTable.  EnrichmentTable will query g:profiler directly with the given network or subnetwork.  Not all of the parameters that are available in the web version can be tweaked from the enrichmentmap table app but it can be an easy way to quickly see enrichment results.
 
 We will select the bait protein VPR and all its associated prey proteins to use for an enrichment analysis. 
-
+<br>
+<br>
 ```{block, type="rmd-note"}
 **Bait Protein** - Is the labelled protein in an affinity purification experiment that is pulled down.<br>  
 **Prey Protein** - are the proteins that are associated with the bait protein when it is pulled down and are assumed to interact with the bait protein.<br>
 **First neighbor** - are all the nodes that are directly connected to the given node
 ```
-
+<br>
+<br>
   1. In the search bar enter "VPR".  Press enter.
   <img src="./Module3/cytoscape_primer/images/affinity_purification_vpr_search.png" width="75%" />
   
@@ -210,11 +218,13 @@ We will select the bait protein VPR and all its associated prey proteins to use 
   i. **Include inferred GO annotations (IEA)** - by default the search will exclude inferred from electonic annotation GO terms.  If you want to include them, select this option. <br>
     <img src="./Module3/cytoscape_primer/images/enrichment_table_params.png" width="75%" />
 
-  
+  <br>
+<br>
 ```{block, type="rmd-tip"}  
   By default, EnrichmentTable automatically uses all the databases available on the g:Profiler site.  There is no way to filter prior to running the analysis.  You need to filter the results after the analysis has been run.  This **will** change the results because you end up filtering the results after the multiple correction and the multiple correction is dependent on the number of genesets you are testing with.  
 ```
- 
+ <br>
+<br>
 
 <ol start=6 type="1">
 <li>Filter the EnrichmentTable results to show only GO&#58;BP, Reactome and Wikipathway, similiar to what we used in Module 2. </li>
@@ -249,3 +259,50 @@ We will select the bait protein VPR and all its associated prey proteins to use 
   
 
 ## Exercise 4 - Load network from NDex
+
+[NDex](https://www.ndexbio.org/) is an open-source repository where scientists can store, share, manipulate and publish biological network data.  Networks are viewable on the web through their webapp but can also be downloaded directly into cytoscape so you can search, manipulate, integrate and analyze the given network for yourselves.
+
+For the purpose of this exercise we are going to load in a network from the publication [A protein landscape of Breast Cancer](https://www.science.org/doi/10.1126/science.abf3066?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed).  This publication is associated with multiple networks the the authors of this paper created and shared in NDex - https://www.ndexbio.org/index.html#/networkset/4423340d-e8e3-11eb-b666-0ac135e8bacf
+
+  1. Start a new session.  **File** --> **Close**
+  1. In the Network Search bar (located at the top of the control panel) make sure that the search provider is set to NDex.  <br> <img src="./Module3/cytoscape_primer/images/ndex_db_choice.png" width="75%" />
+  
+<br>
+<br>
+```{block, type="rmd-tip"}    
+It should be set to NDex by default but click on down arrow to see the different data sources you can search for.  Later in the workshop we will be using this bar to query GeneMania.
+```
+<br>
+<br>
+<ol start=3 type="1">
+<li> Enter *MCF7_All_PPI>=0.9* into the search box, Click on the search icon. <br> <img src="./Module3/cytoscape_primer/images/ndex_search_term.png" width="75%" /></li></ol>
+
+<ol start=4 type="1">
+<li> A search results box will appear. The *MCF7_All_PPI>=0.9* network is just one of the networks associated with this publication.  Eventhough you are searching for this specific network, other networks associated with the original paper will also show up in the search results as well as others.<br> <img src="./Module3/cytoscape_primer/images/ndex_search_results.png" width="75%" /></li>
+</ol>
+
+<ol start=5 type="1">
+<li> Click on the green down arrow next to *MCF7_All_PPI>=0.9*, the network will start to import.</li></ol>
+
+<ol start=6 type="1">
+<li> Once the network has been loaded, click on **Close Dialog** </li></ol>
+
+<ol start=7 type="1">
+<li> Resulting network loaded into cytoccape.<br> <img src="./Module3/cytoscape_primer/images/ndex_resulting_network.png" width="75%" /> </li></ol>
+<br>
+<br>
+```{block, type="rmd-note"} 
+**Description taken from [NDex record](https://www.ndexbio.org/viewer/networks/84e36f91-ecb7-11eb-b666-0ac135e8bacf)**<br>
+
+  * Baits are shown as yellow box, and 
+  * preys as grey circle. 
+  * Size of each node represents number of patients with alterations in each protein. 
+  * Dotted line represents the physical protein-protein association (validated in other studies) with high Integrated Association Stringency score.
+```
+
+<br>
+<br>
+```{block, type="rmd-bonus"}  
+  1. Change the edge width to reflect the number of patients the associations is found in instead of the PPI score.
+  1. Change the default node colour to blue.
+```
