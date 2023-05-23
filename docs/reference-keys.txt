@@ -73,6 +73,7 @@ exercise-1b---load-node-attributes
 exercise-1c---map-node-attributes-to-visual-style
 exercise-2---work-with-larger-networks
 exercise-3---perform-basic-enrichment-analysis-using-enrichmenttable
+enrichmenttabl-features
 exercise-4---load-network-from-ndex
 gprofiler_mod3
 goal-of-the-exercise-3
@@ -304,6 +305,7 @@ introduction-3
 goal-of-the-practical-lab
 data-8
 steps-9
-optional-color-the-nodes-of-cluster-15-proportial-to-the-logfc.
+calculate-differential-expression
+pathway-analysis-of-clusters
 automation-for-advanced-users-1
 scnetviz-references

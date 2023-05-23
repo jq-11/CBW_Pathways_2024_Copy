@@ -242,6 +242,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="cytoscape_mod3.html"><a href="cytoscape_mod3.html#exercise-1c---map-node-attributes-to-visual-style"><i class="fa fa-check"></i>Exercise 1c - Map node attributes to Visual Style</a></li>
 <li class="chapter" data-level="" data-path="cytoscape_mod3.html"><a href="cytoscape_mod3.html#exercise-2---work-with-larger-networks"><i class="fa fa-check"></i>Exercise 2 - Work with larger networks</a></li>
 <li class="chapter" data-level="" data-path="cytoscape_mod3.html"><a href="cytoscape_mod3.html#exercise-3---perform-basic-enrichment-analysis-using-enrichmenttable"><i class="fa fa-check"></i>Exercise 3 - Perform basic enrichment analysis using EnrichmentTable</a></li>
+<li class="chapter" data-level="" data-path="cytoscape_mod3.html"><a href="cytoscape_mod3.html#enrichmenttabl-features"><i class="fa fa-check"></i>Exercise 3B - create Enrichment Map and Enhanced graphics nodes from EnrichmentTable</a></li>
 <li class="chapter" data-level="" data-path="cytoscape_mod3.html"><a href="cytoscape_mod3.html#exercise-4---load-network-from-ndex"><i class="fa fa-check"></i>Exercise 4 - Load network from NDex</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html"><i class="fa fa-check"></i>Module 3 Lab: g:profiler Visualization</a>
@@ -555,13 +556,14 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="optional-module-scrna-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="optional-module-scrna-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-2-3"><i class="fa fa-check"></i>Step 2</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html"><i class="fa fa-check"></i>scRNA data downstream analysis with scNetViz</a>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html"><i class="fa fa-check"></i>Optional Module scNetViz lab: Single Cell RNASeq analysis with scNetViz</a>
 <ul>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#introduction-3"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#goal-of-the-practical-lab"><i class="fa fa-check"></i>Goal of the practical lab</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#data-8"><i class="fa fa-check"></i>Data</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#steps-9"><i class="fa fa-check"></i>Steps</a></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#optional-color-the-nodes-of-cluster-15-proportial-to-the-logfc."><i class="fa fa-check"></i>OPTIONAL: color the nodes of cluster 15 proportial to the logFC.</a></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#calculate-differential-expression"><i class="fa fa-check"></i>Calculate differential expression</a></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#pathway-analysis-of-clusters"><i class="fa fa-check"></i>Pathway Analysis of clusters</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#automation-for-advanced-users-1"><i class="fa fa-check"></i>Automation (for advanced users)</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#scnetviz-references"><i class="fa fa-check"></i>scNetViz References</a></li>
 </ul></li>
@@ -881,7 +883,10 @@ Filter the EnrichmentTable results to show only GO:BP, Reactome and Wikipathway,
 <li>click on <strong>OK</strong></li>
 <li>The EnrichmentTable will update to only include the sets from <em>Gene Ontology Biological Process</em>, <em>Reactome</em>, <em>Wikipathways</em>.<br> <img src="Module3/cytoscape_primer/images/enrichment_table_filter_results.png" width="75%" /></li>
 </ol>
-<ol start="7" type="1">
+</div>
+<div id="enrichmenttabl-features" class="section level2 hasAnchor">
+<h2>Exercise 3B - create Enrichment Map and Enhanced graphics nodes from EnrichmentTable<a href="cytoscape_mod3.html#enrichmenttabl-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol start="1" type="1">
 <li>
 To create an Enrichment Map from the EnrichmentTable results, Click on the EM logo in the top left hand bar in the ErichmentTable Panel.<br> <img src="Module3/cytoscape_primer/images/enrichment_table_em_button.png" width="75%" />
 </li>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>scRNA data downstream analysis with scNetViz | Pathway and Network Analysis of -Omics Data ( June 2023 )</title>
+  <title>Optional Module scNetViz lab: Single Cell RNASeq analysis with scNetViz | Pathway and Network Analysis of -Omics Data ( June 2023 )</title>
   <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="scRNA data downstream analysis with scNetViz | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
+  <meta property="og:title" content="Optional Module scNetViz lab: Single Cell RNASeq analysis with scNetViz | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="scRNA data downstream analysis with scNetViz | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
+  <meta name="twitter:title" content="Optional Module scNetViz lab: Single Cell RNASeq analysis with scNetViz | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
   
   <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   
@@ -242,6 +242,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="cytoscape_mod3.html"><a href="cytoscape_mod3.html#exercise-1c---map-node-attributes-to-visual-style"><i class="fa fa-check"></i>Exercise 1c - Map node attributes to Visual Style</a></li>
 <li class="chapter" data-level="" data-path="cytoscape_mod3.html"><a href="cytoscape_mod3.html#exercise-2---work-with-larger-networks"><i class="fa fa-check"></i>Exercise 2 - Work with larger networks</a></li>
 <li class="chapter" data-level="" data-path="cytoscape_mod3.html"><a href="cytoscape_mod3.html#exercise-3---perform-basic-enrichment-analysis-using-enrichmenttable"><i class="fa fa-check"></i>Exercise 3 - Perform basic enrichment analysis using EnrichmentTable</a></li>
+<li class="chapter" data-level="" data-path="cytoscape_mod3.html"><a href="cytoscape_mod3.html#enrichmenttabl-features"><i class="fa fa-check"></i>Exercise 3B - create Enrichment Map and Enhanced graphics nodes from EnrichmentTable</a></li>
 <li class="chapter" data-level="" data-path="cytoscape_mod3.html"><a href="cytoscape_mod3.html#exercise-4---load-network-from-ndex"><i class="fa fa-check"></i>Exercise 4 - Load network from NDex</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html"><i class="fa fa-check"></i>Module 3 Lab: g:profiler Visualization</a>
@@ -555,13 +556,14 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="optional-module-scrna-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="optional-module-scrna-lab---scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-2-3"><i class="fa fa-check"></i>Step 2</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html"><i class="fa fa-check"></i>scRNA data downstream analysis with scNetViz</a>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html"><i class="fa fa-check"></i>Optional Module scNetViz lab: Single Cell RNASeq analysis with scNetViz</a>
 <ul>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#introduction-3"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#goal-of-the-practical-lab"><i class="fa fa-check"></i>Goal of the practical lab</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#data-8"><i class="fa fa-check"></i>Data</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#steps-9"><i class="fa fa-check"></i>Steps</a></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#optional-color-the-nodes-of-cluster-15-proportial-to-the-logfc."><i class="fa fa-check"></i>OPTIONAL: color the nodes of cluster 15 proportial to the logFC.</a></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#calculate-differential-expression"><i class="fa fa-check"></i>Calculate differential expression</a></li>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#pathway-analysis-of-clusters"><i class="fa fa-check"></i>Pathway Analysis of clusters</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#automation-for-advanced-users-1"><i class="fa fa-check"></i>Automation (for advanced users)</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#scnetviz-references"><i class="fa fa-check"></i>scNetViz References</a></li>
 </ul></li>
@@ -586,19 +588,19 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="scNetViz-lab" class="section level1 hasAnchor">
-<h1>scRNA data downstream analysis with scNetViz<a href="scNetViz-lab.html#scNetViz-lab" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1>Optional Module scNetViz lab: Single Cell RNASeq analysis with scNetViz<a href="scNetViz-lab.html#scNetViz-lab" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
 <p><em><font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font></em></p>
 <div id="introduction-3" class="section level2 hasAnchor">
 <h2>Introduction<a href="scNetViz-lab.html#introduction-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><p>scNetViz is a Cytoscape app design to perform downstream analysis of scRNAseq data. The goal is to explore the results of a single cell RNAseq experiment and it is focused on pathway and network analysis.</p></li>
-<li><p>It is assumed that the preprocessing of the data for example using the Seurat pipeline or others has been already done. The idea is that experimental results have been published and deposited into a repository. Biologists with no or little computational background can now load the dataset of their choice in Cytoscape.</p></li>
-<li><p>Each dataset comes with metadata, indicating for example different groups to which the cells belong like control or treated groups or some specific clusters that the upstream data analysis revealed. The idea is to select groups or clusters of interest and perform differential expression analysis.</p></li>
-<li><p>Plots visualizing the results of the differential expression analysis are created by the app like heatmaps and violin plots.</p></li>
-<li><p>The app takes the top n differential expressed genes and create a network of it. At this point, it has the advantage that Cytoscape features can be used and it facilitates the integration with other omics data.</p></li>
-<li><p>It is possible to perform pathway enrichment on the created network which facilitates the identification of the functions found in these top differentially expressed genes.</p></li>
-<li><p>The app takes as input scRNA data stored in the Single Cell Expression Atlas repository hosted by EMBL’s European Bioinformatics Institute (<a href="https://www.ebi.ac.uk/gxa/sc/home" class="uri">https://www.ebi.ac.uk/gxa/sc/home</a>). This repository contains scRNA experiments from Animals, Plants, Fungi and Protists. It features experiments from the Human Cell Atlas, the Fly Cell Atlas, the Chan Zuckerberg Biohub and more.</p>
+<li><p>scNetViz is a Cytoscape app designed to perform downstream analysis of single cell RNAseq (scRNA) data. The goal is to explore the results of a single cell RNAseq experiment in the context of the pathways involved and in network analysis framework.</p></li>
+<li><p>It is assumed that the data was already been preprocessed, for example using the Seurat or similiar pipeline. Ideally the experimental results have been published and deposited into a public repository. Biologists with no or little computational background can now load the dataset of their choice into Cytoscape.</p></li>
+<li><p>Each dataset is loaded with metadata indicating, for example different groups to which the cells belong, ie. control or treated groups or specific clusters that the upstream data analysis revealed. The idea is to select groups or clusters of interest and perform differential expression analysis.</p></li>
+<li><p>Plots visualizing the results of the differential expression analysis are created by the scNetViz app including heatmaps and violin plots.</p></li>
+<li><p>The app takes the top n differentially expressed genes and creates a network representing them. One of the best features of this app is that at this point it can take advantage of all the features in Cytoscape and facilitate the integration of other omics data.</p></li>
+<li><p>We can perform pathway enrichment analysis on the created network (the top genes) enabling the identification of functions associated with the top differentially expressed genes.</p></li>
+<li><p>The app takes as input scRNA data stored in the <a href="https://www.ebi.ac.uk/gxa/sc/home">Single Cell Expression Atlas repository</a> hosted by EMBL’s European Bioinformatics Institute (<a href="https://www.ebi.ac.uk/gxa/sc/home" class="uri">https://www.ebi.ac.uk/gxa/sc/home</a>). This repository contains scRNA experiments from Animals, Plants, Fungi and Protists. It features experiments from the Human Cell Atlas, the Fly Cell Atlas, the Chan Zuckerberg Biohub and more.</p>
 <p align="center">
 <p><img src="scNetViz_lab/images/scNetViz1.png" alt="start" width="100%" /></p>
 </p></li>
@@ -606,12 +608,12 @@ div.csl-indent {
 </div>
 <div id="goal-of-the-practical-lab" class="section level2 hasAnchor">
 <h2>Goal of the practical lab<a href="scNetViz-lab.html#goal-of-the-practical-lab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this example, we will browse the Single Cell Expression Atlas from within Cytoscape, explore a particular dataset, perform differential expression analysis based on one of the provided cell annotation categories, generate networks from the top differentially expressed genes for each group within the chosen category, and functionally characterize and visualize the networks.</p>
+<p>In this example, we will browse the Single Cell Expression Atlas from within Cytoscape, explore a particular dataset, perform differential expression analysis based on one of the provided cell annotations categories, generate networks from the top differentially expressed genes for each group within the chosen category, and functionally characterize and visualize the networks.</p>
 </div>
 <div id="data-8" class="section level2 hasAnchor">
 <h2>Data<a href="scNetViz-lab.html#data-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>ACCESSION NUMBER: E-MTAB-7417</li>
+<li>ACCESSION NUMBER: <a href="https://www.ebi.ac.uk/gxa/sc/experiments/E-MTAB-7417/results/tsne">E-MTAB-7417</a></li>
 <li>TISSUE: Cells from a digested skin sample were taken from two 8-week old female C57BL/6 mice</li>
 <li>INSTRUMENT(S): Illumina HiSeq 4000</li>
 <li>ORGANISM(S): Mus Musculus</li>
@@ -622,137 +624,191 @@ div.csl-indent {
 <p>
 scNetViz accesses the data directly from the Single Cell Expression
 Atlas repository, therefore it is not necessary to download the data for
-the practical lab. However, there is an option to import the data
-manually into scNetViz [Cytoscape -&gt; menu -&gt; Apps -&gt; scNetViz
--&gt; Load Experiment -&gt; Import from File]. It can be useful if you
-have already your data of interest downloaded on your computer.
-Instructions below show you at to get the data for your information.
+the practical lab.<br>
+</p>
+<p>
+However, if you would like to work on data offline, there is an
+option to import the data manually into scNetViz:
+</p>
+<ul>
+<li>
+In Cytoscape menu bar select <strong>Apps</strong> -&gt;
+<strong>scNetViz</strong> -&gt; <strong>Load Experiment</strong> -&gt;
+<strong>Import from File</strong>.
+</li>
+</ul>
+<p>
+It can also be useful if you already have your data of interest
+downloaded on your computer.<br> Instructions below show you how to
+download the data directly from the repository but you are not required
+to pull your data from there.
 </p>
 </div>
 <ul>
-<li><p>DATA AVAILABLE AT: <a href="https://www.ebi.ac.uk/gxa/sc/experiments/E-MTAB-7417/downloads" class="uri">https://www.ebi.ac.uk/gxa/sc/experiments/E-MTAB-7417/downloads</a>:</p>
+<li>DATA AVAILABLE AT: <a href="https://www.ebi.ac.uk/gxa/sc/experiments/E-MTAB-7417/downloads" class="uri">https://www.ebi.ac.uk/gxa/sc/experiments/E-MTAB-7417/downloads</a>:
 <ol style="list-style-type: lower-roman">
-<li>Go to <strong>Result files</strong> and download <strong>Normalized counts files (MatrixMarket archive)</strong>.</li>
-<li>A folder called E-GEOD-109979-normalised-files.zip[add data] is now downloaded on your computer.
-Note 1: it is normalized to counts per million.
-Note 2: do not unzip the file to upload it into scNetViz</li>
-<li>Download the cluster information as well: E-MTAB-7417.clusters.tsv.
-Note: The cells were clustered using the Louvain algorithm.</li>
+<li>Scroll down to <strong>Result files</strong> and download <strong>Normalized counts files (MatrixMarket archive)</strong>.</li>
+<li>A folder called <a href="./scNetViz_lab/data/E-MTAB-7417-normalised-files.zip">E-GEOD-109979-normalised-files.zip</a> is now downloaded onto your computer.
+* Note 1: values in the file are normalized to counts per million.
+* Note 2: do not unzip the file to upload it into scNetViz</li>
+<li>Download the cluster information as well: <a href="./scNetViz_lab/data/E-MTAB-7417.clusters.tsv">E-MTAB-7417.clusters.tsv</a>
+* Note: The cells were clustered using the Louvain algorithm.</li>
 </ol></li>
-<li><p>Reference paper: Davidson S, Efremova M, Riedel A, Mahata B, Pramanik J et al. (2018) Single-cell RNA sequencing reveals a dynamic stromal niche within the evolving tumour microenvironment [<a href="https://pubmed.ncbi.nlm.nih.gov/32433953/" class="uri">https://pubmed.ncbi.nlm.nih.gov/32433953/</a>].</p></li>
-<li><p>This paper is studying melanoma using a mouse model. The scRNA is coming from the skin of 2 healthy mice. Only the clusters identified as fibroblasts (based on expression of Col1a1, Col1a2) were considered for comparison with the stromal clusters.</p></li>
-<li><p><a href="./scNetViz_lab/data/E-MTAB-7417.aggregated_filtered_normalised_counts.mtx">E-MTAB-7417.aggregated_filtered_normalised_counts.mtx</a></p></li>
-<li><p><a href="./scNetViz_lab/data/E-MTAB-7417.aggregated_filtered_normalised_counts.mtx_cols">E-MTAB-7417.aggregated_filtered_normalised_counts.mtx_cols</a></p></li>
-<li><p><a href="./scNetViz_lab/data/E-MTAB-7417.aggregated_filtered_normalised_counts.mtx_rows">E-MTAB-7417.aggregated_filtered_normalised_counts.mtx_rows</a></p></li>
-<li><p><a href="./scNetViz_lab/data/E-MTAB-7417.clusters.tsv">E-MTAB-7417.clusters.tsv</a></p></li>
+<li>Reference paper: Davidson S, Efremova M, Riedel A, Mahata B, Pramanik J et al. (2018) Single-cell RNA sequencing reveals a dynamic stromal niche within the evolving tumour microenvironment [<a href="https://pubmed.ncbi.nlm.nih.gov/32433953/" class="uri">https://pubmed.ncbi.nlm.nih.gov/32433953/</a>].</li>
+<li>This paper discusses melanoma using a mouse model. The scRNA are samples from the skin of 2 healthy mice. Only the clusters identified as fibroblasts (based on expression of Col1a1, Col1a2) were considered for comparison with the stromal clusters.</li>
+</ul>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in the corresponding module directory of your CBW work
+directory.
+</p>
+<p>
+<strong>There is no need to download this data as you can download it
+directly from the scNetViz app</strong>.
+</p>
+</div>
+<ul>
+<li><a href="./scNetViz_lab/data/E-MTAB-7417.aggregated_filtered_normalised_counts.mtx">E-MTAB-7417.aggregated_filtered_normalised_counts.mtx</a></li>
+<li><a href="./scNetViz_lab/data/E-MTAB-7417.aggregated_filtered_normalised_counts.mtx_cols">E-MTAB-7417.aggregated_filtered_normalised_counts.mtx_cols</a></li>
+<li><a href="./scNetViz_lab/data/E-MTAB-7417.aggregated_filtered_normalised_counts.mtx_rows">E-MTAB-7417.aggregated_filtered_normalised_counts.mtx_rows</a></li>
+<li><a href="./scNetViz_lab/data/E-MTAB-7417.clusters.tsv">E-MTAB-7417.clusters.tsv</a></li>
 </ul>
 </div>
 <div id="steps-9" class="section level2 hasAnchor">
 <h2>Steps<a href="scNetViz-lab.html#steps-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
+<ol style="list-style-type: decimal">
 <li>Open Cytoscape</li>
 <li>Click the icon <strong>Browse EBI Single Cell Expression Atlas</strong> in the Cytoscape toolbar. This opens the Single Cell Experiment Atlas browser.
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz2.png" alt="start" width="100%" />
 </p></li>
-<li>Click the column header labelled Accession and search for <strong>E-MTAB-7417</strong> in the resulting table sorted by accession numbers.</li>
-<li>Select the row with the accession number E-MTAB-7417 by clicking on it.
+<li>Click the column header labelled <strong>Accession</strong> and search for <strong>E-MTAB-7417</strong> in the resulting table sorted by accession numbers.</li>
+<li>Select the row with the accession number E-MTAB-7417 by double clicking on it.
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz3.png" alt="start" width="100%" />
 </p></li>
-<li>An experiment table with 3 tabs is opened: select the first tab called <strong>TPM</strong>.
+<li>An experiment table with 3 tabs will open, select the first tab called <strong>TPM</strong>.<br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz4.png" alt="start" width="100%" />
-</p></li>
-</ul>
-<p>This tab contains the genes as rows and the cells as columns. The values contain the normalized counts.
-Note: The table has blank spaces. Single cell RNA matrix are sparse: not all genes were detected in all the cells.</p>
-<ul>
-<li>Select the second tab called <strong>Categories</strong>.</li>
-<li>Make sure that <strong>Cluster* is selected in the </strong>Available categories** field.</li>
-</ul>
+</p>
+<br>
+<br>
+<div class="rmd-note">
+<p>
+This tab contains the genes as rows and the individual cells as
+columns. Each cell of the table represents the normalized counts for a
+given gene and cell.
+</p>
+<p>
+The table has many blank spaces. Single cell RNASeq matrices are
+sparse because not all genes are detected in all cells.
+</p>
+</div>
+<br></li>
+</ol>
+<ol start="6" type="1">
+<li>
+Select the second tab called <strong>Categories</strong>.
+</li>
+</ol>
+<ol start="7" type="1">
+<li>
+Make sure that <strong>Cluster</strong> is selected in the <strong>Available categories</strong> field.
+</li>
+</ol>
+<br>
+<br>
 <div class="rmd-note">
 <p>
 The clustering has been computed by the Single Cell Experiment Atlas.
 The Louvain algorithm has been run with several resolution values.
-Higher resolutions produce larger number of clusters and lower
-resolution produce lower number of clusters. A resolution of 1 is
+Higher resolutions produces a larger number of clusters and lower
+resolution produces a lower number of clusters.<br> A resolution of 1 is
 selected by default by the scNetViz app. It corresponds to the default
-Louvain method. It is indicated by “True” in the column sel.K. In this
-example, the clustering with parameter K=20 is chosen for further
-analysis. The other columns indicates the cluster membership of each
+Louvain method. It is indicated by “True” in the column sel.K. <br> In
+this example, the clustering with parameter K=20 is chosen for further
+analysis. The other columns indicate the cluster membership of each
 cell.
 </p>
 </div>
+<p><br><br></p>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz5.png" alt="start" width="100%" />
 </p>
-<ul>
-<li>Calculate differential expression:
-<ul>
-<li>To get the table of differentially expressed genes press the button labeled <strong>Calculate Diff Exp</strong>.
-This initiates a comparison of each cluster versus all other clusters. There are a total of 20 clusters and we will obtain results for each of them in a same table.</li>
-</ul>
+</div>
+<div id="calculate-differential-expression" class="section level2 hasAnchor">
+<h2>Calculate differential expression<a href="scNetViz-lab.html#calculate-differential-expression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol start="8" type="1">
+<li>
+Calculate differential expression:
+</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>To get the table of differentially expressed genes press the button labeled <strong>Calculate Diff Exp</strong>. This initiates a comparison of each cluster versus all other clusters. There are a total of 20 clusters and we will obtain results for each of them in the same table. <br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz6.png" alt="start" width="50%" />
-</p>
-<ul>
-<li>Differential gene expression is calculated using a Wilcoxon rank sum test. The log2(fold change) represents the log ratio of the mean expression of a gene in the cells of the selected cluster versus the mean expression of that gene in all the other cells.</li>
-</ul>
+</p></li>
+<li>Differential gene expression is calculated using a Wilcoxon rank sum test. The log2(fold change) represents the log ratio of the mean expression of a gene in the cells of the selected cluster versus the mean expression of that gene in all the other cells.
+<ol start="9" type="1">
+<li>
+Create a protein-protein network for each of the cluster marker genes:
+</li>
+</ol></li>
+<li>Check <strong>Positive Only</strong> (Because we are performing differential expression between each cluster vs. all remaining clusters genes with positive scores represent genes specific to the cluster and genes with negative scores are those specific to the remaining set of clusters. Therefore we are only interested in the genes that are positive and specific to a given cluster)</li>
+<li>click on <strong>Create Networks</strong>.</li>
+<li>For each cluster, a maximum of 200 genes that have a FDR 0.05 and a logFC &gt;0 are selected to create each cluster’s representative network. (These parameters are adjustable.) <br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz7.png" alt="start" width="100%" />
 </p></li>
-<li>Create a protein-protein network for each of the cluster marker genes:</li>
-<li>Check <strong>Positive Only</strong> and click on <strong>Create Networks</strong>.
-For each cluster, a maximum of 200 genes that have a FDR 0.05 and a logFC &gt;0 are selected to create the network.
-These parameters are adjustable.</li>
-</ul>
+<li>As there are 20 networks to create, this step takes a few seconds.<br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz8.png" alt="start" width="50%" />
-</p>
-<p>As there are 20 networks to create, this step takes a few seconds.</p>
-<p>Once created, the list of networks is visible in the <strong>Network</strong> tab on the left. On the above picture, cluster 20 containing 79 genes is selected and displayed in the main window.
-On the right side, we can see the parameters of the STRING app (stringApp), which was used to create the protein interaction networks. 2 nodes (genes) are connected with each other if the proteins are known to physically interact with each other.</p>
+</p></li>
+<li>Once created, the list of networks is visible in the <strong>Network</strong> tab in the control panel on the left. In the below picture, cluster 20 is selected and contains 79 genes and is displayed in the main network window.</li>
+<li>In the results panel on the right side, we can see the STRING app parameters, which were used to create the protein interaction networks. Nodes (genes/proteins) are connected with each other if they are known to associate or physically interact with each other. <br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz9.png" alt="start" width="100%" />
-</p>
-<p>Cluster 5 is the network with the highest number of connections: it contains 192 nodes (genes) and 1045 edges (protein-protein interactions).The next step is to perform pathway analysis on this list of genes.</p>
-<ul>
-<li>Locate the STRING app tab on the right, unpin it and make it larger.
-<ul>
-<li>Click on <strong>Functional Enrichment</strong>.</li>
-</ul></li>
-</ul>
+</p></li>
+</ol>
+</div>
+<div id="pathway-analysis-of-clusters" class="section level2 hasAnchor">
+<h2>Pathway Analysis of clusters<a href="scNetViz-lab.html#pathway-analysis-of-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol start="9" type="1">
+<li>
+The next step is to perform pathway analysis on one of these lists of genes/one of these clusters.
+</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>Click on the network named <strong>Cluster 15</strong>. Cluster 15 has the highest number of connections: it contains 192 nodes (genes/proteins) and 1045 edges (associations/interactions).</li>
+<li>Locate the STRING app tab in the results panel on the right, unpin it and make it larger.</li>
+<li>Click on <strong>Functional Enrichment</strong>.<br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz10.png" alt="start" width="100%" />
-</p>
-<ul>
-<li>A <strong>Retrieve functional enrichment</strong> window pops up. Click on <strong>OK</strong>.
+</p></li>
+<li>A <strong>Retrieve functional enrichment</strong> window opens up. Click on <strong>OK</strong>.<br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz11.png" alt="start" width="50%" />
-</p>
-<ul>
-<li>The STRING enrichment table appears in the Table Enrichment Panel below the network.The pathways are ranked by the FDR values of the enrichment.</li>
-</ul>
+</p></li>
+<li>The STRING enrichment table appears in the String Enrichment Panel below the network in the Table Panel.The pathways are ranked by FDR values of the enrichment. <br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz12.png" alt="start" width="100%" />
 </p></li>
-</ul>
-<p>STRING app has used more than 15 source of pathways and other gene-sets. We can use a filter to get only the results from the GO Biological Process for clarity.</p>
-<ul>
-<li><p>Click on the funnel icon on the top left of the STRING enrichment table.</p>
-<ul>
-<li>Select categories <strong>GO Biological Process</strong> and click on <strong>OK</strong></li>
-</ul></li>
-</ul>
+<li>STRING app uses more than 15 source of pathways and gene-sets sources to calculate pathway enrichment. We can filter the results to display only the GO Biological Process results for clarity.</li>
+<li>Click on the funnel icon in the top left of the STRING enrichment table.</li>
+<li>Select categories <strong>GO Biological Process</strong> and click on <strong>OK</strong> <br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz13.png" alt="start" width="50%" />
-</p>
-<p>The table contains now only the results for the <strong>GO Biological Process</strong> pathways.</p>
+</p></li>
+<li>Now the table contains only the results for the <strong>GO Biological Process</strong> pathways.<br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz14.png" alt="start" width="100%" />
-</p>
-<p>Click on the top GO term. It will highlight in yellow the genes contained in this pathway.</p>
+</p></li>
+<li>Click on the top GO term. It will highlight in yellow all the genes annotated to this pathway contained in the network.</li>
+<li>Optional - Perform the same analysis on the remaining clusters.</li>
+</ol>
 <ul>
 <li>Here are the functional enrichment results for each cluster.
 <ol style="list-style-type: lower-roman">
@@ -767,74 +823,94 @@ On the right side, we can see the parameters of the STRING app (stringApp), whic
 <li>Muscle Structure Development</li>
 <li>Nervous System Development</li>
 <li>Tissue Development</li>
-<li>Small Metabolic Process</li>
+<li>Small molecule Metabolic Process</li>
 <li>Response to endogenous stimulus</li>
 <li>Skin Development</li>
-<li>Extracellular Matrix</li>
-<li>Tissue Development</li>
+<li>Immune system/Cell activation</li>
+<li>Tissue Development/Cell migration</li>
 <li>Lipid Biosynthesis</li>
 <li>Regulation of Cell motility</li>
 <li>Angiogenesis</li>
 <li>Regulation of Cell motility</li>
 </ol></li>
 </ul>
-<p>This analysis highlights the heterogeneity of the skin tissue composed of differentiated keratinocytes but also epidermal stem cells, fibroblasts, endothelial cells, immune cells like T and B-cells and macrophages.
-Pathway enrichment analysis with marker genes can help identify cell types based on the scRNA clustering and further steps might focus on clusters of interests only.</p>
+<p>This analysis highlights the heterogeneity of the skin tissue composed of differentiated keratinocytes but also epidermal stem cells, fibroblasts, endothelial cells, immune cells like T and B-cells and macrophages.<br></p>
+<p>Pathway enrichment analysis with marker genes can help identify cell types based on the scRNA clustering and further steps might focus on clusters of interests only.</p>
 <div class="rmd-tip">
 <p>
 We took the top pathway to annotate the cluster. It is an arbitrary
-decision. STRING has an option to create an enrichmentmap from the
-STRING pathway enrichment results. Combined with the AutoAnnote app, it
-might be a more thorough approach to explore the functions associated
-with each cluster.
+decision. STRING has a similiar interface to EnrichmentTable and has the
+option to create an enrichmentmap or enhanced graphics from the STRING
+pathway enrichment results <a href="cytoscape_mod3.html#enrichmenttabl-features">see
+cytoscape primer for steps on how to use this feature</a>. Combined with
+the AutoAnnote app, it might be a more thorough approach to explore the
+functions associated with each cluster.
 </p>
 </div>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz20.png" alt="start" width="60%" />
 </p>
-</div>
-<div id="optional-color-the-nodes-of-cluster-15-proportial-to-the-logfc." class="section level2 hasAnchor">
-<h2>OPTIONAL: color the nodes of cluster 15 proportial to the logFC.<a href="scNetViz-lab.html#optional-color-the-nodes-of-cluster-15-proportial-to-the-logfc." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Locate the <strong>Style</strong> tab and select the <strong>Fill Color</strong>. Expand it using the down arrow.
-<ul>
-<li>In the column field, select <strong>Cluster 15 log2FC</strong> attribute</li>
-<li>Double-click on the color gradient</li>
-</ul></li>
-</ul>
+<br>
+<br>
+<div class="rmd-bonus">
+<p>
+<strong>color the nodes of cluster 15 proportial to the
+logFC</strong>
+</p>
+<ol style="list-style-type: decimal">
+<li>
+Locate the <strong>Style</strong> tab and select the <strong>Fill
+Color</strong>. Expand it using the down arrow.
+</li>
+<li>
+In the column field, select <strong>Cluster 15 log2FC</strong>
+attribute
+</li>
+<li>
+Double-click on the color gradient<br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz15.png" alt="start" width="60%" />
 </p>
-<ul>
-<li>Choose a color palette of your choice.</li>
-<li>Option to choose colorblind-friendly color gradient is available.</li>
-</ul>
+</li>
+<li>
+Choose a color palette of your choice.
+</li>
+<li>
+Option to choose colorblind-friendly color gradient is
+available.<br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz16.png" alt="start" width="60%" />
 </p>
-<ul>
-<li>Click <strong>Yes</strong> on the message “This will reset your current settings. Are you sure you want to continue?”</li>
-</ul>
+</li>
+<li>
+Click <strong>Yes</strong> on the message “This will reset your
+current settings. Are you sure you want to continue?”<br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz17.png" alt="start" width="60%" />
 </p>
-<ul>
-<li>Another window called “Continuous Mapping Editor for Node Fill Color” appears. Click on <strong>OK</strong>.</li>
-</ul>
+</li>
+<li>
+Another window called “Continuous Mapping Editor for Node Fill
+Color” appears. Click on <strong>OK</strong>.<br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz18.png" alt="start" width="60%" />
 </p>
-<ul>
-<li>The nodes of the network are now colored using the logFC (fold change) from the differential expression analysis. Red color indicates the top cluster 15 marker genes.</li>
-</ul>
+</li>
+<li>
+The nodes of the network are now colored using the logFC (fold
+change) from the differential expression analysis. Red color indicates
+the top cluster 15 marker genes.<br>
 <p align="center">
 <img src="scNetViz_lab/images/scNetViz19.png" alt="start" width="60%" />
 </p>
+</li>
+</ol>
+</div>
 </div>
 <div id="automation-for-advanced-users-1" class="section level2 hasAnchor">
 <h2>Automation (for advanced users)<a href="scNetViz-lab.html#automation-for-advanced-users-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>scNetViz provides its own automation commands and useful for scripts to control scNetViz operations. Details
-available in the Swagger documentation (Help ! Automation ! CyREST Command API)) and in the scVIzNet reference paper.</p>
+<p>scNetViz provides its own automation commands and are useful for scripts to control scNetViz operations.
+Details available in the Swagger documentation (Help ! Automation ! CyREST Command API)) and in the scVIzNet reference paper.</p>
 </div>
 <div id="scnetviz-references" class="section level2 hasAnchor">
 <h2>scNetViz References<a href="scNetViz-lab.html#scnetviz-references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
