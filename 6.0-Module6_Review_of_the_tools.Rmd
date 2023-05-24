@@ -6,21 +6,16 @@
 [Lecture](./lectures/Pathways_2021_finalslides.pdf)  
 
   
-### scRNA lab
+### scRNA lab pratical
 
-  [Lab practical - Cytoscape](#scRNA-lab1)   
-  [Lab practical - Cytoscape](#scRNAlab2)   
-  [Lab practical - Cytoscape](#scNetViz-lab)   
-
-
-### Automation
-
-
+  [scRNA-lab1 - Cytoscape](#scRNA-lab1)   
+  [scRNAlab2 - Cytoscape](#scRNAlab2)   
+  [cNetViz-labl - Cytoscape](#scNetViz-lab)   
 
 ###  Integrated assignment
 
-
+  [Integrated assignment](#integrated_assignment) 
  
-  [Lab practical - Cytoscape](#genemania_cytoscape)   
-  
-  [Lab practical - Web](#genemania_web)  
+### Integrated assignment bonus
+
+  [Automation](#ass_automation)
