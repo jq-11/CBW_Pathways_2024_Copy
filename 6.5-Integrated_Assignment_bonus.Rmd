@@ -1,0 +1,14 @@
+# Integrated Assignment Bonus - Automation {#ass_automation}
+
+**This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
+
+ *<font color="#827e9c">By Ruth Isserlin</font>*
+
+## Goal of the exercise:
+TEST
+Experiment with automating your enrichment analysis pipeline using R.
+
+Using the same technique used in [Module 3 Lab: (Bonus) Automation](#automation) automate the data analysis GSEA portion of the integrated assignment.  
+
+If you haven't done the bonus lab from Module 3 yet, please complete that before attempting to do the same for the integrated assignment. 
+

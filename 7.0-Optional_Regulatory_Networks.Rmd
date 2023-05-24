@@ -1,0 +1,26 @@
+# Optional Module: Regulatory Network Analysis {#intro-regulatory-networks}
+
+*<font color="#827e9c">Michael Hoffman and Veronique Voisin</font>*
+
+## Lecture  
+ [Lecture slides](./lectures/Pathways_2021_Module5_lecture_MH.pdf)  
+
+ [Recorded video](https://www.youtube.com/watch?v=6rKCUOqGtXA&list=PL3izGL6oi0S-xaoH8p9LnJD8RQm8eNWF2&index=5)
+
+## Practical lab 1: chIP_seq data - GREAT and MEME-chIP
+  [chIP_seq Lab slides](./lectures/Pathways_2021_Module5_practical_lab_CHIPseq_lab_vv.pdf)  
+
+  [chIP_seq Lab practical](#regulatory_network_chipseq_lab)
+
+## Practical lab 2: gene list - iREgulon and enrichr/EnrichmentMap
+
+  [iREgulon Lab slides](./lectures/Pathways_2021_Module5lab_iregulon.pdf)  
+
+  [iREgulon Lab practical](#regulatory_network_lab)
+  
+## Additional slides about the tools Segway and BEHST presented during the lecture 
+
+  [Segway slides](./lectures/Pathways_2021_Segway_GMTK02_UTMIST_2021.pdf)  
+  [Segway protocol_draft](./lectures/Pathways_2021_segway_semi_automated_genome_annotation_post_submission_draft.pdf)  
+  
+  [BEHST slides](./lectures/Pathways_2021_BEHST07_Asilomar_Chromatin_2020.pdf)  

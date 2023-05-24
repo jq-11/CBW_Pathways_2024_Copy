@@ -1,0 +1,26 @@
+# Module 6: Review of the tools  
+
+ *<font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font>*
+ 
+## Final slides
+[Lecture](./lectures/Pathways_2021_finalslides.pdf)  
+
+  
+### scRNA lab
+
+  [Lab practical - Cytoscape](#scRNA-lab1)   
+  [Lab practical - Cytoscape](#scRNAlab2)   
+  [Lab practical - Cytoscape](#scNetViz-lab)   
+
+
+### Automation
+
+
+
+###  Integrated assignment
+
+
+ 
+  [Lab practical - Cytoscape](#genemania_cytoscape)   
+  
+  [Lab practical - Web](#genemania_web)  
