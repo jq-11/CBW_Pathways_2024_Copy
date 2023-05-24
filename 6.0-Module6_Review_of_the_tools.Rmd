@@ -8,14 +8,34 @@
   
 ### scRNA lab pratical
 
-  [scRNA-lab1 - Cytoscape](#scRNA-lab1)   
-  [scRNAlab2 - Cytoscape](#scRNAlab2)   
-  [cNetViz-labl - Cytoscape](#scNetViz-lab)   
+[scRNA-lab1_PBMC](#scRNA-lab1)
+
+ -  This lab starts from scRNA data from peripheral blood mononuclear cells. 
+
+ - The cells from similar cell types were grouped into clusters. 
+
+ - We extracted the gene lists corresponding to each cluster and run pathway analysis on it using g:Profiler. 
+
+ - We also created pseudobulk from the data, ran GSEA and created an enrichment map.
+
+[scRNAlab2_Glioblastoma](#scRNAlab2)
+
+ - Similar to lab1, we extracted gene lists from scRNA clustering from glioblastoma data.
+
+ - We created an mastermap by uploading in EnrichmentMap the pathway enrichment results for all the cluster gene lists.
+  
+[scNetViz](#scNetViz-lab)
+
+ - scNetViz is a Cytoscape that download scRNA data from the SingleCellAtlas, calculated differential expression between clusters or defined catergories and create protein-protein interaction networks out of it.
 
 ###  Integrated assignment
 
-  [Integrated assignment](#integrated_assignment) 
+[Integrated assignment](#integrated_assignment)
+
+ - In this integrated assignment, all the tools viewed during the workshop from module 1 to module 5 are integrated. The dataset is a microarray dataset available publicly from GEO. 
  
 ### Integrated assignment bonus
 
-  [Automation](#ass_automation)
+[Automation](#ass_automation)
+
+ - Experiment with automating your enrichment analysis pipeline using R.
