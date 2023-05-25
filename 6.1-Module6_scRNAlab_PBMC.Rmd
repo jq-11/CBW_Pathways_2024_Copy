@@ -5,33 +5,38 @@
 *<font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font>*
 
 ## Introduction
-As an example of applying pathway and network analysis using scRNA, we are taking the Seurat tutorial as starting point .This dataset is composed of Peripheral Blood Mononuclear Cells (PBMC) freely available from 10X Genomics. There are 2,700 single cells that were sequenced on the Illumina NextSeq 500 (https://satijalab.org/seurat/articles/pbmc3k_tutorial.html). 
+As an example of applying pathway and network analysis using single cell RNASeq, we are using the [Seurat tutorial]((https://satijalab.org/seurat/articles/pbmc3k_tutorial.html) as starting point.  This dataset consists of Peripheral Blood Mononuclear Cells (PBMC) and is a freely available dataset from 10X Genomics. There are 2,700 single cells that have been sequenced on the Illumina NextSeq 500 (https://satijalab.org/seurat/articles/pbmc3k_tutorial.html). 
 
 ```{block, type="rmd-note"}
 The R code in this practical lab was used to produce the gene lists to use in the downstream analysis.
-It is for your reference. YOU DON'T NEED TO RUN IT FOR THIS PRACTICAL LAB. ALL NECESSARY FILES ARE PROVIDED.
+It is for your reference. 
+
+**YOU DON'T NEED TO RUN IT FOR THIS PRACTICAL LAB.** 
+
+**ALL NECESSARY FILES ARE PROVIDED.**
 ```
 
 ## Pmbc3k Seurat Pipeline 
 Here is the Seurat pipeline that we followed to prepare data for the practical lab.
 Do not run. This for you reference only.
 
-## loading libraries
+## load libraries
 ```
 library(dplyr)
 library(Seurat)
 library(patchwork)
 ```
 
-### Load the PBMC dataset
+## Load the PBMC dataset
 ```
 pbmc.data <- Read10X(data.dir = "../data/pbmc3k/filtered_gene_bc_matrices/hg19/")
 # Initialize the Seurat object with the raw (non-normalized data).
-pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", min.cells = 3, min.features = 200)
+pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", 
+                                min.cells = 3, min.features = 200)
 pbmc
 ```
 
-### Processing the dataset
+## Process the dataset
 ```
 pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
 pbmc <- NormalizeData(pbmc, normalization.method = "LogNormalize", scale.factor = 10000)
@@ -50,10 +55,11 @@ DimPlot(pbmc, reduction = "umap")
 <img src="./scRNAlab/images/scRNAlab1.png" alt="generate rank" width="75%" />
 
 
-### Assigning cell type identity to clusters
-In the case of this dataset, we use canonical markers to easily match the clustering to known cell types:    
+## Assign cell type identity to clusters
+For this dataset, we use canonical markers to match clusters to known cell types:    
 ```
-new.cluster.ids <- c("Naive CD4 T", "CD14+ Mono", "Memory CD4 T", "B", "CD8 T", "FCGR3A+ Mono","NK", "DC", "Platelet")
+new.cluster.ids <- c("Naive CD4 T", "CD14+ Mono", "Memory CD4 T", "B", "CD8 T", 
+                                "FCGR3A+ Mono","NK", "DC", "Platelet")
 names(new.cluster.ids) <- levels(pbmc)
 pbmc <- RenameIdents(pbmc, new.cluster.ids)
 DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 0.5) + NoLegend()
@@ -62,44 +68,55 @@ DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 0.5) + NoLegend()
 <img src="./scRNAlab/images/scRNAlab2.png" alt="generate rank" width="75%" />
 
 
-### Finding differentially expressed features (cluster biomarkers)
-This part of the code find markers for every cluster compared to all remaining cells and report only the positive ones. These list of genes specific to each markers are the ones that we are going to use for further analysis.
+## Find differentially expressed features (cluster biomarkers)
+Find markers for every cluster compared to the remaining cells and report only the genes with positive scores, ie. genes specific to the cluster and not the rest of the cells. The list of genes specific to each cluster will be used in the downstream analysis.
 ```
-pbmc.markers <- FindAllMarkers(pbmc, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+#Use the FindAllMarkers seurat function to find all the genes 
+#associated with each cluster
+pbmc.markers <- FindAllMarkers(pbmc, only.pos = TRUE, min.pct = 0.25, 
+                                              logfc.threshold = 0.25)
 pbmc.markers %>%
     group_by(cluster) %>%
     slice_max(n = 2, order_by = avg_log2FC)
-    
-FeaturePlot(pbmc, features = c("MS4A1", "GNLY", "CD3E", "CD14", "FCER1A", "FCGR3A", "LYZ", "PPBP",
-    "CD8A"))
+
+#plot graphs for a subset of the genes    
+FeaturePlot(pbmc, features = c("MS4A1", "GNLY", "CD3E", 
+                  "CD14", "FCER1A", "FCGR3A", "LYZ", "PPBP","CD8A"))
     
 write.csv(pbmc.markers, "pbmc.markers.csv")
 
 ```
 <img src="./scRNAlab/images/scRNAlab3.png" alt="generate rank" width="75%" />
 
-### Gene list g:Profiler (Do not run code)
+## Create Gene list for each cluster to use with g:Profiler (Do not run code)
 Now that we have the list of genes that are specific to each cluster, it would be useful to perform pathway analysis on each list. It could provide a deeper understanding on each cluster. In some cases, it might help to adjust the labels associated with the clusters using marker genes.
 
 In order to do that, we have extracted each cluster gene list from the [pbmc.markers.csv](./scRNAlab/data/Pancancer_pbmc.markers.csv) file.
 
 ```
+#modify the names of some of the clusters to get rid of spaces and symbols
 pbmc.markers$cluster = gsub("Naive CD4 T", "Naive_CD4_T", pbmc.markers$cluster)
 pbmc.markers$cluster = gsub("CD14\\+ Mono", "CD14pMono", pbmc.markers$cluster)
 pbmc.markers$cluster = gsub("Memory CD4 T", "Memory_CD4_T", pbmc.markers$cluster)
 pbmc.markers$cluster = gsub("CD8 T", "CD8_T", pbmc.markers$cluster)
 pbmc.markers$cluster = gsub("FCGR3A\\+ Mono", "FCGR3Ap_Mono", pbmc.markers$cluster)
+
+#get the set of unique cluster names
 cluster_list = unique(pbmc.markers$cluster)
 
+#go through each cluster and create a file of its associated genes. 
+# output the genes associated with each cluster into a file named by the 
+# cluster name
 for (a in cluster_list){
   print(a)
   genelist = pbmc.markers$gene[which( pbmc.markers$cluster == a)]
   print(genelist)
-  write.table(genelist, paste0(a, ".txt"), sep= "\t", col.names = F, row.names = F, quote=F)
+  write.table(genelist, paste0(a, ".txt"), sep= "\t", col.names = F, 
+                                              row.names = F, quote=F)
 }
 ```
 
-#### Data (gene lists)
+## Data (gene lists for each cluster)
 
  * [Naive_CD4_T.txt](./scRNAlab/data/Naive_CD4_T.txt)
  * [CD14pMono.txt](./scRNAlab/data/CD14pMono.txt)
@@ -111,62 +128,43 @@ for (a in cluster_list){
  * [DC.txt](./scRNAlab/data/DC.txt)
  * [Platelet.txt](./scRNAlab/data/Platelet.txt)
 
-#### Steps:
+## Run pathway enrichment analysis using g:Profiler
 
-For this practical lab, we will use the platelet gene list and use g:Profiler. 
+For this practical lab, we will use the platelet gene list to enriched pathways and processes using g:Profiler. 
 
- * Open the g:Profiler website at [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) in your web browser.
- * Open the file ([Platelet.txt](./scRNAlab/data/Platelet.txt)) in a simple text editor such as Notepad or Textedit to copy the list of genes.
- * Paste the gene list  into the Query field in top-left corner of the screen. 
- *  Click on the *Advanced options* tab to expand it.
-  * Set *Significance threshold* to "Benjamini-Hochberg FDR"
-  * Select 0.05
- * Click on the *Data sources* tab to expand it:
-  * UnSelect all gene-set databases by clicking the "clear all" button.
-  * In the *Gene Ontology* category, check  *GO Biological Process* and *No electronic GO annotations*.
-  * In the *biological pathways* category, check *Reactome* and check *WikiPathways*.
- * Click on the *Run query* button to run g:Profiler. 
- 
- 
-<img src="./scRNAlab/images/scRNAlab4.png" alt="generate rank" width="75%" />
- 
- * Save the results
-  * In the *Detailed Results* panel, select "GEM" . 
-  * keep the minimum term size set to 10 
-  * set maximum term size to 500 
-It will save the results in a text file in the "Generic Enrichment Map" format that we will use to visualize using Cytoscape.
+  1. Open the g:Profiler website at [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) in your web browser.
+  1. Open the file ([Platelet.txt](./scRNAlab/data/Platelet.txt)) in a simple text editor such as Notepad or Textedit.  Select and copy the list of genes.
+  1.  Paste the gene list  into the Query field in top-left corner of the g:Profiler interface. 
+  1.   Click on the *Advanced options* tab to expand it.
+  1.   Set *Significance threshold* to "Benjamini-Hochberg FDR"
+  1.   Select 0.05
+  1.  Click on the *Data sources* tab to expand it:
+  1.  UnSelect all gene-set databases by clicking the "clear all" button.
+  1.  In the *Gene Ontology* category, check  *GO Biological Process* and *No electronic GO annotations*.
+  1.  In the *biological pathways* category, check *Reactome* and check *WikiPathways*.
+  1.  Click on the *Run query* button to run g:Profiler. <br><img src="./scRNAlab/images/scRNAlab4.png" alt="generate rank" width="75%" />
+  1.  Save the results
+    * In the *Detailed Results* panel, select "GEM" . 
+    * keep the minimum term size set to 10 
+    * set maximum term size to 500 
+    * This will save the results in a text file in the "Generic Enrichment Map" format that we will use to visualize in Cytoscape.<br><img src="./scRNAlab/images/scRNAlab5.png" alt="generate rank" width="75%" />
+  1. Rename the file to [gProfiler_platelet.txt](./scRNAlab/data/gProfiler_platelet.txt)
 
+## Create an enrichment map in Cytoscape
+  1. Open Cytoscape
+  1. Go to Apps -> EnrichmentMap
+  1. Select the EnrichmentMap and click on the + sign to open the app.<br><img src="./scRNAlab/images/scRNAlab6a.png" alt="generate rank" width="75%" />
+  1. Drag and drop the g:Profiler file ([gProfiler_platelet.txt](./scRNAlab/data/gProfiler_platelet.txt))
+  1. Set **FDR q-value cutoff** to 0.001
+  1. Click on **Build**<br><img src="./scRNAlab/images/scRNAlab6.png" alt="generate rank" width="75%" />
+  1. An enrichment map is created:<br><img src="./scRNAlab/images/scRNAlab7.png" alt="generate rank" width="75%" />
+  1. For clarity, you can use the AutoAnnotate app to annotate and cluster the enrichment map.
+  1. In Cytoscape menu , go to Apps, AutoAnnotate, New Annotation Set...
+  1. A dialog box opens, click on **OK**<br><img src="./scRNAlab/images/scRNAlab8.png" alt="generate rank" width="100%" />
 
-<img src="./scRNAlab/images/scRNAlab5.png" alt="generate rank" width="75%" />
-
-
- * Rename the file to [gProfiler_platelet.txt](./scRNAlab/data/gProfiler_platelet.txt)
-
-### Create an enrichment map in Cytoscape
- * Open Cytoscape
- * Go to Apps -> EnrichmentMap
- * Select the EnrichmentMap and click on the + sign to open the app.
- 
-<img src="./scRNAlab/images/scRNAlab6a.png" alt="generate rank" width="75%" />
-
- * Drag and drop the g:Profiler file ([gProfiler_platelet.txt](./scRNAlab/data/gProfiler_platelet.txt))
- * Set **FDR q-value cutoff** to 0.001
- * Click on **Build**
- 
-<img src="./scRNAlab/images/scRNAlab6.png" alt="generate rank" width="75%" />
-
-An enrichment map is created:
-
-<img src="./scRNAlab/images/scRNAlab7.png" alt="generate rank" width="75%" />
-
-* For clarity, you can use the AutoAnnotate app to annotate and cluster the enrichment map.
- * In Cytoscape menu , go to Apps, AutoAnnotate, New Annotation Set...
- * A dialog box opens, click on **OK**
- 
-<img src="./scRNAlab/images/scRNAlab8.png" alt="generate rank" width="100%" />
-
-Note: The boxes **Palette** and **Word Wrap** have been selected. The clusters have been moved around for clarity.
-
+```{block, type="rmd-note"}
+The boxes **Palette** and **Word Wrap** have been selected. The clusters have been moved around for clarity.
+```
 
 ### GSEA from pseudobulk
 #### pseudobulk creation, differential expression and rank file

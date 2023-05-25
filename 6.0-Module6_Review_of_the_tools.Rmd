@@ -6,11 +6,11 @@
 [Lecture](./lectures/Pathways_2021_finalslides.pdf)  
 
   
-### scRNA lab pratical
+## scRNA lab praticals
 
 [scRNA-lab1_PBMC](#scRNA-lab1)
 
- -  This lab starts from scRNA data from peripheral blood mononuclear cells. 
+ - This lab starts from scRNA data from peripheral blood mononuclear cells. 
 
  - The cells from similar cell types were grouped into clusters. 
 
@@ -28,13 +28,13 @@
 
  - scNetViz is a Cytoscape that download scRNA data from the SingleCellAtlas, calculated differential expression between clusters or defined catergories and create protein-protein interaction networks out of it.
 
-###  Integrated assignment
+##  Integrated assignment
 
 [Integrated assignment](#integrated_assignment)
 
  - In this integrated assignment, all the tools viewed during the workshop from module 1 to module 5 are integrated. The dataset is a microarray dataset available publicly from GEO. 
  
-### Integrated assignment bonus
+## Integrated assignment bonus
 
 [Automation](#ass_automation)
 
