@@ -11,7 +11,7 @@ By Gary Bader, Ruth Isserlin, Chaitra Sarathy, Veronique Voisin
 During this exercise, you will learn how to create an enrichment map from gene-set enrichment results. The enrichment results chosen for this exercise are generated using [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) but an enrichment map can be created directly from output from [GSEA](http://software.broadinstitute.org/gsea/index.jsp), 
 [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost),
 [GREAT](http://great.stanford.edu/public/html/),
-[BinGo](http://apps.cytoscape.org/apps/bingo), [Enrichr](https://amp.pharm.mssm.edu/Enrichr/) or alternately from any gene-set tool using the generic enrichment results(GEM) format.
+[BinGo](http://apps.cytoscape.org/apps/bingo), [Enrichr](https://amp.pharm.mssm.edu/Enrichr/) or alternately from any gene-set tool using the generic enrichment results (GEM) format.
 
 
 ## Data
@@ -40,14 +40,14 @@ An enrichment map represents the result of enrichment analysis as a network wher
 
 The goal of this exercise is to learn how to:
 
-  1. upload g:Profiler results into Cytoscape EnrichmentMap to create a map.
-  1. upload several g:Profiler results at the same time to create one map and learn how to distinguish and compare the results.
-  1. to compare the differences resulting from the use of different g:Profiler parameters at the enrichment map level. 
+  1. Upload g:Profiler results into Cytoscape EnrichmentMap to create a map.
+  1. Upload several g:Profiler results at the same time to create one map and learn how to distinguish and compare the results.
+  1. To compare the differences resulting from the use of different g:Profiler parameters at the enrichment map level. 
 
 
 ## Start the exercise
 
-To start the lab practical section, first create a gprofiler_files directoty on your computer and download the files below.
+To start the lab practical section, first create a gprofiler_files directory on your computer and download the files below.
 
 ```{block, type="rmd-datadownload"}
 Right click on link below and select "Save Link As...".
@@ -62,19 +62,19 @@ Five files are needed for this exercise:
     * GO_BP no electronic annotation, 
     * Reactome, 
     * WikiPathways,
-    * Benjamini-HochBerg FDR 0.05
-    * The results were filtered using the g:Profiler Term size slidebar and only the enriched gene-sets that contain more than 3 or equal or less than 10000 genes per gene-set were included in the result file. 
-  2. Enrichment result 2:[gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt) 
+    * Benjamini-Hochberg FDR 0.05
+    * The results were filtered using the *Term size* slidebar.  Only the enriched gene-sets containing more than 3 and less than or equal to  10000 genes per gene-set were included in the result file. 
+  2. Enrichment result 2: [gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt) 
   * In g:Profiler, the parameters that we used were: 
     * GO_BP no electronic annotation, 
     * Reactome, 
     * WikiPathways,
     * Benjamini-HochBerg FDR 0.05. 
-    * The results were filtered using the g:Profiler Term size slidebar and only the enriched gene-sets that contain more than 3 and equal or less than 250 genes per gene-set were included in the result file.
-  3. Enrichment result 3:[gProfiler_hsapiens_Baderlab_max250.gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250.gem.txt)
-  4. Pathway database 1:[gprofiler_full_hsapiens.name.gmt](./Module3/gprofiler/data/gprofiler_full_hsapiens.name.gmt)
+    * The results were filtered using the *Term size* slidebar. Only the enriched gene-sets that contain more than 3 and less than or equal to 250 genes per gene-set were included in the result file.
+  3. Enrichment result 3: [gProfiler_hsapiens_Baderlab_max250.gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250.gem.txt)
+  4. Pathway database 1: [gprofiler_full_hsapiens.name.gmt](./Module3/gprofiler/data/gprofiler_full_hsapiens.name.gmt)
   * This file can be downloaded directly or can be been created by concatenating the hsapiens.GO/BP.name.gmt, hsapiens.WP.namt.gmt and the hsapiens.REAC.name.gmt files contained in the g:Profiler gprofiler_hsapiens.name folder. 
-  5. Pathway database 2:[Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt](./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt)
+  5. Pathway database 2: [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt](./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt)
 
 ## Exercise 1a - compare different gprofiler geneset size results
 
@@ -98,24 +98,24 @@ Launch Cytoscape and open the EnrichmentMap App
 
 Create an enrichment map from 2 datasets and with a gmt file.
 
-2a. In the 'Create Enrichment Map' window, drag and drop the 2 enrichment files gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000.gem.txt and 
-gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt.
+2a. In the '**Create Enrichment Map**' window, drag and drop the 2 enrichment files *gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000.gem.txt* and 
+*gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt*.
 
 <img src="./Module3/gprofiler/images/gem0.png" alt="workflow" width="100%" />
 
-2b. In the white box, click on "gProfiler_hsapiens_lab2_results_GEM_termmin3_max250 (Generic/gProfiler) 
+2b. In the white box, click on "*gProfiler_hsapiens_lab2_results_GEM_termmin3_max250 (Generic/gProfiler)*" 
 
-2c. On the right side, go to the *GMT* field, click on the 3 radio button (...) and locate the file gprofiler_full_hsapiens.name.gmt that you have saved on your computer to upload it.
+2c. On the right side, go to the **GMT** field, click on the 3 radio button (...) and locate the file *gprofiler_full_hsapiens.name.gmt* that you have saved on your computer to upload it.
 
 <img src="./Module3/gprofiler/images/gem1.png" alt="workflow" width="100%" />
 
-2d. In the white box, click on "gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000 (Generic/gProfiler) 
+2d. In the white box, click on "*gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000 (Generic/gProfiler)*" 
 
-2e. On the right side, go to the *GMT* field, click on the 3 radio button (...) and locate the file gprofiler_full_hsapiens.name.gmt that you have saved on your computer to upload it.
+2e. On the right side, go to the **GMT** field, click on the 3 radio button (...) and locate the file *gprofiler_full_hsapiens.name.gmt* that you have saved on your computer to upload it.
 
-2f. Locate the *FDR q-value cutoff* field and set the value to 0.001
+2f. Locate the **FDR q-value cutoff** field and set the value to 0.001
 
-2g. Select the *Connectivity* slide bar to *sparse*. 
+2g. Select the **Connectivity** slide bar to **sparse**. 
 
 <img src="./Module3/gprofiler/images/gem2.png" alt="workflow" width="100%" />
 
@@ -123,7 +123,7 @@ gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt.
 Intstead of specifying the gmt file for each dataset separately, if all the dataasets in your analysis use the same gmt file, you can specify a common gmt file to be used by all datasets.  
 
   * Click on *Common Files (included in all datasets)* 
-  * On the right side, go to the *GMT file* field, click on the 3 radio button (...) and locate the file gprofiler_full_hsapiens.name.gmt that you have saved on your computer to upload it.
+  * On the right side, go to the *GMT file* field, click on the 3 radio button (...) and locate the file *gprofiler_full_hsapiens.name.gmt* that you have saved on your computer to upload it.
 
 <img src="./Module3/gprofiler/images/common_gmt.png" alt="workflow" width="100%" />
 
@@ -134,7 +134,7 @@ Intstead of specifying the gmt file for each dataset separately, if all the data
 
 2h. Click on *Build*.
 
-* a status bar should pop up showing progress of the Enrichment map build.
+* A status bar should pop up showing progress of the Enrichment map build.
 
 <p align="center">
   <img src="./Module3/gprofiler/images/gem3.png" alt="workflow" width="60%"/>
@@ -144,9 +144,9 @@ Intstead of specifying the gmt file for each dataset separately, if all the data
 
 In the EnrichmentMap control panel located at the left:
 
-  * select the 2 Data Sets (checked by default)
-  * set Chart Data o *Color by Data Set*
-  * select *Publication Ready* to remove gene-set label to have a global view of the map. 
+  * Select the 2 Data Sets (checked by default)
+  * Set Chart Data o *Color by Data Set*
+  * Select *Publication Ready* to remove gene-set label to have a global view of the map. 
   
 ```{block, type="rmd-tip"}
 un-select *Publication Ready* when you explore the map in more detail to see the gene-set names. 
@@ -212,9 +212,9 @@ Create an enrichment map without a gmt file to compare the results with Exercise
    <img src="./Module3/gprofiler/images/gem7.png" alt="workflow" width="50%" />
   </p> 
   
-  * In the white box, select the "gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem (Generic/gProfiler) file 
-  * Locate the GMT field and delete the file name , leaving it blank.
-  * In the white box, select the "gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000 (Generic/gProfiler) file 
+  * In the white box, select the "*gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem (Generic/gProfiler)*" file 
+  * Locate the GMT field and delete the file name, leaving it blank.
+  * In the white box, select the "*gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000 (Generic/gProfiler)*" file 
   * Locate the GMT field and delete the file name , leaving it blank.
   * Use same parameters as in [exercise 1a](#exercise-1a): FDR q-value cutoff of 0.001 and Connectivity to sparse.
   * Click on *Build*
@@ -226,12 +226,12 @@ Create an enrichment map without a gmt file to compare the results with Exercise
  
  In the EnrichmentMap control panel located at the left:
  
-  * select the 2 Data Sets (selecteded by default)
-  * set Chart Data o *Color by Data Set*
-  * select *Publication Ready* to remove gene-set label to have a global view of the map. 
+  * Select the 2 Data Sets (selecteded by default)
+  * Set Chart Data o *Color by Data Set*
+  * Select *Publication Ready* to remove gene-set label to have a global view of the map. 
   
 ```{block, type="rmd-tip"}
-uncheck this box when you explore the map in details to see the gene-set names. 
+Uncheck this box when you explore the map in details to see the gene-set names. 
 ```
 
  <p align="center">
@@ -243,7 +243,7 @@ On the map, a node that is coloured both green and blue is a gene-set that is fo
   * A node that is blue is a gene-set that is found only in the file *gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000* . 
     * A node that is green is a gene-set that is found only in the file *gProfiler_hsapiens_lab2_results_GEM_termmin3_max250* .
   * A blue edge represents genes that overlap between gene-sets found in the file *gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000*.
-  * A green edge represents genes that overlap between gene-sets found in the file gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem. 
+  * A green edge represents genes that overlap between gene-sets found in the file *gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem*. 
 
  
  <img src="./Module3/gprofiler/images/gem4.png" alt="workflow" width="100%" />
@@ -253,16 +253,16 @@ On the map, a node that is coloured both green and blue is a gene-set that is fo
 
 Loading a gmt file to create an enrichment map from g:Profiler result is optional. However, there are 2 main beneficial aspects to uploading a gmt file:
 
-  1. the map will be less condensed and easier to read and interpret.  
-  1. clicking on a node will display all genes in the gene-set and not only genes included in our query list. 
+  1. The map will be less condensed and easier to read and interpret.  
+  1. Clicking on a node will display all genes in the gene-set and not only genes included in our query list. 
 
 
 ## Exercise 1c - create EM from results using Baderlab genesets
  
  Create an enrichment map from the results of g:Profiler generated using the custom Baderlab gene-set file. <br>
- To get a map that is easy to read and that does not display too many gene-sets, one option is to focus the analysis on gene-sets (pathways) that contain 250 genes or less. We prefiltered our pathway database prior to upload it into g:Profiler so that FDR is calculated only on these gene-sets ( as opposed to exercise 1a where the FDR was calculated on all gene-sets and then some gene-sets > 250 genes were excluded from the result file ).
+ To get a map that is easy to read and that does not display too many gene-sets, one option is to focus the analysis on gene-sets (pathways) that contain 250 genes or less. We prefiltered our pathway database prior to upload it into g:Profiler so that FDR is calculated only on these gene-sets (as opposed to exercise 1a where the FDR was calculated on all gene-sets and then some gene-sets > 250 genes were excluded from the result file). For this exercise, we will use:
  
-  * filtered gmt file: ([Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt](./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt). 
+  * Filtered gmt file: [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt](./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt). 
   
   * We have uploaded this file as a custom gmt file in g:Profiler and run the query. (in Module 2 lab)
   
@@ -273,9 +273,9 @@ Loading a gmt file to create an enrichment map from g:Profiler result is optiona
    <img src="./Module3/gprofiler/images/gem7.png" alt="workflow" width="50%" />
   </p> 
  * Drag the file that we created in Module 2 lab [gProfiler_hsapiens_Baderlab_max250.gem.txt](./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250.gem.txt) and the filtered gmt file ([Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt](./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt) into the Datasets box on Enrichment map panel.
- * In the white box, select the "gProfiler_hsapiens_Baderlab_max250.gem.txt (Generic/gProfiler) file 
- * Locate the GMT field and upload the file "Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt".
-  
+ * In the white box, select the "*gProfiler_hsapiens_Baderlab_max250.gem.txt (Generic/gProfiler)*" file 
+ * Locate the GMT field and upload the file "*Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt*".
+ * Set the **FDR q-value cutoff** to 0.001 and set the **Connectivity** slide bar to second level. 
   
   <img src="./Module3/gprofiler/images/gem9.png" alt="workflow" width="100%" />
   
@@ -288,12 +288,12 @@ Loading a gmt file to create an enrichment map from g:Profiler result is optiona
 SAVE YOUR CYTOSCAPE SESSION (.cys) FILE ! 
 ```
 
-## Exercise 1c (optional) - investigate individual pathways in GeneMANIA or String
+## Exercise 1d (optional) - investigate individual pathways in GeneMANIA or String
 
 Each node in the Enrichment map represents a biological process or pathway.  It consists of a collection of genes.  Often we want to know how the genes in that group interact.  There are many different ways you can investigate the underlying interactions for the given group.  Some involve searching online databases and others are directly integrated into cytoscape.
 
 * [GeneMANIA](https://genemania.org/) - an integrative database of gene connections including co-expression, protein interactions, genetic interactions, pathways and more. **Cytoscape App**
-* [String](https://string-db.org/) - - an integrative database of gene connections including co-expression, protein interactions, genetic interactions, pathways and more. **Cytoscape App**
+* [String](https://string-db.org/) - an integrative database of gene connections including co-expression, protein interactions, genetic interactions, pathways and more. **Cytoscape App**
 * [Pathway Commons](https://www.pathwaycommons.org/) - a intergrative database of pathways.  (There is a beta feature in EM to show your pathway in the painter app, a pathway common web page that overlays your expression data on the given pathway.  Still in beta testing and requires expression data to work correctly so won't work for this example)
 
 ### GeneMANIA

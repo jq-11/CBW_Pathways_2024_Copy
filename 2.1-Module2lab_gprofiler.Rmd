@@ -45,15 +45,18 @@ Open the g:Profiler website at [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost
 
 Paste the gene list ([Pancancer_genelist.txt](./Module2/gprofiler/data/Pancancer_genelist.txt)) into the Query field in top-left corner of the screen. 
 
+
+```{block, type="rmd-tip"}
+Open the file in a simple text editor such as Notepad or Textedit to copy the list of genes. <br> Or right click on the file name above and select **Open link in new tab**
+```
+
+
 ![](./Module2/gprofiler/images/gp1.png)
 
 ```{block, type="rmd-note"}
 The gene list can be space-separated or one per line.<br> The organism for the analysis, Homo sapiens, is selected by default.<br> The input list can contain a mix of gene and protein IDs, symbols and accession numbers.<br> Duplicated and unrecognized IDs will be removed automatically, and ambiguous symbols can be refined in an interactive dialogue after submitting the query.<br> **Highlight driver terms in GO** is a recently (April 2023) added feature that tries to reduce the number of GO terms returned by g:Profiler and highlight a non-redundant set of GO terms. For more detailed information on this feature see [here](https://biit.cs.ut.ee/gprofiler/page/docs#highlighting-description)  
 ```
 
-```{block, type="rmd-tip"}
-open the file in a simple text editor such as Notepad or Textedit to copy the list of genes. <br> Or right click on the file name above and select **Open link in new tab**
-```
 
 ### Step 3 - Adjust parameters. 
 
@@ -64,7 +67,7 @@ open the file in a simple text editor such as Notepad or Textedit to copy the li
 * *User threshold* - select 0.05 if you want g:Profiler to return only pathways that are significant (FDR < 0.05).
 
 ```{block, type="rmd-tip"}
-if g:Profiler does not return any results increase the threshold (0.1, then 1) to check that g:Profiler is running successfully but there are simply no significant results for your query.
+If g:Profiler does not return any results increase the threshold (0.1, then 1) to check that g:Profiler is running successfully but there are simply no significant results for your query.
 ```
 
 <p align="center">
@@ -72,13 +75,13 @@ if g:Profiler does not return any results increase the threshold (0.1, then 1) t
  </p>
 
 ```{block, type="rmd-tip" }
-In order to get all the results, even those that don’t pass correction, select *all results*.  By default, g:Profiler will only return the sets that pass the defined threshold. Often you need the ability to tweak the thresholds in the resulting EM beyond the strict FDR < 0.05 threshold and therefore require all the results. 
+By default, g:Profiler will only return the sets that pass the defined threshold. Often you need the ability to tweak the thresholds in the resulting EM beyond the strict FDR < 0.05 threshold and therefore require all the results. In order to get all the results, even those that don’t pass correction, select *All results*.  
 ```
 
 
 3b. Click on the *Data sources* tab (black rectangle) to expand it.
 
-* UnSelect all gene-set databases by clicking the "clear all" button.
+* Unselect all gene-set databases by clicking the "clear all" button.
 * In the *Gene Ontology* category, check  *GO Biological Process* and *No electronic GO annotations*.
 * In the *biological pathways* category, check *Reactome* and check *WikiPathways*.
 
@@ -97,14 +100,16 @@ if g:Profiler does not return any results uncheck the *No electronic GO annotati
 
 ### Step 4 - Run query
 
-Click on the *Run query* button to run g:Profiler. 
+Click on the *Run query* button, below the input parameters, to run g:Profiler. 
 
 <img src="./Module2/gprofiler/images/gp3a.png" alt="workflow" width="100%" />
 
 Scroll down page to see results. 
 
+
+
 ```{block, type="rmd-tip"}
-If after clicking on *Run query* button the analysis completes but there is the following message above results file - *Select the Ensembl ID with the most GO annotations (all)*. For each ambiguous gene select its correct mapping. Ambiguous mapping is often caused by multiple ensembl ids for a given gene and are easy to resolve as a user. Rerun query.
+After clicking on *Run query* button, the analysis completes but if there is the following message (above results) - *Select the Ensembl ID with the most GO annotations (all)*, then do the following. For each ambiguous gene, select its correct mapping. Ambiguous mapping is often caused by multiple Ensembl ids for a given gene and are easy to resolve as a user. Rerun query.
 ```
 
 <img src="./Module2/gprofiler/images/gp4.png" alt="workflow" width="100%" />
@@ -115,20 +120,20 @@ If after clicking on *Run query* button the analysis completes but there is the 
 Step 5a:
 
 * After the query has run, the results are displayed at the bottom of the page, below the input parameters.
-* By default, the "Overview" tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 3 gene-set databases that we have selected, GO Biological Process(GO:BP) and  Reactome(REAC) and WikiPathways(WP). Numbers in parentheses are indicating the number of gene-sets that passed the threshold.
+* By default, the "Overview" tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for each of the 3 data sources (shown on x-axis) that we have selected - GO Biological Process(GO&#58;BP) and Reactome(REAC) and WikiPathways(WP). Numbers in parentheses indicate the number of gene-sets that passed the threshold.
 
 <img src="./Module2/gprofiler/images/gp5.png" alt="workflow" width="100%" />
 
 Step5b:
 
-* Click on "Detailed Results" to view the results in more depth. Three tables are displayed, one for each of the data sources selected. (If more than 3 data sources are selected there will be additional tables for each datasource) Each row of the table contains:
+* Click on "Detailed Results" to view the results in more depth. Three tables are displayed, one for each of the data sources selected. (If more than 3 data sources are selected there will be additional tables for each data source). Each row of the table contains:
     * **Term name** - gene-set name
-    * **Term ID** - gene-est identifier
+    * **Term ID** - gene-set identifier
     * **Padj** - FDR value 
     * **-log10(Padj)** - enrichment score calculated using the formula -log10(padj)
-    * variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored.  For any data source besides GO the cell is colored black if the gene is found in the gene-set.  For the GO data source cells are colored according to the annotation evidence code. Expand the legend tab for detailed coloring mapping of GO evidence codes. 
+    * Variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored.  For any data source besides GO, the cell is colored black if the gene is found in the gene-set.  For the GO data source cells are colored according to the annotation evidence code. Expand the *Legend* tab for detailed coloring mapping of GO evidence codes. 
     
-The first table displays the gene-sets significantly enriched at FDR 0.05 for the GO:BP database.
+The first table displays the gene-sets significantly enriched at FDR 0.05 for the GO&#58;BP database.
 
 <img src="./Module2/gprofiler/images/gp6.png" alt="workflow" width="100%" />
 
@@ -150,10 +155,10 @@ The third table displays the results corresponding to the WikiPathways database.
  It displays the gene set size (T), the size of our gene list (Q) , the number of genes that overlap between our gene list and the tested gene-set (TnQ) as well as the number of genes in the background (U). 
  
 
- * Above the GO:BP result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size). 
+ * Above the GO&#58;BP result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size). 
  * Change the maximum *Term size* from 10000 to **250** and 
  * Change the minimum *Term size* from 1 to **3** and 
- * observe the results in the detailed stats panel:
+ * Observe the results in the detailed stats panel:
  
  <img src="./Module2/gprofiler/images/gp8a.png" alt="workflow" width="100%" />
 
@@ -184,13 +189,13 @@ Observe the results included in this file:
 
  1. Name of each gene-set
  1. Description of each gene-set
- 1. significance of the overlap (pvalue)
- 1. significance of the overlap (adjusted pvalue/qvalue)
+ 1. Significance of the overlap (pvalue)
+ 1. Significance of the overlap (adjusted pvalue/qvalue)
  1. Phenotype
  1. Genes included in each gene-set
 
 ```{block, type="rmd-question"}
-Which term has the best corrected p-value?  <br> Which genes in our list are included in this term? <br> Observe that some genes can be present on several lines (pathways are related when they contain a lof of genes in common).
+Which GO&#58;BP term has the best corrected p-value?  <br> Which genes in our list are included in this term? <br> Observe that some genes can be present on several lines (pathways are related when they contain a lof of genes in common).
 ```
 
 ```{block, type="rmd-note"}
@@ -200,7 +205,7 @@ The table is formatted for the input into Cytoscape EnrichmentMap. It is called 
   <img src="./Module2/gprofiler/images/gp15.png" alt="workflow" width="100%" />
 
 
-The term *regulation of cell cycle G1/S phase transition* is the most significant gene-set (=the lowest FDR value).  Many gene-sets from the top of this list are related to each other and have genes in common. 
+The GO&#58;BP term *regulation of cell cycle G1/S phase transition* is the most significant gene-set (=the lowest FDR value).  Many gene-sets from the top of this list are related to each other and have genes in common. 
 
 ---
 
@@ -214,17 +219,17 @@ The term *regulation of cell cycle G1/S phase transition* is the most significan
   <img src="./Module2/gprofiler/images/gp12.png" alt="workflow" width="60%" />
 </p>
 
-8b. concatenate the GO:BP, Reactome and WikiPathways gmt files:
+8b. concatenate the GO&#58;BP, Reactome and WikiPathways gmt files:
 
-If you want to create a smaller gmt file that doesn't contain all of the gprofiler datasources you can instead download *name.gmt.zip* that contains each datasource as its own gmt file.  You will need to concatenate the sources you require into one gmt file to use for later.
+If you want to create a smaller gmt file that doesn't contain all of the g:profiler datasources you can instead download *name.gmt.zip* that contains each datasource as its own gmt file.  You will need to concatenate the sources you require into one gmt file to use for later.
 
 #### Option 1: manually if you are not familiar with unix commands
    * open a text editor such a Notepad or equivalent
-   * open hsapiens.GO:BP.name.gmt using the text editor
+   * open hsapiens.GO&#58;BP.name.gmt using the text editor
    * open gmt hsapiens.REAC.name.gmt using the text editor
-   * copy-paste all the rows from REAC file together with all the rows in GO:BP file.
+   * copy-paste all the rows from REAC file together with all the rows in GO&#58;BP file.
    * open gmt hsapiens.WP.name.gmt using the text editor
-   * copy-paste all the rows from WP file together with all the rows in GO:BP file.
+   * copy-paste all the rows from WP file together with all the rows in GO&#58;BP file.
    * save the file as hsapiens.pathways.name.gmt .
 
 #### Option 2: using the cat command if you are familiar with unix commands
@@ -267,7 +272,7 @@ Deciphering the version from the listed tag e109_eg56_p17_1d3191d :<br>
 ```
 
 ```{block, type="rmd-tip"}
-The version info can be recorded anywhere (for example in your lab notebook) but a convenient place is to embedded it in the g:Profiler geneset file name used for the analysis.  <br>Instead of naming the file <br>
+The version info can be recorded anywhere (for example in your lab notebook) but a convenient place is to embed it in the g:Profiler geneset file name used for the analysis.  <br>Instead of naming the file <br>
   * hsapiens.pathways.name.gmt<br>
 Name it <br>
   * hsapiens.pathways_e109_eg56_p17_1d3191d.name.gmt<br>

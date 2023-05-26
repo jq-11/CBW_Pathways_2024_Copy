@@ -37,7 +37,7 @@ The 2 required files are:
   1. a pathway definition file (.gmt).
 
 #### Rank File
-To generate a rank file (.rnk),  a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed(i.e associated with a very small pvalue, close to 0) will be assigned a high score.<br>The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC > 0, the score will have a + sign) or lower in mesenchymal (logFC < 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (**all genes have to be included**). 
+To generate a rank file (.rnk),  a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed (i.e associated with a very small pvalue, close to 0) will be assigned a high score.<br>The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC > 0, the score will have a + sign) or lower in mesenchymal (logFC < 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (**all genes have to be included**). 
 
 
 
@@ -54,7 +54,7 @@ The rank file is going to be provided for the lab, you don't need to generate it
 <img src="./Module2/gsea/images/GSEA_KS.png" alt="GSEA_KS" width="100%" />
 
 #### Generation of the rank file
-select the gene names and score columns and save the file as tab delimited with the extension .rnk
+Select the gene names and score columns and save the file as tab delimited with the extension .rnk
 
 <img src="./Module2/gsea/images/make_rank_file.png" alt="generate rank" width="75%" />
 
@@ -69,10 +69,10 @@ You don't need to perform this step for the exercise, the .gmt file will be give
 Go to:
 
   * http://download.baderlab.org/EM_Genesets/
-  * click on April_02_2023/
+  * Click on April_02_2023/
   * Click on Human/
   * Click on symbol/
-  * save the Human_GOBP_AllPathways_no_GO_iea...gmt file on your computer
+  * Save the Human_GOBP_AllPathways_no_GO_iea...gmt file on your computer
 
 <img src="./Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="90%" />
 
@@ -120,16 +120,16 @@ Follow instructions specified on download page:
 
 Load Data
 
-2a. Locate the ‘Load data’ icon at the upper left corner of the window and click on it.
+2a. Locate the ‘*Load data*’ icon at the upper left corner of the window and click on it.
 
 <img src="./Module2/gsea/images/GSEAloaddata.png" alt="Load data" width="50%" />
 
 
-2b. In the central panel, select ‘Method 1’ and ‘Browse for files’. A new window pops up.
+2b. In the central panel, select ‘*Method 1*’ and ‘*Browse for files*’. A new window pops up.
 
 <img src="./Module2/gsea/images/GSEAbrowsefile2.png" alt="Browse files" width="100%" />
 
-2c. Browse your computer to locate the 2 files : **Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt** and **MesenchymalvsImmunoreactive_edger_ranks.rnk**. 
+2c. Browse your computer to locate and select the 2 files : **Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt** and **MesenchymalvsImmunoreactive_edger_ranks.rnk**. 
 
 2d. Click on **Open**. A message pops us when the files are loaded successfully. 
 
@@ -140,7 +140,7 @@ Load Data
 <img src="./Module2/gsea/images/ORA5.png" alt="Success" width="75%" />
 	
 ```{block, type="rmd-tip"}
-Alternatively, you can choose **Method 3** to **drag and drop files here**; you need to click on the **Load these files!** button in this case.
+Alternatively, you can choose **Method 3** to **drag and drop files here**. You need to click on the **Load these files!** button in this case.
 ```
 
 ### Step3.
@@ -157,47 +157,47 @@ Specify the following parameters:
 
 3c. Gene sets database -
 
-  * click on the radio button (…) located at the right of the blank field.
-  * Wait 5-10sec for the gene-set selection window to appear.
+  * Click on the radio button (…) located at the right of the blank field.
+  * Wait 5-10 sec for the gene-set selection window to appear.
 	
 <img src="./Module2/gsea/images/GSEAloadgeneset.png" alt="Gene sets database" width="100%" />
 
-  * Use the right arrow in the top field to see the Gene matrix (local gmx/gmt) tab.
+  * Use the right arrow in the top field to see the Gene matrix (*Local gmx/gmt*) tab.
   * Click to highlight **Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt**.
-  * click on **OK** at the bottom of the window.
+  * Click on **OK** at the bottom of the window.
 
 
 <img src="./Module2/gsea/images/ORA8.png" alt="Gene sets database" width="75%" />
 
 	
-  * **Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt** is now visible in the field corresponding to Gene sets database.
+  * **Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt** is now visible in the field corresponding to **Gene sets database**.
 
 <img src="./Module2/gsea/images/GSEAparameter.png" alt="GSEAparameters" width="100%" />
 
-3d. Number of permutations - 100. The number of permutations is the number of times that the gene-sets will be randomized in order to create a null distribution to calculate the FDR.  
+3d. Set **Number of permutations** to 100. The number of permutations is the number of times that the gene-sets will be randomized in order to create a null distribution to calculate the FDR.  
 
 
 ```{block, type="rmd-caution"}
 Use 2000 when you do it for your own data outside the workshop.
 ```
 
-3e. Ranked list - select by clicking on the arrow and highlighting rank file.
+3e. **Ranked list** - select by clicking on the arrow and highlighting rank file.
 
-3f. Collapse/Remap to gene symbols - Change to *No_collapse*.  (Our rank file already contains the gene symbols so we don't need GSEA to try and convert probe names to gene symbols)
+3f. **Collapse/Remap to gene symbols** - Change to *No_collapse*.  (Our rank file already contains the gene symbols so we don't need GSEA to try and convert probe names to gene symbols)
 
 
 3g. Click on **Show** button next to **Basic Fields** to display extra options.
 
-3h. Analysis name – change default **my_analysis** to name specific to analysis for example Mesen_vs_Immuno_edgeR. GSEA will use your specified name as part of the name of the results directory it creates.
+3h. **Analysis name** – change the default name **my_analysis** to a name that is specific to analysis. For example *Mesen_vs_Immuno_edgeR*. GSEA will use your specified name as part of the directory of results that it creates.
 
-3i. Max size: exclude larger sets – By default GSEA sets the upper limit to 500. In this protocol, the maximum is set to 200 to decrease some of the larger sets in the results.
+3i. **Max size**: exclude larger sets – By default GSEA sets the upper limit to 500. In this protocol, the maximum is set to 200 to decrease some of the larger sets in the results.
 
-3j. Min size: exclude smaller sets – By default GSEA sets the lower limit to 15. In this protocol, the minimum is set to 10 to increase some of the smaller sets in the results.
+3j. **Min size**: exclude smaller sets – By default GSEA sets the lower limit to 15. In this protocol, the minimum is set to 10 to increase some of the smaller sets in the results.
 
-3k. Save results in this folder – navigate to where you want GSEA to put the results folder. By default GSEA will put the results into the directory gsea_home/output/[date] in your home directory.
+3k. **Save results in this folder** – navigate to where you want GSEA to put the results folder. By default GSEA will put the results into the directory *gsea_home/output/[date]* in your home directory.
 
 ```{block, type="rmd-tip"}
-set **Enrichment Statistics** to p2 if you want to add more weight on the most top up-regulated and top down-regulated. <br> **P2** is a more stringent parameter and it will result in less gene-sets significant under FDR <0.05.
+Set **Enrichment Statistics** to p2 if you want to add more weight on the most top up-regulated and top down-regulated. <br> **P2** is a more stringent parameter and it will result in less gene-sets significant under FDR <0.05.
 ```
 
 ### Step 4. 
@@ -210,7 +210,7 @@ Run GSEA
 Expand the window size if the run button is not visible
 ```
 
-4b. On the panel located on the left side of the GSEA window, the bottom panel called **the GSEA report table** will show that it has created a process with a message that it is **Running**.
+4b. On the panel located on the left side of the GSEA window, the bottom panel called **GSEA report** will show that a process was created, with a message that it is **Running**.
 
 
 <img src="./Module2/gsea/images/ORA10.png" alt="Running" width="50%" />
@@ -226,15 +226,15 @@ On completion the status message will be updated to **Success…**.
 
 
 ```{block, type="rmd-tip"}
-There is no progress bar to indicate to the user how much time is left to complete the process. Depending on the size of your dataset and compute power a GSEA run can take from a few minutes to a few hours. To check on the status of the GSEA run in the bottom left hand corner you can click on the **+** (red circle in below Figure) to see the updating status. Printouts in the format **shuffleGeneSet for GeneSet 5816/6878 nperm: 100** indicate how many permutations have been done (5816) out of the total that need to be performed (6878).
+There is no progress bar to indicate to the user how much time is left to complete the process. Depending on the size of your dataset and compute power of your machine, a GSEA run can take from a few minutes to a few hours. To check on the status of the GSEA run in the bottom left hand corner you can click on the **+** (red circle in above Figure) to see the updating status. Printouts in the format **shuffleGeneSet for GeneSet 5816/6878 nperm: 100** indicate how many permutations have been done (5816) out of the total that need to be performed (6878).
 ```
 
 ```{block, type="rmd-tip"}
-if the permutations have been completed but the status is still running, it means that GSEA is creating the report
+If the permutations have been completed but the status is still running, it means that GSEA is creating the report
 ```
 
 ```{block, type="rmd-troubleshooting"}
-Java Heap Space error. If GSEA returns an error **Java Heap space** it means that GSEA has run out of memory. If you are running GSEA from the webstart other than the 4GB option then you will need to download a new version that allows for more memory allocation. The current maximum memory allocation that the GSEA webstart allows for is 4GB. If you are using this version and still receive the java heap error you will need to download the GSEA java jar file and launch it from the command line as described in  step 1.
+Java Heap Space error. If GSEA returns an error **Java Heap space** it means that GSEA has run out of memory. If you are running GSEA from the webstart other than the 4GB option, then you will need to download a new version that allows for more memory allocation. The current maximum memory allocation that the GSEA webstart allows for is 4GB. If you are using this version and still receive the java heap error, you will need to download the GSEA java jar file and launch it from the command line as described in step 1.
 ```
 
 ### Step 5. 
@@ -244,7 +244,7 @@ Examining the results
 5a. Click on **Success** to launch the results in html format in your default web browser.
 
 ```{block, type="rmd-tip"}
-If the GSEA application has been closed, you can still see the results by opening the result folder and clicking on the **index** file – index.html. (see screenshot below). The first phenotype corresponds to gene-sets enriched in genes up-regulated in the mesenchymal subtype. The second phenotype corresponds to gene-sets enriched in genes up-regulated in the immunological phenotype. 
+If the GSEA application has been closed, you can still see the results by opening the result folder and clicking on the **index** file – *index.html*. (see screenshot below). The first phenotype corresponds to gene-sets enriched in genes up-regulated in the mesenchymal subtype. The second phenotype corresponds to gene-sets enriched in genes up-regulated in the immunological phenotype. 
 ```
 
 <img src="./Module2/gsea/images/ORA13.png" alt="Results1" width="75%" />

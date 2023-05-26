@@ -112,7 +112,7 @@ Create an enrichment map
 
 * *Enrichments Pos*: gsea_report_for_na_pos_1682691208724.tsv
 
-* *Enrichments Ned*: gsea_report_for_na_neg_1682691208724.tsv
+* *Enrichments Neg*: gsea_report_for_na_neg_1682691208724.tsv
 
 *	*GMT* : Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt
 
@@ -120,17 +120,17 @@ Create an enrichment map
 
 *	*Expressions* : MesenchymalvsImmunoreactive_rnaseq_expression.txt. 
 ```{block, type="rmd-tip"}
-this field is optional but recommended
+This field is optional but recommended.
 ```   
 *	*Classes*: MesenchymalvsImmunoreactive_rnaseq_classes.cls
 ```{block, type="rmd-tip"}
-this field is optional.
+This field is optional.
 ```
 *	*Phenotypes*: In the text boxes place *Mesenchymal*  as the Positive phenotype *Immunoreactive* as the Negative phenotype. Mesenchymal will be associated with red nodes because it corresponds to the positive phenotype and Immunoreactive will be associated with the blue nodes because it corresponds to the negative phenotype.
 
- *	set FDR q-value cutoff to 0.0001 (= only gene-sets significantly enriched at a value of 0.0001 or less will be displayed on the map). 
+ *	Set FDR q-value cutoff to 0.0001 (= only gene-sets significantly enriched at a value of 0.0001 or less will be displayed on the map). 
 ```{block, type="rmd-tip"}
-it will be displayed as  1E-04 in the scientific notation. 
+It will be displayed as  1E-04 in the scientific notation. 
 ```
 
 **2c**. Click on *Build*
@@ -313,7 +313,7 @@ The network is now subdivided into clusters that are represented by ellipses. Ea
 Each node in the Enrichment map represents a biological process or pathway.  It consists of a collection of genes.  Often we want to know how the genes in that group interact.  There are many different ways you can investigate the underlying interactions for the given group.  Some involve searching online databases and others are directly integrated into cytoscape.
 
 * [GeneMANIA](https://genemania.org/) - an integrative database of gene connections including co-expression, protein interactions, genetic interactions, pathways and more. **Cytoscape App**
-* [String](https://string-db.org/) - - an integrative database of gene connections including co-expression, protein interactions, genetic interactions, pathways and more. **Cytoscape App**
+* [String](https://string-db.org/) - an integrative database of gene connections including co-expression, protein interactions, genetic interactions, pathways and more. **Cytoscape App**
 * [Pathway Commons](https://www.pathwaycommons.org/) - a intergrative database of pathways.  (There is a beta feature in EM to show your pathway in the painter app, a pathway common web page that overlays your expression data on the given pathway.  Still in beta testing and requires expression data to work correctly so won't work for this example)
 
 ### Step 7
@@ -337,7 +337,7 @@ Patience.  :) . It might take a few seconds for the *String Protein Query* windo
 ```
 
 * A *STRING Protein Query* box appears.
-* select *Select genes with expression*.
+* Select *Select genes with expression*.
 * Click on *OK*. 
 
 <img src="./Module3/gsea/images/Stringb.png" alt="workflow" width="500" />

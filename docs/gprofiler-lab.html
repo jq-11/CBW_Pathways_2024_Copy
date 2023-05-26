@@ -261,7 +261,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#exercise-1b---is-specifying-the-gmt-file-important"><i class="fa fa-check"></i>Exercise 1b - Is specifying the gmt file important?</a></li>
 <li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#exercise-1c---create-em-from-results-using-baderlab-genesets"><i class="fa fa-check"></i>Exercise 1c - create EM from results using Baderlab genesets</a></li>
-<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#exercise-1c-optional---investigate-individual-pathways-in-genemania-or-string"><i class="fa fa-check"></i>Exercise 1c (optional) - investigate individual pathways in GeneMANIA or String</a>
+<li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#exercise-1d-optional---investigate-individual-pathways-in-genemania-or-string"><i class="fa fa-check"></i>Exercise 1d (optional) - investigate individual pathways in GeneMANIA or String</a>
 <ul>
 <li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#genemania"><i class="fa fa-check"></i>GeneMANIA</a></li>
 <li class="chapter" data-level="" data-path="gprofiler_mod3.html"><a href="gprofiler_mod3.html#string"><i class="fa fa-check"></i>String</a></li>
@@ -654,6 +654,13 @@ directory.
 <div id="step-2---input-query" class="section level3 hasAnchor">
 <h3>Step 2 - input query<a href="gprofiler-lab.html#step-2---input-query" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Paste the gene list (<a href="./Module2/gprofiler/data/Pancancer_genelist.txt">Pancancer_genelist.txt</a>) into the Query field in top-left corner of the screen.</p>
+<div class="rmd-tip">
+<p>
+Open the file in a simple text editor such as Notepad or Textedit to
+copy the list of genes. <br> Or right click on the file name above and
+select <strong>Open link in new tab</strong>
+</p>
+</div>
 <p><img src="Module2/gprofiler/images/gp1.png" /></p>
 <div class="rmd-note">
 <p>
@@ -670,13 +677,6 @@ feature see <a
 href="https://biit.cs.ut.ee/gprofiler/page/docs#highlighting-description">here</a>
 </p>
 </div>
-<div class="rmd-tip">
-<p>
-open the file in a simple text editor such as Notepad or Textedit to
-copy the list of genes. <br> Or right click on the file name above and
-select <strong>Open link in new tab</strong>
-</p>
-</div>
 </div>
 <div id="step-3---adjust-parameters." class="section level3 hasAnchor">
 <h3>Step 3 - Adjust parameters.<a href="gprofiler-lab.html#step-3---adjust-parameters." class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -687,7 +687,7 @@ select <strong>Open link in new tab</strong>
 </ul>
 <div class="rmd-tip">
 <p>
-if g:Profiler does not return any results increase the threshold
+If g:Profiler does not return any results increase the threshold
 (0.1, then 1) to check that g:Profiler is running successfully but there
 are simply no significant results for your query.
 </p>
@@ -697,16 +697,16 @@ are simply no significant results for your query.
 </p>
 <div class="rmd-tip">
 <p>
-In order to get all the results, even those that don’t pass
-correction, select <em>all results</em>. By default, g:Profiler will
-only return the sets that pass the defined threshold. Often you need the
-ability to tweak the thresholds in the resulting EM beyond the strict
-FDR &lt; 0.05 threshold and therefore require all the results.
+By default, g:Profiler will only return the sets that pass the
+defined threshold. Often you need the ability to tweak the thresholds in
+the resulting EM beyond the strict FDR &lt; 0.05 threshold and therefore
+require all the results. In order to get all the results, even those
+that don’t pass correction, select <em>All results</em>.
 </p>
 </div>
 <p>3b. Click on the <em>Data sources</em> tab (black rectangle) to expand it.</p>
 <ul>
-<li>UnSelect all gene-set databases by clicking the “clear all” button.</li>
+<li>Unselect all gene-set databases by clicking the “clear all” button.</li>
 <li>In the <em>Gene Ontology</em> category, check <em>GO Biological Process</em> and <em>No electronic GO annotations</em>.</li>
 <li>In the <em>biological pathways</em> category, check <em>Reactome</em> and check <em>WikiPathways</em>.</li>
 </ul>
@@ -730,17 +730,17 @@ test.
 </div>
 <div id="step-4---run-query" class="section level3 hasAnchor">
 <h3>Step 4 - Run query<a href="gprofiler-lab.html#step-4---run-query" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Click on the <em>Run query</em> button to run g:Profiler.</p>
+<p>Click on the <em>Run query</em> button, below the input parameters, to run g:Profiler.</p>
 <p><img src="Module2/gprofiler/images/gp3a.png" alt="workflow" width="100%" /></p>
 <p>Scroll down page to see results.</p>
 <div class="rmd-tip">
 <p>
-If after clicking on <em>Run query</em> button the analysis completes
-but there is the following message above results file - <em>Select the
-Ensembl ID with the most GO annotations (all)</em>. For each ambiguous
-gene select its correct mapping. Ambiguous mapping is often caused by
-multiple ensembl ids for a given gene and are easy to resolve as a user.
-Rerun query.
+After clicking on <em>Run query</em> button, the analysis completes
+but if there is the following message (above results) - <em>Select the
+Ensembl ID with the most GO annotations (all)</em>, then do the
+following. For each ambiguous gene, select its correct mapping.
+Ambiguous mapping is often caused by multiple Ensembl ids for a given
+gene and are easy to resolve as a user. Rerun query.
 </p>
 </div>
 <p><img src="Module2/gprofiler/images/gp4.png" alt="workflow" width="100%" /></p>
@@ -750,21 +750,21 @@ Rerun query.
 <p>Step 5a:</p>
 <ul>
 <li>After the query has run, the results are displayed at the bottom of the page, below the input parameters.</li>
-<li>By default, the “Overview” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 3 gene-set databases that we have selected, GO Biological Process(<a href="GO:BP" class="uri">GO:BP</a>) and Reactome(REAC) and WikiPathways(WP). Numbers in parentheses are indicating the number of gene-sets that passed the threshold.</li>
+<li>By default, the “Overview” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for each of the 3 data sources (shown on x-axis) that we have selected - GO Biological Process(GO:BP) and Reactome(REAC) and WikiPathways(WP). Numbers in parentheses indicate the number of gene-sets that passed the threshold.</li>
 </ul>
 <p><img src="Module2/gprofiler/images/gp5.png" alt="workflow" width="100%" /></p>
 <p>Step5b:</p>
 <ul>
-<li>Click on “Detailed Results” to view the results in more depth. Three tables are displayed, one for each of the data sources selected. (If more than 3 data sources are selected there will be additional tables for each datasource) Each row of the table contains:
+<li>Click on “Detailed Results” to view the results in more depth. Three tables are displayed, one for each of the data sources selected. (If more than 3 data sources are selected there will be additional tables for each data source). Each row of the table contains:
 <ul>
 <li><strong>Term name</strong> - gene-set name</li>
-<li><strong>Term ID</strong> - gene-est identifier</li>
+<li><strong>Term ID</strong> - gene-set identifier</li>
 <li><strong>Padj</strong> - FDR value</li>
 <li><strong>-log10(Padj)</strong> - enrichment score calculated using the formula -log10(padj)</li>
-<li>variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored. For any data source besides GO the cell is colored black if the gene is found in the gene-set. For the GO data source cells are colored according to the annotation evidence code. Expand the legend tab for detailed coloring mapping of GO evidence codes.</li>
+<li>Variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored. For any data source besides GO, the cell is colored black if the gene is found in the gene-set. For the GO data source cells are colored according to the annotation evidence code. Expand the <em>Legend</em> tab for detailed coloring mapping of GO evidence codes.</li>
 </ul></li>
 </ul>
-<p>The first table displays the gene-sets significantly enriched at FDR 0.05 for the <a href="GO:BP" class="uri">GO:BP</a> database.</p>
+<p>The first table displays the gene-sets significantly enriched at FDR 0.05 for the GO:BP database.</p>
 <p><img src="Module2/gprofiler/images/gp6.png" alt="workflow" width="100%" /></p>
 <p>The second table displays the results corresponding to the Reactome database.</p>
 <p><img src="Module2/gprofiler/images/gp7.png" alt="workflow" width="100%" /></p>
@@ -779,10 +779,10 @@ Rerun query.
 </p>
 <p>It displays the gene set size (T), the size of our gene list (Q) , the number of genes that overlap between our gene list and the tested gene-set (TnQ) as well as the number of genes in the background (U).</p>
 <ul>
-<li>Above the <a href="GO:BP" class="uri">GO:BP</a> result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size).</li>
+<li>Above the GO:BP result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size).</li>
 <li>Change the maximum <em>Term size</em> from 10000 to <strong>250</strong> and</li>
 <li>Change the minimum <em>Term size</em> from 1 to <strong>3</strong> and</li>
-<li>observe the results in the detailed stats panel:</li>
+<li>Observe the results in the detailed stats panel:</li>
 </ul>
 <p><img src="Module2/gprofiler/images/gp8a.png" alt="workflow" width="100%" /></p>
 <ul>
@@ -813,15 +813,15 @@ Rerun query.
 <ol style="list-style-type: decimal">
 <li>Name of each gene-set</li>
 <li>Description of each gene-set</li>
-<li>significance of the overlap (pvalue)</li>
-<li>significance of the overlap (adjusted pvalue/qvalue)</li>
+<li>Significance of the overlap (pvalue)</li>
+<li>Significance of the overlap (adjusted pvalue/qvalue)</li>
 <li>Phenotype</li>
 <li>Genes included in each gene-set</li>
 </ol>
 <div class="rmd-question">
 <p>
-Which term has the best corrected p-value? <br> Which genes in our
-list are included in this term? <br> Observe that some genes can be
+Which <a href="GO:BP" class="uri">GO:BP</a> term has the best corrected p-value? <br> Which genes in
+our list are included in this term? <br> Observe that some genes can be
 present on several lines (pathways are related when they contain a lof
 of genes in common).
 </p>
@@ -839,7 +839,7 @@ that each pathway will be represented by red nodes on the enrichment map
 </p>
 </div>
 <p><img src="Module2/gprofiler/images/gp15.png" alt="workflow" width="100%" /></p>
-<p>The term <em>regulation of cell cycle G1/S phase transition</em> is the most significant gene-set (=the lowest FDR value). Many gene-sets from the top of this list are related to each other and have genes in common.</p>
+<p>The GO:BP term <em>regulation of cell cycle G1/S phase transition</em> is the most significant gene-set (=the lowest FDR value). Many gene-sets from the top of this list are related to each other and have genes in common.</p>
 <hr />
 </div>
 <div id="step-8-optional-but-recommended" class="section level3 hasAnchor">
@@ -851,17 +851,17 @@ that each pathway will be represented by red nodes on the enrichment map
 <p align="center">
 <img src="Module2/gprofiler/images/gp12.png" alt="workflow" width="60%" />
 </p>
-<p>8b. concatenate the <a href="GO:BP" class="uri">GO:BP</a>, Reactome and WikiPathways gmt files:</p>
-<p>If you want to create a smaller gmt file that doesn’t contain all of the gprofiler datasources you can instead download <em>name.gmt.zip</em> that contains each datasource as its own gmt file. You will need to concatenate the sources you require into one gmt file to use for later.</p>
+<p>8b. concatenate the GO:BP, Reactome and WikiPathways gmt files:</p>
+<p>If you want to create a smaller gmt file that doesn’t contain all of the g:profiler datasources you can instead download <em>name.gmt.zip</em> that contains each datasource as its own gmt file. You will need to concatenate the sources you require into one gmt file to use for later.</p>
 <div id="option-1-manually-if-you-are-not-familiar-with-unix-commands" class="section level4 hasAnchor">
 <h4>Option 1: manually if you are not familiar with unix commands<a href="gprofiler-lab.html#option-1-manually-if-you-are-not-familiar-with-unix-commands" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>open a text editor such a Notepad or equivalent</li>
 <li>open hsapiens.GO:BP.name.gmt using the text editor</li>
 <li>open gmt hsapiens.REAC.name.gmt using the text editor</li>
-<li>copy-paste all the rows from REAC file together with all the rows in <a href="GO:BP" class="uri">GO:BP</a> file.</li>
+<li>copy-paste all the rows from REAC file together with all the rows in GO:BP file.</li>
 <li>open gmt hsapiens.WP.name.gmt using the text editor</li>
-<li>copy-paste all the rows from WP file together with all the rows in <a href="GO:BP" class="uri">GO:BP</a> file.</li>
+<li>copy-paste all the rows from WP file together with all the rows in GO:BP file.</li>
 <li>save the file as hsapiens.pathways.name.gmt .</li>
 </ul>
 </div>
@@ -912,7 +912,7 @@ Deciphering the version from the listed tag e109_eg56_p17_1d3191d
 <div class="rmd-tip">
 <p>
 The version info can be recorded anywhere (for example in your lab
-notebook) but a convenient place is to embedded it in the g:Profiler
+notebook) but a convenient place is to embed it in the g:Profiler
 geneset file name used for the analysis. <br>Instead of naming the file
 <br> * hsapiens.pathways.name.gmt<br> Name it <br> *
 hsapiens.pathways_e109_eg56_p17_1d3191d.name.gmt<br>
