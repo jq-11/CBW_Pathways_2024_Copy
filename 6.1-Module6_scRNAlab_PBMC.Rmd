@@ -21,14 +21,14 @@ Here is the Seurat pipeline that we followed to prepare data for the practical l
 Do not run. This for you reference only.
 
 ## load libraries
-```
+```{r eval=FALSE}
 library(dplyr)
 library(Seurat)
 library(patchwork)
 ```
 
 ## Load the PBMC dataset
-```
+```{r eval=FALSE}
 pbmc.data <- Read10X(data.dir = "../data/pbmc3k/filtered_gene_bc_matrices/hg19/")
 # Initialize the Seurat object with the raw (non-normalized data).
 pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", 
@@ -37,7 +37,7 @@ pbmc
 ```
 
 ## Process the dataset
-```
+```{r eval=FALSE}
 pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
 pbmc <- NormalizeData(pbmc, normalization.method = "LogNormalize", scale.factor = 10000)
 pbmc <- NormalizeData(pbmc)
@@ -57,7 +57,7 @@ DimPlot(pbmc, reduction = "umap")
 
 ## Assign cell type identity to clusters
 For this dataset, we use canonical markers to match clusters to known cell types:    
-```
+```{r eval=FALSE}
 new.cluster.ids <- c("Naive CD4 T", "CD14+ Mono", "Memory CD4 T", "B", "CD8 T", 
                                 "FCGR3A+ Mono","NK", "DC", "Platelet")
 names(new.cluster.ids) <- levels(pbmc)
@@ -70,7 +70,7 @@ DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 0.5) + NoLegend()
 
 ## Find differentially expressed features (cluster biomarkers)
 Find markers for every cluster compared to the remaining cells and report only the genes with positive scores, ie. genes specific to the cluster and not the rest of the cells. The list of genes specific to each cluster will be used in the downstream analysis.
-```
+```{r eval=FALSE}
 #Use the FindAllMarkers seurat function to find all the genes 
 #associated with each cluster
 pbmc.markers <- FindAllMarkers(pbmc, only.pos = TRUE, min.pct = 0.25, 
@@ -93,7 +93,7 @@ Now that we have the list of genes that are specific to each cluster, it would b
 
 In order to do that, we have extracted each cluster gene list from the [pbmc.markers.csv](./scRNAlab/data/Pancancer_pbmc.markers.csv) file.
 
-```
+```{r eval=FALSE}
 #modify the names of some of the clusters to get rid of spaces and symbols
 pbmc.markers$cluster = gsub("Naive CD4 T", "Naive_CD4_T", pbmc.markers$cluster)
 pbmc.markers$cluster = gsub("CD14\\+ Mono", "CD14pMono", pbmc.markers$cluster)
@@ -169,52 +169,45 @@ The boxes **Palette** and **Word Wrap** have been selected. The clusters have be
 ### GSEA from pseudobulk
 #### pseudobulk creation, differential expression and rank file
 
-We also can create pseudobulk data from the scRNA data by summing all cells into defined groups. We used the clusters to group the cells and we are calculating  differential expression using edgeR. We are comparing the CD4 cells (Naive CD4 T and Memory CD4 T) and the monocytic cells (CD14+ Mono and "FCGR3A+ Mono) .
-As show in previous module, to perform pathway analysis,we are preparing a rank file, run GSEA and create an enrichment map in Cytoscape.
+We also can create pseudobulk data from the scRNA data by summing all cells into defined groups. We used the clusters to group the cells and we calculate  differential expression using edgeR. We compare the CD4 cells (Naive CD4 T and Memory CD4 T) and the monocytic cells (CD14+ Mono and "FCGR3A+ Mono) .
+As shown in [module 3](#gsea_mod3), in order to perform pathway analysis,we prepare a rank file, run GSEA and create an enrichment map in Cytoscape.
 
 * Data:
   * rank file: [CD4vsMono.rnk](./scRNAlab/data/CD4vsMono.rnk)
   * gmt file:  [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt)
  
-* GSEA:
-  * Open GSEA
-   * Select **Load Data**
-   * Drag and Drop the rank  [CD4vsMono.rnk](./scRNAlab/data/CD4vsMono.rnk) and gmt * [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt) files.
-   * Click on **Load these files**
-  * Click on **Run GSEAPreranked
-   * In **Gene sets database**, click on the 3 dots, select **Local GMX/GMT** , select the gmt file, click on OK.
-   * Set the **Number of permutations** to 100
-   * Select the rank file: CD4vsMono
-  * Expand **Basic Fields**
-   * In the field **Collapse/Remap to gene symbols**, select **No_Collapse**
-   * Add an analysis name of your choice
-   * Set **Max size** to 200 and **Min size** to 10.
-  * Click on **Run**
-  
-
-<img src="./scRNAlab/images/scRNAlab9.png" alt="generate rank" width="100%" />
+### run GSEA:
+  1. Open GSEA
+  1. Select **Load Data**
+  1. Drag and Drop the rank  [CD4vsMono.rnk](./scRNAlab/data/CD4vsMono.rnk) and gmt * [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt) files.
+  1. Click on **Load these files**
+  1. Click on **Run GSEAPreranked**
+  1. In **Gene sets database**, click on the 3 dots, select **Local GMX/GMT** , select the gmt file, click on OK.
+  1. Set the **Number of permutations** to 100
+  1. Select the rank file: CD4vsMono.rnk
+  1. Expand **Basic Fields**
+  1. In the field **Collapse/Remap to gene symbols**, select **No_Collapse**
+  1. Add an analysis name of your choice
+  1. Set **Max size** to 200 and **Min size** to 10.
+  1. Click on **Run**<br><img src="./scRNAlab/images/scRNAlab9.png" alt="generate rank" width="100%" />
 
 ```{block, type="rmd-tip"}
 Use 2000 permutations and MAX_Size to 1000 for your own analysis. You can decide to further reduce MAX_Size to 500 or 200. 
 ```
  
-* EnrichmentMap:
- * Open Cytoscape
- * In Apps, select EnrichmentMap
- * Select the EnrichmentMap tab, click on the + sign. A **Create Enrichment Map** windows pops up.
- * Drag and drop the GSEA folder in the **Data Sets** window. It automatically populates the fields.
- * Set the **FDR q-value cutoff** to 0.01 
- * Click on **Build**
- 
-<img src="./scRNAlab/images/scRNAlab10.png" alt="generate rank" width="100%" />
+### Create an EnrichmentMap:
+  1. Open Cytoscape
+  1. In Apps, select EnrichmentMap
+  1. Select the EnrichmentMap tab, click on the + sign. A **Create Enrichment Map** windows pops up.
+  1. Drag and drop the GSEA folder in the **Data Sets** window. It automatically populates the fields.
+  1. Set the **FDR q-value cutoff** to 0.01 
+  1. Click on **Build**<br><img src="./scRNAlab/images/scRNAlab10.png" alt="generate rank" width="100%" />
 
-The enrichment map is now created. The red nodes are pathways enriched in genes up-regulated in CD4 cells when compared to the monocytic cells. The blue nodes are pathways enriched in genes up-regulated in monocytic cells.
-
-<img src="./scRNAlab/images/scRNAlab11.png" alt="generate rank" width="100%" />
+  * The enrichment map is now created. The red nodes are pathways enriched in genes up-regulated in CD4 cells when compared to the monocytic cells. The blue nodes are pathways enriched in genes up-regulated in monocytic cells.<br><img src="./scRNAlab/images/scRNAlab11.png" alt="generate rank" width="100%" />
 
 
 See code below for your reference ( pseudobulk, differential expression and rank file). 
-```
+```{r eval=FALSE}
 library(dplyr)
 library(Seurat)
 library(patchwork)
@@ -234,7 +227,8 @@ sce <- SingleCellExperiment(assays = list(counts = counts), colData = metadata)
 sum_by <- c("seurat_clusters")
 summed <- scuttle::aggregateAcrossCells(sce, id=colData(sce)[,sum_by])
 raw <- assay(summed, "counts") 
-colnames(raw) =   c("Naive_CD4_T", "CD14p_Mono", "Memory_CD4_T", "B", "CD8_T", "FCGR3Ap_Mono","NK", "DC", "Platelet")
+colnames(raw) =   c("Naive_CD4_T", "CD14p_Mono", "Memory_CD4_T", "B", "CD8_T", 
+                    "FCGR3Ap_Mono","NK", "DC", "Platelet")
 saveRDS(raw, "raw.rds")
 
 count_mx = as.matrix(raw)
@@ -245,7 +239,8 @@ y <- y[keep,keep.lib.sizes=FALSE]
 y <- calcNormFactors(y)
 design <- model.matrix(~0 + myGroups )
 y <- estimateDisp(y,design)
-my.contrasts <- makeContrasts(CD4vsMono=myGroupsCD4-myGroupsMono, levels = design )
+my.contrasts <- makeContrasts(CD4vsMono=myGroupsCD4-myGroupsMono, 
+                              levels = design )
 mycontrast = "CD4vsMono"
 fit <- glmQLFit(y,design)
 qlf <- glmQLFTest(fit,coef=2, contrast = my.contrasts[])
@@ -255,7 +250,8 @@ table2$score =  sign(table2$logFC) * -log10(table2$PValue)
 myrank = cbind.data.frame(rownames(table2), table2$score)
 colnames(myrank) = c("gene", "score")
 myrank = myrank[ order(myrank$score, decreasing = TRUE),]
-write.table(myrank, paste0(mycontrast, ".rnk"), sep="\t", row.names = FALSE, col.names = FALSE, quote = FALSE)
+write.table(myrank, paste0(mycontrast, ".rnk"), sep="\t", row.names = FALSE, 
+            col.names = FALSE, quote = FALSE)
 ```
 
 

@@ -225,6 +225,8 @@ run-pathway-enrichment-analysis-using-gprofiler
 create-an-enrichment-map-in-cytoscape
 gsea-from-pseudobulk
 pseudobulk-creation-differential-expression-and-rank-file
+run-gsea
+create-an-enrichmentmap
 module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab
 introduction-3
 goal-of-the-exercise-1-1
