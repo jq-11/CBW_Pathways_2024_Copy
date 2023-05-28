@@ -364,7 +364,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#steps"><i class="fa fa-check"></i>STEPS</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#exercise-1-answers"><i class="fa fa-check"></i>EXERCISE 1 ANSWERS</a></li>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#answers"><i class="fa fa-check"></i>ANSWERS</a></li>
 <li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#exercise-2-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW</a>
 <ul>
 <li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#steps-1"><i class="fa fa-check"></i>STEPS</a></li>
@@ -372,6 +372,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#exercise-3-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW</a>
 <ul>
 <li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#steps-2"><i class="fa fa-check"></i>STEPS</a></li>
+<li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#to-color-genes"><i class="fa fa-check"></i>To color genes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="genemania_cytoscape.html"><a href="genemania_cytoscape.html#some-definitions"><i class="fa fa-check"></i>SOME DEFINITIONS:</a></li>
 </ul></li>
@@ -651,10 +652,10 @@ shown here.
 <ol style="list-style-type: decimal">
 <li>Imagine that you are interested in exploring the function of the human GRN gene: GRN returned as the strongest hit from your omics experiment but not much information about this gene is available in functional databases. Use GeneMANIA to identify its predicted function as well as potential interaction partners.</li>
 </ol>
-<p><strong>Skills</strong>:
-* GeneMANIA Single Gene search;
-* Navigating Search Results;
-* Exploring available Genes features;<br />
+<p><strong>Skills</strong>
+* GeneMANIA Single Gene search
+* Navigating Search Results
+* Exploring available Genes features
 * Rerun a new analysis using a single gene or multiple genes queried from the network.</p>
 <div id="steps" class="section level3 hasAnchor">
 <h3>STEPS<a href="genemania_cytoscape.html#steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -683,32 +684,29 @@ down.
 <p><img src="Module6/genemania/images/GC3.png" alt="GC3.png" width="750" /></p>
 </div>
 </div>
-<div id="exercise-1-answers" class="section level2 hasAnchor">
-<h2>EXERCISE 1 ANSWERS<a href="genemania_cytoscape.html#exercise-1-answers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="answers" class="section level2 hasAnchor">
+<h2>ANSWERS<a href="genemania_cytoscape.html#answers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Question</strong> What are the functions significantly associated with this network?
-<strong>Answer</strong> the list of the functions associated with the network are listed in the above screenshot. “lysosomal function”, “vacuolar lumen”, “vacuolar part” are significant under a FDR threshold less than 0.0001.</p>
-<p><strong>Question</strong> GRN is the central node of this network: which function would you predict for GRN?
+<strong>Answer</strong> the list of the functions associated with the network are listed in the above screenshot. The top 2 pathways are “vacuolar lumen” and “primary lysosome” and are significant under a FDR threshold less than 0.005.</p>
+<p><strong>Question</strong> GRN is the central node of this network: which function would you predict for GRN?<br />
 <strong>Answer</strong> : a function related to lysosome and vacuole</p>
 <p><strong>Question</strong> How well did GeneMANIA perform (hints: use GeneCards (<a href="http://www.genecards.org/" class="uri">http://www.genecards.org/</a>) , PubMed (<a href="http://www.ncbi.nlm.nih.gov/pubmed/" class="uri">http://www.ncbi.nlm.nih.gov/pubmed/</a>))?
 <strong>Answer</strong>
 The top functions predicted by GeneMANIA for GRN were related to lysosome and vacuole. A pubmed search could confirm these results: “We experimentally verified that granulin precursor (GRN) gene, whose mutations cause frontotemporal lobar degeneration, is involved in lysosome function.” (Transcriptional gene network inference from a massive dataset elucidates transcriptome organization and gene function. Belcastro et al. Nucleic Acids Res. 2011 Nov 1;39(20):8677-88. 2011. <a href="PMID:21785136" class="uri">PMID:21785136</a>)</p>
 <ol start="8" style="list-style-type: decimal">
-<li><p>Locate the gene with the strongest association with GRN.</p>
+<li><p>Locate the genes with the strongest associations with GRN.</p>
 <div class="rmd-tip">
 <p>
-this gene is the largest node on the network.
+These genes are the largest nodes on the network.
 </p>
 </div>
-<p><strong>Answer is SORT1</strong></p></li>
-<li><p>Re-run an analysis by adding SORT1, HSPG2 to the search. Type ‘SORT1’ and ‘HSPG2’ in the search box that already contains ‘GRN’ (one gene per line). Click on the search button. Which functions are associated with this new network?</p></li>
+<p><strong>Answer is SLP1 and SORT1</strong></p></li>
+<li><p>Re-run an analysis by adding SORT1, SLP1 to the search. Type ‘SORT1’ and ‘SLP1’ in the search box that already contains ‘GRN’ (one gene per line). Click on the search button. Which functions are associated with this new network?</p></li>
 </ol>
 <p><img src="Module6/genemania/images/gc_1.9.png" alt="gc_1.9.png" width="750" /></p>
 <p><img src="Module6/genemania/images/GC9b.png" alt="GC9b.png" width="750" /></p>
-<ol start="10" style="list-style-type: decimal">
-<li>Save the network as an image by clicking on ‘File’, ‘Export’, ‘Network to Image…’ and setting the “Export File Format” to “PDF(*.pdf)”.</li>
-</ol>
-<p><img src="Module6/genemania/images/GC10.png" alt="GC10.png" width="750" /></p>
-<p><strong>Notes</strong> about biological interpretation of the results:</p>
+<p><img src="Module6/genemania/images/GC9c.png" alt="GC9c.png" width="750" /></p>
+<p><strong>Biological interpretation of the results:</strong></p>
 <p><strong>A paper describing the interaction between GRN and SORT1 and demonstrates how finding related genes could be relevant for elaborating therapy:</strong></p>
 <p>Targeted manipulation of the sortilin–progranulin axis rescues progranulin haploinsufficiency. Lee et al. Hum Mol Genet. 2014 March 15; 23(6): 1467–1478. Published online 2013 October 26. doi: 10.1093/hmg/ddt534. PMCID:PMC3929086
 “Progranulin (GRN) mutations causing haploinsufficiency are a major cause of frontotemporal lobar degeneration (FTLD-TDP). Recent discoveries demonstrating sortilin (SORT1) is a neuronal receptor for PGRN endocytosis and a determinant of plasma PGRN levels portend the development of enhancers targeting the SORT1–PGRN axis. We demonstrate the preclinical efficacy of several approaches through which impairing PGRN’s interaction with SORT1 restores extracellular PGRN levels. “</p>
@@ -716,12 +714,17 @@ this gene is the largest node on the network.
 <img src="Module6/genemania/images/GM11.png" alt="" />
 <p class="caption">GM11</p>
 </div>
+<ol start="10" style="list-style-type: decimal">
+<li>Save the network as an image by clicking on <strong>File</strong>, <strong>Export</strong>, <strong>Network to Image…</strong> and setting the <strong>Export File Format</strong> to “PDF(*.pdf)”.</li>
+</ol>
+<p><img src="Module6/genemania/images/GC10.png" alt="GC10.png" width="500" /></p>
+<hr />
 <hr />
 </div>
 <div id="exercise-2-questions-and-steps-to-follow" class="section level2 hasAnchor">
 <h2>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW<a href="genemania_cytoscape.html#exercise-2-questions-and-steps-to-follow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To start this exercise, you need to download the <a href="./Module6/genemania/data/30_prostate_cancer_genes.txt">30_prostate_cancer_genes.txt</a> file from the course wiki and save it on your computer.</p>
-<p>For this exercise, you are working with a list of 30 prostate cancer genes. This list can be downloaded after the workshop from the cBioPortal website (<a href="http://www.cbioportal.org/" class="uri">http://www.cbioportal.org/</a>) under the download section, user defined list. The cBioPortal for Cancer Genomics stores genomic data from large scale, integrated cancer genomic data sets. During this exercise, you will explore the types of networks that have been used to create the GeneMANIA network from the prostate cancer gene list and you will see how changing input parameters can affect the results. The last step of the exercise consists of uploading a custom network which is a list of genes that are positively correlated with CYP11B1 in mRNA expression data of 94 prostate cancer samples (<a href="http://www.cbioportal.org/" class="uri">http://www.cbioportal.org/</a>) .</p>
+<p>For this exercise, you are working with a list of 30 prostate cancer genes. This list was downloaded from the cBioPortal website (<a href="http://www.cbioportal.org/" class="uri">http://www.cbioportal.org/</a>). The cBioPortal for Cancer Genomics stores genomic data from large scale, integrated cancer genomic data sets. During this exercise, you will explore the types of networks that have been used to create the GeneMANIA network from the prostate cancer gene list and you will see how changing input parameters can affect the results. The last step of the exercise consists of uploading a custom network which is a list of genes that are positively correlated with CYP11B1 in mRNA expression data of 94 prostate cancer samples (<a href="http://www.cbioportal.org/" class="uri">http://www.cbioportal.org/</a>) .</p>
 <p><strong>Skills</strong>: GeneMANIA search using a gene list; Navigating Search Results; Exploring Networks and advanced options; Uploading a custom network.</p>
 <div id="steps-1" class="section level3 hasAnchor">
 <h3>STEPS<a href="genemania_cytoscape.html#steps-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -748,46 +751,49 @@ check that the parameter ‘Max resultant genes’ is set to ‘20’:
 <ol start="7" style="list-style-type: decimal">
 <li>Locate and expand the ‘Networks’ summary tab in <em>Results Panel</em> (on the right) and look at what data has been used to create the network and predictions. <strong>Note</strong> that Co-expression (purple colored lines, weight over 25%) and Shared protein domains (lightgold colored lines, weight over 30%) influence the results the most, but Co-localization (blue colored lines), Physical interactions (salmon colored lines) and Predicted (orange) data are also included. At the top of the Networks summary tab, use the menu button <img src="Module6/genemania/images/options.png" alt="options" /> and try Expand “All, then “Top-Level” and “None” to get information about the sources of the different networks.</li>
 </ol>
-<p><img src="Module6/genemania/images/GC2_7.png" alt="GC2_7.png" width="750" /></p>
-<ol start="8" style="list-style-type: decimal">
-<li>Highlight all connections corresponding to each network by clicking the name of each network category. Click on “Shared protein domains” and see which genes are connected by predicted protein protein interaction. You can do the same for “Co-localization” , “Co-expression” and “Physical interactions”.
+<p><img src="Module6/genemania/images/GC2_7.png" alt="GC2_7.png" width="550" /></p>
 <div class="rmd-tip">
 <p>
-these observations of the number of connections make it easier to
+These observations of the number of connections make it easier to
 understand why co-expression and shared protein domains get the higher
 percent weight on this network: they are helping to connect more genes
 than physical interactions and predicted; A higher weight means that
 this network helped more to find related genes.
 </p>
 </div>
-<img src="Module6/genemania/images/GC2_8a.png" alt="GC2_8a.png" width="750" /></li>
+<ol start="8" style="list-style-type: decimal">
+<li>Highlight all connections corresponding to each network by clicking the name of each network category.</li>
 </ol>
+<ul>
+<li>Click on “Shared protein domains” and see which genes are connected by predicted protein protein interaction.</li>
+</ul>
+<p><img src="Module6/genemania/images/GC2_8a.png" alt="GC2_8a.png" width="750" /></p>
+<ul>
+<li>You can do the same for “Co-localization” , “Co-expression” and “Physical interactions”.</li>
+</ul>
 <p><img src="Module6/genemania/images/GC2_8b.png" alt="GC2_8b.png" width="750" /></p>
 <ol start="9" style="list-style-type: decimal">
 <li>Locate the Functions summary tab and look at what functions were significantly enriched in this list of prostate genes.</li>
 </ol>
-<p>The top pathways with the strongest enrichments are: “cellular hormone metabolic process” with 23 genes in the list overlapping with this pathway.
-The FDR is equal to 1.2e-40.</p>
+<p>The top pathway with the strongest enrichments is: “oxidoreductase activity, acting on CH-OH group of donors” with 28 genes in the prostate cancer list overlapping with this pathway.
+The FDR is equal to 6.4e-46.</p>
 <p><img src="Module6/genemania/images/GC2_9.png" alt="GC2_9.png" width="750" /></p>
 <ol start="10" style="list-style-type: decimal">
 <li>“Shared protein domains” is an important part of the network. What would be the GeneMANIA results if we don’t include this source when we run GSEA? Go back to the ‘Network’ tab on the right side of the Cytoscape window to fin d the GeneMania search bar. Click on the option menu button <img src="Module6/genemania/images/options.png" alt="options" /> which is located at the right of the search box. Uncheck ‘Shared protein domains’ and click on a point outside the box to close it. Click on the search icon <img src="Module6/genemania/images/Search.png" alt="search" />. Explore the results.</li>
 </ol>
-<p><strong>Answer</strong> If “shared protein domain” is removed, the relationships between the nodes are from the Co-expression, Co-localization, Predicted and Physical interactions networks. The genes added to the network are different compared to the first network created with “Shared protein domain”.</p>
 <p><img src="Module6/genemania/images/GC2_10a.png" alt="GC2_10a.png" width="750" /></p>
+<p><strong>Answer</strong> If “shared protein domain” is removed, the relationships between the nodes are from the Co-expression, Co-localization, Predicted and Physical interactions networks. The genes added to the network are different compared to the first network created with “Shared protein domain”.</p>
 <p><img src="Module6/genemania/images/GC2_10b.png" alt="GC2_10b.png" width="750" /></p>
 <ol start="11" style="list-style-type: decimal">
 <li>Locate the Functions summary tab in <em>Results Panel</em> and look at what functions were significantly enriched with these new settings.</li>
 </ol>
 <p><strong>Answer</strong> With the new settings, “hormone biosynthetic process” is the new top enriched pathway.</p>
-<p><img src="Module6/genemania/images/GC2_11.png" alt="GC2_11.png" width="750" /></p>
+<p><img src="Module6/genemania/images/GC2_11.png" alt="GC2_11.png" width="500" /></p>
 <ol start="12" style="list-style-type: decimal">
 <li>Try to modify additional parameters like <em>Max Resultant Genes</em> or <em>Network Weighting</em> and look at how the changes you made influenced the results.</li>
 </ol>
-<div id="section" class="section level5">
-<h5></h5>
 <hr />
 <hr />
-</div>
 </div>
 </div>
 <div id="exercise-3-questions-and-steps-to-follow" class="section level2 hasAnchor">
@@ -807,31 +813,32 @@ make sure that GeneMANIA is selected and not String.
 <li><p>In the search window, ensure that the model organism is set to <em>Homo sapiens</em> <img src="Module6/genemania/images/Up.png" alt="homo" /> .</p></li>
 <li><p>Copy and paste genes in the file <a href="./Module6/genemania/data/mixed_gene_list.txt">Mixed_gene_list.txt</a>. Click on the search icon <img src="Module6/genemania/images/Search.png" alt="search" /> and wait for the results. Explore the network.</p></li>
 </ol>
-<p><img src="Module6/genemania/images/gc_3_2.png" alt="gc_3_2.png" width="750" /></p>
+<p><img src="Module6/genemania/images/gc_3_2.png" alt="gc_3_2.png" width="500" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Locate the Functions summary tab in <em>Result Panel</em> and look at functions returned by GeneMANIA.</li>
 </ol>
-<p><img src="Module6/genemania/images/GC3_4.png" alt="GC3_4.png" width="750" /></p>
+<p><img src="Module6/genemania/images/GC3_4.png" alt="GC3_4.png" width="500" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>In the functions summary tab, check some functions to color genes included in these functions. To follow this tutorial, you can for example color the “response to insulin” , “DNA recombination” functions.</li>
 </ol>
-<div class="rmd-tip">
-<p>
-You need to scroll down to found DNA recombination as this pathway
-has an FDR greater than the one for “response to insulin”.
-</p>
+<p><img src="Module6/genemania/images/GC3_4a.png" alt="GC3_4a.png" width="500" /></p>
+<p><img src="Module6/genemania/images/GC3_4b.png" alt="GC3_4b.png" width="500" /></p>
 </div>
-<p><em>To color genes:
-</em> Go to <strong>Control Panel</strong> tabs located on the right side of the Cytoscape window and select the <strong>Style</strong> tab.<br />
-* In the <strong>Node</strong> panel, expand the <strong>Fill Color</strong> tab.
-* Set <strong>Column</strong> to <strong>annotation name</strong>.
-* Locate “DNA recombination”.
-* Double click on the white space at the right side of the box and click on the 3 dots <img src="Module6/genemania/images/options2.png" alt="options2" />. A <strong>Colors</strong> box appears.
-* Choose a color of your choice and click on <strong>OK</strong>.
-* Locate “response to insulin”. Double click on the white space at the right side of the box and click on the 3 buttons menu. A <strong>Colors</strong> box appears.
-* Choose a color of your choice and click on <strong>OK</strong>.</p>
-<p><img src="Module6/genemania/images/gc3_5a.png" alt="gc3_5a.png" width="750" />
-<img src="Module6/genemania/images/GC3_5.png" alt="GC3_5.png" width="750" />
+<div id="to-color-genes" class="section level3 hasAnchor">
+<h3>To color genes<a href="genemania_cytoscape.html#to-color-genes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Go to the <strong>Control Panel</strong> tabs located on the right side of the Cytoscape window and select the <strong>Style</strong> tab.<br />
+</li>
+<li>In the <strong>Node</strong> panel, expand the <strong>Fill Color</strong> tab.</li>
+<li>Set <strong>Column</strong> to <strong>annotation name</strong>.</li>
+<li>Locate “DNA recombination”.</li>
+<li>Double click on the white space at the right side of the box and click on the 3 dots <img src="Module6/genemania/images/options2.png" alt="options2" />. A <strong>Colors</strong> box appears.</li>
+<li>Choose a color of your choice and click on <strong>OK</strong>.</li>
+<li>Locate “response to insulin”. Double click on the white space at the right side of the box and click on the 3 buttons menu. A <strong>Colors</strong> box appears.</li>
+<li>Choose a color of your choice and click on <strong>OK</strong>.</li>
+</ul>
+<p><img src="Module6/genemania/images/gc3_5a.png" alt="gc3_5a.png" width="500" />
+<img src="Module6/genemania/images/GC3_5.png" alt="GC3_5.png" width="500" />
 <img src="Module6/genemania/images/GC3_5b.png" alt="GC3_5b.png" width="750" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Locate our favorite gene PDPK1 on the network. Click on the icon <em>First Neighbor of Selected Nodes</em> <img src="Module6/genemania/images/neighbour.png" alt="neighbour" />. It will highlight this gene and all its connections. Click on the icon <em>From Selected Nodes, all Edges</em> <img src="Module6/genemania/images/newnetwork.png" alt="new network" /> to create a subnetwork.
