@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Optional Module 7 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathway and Network Analysis of -Omics Data ( June 2023 )</title>
+  <title>Module 6 lab 2- scRNA glioblastoma {#scRNA gprofiler-lab} | Pathway and Network Analysis of -Omics Data ( June 2023 )</title>
   <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Optional Module 7 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
+  <meta property="og:title" content="Module 6 lab 2- scRNA glioblastoma {#scRNA gprofiler-lab} | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Optional Module 7 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
+  <meta name="twitter:title" content="Module 6 lab 2- scRNA glioblastoma {#scRNA gprofiler-lab} | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
   
   <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="intro-regulatory-networks.html"/>
-<link rel="next" href="regulatory_network_lab.html"/>
+<link rel="prev" href="scRNA-lab1.html"/>
+<link rel="next" href="scNetViz-lab.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -617,550 +617,474 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regulatory_network_chipseq_lab" class="section level1 hasAnchor">
-<h1>Optional Module 7 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq<a href="regulatory_network_chipseq_lab.html#regulatory_network_chipseq_lab" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab" class="section level1 hasAnchor">
+<h1>Module 6 lab 2- scRNA glioblastoma {#scRNA gprofiler-lab}<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
-<p><em><font color="#827e9c">By Veronique Voisin and Ruth Isserlin </font></em></p>
-<div id="goal-of-this-practical-lab-3" class="section level2 hasAnchor">
-<h2>Goal of this practical lab<a href="regulatory_network_chipseq_lab.html#goal-of-this-practical-lab-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Perform pathway analysis starting with a chIP_seq bed file and visualize the results using Cytoscape/EnrichmentMap.</li>
-<li>Be able to use the tool GREAT with distal and proximal parameters.</li>
-<li>Run MEME-chip to find over-enrichment of transcription factors.</li>
-<li>Optional: learn how to use iRegulon to find targets of a transcription factor of interest and find orthologs using the tool g:Profiler/g:orth.</li>
-</ul>
-<p>This practical lab consists of 6 exercises and 2 of them are optional. Follow the step-by-step checklist through the exercises.</p>
-<p>Before starting the lab, download the files:</p>
+<div id="introduction-3" class="section level2 hasAnchor">
+<h2>Introduction<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#introduction-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Performing Over-Representation Analysis (ORA) with <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>.
+Visualizing the results using Cytoscape/Enrichmentmap.</p>
+<p>The practical lab contains 2 exercises. The first exercise uses <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> to perform gene-set enrichment analysis.</p>
+</div>
+<div id="goal-of-the-exercise-1-1" class="section level2 hasAnchor">
+<h2>Goal of the exercise 1<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#goal-of-the-exercise-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Learn how to run <em>g:GOSt Functional profiling</em> from the g:Profiler website and explore the results.</p>
+</div>
+<div id="data-6" class="section level2 hasAnchor">
+<h2>Data<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#data-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>g:Profiler requires a list of genes, one per line, in a text file or spreadsheet,
+ready to copy and paste into a web page: for this, we use genes identified in single cell RNA data from Module07. 14 cell clusters (0 to 14) were identified with the glioblastoma data we are working with (Richards et al, Nat Cancer, 2021).</p>
+<p><img src="Can_Module8/images/scRNA1.png" alt="workflow" width="100%" /></p>
+<p>The 14 clusters were further further classified into 5 cell types.</p>
+<p><img src="Can_Module8/images/scRNA2.png" alt="workflow" width="100%" /></p>
+<p>The gene lists were obtained from differential gene expression (DGE) analyses comparing cells from each cluster vs. the rest of the cells using Seurat’s function ‘FindAllMarkers(…, only.pos=T, min.pct = 0, return.thresh = 1, logfc.threshold = 0)’. For each cluster, the top 250 genes with FDR value equal or less than 0.05 were retrieved. All genes present in at least 1 cluster will be used as background (16066 genes) for the pathway enrichment analysis.</p>
+<p><img src="Can_Module8/images/scRNA2a.png" alt="workflow" width="100%" /></p>
+<p>DGE: Table (top genes of cluster 3 versus all clusters)
+<img src="Can_Module8/images/scRNA2b.png" alt="workflow" width="100%" /></p>
+<p>link to file: <a href="./Can_Module8/data/Richards_NatCancer_2021_DGE_GlobalClustering_SCT_wilcox.tsv.bz2">Richards_NatCancer_2021_DGE_GlobalClustering_SCT_wilcox.tsv.bz2</a></p>
+</div>
+<div id="can-module8-exercise-1" class="section level2 hasAnchor">
+<h2>Exercise 1 - run g:Profiler<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#can-module8-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For this exercise, our goal is to copy and paste the list of genes into g:Profiler, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results.</p>
+<p>g:Profiler performs a gene-set enrichment analysis using a hypergeometric test (Fisher’s exact test). The Gene Ontology Biological Process, Reactome and Wiki pathways are going to be used as pathway databases. The results are displayed as a table or downloadable as an Generic Enrichment Map (GEM) output file.</p>
+<p>Before starting this exercise, download the required files:</p>
 <div class="rmd-datadownload">
 <p>
 Right click on link below and select “Save Link As…”.
 </p>
 <p>
-Place the file in your CBW work directory in the corresponding module
-directory.
+Place it in a folder on your computer : for example create a
+pathway_analysis folder and save all the files needed for this module in
+this directory.
 </p>
 </div>
 <ul>
-<li><a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.bed">GSE128767_RUNX1_ChIP.peaks.bed</a></li>
-<li><a href="./Module5/chipseqlab/chipseqlab_data/Distal_GOBP_greatExportAll.tsv">Distal_GOBP_greatExportAll.tsv</a></li>
-<li><a href="./Module5/chipseqlab/chipseqlab_data/Proximal_GOBP_greatExportAll.tsv">Proximal_GOBP_greatExportAll.tsv</a></li>
-<li><a href="./Module5/chipseqlab/chipseqlab_data/RUNX1_Affy.gmt">RUNX1_Affy.gmt</a></li>
-<li><a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta">GSE128767_RUNX1_ChIP.peaks.fasta</a></li>
+<li><a href="./Can_Module8/data/cluster3.txt">cluster3.txt</a></li>
+<li><a href="./Can_Module8/data/background.txt">background.txt</a></li>
+</ul>
+<p>We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.</p>
+<div id="step-1---launch-gprofiler.-1" class="section level3 hasAnchor">
+<h3>Step 1 - Launch g:Profiler.<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-1---launch-gprofiler.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Open the g:Profiler website at <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> in your web browser.</p>
+</div>
+<div id="step-2---input-query-1" class="section level3 hasAnchor">
+<h3>Step 2 - input query<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-2---input-query-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Paste the gene list (<a href="./Can_Module8/data/cluster3.txt">cluster3.txt</a>) into the Query field in top-left corner of the screen.</p>
+<p><img src="Can_Module8/images/gp1.png" /></p>
+<div class="rmd-note">
+<p>
+The gene list can be space-separated or one per line.<br> The
+organism for the analysis, Homo sapiens, is selected by default.<br> The
+input list can contain a mix of gene and protein IDs, symbols and
+accession numbers.<br> Duplicated and unrecognized IDs will be removed
+automatically, and ambiguous symbols can be refined in an interactive
+dialogue after submitting the query.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+open the file in a simple text editor such as Notepad or Textedit to
+copy the list of genes. <br> Or right click on the file name above and
+select <strong>Open link in new tab</strong>
+</p>
+</div>
+</div>
+<div id="step-3---adjust-parameters.-1" class="section level3 hasAnchor">
+<h3>Step 3 - Adjust parameters.<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-3---adjust-parameters.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>3a. Click on the <em>Advanced options</em> tab (black rectangle) to expand it.</p>
+<ul>
+<li><p>Upload the custom background: Set <em>Statistical domain scope</em> to <em>Custom</em> and <em>Upload</em> the <a href="./Can_Module8/data/background.txt">background.txt</a> text file.</p></li>
+<li><p>Set <em>Significance threshold</em> to “Benjamini-Hochberg FDR”</p></li>
+<li><p><em>User threshold</em> - select 0.05 if you want g:Profiler to return only pathways that are significant (FDR &lt; 0.05).</p></li>
+</ul>
+<p align="center">
+<img src="Can_Module8/images/gp2.png" alt="workflow" width="100%" />
+</p>
+<p>3b. Click on the <em>Data sources</em> tab (black rectangle) to expand it.</p>
+<ul>
+<li>UnSelect all gene-set databases by clicking the “clear all” button.</li>
+<li>In the <em>Gene Ontology</em> category, check <em>GO Biological Process</em> and <em>No electronic GO annotations</em>.</li>
 </ul>
 <div class="rmd-note">
 <p>
-EnrichmentMap and Cytoscape layouts: Network layouts are flexible and
-can be rearranged. What you see when you perform these exercises may not
-be identical in appearance to what you see in the screenshots in the
-practical lab, or what you have seen other times that you have performed
-the exercises.
+<em>No electronic GO annotations</em> option will discard less
+reliable GO annotations (inferred from electronic annotations (IEAs))
+that are not manually reviewed.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+if g:Profiler does not return any results uncheck the <em>No
+electronic GO annotation</em> option to expand annotations used in the
+test.
+</p>
+</div>
+<ul>
+<li>In the <em>biological pathways</em> category, check <em>Reactome</em> and <em>WikiPathways</em>.</li>
+</ul>
+<p align="center">
+<img src="Can_Module8/images/gp3.png" alt="workflow" width="100%" />
+</p>
+</div>
+<div id="step-4---run-query-1" class="section level3 hasAnchor">
+<h3>Step 4 - Run query<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-4---run-query-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Click on the <em>Run query</em> button to run g:Profiler.</p>
+<p>Scroll down page to see results.</p>
+<div class="rmd-tip">
+<p>
+If after clicking on <em>Run query</em> button the analysis completes
+but there is the following message above results file - <em>Select the
+Ensembl ID with the most GO annotations (all)</em>. For each ambiguous
+gene select its correct mapping. Ambiguous mapping is often caused by
+multiple ensembl ids for a given gene and are easy to resolve as a user.
+To choose the correct mapping, check the option that has the correct
+gene name and/or then that has the most GO annotations. Rerun query.
 </p>
 </div>
 </div>
-<div id="dataset-used-during-this-practical-lab" class="section level2 hasAnchor">
-<h2>Dataset used during this practical lab<a href="regulatory_network_chipseq_lab.html#dataset-used-during-this-practical-lab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>ChIP-seq for RUNX1 from pools of mouse CD1 fetal ovaries (E14.5)<br>
-NCBI GEO: <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767">GSE128767</a></p>
-<p>From the paper:<br> <strong>RUNX1 maintains the identity of the fetal ovary through an interplay with FOXL2</strong><br> Nicol B, Grimm SA, Chalmel F, Lecluze E et al. <br><a href="https://www.nature.com/articles/s41467-019-13060-1">Nat Commun 2019 Nov 11;10(1):5116</a>.<br> <a href="https://pubmed.ncbi.nlm.nih.gov/31712577/">PMID: 31712577</a></p>
-<p><strong>Abstract</strong>:<br> Sex determination of the gonads begins with <strong>fate specification</strong> of gonadal supporting cells into either ovarian granulosa cells or testicular Sertoli cells. This process of fate specification hinges on a balance of transcriptional control. We discovered that the <strong>transcription factor RUNX1</strong> is enriched in the <strong>fetal ovary</strong> in rainbow trout, turtle, mouse, and human. In the mouse, RUNX1 marks the supporting cell lineage and becomes granulosa cell-specific as the gonads differentiate. RUNX1 plays complementary/redundant roles with FOXL2 to maintain fetal granulosa cell identity, and combined loss of RUNX1 and FOXL2 results in masculinization of the fetal ovaries. To determine whether interplay between RUNX1 and FOXL2 occurs at the chromatin level, <strong>we performed genome-wide analysis of RUNX1 chromatin occupancy in E14.5 ovaries. The top de novo motif identified in RUNX1 ChIP-seq matched the RUNX motif</strong>. We found that RUNX1 chromatin occupancy was partially overlapping with FOXL2 chromatin occupancy in fetal ovaries.</p>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img2.png" alt="" />
-<p class="caption">Figure 1</p>
-</div>
-<p>They found that RUNX1 is expressed in the fetal ovary at day 14 in mice and that it is necessary for a good development of the ovary.</p>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img3.png" alt="" />
-<p class="caption">Figure 2</p>
-</div>
-<p>A KO of Runx1 and another TF Foxl2 abolished the normal development of the ovary.</p>
-<p>Why did we choose this dataset?</p>
+<div id="step-5---explore-the-results.-1" class="section level3 hasAnchor">
+<h3>Step 5 - Explore the results.<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-5---explore-the-results.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Step 5a:</p>
 <ul>
-<li>RUNX1 is a transcription factor that is interesting to study as it has major biological functions.</li>
-<li>chIP-seq peaks are stored in a bed file that can be download from GEO entry.</li>
-<li>Linked to transcriptomic data <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129038">GSE129038</a></li>
-<li>Quality of the data</li>
+<li>After the query has run, the results are displayed at the bottom of the page, below the input parameters.</li>
+<li>By default, the “Results” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 3 gene-set databases that we have selected, GO Biological Process(<a href="GO:BP" class="uri">GO:BP</a>) and Reactome(REAC) and Wikipathways(WP). Numbers in parentheses are indicating the number of gene-sets that passed the threshold (0 gene-sets passed the 0.05 threshold for Reactome).</li>
 </ul>
-<p>The 3 pieces of information that we need to get before starting the analysis are:</p>
+<p><img src="Can_Module8/images/gp5.png" alt="workflow" width="100%" /></p>
+<p>Step5b:</p>
 <ul>
-<li>the model organism: mus musculus</li>
-<li>genome version: mm10</li>
-<li>bed file : <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.bed">GSE128767_RUNX1_ChIP.peaks.bed</a></li>
-</ul>
-<p>We have indicated below how we retrieved these information <strong>but you don’t need to do it for the lab</strong>:</p>
+<li>Click on “Detailed Results” to view the results in more depth. Two tables are displayed, one for each of the data sources selected. (If more than 2 data sources are selected there will be additional tables for each datasource) Each row of the table contains:
 <ul>
-<li>In the main GEO entry <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767">GSE128767</a></li>
-<li>click on one of the samples (for example - <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM3684638">GSM3684638</a>).<br />
-</li>
-<li>On the sample page scroll down to the “Data processing” section</li>
-<li>The organism is <strong>mus musculus</strong> and the reference genome is <strong>mm10</strong></li>
-<li>3 files are available from the GEO entry (see below).</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img4.png" alt="" />
-<p class="caption">Figure 3 - Dataset BED file</p>
-</div>
-<ul>
-<li>The bed file provided by the authors (GSE128767_RUNX1_ChIP.peaks.bed) (linked on the main dataset page under supplementary file - <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767">GSE128767</a> )
-has the right format to be used by <a href="http://great.stanford.edu/public/html/">GREAT</a> for the pathway analysis;
-The first 3 fields contain the chromosome name, start and end. They are the 3 required fields. The fourth column is optional and consists of the chromosomal position, followed by MACS2 score value and FDR.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img5.png" alt="" />
-<p class="caption">Figure 4 - Example view of BED file</p>
-</div>
-</div>
-<div id="exercise-1---run-pathway-analysis-using-great" class="section level2 hasAnchor">
-<h2>Exercise 1 - Run pathway analysis using GREAT<a href="regulatory_network_chipseq_lab.html#exercise-1---run-pathway-analysis-using-great" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="perform-pathway-enrichment" class="section level3 hasAnchor">
-<h3>Perform pathway enrichment<a href="regulatory_network_chipseq_lab.html#perform-pathway-enrichment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Open a web browser and go to <a href="http://great.stanford.edu/public/html/" class="uri">http://great.stanford.edu/public/html/</a></li>
-<li>In “Species Assembly”, choose Mouse: GRCm38(UCSC mm10, Dec. 2011)</li>
-<li>In “Test regions”, Click on “Choose file” and locate the file GSE128767_RUNX1_ChIP.peaks.bed that you save on your computer.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/%20img7.png" alt="" />
-<p class="caption">Figure 5 - GREAT interface</p>
-</div>
-<ul>
-<li>In “Association rule settings” , click on “Show settings” to see the current rule set to associate genes to peaks</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img8.png" alt="" />
-<p class="caption">Figure 6 - GREAT Association rules used in analysis</p>
-</div>
-<ul>
-<li>Do not change the settings. We are doing a distal analysis where genes (genomic regions) are associated with peaks within 5k upstream of the transcription start site of the genes (TSS), 1kb downstream and up to 1000 kb to nearest gene.</li>
-<li>Click on the “Submit” button at the end of the page</li>
-</ul>
-</div>
-<div id="explore-the-results." class="section level3 hasAnchor">
-<h3>Explore the results.<a href="regulatory_network_chipseq_lab.html#explore-the-results." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Expand the “Job Description” tab to check the parameters,</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img10.png" alt="" />
-<p class="caption">Figure 7 - Job Description</p>
-</div>
-<ul>
-<li>click on “View all genomic region-gene associations” (blue font)</li>
-<li>In a new tab there will be 2 tables containing the list of the chIP-seq peaks and corresponding associated genes.</li>
-<li>Download both of the tables (region -&gt; gene and gene -&gt; region)</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img10b.png" alt="" />
-<p class="caption">Figure 8 - genomic region-gene association tables.</p>
-</div>
-<ul>
-<li>Return to the main GREAT results page.</li>
-<li>In the “Region-Gene Association Graphs”, we can see that the peaks were mainly associated with genes located +-5kb of the TSS in addition to the presence of some distal peaks as expected based on the association rule that we have used.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/distal.png" alt="" />
-<p class="caption">Figure 9 - Region-gene association graphs</p>
-</div>
-<ul>
-<li><p>Let’s explore the pathway analysis results and look at the GO Biological Process table.</p></li>
-<li><p>scroll down to the “GO Biological Process” section.</p></li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/distal_true2.png" alt="" />
-<p class="caption">Figure 10 - GO Biological Process results</p>
-</div>
-<p>As we defined a distal rule to associate peaks with genes, we are going to look at the <strong>binomial FDR</strong>. The binomial test assesses whether the number of genomic regions annotated with the tested pathway is significantly larger than the number of genomic regions not annotated with the tested pathway.
-The fold enrichment is the proportion of genomic regions annotated with the tested pathway and genomic regions not annotated with the tested pathway.</p>
-<ul>
-<li>Export the GO BP result on your local computer:
-<ul>
-<li>Under the “GO Biological Process” title, locate the “Table controls:”</li>
-<li>select the option “All ontology data as .tsv”.</li>
-<li>A file called greatExportAll.tsv will be saved on your computer.</li>
-<li>Rename the file “Distal_GOBP_greatExportAll.tsv”. We will import this file later in Cytoscape/EnrichmentMap.</li>
+<li><strong>Term name</strong> - gene-set name</li>
+<li><strong>Term ID</strong> - gene-est identifier</li>
+<li><strong>Padj</strong> - FDR value</li>
+<li><strong>-log10(Padj)</strong> - enrichment score calculated using the formula -log10(padj)</li>
+<li>variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored. For any data source besides GO the cell is colored black if the gene is found in the gene-set. For the GO data source cells are colored according to the annotation evidence code. Expand the legend tab for detailed coloring mapping of GO evidence codes.</li>
 </ul></li>
+<li>Above the <a href="GO:BP" class="uri">GO:BP</a> result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size).</li>
+<li>Change the maximum <em>Term size</em> from 10000 to <strong>500</strong> and change the minimum <em>Term size</em> to <strong>10</strong> and observe the results in the detailed stats panel:</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img13.png" alt="" />
-<p class="caption">Figure 11 - Download Go Biological Process results</p>
-</div>
-</div>
-<div id="perform-pathway-enrichment---proximal-approach" class="section level3 hasAnchor">
-<h3>Perform pathway enrichment - Proximal approach<a href="regulatory_network_chipseq_lab.html#perform-pathway-enrichment---proximal-approach" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We are now trying a proximal approach to define genes associated with peaks.</p>
+<p><img src="Can_Module8/images/gp8a.png" alt="workflow" width="100%" /></p>
 <ul>
-<li>Go back to the main GREAT page. Make sure the bed file is still uploaded and the genome is set to mm10.</li>
-<li>Locate the “Association rule settings” and click on “Show settings”.</li>
-<li>Set Proximal 1kb upstream, 1kb downstream plus Distal up to 1kb .</li>
-<li>Uncheck the “Include curated regulatory domains” box.</li>
+<li>Without filtering term size, the top terms were GO terms containing that could contain 4000 or 5000 genes and that were located high in the GO hierarchy (parent term).</li>
+<li>With filtering the maximum term size to 500, the top list contains pathways of larger interpretative values. However, please note that the adjusted pvalues was calculated using all gene-sets without size filtering.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img9.png" alt="" />
-<p class="caption">Figure 12 - GREAT Association rules used in proximal analysis</p>
+<p>The first table displays the gene-sets significantly enriched at FDR 0.05 for the <a href="GO:BP" class="uri">GO:BP</a> database.The second table displays the results corresponding to the Reactome database and the third table displays the results corresponding to the Wikipathways database.</p>
 </div>
+<div id="step-6-expand-the-stats-tab-1" class="section level3 hasAnchor">
+<h3>Step 6: Expand the stats tab<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-6-expand-the-stats-tab-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Expand the <em>stats</em> tab by clicking on the double arrow located at the right of the tab.</p>
+<p align="center">
+<img src="Can_Module8/images/gp7a.png" alt="workflow" width="75%" />
+</p>
+<p>It displays the gene set size (T), the size of our gene list (Q) , the number of genes that overlap between our gene list and the tested gene-set (TnQ) as well as the number of genes in the background (U).</p>
+</div>
+<div id="step-7-save-the-results-1" class="section level3 hasAnchor">
+<h3>Step 7: Save the results<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-7-save-the-results-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>7a. In the <em>Detailed Results</em> panel, select “GEM” . It will save the results in a text file in the “Generic Enrichment Map” format that we will use to visualize using Cytoscape.</p>
 <ul>
-<li>Click on Submit.</li>
+<li>Click on the GEM button. A file is downloaded on your computer. (change the name to Cluster3.gem.txt)</li>
 </ul>
-</div>
-<div id="explore-the-results.---proximal-analysis" class="section level3 hasAnchor">
-<h3>Explore the results. - proximal analysis<a href="regulatory_network_chipseq_lab.html#explore-the-results.---proximal-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>In the “Region-Gene Association Graphs” , we can see that using the proximal rule in our settings, genes are associated with peaks that are all within the +-5kb rule (in fact the +-1kb rule) and there are no more distal peaks.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/proximal.png" alt="" />
-<p class="caption">Figure 13 - Proximal Region-gene association graphs</p>
-</div>
-<ul>
-<li>Explore the GOBP results and export the results on your computer.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/proximal2.png" alt="" />
-<p class="caption">Figure 14 - Proximal GO BP results</p>
-</div>
-<p>Using this rule, genes will be associated with peaks only if they are within 1kb of the transcription start site of the genes. It reduces the problem to a gene list and in this case, a Fisher’s exact (Hyper FDR Q-Val) test can be applied to test for pathway enrichment.</p>
-<ul>
-<li>Export the GO BP result on your local computer:
-<ul>
-<li>Under the “GO Biological Process” title, locate the “Table controls:”</li>
-<li>select the option “All ontology data as .tsv”.</li>
-<li>A file called greatExportAll.tsv will be saved on your computer.</li>
-<li>Rename the file “Proximal_GOBP_greatExportAll.tsv”. We will import this file later in Cytoscape/EnrichmentMap.</li>
-</ul></li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img13.png" alt="" />
-<p class="caption">Figure 15 - Export Proximal GOBP enrichment results</p>
-</div>
-</div>
-</div>
-<div id="exercise-2---build-an-enrichment-map-to-visualize-great-results" class="section level2 hasAnchor">
-<h2>Exercise 2 - Build an enrichment map to visualize GREAT results<a href="regulatory_network_chipseq_lab.html#exercise-2---build-an-enrichment-map-to-visualize-great-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Open Cytoscape</li>
-<li>In the menu bar, select Apps –&gt; EnrichmentMap</li>
-<li>Drag and drop the GREAT result file Distal_GOBP_greatExportAll.tsv into the DataSet box.</li>
-<li>Set the FDR q value cut-off to 0.001</li>
-<li>Click on Build</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img14.png" alt="" />
-<p class="caption">Figure 16 - Enrichment map input panel</p>
-</div>
-<ul>
-<li>A “Set Parameters” dialog box opens: Choose “Binomial p-value”.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img15.png" alt="" />
-<p class="caption">Figure 17 - Statistical Test choice panel</p>
-</div>
-<ul>
-<li>Explore the map.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/proximal_map.png" alt="" />
-<p class="caption">Figure 18 - Enrichment map with distal enriched pathways</p>
-</div>
-</div>
-<div id="exercise-3-optional-practice-building-enrichment-maps-and-auto-annotation" class="section level2 hasAnchor">
-<h2>Exercise 3 (optional): Practice building enrichment maps and auto-annotation<a href="regulatory_network_chipseq_lab.html#exercise-3-optional-practice-building-enrichment-maps-and-auto-annotation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="optional-exercise-3a-autoannotate-the-enrichment-map" class="section level3 hasAnchor">
-<h3>Optional exercise 3a: AutoAnnotate the enrichment map:<a href="regulatory_network_chipseq_lab.html#optional-exercise-3a-autoannotate-the-enrichment-map" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>In the menu bar, select Apps and then AutoAnnotate.</li>
-<li>A dialog box opens.</li>
-<li>Click on “Create Annotations”.</li>
-</ul>
-<p><img src="Module5/chipseqlab/chipseqlab_image/img16.png" alt="Figure 19 - Autoannotate panel" />
-Arrange the display by clicking on each module name listed in the right panel and then move them apart from the other modules using a mouse or a trackpad.</p>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/proximal_map_AA.png" alt="" />
-<p class="caption">Figure 20 - Manually layed out Enrichment map of enriched pathways for distal set</p>
-</div>
+<p>7b: Open the file that you saved using Microsoft Office Excel or in an equivalent software.</p>
+<p>Observe the results included in this file:</p>
+<ol style="list-style-type: decimal">
+<li>Name of each gene-set</li>
+<li>Description of each gene-set</li>
+<li>significance of the overlap (pvalue)</li>
+<li>significance of the overlap (adjusted pvalue/qvalue)</li>
+<li>Phenotype</li>
+<li>Genes included in each gene-set</li>
+</ol>
 <div class="rmd-question">
 <p>
-What are the main biological functions enriched in genes associated
-with RUNX1 peaks? <br> Is it relevant in relation to what we know about
-the role of RUNX1 in development?
+Which term has the best corrected p-value? <br> Which genes in our
+list are included in this term? <br> Observe that same genes can be
+present in several lines (pathways are related when they contain a lof
+of genes in common).
 </p>
 </div>
-</div>
-<div id="optional-exercise-3b-repeat-the-process-of-building-an-enrichment-map-using-the-proximal-data-proximal_gobp_greatexportall.tsv." class="section level3 hasAnchor">
-<h3>Optional exercise 3b: Repeat the process of building an enrichment map using the proximal data (Proximal_GOBP_greatExportAll.tsv).<a href="regulatory_network_chipseq_lab.html#optional-exercise-3b-repeat-the-process-of-building-an-enrichment-map-using-the-proximal-data-proximal_gobp_greatexportall.tsv." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Because this is proximal data, the problem is reduced to a gene list and you can use the Fisher’s exact test (FDR 0.001) to looked at the enrichment results</p>
-</div>
-<div id="optional-exercise-3c-repeat-the-process-by-building-both-the-proximal-and-distal-enrichment-maps-at-the-same-time." class="section level3 hasAnchor">
-<h3>Optional exercise 3c: Repeat the process by building both the Proximal and Distal enrichment maps at the same time.<a href="regulatory_network_chipseq_lab.html#optional-exercise-3c-repeat-the-process-by-building-both-the-proximal-and-distal-enrichment-maps-at-the-same-time." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Drag both files in the EnrichmentMap input box.</li>
-<li>Use FDR 0.0001 for both and binomial test.</li>
-<li>Check which nodes are in common between the 2 datasets.<br />
-</li>
-<li>Color the data by datasets.</li>
-</ul>
-</div>
-</div>
-<div id="exercise-4-add-runx1-targets-and-runx1-ko-genes-on-the-distal-enrichment-map." class="section level2 hasAnchor">
-<h2>Exercise 4: Add RUNX1 targets and RUNX1 KO genes on the distal enrichment map.<a href="regulatory_network_chipseq_lab.html#exercise-4-add-runx1-targets-and-runx1-ko-genes-on-the-distal-enrichment-map." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>During this exercise, we will connect the proximal chIP-seq enrichment map with the RUNX1 targets as well as the genes that are dysregulated after RUNX1 KO. We have already created a .gmt file that contains these gene lists (RUNX1_Affy.gmt). The format of a .gmt file is a tab delimited text file with one row per gene-set. Each gene-set contains the name of the gene-set, a description of the gene-set followed by the names of the genes. The file extension is changed from .txt to .gmt.</p>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/gmt.png" alt="" />
-<p class="caption">Figure 20 - example of gmt file</p>
-</div>
-<ul>
-<li>Note: We extracted the RUNX1 targets using the iRegulon Cytoscape app and the optional exercise 6 describes the steps. We extracted 200 genes to build the RUNX1 target gene list.</li>
-</ul>
-<p>This RUNX1 study had transcriptomics data (microarray) in addition to the chIP-seq data. The microarray data gives an overview of all genes that are changing between a fetal ovary with normal development and a fetal ovary after RUNX1 knock-out (KO) (GSE129038). We have used the tool GEO2R to get the top 500 up and down regulated genes (see description of the steps at the end the document).</p>
-<div id="step-4a-post-analysis" class="section level3 hasAnchor">
-<h3>step 4a: post analysis:<a href="regulatory_network_chipseq_lab.html#step-4a-post-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Go to the EnrichmentMap tab</li>
-<li>Make sure that the Distal_GOBP_greatExportAll network is selected.</li>
-<li>click on “Add Signature Gene Sets…”.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/PA01.png" alt="" />
-<p class="caption">Figure 21 - Add Signature sets</p>
-</div>
-<ul>
-<li>Click on “Load from File….” located on the right hand size and select the file “RUNX1_Affy.gmt” that you have saved on your computer.</li>
-<li>Set “Test” to “Hypergeometric Test” with the “Cutoff” set to 0.05.</li>
-<li>Click on “finish”</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/PA02.png" alt="" />
-<p class="caption">Figure 22 - Signature sets input panel</p>
-</div>
-<p>The 3 gene-sets are now added to the map. Each line (edge) shows pathways that have genes in common with the signature gene-sets.</p>
-</div>
-<div id="step-4b-optional-change-the-edge-style-of-the-signature-gene-sets" class="section level3 hasAnchor">
-<h3>Step 4b Optional: Change the edge style of the signature gene-sets:<a href="regulatory_network_chipseq_lab.html#step-4b-optional-change-the-edge-style-of-the-signature-gene-sets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Click on one signature gene-set node on the map to select it (it should appear in yellow).</li>
-<li>In the Cytoscape menu bar, click “Select” –&gt; “Edges” –&gt;“Select Adjacent Edges”</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/pa1.png" alt="" />
-<p class="caption">Figure 23 - Select adjacent edges</p>
-</div>
-<ul>
-<li>Go to “Style” and in the “Edge” table, in the bypass column Byp. , click on the box and select a color.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/pa2.png" alt="" />
-<p class="caption">Figure 24 - Bypass selected edge color</p>
-</div>
-<ul>
-<li>Repeat for all genes:
-<ul>
-<li>In “ Style” and in the “Edge” table, go to Width and set Column to “EM k_Intersection”</li>
-</ul></li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/em3.png" alt="" />
-<p class="caption">Figure 25 - Final figure</p>
-</div>
-</div>
-</div>
-<div id="exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip" class="section level2 hasAnchor">
-<h2>Exercise 5: Learning how to run MEME-chip from the MEME suite (<a href="https://meme-suite.org/meme/tools/meme-chip" class="uri">https://meme-suite.org/meme/tools/meme-chip</a>)<a href="regulatory_network_chipseq_lab.html#exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="format-the-data" class="section level3 hasAnchor">
-<h3>Format the Data<a href="regulatory_network_chipseq_lab.html#format-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>MEME suite accepts sequences as input and not chromosome coordinates. The bed file contains the chromosome coordinates of the peaks. Therefore, we first need to fetch all the peak sequences. UCSC genome browser (<a href="https://genome.ucsc.edu/" class="uri">https://genome.ucsc.edu/</a>) has some tools to help us.</p></li>
-<li><p>If needed, you can use the finalized formatted file <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta">GSE128767_RUNX1_ChIP.peaks.fasta</a> to run MEME-chIP <strong>but we encourage you to follow the below steps to learn how to do it yourself</strong>.</p></li>
-<li><p>The step that we took to create it are described below and were adapted from <a href="https://fasta.bioch.virginia.edu/cshl/stubbs/meme-ex/meme.html" class="uri">https://fasta.bioch.virginia.edu/cshl/stubbs/meme-ex/meme.html</a>.</p></li>
-</ul>
-</div>
-<div id="exercise-5a-download-sequences-from-.bed-coordinates" class="section level3 hasAnchor">
-<h3>Exercise 5a: Download sequences from .bed coordinates<a href="regulatory_network_chipseq_lab.html#exercise-5a-download-sequences-from-.bed-coordinates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Open the UCSC browser main page (<a href="http://genome.ucsc.edu/" class="uri">http://genome.ucsc.edu/</a>).</li>
-<li>Click on <em>Genomes</em> in the menu bar and select <em>Mouse GRCm38/mm10</em>.</li>
-</ul>
-<p align="center">
-<img src="Module5/chipseqlab/chipseqlab_image/meme1.png" alt="USCS main page" width="50%" />
-</p>
-<ul>
-<li>The UCSC Genome Browser window opens in a new tab.</li>
-<li>Below the tracks, click on the button <em>add custom tracks</em>. A new window will open.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme2.png" alt="" />
-<p class="caption">UCSC genome browser</p>
-</div>
-<ul>
-<li>Upload the bed file <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.bed">GSE128767_RUNX1_ChIP.peaks.bed</a>; press the “Submit” button.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme3.png" alt="" />
-<p class="caption">meme3</p>
-</div>
-<ul>
-<li>A new window will appear with your updated track. Make sure that “Table Browser” is selected and click on <em>go</em>.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme4.png" alt="" />
-<p class="caption">meme4</p>
-</div>
-<ul>
-<li><p>A new window will appear. Select <em>sequence</em> as <em>output format</em> and <em>plain text</em> as <em>file type returned</em>. Click on <em>get output</em>.
-<img src="Module5/chipseqlab/chipseqlab_image/meme5.png" alt="meme5" /></p></li>
-<li><p>A new window will open where you can choose various options for your sequence (e.g. repeat masking). Note that for meme and similar programs it is important to “mask repeats” to “N”; otherwise, sequences in repetitive elements will dominate your motif list.</p>
-<ul>
-<li>Select <em>Mask repeats</em></li>
-<li>next to <em>Mask repeats</em> change option to <em>to N</em></li>
-<li>click on <em>Get sequences</em></li>
-</ul></li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme6.png" alt="" />
-<p class="caption">meme6</p>
-</div>
-<ul>
-<li><p>A fasta file will appear; save this as plain text (copy and paste in a text editor or right click on the page and select <em>Save As…</em> and save the file to your computer).</p>
-<ul>
-<li>here is the file in case you need it: <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks_INTERMEDIATE.fasta">GSE128767_RUNX1_ChIP.peaks_INTERMEDIATE.fasta</a></li>
-</ul></li>
-<li><p>You will need to modify the UCSC header that comes with the sequences to use them for meme:</p>
-<ul>
-<li>Go to <a href="https://fasta.bioch.virginia.edu/fasta_www2/clean_fasta.html" class="uri">https://fasta.bioch.virginia.edu/fasta_www2/clean_fasta.html</a></li>
-<li>upload or copy and paste the plain text file from the above step</li>
-<li>check Extract CHR:coordinates from UCSC</li>
-<li>Click on “Clean Sequence”
-<img src="Module5/chipseqlab/chipseqlab_image/meme7.png" alt="meme7" /></li>
-<li>Save this as plain text under the name GSE128767_RUNX1_ChIP.peaks.fasta (copy and paste in a text editor or <strong>right click and Save as will not work for this file</strong>) - it will look like the below file.</li>
-</ul></li>
-</ul>
-<p align="center">
-<img src="Module5/chipseqlab/chipseqlab_image/meme8.png" alt="resulting file" width="50%" />
-</p>
-</div>
-<div id="exercise-5b-run-meme-chip" class="section level3 hasAnchor">
-<h3>Exercise 5b: Run MEME-chIP<a href="regulatory_network_chipseq_lab.html#exercise-5b-run-meme-chip" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Open <a href="https://meme-suite.org/meme/tools/meme-chip" class="uri">https://meme-suite.org/meme/tools/meme-chip</a>.</li>
-<li>Expand <em>Motif Discovery</em></li>
-<li>Click on <em>MEME-Chip</em></li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme9.png" alt="" />
-<p class="caption">meme9</p>
-</div>
-<ul>
-<li>Under <em>Input the primary sequences</em> box, upload the file <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta">GSE128767_RUNX1_ChIP.peaks.fasta</a> .</li>
-<li>Click on <em>Start Search</em>.</li>
-</ul>
-<p align="center">
-<p><img src="Module5/chipseqlab/chipseqlab_image/meme10.png" alt="resulting file" width="75%" /></p>
 <div class="rmd-note">
 <p>
-<strong>Important</strong>: Save the url so you can access your
-result later even if you close the MEME window. <br>
+The table is formatted for the input into Cytoscape EnrichmentMap. It
+is called the <a
+href="https://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#generic-results-files"><em>generic
+format</em></a>. The p-value and FDR columns contain identical values
+because g:Profiler directly outputs the FDR (= corrected p-value)
+meaning that the p-value column is already the FDR. Phenotype 1 means
+that each pathway will be represented by red nodes on the enrichment map
+(presented during next module).
+</p>
+</div>
+<p><img src="Can_Module8/images/gp15a.png" alt="workflow" width="100%" /></p>
+<p>The terms <em>myelin</em> and <em>axon ensheathment</em> are the most significant gene-sets (=the lowest FDR value). Many gene-sets from the top of this list are related to each other and have genes in common.</p>
+<p><img src="Can_Module8/images/gp15b.png" alt="workflow" width="50%" /></p>
+<hr />
+</div>
+<div id="step-8-optional-but-recommended-1" class="section level3 hasAnchor">
+<h3>Step 8 (Optional but recommended)<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-8-optional-but-recommended-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>8a. Download the pathway database files.</p>
+<ul>
+<li>Go to the top of the page and expand the “Data sources” tab. Click on the ‘combined name.gmt’ link located at bottom of this tab. It will download a file named <em>combined name.gmt</em> containing a pathway database gmt file with all the available sources.</li>
+</ul>
+<p align="center">
+<img src="Can_Module8/images/gp12.png" alt="workflow" width="60%" />
+</p>
+<div class="rmd-note">
+<p>
+you will be using this optional gprofiler_full_hsapiens.name.gmt file
+in Cytoscape EnrichmentMap.
+</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="exercise-2" class="section level2 hasAnchor">
+<h2>Exercise 2 - Cytoscape/EnrichmentMap<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="goal-of-the-exercise-6" class="section level2 hasAnchor">
+<h2>Goal of the exercise<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#goal-of-the-exercise-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Create an enrichment map and navigate through the network</strong></p>
+<p>During this exercise, you will learn how to create an enrichment map from gene-set enrichment results. The enrichment results chosen for this exercise are generated using g:Profiler but an enrichment map can be created directly from output from <a href="http://software.broadinstitute.org/gsea/index.jsp">GSEA</a>,
+<a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>,
+<a href="http://great.stanford.edu/public/html/">GREAT</a>,
+<a href="http://apps.cytoscape.org/apps/bingo">BinGo</a>, <a href="https://amp.pharm.mssm.edu/Enrichr/">Enrichr</a> or alternately from any gene-set tool using the generic enrichment results format.</p>
+</div>
+<div id="data-7" class="section level2 hasAnchor">
+<h2>Data<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#data-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The data used in this exercise is pathway enrichment result from the list of genes that we found in cluster 3 in <a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#can-module8-exercise-1">exercise 1</a>.
+Pathway enrichment analysis has been run using g:Profiler and the results have been downloaded as a GEM format.</p>
+</div>
+<div id="enrichmentmap-2" class="section level2 hasAnchor">
+<h2>EnrichmentMap<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#enrichmentmap-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>A circle (node) is a gene-set (pathway) enriched in genes that we used as input in g:Profiler (frequently mutated genes).</p></li>
+<li><p>edges (lines) represent genes in common between 2 pathways (nodes).</p></li>
+<li><p>A cluster of nodes represent overlapping and related pathways and may represent a common biological process.</p></li>
+<li><p>Clicking on a node will display the genes included in each pathway.</p></li>
+</ul>
+</div>
+<div id="description-of-this-exercise-1" class="section level2 hasAnchor">
+<h2>Description of this exercise<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#description-of-this-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We run and saved g:Profiler result.
+An enrichment map represents the result of enrichment analysis as a network where significantly enriched gene-sets that share a lot of genes in common will form identifiable clusters. The visualization of the results as these biological themes will ease the interpretation of the results.</p>
+<p>The goal of this exercise is to learn how to:</p>
+<ol style="list-style-type: decimal">
+<li>upload g:Profiler results into Cytoscape EnrichmentMap to create a map.</li>
+<li>learn how to navigate through Cytoscape EnrichmentMap and interpret the results.</li>
+</ol>
+</div>
+<div id="start-the-exercise-3" class="section level2 hasAnchor">
+<h2>Start the exercise<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#start-the-exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Two files are needed for this exercise:</p>
+<ol style="list-style-type: decimal">
+<li>Enrichment result: <a href="./Can_Module8/data/Cluster3_noEIA_gProfiler.gem.txt">Cluster3_noEIA_gProfiler.gem.txt</a></li>
+</ol>
+<ul>
+<li>In g:Profiler, the parameters that we used to generate this file were:
+<ul>
+<li>GO_BP no electronic annotation,</li>
+<li>Reactome,</li>
+<li>Wikipathways</li>
+<li>Benjamini-HochBerg FDR 0.05</li>
+<li>gene-set size from 10 to 500
+Note: this file is similar to the one that you have created in exercise 1. Use this link to follow exercise 2.</li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Pathway database 1 (.gmt):<a href="./Can_Module8/data/gprofiler_full_hsapiens.name.gmt">gprofiler_full_hsapiens.name.gmt</a></li>
+</ol>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
 </p>
 <p>
-For example my url is -
-<a href="https://meme-suite.org/meme/info/status?service=MEMECHIP&amp;id=appMEMECHIP_5.3.31620409506563-973419203" class="uri">https://meme-suite.org/meme/info/status?service=MEMECHIP&amp;id=appMEMECHIP_5.3.31620409506563-973419203</a>
-<br>
+Place it in the corresponding module directory of your
+pathway_analysis folder on your computer.
 </p>
+</div>
+<div id="step-1-2" class="section level3 hasAnchor">
+<h3>Step 1<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Launch Cytoscape and open the EnrichmentMap App</p>
+<p>1a. Double click on Cytoscape icon</p>
+<p>1b. Open EnrichmentMap App</p>
+<ul>
+<li><p>In the Cytoscape top menu bar:</p></li>
+<li><p>Click on Apps -&gt; EnrichmentMap</p></li>
+</ul>
 <p align="center">
+<img src="Can_Module8/images/EM1.png" alt="workflow" width="60%" />
+</p>
+<ul>
+<li>A ‘Create Enrichment Map’ window is now opened.</li>
+</ul>
+</div>
+<div id="step-2-2" class="section level3 hasAnchor">
+<h3>Step 2<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create an enrichment map from 1 dataset and with a gmt file.</p>
+<p>2a. In the ‘Create Enrichment Map’ window, drag and drop the enrichment file <a href="./Can_Module8/data/Cluster3_noEIA_gProfiler.gem.txt">Cluster3_noEIA_gProfiler.gem.txt</a>.
+Tip: if drag and drop does not work, you can click ‘…’ next to enrichments and upload the file. The analysis type needs to be set to generic/gprofiler.</p>
+<p><img src="Can_Module8/images/gem0.png" alt="workflow" width="100%" /></p>
+<p>2b. On the right side, go to the <em>GMT</em> field, click on the 3 radio button (…) and locate the file gprofiler_full_hsapiens.name.gmt that you have saved on your computer to upload it.</p>
+<p>2c. Locate the <em>FDR q-value cutoff</em> field and set the value to 0.01</p>
+<p>2d. Click on <em>Build</em>.</p>
+<p><img src="Can_Module8/images/gem1.png" alt="workflow" width="100%" /></p>
+<ul>
+<li>a status bar should pop up showing progress of the Enrichment map build.</li>
+</ul>
+<p align="center">
+<img src="Can_Module8/images/gp16.png" alt="workflow" width="60%"/>
+</p>
+</div>
+<div id="step-3-explore-detailed-results" class="section level3 hasAnchor">
+<h3>Step 3: Explore Detailed results<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-3-explore-detailed-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>In the Cytoscape menu bar, select ‘View” and ’Show Graphic Details’ to display node labels.</li>
+</ul>
+<div class="rmd-caution">
 <p>
-<img src="Module5/chipseqlab/chipseqlab_image/meme11.png" alt="resulting file" width="50%" />
+Make sure you have unselected “Publication Ready” in the
+EnrichmentMap control panel.
 </p>
 </div>
 <ul>
-<li>MEME-ChIP will run for about 1 hour:
+<li><p>Zoom in to be able to read the labels and navigate the network using the bird eye view (blue rectangle).</p></li>
+<li><p>Select a node and visualize the <em>Table Panel</em></p>
 <ul>
-<li>look at the results below from the MEME-chip result,</li>
-<li>try to answer the questions and follow next steps.</li>
-<li>Check your MEME-ChIP results at the end of the practical lab.</li>
+<li>Click on a node; Click on Dummy column. Genes with a green box are genes in the Cluster3 gene list and the selected pathway.</li>
 </ul></li>
-<li>When your job is complete you should see the following page on your saved link:</li>
 </ul>
-<p align="center">
-<p><img src="Module5/chipseqlab/chipseqlab_image/meme12.png" alt="jobs results page" width="50%" /></p>
-<ul>
-<li>results of the top motifs that were found significantly enriched in the peak sequences.<br></li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme13.png" alt="" />
-<p class="caption">meme13</p>
 </div>
-<div class="rmd-question">
+<div id="step-4-optional-autoannotate-the-enrichment-map" class="section level3 hasAnchor">
+<h3>Step 4 [OPTIONAL]: AutoAnnotate the enrichment map<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-4-optional-autoannotate-the-enrichment-map" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>move the the nodes and clusters apart of each other by selecting them and moving them around.</p></li>
+<li><p>In the Cytoscape menu bar, select Apps –&gt; AutoAnnotate –&gt; New Annotation Set…</p></li>
+<li><p>An “AutoAnnotate: Create Annotation Set” window opens. In “Advanced” tab, check “Create singleton clusters” and click on “Create Annotations”.</p></li>
+</ul>
+<p><img src="Can_Module8/images/EM2.png" alt="workflow" width="60%"/></p>
+<p>Tips for formatting:</p>
+<ul>
+<li>In the <em>AutoAnnotate Display</em> window located on the right side, uncheck <em>Scale font by cluster size</em> and check <em>Word Wrap</em>.</li>
+</ul>
+<p><img src="Can_Module8/images/EM3.png" alt="workflow" width="60%"/></p>
+<p>Tip: if you are having difficulty separating nodes/clusters, you can hold shift and click and drag a square around a nodes of interest to highlight them, then move them all at once.</p>
+<div class="rmd-caution">
 <p>
-To which transcription factor does it correspond? <br> Why is the
-centered distribution of the motif important (what does it mean)?
+SAVE YOUR CYTOSCAPE SESSION (.cys) FILE !
 </p>
 </div>
 </div>
 </div>
-<div id="exercise-6-optional-get-the-iregulon-runx1-targets-and-find-the-mouse-orthologs-using-gorth-from-gprofiler-to-create-the-gmt-file-used-in-exercise-4." class="section level2 hasAnchor">
-<h2>Exercise 6 (optional): Get the iRegulon RUNX1 targets and find the mouse orthologs using g:Orth (from g:Profiler) to create the gmt file used in Exercise 4.<a href="regulatory_network_chipseq_lab.html#exercise-6-optional-get-the-iregulon-runx1-targets-and-find-the-mouse-orthologs-using-gorth-from-gprofiler-to-create-the-gmt-file-used-in-exercise-4." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>In Cytoscape, locate “App” in the menu bar and select “iRegulon” and then “Query TF-target database”</li>
-</ul>
-<p align="center">
-<p><img src="Module5/chipseqlab/chipseqlab_image/iregulon1.png" alt="iregulon" width="50%" /></p>
-<ul>
-<li>A “Query TF-target database for a factor” dialog box opens.
-<ul>
-<li>Enter “RUNX1” in the <em>Transcription Factor</em> field and</li>
-<li>in <em>Network</em>, set “Number nodes (approx.)” to 200.</li>
-<li>Click on <em>Submit</em></li>
-</ul></li>
-</ul>
-<p align="center">
-<p><img src="Module5/chipseqlab/chipseqlab_image/iregulon2.png" alt="iregulon" width="75%" /></p>
-<ul>
-<li>To arrange the style,
-<ul>
-<li>go to the Cytoscape menu bar and select <em>Layout</em> –&gt; <em>yFiles Organic Layout</em>.</li>
-<li>Go the Cytoscape menu and select <em>View</em> –&gt; <em>Always Show Graphic Details</em> to see the gene names.</li>
-</ul></li>
-<li>Below the network in the Table Panel:
-<ul>
-<li>click on <em>Node Table</em> and</li>
-<li>click on the <em>Export Table to File…</em> icon.</li>
-<li>Click on <em>OK</em>.</li>
-</ul></li>
-</ul>
-<p align="center">
-<p><img src="Module5/chipseqlab/chipseqlab_image/iregulon3.png" alt="iregulon" width="75%" /></p>
-<ul>
-<li><p>A File <em>Metatargetome for RUNX1_1 default node.csv</em> is now saved to your computer.</p></li>
-<li><p>Open the file <em>Metatargetome for RUNX1_1 default node.csv</em> and</p>
-<ul>
-<li>copy the gene list.</li>
-<li>Open g:Profiler/g:orth at <a href="https://biit.cs.ut.ee/gprofiler/orth" class="uri">https://biit.cs.ut.ee/gprofiler/orth</a>.<br />
-</li>
-<li>Paste the gene list into <em>Query</em> and</li>
-<li>in Options set Organism to Home sapiens and Target to Mus musculus.</li>
-<li>Click on the orange button <em>Run query</em>.</li>
-</ul></li>
-</ul>
-<p align="center">
-<p><img src="Module5/chipseqlab/chipseqlab_image/gorth1.png" alt="gorth1" width="75%" /></p>
-<ul>
-<li>Click on the icon next to the “ortholog name” column to copy the gene list. This is the gene list containing the mouse orthologs of the RUNX1 targets that we used in Exercise 4.</li>
-</ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/gorth2.png" alt="" />
-<p class="caption">gorth2</p>
+<div id="exercise-3" class="section level2 hasAnchor">
+<h2>Exercise 3 [OPTIONAL]- Cytoscape/EnrichmentMap using multiple datasets<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<p><strong>As reference (you don’t need to go through these steps during the practical lab): Analysis of the RUNX1 Affy transcriptomics using GEO2R.</strong></p>
+<div id="goal-of-the-exercise-7" class="section level2 hasAnchor">
+<h2>Goal of the exercise<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#goal-of-the-exercise-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Create an enrichment map and navigate through the network</strong></p>
+<p>During this exercise, you will learn how to create an enrichment map from multiple gene-set enrichment results generated using g:Profiler.</p>
+</div>
+<div id="data-8" class="section level2 hasAnchor">
+<h2>Data<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#data-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Go to the GEO page corresponding to the Affymetrix transcriptomics <a href="data:https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129038" class="uri">data:https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129038</a></li>
-<li>Click on Analyze with GEO2R</li>
-<li>Define your groups and click on Analyze</li>
-<li>Export the table</li>
-<li>Rank the genes using the absolute value of t</li>
-<li>Remove the gene name duplicates</li>
-<li>Select the top 500 genes up regulated using the largest t value and the 500 genes down regulated using the smallest t value</li>
+<li><p>The data used in this exercise is the enrichment results from the list of genes of clusters that we found in clusters 0, 1, 3, 4, 5, 7, and 10 from the single cell RNAseq data.</p></li>
+<li><p>Pathway enrichment analysis has been run using g:Profiler and the results have been downloaded as a GEM format.</p></li>
+<li><p>The gene lists were obtained from differential gene expression analyses comparing cells from each cluster vs. the rest of the cells using Seurat’s function ‘FindAllMarkers(…, only.pos=T, min.pct = 0, return.thresh = 1, logfc.threshold = 0)’. For each cluster, the top 250 genes with FDR value equal or less than 0.05 were retrieved.</p></li>
+<li><p>In g:Profiler, the parameters that we used to generate this file were:</p></li>
+<li><p>GO_BP no electronic annotation,</p></li>
+<li><p>Reactome,</p></li>
+<li><p>Wikipathways</p></li>
+<li><p>Benjamini-HochBerg FDR 0.05</p></li>
+<li><p>gene-set size from 10 to 500</p></li>
+<li><p>Top 50 pathways were selected for further analysis.</p></li>
 </ul>
 </div>
-<div id="end-of-lab" class="section level2 hasAnchor">
-<h2>End of Lab<a href="regulatory_network_chipseq_lab.html#end-of-lab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Congratulations!!</p>
+<div id="start-the-exercise-4" class="section level2 hasAnchor">
+<h2>Start the exercise<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#start-the-exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Download the files needed for this exercise on your computer:</p>
+<ul>
+<li><a href="./Can_Module8/data/Cluster0_gProfiler50.gem.txt">Cluster0_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster1_gProfiler50.gem.txt">Cluster1_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster3_gProfiler50.gem.txt">Cluster3_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster4_gProfiler50.gem.txt">Cluster4_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster5_gProfiler50.gem.txt">Cluster5_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster7_gProfiler50.gem.txt">Cluster7_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster10_gProfiler50.gem.txt">Cluster10_gProfiler50.gem.txt</a></li>
+</ul>
+<p>Launch Cytoscape and open the EnrichmentMap App</p>
+<div id="step-1-3" class="section level3 hasAnchor">
+<h3>Step 1<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>1a. Double click on Cytoscape icon</p>
+<p>1b. Open EnrichmentMap App</p>
+<ul>
+<li><p>In the Cytoscape top menu bar:</p></li>
+<li><p>Click on Apps -&gt; EnrichmentMap</p></li>
+</ul>
+<p align="center">
+<img src="Can_Module8/images/EM1.png" alt="workflow" width="60%" />
+</p>
+<ul>
+<li>A ‘Create Enrichment Map’ window is now opened.</li>
+</ul>
+</div>
+<div id="step-2-3" class="section level3 hasAnchor">
+<h3>Step 2<a href="module-6-lab-2--scrna-glioblastoma-scrna-gprofiler-lab.html#step-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create an enrichment map from multiple datasets.</p>
+<p>2a. In the ‘Create Enrichment Map’ window, drag and drop the enrichment files</p>
+<ul>
+<li><a href="./Can_Module8/data/Cluster0_gProfiler50.gem.txt">Cluster0_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster1_gProfiler50.gem.txt">Cluster1_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster3_gProfiler50.gem.txt">Cluster3_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster4_gProfiler50.gem.txt">Cluster4_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster5_gProfiler50.gem.txt">Cluster5_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster7_gProfiler50.gem.txt">Cluster7_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster10_gProfiler50.gem.txt">Cluster10_gProfiler50.gem.txt</a></li>
+</ul>
+<p>2b. Locate the <em>FDR q-value cutoff</em> field and set the value to 0.05</p>
+<p>2c. Click on <em>Build</em>.</p>
+<p><img src="Can_Module8/images/em2_1.png" alt="workflow" width="100%" /></p>
+<ul>
+<li>a status bar should pop up showing progress of the Enrichment map build.</li>
+</ul>
+<p>2d. Once the map is build, locate the EnrichmentMap tab on the right and set <em>Chart Data</em> to <em>Color by Data Set</em>. You can also check “publication ready” to remove node labels.</p>
+<p align="center">
+<img src="Can_Module8/images/em2_2.png" alt="workflow" width="100%" />
+</p>
+<p>2e. Change the color of each data set so it corresponds to the single cell RNAseq UPMAP plot</p>
+<ul>
+<li>Locate the EnrichmentMap tab on the right and click on <em>Change colors…</em></li>
+</ul>
+<p align="center">
+<img src="Can_Module8/images/em2_4.png" alt="workflow" width="100%" />
+</p>
+<ul>
+<li>Adjust the colors so it corresponds approximately to the single cell RNAseq UMAP plot (see top of the document for reference).</li>
+</ul>
+<p align="center">
+<img src="Can_Module8/images/em2_5.png" alt="workflow" width="50%" />
+</p>
+<ul>
+<li>View of the map:</li>
+</ul>
+<p align="center">
+<img src="Can_Module8/images/em2_6.png" alt="workflow" width="100%" />
+</p>
+<p>On this view, the nodes of the same colors were grouped by selecting and moving the nodes and clusters of interest.</p>
+<p>Tip: To finalize the map, it could be further auto-annotated (see step execise 2). If there are too many annotated clusters, the clusters can be merged (select the nodes of interest, right click on a blanc space, select Apps –&gt; AutoAnnotate - Create Cluster).</p>
+<p align="center">
+<img src="Can_Module8/images/em2_7.png" alt="workflow" width="100%" />
+</p>
+Legend:
+<p align="center">
+<img src="Can_Module8/images/em2_8.png" alt="workflow" width="40%" />
+</p>
+<div id="section" class="section level60">
+<p class="heading"></p>
+<p>Cytoscape file:</p>
+<ul>
+<li><a href="./Can_Module8/data/scRNAgprofiler.cys">scRNAgprofiler.cys</a></li>
+</ul>
 
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -1168,8 +1092,8 @@ centered distribution of the motif important (what does it mean)?
           </div>
         </div>
       </div>
-<a href="intro-regulatory-networks.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="regulatory_network_lab.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="scRNA-lab1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scNetViz-lab.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1204,11 +1128,11 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": "https://github.com/BaderLab/CBW_Pathways_2023/commit/master/7.1-Optional_chIP-seq_lab.Rmd",
+"link": "https://github.com/BaderLab/CBW_Pathways_2023/commit/master/6.2-Module6_scRNAlab_glioblastoma.Rmd",
 "text": null
 },
 "view": {
-"link": "https://github.com/BaderLab/CBW_Pathways_2023/master/7.1-Optional_chIP-seq_lab.Rmd",
+"link": "https://github.com/BaderLab/CBW_Pathways_2023/master/6.2-Module6_scRNAlab_glioblastoma.Rmd",
 "text": null
 },
 "download": ["CBW_Pathways.epub"],

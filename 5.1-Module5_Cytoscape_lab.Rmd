@@ -314,3 +314,58 @@ copy "PDPK1" in the search box and the node will be highlighted in yellow.
 look at GeneMANIA help pages when you run an analysis on your own after the workshop: <http://pages.genemania.org/help/>.
 ```
 
+
+## EXERCISE 4 (OPTIONAL): Discover the stringApp
+stringApp imports functional associations or physical interactions between protein-protein and protein-chemical pairs from STRING, Viruses.STRING, STITCH, DISEASES and from PubMed text mining into Cytoscape. 
+Users provide a list of one or more gene, protein, compound, disease, or PubMed queries, the species, the network type, and a confidence score and stringApp queries the database to return the matching network. 
+
+
+Currently, five different queries are supported:
+* STRING: protein query -- enter a list of protein names (e.g. gene symbols or UniProt identifiers/accession numbers) to obtain a STRING network for the proteins
+* STRING: PubMed query -- enter a PubMed query and utilize text mining to get a STRING network for the top N proteins associated with the query
+* STRING: disease query -- enter a disease name to retrieve a STRING network of the top N proteins associated with the specified disease
+* STITCH: protein/compound query -- enter a list of protein or compound names to obtain a network for them from STITCH
+* STRING: cross-species query -- choose two species to obtain a STRING network between and within the proteins of the interacting species
+
+## Data
+Let's use the prostate cancer gene list that we used in exercise 1.
+*	[30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt)
+
+## Steps
+* Open Cytoscape 
+* Make sure strinApp is installed. Go to menu, Apps, App Manager. Go to 'Install Apps' if necessary.
+* In Cytoscape, locate the **Network** tab and select **STRING**, **STRING: protein query** by clicking the down arrow.
+
+<img src="./Module6/stringlab/SL1.png" alt="start" width="70%" />
+
+* Copy and paste the [30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt) in the blank field and click on the search button.
+
+<img src="./Module6/stringlab/SL2.png" alt="start" width="70%" />
+
+* Observe the network that has been created.
+The genes from our list are connected by predicted protein-protein interactions.
+
+<img src="./Module6/stringlab/SL3.png" alt="start" width="70%" />
+
+* On the right side of the Cytoscape window, locate and expand the *STRING* tab.
+ * Make sure that the **Nodes** tab is selected.
+  * Play with parameters on the top fields: *Glass ball effect*, *STRING style labels*, etc... and observe the changes on the network.
+  * Select a node and look at the gene details in the **Selected nodes** tab.
+  * Try the **Functional enrichment** and observe the resuls in the **STRING Enrichment** table located below the network.
+
+<img src="./Module6/stringlab/SL4.png" alt="start" width="70%" />
+  
+ * Select the **Edges** tab.
+  * The **score** slide bar enables to select the interactions with the strongest prediction scores.
+  * The **Subscore** table traces the source of the predicted interactions using several evidence scores.
+
+<img src="./Module6/stringlab/SL5.png" alt="start" width="70%" />
+  
+## More STRING information and tutorials:
+*Reference: https://apps.cytoscape.org/apps/stringapp
+*Tutorial: https://cytoscape.org/cytoscape-tutorials/protocols/stringApp/#/
+
+
+
+
+
