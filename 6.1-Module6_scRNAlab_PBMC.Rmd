@@ -18,7 +18,7 @@ It is for your reference.
 
 ## Pmbc3k Seurat Pipeline 
 Here is the Seurat pipeline that we followed to prepare data for the practical lab.
-Do not run. This for you reference only.
+Do not run. This is for you reference only.
 
 ## load libraries
 ```{r eval=FALSE}
@@ -29,7 +29,9 @@ library(patchwork)
 
 ## Load the PBMC dataset
 ```{r eval=FALSE}
-pbmc.data <- Read10X(data.dir = "../data/pbmc3k/filtered_gene_bc_matrices/hg19/")
+pbmc.data <- Read10X(data.dir = 
+                       "../data/pbmc3k/filtered_gene_bc_matrices/hg19/")
+
 # Initialize the Seurat object with the raw (non-normalized data).
 pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", 
                                 min.cells = 3, min.features = 200)
@@ -39,9 +41,11 @@ pbmc
 ## Process the dataset
 ```{r eval=FALSE}
 pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
-pbmc <- NormalizeData(pbmc, normalization.method = "LogNormalize", scale.factor = 10000)
+pbmc <- NormalizeData(pbmc, normalization.method = "LogNormalize", 
+                      scale.factor = 10000)
 pbmc <- NormalizeData(pbmc)
-pbmc <- FindVariableFeatures(pbmc, selection.method = "vst", nfeatures = 2000)
+pbmc <- FindVariableFeatures(pbmc, selection.method = "vst", 
+                             nfeatures = 2000)
 
 all.genes <- rownames(pbmc)
 pbmc <- ScaleData(pbmc, features = all.genes)
@@ -58,11 +62,13 @@ DimPlot(pbmc, reduction = "umap")
 ## Assign cell type identity to clusters
 For this dataset, we use canonical markers to match clusters to known cell types:    
 ```{r eval=FALSE}
-new.cluster.ids <- c("Naive CD4 T", "CD14+ Mono", "Memory CD4 T", "B", "CD8 T", 
-                                "FCGR3A+ Mono","NK", "DC", "Platelet")
+new.cluster.ids <- c("Naive CD4 T", "CD14+ Mono", 
+                     "Memory CD4 T", "B", "CD8 T", 
+                      "FCGR3A+ Mono","NK", "DC", "Platelet")
 names(new.cluster.ids) <- levels(pbmc)
 pbmc <- RenameIdents(pbmc, new.cluster.ids)
-DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 0.5) + NoLegend()
+DimPlot(pbmc, reduction = "umap", label = TRUE, pt.size = 0.5) 
+                                                  + NoLegend()
 
 ```
 <img src="./scRNAlab/images/scRNAlab2.png" alt="generate rank" width="75%" />
@@ -95,11 +101,15 @@ In order to do that, we have extracted each cluster gene list from the [pbmc.mar
 
 ```{r eval=FALSE}
 #modify the names of some of the clusters to get rid of spaces and symbols
-pbmc.markers$cluster = gsub("Naive CD4 T", "Naive_CD4_T", pbmc.markers$cluster)
-pbmc.markers$cluster = gsub("CD14\\+ Mono", "CD14pMono", pbmc.markers$cluster)
-pbmc.markers$cluster = gsub("Memory CD4 T", "Memory_CD4_T", pbmc.markers$cluster)
+pbmc.markers$cluster = gsub("Naive CD4 T", "Naive_CD4_T", 
+                            pbmc.markers$cluster)
+pbmc.markers$cluster = gsub("CD14\\+ Mono", "CD14pMono", 
+                            pbmc.markers$cluster)
+pbmc.markers$cluster = gsub("Memory CD4 T", "Memory_CD4_T", 
+                            pbmc.markers$cluster)
 pbmc.markers$cluster = gsub("CD8 T", "CD8_T", pbmc.markers$cluster)
-pbmc.markers$cluster = gsub("FCGR3A\\+ Mono", "FCGR3Ap_Mono", pbmc.markers$cluster)
+pbmc.markers$cluster = gsub("FCGR3A\\+ Mono", "FCGR3Ap_Mono", 
+                            pbmc.markers$cluster)
 
 #get the set of unique cluster names
 cluster_list = unique(pbmc.markers$cluster)
@@ -143,40 +153,43 @@ For this practical lab, we will use the platelet gene list to enriched pathways 
   1.  In the *Gene Ontology* category, check  *GO Biological Process* and *No electronic GO annotations*.
   1.  In the *biological pathways* category, check *Reactome* and check *WikiPathways*.
   1.  Click on the *Run query* button to run g:Profiler. <br><img src="./scRNAlab/images/scRNAlab4.png" alt="generate rank" width="75%" />
-  1.  Save the results
-    * In the *Detailed Results* panel, select "GEM" . 
-    * keep the minimum term size set to 10 
-    * set maximum term size to 500 
-    * This will save the results in a text file in the "Generic Enrichment Map" format that we will use to visualize in Cytoscape.<br><img src="./scRNAlab/images/scRNAlab5.png" alt="generate rank" width="75%" />
+  1.  Save the results<br>
+      * In the *Detailed Results* panel, select "GEM" . 
+      * keep the minimum term size set to 10 
+      * set maximum term size to 500 
+      * This will save the results in a text file in the "Generic Enrichment Map" format that we will use to visualize in Cytoscape.<br><img src="./scRNAlab/images/scRNAlab5.png" alt="generate rank" width="75%" />
+  1. Download the pathway database files.<br>
+      * Go to the top of the page and expand the "Data sources" tab. Click on the 'combined name.gmt' link located at bottom of this tab. It will download a file named *combined name.gmt* containing a pathway database gmt file with all the available sources. 
   1. Rename the file to [gProfiler_platelet.txt](./scRNAlab/data/gProfiler_platelet.txt)
 
 ## Create an enrichment map in Cytoscape
   1. Open Cytoscape
-  1. Go to Apps -> EnrichmentMap
+  1. Go to **Apps** -> **EnrichmentMap**
   1. Select the EnrichmentMap and click on the + sign to open the app.<br><img src="./scRNAlab/images/scRNAlab6a.png" alt="generate rank" width="75%" />
-  1. Drag and drop the g:Profiler file ([gProfiler_platelet.txt](./scRNAlab/data/gProfiler_platelet.txt))
+  1. Drag and drop the g:Profiler file ([gProfiler_platelet.txt](./scRNAlab/data/gProfiler_platelet.txt)) and the gmt file ([gprofiler_full_hsapiens.name.gmt](./scRNAlab/data/gprofiler_full_hsapiens.name.gmt))
   1. Set **FDR q-value cutoff** to 0.001
   1. Click on **Build**<br><img src="./scRNAlab/images/scRNAlab6.png" alt="generate rank" width="75%" />
-  1. An enrichment map is created:<br><img src="./scRNAlab/images/scRNAlab7.png" alt="generate rank" width="75%" />
+  1. An enrichment map is created:<br><img src="./scRNAlab/images/scRNAlab7a.png" alt="generate rank" width="75%" />
   1. For clarity, you can use the AutoAnnotate app to annotate and cluster the enrichment map.
-  1. In Cytoscape menu , go to Apps, AutoAnnotate, New Annotation Set...
-  1. A dialog box opens, click on **OK**<br><img src="./scRNAlab/images/scRNAlab8.png" alt="generate rank" width="100%" />
+  1. In Cytoscape menu , go to **Apps**,--> **AutoAnnotate**,--> **New Annotation Set...**
+  1. A dialog box opens, click on **OK**<br><img src="./scRNAlab/images/scRNAlab8a.png" alt="generate rank" width="100%" />
 
 ```{block, type="rmd-note"}
-The boxes **Palette** and **Word Wrap** have been selected. The clusters have been moved around for clarity.
+The boxes **Palette**, **Scale Font by cluster size** and **Word Wrap** have been selected. The clusters have been moved around for clarity.
 ```
 
-### GSEA from pseudobulk
-#### pseudobulk creation, differential expression and rank file
+## GSEA from pseudobulk
+### pseudobulk creation, differential expression and rank file
 
 We also can create pseudobulk data from the scRNA data by summing all cells into defined groups. We used the clusters to group the cells and we calculate  differential expression using edgeR. We compare the CD4 cells (Naive CD4 T and Memory CD4 T) and the monocytic cells (CD14+ Mono and "FCGR3A+ Mono) .
+
 As shown in [module 3](#gsea_mod3), in order to perform pathway analysis,we prepare a rank file, run GSEA and create an enrichment map in Cytoscape.
 
 * Data:
   * rank file: [CD4vsMono.rnk](./scRNAlab/data/CD4vsMono.rnk)
   * gmt file:  [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt)
  
-### run GSEA:
+## run GSEA:
   1. Open GSEA
   1. Select **Load Data**
   1. Drag and Drop the rank  [CD4vsMono.rnk](./scRNAlab/data/CD4vsMono.rnk) and gmt * [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt) files.
@@ -195,9 +208,9 @@ As shown in [module 3](#gsea_mod3), in order to perform pathway analysis,we prep
 Use 2000 permutations and MAX_Size to 1000 for your own analysis. You can decide to further reduce MAX_Size to 500 or 200. 
 ```
  
-### Create an EnrichmentMap:
+## Create an EnrichmentMap:
   1. Open Cytoscape
-  1. In Apps, select EnrichmentMap
+  1.  Go to **Apps** -> **EnrichmentMap**
   1. Select the EnrichmentMap tab, click on the + sign. A **Create Enrichment Map** windows pops up.
   1. Drag and drop the GSEA folder in the **Data Sets** window. It automatically populates the fields.
   1. Set the **FDR q-value cutoff** to 0.01 

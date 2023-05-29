@@ -438,7 +438,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="module-6-review-of-the-tools.html"><a href="module-6-review-of-the-tools.html#integrated-assignment"><i class="fa fa-check"></i>Integrated assignment</a></li>
 <li class="chapter" data-level="" data-path="module-6-review-of-the-tools.html"><a href="module-6-review-of-the-tools.html#integrated-assignment-bonus"><i class="fa fa-check"></i>Integrated assignment bonus</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html"><i class="fa fa-check"></i>Module 6 lab 1: scRNA data downstream analysis</a>
+<li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html"><i class="fa fa-check"></i>Module 6 lab 1: scRNA PBMC</a>
 <ul>
 <li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#pmbc3k-seurat-pipeline"><i class="fa fa-check"></i>Pmbc3k Seurat Pipeline</a></li>
@@ -450,12 +450,13 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#create-gene-list-for-each-cluster-to-use-with-gprofiler-do-not-run-code"><i class="fa fa-check"></i>Create Gene list for each cluster to use with g:Profiler (Do not run code)</a></li>
 <li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#data-gene-lists-for-each-cluster"><i class="fa fa-check"></i>Data (gene lists for each cluster)</a></li>
 <li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#run-pathway-enrichment-analysis-using-gprofiler"><i class="fa fa-check"></i>Run pathway enrichment analysis using g:Profiler</a></li>
-<li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#create-an-enrichment-map-in-cytoscape"><i class="fa fa-check"></i>Create an enrichment map in Cytoscape</a>
+<li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#create-an-enrichment-map-in-cytoscape"><i class="fa fa-check"></i>Create an enrichment map in Cytoscape</a></li>
+<li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#gsea-from-pseudobulk"><i class="fa fa-check"></i>GSEA from pseudobulk</a>
 <ul>
-<li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#gsea-from-pseudobulk"><i class="fa fa-check"></i>GSEA from pseudobulk</a></li>
+<li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#pseudobulk-creation-differential-expression-and-rank-file"><i class="fa fa-check"></i>pseudobulk creation, differential expression and rank file</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#run-gsea"><i class="fa fa-check"></i>run GSEA:</a></li>
 <li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html#create-an-enrichmentmap"><i class="fa fa-check"></i>Create an EnrichmentMap:</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><i class="fa fa-check"></i>Module 6 lab 2- scRNA pathway analysis using g:Profiler {#scRNA gprofiler-lab}</a>
 <ul>
@@ -494,7 +495,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-2-3"><i class="fa fa-check"></i>Step 2</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html"><i class="fa fa-check"></i>Module 6 lab 3: ScNetViz with Single Cell RNASeq data</a>
+<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html"><i class="fa fa-check"></i>Module 6 lab 3: scRNA ScNetViz</a>
 <ul>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#introduction-4"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#goal-of-the-practical-lab"><i class="fa fa-check"></i>Goal of the practical lab</a></li>
@@ -622,13 +623,13 @@ div.csl-indent {
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
 <div id="introduction-3" class="section level2 hasAnchor">
 <h2>Introduction<a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#introduction-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Performing Over-Representation Analysis (ORA) with <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>.
+<p>Performing Over-Representation Analysis (ORA) with scRNA data in <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>.
 Visualizing the results using Cytoscape/Enrichmentmap.</p>
-<p>The practical lab contains 2 exercises. The first exercise uses <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> to perform gene-set enrichment analysis.</p>
+<p>The practical lab contains 2 exercises. The first exercise uses <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> to perform gene-set enrichment analysis. The second exercise uses Cytoscape and EnrichmentMap to help interpret the results created in exercise 1.</p>
 </div>
 <div id="goal-of-the-exercise-1-1" class="section level2 hasAnchor">
 <h2>Goal of the exercise 1<a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#goal-of-the-exercise-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Learn how to run <em>g:GOSt Functional profiling</em> from the g:Profiler website and explore the results.</p>
+<p>Revisit how to run <em>g:GOSt Functional profiling</em> from the g:Profiler website and explore the results.</p>
 </div>
 <div id="data-6" class="section level2 hasAnchor">
 <h2>Data<a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#data-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>

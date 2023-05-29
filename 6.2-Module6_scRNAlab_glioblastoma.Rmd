@@ -1,17 +1,17 @@
-# Module 6 lab 2- scRNA glioblastoma {#scRNA gprofiler-lab}
+# Module 6 lab 2- scRNA pathway analysis using g:Profiler {#scRNA gprofiler-lab}
 
 **This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
  
 ## Introduction
 
-Performing Over-Representation Analysis (ORA) with [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost).
+Performing Over-Representation Analysis (ORA) with scRNA data in  [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost).
 Visualizing the results using Cytoscape/Enrichmentmap.
 
-The practical lab contains 2 exercises. The first exercise uses [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) to perform gene-set enrichment analysis. 
+The practical lab contains 2 exercises. The first exercise uses [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) to perform gene-set enrichment analysis.  The second exercise uses Cytoscape and EnrichmentMap to help interpret the results created in exercise 1. 
 
 ## Goal of the exercise 1
 
-Learn how to run *g:GOSt Functional profiling* from the g:Profiler website and explore the results.
+Revisit how to run *g:GOSt Functional profiling* from the g:Profiler website and explore the results.
 
 ## Data
 
