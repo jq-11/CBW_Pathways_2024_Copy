@@ -26,67 +26,67 @@ Place it in the corresponding module directory of your CBW work directory.
 Network layouts are flexible and can be rearranged. What you see when you perform these exercises may not be identical to what you see in the tutorial, or what you have seen other times that you have performed the exercises. Exact layouts and predictions can also be affected by updates to the networks database that GeneMANIA uses. However it is expected that the network weights and predicted genes will be similar to those shown here. 
 ```
 
-## EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW
+## EXERCISE 1: Searching GeneMANIA with single gene
 
-1)	Imagine that you are interested in exploring the function of the human GRN gene: GRN returned as the strongest hit from your omics experiment but not much information about this gene is available in functional databases. Use GeneMANIA to identify its predicted function as well as potential interaction partners. 
+Imagine that you are interested in exploring the function of the human GRN gene: GRN returned as the strongest hit from your omics experiment but not much information about this gene is available in functional databases. Use GeneMANIA to identify its predicted function as well as potential interaction partners. 
 
-**Skills**
-* GeneMANIA Single Gene search
-* Navigating Search Results
-* Exploring  available Genes features
-* Rerun a new analysis using a single gene or multiple genes queried from the network.
+**Skills**:
 
-### STEPS
+  * GeneMANIA Single Gene search
+  * Navigating Search Results
+  * Exploring  available Genes features
+  * Rerun a new analysis using a single gene or multiple genes queried from the network.
 
-1. Open Cytoscape.
+**Steps**<br>
 
-2. In the network tab Locate the Network search bar located at the top of the *Control Panel*.  Make sure that the database selected is GeneMANIA
-<img src="./Module6/genemania/images/Genemania.png" width="75%" />
+  1. Open Cytoscape.
 
+  1. In the network tab Locate the Network search bar located at the top of the *Control Panel*.  Make sure that the database selected is GeneMANIA<br><img src="./Module6/genemania/images/Genemania.png" width="75%" />
 
-3. In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module6/genemania/images/Up.png).  
+  1. In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module6/genemania/images/Up.png).  
 
-4. Enter the following gene: GRN	
+  1. Enter the following gene in the GeneMANIA search bar: GRN	
 
-5. Click on the search icon ![search](./Module6/genemania/images/Search.png) and wait for the results.	
+  1.  Click on the search icon ![search](./Module6/genemania/images/Search.png) and wait for the results.	<br><img src="./Module6/genemania/images/gc_1.1.png" alt="gc_1.1.png" width="750" />
 
-<img src="./Module6/genemania/images/gc_1.1.png" alt="gc_1.1.png" width="750" />
-
-6. When your search results load, examine the network. Genes you searched which are indicated in black, related genes added by GeneMANIA are represented in gray, and colored links represent the interactions that connect the nodes (genes). 
-
-<img src="./Module6/genemania/images/GC2.png" alt="GC2.png" width="750" />
+  1. When your search results load, examine the network. Genes part of the query set are indicated in black, related genes added by GeneMANIA are represented in gray, and colored links represent the interactions that connect the nodes (genes). <br><img src="./Module6/genemania/images/GC2.png" alt="GC2.png" width="750" />
 
 ```{block, type="rmd-tip"}
 zoom in and zoom out using trackpad or mouse scrolling up and down.
 ```
 
-7. Locate the *Functions* summary tab in Results Panel. What are the functions significantly associated with this network?  GRN is the central node of this network: which function would you predict for GRN? How well did GeneMANIA perform (hints: use GeneCards (<http://www.genecards.org/>) , PubMed (<http://www.ncbi.nlm.nih.gov/pubmed/>))?	
+  <ol start=7 type="1"><li>Locate the *Functions* summary tab in Results Panel. <br><img src="./Module6/genemania/images/GC3.png" alt="GC3.png" width="750" /></ol>
+  
+  **Questions**:<br>
+    * What are the functions significantly associated with this network?  
+    * GRN is the central node of this network: which function would you predict for GRN? 
+    * How well did GeneMANIA perform? (hints: use GeneCards (<http://www.genecards.org/>) , PubMed (<http://www.ncbi.nlm.nih.gov/pubmed/>))?	
 
-<img src="./Module6/genemania/images/GC3.png" alt="GC3.png" width="750" />
 
-## ANSWERS
+### ANSWERS
 
-**Question** What are the functions significantly associated with this network? 
+**Question** What are the functions significantly associated with this network? <br>
 **Answer** the list of the functions associated with the network are listed in the above screenshot. The top 2 pathways are "vacuolar lumen" and "primary lysosome" and are significant under a FDR threshold less than 0.005. 
 
-**Question** GRN is the central node of this network: which function would you predict for GRN?  
+**Question** GRN is the central node of this network: which function would you predict for GRN?<br>  
 **Answer** : a function related to lysosome and vacuole
 
-**Question** How well did GeneMANIA perform (hints: use GeneCards (http://www.genecards.org/) , PubMed (http://www.ncbi.nlm.nih.gov/pubmed/))?
+**Question** How well did GeneMANIA perform (hints: use GeneCards (http://www.genecards.org/) , PubMed (http://www.ncbi.nlm.nih.gov/pubmed/))?<br>
 **Answer** 
 The top functions predicted by GeneMANIA for GRN were related to lysosome and vacuole.  A pubmed search could confirm these results: “We experimentally verified that granulin precursor (GRN) gene, whose mutations cause frontotemporal lobar degeneration, is involved in lysosome function.” (Transcriptional gene network inference from a massive dataset elucidates transcriptome organization and gene function. Belcastro et al. Nucleic Acids Res. 2011 Nov 1;39(20):8677-88. 2011. PMID:21785136)
 
 
-8. Locate the genes with the strongest associations with GRN. 
+<ol start=8 type="1"><li>Locate the genes with the strongest associations with GRN.</ol> 
 ```{block, type="rmd-tip"}
-These genes are the largest nodes on the network. 	
+These genes are the largest nodes in the network. 	
 
 ```
 **Answer is SLP1 and SORT1**
 
-9. Re-run an analysis by adding SORT1, SLP1 to the search.   Type 'SORT1' and 'SLP1' in the search box that already contains 'GRN' (one gene per line).  Click on the search button.  Which functions are associated with this new network?
+<ol start=9 type="1"><li>Re-run an analysis by adding SORT1, SLP1 to the search.   Type 'SORT1' and 'SLP1' in the search box that already contains 'GRN' (one gene per line).  Click on the search button.</ol>  <br><img src="./Module6/genemania/images/gc_1.9.png" alt="gc_1.9.png" width="750" />
+  
+**Question**:Which functions are associated with this new network?
 
-<img src="./Module6/genemania/images/gc_1.9.png" alt="gc_1.9.png" width="750" />
 
 <img src="./Module6/genemania/images/GC9b.png" alt="GC9b.png" width="750" />
 
@@ -97,170 +97,151 @@ These genes are the largest nodes on the network.
 
 **A paper describing the interaction between GRN and SORT1 and demonstrates how finding related genes could be relevant for elaborating therapy:**
  
-Targeted manipulation of the sortilin–progranulin axis rescues progranulin haploinsufficiency. Lee et al. Hum Mol Genet. 2014 March 15; 23(6): 1467–1478. Published online 2013 October 26. doi: 10.1093/hmg/ddt534. PMCID:PMC3929086
+[Targeted manipulation of the sortilin–progranulin axis rescues progranulin haploinsufficiency. Lee et al. Hum Mol Genet. 2014 March 15; 23(6): 1467–1478. PMCID:PMC3929086](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3929086/)<br>
 “Progranulin (GRN) mutations causing haploinsufficiency are a major cause of frontotemporal lobar degeneration (FTLD-TDP). Recent discoveries demonstrating sortilin (SORT1) is a neuronal receptor for PGRN endocytosis and a determinant of plasma PGRN levels portend the development of enhancers targeting the SORT1–PGRN axis. We demonstrate the preclinical efficacy of several approaches through which impairing PGRN's interaction with SORT1 restores extracellular PGRN levels. “
 
-![GM11](./Module6/genemania/images/GM11.png) 
+![](./Module6/genemania/images/GM11.png) 
 
-10. Save the  network as an image by clicking on **File**, **Export**, **Network to Image...** and setting the **Export File Format** to "PDF(\*.pdf)".
-
-<img src="./Module6/genemania/images/GC10.png" alt="GC10.png" width="500" />
+<ol start=10 type="1"><li>Save the  network as an image by clicking on **File**, **Export**, **Network to Image...** and setting the **Export File Format** to "PDF(\*.pdf)".<br><img src="./Module6/genemania/images/GC10.png" alt="GC10.png" width="500" />
 
 ---
 
 ---
 
-## EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW
+## EXERCISE 2: Searching GeneMANIA with gene list
 
-To start this exercise, you need to download the [30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt) file from the course wiki and save it on your computer. 
+To start this exercise, you need to download the [30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt) file and save it on your computer. 
 
 For this exercise, you are working with a list of 30 prostate cancer genes. This list was downloaded from the cBioPortal website (<http://www.cbioportal.org/>). The cBioPortal for Cancer Genomics stores genomic data from large scale, integrated cancer genomic data sets. During this exercise, you will explore the types of networks that have been used to create the GeneMANIA network from the prostate cancer gene list and you will see how changing input parameters can affect the results. The last step of the exercise consists of uploading a custom network which is a list of genes that are positively correlated with CYP11B1 in mRNA expression data of 94 prostate cancer samples (<http://www.cbioportal.org/>) .
 
-**Skills**: GeneMANIA search using a gene list; Navigating Search Results; Exploring  Networks and advanced options; Uploading a custom network. 
+**Skills**: <br>
 
-### STEPS
+  * GeneMANIA search using a gene list; 
+  * Navigating Search Results; 
+  * Exploring  Networks and advanced options; 
+  * Uploading a custom network. 
 
-1.  Open Cytoscape.
+**Steps**<br>
 
-2.  Locate the GeneMANIA search window located on the left side in *Control Panel*. 
+  1. Open Cytoscape.
 
-3.	Copy and paste genes in the file [30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt).  Make sure that the parameter 'Max resultant genes' is set to '20' by clicking on the menu button ![options](./Module6/genemania/images/options.png) at the right side of the search box and selecting 'Customise advanced options'.	
+  1. Locate the GeneMANIA search window located on the left side in *Control Panel*. 
 
-4.	Click on the search icon ![search](./Module6/genemania/images/Search.png) and wait for the results.	 
+  1. Copy and paste genes in the file [30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt)
+      * Make sure that the parameter 'Max resultant genes' is set to '20' by clicking on the menu button ![options](./Module6/genemania/images/options.png) at the right side of the search box and selecting 'Customise advanced options'.	
 
+  1. Click on the search icon ![search](./Module6/genemania/images/Search.png) and wait for the results.	 <br><img src="./Module6/genemania/images/gc_2_4.png" alt="gc_2_4.png" width="750" />
+``
+  1. When your search results load, examine the network. Query genes are indicated in black, related genes added by GeneMANIA are represented in gray, and colored links represent the interactions that connect the nodes (genes). Move nodes around by selecting them with a mouse to investigate how they are connected.<br><img src="./Module6/genemania/images/GC2_5.png" alt="GC2_5.png" width="750" />
 
-<img src="./Module6/genemania/images/gc_2_4.png" alt="gc_2_4.png" width="750" />
+  1. Click any link (edge) connecting two nodes to highlight information about it. The information about the interaction is display in the *Edge Table* located in *Table Panel* (at the bottom) in the *networks* and *data type* columns. 
+      * **Note**: Clicking on an edge between 2 nodes will display information about all interaction networks that connect  these 2 nodes. 
+      * It indicates the reference (publication) for these interactions. 
+      * The colors indicate the type of interaction (co-expression, shared protein domains, co-localization, physical interactions and predicted). <br><img src="./Module6/genemania/images/gc_2.6.png" alt="gc_2.6.png" width="750" />
 
-```{block, type="rmd-tip"}
-check that the parameter 'Max resultant genes' is set to '20':
-```
-
-
-5.	When your search results load, examine the network. Genes you searched with are indicated in black, related genes added by GeneMANIA are represented in gray, and colored links represent the interactions that connect the nodes (genes). Move nodes around by selecting them with a mouse to investigate how they are connected.
-	
-<img src="./Module6/genemania/images/GC2_5.png" alt="GC2_5.png" width="750" />
-
-6.	Click any link (edge) connecting two nodes to highlight information about it. The information about the interaction is display in the *Edge Table* located in *Table Panel* (at the bottom) in the *networks* and *data type* columns. **Note**: Clicking on an edge between 2 nodes will display information about all interaction networks that connect  these 2 nodes. It indicates the reference (publication) for these interactions. The colors indicate the type of interaction (co-expression, shared protein domains, co-localization, physical interactions and predicted). 
-
-<img src="./Module6/genemania/images/gc_2.6.png" alt="gc_2.6.png" width="750" />
-
-
-7.	Locate and expand the 'Networks' summary tab  in *Results Panel* (on the right) and look at what data has been used to create the network and predictions. **Note** that Co-expression (purple colored lines, weight over 25%) and Shared protein domains (lightgold colored lines, weight over 30%) influence the results the most, but Co-localization (blue colored lines), Physical interactions (salmon colored lines) and Predicted (orange) data are also included. At the top of the Networks summary tab, use the menu button ![options](./Module6/genemania/images/options.png) and try Expand “All, then “Top-Level” and “None”  to get information about the sources of the different networks. 
-
-<img src="./Module6/genemania/images/GC2_7.png" alt="GC2_7.png" width="550" />
+  1. Locate and expand the 'Networks' summary tab  in *Results Panel* (on the right) and look at what data has been used to create the network and predictions. 
+      * **Note** that Co-expression (purple colored lines, weight over 25%) and Shared protein domains (lightgold colored lines, weight over 30%) influence the results the most, but Co-localization (blue colored lines), Physical interactions (salmon colored lines) and Predicted (orange) data are also included. 
+      * At the top of the Networks summary tab, use the menu button ![options](./Module6/genemania/images/options.png) and try Expand “All, then “Top-Level” and “None”  to get information about the sources of the different networks. <br><img src="./Module6/genemania/images/GC2_7.png" alt="GC2_7.png" width="550" />
 
 ```{block, type="rmd-tip"}
-These observations of the number of connections make it easier to understand why co-expression and shared protein domains get the higher percent weight on this network: they are helping to connect more genes than physical interactions and predicted; A higher weight means that this network helped more to find related genes. 	
+The observations of the number of connections makes it easier to understand why co-expression and shared protein domains have the highest percent weight for this network: they are helping to connect more genes than physical interactions and predicted interactions; A higher weight means that this network contributed more to finding related genes. 	
 ```
 
-8.	Highlight all connections corresponding to each network by clicking the name of each network category.
-* Click on  “Shared protein domains” and see which genes are connected by predicted protein protein interaction. 
-
-<img src="./Module6/genemania/images/GC2_8a.png" alt="GC2_8a.png" width="750" />
-
-* You can do the same for “Co-localization” , “Co-expression”  and “Physical interactions”. 
-
-<img src="./Module6/genemania/images/GC2_8b.png" alt="GC2_8b.png" width="750" />
-
-9.	Locate the Functions summary tab and look at what functions were significantly enriched in this list of prostate genes.	
-
-The top pathway with the strongest enrichments is: "oxidoreductase activity, acting on CH-OH group of donors" with 28 genes in the prostate cancer list overlapping with this pathway.
-The FDR is equal to 6.4e-46.
-
-<img src="./Module6/genemania/images/GC2_9.png" alt="GC2_9.png" width="750" />
+<ol start=8 type="1"><li>Highlight all connections corresponding to each network by clicking the name of each network category.</ol>
+  
+  * Click on  “Shared protein domains” and see which genes are connected by predicted protein protein interaction. <br><img src="./Module6/genemania/images/GC2_8a.png" alt="GC2_8a.png" width="750" />
+  * You can do the same for “Co-localization” , “Co-expression”  and “Physical interactions”. <br><img src="./Module6/genemania/images/GC2_8b.png" alt="GC2_8b.png" width="750" />
 
 
-10.	“Shared protein domains” is an important part of the network. What would be the GeneMANIA results if we don’t include this source when we run GSEA? Go back to the 'Network' tab on the right side of the Cytoscape window to fin d the GeneMania search bar. Click on  the option menu button ![options](./Module6/genemania/images/options.png) which is located at the right of the search box. Uncheck ‘Shared protein domains’ and click on a point outside the box to close it. Click on the search icon ![search](./Module6/genemania/images/Search.png). Explore the results.
-	
-<img src="./Module6/genemania/images/GC2_10a.png" alt="GC2_10a.png" width="750" />
+<ol start=9 type="1"><li>Locate the Functions summary tab and look at what functions were significantly enriched in this list of prostate genes.	</ol>
+
+  * The top pathway with the strongest enrichments is: "oxidoreductase activity, acting on CH-OH group of donors" with 28 genes in the prostate cancer list overlapping with this pathway.
+  * The FDR is equal to 6.4e-46.<br><img src="./Module6/genemania/images/GC2_9.png" alt="GC2_9.png" width="750" />
 
 
-**Answer** If "shared protein domain" is removed, the relationships between the nodes are from the Co-expression, Co-localization, Predicted and Physical interactions networks. The genes added to the network are different compared to the first network created with "Shared protein domain". 
+**Question**:<br>“Shared protein domains” is an important part of the network. What would the GeneMANIA results be if we didn’t include this source when we ran GeneMANIA search?
 
-<img src="./Module6/genemania/images/GC2_10b.png" alt="GC2_10b.png" width="750" />
-
-11.	Locate the Functions summary tab in *Results Panel* and look at what functions were significantly enriched with these new settings.	
-
-**Answer** With the new settings, "hormone biosynthetic process" is the new top enriched pathway. 
-
-
-<img src="./Module6/genemania/images/GC2_11.png" alt="GC2_11.png" width="500" />
+  * Go back to the 'Network' tab on the right side of the Cytoscape window to find the GeneMania search bar. 
+  * Click on  the option menu button ![options](./Module6/genemania/images/options.png) which is located at the right of the search box. 
+  * Uncheck ‘Shared protein domains’ and click on a point outside the box to close it.
+  * Click on the search icon ![search](./Module6/genemania/images/Search.png).
+  * Explore the results.<br><img src="./Module6/genemania/images/GC2_10a.png" alt="GC2_10a.png" width="750" />
 
 
-12.	Try to modify additional parameters like *Max Resultant Genes* or *Network Weighting* and look at how the changes you made influenced the results.  	
+**Answer** <br>If "shared protein domain" is removed, the relationships between the nodes are primarily from the Co-expression, Co-localization, Predicted and Physical interactions networks. The genes added to the network are different compared to the first network created with "Shared protein domain". <br><img src="./Module6/genemania/images/GC2_10b.png" alt="GC2_10b.png" width="750" />
+
+**Question**:<br>Locate the Functions summary tab in *Results Panel* and look at what functions were significantly enriched with these new settings.	
+
+**Answer** <br>With the new settings, "hormone biosynthetic process" is the new top enriched pathway. <br><img src="./Module6/genemania/images/GC2_11.png" alt="GC2_11.png" width="500" />
+
+<ol start=10 type="1"><li>Try to modify additional parameters like *Max Resultant Genes* or *Network Weighting* and look at how the changes you made influenced the results.  </ol>	
 
 
 ---
 
 ---
 
-## EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW
+## EXERCISE 3: Searching GeneMANIA with mixed gene list
 
 To start this exercise, you need to download the [Mixed_gene_list.txt](./Module6/genemania/data/mixed_gene_list.txt) file and save it on your computer. 
 
 For this exercise, you are working on a gene list created by combining 3 user defined gene lists available from the cBioportal (<http://www.cbioportal.org>). It contains genes implicated in the DNA damage response, the PI3K-AKT-mTOR signaling pathway and Folate transport. This list is representative of a gene list obtained from transcriptomics data. During this exercise, we will first characterize our gene list based on functions and then we will add potential drug and microRNAs targeting genes in the network, and we will save the report.
 
 
-**Skills**: GeneMANIA search using a gene list; Navigating Search Results; Exploring  Functions; Adding attributes; Create a report. 
+**Skills**: 
 
-### STEPS  
+  * GeneMANIA search using a gene list; 
+  * Navigating Search Results; 
+  * Exploring  Functions; 
+  * Adding attributes; 
+  * Create a report. 
 
-1.  Open Cytoscape and locate the GeneMANIA search window located on the left side in *Control Panel*. 
+**Steps**<br>
+
+  1.  Before performing the next GeneMANIA search make sure the GeneMANIA parameters are set back to the default values. <br><img src="./Module6/genemania/images/default_params.png"  width="500" />
+
+  1. Open Cytoscape and locate the GeneMANIA search window located on the left side in *Control Panel*. 
+
+  1.	In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module6/genemania/images/Up.png)  .	
+
+  1.	Copy and paste genes in the file [Mixed_gene_list.txt](./Module6/genemania/data/mixed_gene_list.txt). Click on the search icon ![search](./Module6/genemania/images/Search.png) and wait for the results.	Explore the network.<br><img src="./Module6/genemania/images/gc_3_2.png" alt="gc_3_2.png" width="500" />
+
+  1. Locate the Functions summary tab in *Result Panel* and look at functions returned by GeneMANIA.	<br><img src="./Module6/genemania/images/GC3_4.png" alt="GC3_4.png" width="500" />
+
+  1. In the functions summary tab,  check some functions to color genes included in these functions. To follow this tutorial, you can for example color the “response to insulin” , “DNA recombination”  functions.<br><img src="./Module6/genemania/images/GC3_4a.png" alt="GC3_4a.png" width="500" /><br><img src="./Module6/genemania/images/GC3_4b.png" alt="GC3_4b.png" width="500" />
+
+
+  1. Color genes according to their GeneMANIA defined functions:
+      * Go to the **Control Panel** tabs located on the right side of the Cytoscape window and select the **Style** tab.  
+      * In the **Node** panel, expand the **Fill Color** tab.
+      * Set **Column** to **annotation name**.<br><img src="./Module6/genemania/images/gc3_5a.png" alt="gc3_5a.png" width="500" /> 
+      * Locate “DNA recombination”.
+      * Double click on the white space at the right side of the box and click on the 3 dots ![options2](./Module6/genemania/images/options2.png). A **Colors** box appears.
+      * Choose a color of your choice and click on **OK**.<br><img src="./Module6/genemania/images/GC3_5.png" alt="GC3_5.png" width="500" />
+      * Locate “response to insulin”. Double click on the white space at the right side of the box and click on the 3 buttons menu. A **Colors** box appears.
+      * Choose a color of your choice and click on **OK**.<br><img src="./Module6/genemania/images/GC3_5b.png" alt="GC3_5b.png" width="750" />
+
+6.	Locate our favorite gene PDPK1 on the network. 
+      * Click on the icon *First Neighbor of Selected Nodes* ![neighbour](./Module6/genemania/images/neighbour.png). It will highlight this gene and all its connections. <br><img src="./Module6/genemania/images/GC3_6.png" alt="GC3_6.png" width="750" />
+      * Click on the icon *From Selected Nodes, all Edges* ![new network](./Module6/genemania/images/newnetwork.png) to create a subnetwork.<br><img src="./Module6/genemania/images/GC3_6b.png" alt="GC3_6b.png" width="750" />
+      * The resultsing subnetwork will only have the selected nodes from the first network<br><img src="./Module6/genemania/images/GC3_6c.png" alt="GC3_6c.png" width="750" />
+
 ```{block, type="rmd-tip"}
-make sure that GeneMANIA is selected and not String. 
-```
-
-2.	In the search window, ensure that the model organism is set to *Homo sapiens* ![homo](./Module6/genemania/images/Up.png)  .	
-
-3.	Copy and paste genes in the file [Mixed_gene_list.txt](./Module6/genemania/data/mixed_gene_list.txt). Click on the search icon ![search](./Module6/genemania/images/Search.png) and wait for the results.	Explore the network.
-
-<img src="./Module6/genemania/images/gc_3_2.png" alt="gc_3_2.png" width="500" />
-
-4.	Locate the Functions summary tab in *Result Panel* and look at functions returned by GeneMANIA.	
-
-<img src="./Module6/genemania/images/GC3_4.png" alt="GC3_4.png" width="500" />
-
-5.	In the functions summary tab,  check some functions to color genes included in these functions. To follow this tutorial, you can for example color the “response to insulin” , “DNA recombination”  functions.
-
-<img src="./Module6/genemania/images/GC3_4a.png" alt="GC3_4a.png" width="500" />
-
-<img src="./Module6/genemania/images/GC3_4b.png" alt="GC3_4b.png" width="500" />
-
-
-### To color genes 
-* Go to the **Control Panel** tabs located on the right side of the Cytoscape window and select the **Style** tab.  
-* In the **Node** panel, expand the **Fill Color** tab.
-* Set **Column** to **annotation name**. 
-* Locate “DNA recombination”.
-* Double click on the white space at the right side of the box and click on the 3 dots ![options2](./Module6/genemania/images/options2.png). A **Colors** box appears.
-* Choose a color of your choice and click on **OK**.
-* Locate “response to insulin”. Double click on the white space at the right side of the box and click on the 3 buttons menu. A **Colors** box appears.
-* Choose a color of your choice and click on **OK**.
-
-<img src="./Module6/genemania/images/gc3_5a.png" alt="gc3_5a.png" width="500" />
-<img src="./Module6/genemania/images/GC3_5.png" alt="GC3_5.png" width="500" />
-<img src="./Module6/genemania/images/GC3_5b.png" alt="GC3_5b.png" width="750" />
-
-6.	Locate our favorite gene PDPK1 on the network. Click on the icon *First Neighbor of Selected Nodes* ![neighbour](./Module6/genemania/images/neighbour.png). It will highlight this gene and all its connections. Click on the icon *From Selected Nodes, all Edges* ![new network](./Module6/genemania/images/newnetwork.png) to create a subnetwork.
-```{block, type="rmd-tip"}
-copy "PDPK1" in the search box and the node will be highlighted in yellow.
+copy "PDPK1" to the search box, click enter and the node will be highlighted in yellow in the network.
 ```    
 
-<img src="./Module6/genemania/images/GC3_6.png" alt="GC3_6.png" width="750" />
-<img src="./Module6/genemania/images/GC3_6b.png" alt="GC3_6b.png" width="750" />
-<img src="./Module6/genemania/images/GC3_6c.png" alt="GC3_6c.png" width="750" />
 
 ---
 
-## SOME DEFINITIONS:
+## GeneMANIA DEFINITIONS:
 
-**What are the networks: Definition of the types of interaction:**
+**What are the different networks: Definition of the types of interaction:**
 
 *	**Shared domains**: Protein domain data. Two gene products are linked if they have the same protein domain. These data are collected from domain databases, such as InterPro, SMART and Pfam.
 
 *	**Co-localization**: Genes expressed in the same tissue, or proteins found in the same location. Two genes are linked if they are both expressed in the same tissue or if their gene products are both identified in the same cellular location.
 
-*	**Co-expression**: Gene expression data. Two genes are linked if their expression levels are similar across conditions in a gene expression study. Most of these data are collected from the Gene Expression Omnibus (GEO); we only collect data associated with a publication.
+*	**Co-expression**: Gene expression data. Two genes are linked if their expression levels are similar across conditions in a gene expression study. Most of this data is collected from the Gene Expression Omnibus (GEO); we only collect data associated with a publication.
 
 *	**Predicted**: Predicted functional relationships between genes, often protein interactions. A major source of predicted data is mapping known functional relationships from another organism via orthology.
 
@@ -274,7 +255,7 @@ copy "PDPK1" in the search box and the node will be highlighted in yellow.
 
 *	**Node** : circle representing the genes
 
-*	**Edge**: line that links two nodes and represent an interaction between two genes (multiple lines correspond to multiple sources
+*	**Edge**: line that links two nodes and represent an interaction between two genes (multiple lines correspond to multiple sources)
 
 *	**Node size**: Mapped to gene score, i.e. the degree to which GeneMANIA predicts the genes are related
 
@@ -299,9 +280,9 @@ copy "PDPK1" in the search box and the node will be highlighted in yellow.
 
 *	**Network weighting?**  GeneMANIA can use a few different methods to weight networks when combining all networks to form the final composite network that results from a search. The default settings are usually appropriate, but you can choose a weighting method in the advanced option panel. (more details at <http://pages.genemania.org/help/>).
 
-*	**Related genes** : are genes added by GeneMANIA in addition to the genes from the query. It helps to grow the network and then to predict function of the query gene(s).
+*	**Related genes** : are genes added by GeneMANIA in addition to the genes from the query. It helps to expand the network and predict function of the query gene(s).
 
-*	**The attributes**  represent  the differences sources of evidence that can be used to build the network.
+*	**The attributes**  represent the differences sources of evidence that can be used to build the network.
 
 
 **Notes** :
@@ -316,54 +297,48 @@ look at GeneMANIA help pages when you run an analysis on your own after the work
 
 
 ## EXERCISE 4 (OPTIONAL): Discover the stringApp
-stringApp imports functional associations or physical interactions between protein-protein and protein-chemical pairs from STRING, Viruses.STRING, STITCH, DISEASES and from PubMed text mining into Cytoscape. 
+
+[stringApp](https://string-db.org/) imports functional associations or physical interactions between protein-protein and protein-chemical pairs from STRING, Viruses.STRING, STITCH, DISEASES and from PubMed text mining into Cytoscape. 
 Users provide a list of one or more gene, protein, compound, disease, or PubMed queries, the species, the network type, and a confidence score and stringApp queries the database to return the matching network. 
 
 
 Currently, five different queries are supported:
-* STRING: protein query -- enter a list of protein names (e.g. gene symbols or UniProt identifiers/accession numbers) to obtain a STRING network for the proteins
-* STRING: PubMed query -- enter a PubMed query and utilize text mining to get a STRING network for the top N proteins associated with the query
-* STRING: disease query -- enter a disease name to retrieve a STRING network of the top N proteins associated with the specified disease
-* STITCH: protein/compound query -- enter a list of protein or compound names to obtain a network for them from STITCH
-* STRING: cross-species query -- choose two species to obtain a STRING network between and within the proteins of the interacting species
 
-## Data
+  * STRING: protein query -- enter a list of protein names (e.g. gene symbols or UniProt identifiers/accession numbers) to obtain a STRING network for the proteins
+  * STRING: PubMed query -- enter a PubMed query and utilize text mining to get a STRING network for the top N proteins associated with the query
+  * STRING: disease query -- enter a disease name to retrieve a STRING network of the top N proteins associated with the specified disease
+  * STITCH: protein/compound query -- enter a list of protein or compound names to obtain a network for them from STITCH
+  * STRING: cross-species query -- choose two species to obtain a STRING network between and within the proteins of the interacting species
+
+**Data** 
+
 Let's use the prostate cancer gene list that we used in exercise 1.
-*	[30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt)
 
-## Steps
-* Open Cytoscape 
-* Make sure strinApp is installed. Go to menu, Apps, App Manager. Go to 'Install Apps' if necessary.
-* In Cytoscape, locate the **Network** tab and select **STRING**, **STRING: protein query** by clicking the down arrow.
+  *	[30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt)
 
-<img src="./Module6/stringlab/SL1.png" alt="start" width="70%" />
+**Steps**:<br>
 
-* Copy and paste the [30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt) in the blank field and click on the search button.
+  1. Open Cytoscape 
+  1. Make sure strinApp is installed. Go to menu, Apps, App Manager. Go to 'Install Apps' if necessary.
+  1. In Cytoscape, locate the **Network** tab and select **STRING**, **STRING: protein query** by clicking the down arrow.<br><img src="./Module6/stringlab/SL1.png" alt="start" width="70%" />
 
-<img src="./Module6/stringlab/SL2.png" alt="start" width="70%" />
+  1. Copy and paste the [30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt) in the blank field and click on the search button.<br><img src="./Module6/stringlab/SL2.png" alt="start" width="70%" />
 
-* Observe the network that has been created.
-The genes from our list are connected by predicted protein-protein interactions.
+  1. Observe the network that has been created. The genes from our list are connected by predicted protein-protein interactions.<br><img src="./Module6/stringlab/SL3.png" alt="start" width="70%" />
 
-<img src="./Module6/stringlab/SL3.png" alt="start" width="70%" />
-
-* On the right side of the Cytoscape window, locate and expand the *STRING* tab.
- * Make sure that the **Nodes** tab is selected.
-  * Play with parameters on the top fields: *Glass ball effect*, *STRING style labels*, etc... and observe the changes on the network.
-  * Select a node and look at the gene details in the **Selected nodes** tab.
-  * Try the **Functional enrichment** and observe the resuls in the **STRING Enrichment** table located below the network.
-
-<img src="./Module6/stringlab/SL4.png" alt="start" width="70%" />
+  1. On the right side of the Cytoscape window, locate and expand the *STRING* tab.
+  1. Make sure that the **Nodes** tab is selected.
+       * Play with parameters on the top fields: *Glass ball effect*, *STRING style labels*, etc... and observe the changes on the network.
+       * Select a node and look at the gene details in the **Selected nodes** tab.
+       * Try the **Functional enrichment** and observe the resuls in the **STRING Enrichment** table located below the network.<br><img src="./Module6/stringlab/SL4.png" alt="start" width="70%" />
   
- * Select the **Edges** tab.
-  * The **score** slide bar enables to select the interactions with the strongest prediction scores.
-  * The **Subscore** table traces the source of the predicted interactions using several evidence scores.
-
-<img src="./Module6/stringlab/SL5.png" alt="start" width="70%" />
+  1. Select the **Edges** tab.
+      * The **score** slide bar enables to select the interactions with the strongest prediction scores.
+      * The **Subscore** table traces the source of the predicted interactions using several evidence scores.<br><img src="./Module6/stringlab/SL5.png" alt="start" width="70%" />
   
 ## More STRING information and tutorials:
-*Reference: https://apps.cytoscape.org/apps/stringapp
-*Tutorial: https://cytoscape.org/cytoscape-tutorials/protocols/stringApp/#/
+* Reference: https://apps.cytoscape.org/apps/stringapp
+* Tutorial: https://cytoscape.org/cytoscape-tutorials/protocols/stringApp/#/
 
 
 
