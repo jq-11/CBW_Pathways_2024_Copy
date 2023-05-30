@@ -221,7 +221,7 @@ This RUNX1 study had transcriptomics data (microarray) in addition to the chIP-s
 ### step 4a: post analysis:
 * Go to the EnrichmentMap tab 
 * Make sure that the Distal_GOBP_greatExportAll network is selected.
-* click on “Add Signature Gene Sets…”.
+* click on **Options...** --> **Add Signature Gene Sets…**.
 
 ![Figure 21 - Add Signature sets](./Module5/chipseqlab/chipseqlab_image/PA01.png)
 
@@ -241,7 +241,7 @@ The 3 gene-sets are now added to the map. Each line (edge) shows pathways that h
 
 ![Figure 23 - Select adjacent edges](./Module5/chipseqlab/chipseqlab_image/pa1.png)
 
-* Go to “Style” and in the “Edge” table, in the bypass column Byp. , click on the box and select a color.
+* Go to “Style” and in the “Edge” table, next to "Stroke Color (Unselected)" click in the bypass column Byp. , click on the box and select a color.
 
 ![Figure 24 - Bypass selected edge color](./Module5/chipseqlab/chipseqlab_image/pa2.png)
 
