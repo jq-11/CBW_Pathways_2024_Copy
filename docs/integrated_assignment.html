@@ -507,10 +507,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-3-save-as-generic-enrichment-map-output-ne"><i class="fa fa-check"></i>PART 3: save as Generic Enrichment Map output (NE)</a></li>
 <li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-4-create-an-enrichment-map"><i class="fa fa-check"></i>PART 4: create an enrichment map</a></li>
 <li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#answers-gprofiler"><i class="fa fa-check"></i>Answers g:Profiler</a></li>
-<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-5-gsea-run-and-create-an-enrichment-map"><i class="fa fa-check"></i>PART 5: GSEA (run and create an enrichment map)</a>
-<ul>
-<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#answers-gsea"><i class="fa fa-check"></i>Answers GSEA</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-5-gsea-run-and-create-an-enrichment-map"><i class="fa fa-check"></i>PART 5: GSEA (run and create an enrichment map)</a></li>
 <li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-6-iregulon"><i class="fa fa-check"></i>PART 6: iRegulon</a></li>
 <li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#dataset-2"><i class="fa fa-check"></i>DATASET 2</a></li>
 <li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html#part-1-reactomefi"><i class="fa fa-check"></i>PART 1: ReactomeFI</a>
@@ -614,7 +611,7 @@ div.csl-indent {
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
 <div id="goal" class="section level2 hasAnchor">
 <h2>Goal<a href="integrated_assignment.html#goal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Familiarize yourself with g:Profiler, GSEA , EnrichmentMap using the Esophageal adenocarcinoma gene expression data (DATASET 1).</p>
+<p>Familiarize yourself with g:Profiler, GSEA, EnrichmentMap using the Esophageal adenocarcinoma gene expression data (DATASET 1).</p>
 <p>Familiarize yourself with ReactomeFI and GeneMANIA using a mutation data (DATASET 2).</p>
 <div class="rmd-note">
 <p>
@@ -674,7 +671,6 @@ those shown here.
 <li><p>Open Cytoscape</p></li>
 <li><p>Go: Apps and click on EnrichmentMap. A ‘Create Enrichment Map’ dialog box appears.</p></li>
 <li><p>Drag and Drop the 2 g:Profiler result files in the ‘Data Sets:’ window. It populated automatically two data sets on for the BE results and one for the NE results. Make sure that for the 2 datasets the ‘Analysis Type’ is set to ‘Generic/gProfiler/enrichr’ and that the g:Profiler result file has been correctly uploaded in the ‘Enrichments’ field.</p></li>
-<li><p>As ‘Network Name’, uncheck ‘Use Default’ and write “BEvsNE” or the name of your choice for this network.</p></li>
 <li><p>Set the ‘FDR q-value cutoff’ to 0.05.</p></li>
 <li><p>‘Build’ the map.</p></li>
 <li><p>If successful, you will see a network where each node represents a pathway and edges connect pathways with shared genes. Blue edges connect nodes from dataset1 (BE in my case) and Green edges connect nodes from dataset2 (NE in my case).</p></li>
@@ -684,7 +680,7 @@ those shown here.
 <p><img src="IntegratedAssignment/images/gprofiler_EMinput.png" alt="gprofiler_EMinput.png" width="750" /></p>
 <p><img src="IntegratedAssignment/images/IAgprofiler1_2021.png" alt="IAgprofiler1_2021.png" width="750" /></p>
 <p><img src="IntegratedAssignment/images/IAgprofiler2_2021.png" alt="IAgprofiler2_2021.png" width="750" /></p>
-<ol start="11" style="list-style-type: decimal">
+<ol start="10" style="list-style-type: decimal">
 <li><p>Try different layouts if you’d like. Zoom in and move nodes around to be able to read the labels.</p></li>
 <li><p>Select a node of your choice. When the node is highlighted, the ‘EM Heat Map’ in ‘Table Panel’ will display the genes in this pathway that are overlapping with your input gene list. A gray square means that the gene is absent in the dataset.
 Note: you also could create and upload an expression file when you build the enrichment map, and the expression values for each gene in the pathways will be displayed here in the ‘EM Heat Map’.</p></li>
@@ -699,7 +695,7 @@ Note: you also could create and upload an expression file when you build the enr
 <p><strong>Question</strong>: What is the most significant <a href="GO:term" class="uri">GO:term</a>? What is the p-value for this <a href="GO:term" class="uri">GO:term</a></p>
 <p><img src="IntegratedAssignment/images/gprofilerresultGOv2.png" alt="gprofilerresultGOv2.png" width="750" />
 Note: you might get slightly different results compared to the screenshot if the pathway database has been updated.</p>
-<p><strong>Answer</strong>: extracellular matrix/structure organization</p>
+<p><strong>Answer</strong>: digestion</p>
 <p><strong>Question</strong>: Is this p-value already corrected for multiple testing? What type of correction is used for your current analysis?</p>
 <p><strong>Answer</strong>: yes, it is already corrected for multiple hypothesis testing. I set the Significance threshold box to “Benjaminin-Hochberg FDR”.</p>
 <p>Re-run the analysis with User p-value threshold set to 0.0001.</p>
@@ -743,26 +739,24 @@ For time reasons - Use 100 permutations for the lab exercise but use
 <p>Optional: Autoannotate your map (see below screenshot for results)
 Note: you may get slightly different results as 100 permutations is not enough to get reliable results. It is better to use 1000 permuatations.</p>
 <p><img src="IntegratedAssignment/images/IA_gsea_em.png" alt="IA_gsea_em.png" width="750" /></p>
-<div id="answers-gsea" class="section level3 hasAnchor">
-<h3>Answers GSEA<a href="integrated_assignment.html#answers-gsea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
 </div>
 <div id="part-6-iregulon" class="section level2 hasAnchor">
 <h2>PART 6: iRegulon<a href="integrated_assignment.html#part-6-iregulon" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li>Export extracellular matrix genes.</li>
+<li>Export the collagen and extracellular matrix genes.</li>
 </ol>
 <ul>
-<li>Using your GSEA map at q-value 0.01, select all nodes from the extracellular matrix organization node. Go to Table Panel (below the main window), and click on the menu icon (located on the right, 3 lines) and click on ‘Export as TXT’ (all genes). Save the text file under the name ‘extracellularmatrix_cluster_genes.txt’ or use this file <a href="./IntegratedAssignment/data/extracellular_matrix_organization.txt">extracellular_matrix_organization.txt</a>.</li>
+<li>Using your GSEA map at q-value 0.01, select all nodes from the “collagen interactions organization” module. Go to Table Panel (below the main window), and click on the menu icon (located on the right, 3 lines) and click on ‘Export as TXT’ (all genes). Save the text file under the name ‘collagen_interactions_organization.txt’ or use this file <a href="./IntegratedAssignment/data/collagen_interactions_organization.txt">collagen_interactions_organization.txt</a>.</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
-<li>Import the extracellular matrix genes as a network.</li>
+<li>Import the collagen and extracellular matrix genes as a network.</li>
 </ol>
 <ul>
 <li>In Cytoscape, go to the menu bar and select, File, Import, Network from File…</li>
-<li>Browse your computer and select the ‘extracellular_matrix_organization.txt’ file and click on open.</li>
+<li>Browse your computer and select the ‘collagen_interactions_organization.txt’ file and click on open.</li>
 <li>An ‘Import Network From Table’ window opens and in the table preview, make sure that the ‘Gene’ column is the source node (green dot). Click on ‘OK’. A ‘Confirmation’ dialog box saying that ‘No edges will be created in the network’ opens. Click on ‘Yes’.</li>
 </ul>
+<p><img src="IntegratedAssignment/images/IA_iregulon1.png" alt="IA_iregulon1.png" width="750" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Select nodes and run iRegulon.</li>
 </ol>
@@ -772,6 +766,8 @@ Note: you may get slightly different results as 100 permutations is not enough t
 <li>Click on ‘Submit’.</li>
 <li>Observe the iRegulon results in the Results Panel.</li>
 </ul>
+<p><img src="IntegratedAssignment/images/IA_iregulon2.png" alt="IA_iregulon2.png" width="400" /></p>
+<p><img src="IntegratedAssignment/images/IA_iregulon3.png" alt="IA_iregulon3.png" width="750" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Add TCF12 and BATF to the network.</li>
 </ol>
@@ -822,7 +818,7 @@ Note: you may get slightly different results as 100 permutations is not enough t
 <li>Upload STAD_MutSig.txt and built a network without linkers:</li>
 </ol>
 <p>Note: Choose <strong>2019</strong> to get results comparable to those shown below but use the most uptodate version when analyzing your own data!</p>
-<p><img src="IntegratedAssignment/images/reactome1_2021.png" alt="reactome1_2021.png" width="750" /></p>
+<p><img src="IntegratedAssignment/images/reactome1_2021.png" alt="reactome1_2021.png" width="400" /></p>
 <div class="rmd-note">
 <p>
 The network may look slightly different compared to below screenshot
@@ -895,7 +891,7 @@ taken.
 <p><img src="IntegratedAssignment/images/IAgenemaniasearch2.png" alt="IAgenemaniasearch.png" width="750" /></p>
 <p><img src="IntegratedAssignment/images/genemaniaIP2.png" alt="genemaniaIP2.png" width="750" /></p>
 <p>Screenshot of the output:</p>
-<p><img src="IntegratedAssignment/images/IN_genemania_output.png" alt="genemania_output.png" width="750" /></p>
+<p><img src="IntegratedAssignment/images/IN_genemania_output.png" alt="genemania_output.png" width="500" /></p>
 <div class="rmd-note">
 <p>
 the screenshot only includes nodes connected to other nodes.
@@ -916,11 +912,11 @@ Hint: you can click on a function of your choice to see corresponding nodes high
 <li>Color nodes by function.
 <ul>
 <li>In Control Panel, select the ‘Style’ tab and go to the ‘Node’ panel.</li>
-<li>Expand the ‘Fill Color’ field using the down arrow and set ‘Column’ to ‘annotation name’ which is the top field (/! not ‘annotations’). Select one annotation of your choice by clicking on the white space and choose a color. Repeat for 2 more annotation names. For the current example, we have selected the top 3 enriched GO annotations ‘gamma-catenin binding’, ‘regulation of protein serine/threonine kinase activity’ and ‘adherens junction organization’. Hint: the annotation names are displayed in alphabetical order.</li>
+<li>Expand the ‘Fill Color’ field using the down arrow and set ‘Column’ to ‘annotation name’ which is the top field (/! not ‘annotations’). Select one annotation of your choice by clicking on the white space and choose a color. Repeat for 2 more annotation names. For the current example, we have selected “transmembrane receptor protein kinase activity”, “regulation of protein kinase” , “signaling cell-matrix adhesion”. Hint: the annotation names are displayed in alphabetical order.</li>
 </ul></li>
-<li>Edge width (optional). In Control Panel, go to the ‘Edge’ panel. Expand the ‘Width’ field using the down arrow. A grah is displayed. Double click on the graph to select it and move the left and right handles up. Look at the changes on the network (suggested values are approximately 7 for the left handle and approximately 18 for the right handle). Click on OK.</li>
+<li>Edge width (optional). In Control Panel, go to the ‘Edge’ panel. Expand the ‘Width’ field using the down arrow. A grah is displayed. Double click on the graph to select it and move the left and right handles up. Look at the changes on the network (suggested values are approximately 3 for the left handle and approximately 18 for the right handle). Click on OK.</li>
 </ul>
-<p><img src="IntegratedAssignment/images/IAgenemaniahandle.png" alt="IAgenemaniahandle.png" width="750" /></p>
+<p><img src="IntegratedAssignment/images/IAgenemaniahandle.png" alt="IAgenemaniahandle.png" width="400" /></p>
 <p><img src="IntegratedAssignment/images/genemaniaresult1b.png" alt="genemaniaIP2.png" width="750" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Create a subnetwork containing CTNNB1 and connected genes</li>
@@ -930,16 +926,14 @@ Hint: you can click on a function of your choice to see corresponding nodes high
 <li>Create a subnetwork using the approriate icon.</li>
 <li>How many nodes do contain this subnetwork? Hint: Go to Control Panel, Network and look at the number of nodes corresponding to your subnetwork.</li>
 </ul>
-<p><img src="IntegratedAssignment/images/IAgenemania2.png" alt="IAgenemania2.png" width="750" /></p>
-<p><img src="IntegratedAssignment/images/genemaniaresult2.png" alt="genemaniaIP2.png" width="750" /></p>
-<p>Note: on the above the screenshot, the CCBN1 color of the edges were changed by bypassing the style (select the edges, right click, edit, ByPass Style, Set Bypass to Selected Edges , change color in Byp. column)</p>
+<p><img src="IntegratedAssignment/images/IAgenemania2.png" alt="IAgenemania2.png" width="500" /></p>
+<p><img src="IntegratedAssignment/images/genemaniaresult2.png" alt="genemaniaIP2.png" width="500" /></p>
 <hr />
 <div id="answers-genemania" class="section level3 hasAnchor">
 <h3>Answers GeneMANIA<a href="integrated_assignment.html#answers-genemania" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Question</strong> What is the number of nodes in the CTNBB1 network.</p>
 <p><strong>Answer</strong>
-There are 22 nodes.
-<img src="IntegratedAssignment/images/INA9.png" alt="INA9" width="750" /></p>
+There are 24 nodes.</p>
 <p><strong>Optional part 1: Launch a GeneMANIA search using the “Local Search” option (for big networks)</strong></p>
 <ul>
 <li>In Cytoscape , open the GeneMANIA app and select ‘GeneMANIA Local Search’. Copy and paste the MutSig genes in the ‘Genes of Interest’ field.</li>
@@ -982,7 +976,7 @@ containing more than 200 nodes.
 <li>Explore the network!</li>
 </ul>
 <p><img src="IntegratedAssignment/images/stringinput.png" alt="string.png" width="750" /></p>
-<p><img src="IntegratedAssignment/images/string.png" alt="string_2021.png" width="750" /></p>
+<p><img src="IntegratedAssignment/images/string.png" alt="string_2021.png" width="500" /></p>
 <p>–</p>
 <p>Congratulations! You have reached the end of the integrated assignment.</p>
 

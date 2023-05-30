@@ -7,7 +7,7 @@
 
 ## Goal 
 
- Familiarize yourself with g:Profiler, GSEA , EnrichmentMap using the Esophageal adenocarcinoma gene expression data (DATASET 1).
+ Familiarize yourself with g:Profiler, GSEA, EnrichmentMap using the Esophageal adenocarcinoma gene expression data (DATASET 1).
 
  Familiarize yourself with ReactomeFI and GeneMANIA using a mutation data (DATASET 2).
  
@@ -63,25 +63,23 @@ Generate and save the Generic EnrichmentMap for genes in [NConly_genelist.txt](.
 
 Create an enrichment map to visualize the outputs from g:Profiler. Let's create an EnrichmentMap for the pathways that were enriched by the genes specific of the BE samples and one for the genes specific of the NE samples. 
 
-1. Make sure to rename your g:Profiler results so you know which one is BE and which one is NE. 
+1.  Make sure to rename your g:Profiler results so you know which one is BE and which one is NE. 
 
-2.  Open Cytoscape
+2. Open Cytoscape
 
-3.  Go: Apps and click on EnrichmentMap. A 'Create Enrichment Map' dialog box appears.
+3. Go: Apps and click on EnrichmentMap. A 'Create Enrichment Map' dialog box appears.
 
-4.  Drag and Drop the 2 g:Profiler result files in the 'Data Sets:' window. It populated automatically two data sets on for the BE results and one for the NE results. Make sure that for the 2 datasets the 'Analysis Type' is set to 'Generic/gProfiler/enrichr' and that the g:Profiler result file has been correctly uploaded in the 'Enrichments' field.
+4. Drag and Drop the 2 g:Profiler result files in the 'Data Sets:' window. It populated automatically two data sets on for the BE results and one for the NE results. Make sure that for the 2 datasets the 'Analysis Type' is set to 'Generic/gProfiler/enrichr' and that the g:Profiler result file has been correctly uploaded in the 'Enrichments' field.
 
-5. As 'Network Name', uncheck 'Use Default' and write "BEvsNE" or the name of your choice for this network.
+5. Set the 'FDR q-value cutoff' to 0.05. 
 
-6. Set the 'FDR q-value cutoff' to 0.05. 
+6. 'Build' the map.
 
-7. 'Build' the map.
+7. If successful, you will see a network where each node represents a pathway and edges connect pathways with shared genes. Blue edges connect nodes from dataset1 (BE in my case) and Green edges connect nodes from dataset2 (NE in my case). 
 
-8.  If successful, you will see a network where each node represents a pathway and edges connect pathways with shared genes. Blue edges connect nodes from dataset1 (BE in my case) and Green edges connect nodes from dataset2 (NE in my case). 
+8. In Control Panel and in the 'EnrichmentMap' tab, go to 'Style' (near the bottom) and change the 'Chart Data:' to 'Color by Data Set'. Now the nodes are colored in blue for dataset1 and in green for dataset2. 
 
-9. In Control Panel and in the 'EnrichmentMap' tab, go to 'Style' (near the bottom) and change the 'Chart Data:' to 'Color by Data Set'. Now the nodes are colored in blue for dataset1 and in green for dataset2. 
-
-10. Annotate the network using the AutoAnnotate Apps. 
+9.  Annotate the network using the AutoAnnotate Apps. 
 
 <img src="./IntegratedAssignment/images/gprofiler_EMinput.png" alt="gprofiler_EMinput.png" width="750" />
 
@@ -89,19 +87,18 @@ Create an enrichment map to visualize the outputs from g:Profiler. Let's create 
 
 <img src="./IntegratedAssignment/images/IAgprofiler2_2021.png" alt="IAgprofiler2_2021.png" width="750" />
 
-11.  Try different layouts if you'd like. Zoom in  and move nodes around to be able to read the labels.
+10. Try different layouts if you'd like. Zoom in  and move nodes around to be able to read the labels.
 
-12.   Select a node of your choice. When the node is highlighted, the 'EM Heat Map' in 'Table Panel' will display the genes in this pathway that are overlapping with your input gene list. A gray square means that the gene is absent in the dataset.
+11. Select a node of your choice. When the node is highlighted, the 'EM Heat Map' in 'Table Panel' will display the genes in this pathway that are overlapping with your input gene list. A gray square means that the gene is absent in the dataset.
 Note: you also could create and upload an expression file when you build the enrichment map, and the expression values for each gene in the pathways will be displayed here in the 'EM Heat Map'. 
 
-13.  Click on any edge (the line between nodes). In the 'Table panel' ('EM Heat Map') you should see a heatmap of all genes both gene-sets connected by this edge have in common.
+12. Click on any edge (the line between nodes). In the 'Table panel' ('EM Heat Map') you should see a heatmap of all genes both gene-sets connected by this edge have in common.
 
-14.  Select several nodes and edges. EM Heat map will show the union of all genes (Genes: All) or genes in common (Genes:Common) in the selected gene sets. 
+13. Select several nodes and edges. EM Heat map will show the union of all genes (Genes: All) or genes in common (Genes:Common) in the selected gene sets. 
 
-15.  In Control Panel, go to the EnrichmentMap tab. Change Q-value as well as Edge (Similarity) cutoffs and see how the network changes. Redo the layout. Save the file.
+14. In Control Panel, go to the EnrichmentMap tab. Change Q-value as well as Edge (Similarity) cutoffs and see how the network changes. Redo the layout. Save the file.
 
 **Question** What conclusions can you make based on these networks?
-
 
 
 ## Answers g:Profiler
@@ -111,7 +108,7 @@ Note: you also could create and upload an expression file when you build the enr
 <img src="./IntegratedAssignment/images/gprofilerresultGOv2.png" alt="gprofilerresultGOv2.png" width="750" />
 Note: you might get slightly different results compared to the screenshot if the pathway database has been updated.
 
-**Answer**: extracellular matrix/structure organization
+**Answer**: digestion
 
 
 **Question**: Is this p-value already corrected for multiple testing? What type of correction is used for your current analysis? 
@@ -166,24 +163,30 @@ Note: you may get slightly different results as 100 permutations is not enough t
 
 <img src="./IntegratedAssignment/images/IA_gsea_em.png" alt="IA_gsea_em.png" width="750" />
 
-### Answers GSEA
-
 ## PART 6: iRegulon
 
- 1. Export extracellular matrix genes. 
-  * Using your GSEA map at q-value 0.01, select all nodes from the extracellular matrix organization node. Go to Table Panel (below the main window), and click on the menu icon (located on the right, 3 lines) and click on 'Export as TXT' (all genes). Save the text file under the name 'extracellularmatrix_cluster_genes.txt' or use this file [extracellular_matrix_organization.txt](./IntegratedAssignment/data/extracellular_matrix_organization.txt).
+ 1. Export the collagen and extracellular matrix genes. 
+  * Using your GSEA map at q-value 0.01, select all nodes from the "collagen interactions organization" module. Go to Table Panel (below the main window), and click on the menu icon (located on the right, 3 lines) and click on 'Export as TXT' (all genes). Save the text file under the name 'collagen_interactions_organization.txt' or use this file [collagen_interactions_organization.txt](./IntegratedAssignment/data/collagen_interactions_organization.txt).
  
- 2. Import the extracellular matrix genes as a network.
+ 2. Import the collagen and extracellular matrix genes as a network.
   * In Cytoscape, go to the menu bar and select, File, Import, Network from File... 
-  * Browse your computer and select the 'extracellular_matrix_organization.txt' file and click on open.
+  * Browse your computer and select the 'collagen_interactions_organization.txt' file and click on open.
   * An 'Import Network From Table' window opens and in the table preview, make sure that the 'Gene' column is the source node (green dot). Click on 'OK'. A 'Confirmation' dialog box saying that 'No edges will be created in the network' opens. Click on 'Yes'. 
+  
+<img src="./IntegratedAssignment/images/IA_iregulon1.png" alt="IA_iregulon1.png" width="750" />
+  
   
  3. Select nodes and run iRegulon.
    * If successful, you should see a grid of gray nodes. If you are zoomed out, they might be very faint. Zoom in until you see them, then zoom out until you see all the nodes and select them all using the mouse.
    * Go the Cytoscape menu and select 'Apps', 'iRegulon', 'Predict regulators and targets'. 
    * Click on 'Submit'.
    * Observe the iRegulon results in the Results Panel.
- 
+   
+<img src="./IntegratedAssignment/images/IA_iregulon2.png" alt="IA_iregulon2.png" width="400" />
+
+<img src="./IntegratedAssignment/images/IA_iregulon3.png" alt="IA_iregulon3.png" width="750" />
+  
+   
  4. Add TCF12 and BATF to the network.
    * Go to the "Transcription Factors' tab and click on the first hit (TCF12) to select it.
    * Add it to the network using the green '+' button .
@@ -231,7 +234,7 @@ Create a network using ReactomeFI.
 
 Note: Choose **2019** to get results comparable to those shown below but use the most uptodate version when analyzing your own data!
 
-<img src="./IntegratedAssignment/images/reactome1_2021.png" alt="reactome1_2021.png" width="750" />
+<img src="./IntegratedAssignment/images/reactome1_2021.png" alt="reactome1_2021.png" width="400" />
 
 ```{block, type="rmd-note"}
 The network may look slightly different compared to below screenshot if the underlying database has been updated since the screenshot was taken
@@ -313,7 +316,7 @@ The network may look slightly different compared to below screenshot if the unde
 
 Screenshot of the output:
 
-<img src="./IntegratedAssignment/images/IN_genemania_output.png" alt="genemania_output.png" width="750" />
+<img src="./IntegratedAssignment/images/IN_genemania_output.png" alt="genemania_output.png" width="500" />
 
 ```{block, type="rmd-note"}
 the screenshot only includes nodes connected to other nodes. Singletons are not part of the screenshot.
@@ -328,11 +331,11 @@ Hint: you can click on a function of your choice to see corresponding nodes high
 
  * Color nodes by function. 
    * In Control Panel, select the 'Style' tab and go to the 'Node' panel.
-   * Expand the 'Fill Color' field using the down arrow and set 'Column' to 'annotation name' which is the top field (/!\ not 'annotations'). Select one annotation of your choice by clicking on the white space and choose a color. Repeat for 2 more annotation names. For the current example, we have selected the top 3 enriched GO annotations 'gamma-catenin binding', 'regulation of protein serine/threonine kinase activity' and 'adherens junction organization'. Hint: the annotation names are displayed in alphabetical order. 
+   * Expand the 'Fill Color' field using the down arrow and set 'Column' to 'annotation name' which is the top field (/!\ not 'annotations'). Select one annotation of your choice by clicking on the white space and choose a color. Repeat for 2 more annotation names. For the current example, we have selected "transmembrane receptor protein kinase activity", "regulation of protein kinase" ,  "signaling cell-matrix adhesion". Hint: the annotation names are displayed in alphabetical order. 
  
- * Edge width (optional). In Control Panel, go to the 'Edge' panel. Expand the 'Width' field using the down arrow. A grah is displayed. Double click on the graph to select it and move the left and right handles up. Look at the changes on the network (suggested values are approximately 7 for the left handle and approximately 18 for the right handle). Click on OK.
+ * Edge width (optional). In Control Panel, go to the 'Edge' panel. Expand the 'Width' field using the down arrow. A grah is displayed. Double click on the graph to select it and move the left and right handles up. Look at the changes on the network (suggested values are approximately 3 for the left handle and approximately 18 for the right handle). Click on OK.
  
-<img src="./IntegratedAssignment/images/IAgenemaniahandle.png" alt="IAgenemaniahandle.png" width="750" />
+<img src="./IntegratedAssignment/images/IAgenemaniahandle.png" alt="IAgenemaniahandle.png" width="400" />
 
 
 <img src="./IntegratedAssignment/images/genemaniaresult1b.png" alt="genemaniaIP2.png" width="750" />
@@ -343,13 +346,10 @@ Hint: you can click on a function of your choice to see corresponding nodes high
  * Create a subnetwork using the approriate icon. 
  * How many nodes do contain this subnetwork? Hint: Go to Control Panel, Network and look at the number of nodes corresponding to your subnetwork. 
 
-<img src="./IntegratedAssignment/images/IAgenemania2.png" alt="IAgenemania2.png" width="750" />
+<img src="./IntegratedAssignment/images/IAgenemania2.png" alt="IAgenemania2.png" width="500" />
 
 
-<img src="./IntegratedAssignment/images/genemaniaresult2.png" alt="genemaniaIP2.png" width="750" />
-
-
-Note: on the above the screenshot, the CCBN1 color of the edges were changed by bypassing the style (select the edges, right click, edit, ByPass Style, Set Bypass to Selected Edges , change color in Byp. column)
+<img src="./IntegratedAssignment/images/genemaniaresult2.png" alt="genemaniaIP2.png" width="500" />
 
 ---
 
@@ -358,9 +358,7 @@ Note: on the above the screenshot, the CCBN1 color of the edges were changed by 
 **Question** What is the number of nodes in the CTNBB1 network. 
 
 **Answer**
-There are 22 nodes.
-<img src="./IntegratedAssignment/images/INA9.png" alt="INA9" width="750" />
-
+There are 24 nodes.
 
 
 **Optional part 1: Launch a GeneMANIA search using the "Local Search" option (for big networks)**
@@ -396,7 +394,7 @@ STRING (Search Tool for the Retrieval of Interacting Genes/Proteins) is a biolog
  
 <img src="./IntegratedAssignment/images/stringinput.png" alt="string.png" width="750" />
  
-<img src="./IntegratedAssignment/images/string.png" alt="string_2021.png" width="750" /> 
+<img src="./IntegratedAssignment/images/string.png" alt="string_2021.png" width="500" /> 
 
 --
 

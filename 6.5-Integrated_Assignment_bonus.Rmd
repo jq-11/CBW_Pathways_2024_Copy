@@ -5,7 +5,7 @@
  *<font color="#827e9c">By Ruth Isserlin</font>*
 
 ## Goal of the exercise:
-TEST
+
 Experiment with automating your enrichment analysis pipeline using R.
 
 Using the same technique used in [Module 3 Lab: (Bonus) Automation](#automation) automate the data analysis GSEA portion of the integrated assignment.  
