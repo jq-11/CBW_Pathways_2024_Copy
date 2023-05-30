@@ -313,13 +313,12 @@ exercise-1.-detect-regulons-from-co-expressed-genes
 skills-learned-in-this-exercise
 steps-1
 exercise-2.-create-a-metatargetome-using-iregulon-and-merge-2-networks-in-cytoscape.
-steps-2
 end-of-exercise
-use-or-precomputed-iregulon-results
+use-our-precomputed-iregulon-results
 notes-about-iregulon
 motif-oriented-view
 notes-about-cytoscape
 exercise-3.-use-enrichr-with-the-prostate-gene-list.
 goal-2
-steps-3
+steps-2
 end-of-practical-lab

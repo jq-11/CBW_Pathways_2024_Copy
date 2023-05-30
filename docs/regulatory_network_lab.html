@@ -564,15 +564,14 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#exercise-2.-create-a-metatargetome-using-iregulon-and-merge-2-networks-in-cytoscape."><i class="fa fa-check"></i>Exercise 2. Create a metatargetome using iRegulon and merge 2 networks in Cytoscape.</a>
 <ul>
-<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#steps-2"><i class="fa fa-check"></i>Steps</a></li>
-<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#use-or-precomputed-iregulon-results"><i class="fa fa-check"></i>Use or precomputed iRegulon results:</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#use-our-precomputed-iregulon-results"><i class="fa fa-check"></i>Use our precomputed iRegulon results:</a></li>
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#notes-about-iregulon"><i class="fa fa-check"></i>Notes about iRegulon:</a></li>
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#notes-about-cytoscape"><i class="fa fa-check"></i>Notes about Cytoscape:</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#exercise-3.-use-enrichr-with-the-prostate-gene-list."><i class="fa fa-check"></i>Exercise 3. Use Enrichr with the prostate gene list.</a>
 <ul>
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#goal-2"><i class="fa fa-check"></i>Goal</a></li>
-<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#steps-3"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#steps-2"><i class="fa fa-check"></i>Steps</a></li>
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#end-of-practical-lab"><i class="fa fa-check"></i>end of practical lab</a></li>
 </ul></li>
 </ul></li>
@@ -606,8 +605,14 @@ under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creat
 </div>
 <div id="goal-1" class="section level2 hasAnchor">
 <h2>Goal<a href="regulatory_network_lab.html#goal-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Import a Cytoscape network and apply iRegulon on all the selected nodes. Explore and understand the main output features of iRegulon such as the Transcription target view. Learn how to display predicted targets of a specific transcription factor by creating its metatargetome.</p>
-<p>This practical consists of 2 exercises. Follow the step-by-step checklist trough the exercises. Some notes about iRegulon and information about the output values are written at the end of the document.</p>
+<ul>
+<li>Import a Cytoscape network and apply iRegulon on all the selected nodes.
+<ul>
+<li>Explore and understand the main output features of iRegulon such as the Transcription target view.</li>
+<li>Learn how to display predicted targets of a specific transcription factor by creating its metatargetome.</li>
+</ul></li>
+</ul>
+<p>This practical consists of 2 exercises. Follow the step-by-step checklist through the exercises. Some notes about iRegulon and information about the output values are written at the end of the document.</p>
 <p>Before starting the exercises, download the files:</p>
 <div class="rmd-datadownload">
 <p>
@@ -624,14 +629,14 @@ directory.
 <div class="rmd-note">
 <p>
 in case the iRegulon server is not working, it is possible to work
-with precomputed results. Please look at the instructions at the bottom
+with pre-computed results. Please look at the instructions at the bottom
 of this page.
 </p>
 </div>
 </div>
 <div id="exercise-1.-detect-regulons-from-co-expressed-genes" class="section level2 hasAnchor">
 <h2>Exercise 1. Detect regulons from co-expressed genes<a href="regulatory_network_lab.html#exercise-1.-detect-regulons-from-co-expressed-genes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this exercise, we are using genes frequently mutated in prostate cancer. iRegulon requires a network from the start, and we will use a GeneMANIA network that we previously saved for this purpose. Using iRegulon, we will look for transcription factors (TFs) that may regulate a set of genes in this network.
+<p>In this exercise, we are using genes frequently mutated in prostate cancer. iRegulon requires a network in order to start. We will use a GeneMANIA network that we previously saved for this purpose. Using iRegulon, we will look for transcription factors (TFs) that may regulate a set of genes in this network.
 Note: iRegulon also accepts a simple gene list as input to create the network</p>
 <p>To start this exercise, download to your computer the <a href="./Module5/iregulon/data/prostate_cancer_genemania_network.txt">prostate_cancer_genemania_network.txt</a> file.</p>
 <div id="skills-learned-in-this-exercise" class="section level3 hasAnchor">
@@ -645,31 +650,17 @@ Note: iRegulon also accepts a simple gene list as input to create the network</p
 </ol>
 <p>Double click on the <img src="Module5/iregulon/images/cytoscape.png" alt="Cytoscape icon" />. Cytoscape icon.</p>
 <ol start="2" style="list-style-type: decimal">
-<li>Create a network using the ‘prostate_cancer_genemania_network.txt’ file.</li>
+<li>Create a network using the ‘prostate_cancer_genemania_network.txt’ file.
+<ul>
+<li><p>In the menu bar select ’File &gt; Import &gt; Network from File…. A file open dialog pops up.<br><img src="Module5/iregulon/images/gp1_2a.png" alt="gp1_2a" /></p></li>
+<li><p>Browse and locate the prostate_cancer_genemania_network.txt’ file. Click the ‘Open’ button. An “Import Network From Table” dialog pops up.<br><img src="Module5/iregulon/images/2b.png" alt="2b" /></p></li>
+<li><p>Select the column ‘Entity 1’ .</p></li>
+<li><p>Expand the menu using the arrow on the right and click the green circle button to set this column as ‘Source Node’. <br><img src="Module5/iregulon/images/2c.png" alt="2c" /></p></li>
+<li><p>Select the column ‘Entity 2’.</p></li>
+<li><p>Click the red bullseye to set this column as ‘Target Node’.<br><img src="Module5/iregulon/images/2d.png" alt="2d" /></p></li>
+<li><p>Click the ‘OK’ button.</p></li>
+</ul></li>
 </ol>
-<p>● In the menu bar select ’File &gt; Import &gt; Network &gt;File…. A file open dialog pops up.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/gp1_2a.png" alt="" />
-<p class="caption">gp1_2a</p>
-</div>
-<p>● Browse and locate the prostate_cancer_genemania_network.txt’ file. Click the ‘Open’ button. An “Import Network From Table” dialog pops up.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/2b.png" alt="" />
-<p class="caption">2b</p>
-</div>
-<p>● Select the column ‘Entity 1’ .</p>
-<p>● Expand the menu using the arrow on the right and click the green circle button to set this column as ‘Source Node’.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/2c.png" alt="" />
-<p class="caption">2c</p>
-</div>
-<p>● Select the column ‘Entity 2’.</p>
-<p>● Click the red bullseye to set this column as ‘Target Node’.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/2d.png" alt="" />
-<p class="caption">2d</p>
-</div>
-<p>● Click the ‘OK’ button.</p>
 <p>The main window now displays the created network. Each node represents a gene. Edges represent the relationships (e.g physical interactions, co-expression) between the genes (nodes) that were calculated by GeneMANIA.</p>
 <div class="figure">
 <img src="Module5/iregulon/images/2e.png" alt="" />
@@ -687,27 +678,21 @@ If you only see gray nodes, go to Style and choose default style.
 </p>
 </div>
 <ol start="3" style="list-style-type: decimal">
-<li>Improve the layout.</li>
-</ol>
-<p>● In the menu bar, select Layout &gt; Files Layouts &gt; Organic ( you need to install the yFiles layout algorithms app in Cytoscape app manager)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/gp1_3a.png" alt="" />
-<p class="caption">gp1_3a</p>
-</div>
-<div class="figure">
-<img src="Module5/iregulon/images/gp1_3b.png" alt="" />
-<p class="caption">gp1_3b</p>
-</div>
-<ol start="4" style="list-style-type: decimal">
+<li>Improve the layout.
+<ul>
+<li>In the menu bar, select Layout &gt; yFiles Organic Layout ( you need to install the yFiles layout algorithms app in Cytoscape app manager)<br><img src="Module5/iregulon/images/gp1_3a.png" alt="gp1_3a" /> <br><img src="Module5/iregulon/images/gp1_3b.png" alt="gp1_3b" /></li>
+</ul></li>
 <li>Select all nodes in the network. To do this using the mouse, click shift and drag from an empty space to the left of and above every node to an empty space to the right of and beneath every node. The selected nodes are now colored yellow.</li>
 </ol>
 <p><img src="Module5/iregulon/images/gp1_4.png" alt="workflow" width="60%" /></p>
 <ol start="5" style="list-style-type: decimal">
-<li>In the menu bar, select Apps &gt; iRegulon &gt; Predict regulators and targets.A ‘Predict regulators and targets’ dialog pops up.</li>
+<li>In the menu bar, select Apps &gt; iRegulon &gt; Predict regulators and targets.A ‘Predict regulators and targets’ dialog pops up.
+<ul>
+<li>Using the default parameters, click the ‘Submit’ button at the bottom of the page.A progress bar will pop up.</li>
+<li>Wait until the running analysis is completed (usually less than 1 min). The progress bar will vanish, and a new right panel, “Results Panel” will be added to the main Cytoscape window.</li>
+<li>Deselect all nodes by clicking on a blank space of the screen. The nodes are all cyan again.</li>
+</ul></li>
 </ol>
-<p>● Using the default parameters, click the ‘Submit’ button at the bottom of the page.A progress bar will pop up.</p>
-<p>● Wait until the running analysis is completed (usually less than 1 min). The progress bar will vanish, and a new right panel, “Results Panel” will be added to the main Cytoscape window.</p>
-<p>● Deselect all nodes by clicking on a blank space of the screen. The nodes are all cyan again.</p>
 <div class="figure">
 <img src="Module5/iregulon/images/5a.png" alt="" />
 <p class="caption">5a</p>
@@ -717,10 +702,12 @@ If you only see gray nodes, go to Style and choose default style.
 <p class="caption">5b</p>
 </div>
 <ol start="6" style="list-style-type: decimal">
-<li>Explore the results.</li>
+<li>Explore the results.
+<ul>
+<li>Locate the ‘Results Panel’ on the right side of the window.</li>
+<li>Click on the ‘float window’ icon located at the upper right corner.</li>
+</ul></li>
 </ol>
-<p>● Locate the ‘Results Panel’ on the right side of the window.</p>
-<p>● Click on the ‘float window’ icon located at the upper right corner.</p>
 <div class="rmd-tip">
 <p>
 resize the ‘Result Panel’ window by expanding it horizontally and
@@ -740,9 +727,11 @@ more detail.
 </div>
 <ol start="7" style="list-style-type: decimal">
 <li>Explore the enrichment results in the Motifs tab from the Results Panel. It is a list of all DNA binding motifs that appear in more than one gene region from the prostate cancer gene list. They are ranked by the strongest Normalized Enrichment Score (NES). Some DNA binding motifs in the databases are related to a specific transcription factor, but others are not.
-● Check that ‘Motifs’ is the selected tab of the ‘Results Panel’.</li>
+<ul>
+<li>Check that ‘Motifs’ is the selected tab of the ‘Results Panel’.</li>
+<li>Click on the row for this motif to display the motif’s sequence logo and related information at the bottom part of Results Panel.</li>
+</ul></li>
 </ol>
-<p>● Click on the row for this motif to display the motif’s sequence logo and related information at the bottom part of Results Panel.</p>
 <p><img src="Module5/iregulon/images/7.png" alt="7" />
 On the above screenshot, there is an enrichment in the prostate gene list for a motif called
 YOL108C from the yetfasco database. The motif logo is displayed and it is very similar to the MITF binding motif. The genes from our network carrying this motif in their promoter region are indicated in red (TargetName). The rank indicates the number of motifs that they carry in their promoter region.</p>
@@ -753,17 +742,21 @@ this document and in more detail in the iRegulon reference paper.
 </p>
 </div>
 <ol start="8" style="list-style-type: decimal">
-<li>Explore the enrichment results in the Tracks tab. It is a list of all ChIP-seq datasets (or “tracks”) sorted by strongest enrichment from genes inour network.</li>
+<li>Explore the enrichment results in the Tracks tab. It is a list of all ChIP-seq datasets (or “tracks”) sorted by strongest enrichment from genes inour network.
+<ul>
+<li>Select the ‘Tracks’ tab of the ‘Results Panel’.</li>
+<li>Find a ‘ClusterCode’ assigned to more than one track.</li>
+</ul></li>
 </ol>
-<p>● Select the ‘Tracks’ tab of the ‘Results Panel’.</p>
-<p>● Find a ‘ClusterCode’ assigned to more than one track.</p>
 <p><img src="Module5/iregulon/images/8.png" alt="8" />
 T4 is a track cluster associated with 2 tracks and is highlighted in the table as an example.The 2 tracks are biological replicates (Rep1, Rep2) of a same chIP-seq experiment. The transcription factor used for this chIP_seq experiment is TCF12. The first track is ranked number 4 and the second track is ranked number 8. The genes with TCF12 peaks in their promoter regions are listed in red under “TargetName”.</p>
 <ol start="9" style="list-style-type: decimal">
-<li>Explore the enrichment results in the Transcription Factors tabview. This is the most important tab as each row is a transcription factor that is a potential co-regulator of the genes in our network. Each row represents a cluster that combines the results of the related motifs (Motifs tab) or tracks (Tracks tab) or both.</li>
+<li>Explore the enrichment results in the Transcription Factors tabview. This is the most important tab as each row is a transcription factor that is a potential co-regulator of the genes in our network. Each row represents a cluster that combines the results of the related motifs (Motifs tab) or tracks (Tracks tab) or both.
+<ul>
+<li>Select the ‘Transcription Factors’ tab of the ‘Results Panels’.</li>
+<li>Click on ‘MTF1’ and explore the results.</li>
+</ul></li>
 </ol>
-<p>● Select the ‘Transcription Factors’ tab of the ‘Results Panels’.</p>
-<p>● Click on ‘MTF1’ and explore the results.</p>
 <div class="figure">
 <img src="Module5/iregulon/images/9.png" alt="" />
 <p class="caption">9</p>
@@ -782,16 +775,18 @@ cancer”].
 <img src="Module5/iregulon/images/10.png" alt="" />
 <p class="caption">10</p>
 </div>
-<p>This network highlights MTF1 and interactions with other genes and miRs. This is a network involved in prostate cancer.
-<a href="PMID:14568174" class="uri">PMID:14568174</a>
+<p>This network highlights MTF1 and interactions with other genes and miRs. This is a network involved in prostate cancer.<br>
+<a href="PMID:14568174" class="uri">PMID:14568174</a><br>
 <a href="PMID:23157640" class="uri">PMID:23157640</a></p>
 <ol start="11" style="list-style-type: decimal">
-<li>Add MTF1 to the network.</li>
+<li>Add MTF1 to the network.
+<ul>
+<li>Check that the Transcription Factors tab is selected.</li>
+<li>Click the MTF1 row to select it.</li>
+<li>Click the ‘Add regulator’ icon <img src="Module5/iregulon/images/add.png" alt="Add icon" /> located at the upper left corner of the ‘Results Panel’.
+This adds MTF1 to the network as a yellow node, with the edges linking to its 11 potential targets, all highlighted as purple nodes.</li>
+</ul></li>
 </ol>
-<p>● Check that the Transcription Factors tab is selected.</p>
-<p>● Click the MTF1 row to select it.</p>
-<p>● Click the ‘Add regulator’ icon <img src="Module5/iregulon/images/add.png" alt="Add icon" /> located at the upper left corner of the ‘Results Panel’.
-This adds MTF1 to the network as a yellow node, with the edges linking to its 11 potential targets, all highlighted as purple nodes.</p>
 <p>11a)</p>
 <div class="figure">
 <img src="Module5/iregulon/images/11a.png" alt="" />
@@ -800,11 +795,13 @@ This adds MTF1 to the network as a yellow node, with the edges linking to its 11
 <p>11b)</p>
 <p><img src="Module5/iregulon/images/gp1_11b.png" alt="workflow" width="60%" /></p>
 <ol start="12" style="list-style-type: decimal">
-<li>Create a subnetwork to better visualize the predicted targets.</li>
+<li>Create a subnetwork to better visualize the predicted targets.
+<ul>
+<li>Select the MTF1 node in the network by clicking on it.</li>
+<li>In the Cytoscape toolbar above the network, click the ‘First Neighbors of Selected Nodes’ icon <img src="Module5/iregulon/images/gp1_neighbours.png" alt="gp1_neighbours.png" />. MTF1 and its targets are now highlighted in yellow (which means they are selected).</li>
+<li>Use the ‘New network from selection’ icon <img src="Module5/iregulon/images/new.png" alt="New icon" /> to create a subnetwork.</li>
+</ul></li>
 </ol>
-<p>● Select the MTF1 node in the network by clicking on it.</p>
-<p>● In the Cytoscape toolbar above the network, click the ‘First Neighbors of Selected Nodes’ icon <img src="Module5/iregulon/images/gp1_neighbours.png" alt="gp1_neighbours.png" />. MTF1 and its targets are now highlighted in yellow (which means they are selected).</p>
-<p>● Use the ‘New network from selection’ icon <img src="Module5/iregulon/images/new.png" alt="New icon" /> to create a subnetwork.</p>
 <p>12a)</p>
 <p><img src="Module5/iregulon/images/gp1_12a.png" alt="workflow" width="60%" /></p>
 <p>12b)</p>
@@ -823,15 +820,17 @@ Visual Style’.
 <p class="caption">gp1_12c</p>
 </div>
 <ol start="13" style="list-style-type: decimal">
-<li>Add to the figure information on the types of interactions obtained from GeneMANIA and stored as additional information in the ‘prostate_cancer_genemania_network.txt’ file.</li>
+<li>Add to the figure information on the types of interactions obtained from GeneMANIA and stored as additional information in the ‘prostate_cancer_genemania_network.txt’ file.
+<ul>
+<li>In the Control Panel at the left of the window, select the ‘Style’ tab. At the bottom of the panel, select the ‘Edge’ tab.</li>
+<li>Locate the ‘Stroke Color’ property and click the right triangle to expand the box.</li>
+<li>Change the ‘Column’ field to ‘Network group’</li>
+<li>Verify that the ‘Mapping Type’ field is ‘Discrete Mapping’</li>
+<li>For the first interaction type, choose a color by clicking on the ‘Edit color’ button on the right side of the color field. Choose a color and click the ‘OK’ button.</li>
+<li>Repeat that step, choosing a different color for each interaction type.
+The edges should now be colored by the types of interactions.</li>
+</ul></li>
 </ol>
-<p>● In the Control Panel at the left of the window, select the ‘Style’ tab. At the bottom of the panel, select the ‘Edge’ tab.</p>
-<p>● Locate the ‘Stroke Color’ property and click the right triangle to expand the box.</p>
-<p>● Change the ‘Column’ field to ‘Network group’</p>
-<p>● Verify that the ‘Mapping Type’ field is ‘Discrete Mapping’</p>
-<p>● For the first interaction type, choose a color by clicking on the ‘Edit color’ button on the right side of the color field. Choose a color and click the ‘OK’ button.</p>
-<p>● Repeat that step, choosing a different color for each interaction type.
-The edges should now be colored by the types of interactions.</p>
 <p>13a)</p>
 <div class="figure">
 <img src="Module5/iregulon/images/gp1_13a.png" alt="" />
@@ -843,10 +842,12 @@ The edges should now be colored by the types of interactions.</p>
 <p class="caption">gp1_13b</p>
 </div>
 <ol start="14" style="list-style-type: decimal">
-<li>Save current results as an iRegulon (iRF) file.</li>
+<li>Save current results as an iRegulon (iRF) file.
+<ul>
+<li>In the ‘Results Panel’ toolbar, click the ‘Save current results as an iRegulon (iRF) file’ button <img src="Module5/iregulon/images/save1.png" alt="Save icon" />..</li>
+<li>Choose a name and click the ‘Save’ button.</li>
+</ul></li>
 </ol>
-<p>● In the ‘Results Panel’ toolbar, click the ‘Save current results as an iRegulon (iRF) file’ button <img src="Module5/iregulon/images/save1.png" alt="Save icon" />..</p>
-● Choose a name and click the ‘Save’ button.
 <div class="rmd-tip">
 <p>
 you can reuse these iRegulon results by loading this iRF file using
@@ -860,10 +861,12 @@ src="Module5/iregulon/images/save2.png" alt="Save2 icon" />..
 <p class="caption">14</p>
 </div>
 <ol start="15" style="list-style-type: decimal">
-<li>Save the Cytoscape session .</li>
+<li>Save the Cytoscape session .
+<ul>
+<li>In the Cytoscape menu bar, select File &gt; Save as.</li>
+<li>Choose a name and click the ‘Save’ button.</li>
+</ul></li>
 </ol>
-<p>● In the Cytoscape menu bar, select File &gt; Save as.</p>
-● Choose a name and click the ‘Save’ button.
 <div class="rmd-tip">
 <p>
 you can re-open this file later to examine the network further.
@@ -879,20 +882,22 @@ you can re-open this file later to examine the network further.
 <h2>Exercise 2. Create a metatargetome using iRegulon and merge 2 networks in Cytoscape.<a href="regulatory_network_lab.html#exercise-2.-create-a-metatargetome-using-iregulon-and-merge-2-networks-in-cytoscape." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This exercise does not require additional files.</p>
 <p>This exercise will teach you to use the metatargetome function of iRegulon. This function displays a list of potential targets for a specific TF. We will create the metatargetome of two TFs, that we found as potential coregulators of the prostate cancer genes (exercise 1): MTF1 and LARP4. We will then learn how to use Cytoscape to merge two networks and visualize nodes in common.</p>
-<div id="steps-2" class="section level3 hasAnchor">
-<h3>Steps<a href="regulatory_network_lab.html#steps-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Steps</strong></p>
 <ol style="list-style-type: decimal">
-<li>Launch Cytoscape.</li>
+<li>Launch Cytoscape.
+<ul>
+<li>If Cytoscape is already opened, do File &gt; New &gt; Session. A ‘Current session will be lost. Do you want to continue?’ dialog opens. Click on ‘OK’.<br />
+</li>
+<li>Double click on the Cytoscape icon.</li>
+</ul></li>
+<li>Create the metatargetome for MTF1.
+<ul>
+<li>From the menu bar , select File &gt; Apps &gt; iRegulon&gt; Query TF-target database.A ‘Query TF-target database for a factor’ window pops up.</li>
+<li>In the ‘Transcription Factor’ field, select ‘MTF1’.</li>
+<li>Set Network &gt; ‘Number nodes (approx.)’ to 100.</li>
+<li>Click the ‘Submit’ button.</li>
+</ul></li>
 </ol>
-<p>If Cytoscape is already opened, do File &gt; New &gt; Session. A ‘Current session will be lost. Do you want to continue?’ dialog opens. Click on ‘OK’.</p>
-<p>Double click on the Cytoscape icon.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Create the metatargetome for MTF1.</li>
-</ol>
-<p>● From the menu bar , select File &gt; Apps &gt; iRegulon&gt; Query TF-target database.A ‘Query TF-target database for a factor’ window pops up.</p>
-<p>● In the ‘Transcription Factor’ field, select ‘MTF1’.</p>
-<p>● Set Network &gt; ‘Number nodes (approx.)’ to 100.</p>
-<p>● Click the ‘Submit’ button.</p>
 <p>2a)</p>
 <div class="figure">
 <img src="Module5/iregulon/images/2a2.png" alt="" />
@@ -909,12 +914,14 @@ you can re-open this file later to examine the network further.
 <p class="caption">2c2</p>
 </div>
 <ol start="3" style="list-style-type: decimal">
-<li>Create the metatargetome for LARP4. Follow same steps as above.</li>
+<li>Create the metatargetome for LARP4. Follow same steps as above.
+<ul>
+<li>From the Cytoscape menu bar, select File &gt; Apps&gt;iRegulon&gt; Query TF-target database.</li>
+<li>A ‘Query TF-target database for a factor’ window pops up. In the ‘Transcription Factor field’, enter ‘LARP4’.</li>
+<li>Set Network &gt; ‘Number nodes (approx.)’ to 100.</li>
+<li>Click the ‘Submit’ button.</li>
+</ul></li>
 </ol>
-<p>● From the Cytoscape menu bar, select File &gt; Apps&gt;iRegulon&gt; Query TF-target database.</p>
-<p>● A ‘Query TF-target database for a factor’ window pops up. In the ‘Transcription Factor field’, enter ‘LARP4’.</p>
-<p>● Set Network &gt; ‘Number nodes (approx.)’ to 100.</p>
-<p>● Click the ‘Submit’ button.</p>
 <p>3a)</p>
 <div class="figure">
 <img src="Module5/iregulon/images/3a2.png" alt="" />
@@ -927,14 +934,16 @@ you can re-open this file later to examine the network further.
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>Merge the two networks to visualize their shared target genes.
-From the Cytoscape menu bar, select Tools &gt; Merge &gt; Networks….An ‘Advanced Network Merge’ window pops up.</li>
+From the Cytoscape menu bar, select Tools &gt; Merge &gt; Networks….An ‘Advanced Network Merge’ window pops up.
+<ul>
+<li>Check that the ‘Union’ option is selected.</li>
+<li>In the ‘Available Networks’ list, select ‘Metatargetome for LARP4’.</li>
+<li>Hold down the shift key while selecting ‘Metatargetome for MTF1’ so both networks are selected.</li>
+<li>Click the right arrow to move the networks to the ‘Networks to Merge’ list.</li>
+<li>Click the ‘Merge’ button.
+Cytoscape now displays the two networks in the same window, linked by the two genes they have in common.</li>
+</ul></li>
 </ol>
-<p>● Check that the ‘Union’ option is selected.</p>
-<p>● In the ‘Available Networks’ list, select ‘Metatargetome for LARP4’.</p>
-<p>● Hold down the shift key while selecting ‘Metatargetome for MTF1’ so both networks are selected.</p>
-<p>● Click the right arrow to move the networks to the ‘Networks to Merge’ list.</p>
-<p>● Click the ‘Merge’ button.
-Cytoscape now displays the two networks in the same window, linked by the two genes they have in common.</p>
 <p>4a)</p>
 <div class="figure">
 <img src="Module5/iregulon/images/4a2.png" alt="" />
@@ -953,9 +962,8 @@ Cytoscape now displays the two networks in the same window, linked by the two ge
 <div id="end-of-exercise" class="section level4 hasAnchor">
 <h4>END OF EXERCISE<a href="regulatory_network_lab.html#end-of-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
-</div>
-<div id="use-or-precomputed-iregulon-results" class="section level3 hasAnchor">
-<h3>Use or precomputed iRegulon results:<a href="regulatory_network_lab.html#use-or-precomputed-iregulon-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="use-our-precomputed-iregulon-results" class="section level3 hasAnchor">
+<h3>Use our precomputed iRegulon results:<a href="regulatory_network_lab.html#use-our-precomputed-iregulon-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Download these files on your computer:</p>
 <div class="rmd-datadownload">
 <p>
@@ -987,17 +995,17 @@ Paper: <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal
 <p>DNA binding motifs more usually represent a family of transcription factors (e.g. helix loop helix TFs ) rather than being specific to one particular TF. In addition, related TFs (e.g GATA1, GATA2, GATA3) can bind to very similar DNA sequences. iRegulon uses the motif2TF algorithm to associate a motif with a specific TF. The ‘#TF’ column indicates which motifs are significantly associated to a TF (# &gt;= 1) or not (# = 0). Clicking on a motif line will display a panel indicating several related information. It will display all the TFs found significantly associated with the motif.</p>
 <p>How is the enrichment calculated? (NES AUC) motif detection and enrichment score in a set of input genes.
 iRegulon uses precomputed results to calculate for each motif the AUC (Area Under the cumulative Recovery Curve) and the NES (Normalized Enrichment Score). iRegulon accesses this database of precomputed results using a server connection when a search is launched.</p>
-<p>What are these precomputed results :</p>
+<p><strong>What are these precomputed results :</strong></p>
 <p>iRegulon gathered known DNA binding motifs and their corresponding PWM (position weight matrix, see lecture) from different databases (eg TRANSFAC pro) (9713 PWMs). They then ranked all genes in the genome (22284 genes) for each motif from the most likely target of this motif to the least one (available for Human, Mouse and Drosophila).</p>
-<p>Calculating enrichment for our set of genes (our network) :</p>
+<p><strong>Calculating enrichment for our set of genes (our network) :</strong></p>
 <p>Each ranked list (each motif) is then tested with our set of genes to see whether genes in our list are located more at the top of the ranked list (most likely targets of the motifs). From this ranked list and the overlap with our gene list, the AUC (Area Under the cumulative Recovery Curve) is calculated for each motif. The AUC is going to be larger if we have more genes at the top of our list. The higher the AUC values and the higher the tested motif is likely to co-regulate our genes (or some of them). The NES is derived from the AUC. The optimal subset of highly ranked lists are set as the potential target genes and displayed in the ‘target name’ column.</p>
-<p>How are several motifs being similarly grouped under a same cluster code?</p>
+<p><strong>How are several motifs being similarly grouped under a same cluster code?</strong></p>
 <p>To find TF associated with motifs, iRegulon uses the motif2TF algorithm. During this computation of motif2TF, motifs sharing similarities are grouped together and form a cluster. Within this cluster, some motifs are already known to correspond to a specific TF (direct annotation). This information is used to associate a motif with one or more related TFs. The ‘ClusterCode’ column indicates the cluster assigned to each motif.</p>
-<p>Tracks oriented view:</p>
+<p><strong>Tracks oriented view:</strong></p>
 <p>Each line is an ENCODE Chip_Seq track. Chip_seq are sequencing of fragments bound to a specific TF after immunoprecipitation of the TF and the DNA fragments. Each track is then specific to a transcription factor (the #TFs columns is always equal to 1). Clusters contain more than one track only if these tracks were generated using the same TF. All the values (NES, AUC,… are the same for the motif, track of transcription factor oriented views.</p>
-<p>Transcription Factors oriented view:</p>
+<p><strong>Transcription Factors oriented view:</strong></p>
 <p>Each line is a cluster of motifs and or tracks and as the next column (TF) the best representative TF of this cluster determined by the motif2TF algorithm. All the values (NES, AUC,… are the same for the motif, track of transcription factor oriented views.</p>
-<p>Metatargetome:</p>
+<p><strong>Metatargetome:</strong></p>
 <p>iRegulon uses the pre-computed results not only for finding regulons but also for displaying the potential gene targets for any TF of interest available in the iRegulon database. Users can define the number of top potential targets they want to display. The result is visualized as a network using a circular layout with the TF of interest in the center of the network.</p>
 </div>
 </div>
@@ -1005,7 +1013,7 @@ iRegulon uses precomputed results to calculate for each motif the AUC (Area Unde
 <h3>Notes about Cytoscape:<a href="regulatory_network_lab.html#notes-about-cytoscape" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Link to tutorials showing how to format data to create a Cytoscape network starting from a simple gene list:
 <a href="http://wiki.cytoscape.org/Cytoscape_User_Manual/Network_Formats" class="uri">http://wiki.cytoscape.org/Cytoscape_User_Manual/Network_Formats</a></p>
-<p>Note about organic layout:</p>
+<p><strong>Note about organic layout:</strong></p>
 <p>“The organic layout style is based on the force-directed layout paradigm. When calculating a layout, the nodes are considered to be physical objects with mutually repulsive forces, like, e.g., protons or electrons. The connections between nodes also follow the physical analogy and are considered to be springs attached to the pair of nodes. … The layout algorithm simulates these physical forces and rearranges the positions of the nodes in such a way that the sum of the forces emitted by the nodes and the edges reaches a (local) minimum.</p>
 <p>Resulting layouts often expose the inherent symmetric and clustered structure of a graph, they show a well-balanced distribution of nodes and have few edge crossings.” <a href="http://docs.yworks.com/yfiles/doc/developers-guide/smart_organic_layouter.html" class="uri">http://docs.yworks.com/yfiles/doc/developers-guide/smart_organic_layouter.html</a> .</p>
 <div id="section-1" class="section level60">
@@ -1028,8 +1036,8 @@ iRegulon uses precomputed results to calculate for each motif the AUC (Area Unde
 <li><p>After exploring the Enrichr results, we are going to export it into Cytoscape/EnrichmentMap. This is another opportunity to learn how to create a network and modify its style.</p></li>
 </ul>
 </div>
-<div id="steps-3" class="section level3 hasAnchor">
-<h3>Steps<a href="regulatory_network_lab.html#steps-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="steps-2" class="section level3 hasAnchor">
+<h3>Steps<a href="regulatory_network_lab.html#steps-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><p>Launch Enrichr on a web browser using this address: <a href="https://amp.pharm.mssm.edu/Enrichr/" class="uri">https://amp.pharm.mssm.edu/Enrichr/</a></p></li>
 <li><p>In the input data window, copy and paste the genes from the <a href="./Module5/iregulon/data/prostate_genelist.csv">prostate gene list</a></p></li>
@@ -1040,44 +1048,33 @@ iRegulon uses precomputed results to calculate for each motif the AUC (Area Unde
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Click on the ‘Submit’ button</p></li>
-<li><p>The results are now displayed. Check that the ‘Transcription’ tab is the one selected.
-<img src="Module5/iregulon/images/enrichr2.png" alt="enrichr2.png" /></p></li>
-</ol>
-<p>● Explore the results from the different gene-set libraries on your own (CHEA 2016, TRANSFAC and JASPAR PWMs, etc…) .</p>
-<ol start="5" style="list-style-type: decimal">
-<li>Then, click on the gene-set library called “TRRUST Transcription Factors 2019”</li>
-</ol>
-<p>● TRRUST (<a href="https://www.grnpedia.org/trrust/" class="uri">https://www.grnpedia.org/trrust/</a>) is a manually curated database of human and mouse transcriptional regulatory networks. Each gene-set contained some target genes for a particular transcription factor. It contains mouse and human data. They have been derived from pubmed articles which describe small-scale experimental studies of transcriptional regulations.
-● We are going to explore the result in this library as some gene-sets are significantly enriched at FDR &lt; 0.05.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr3.png" alt="" />
-<p class="caption">enrichr3.png</p>
-</div>
-<p>● The observation of the bar graph indicates that the transcription factor NR5A1 is the most significant result.</p>
-<ol start="6" style="list-style-type: decimal">
-<li>Click on the ‘Table’ to display the results as a table.</li>
-</ol>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr4.png" alt="" />
-<p class="caption">enrichr4.png</p>
-</div>
-<p>● Remember from the presentation that the Adjusted p-value represents the FDR. As the FDR is less than 0.05, all these gene-sets are significantly enriched in our gene list.</p>
-<ol start="7" style="list-style-type: decimal">
-<li>Click on the ‘Export entries to table’. Open the file that was downloaded on your computer in excel.</li>
-</ol>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr5.png" alt="" />
-<p class="caption">enrichr5.png</p>
-</div>
-<p>● This table contains all the gene-sets significantly enriched or not.
-● The ‘Term’ column contains the name of the transcription factors and the last column ‘Genes’ contains the list of genes that are the targets of these transcription factors. All these genes are the ones present in the prostate gene list. The overlap 8/22 means that 22 genes are the known target of NR5A1 and 8 are present in the prostate gene list.
-● We are going to use this table to create an enrichment map in Cytoscape.</p>
-<ol start="7" style="list-style-type: decimal">
+<li><p>The results are now displayed. Check that the ‘Transcription’ tab is the one selected.<br><img src="Module5/iregulon/images/enrichr2.png" alt="enrichr2.png" /></p>
+<ul>
+<li>Explore the results from the different gene-set libraries on your own (CHEA 2016, TRANSFAC and JASPAR PWMs, etc…) .</li>
+</ul></li>
+<li><p>Then, click on the gene-set library called “TRRUST Transcription Factors 2019”</p>
+<ul>
+<li>TRRUST (<a href="https://www.grnpedia.org/trrust/" class="uri">https://www.grnpedia.org/trrust/</a>) is a manually curated database of human and mouse transcriptional regulatory networks. Each gene-set contained some target genes for a particular transcription factor. It contains mouse and human data. They have been derived from pubmed articles which describe small-scale experimental studies of transcriptional regulations.</li>
+<li>We are going to explore the result in this library as some gene-sets are significantly enriched at FDR &lt; 0.05.<br><img src="Module5/iregulon/images/enrichr3.png" alt="enrichr3.png" /></li>
+<li>The observation of the bar graph indicates that the transcription factor NR5A1 is the most significant result.</li>
+</ul></li>
+<li><p>Click on the ‘Table’ to display the results as a table.<br><img src="Module5/iregulon/images/enrichr4.png" alt="enrichr4.png" /></p>
+<ul>
+<li>Remember from the presentation that the Adjusted p-value represents the FDR. As the FDR is less than 0.05, all these gene-sets are significantly enriched in our gene list.</li>
+</ul></li>
+<li><p>Click on the ‘Export entries to table’. Open the file that was downloaded on your computer in excel.<br><img src="Module5/iregulon/images/enrichr5.png" alt="enrichr5.png" /></p>
+<ul>
+<li>This table contains all the gene-sets significantly enriched or not.</li>
+<li>The ‘Term’ column contains the name of the transcription factors and the last column ‘Genes’ contains the list of genes that are the targets of these transcription factors. All these genes are the ones present in the prostate gene list. The overlap 8/22 means that 22 genes are the known target of NR5A1 and 8 are present in the prostate gene list.</li>
+<li>We are going to use this table to create an enrichment map in Cytoscape.</li>
+</ul></li>
 <li><p>Open Cytoscape.</p></li>
 <li><p>Click in the menu bar on ‘Apps’ and ‘EnrichmentMap’. A ‘Create Enrichment Map’ dialog box opens.</p></li>
-<li><p>Drag and drop the <a href="./Module5/iregulon/data/TRRUST_Transcription_Factors_2019_table.txt">TRRUST_Transcription_Factors_2019_table.txt</a> in the ‘Data Sets’ window.
-● On the right, check that the “Analysis Type” is set to “Generic/gProfiler/Enrichr”.
-● Set the ‘FDR q-value cutoff’ at 0.05.</p></li>
+<li><p>Drag and drop the <a href="./Module5/iregulon/data/TRRUST_Transcription_Factors_2019_table.txt">TRRUST_Transcription_Factors_2019_table.txt</a> in the ‘Data Sets’ window.</p>
+<ul>
+<li>On the right, check that the “Analysis Type” is set to “Generic/gProfiler/Enrichr”.</li>
+<li>Set the ‘FDR q-value cutoff’ at 0.05.</li>
+</ul></li>
 </ol>
 <div class="figure">
 <img src="Module5/iregulon/images/enrichr6.png" alt="" />
@@ -1085,64 +1082,42 @@ iRegulon uses precomputed results to calculate for each motif the AUC (Area Unde
 </div>
 <ol start="10" style="list-style-type: decimal">
 <li><p>Click on the ‘Build’ button.</p></li>
-<li><p>An enrichment map is now created.</p></li>
+<li><p>An enrichment map is now created.<br> <img src="Module5/iregulon/images/enrichr7.png" alt="workflow" width="60%" /></p>
+<ul>
+<li>The nodes are the transcription factor gene-sets. You can click on a node to see the genes that are the targets of these transcription factors. Transcription factors are connected by edges if they have target genes in common.</li>
+</ul></li>
+<li><p>Modify the visual style</p>
+<ul>
+<li>In the EnrichmentMap tab on the right, locate ‘Style’ and set “Chart Data” to ‘–None–’.
+<img src="Module5/iregulon/images/enrichr8.png" alt="enrichr8.png" /></li>
+</ul></li>
+<li><p>Import a file</p>
+<ul>
+<li>Our goal is to adjust node size and node color relatively to the gene-set enrichment results. To make it easier, a file has been created for you that ranks the gene-sets from 1 to 98 in the order of the adjusted p values. We will import this file in Cytoscape as a node table.</li>
+<li>To import the file, locate ‘File’ in the Cytoscape menu bar and then ‘Import’ &gt; ‘Table from File’.<br><img src="Module5/iregulon/images/enrichr9.png" alt="enrichr9.png" /></li>
+<li>Browse your computer to find the file <a href="./Module5/iregulon/data/TTRUST_rank.xlsx">TTRUST_rank.xlsx</a> that you have downloaded at the beginning of part 3 and click ‘Open’.</li>
+<li>An ‘Import Columns From Table’ dialog box opens. Click on ‘OK’.</li>
+</ul></li>
 </ol>
-<p><img src="Module5/iregulon/images/enrichr7.png" alt="workflow" width="60%" /></p>
-<p>● The nodes are the transcription factor gene-sets. You can click on a node to see the genes that are the targets of these transcription factors. Transcription factors are connected by edges if they have target genes in common.</p>
-<ol start="12" style="list-style-type: decimal">
-<li>Modify the visual style</li>
-</ol>
-<p>● In the EnrichmentMap tab on the right, locate ‘Style’ and set “Chart Data” to ‘–None–’.
-<img src="Module5/iregulon/images/enrichr8.png" alt="enrichr8.png" /></p>
-<ol start="13" style="list-style-type: decimal">
-<li>Import a file</li>
-</ol>
-<p>● Our goal is to adjust node size and node color relatively to the gene-set enrichment results. To make it easier, a file has been created for you that ranks the gene-sets from 1 to 98 in the order of the adjusted p values. We will import this file in Cytoscape as a node table.</p>
-<p>● To import the file, locate ‘File’ in the Cytoscape menu bar and then ‘Import’ &gt; ‘Table from File’.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr9.png" alt="" />
-<p class="caption">enrichr9.png</p>
-</div>
-<p>● Browse your computer to find the file <a href="./Module5/iregulon/data/TTRUST_rank.xlsx">TTRUST_rank.xlsx</a> that you have downloaded at the beginning of part 3 and click ‘Open’.</p>
-<p>● An ‘Import Columns From Table’ dialog box opens. Click on ‘OK’.</p>
 <div class="figure">
 <img src="Module5/iregulon/images/enrichr11.png" alt="" />
 <p class="caption">enrichr11.png</p>
 </div>
 <ol start="14" style="list-style-type: decimal">
-<li>Play with the visual style</li>
+<li>Play with the visual style
+<ul>
+<li>Locate the Cytoscape ‘Style’ tab<br><img src="Module5/iregulon/images/enrichr10.png" alt="enrichr10.png" /></li>
+<li>Locate the ‘Cytoscape ’Style’ tab ‘Fill Color’ property in the Node tab and expand the tab using the arrow on the right</li>
+<li>Remove the current mapping using the trash can icon.<br><img src="Module5/iregulon/images/enrichr12.png" alt="enrichr12.png" /></li>
+<li>In ‘Column’, choose “myrank” and in ‘Mapping Type’, choose ‘Continuous Mapping’.<br><img src="Module5/iregulon/images/enrichr13.png" alt="enrichr13.png" /></li>
+<li>Locate the ‘Size’ property and expand the tab using the arrow on the right</li>
+<li>Remove the current mapping using the trash can icon.<br><img src="Module5/iregulon/images/enrichr14.png" alt="enrichr14.png" /></li>
+<li>In ‘Column’, choose “myrank” and in ‘Mapping Type’, choose ‘Continuous Mapping’.</li>
+<li>Set high node size values for low rank and low node size for high rank<br><img src="Module5/iregulon/images/enrichr15.png" alt="enrichr15.png" /></li>
+<li>The enrichment map shows now in yellow and large nodes the transcription factors that were the most significantly enriched (based on the adjusted p value ranking). It also shows the links to the other gene-sets.<br><img src="Module5/iregulon/images/enrichr16.png" alt="enrichr16.png" /></li>
+<li>NR5A1 (the most significant gene-set) is indeed known to be associated with prostate cancer. The prostate is a hormone-dependent organ. NR5A1 is a steroid nuclear receptor and has now been reported to be expressed in aggressive forms of prostate cancer (<a href="https://academic.oup.com/endo/article/155/2/358/2423115" class="uri">https://academic.oup.com/endo/article/155/2/358/2423115</a>).</li>
+</ul></li>
 </ol>
-<p>● Locate the Cytoscape ‘Style’ tab</p>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr10.png" alt="" />
-<p class="caption">enrichr10.png</p>
-</div>
-<p>● Locate the ‘Cytoscape ’Style’ tab ‘Fill Color’ property in the Node tab and expand the tab using the arrow on the right</p>
-<p>● Remove the current mapping using the trash can icon.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr12.png" alt="" />
-<p class="caption">enrichr12.png</p>
-</div>
-<p>● In ‘Column’, choose “myrank” and in ‘Mapping Type’, choose ‘Continuous Mapping’.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr13.png" alt="" />
-<p class="caption">enrichr13.png</p>
-</div>
-<p>● Locate the ‘Size’ property and expand the tab using the arrow on the right</p>
-<p>● Remove the current mapping using the trash can icon.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr14.png" alt="" />
-<p class="caption">enrichr14.png</p>
-</div>
-<p>● In ‘Column’, choose “myrank” and in ‘Mapping Type’, choose ‘Continuous Mapping’.</p>
-<p>● Set high node size values for low rank and low node size for high rank</p>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr15.png" alt="" />
-<p class="caption">enrichr15.png</p>
-</div>
-<p>● The enrichment map shows now in yellow and large nodes the transcription factors that were the most significantly enriched (based on the adjusted p value ranking). It also shows the links to the other gene-sets.</p>
-<p><img src="Module5/iregulon/images/enrichr16.png" alt="enrichr16.png" />
-● NR5A1 (the most significant gene-set) is indeed known to be associated with prostate cancer. The prostate is a hormone-dependent organ. NR5A1 is a steroid nuclear receptor and has now been reported to be expressed in aggressive forms of prostate cancer (<a href="https://academic.oup.com/endo/article/155/2/358/2423115" class="uri">https://academic.oup.com/endo/article/155/2/358/2423115</a>).</p>
 </div>
 <div id="end-of-practical-lab" class="section level3 hasAnchor">
 <h3>end of practical lab<a href="regulatory_network_lab.html#end-of-practical-lab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
