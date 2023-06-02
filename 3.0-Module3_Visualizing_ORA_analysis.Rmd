@@ -9,6 +9,10 @@
 **Module 3 Lab**
  
  *<font color="#827e9c">Ruth Isserlin</font>*  
+
+[Introduction to practical Lab](./lectures/Pathways_2023_Module3_lab_introduction_RI.pdf)
+
+[Lab practical Cytoscape Primer](#cytoscape_mod3) 
  
 [Lab practical part 1 (g:Profiler)](#gprofiler_mod3)   
 
