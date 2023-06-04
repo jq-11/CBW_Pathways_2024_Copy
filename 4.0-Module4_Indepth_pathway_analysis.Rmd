@@ -4,7 +4,7 @@
   
   [Lecture](./lectures/Pathways_2021_Module4_lecture_RH.pdf)   
   
-  [Lab Lecture](./lectures/Pathways_2021_Module4_lab.pdf)
+  [Lab Lecture](./lectures/Pathways_2023_Module_4_lab_VV.pdf)
   
   [Lab practical](#ReactomeFI)   
 
