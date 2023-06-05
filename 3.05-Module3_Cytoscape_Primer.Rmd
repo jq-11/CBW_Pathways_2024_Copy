@@ -28,7 +28,7 @@ Place it in the corresponding module directory of your CBW work directory.
 Two files are needed for this exercise:
 
   * [networktable.txt](./Module3/cytoscape_primer/data/network_table.txt)
-  * [nodeattribute.txt](./Module3/cytoscape_primer/datanode_attribute.txt)
+  * [nodeattribute.txt](./Module3/cytoscape_primer/data/node_attribute.txt)
   
 ## Exercise 1a - Create Network from table
 
