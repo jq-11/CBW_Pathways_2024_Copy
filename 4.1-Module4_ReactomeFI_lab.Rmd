@@ -257,7 +257,7 @@ It is possible to undock tables for better clarity using the pin icon located at
 
 ### Set the size of the nodes proportional to the mutation frequencies in each cancer
 
-Our gene list contains the genes with high frequency in several cancers. Table  [PanCancer_drivers_genelist_with_mutation_frequency.txt](./Module4/Reactome/data/Pancancer_frequency.txt) contains the mutation frequency of these genes in 10 cancer types. We are going to import this table into Cytoscape and set the size of the nodes using these column values.
+Our gene list contains the genes with high frequency in several cancers. Table  [PanCancer_drivers_genelist_with_mutation_frequency.txt](./Module4/Reactome/data/pancancer_frequency_table.txt) contains the mutation frequency of these genes in 10 cancer types. We are going to import this table into Cytoscape and set the size of the nodes using these column values.
 
 - In the Cytoscape menu bar, 
     i. select **Import** --> **Table from File...**
