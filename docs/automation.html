@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Module 3 Lab: (Bonus) Automation | Pathway and Network Analysis of -Omics Data ( June 2023 )</title>
+  <title>Module 3 Lab: (Bonus) Automation | Pathway and Network Analysis of -Omics Data ( June 2024 )</title>
   <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Module 3 Lab: (Bonus) Automation | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
+  <meta property="og:title" content="Module 3 Lab: (Bonus) Automation | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Module 3 Lab: (Bonus) Automation | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
+  <meta name="twitter:title" content="Module 3 Lab: (Bonus) Automation | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
   
   <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   
@@ -55,7 +55,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -65,7 +65,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -119,10 +119,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -587,7 +592,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway and Network Analysis of -Omics Data ( June 2023 )</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway and Network Analysis of -Omics Data ( June 2024 )</a>
           </h1>
         </div>
 
@@ -687,7 +692,7 @@ This prints out the path of the current working directory. Make a
 <li><a href="https://www.docker.com/">Docker</a>.</li>
 <li><a href="https://sylabs.io/">Singularity</a></li>
 </ul>
-<p>“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.” <span class="citation">(<a href="#ref-docker" role="doc-biblioref">Merkel 2014</a>)</span></p>
+<p>“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.” <span class="citation">(<a href="#ref-docker">Merkel 2014</a>)</span></p>
 <p><strong>Why are containers great for Bioiformatics?</strong></p>
 <ul>
 <li>allows you to create environments to run bioinformatis pipelines.</li>
@@ -730,7 +735,7 @@ This prints out the path of the current working directory. Make a
 <li>A <a href="https://docs.docker.com/storage/volumes/">volume</a> is a way to assocaited data with a container that will persist even after the container. * maps a drive on the host system to a drive on the container.</li>
 <li>In the above docker run command (that creates our container) the statement:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="automation.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="automation.html#cb2-1" tabindex="-1"></a><span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects</span></code></pre></div>
 <ul>
 <li>maps the directory ${PWD} to the directory /home/rstudio/projects on the container. Anything saved in /home/rstudio/projects will actually be saved in ${PWD}</li>
 <li>An example:
@@ -738,10 +743,10 @@ This prints out the path of the current working directory. Make a
 <li>I use the following commmand to create my docker container:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="automation.html#cb3-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
-<span id="cb3-2"><a href="automation.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>risserlin<span class="sc">/</span>code<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects \</span>
-<span id="cb3-3"><a href="automation.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
-<span id="cb3-4"><a href="automation.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="automation.html#cb3-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb3-2"><a href="automation.html#cb3-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>risserlin<span class="sc">/</span>code<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects \</span>
+<span id="cb3-3"><a href="automation.html#cb3-3" tabindex="-1"></a>  <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb3-4"><a href="automation.html#cb3-4" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
 <ul>
 <li>I create a notebook called task3.Rmd and save it in /home/rstudio/projects.
 <div class="rmd-caution">
@@ -778,9 +783,9 @@ MacOS/Linux
 <li>navigate to directory on your system where you plan on keeping all your code. For example: C:\USERS\risserlin\code</li>
 <li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="automation.html#cb4-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
-<span id="cb4-2"><a href="automation.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
-<span id="cb4-3"><a href="automation.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="automation.html#cb4-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb4-2"><a href="automation.html#cb4-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb4-3"><a href="automation.html#cb4-3" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
 <p align="center">
 <img src="Module3/automation/images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
 </p>
@@ -799,9 +804,9 @@ MacOS/Linux
 <li>navigate to directory on your system where you plan on keeping all your code. For example: /Users/risserlin/code</li>
 <li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="automation.html#cb5-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
-<span id="cb5-2"><a href="automation.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>v <span class="st">&quot;$(pwd)&quot;</span><span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
-<span id="cb5-3"><a href="automation.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="automation.html#cb5-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb5-2"><a href="automation.html#cb5-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="st">&quot;$(pwd)&quot;</span><span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb5-3"><a href="automation.html#cb5-3" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
 <p align="center">
 <img src="Module3/automation/images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
 </p>
@@ -1011,7 +1016,7 @@ set this parameter as:<br>
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-docker" class="csl-entry">
 Merkel, Dirk. 2014. <span>“Docker: Lightweight Linux Containers for Consistent Development and Deployment.”</span> <em>Linux Journal</em> 2014 (239): 2.
 </div>

@@ -1,5 +1,5 @@
 --- 
-title: "Pathway and Network Analysis of -Omics Data ( June 2023 )" 
+title: "Pathway and Network Analysis of -Omics Data ( June 2024 )" 
 author: "Gary Bader, Ruth Isserlin, Chaitra Sarathy, Veronique Voisin"
 date: "last modified `r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -14,7 +14,7 @@ description: "Course covers the bioinformatics concepts and tools available for 
 ---
 # Canadian Bioinformatics Workshops
 
-![](./images/cbw_pathways_cover_2023.png)
+![](./images/cbw_pathways_cover_2024.png)
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

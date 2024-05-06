@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Optional Module 7 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon | Pathway and Network Analysis of -Omics Data ( June 2023 )</title>
+  <title>Optional Module 7 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon | Pathway and Network Analysis of -Omics Data ( June 2024 )</title>
   <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Optional Module 7 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
+  <meta property="og:title" content="Optional Module 7 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Optional Module 7 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
+  <meta name="twitter:title" content="Optional Module 7 Lab 2: Gene Regulation and Motif Analysis Practical Lab / iRegulon | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
   
   <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   
@@ -55,7 +55,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -65,7 +65,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -119,10 +119,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -587,7 +592,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway and Network Analysis of -Omics Data ( June 2023 )</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway and Network Analysis of -Omics Data ( June 2024 )</a>
           </h1>
         </div>
 
@@ -662,9 +667,9 @@ Note: iRegulon also accepts a simple gene list as input to create the network</p
 </ul></li>
 </ol>
 <p>The main window now displays the created network. Each node represents a gene. Edges represent the relationships (e.g physical interactions, co-expression) between the genes (nodes) that were calculated by GeneMANIA.</p>
-<div class="figure">
-<img src="Module5/iregulon/images/2e.png" alt="" />
-<p class="caption">2e</p>
+<div class="float">
+<img src="Module5/iregulon/images/2e.png" alt="2e" />
+<div class="figcaption">2e</div>
 </div>
 <div class="rmd-tip">
 <p>
@@ -693,13 +698,13 @@ If you only see gray nodes, go to Style and choose default style.
 <li>Deselect all nodes by clicking on a blank space of the screen. The nodes are all cyan again.</li>
 </ul></li>
 </ol>
-<div class="figure">
-<img src="Module5/iregulon/images/5a.png" alt="" />
-<p class="caption">5a</p>
+<div class="float">
+<img src="Module5/iregulon/images/5a.png" alt="5a" />
+<div class="figcaption">5a</div>
 </div>
-<div class="figure">
-<img src="Module5/iregulon/images/5b.png" alt="" />
-<p class="caption">5b</p>
+<div class="float">
+<img src="Module5/iregulon/images/5b.png" alt="5b" />
+<div class="figcaption">5b</div>
 </div>
 <ol start="6" style="list-style-type: decimal">
 <li>Explore the results.
@@ -721,9 +726,9 @@ mouse over column names to get a tooltip describing their meaning in
 more detail.
 </p>
 </div>
-<div class="figure">
-<img src="Module5/iregulon/images/6.png" alt="" />
-<p class="caption">6</p>
+<div class="float">
+<img src="Module5/iregulon/images/6.png" alt="6" />
+<div class="figcaption">6</div>
 </div>
 <ol start="7" style="list-style-type: decimal">
 <li>Explore the enrichment results in the Motifs tab from the Results Panel. It is a list of all DNA binding motifs that appear in more than one gene region from the prostate cancer gene list. They are ranked by the strongest Normalized Enrichment Score (NES). Some DNA binding motifs in the databases are related to a specific transcription factor, but others are not.
@@ -757,9 +762,9 @@ T4 is a track cluster associated with 2 tracks and is highlighted in the table a
 <li>Click on ‘MTF1’ and explore the results.</li>
 </ul></li>
 </ol>
-<div class="figure">
-<img src="Module5/iregulon/images/9.png" alt="" />
-<p class="caption">9</p>
+<div class="float">
+<img src="Module5/iregulon/images/9.png" alt="9" />
+<div class="figcaption">9</div>
 </div>
 <p>MTF1 is associated with the motif cluster M1. This cluster contains 6 related motifs and 11 potential target genes. One motif (homer-M00129) selected as example in the above screenshot is directly annotated to the TFs NRF1 and ZSCAN10 as indicated by green checked signs.</p>
 <ol start="10" style="list-style-type: decimal">
@@ -771,9 +776,9 @@ Open your web browser and search the web for [MTF1 “prostate
 cancer”].
 </p>
 </div>
-<div class="figure">
-<img src="Module5/iregulon/images/10.png" alt="" />
-<p class="caption">10</p>
+<div class="float">
+<img src="Module5/iregulon/images/10.png" alt="10" />
+<div class="figcaption">10</div>
 </div>
 <p>This network highlights MTF1 and interactions with other genes and miRs. This is a network involved in prostate cancer.<br>
 <a href="PMID:14568174" class="uri">PMID:14568174</a><br>
@@ -788,9 +793,9 @@ This adds MTF1 to the network as a yellow node, with the edges linking to its 11
 </ul></li>
 </ol>
 <p>11a)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/11a.png" alt="" />
-<p class="caption">11a</p>
+<div class="float">
+<img src="Module5/iregulon/images/11a.png" alt="11a" />
+<div class="figcaption">11a</div>
 </div>
 <p>11b)</p>
 <p><img src="Module5/iregulon/images/gp1_11b.png" alt="workflow" width="60%" /></p>
@@ -805,9 +810,9 @@ This adds MTF1 to the network as a yellow node, with the edges linking to its 11
 <p>12a)</p>
 <p><img src="Module5/iregulon/images/gp1_12a.png" alt="workflow" width="60%" /></p>
 <p>12b)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/12b.png" alt="" />
-<p class="caption">12b</p>
+<div class="float">
+<img src="Module5/iregulon/images/12b.png" alt="12b" />
+<div class="figcaption">12b</div>
 </div>
 <div class="rmd-tip">
 <p>
@@ -815,9 +820,9 @@ If the node colors are not purple, go to Style and choose ‘iRegulon
 Visual Style’.
 </p>
 </div>
-<div class="figure">
-<img src="Module5/iregulon/images/gp1_12c.png" alt="" />
-<p class="caption">gp1_12c</p>
+<div class="float">
+<img src="Module5/iregulon/images/gp1_12c.png" alt="gp1_12c" />
+<div class="figcaption">gp1_12c</div>
 </div>
 <ol start="13" style="list-style-type: decimal">
 <li>Add to the figure information on the types of interactions obtained from GeneMANIA and stored as additional information in the ‘prostate_cancer_genemania_network.txt’ file.
@@ -832,14 +837,14 @@ The edges should now be colored by the types of interactions.</li>
 </ul></li>
 </ol>
 <p>13a)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/gp1_13a.png" alt="" />
-<p class="caption">gp1_13a</p>
+<div class="float">
+<img src="Module5/iregulon/images/gp1_13a.png" alt="gp1_13a" />
+<div class="figcaption">gp1_13a</div>
 </div>
 <p>13b)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/gp1_13b.png" alt="" />
-<p class="caption">gp1_13b</p>
+<div class="float">
+<img src="Module5/iregulon/images/gp1_13b.png" alt="gp1_13b" />
+<div class="figcaption">gp1_13b</div>
 </div>
 <ol start="14" style="list-style-type: decimal">
 <li>Save current results as an iRegulon (iRF) file.
@@ -852,13 +857,13 @@ The edges should now be colored by the types of interactions.</li>
 <p>
 you can reuse these iRegulon results by loading this iRF file using
 the ‘Load saved results’ icon <img
-src="Module5/iregulon/images/save2.png" alt="Save2 icon" />..
+src="./Module5/iregulon/images/save2.png" alt="Save2 icon" />..
 </p>
 </div>
 <p>14a)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/14.png" alt="" />
-<p class="caption">14</p>
+<div class="float">
+<img src="Module5/iregulon/images/14.png" alt="14" />
+<div class="figcaption">14</div>
 </div>
 <ol start="15" style="list-style-type: decimal">
 <li>Save the Cytoscape session .
@@ -872,9 +877,9 @@ src="Module5/iregulon/images/save2.png" alt="Save2 icon" />..
 you can re-open this file later to examine the network further.
 </p>
 </div>
-<div class="figure">
-<img src="Module5/iregulon/images/15.png" alt="" />
-<p class="caption">15</p>
+<div class="float">
+<img src="Module5/iregulon/images/15.png" alt="15" />
+<div class="figcaption">15</div>
 </div>
 </div>
 </div>
@@ -899,19 +904,19 @@ you can re-open this file later to examine the network further.
 </ul></li>
 </ol>
 <p>2a)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/2a2.png" alt="" />
-<p class="caption">2a2</p>
+<div class="float">
+<img src="Module5/iregulon/images/2a2.png" alt="2a2" />
+<div class="figcaption">2a2</div>
 </div>
 <p>2b)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/2b2.png" alt="" />
-<p class="caption">2b2</p>
+<div class="float">
+<img src="Module5/iregulon/images/2b2.png" alt="2b2" />
+<div class="figcaption">2b2</div>
 </div>
 <p>2c)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/2c2.png" alt="" />
-<p class="caption">2c2</p>
+<div class="float">
+<img src="Module5/iregulon/images/2c2.png" alt="2c2" />
+<div class="figcaption">2c2</div>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Create the metatargetome for LARP4. Follow same steps as above.
@@ -923,14 +928,14 @@ you can re-open this file later to examine the network further.
 </ul></li>
 </ol>
 <p>3a)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/3a2.png" alt="" />
-<p class="caption">3a2</p>
+<div class="float">
+<img src="Module5/iregulon/images/3a2.png" alt="3a2" />
+<div class="figcaption">3a2</div>
 </div>
 <p>3b)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/3b2.png" alt="" />
-<p class="caption">3b2</p>
+<div class="float">
+<img src="Module5/iregulon/images/3b2.png" alt="3b2" />
+<div class="figcaption">3b2</div>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>Merge the two networks to visualize their shared target genes.
@@ -945,19 +950,19 @@ Cytoscape now displays the two networks in the same window, linked by the two ge
 </ul></li>
 </ol>
 <p>4a)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/4a2.png" alt="" />
-<p class="caption">4a2</p>
+<div class="float">
+<img src="Module5/iregulon/images/4a2.png" alt="4a2" />
+<div class="figcaption">4a2</div>
 </div>
 <p>4b)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/4b2.png" alt="" />
-<p class="caption">4b2</p>
+<div class="float">
+<img src="Module5/iregulon/images/4b2.png" alt="4b2" />
+<div class="figcaption">4b2</div>
 </div>
 <p>4c)</p>
-<div class="figure">
-<img src="Module5/iregulon/images/4c2.png" alt="" />
-<p class="caption">4c2</p>
+<div class="float">
+<img src="Module5/iregulon/images/4c2.png" alt="4c2" />
+<div class="figcaption">4c2</div>
 </div>
 <div id="end-of-exercise" class="section level4 hasAnchor">
 <h4>END OF EXERCISE<a href="regulatory_network_lab.html#end-of-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1042,9 +1047,9 @@ iRegulon uses precomputed results to calculate for each motif the AUC (Area Unde
 <li><p>Launch Enrichr on a web browser using this address: <a href="https://amp.pharm.mssm.edu/Enrichr/" class="uri">https://amp.pharm.mssm.edu/Enrichr/</a></p></li>
 <li><p>In the input data window, copy and paste the genes from the <a href="./Module5/iregulon/data/prostate_genelist.csv">prostate gene list</a></p></li>
 </ol>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr1.png" alt="" />
-<p class="caption">enrichr1.png</p>
+<div class="float">
+<img src="Module5/iregulon/images/enrichr1.png" alt="enrichr1.png" />
+<div class="figcaption">enrichr1.png</div>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Click on the ‘Submit’ button</p></li>
@@ -1076,9 +1081,9 @@ iRegulon uses precomputed results to calculate for each motif the AUC (Area Unde
 <li>Set the ‘FDR q-value cutoff’ at 0.05.</li>
 </ul></li>
 </ol>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr6.png" alt="" />
-<p class="caption">enrichr6.png</p>
+<div class="float">
+<img src="Module5/iregulon/images/enrichr6.png" alt="enrichr6.png" />
+<div class="figcaption">enrichr6.png</div>
 </div>
 <ol start="10" style="list-style-type: decimal">
 <li><p>Click on the ‘Build’ button.</p></li>
@@ -1099,9 +1104,9 @@ iRegulon uses precomputed results to calculate for each motif the AUC (Area Unde
 <li>An ‘Import Columns From Table’ dialog box opens. Click on ‘OK’.</li>
 </ul></li>
 </ol>
-<div class="figure">
-<img src="Module5/iregulon/images/enrichr11.png" alt="" />
-<p class="caption">enrichr11.png</p>
+<div class="float">
+<img src="Module5/iregulon/images/enrichr11.png" alt="enrichr11.png" />
+<div class="figcaption">enrichr11.png</div>
 </div>
 <ol start="14" style="list-style-type: decimal">
 <li>Play with the visual style
@@ -1123,7 +1128,7 @@ iRegulon uses precomputed results to calculate for each motif the AUC (Area Unde
 <h3>end of practical lab<a href="regulatory_network_lab.html#end-of-practical-lab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Congratulations!</p>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div class="csl-entry">
 Merkel, Dirk. 2014. <span>“Docker: Lightweight Linux Containers for Consistent Development and Deployment.”</span> <em>Linux Journal</em> 2014 (239): 2.
 </div>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Optional Module 7 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathway and Network Analysis of -Omics Data ( June 2023 )</title>
+  <title>Optional Module 7 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathway and Network Analysis of -Omics Data ( June 2024 )</title>
   <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Optional Module 7 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
+  <meta property="og:title" content="Optional Module 7 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Optional Module 7 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathway and Network Analysis of -Omics Data ( June 2023 )" />
+  <meta name="twitter:title" content="Optional Module 7 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
   
   <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   
@@ -55,7 +55,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -65,7 +65,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -119,10 +119,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -587,7 +592,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway and Network Analysis of -Omics Data ( June 2023 )</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway and Network Analysis of -Omics Data ( June 2024 )</a>
           </h1>
         </div>
 
@@ -641,14 +646,14 @@ the exercises.
 NCBI GEO: <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767">GSE128767</a></p>
 <p>From the paper:<br> <strong>RUNX1 maintains the identity of the fetal ovary through an interplay with FOXL2</strong><br> Nicol B, Grimm SA, Chalmel F, Lecluze E et al. <br><a href="https://www.nature.com/articles/s41467-019-13060-1">Nat Commun 2019 Nov 11;10(1):5116</a>.<br> <a href="https://pubmed.ncbi.nlm.nih.gov/31712577/">PMID: 31712577</a></p>
 <p><strong>Abstract</strong>:<br> Sex determination of the gonads begins with <strong>fate specification</strong> of gonadal supporting cells into either ovarian granulosa cells or testicular Sertoli cells. This process of fate specification hinges on a balance of transcriptional control. We discovered that the <strong>transcription factor RUNX1</strong> is enriched in the <strong>fetal ovary</strong> in rainbow trout, turtle, mouse, and human. In the mouse, RUNX1 marks the supporting cell lineage and becomes granulosa cell-specific as the gonads differentiate. RUNX1 plays complementary/redundant roles with FOXL2 to maintain fetal granulosa cell identity, and combined loss of RUNX1 and FOXL2 results in masculinization of the fetal ovaries. To determine whether interplay between RUNX1 and FOXL2 occurs at the chromatin level, <strong>we performed genome-wide analysis of RUNX1 chromatin occupancy in E14.5 ovaries. The top de novo motif identified in RUNX1 ChIP-seq matched the RUNX motif</strong>. We found that RUNX1 chromatin occupancy was partially overlapping with FOXL2 chromatin occupancy in fetal ovaries.</p>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img2.png" alt="" />
-<p class="caption">Figure 1</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img2.png" alt="Figure 1" />
+<div class="figcaption">Figure 1</div>
 </div>
 <p>They found that RUNX1 is expressed in the fetal ovary at day 14 in mice and that it is necessary for a good development of the ovary.</p>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img3.png" alt="" />
-<p class="caption">Figure 2</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img3.png" alt="Figure 2" />
+<div class="figcaption">Figure 2</div>
 </div>
 <p>A KO of Runx1 and another TF Foxl2 abolished the normal development of the ovary.</p>
 <p>Why did we choose this dataset?</p>
@@ -673,18 +678,18 @@ NCBI GEO: <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767"
 <li>The organism is <strong>mus musculus</strong> and the reference genome is <strong>mm10</strong></li>
 <li>3 files are available from the GEO entry (see below).</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img4.png" alt="" />
-<p class="caption">Figure 3 - Dataset BED file</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img4.png" alt="Figure 3 - Dataset BED file" />
+<div class="figcaption">Figure 3 - Dataset BED file</div>
 </div>
 <ul>
 <li>The bed file provided by the authors (GSE128767_RUNX1_ChIP.peaks.bed) (linked on the main dataset page under supplementary file - <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128767">GSE128767</a> )
 has the right format to be used by <a href="http://great.stanford.edu/public/html/">GREAT</a> for the pathway analysis;
 The first 3 fields contain the chromosome name, start and end. They are the 3 required fields. The fourth column is optional and consists of the chromosomal position, followed by MACS2 score value and FDR.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img5.png" alt="" />
-<p class="caption">Figure 4 - Example view of BED file</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img5.png" alt="Figure 4 - Example view of BED file" />
+<div class="figcaption">Figure 4 - Example view of BED file</div>
 </div>
 </div>
 <div id="exercise-1---run-pathway-analysis-using-great" class="section level2 hasAnchor">
@@ -696,16 +701,16 @@ The first 3 fields contain the chromosome name, start and end. They are the 3 re
 <li>In “Species Assembly”, choose Mouse: GRCm38(UCSC mm10, Dec. 2011)</li>
 <li>In “Test regions”, Click on “Choose file” and locate the file GSE128767_RUNX1_ChIP.peaks.bed that you save on your computer.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/%20img7.png" alt="" />
-<p class="caption">Figure 5 - GREAT interface</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/%20img7.png" alt="Figure 5 - GREAT interface" />
+<div class="figcaption">Figure 5 - GREAT interface</div>
 </div>
 <ul>
 <li>In “Association rule settings” , click on “Show settings” to see the current rule set to associate genes to peaks</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img8.png" alt="" />
-<p class="caption">Figure 6 - GREAT Association rules used in analysis</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img8.png" alt="Figure 6 - GREAT Association rules used in analysis" />
+<div class="figcaption">Figure 6 - GREAT Association rules used in analysis</div>
 </div>
 <ul>
 <li>Do not change the settings. We are doing a distal analysis where genes (genomic regions) are associated with peaks within 5k upstream of the transcription start site of the genes (TSS), 1kb downstream and up to 1000 kb to nearest gene.</li>
@@ -717,34 +722,34 @@ The first 3 fields contain the chromosome name, start and end. They are the 3 re
 <ul>
 <li>Expand the “Job Description” tab to check the parameters,</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img10.png" alt="" />
-<p class="caption">Figure 7 - Job Description</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img10.png" alt="Figure 7 - Job Description" />
+<div class="figcaption">Figure 7 - Job Description</div>
 </div>
 <ul>
 <li>click on “View all genomic region-gene associations” (blue font)</li>
 <li>In a new tab there will be 2 tables containing the list of the chIP-seq peaks and corresponding associated genes.</li>
 <li>Download both of the tables (region -&gt; gene and gene -&gt; region)</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img10b.png" alt="" />
-<p class="caption">Figure 8 - genomic region-gene association tables.</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img10b.png" alt="Figure 8 - genomic region-gene association tables." />
+<div class="figcaption">Figure 8 - genomic region-gene association tables.</div>
 </div>
 <ul>
 <li>Return to the main GREAT results page.</li>
 <li>In the “Region-Gene Association Graphs”, we can see that the peaks were mainly associated with genes located +-5kb of the TSS in addition to the presence of some distal peaks as expected based on the association rule that we have used.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/distal.png" alt="" />
-<p class="caption">Figure 9 - Region-gene association graphs</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/distal.png" alt="Figure 9 - Region-gene association graphs" />
+<div class="figcaption">Figure 9 - Region-gene association graphs</div>
 </div>
 <ul>
 <li><p>Let’s explore the pathway analysis results and look at the GO Biological Process table.</p></li>
 <li><p>scroll down to the “GO Biological Process” section.</p></li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/distal_true2.png" alt="" />
-<p class="caption">Figure 10 - GO Biological Process results</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/distal_true2.png" alt="Figure 10 - GO Biological Process results" />
+<div class="figcaption">Figure 10 - GO Biological Process results</div>
 </div>
 <p>As we defined a distal rule to associate peaks with genes, we are going to look at the <strong>binomial FDR</strong>. The binomial test assesses whether the number of genomic regions annotated with the tested pathway is significantly larger than the number of genomic regions not annotated with the tested pathway.
 The fold enrichment is the proportion of genomic regions annotated with the tested pathway and genomic regions not annotated with the tested pathway.</p>
@@ -757,9 +762,9 @@ The fold enrichment is the proportion of genomic regions annotated with the test
 <li>Rename the file “Distal_GOBP_greatExportAll.tsv”. We will import this file later in Cytoscape/EnrichmentMap.</li>
 </ul></li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img13.png" alt="" />
-<p class="caption">Figure 11 - Download Go Biological Process results</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img13.png" alt="Figure 11 - Download Go Biological Process results" />
+<div class="figcaption">Figure 11 - Download Go Biological Process results</div>
 </div>
 </div>
 <div id="perform-pathway-enrichment---proximal-approach" class="section level3 hasAnchor">
@@ -771,9 +776,9 @@ The fold enrichment is the proportion of genomic regions annotated with the test
 <li>Set Proximal 1kb upstream, 1kb downstream plus Distal up to 1kb .</li>
 <li>Uncheck the “Include curated regulatory domains” box.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img9.png" alt="" />
-<p class="caption">Figure 12 - GREAT Association rules used in proximal analysis</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img9.png" alt="Figure 12 - GREAT Association rules used in proximal analysis" />
+<div class="figcaption">Figure 12 - GREAT Association rules used in proximal analysis</div>
 </div>
 <ul>
 <li>Click on Submit.</li>
@@ -784,16 +789,16 @@ The fold enrichment is the proportion of genomic regions annotated with the test
 <ul>
 <li>In the “Region-Gene Association Graphs” , we can see that using the proximal rule in our settings, genes are associated with peaks that are all within the +-5kb rule (in fact the +-1kb rule) and there are no more distal peaks.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/proximal.png" alt="" />
-<p class="caption">Figure 13 - Proximal Region-gene association graphs</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/proximal.png" alt="Figure 13 - Proximal Region-gene association graphs" />
+<div class="figcaption">Figure 13 - Proximal Region-gene association graphs</div>
 </div>
 <ul>
 <li>Explore the GOBP results and export the results on your computer.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/proximal2.png" alt="" />
-<p class="caption">Figure 14 - Proximal GO BP results</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/proximal2.png" alt="Figure 14 - Proximal GO BP results" />
+<div class="figcaption">Figure 14 - Proximal GO BP results</div>
 </div>
 <p>Using this rule, genes will be associated with peaks only if they are within 1kb of the transcription start site of the genes. It reduces the problem to a gene list and in this case, a Fisher’s exact (Hyper FDR Q-Val) test can be applied to test for pathway enrichment.</p>
 <ul>
@@ -805,9 +810,9 @@ The fold enrichment is the proportion of genomic regions annotated with the test
 <li>Rename the file “Proximal_GOBP_greatExportAll.tsv”. We will import this file later in Cytoscape/EnrichmentMap.</li>
 </ul></li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img13.png" alt="" />
-<p class="caption">Figure 15 - Export Proximal GOBP enrichment results</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img13.png" alt="Figure 15 - Export Proximal GOBP enrichment results" />
+<div class="figcaption">Figure 15 - Export Proximal GOBP enrichment results</div>
 </div>
 </div>
 </div>
@@ -820,23 +825,23 @@ The fold enrichment is the proportion of genomic regions annotated with the test
 <li>Set the FDR q value cut-off to 0.001</li>
 <li>Click on Build</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img14.png" alt="" />
-<p class="caption">Figure 16 - Enrichment map input panel</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img14.png" alt="Figure 16 - Enrichment map input panel" />
+<div class="figcaption">Figure 16 - Enrichment map input panel</div>
 </div>
 <ul>
 <li>A “Set Parameters” dialog box opens: Choose “Binomial p-value”.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/img15.png" alt="" />
-<p class="caption">Figure 17 - Statistical Test choice panel</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/img15.png" alt="Figure 17 - Statistical Test choice panel" />
+<div class="figcaption">Figure 17 - Statistical Test choice panel</div>
 </div>
 <ul>
 <li>Explore the map.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/proximal_map.png" alt="" />
-<p class="caption">Figure 18 - Enrichment map with distal enriched pathways</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/proximal_map.png" alt="Figure 18 - Enrichment map with distal enriched pathways" />
+<div class="figcaption">Figure 18 - Enrichment map with distal enriched pathways</div>
 </div>
 </div>
 <div id="exercise-3-optional-practice-building-enrichment-maps-and-auto-annotation" class="section level2 hasAnchor">
@@ -850,9 +855,9 @@ The fold enrichment is the proportion of genomic regions annotated with the test
 </ul>
 <p><img src="Module5/chipseqlab/chipseqlab_image/img16.png" alt="Figure 19 - Autoannotate panel" />
 Arrange the display by clicking on each module name listed in the right panel and then move them apart from the other modules using a mouse or a trackpad.</p>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/proximal_map_AA.png" alt="" />
-<p class="caption">Figure 20 - Manually layed out Enrichment map of enriched pathways for distal set</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/proximal_map_AA.png" alt="Figure 20 - Manually layed out Enrichment map of enriched pathways for distal set" />
+<div class="figcaption">Figure 20 - Manually layed out Enrichment map of enriched pathways for distal set</div>
 </div>
 <div class="rmd-question">
 <p>
@@ -880,9 +885,9 @@ the role of RUNX1 in development?
 <div id="exercise-4-add-runx1-targets-and-runx1-ko-genes-on-the-distal-enrichment-map." class="section level2 hasAnchor">
 <h2>Exercise 4: Add RUNX1 targets and RUNX1 KO genes on the distal enrichment map.<a href="regulatory_network_chipseq_lab.html#exercise-4-add-runx1-targets-and-runx1-ko-genes-on-the-distal-enrichment-map." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>During this exercise, we will connect the proximal chIP-seq enrichment map with the RUNX1 targets as well as the genes that are dysregulated after RUNX1 KO. We have already created a .gmt file that contains these gene lists (RUNX1_Affy.gmt). The format of a .gmt file is a tab delimited text file with one row per gene-set. Each gene-set contains the name of the gene-set, a description of the gene-set followed by the names of the genes. The file extension is changed from .txt to .gmt.</p>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/gmt.png" alt="" />
-<p class="caption">Figure 20 - example of gmt file</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/gmt.png" alt="Figure 20 - example of gmt file" />
+<div class="figcaption">Figure 20 - example of gmt file</div>
 </div>
 <ul>
 <li>Note: We extracted the RUNX1 targets using the iRegulon Cytoscape app and the optional exercise 6 describes the steps. We extracted 200 genes to build the RUNX1 target gene list.</li>
@@ -895,18 +900,18 @@ the role of RUNX1 in development?
 <li>Make sure that the Distal_GOBP_greatExportAll network is selected.</li>
 <li>click on <strong>Options…</strong> –&gt; <strong>Add Signature Gene Sets…</strong>.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/PA01.png" alt="" />
-<p class="caption">Figure 21 - Add Signature sets</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/PA01.png" alt="Figure 21 - Add Signature sets" />
+<div class="figcaption">Figure 21 - Add Signature sets</div>
 </div>
 <ul>
 <li>Click on “Load from File….” located on the right hand size and select the file “RUNX1_Affy.gmt” that you have saved on your computer.</li>
 <li>Set “Test” to “Hypergeometric Test” with the “Cutoff” set to 0.05.</li>
 <li>Click on “finish”</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/PA02.png" alt="" />
-<p class="caption">Figure 22 - Signature sets input panel</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/PA02.png" alt="Figure 22 - Signature sets input panel" />
+<div class="figcaption">Figure 22 - Signature sets input panel</div>
 </div>
 <p>The 3 gene-sets are now added to the map. Each line (edge) shows pathways that have genes in common with the signature gene-sets.</p>
 </div>
@@ -916,16 +921,16 @@ the role of RUNX1 in development?
 <li>Click on one signature gene-set node on the map to select it (it should appear in yellow).</li>
 <li>In the Cytoscape menu bar, click “Select” –&gt; “Edges” –&gt;“Select Adjacent Edges”</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/pa1.png" alt="" />
-<p class="caption">Figure 23 - Select adjacent edges</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/pa1.png" alt="Figure 23 - Select adjacent edges" />
+<div class="figcaption">Figure 23 - Select adjacent edges</div>
 </div>
 <ul>
 <li>Go to “Style” and in the “Edge” table, next to “Stroke Color (Unselected)” click in the bypass column Byp. , click on the box and select a color.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/pa2.png" alt="" />
-<p class="caption">Figure 24 - Bypass selected edge color</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/pa2.png" alt="Figure 24 - Bypass selected edge color" />
+<div class="figcaption">Figure 24 - Bypass selected edge color</div>
 </div>
 <ul>
 <li>Repeat for all genes:
@@ -933,9 +938,9 @@ the role of RUNX1 in development?
 <li>In “ Style” and in the “Edge” table, go to Width and set Column to “EM k_Intersection”</li>
 </ul></li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/em3.png" alt="" />
-<p class="caption">Figure 25 - Final figure</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/em3.png" alt="Figure 25 - Final figure" />
+<div class="figcaption">Figure 25 - Final figure</div>
 </div>
 </div>
 </div>
@@ -962,23 +967,23 @@ the role of RUNX1 in development?
 <li>The UCSC Genome Browser window opens in a new tab.</li>
 <li>Below the tracks, click on the button <em>add custom tracks</em>. A new window will open.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme2.png" alt="" />
-<p class="caption">UCSC genome browser</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/meme2.png" alt="UCSC genome browser" />
+<div class="figcaption">UCSC genome browser</div>
 </div>
 <ul>
 <li>Upload the bed file <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.bed">GSE128767_RUNX1_ChIP.peaks.bed</a>; press the “Submit” button.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme3.png" alt="" />
-<p class="caption">meme3</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/meme3.png" alt="meme3" />
+<div class="figcaption">meme3</div>
 </div>
 <ul>
 <li>A new window will appear with your updated track. Make sure that “Table Browser” is selected and click on <em>go</em>.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme4.png" alt="" />
-<p class="caption">meme4</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/meme4.png" alt="meme4" />
+<div class="figcaption">meme4</div>
 </div>
 <ul>
 <li><p>A new window will appear. Select <em>sequence</em> as <em>output format</em> and <em>plain text</em> as <em>file type returned</em>. Click on <em>get output</em>.
@@ -990,9 +995,9 @@ the role of RUNX1 in development?
 <li>click on <em>Get sequences</em></li>
 </ul></li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme6.png" alt="" />
-<p class="caption">meme6</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/meme6.png" alt="meme6" />
+<div class="figcaption">meme6</div>
 </div>
 <ul>
 <li><p>A fasta file will appear; save this as plain text (copy and paste in a text editor or right click on the page and select <em>Save As…</em> and save the file to your computer).</p>
@@ -1020,9 +1025,9 @@ the role of RUNX1 in development?
 <li>Expand <em>Motif Discovery</em></li>
 <li>Click on <em>MEME-Chip</em></li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme9.png" alt="" />
-<p class="caption">meme9</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/meme9.png" alt="meme9" />
+<div class="figcaption">meme9</div>
 </div>
 <ul>
 <li>Under <em>Input the primary sequences</em> box, upload the file <a href="./Module5/chipseqlab/chipseqlab_data/GSE128767_RUNX1_ChIP.peaks.fasta">GSE128767_RUNX1_ChIP.peaks.fasta</a> .</li>
@@ -1059,9 +1064,9 @@ For example my url is -
 <ul>
 <li>results of the top motifs that were found significantly enriched in the peak sequences.<br></li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/meme13.png" alt="" />
-<p class="caption">meme13</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/meme13.png" alt="meme13" />
+<div class="figcaption">meme13</div>
 </div>
 <div class="rmd-question">
 <p>
@@ -1120,9 +1125,9 @@ centered distribution of the motif important (what does it mean)?
 <ul>
 <li>Click on the icon next to the “ortholog name” column to copy the gene list. This is the gene list containing the mouse orthologs of the RUNX1 targets that we used in Exercise 4.</li>
 </ul>
-<div class="figure">
-<img src="Module5/chipseqlab/chipseqlab_image/gorth2.png" alt="" />
-<p class="caption">gorth2</p>
+<div class="float">
+<img src="Module5/chipseqlab/chipseqlab_image/gorth2.png" alt="gorth2" />
+<div class="figcaption">gorth2</div>
 </div>
 <p><strong>As reference (you don’t need to go through these steps during the practical lab): Analysis of the RUNX1 Affy transcriptomics using GEO2R.</strong></p>
 <ul>
