@@ -3,6 +3,7 @@ welcome
 meet-your-faculty
 gary-bader
 lincoln-stein
+gregory-schwartz
 veronique-voisin
 ruth-isserlin
 chaitra-sarathy-phd
