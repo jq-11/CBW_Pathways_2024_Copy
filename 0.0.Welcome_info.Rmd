@@ -1,6 +1,6 @@
 # Welcome <a id="welcome"></a>
 
-Welcome to Pathways and Network Analysis of -Omics Data 2024  
+Welcome to Pathways and Network Analysis of -Omics Data 2024  TEST
 
 ## Meet your Faculty
 
