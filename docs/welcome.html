@@ -183,10 +183,12 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#basic-programs"><i class="fa fa-check"></i>Basic programs</a></li>
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#cytoscape-installation"><i class="fa fa-check"></i>Cytoscape Installation</a></li>
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#gsea-installation"><i class="fa fa-check"></i>GSEA Installation</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#docker-installation"><i class="fa fa-check"></i>Docker Installation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#pre-workshop-tutorials"><i class="fa fa-check"></i>Pre-workshop Tutorials</a>
 <ul>
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#cytoscape-preparation-tutorials"><i class="fa fa-check"></i>Cytoscape Preparation tutorials</a></li>
+<li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#r-tutorial"><i class="fa fa-check"></i>R Tutorial</a></li>
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#pre-workshop-readings-and-lectures"><i class="fa fa-check"></i>Pre-workshop Readings and Lectures</a></li>
 <li class="chapter" data-level="" data-path="welcome.html"><a href="welcome.html#additional-tutorials"><i class="fa fa-check"></i>Additional tutorials <a id="additionaltutorials"></a></a></li>
 </ul></li>
@@ -668,7 +670,7 @@ Nia is the Program Manager for Bioinformatics.ca, where she coordinates the Cana
 <h2>Pre-Workshop Materials and Laptop Setup Instructions<a href="welcome.html#pre-workshop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="laptop-setup-instructions" class="section level3 hasAnchor">
 <h3>Laptop Setup Instructions<a href="welcome.html#laptop-setup-instructions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A Check list to setup your laptop can be found <a href="https://forms.gle/vyFPcA1P9pqvTL2B9">here</a></p>
+<p>A Check list to setup your laptop can be found <a href="https://docs.google.com/forms/d/e/1FAIpQLSdknqfaPi-XJDeFwji5xga7rg-jdGiYsZWxW6zTCjjqbHcHsw/viewform?usp=sharing">here</a></p>
 <p>Install these tools on your laptop before coming to the workshop:</p>
 </div>
 <div id="basic-programs" class="section level3 hasAnchor">
@@ -705,11 +707,11 @@ Nia is the Program Manager for Bioinformatics.ca, where she coordinates the Cana
 </div>
 <div id="cytoscape-installation" class="section level3 hasAnchor">
 <h3>Cytoscape Installation<a href="welcome.html#cytoscape-installation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Please install the latest version of <a href="https://github.com/cytoscape/cytoscape/releases/3.9.1/">Cytoscape 3.9.1</a> as well as a group of Cytoscape Apps that we will be using for different parts of the course.</p>
+<p>Please install the latest version of <a href="https://github.com/cytoscape/cytoscape/releases/3.10.2/">Cytoscape 3.10.2</a> or <a href="https://cytoscape.org/download.html">Cytoscape Download</a> as well as a group of Cytoscape Apps that we will be using for different parts of the course.</p>
 <ol style="list-style-type: decimal">
-<li>Install Cytoscape 3.9.1:
+<li>Install Cytoscape 3.10.2:
 <ul>
-<li>Go to: <a href="https://github.com/cytoscape/cytoscape/releases/3.9.1/" class="uri">https://github.com/cytoscape/cytoscape/releases/3.9.1/</a></li>
+<li>Go to: <a href="https://github.com/cytoscape/cytoscape/releases/3.10.2/" class="uri">https://github.com/cytoscape/cytoscape/releases/3.10.2/</a> OR <a href="https://cytoscape.org/download.html" class="uri">https://cytoscape.org/download.html</a></li>
 <li>Choose the version corresponding to your operating system (OS, Windows or UNIX)</li>
 <li>Follow instructions to install cytoscape</li>
 <li>Verify that Cytoscape has been installed correctly by launching the newly installed application</li>
@@ -725,13 +727,14 @@ Nia is the Program Manager for Bioinformatics.ca, where she coordinates the Cana
 <li>Click on “Install” <img src="images/app_store_download.png" /></li>
 <li>install the following:
 <ul>
-<li>EnrichmentMap 3.3.5</li>
-<li>EnrichmentMap Pipeline Collection 1.1.0 (it will install ClusterMaker2 v2.3.4, WordCloud v3.1.4 and AutoAnnotate v1.4.0)</li>
-<li>GeneMANIA 3.5.2</li>
+<li>EnrichmentMap 3.4.0</li>
+<li>EnrichmentMap Pipeline Collection 1.1.0 (it will install ClusterMaker2 v2.3.4, WordCloud v3.1.4 and AutoAnnotate v1.5.0)</li>
+<li>GeneMANIA 3.5.3</li>
 <li>IRegulon 1.3</li>
-<li>ReactomeFIPlugin 8.0.5 - <a href="http://apps.cytoscape.org/apps/reactomefiplugin" class="uri">http://apps.cytoscape.org/apps/reactomefiplugin</a></li>
-<li>stringApp 2.0.1</li>
-<li>yFiles Layout Algorithms 1.1.3</li>
+<li>ReactomeFIPlugin 8.0.6 - <a href="http://apps.cytoscape.org/apps/reactomefiplugin" class="uri">http://apps.cytoscape.org/apps/reactomefiplugin</a></li>
+<li>stringApp 2.0.3</li>
+<li>scNetViz 1.7.1</li>
+<li>yFiles Layout Algorithms 1.1.4</li>
 </ul></li>
 </ul></li>
 <li>Install the data set within GeneMANIA app. <strong>This requires time and a good network connection to download completely (~15mins)</strong>
@@ -744,7 +747,7 @@ Nia is the Program Manager for Bioinformatics.ca, where she coordinates the Cana
 </div>
 <div id="gsea-installation" class="section level3 hasAnchor">
 <h3>GSEA Installation<a href="welcome.html#gsea-installation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Please install the latest version of GSEA (4.3.2)</p>
+<p>Please install the latest version of GSEA (4.3.3)</p>
 <ol style="list-style-type: decimal">
 <li>Download GSEA
 <ul>
@@ -754,17 +757,51 @@ Nia is the Program Manager for Bioinformatics.ca, where she coordinates the Cana
 <li>Login</li>
 <li>Locate the Download page and download the version corresponding to your system
 <ul>
-<li>MAC users: download GSEA_4.3.2.app.zip</li>
-<li>Window users: download GSEA_Win_4.3.2-installer.exe</li>
-<li>Unix users: download GSEA_Linux_4.3.2.zip</li>
+<li>MAC users: download GSEA_4.3.3.app.zip</li>
+<li>Window users: download GSEA_Win_4.3.3-installer.exe</li>
+<li>Unix users: download GSEA_Linux_4.3.3.zip</li>
 <li><img src="images/gsea_download_exe.png" /></li>
 </ul></li>
 <li>Launch GSEA to test it.</li>
 </ul></li>
 <li>Download GSEA for command line : this is necessary for all platform users to run GSEA from a script (integrated workflow on day 3)
 <ul>
-<li>Download GSEA_4.3.2.zip (and keep it for later use during the workshop)</li>
+<li>Download GSEA_4.3.3.zip (and keep it for later use during the workshop)</li>
 <li><img src="images/gsea_download_command.png" /></li>
+</ul></li>
+</ol>
+</div>
+<div id="docker-installation" class="section level3 hasAnchor">
+<h3>Docker Installation<a href="welcome.html#docker-installation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Docker is a virtualization software that allows you to run programs isolated from your current laptop set up. It eases the burden of installing multiple software requirements and packages.</p>
+<ol style="list-style-type: decimal">
+<li>Please install the latest version of Docker Desktop.
+<ul>
+<li><a href="https://docs.docker.com/desktop/install/windows-install/">Windows</a></li>
+<li><a href="https://docs.docker.com/desktop/install/mac-install/">OSX</a> - make sure to select the version specific for your computer. Newer macs (later than 2021) will contain the Apple silicon (M1/M2/M3). Older computers might be intel based.</li>
+<li><a href="https://docs.docker.com/desktop/install/linux-install/">Linux</a></li>
+</ul></li>
+<li>Pull the required images used in the course
+<ul>
+<li>Open docker desktop (If docker is already running you can find the docker icon in your task bar. Right click on the icon and select “Go to Dashboard”)</li>
+<li><img src="images/docker_dashboard_open.png" /></li>
+<li>Find the search bar in the docker desktop dashboard</li>
+<li><img src="images/docker_dashboard_search.png" /><br />
+</li>
+<li>Enter “risserlin/workshop_base_image” into the search bar at the top of the docker desktop dashboard.</li>
+<li><img src="images/docker_dashboard_imagefind.png" /></li>
+<li>Click on “Pull” to download the image.<br />
+</li>
+<li><img src="images/docker_dashboard_imagefind_annot.png" /></li>
+<li>Enter “risserlin/nest_docker_lymphnode” into the search bar at the top of the docker desktop dashboard.</li>
+<li><img src="images/docker_dashboard_imagefind_nest.png" /></li>
+<li>Click on “Pull” to download the image.<br />
+</li>
+<li><img src="images/docker_dashboard_imagefind_nest_annot.png" /></li>
+</ul></li>
+<li>You should now see both of your images listed in the docker desktop image section (in the local tab)
+<ul>
+<li><img src="images/docker_dashboard_image_installed.png" /></li>
 </ul></li>
 </ol>
 </div>
@@ -774,9 +811,42 @@ Nia is the Program Manager for Bioinformatics.ca, where she coordinates the Cana
 <p>It is in your best interest to complete these before the workshop.</p>
 <div id="cytoscape-preparation-tutorials" class="section level3 hasAnchor">
 <h3>Cytoscape Preparation tutorials<a href="welcome.html#cytoscape-preparation-tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Go to : <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki" class="uri">https://github.com/cytoscape/cytoscape-tutorials/wiki</a> and follow :
-* <a href="https://cytoscape.org/cytoscape-tutorials/protocols/tour-of-cytoscape/#/">Tour of Cytoscape</a>
-* <a href="https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/#/">Basic Data Visualization</a></p>
+<p>Go to : <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki" class="uri">https://github.com/cytoscape/cytoscape-tutorials/wiki</a> and follow :</p>
+<ul>
+<li><a href="https://cytoscape.org/cytoscape-tutorials/protocols/tour-of-cytoscape/#/">Tour of Cytoscape</a></li>
+<li><a href="https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/#/">Basic Data Visualization</a></li>
+</ul>
+</div>
+<div id="r-tutorial" class="section level3 hasAnchor">
+<h3>R Tutorial<a href="welcome.html#r-tutorial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Use your newly installed docker workshop_base_image to try out R and go through the following tutorial -</p>
+<ul>
+<li><a href="https://genviz.org/module-02-r/0002/02/01/introductionToR/">R tutorial</a> - There will be instructions on how to install R and RStudio in the tutorial. Instead of installing use the workshop_base_image docker image that you installed above as follows:
+<ul>
+<li>Open docker desktop (If docker is already running you can find the docker icon in your task bar. Right click on the icon and select “Go to Dashboard”)</li>
+<li><img src="images/docker_dashboard_open.png" /></li>
+<li>Click on Images –&gt; Local –&gt; And find the workshop_base_image. click on the Play button</li>
+<li><img src="images/docker_launch_image.png" /></li>
+<li>Expand the ‘optional settings’</li>
+<li><img src="images/docker_new_container.png" /></li>
+<li>Change -
+<ul>
+<li>‘container name’ to R_tutorial,</li>
+<li>‘Host Port’ to 8787,</li>
+<li>Add environment variable PASSWORD and set value to password</li>
+<li><img src="images/docker_container_settings.png" /></li>
+</ul></li>
+<li>Click on ‘Run’. Docker will display a tab with all the information about the container you just launched</li>
+<li><img src="images/docker_container_success.png" /></li>
+<li>Open a web browser and navigate to localhost:8787</li>
+<li><img src="images/docker_localhost.png" /></li>
+<li>Username - rstudio, password - password (or whatever you entered as the PASSWORD settting when you launch the container)</li>
+<li>You should now have an r studio session running in your web browser</li>
+<li><img src="images/docker_rstudio.png" /></li>
+<li>When you are finished doing the tutorial remember to turn off your docker container and dacker as they both use up a lot of your computer’s resources.</li>
+<li><img src="images/docker_stop.png" /></li>
+</ul></li>
+</ul>
 </div>
 <div id="pre-workshop-readings-and-lectures" class="section level3 hasAnchor">
 <h3>Pre-workshop Readings and Lectures<a href="welcome.html#pre-workshop-readings-and-lectures" class="anchor-section" aria-label="Anchor link to header"></a></h3>

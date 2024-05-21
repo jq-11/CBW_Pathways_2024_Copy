@@ -1,6 +1,6 @@
 # Welcome <a id="welcome"></a>
 
-Welcome to Pathways and Network Analysis of -Omics Data 2024  TEST
+Welcome to Pathways and Network Analysis of -Omics Data 2024
 
 ## Meet your Faculty
 
@@ -71,7 +71,7 @@ You can download the printed course manual [here](https://drive.google.com/a/bio
 
 ### Laptop Setup Instructions
 
-A Check list to setup your laptop can be found [here](https://forms.gle/vyFPcA1P9pqvTL2B9)
+A Check list to setup your laptop can be found [here](https://docs.google.com/forms/d/e/1FAIpQLSdknqfaPi-XJDeFwji5xga7rg-jdGiYsZWxW6zTCjjqbHcHsw/viewform?usp=sharing)
 
 Install these tools on your laptop before coming to the workshop:
 
@@ -97,10 +97,10 @@ Install these tools on your laptop before coming to the workshop:
       * Adobe Acrobat or equivalent
 
 ### Cytoscape Installation
-Please install the latest version of [Cytoscape 3.9.1](https://github.com/cytoscape/cytoscape/releases/3.9.1/) as well as a group of Cytoscape Apps that we will be using for different parts of the course.  
+Please install the latest version of [Cytoscape 3.10.2](https://github.com/cytoscape/cytoscape/releases/3.10.2/) or [Cytoscape Download](https://cytoscape.org/download.html) as well as a group of Cytoscape Apps that we will be using for different parts of the course.  
 
-  1. Install Cytoscape 3.9.1:
-      * Go to: https://github.com/cytoscape/cytoscape/releases/3.9.1/
+  1. Install Cytoscape 3.10.2:
+      * Go to: https://github.com/cytoscape/cytoscape/releases/3.10.2/ OR https://cytoscape.org/download.html
       * Choose the version corresponding to your operating system (OS, Windows or UNIX)
       * Follow instructions to install cytoscape
       * Verify that Cytoscape has been installed correctly by launching the newly installed application
@@ -113,13 +113,14 @@ Please install the latest version of [Cytoscape 3.9.1](https://github.com/cytosc
       * Select the correct app (there might be a few that match your search term).
       * Click on "Install" ![](./images/app_store_download.png)
       * install the following:  
-          * EnrichmentMap 3.3.5
-          * EnrichmentMap Pipeline Collection 1.1.0 (it will install ClusterMaker2 v2.3.4, WordCloud v3.1.4 and AutoAnnotate v1.4.0)
-          * GeneMANIA 3.5.2
+          * EnrichmentMap 3.4.0
+          * EnrichmentMap Pipeline Collection 1.1.0 (it will install ClusterMaker2 v2.3.4, WordCloud v3.1.4 and AutoAnnotate v1.5.0)
+          * GeneMANIA 3.5.3
           * IRegulon  1.3
-          * ReactomeFIPlugin 8.0.5 - http://apps.cytoscape.org/apps/reactomefiplugin 
-          * stringApp 2.0.1
-          * yFiles Layout Algorithms	1.1.3
+          * ReactomeFIPlugin 8.0.6 - http://apps.cytoscape.org/apps/reactomefiplugin 
+          * stringApp 2.0.3
+          * scNetViz 1.7.1
+          * yFiles Layout Algorithms	1.1.4
     
   1. Install the data set within GeneMANIA app. **This requires time and a good network connection to download completely (~15mins)**
       * From the menu bar, select ‘Apps’, hover over ‘GeneMANIA’, then select ‘Choose Another Data Set’.
@@ -127,31 +128,85 @@ Please install the latest version of [Cytoscape 3.9.1](https://github.com/cytosc
       * An ‘Install Data’ window will pop-up. Select H.Sapiens Human (2589 MB). Click on ‘Install’.
   
 ### GSEA Installation  
-Please install the latest version of GSEA (4.3.2)  
+Please install the latest version of GSEA (4.3.3)  
 
   1. Download GSEA
       * Go to the [GSEA page](http://www.broadinstitute.org/gsea/index.jsp)    
       * Register (using an institutional email address) 
       * Login 
       * Locate the Download page and download the version corresponding to your system
-          * MAC users:  download GSEA_4.3.2.app.zip
-          * Window users: download GSEA_Win_4.3.2-installer.exe
-          * Unix users: download GSEA_Linux_4.3.2.zip
+          * MAC users:  download GSEA_4.3.3.app.zip
+          * Window users: download GSEA_Win_4.3.3-installer.exe
+          * Unix users: download GSEA_Linux_4.3.3.zip
           * ![](./images/gsea_download_exe.png)
       * Launch GSEA to test it.
   
   1. Download GSEA for command line :  this is necessary for all platform users to run GSEA from a script (integrated workflow on day 3)
-      * Download  GSEA_4.3.2.zip (and keep it for later use during the workshop)
+      * Download  GSEA_4.3.3.zip (and keep it for later use during the workshop)
       * ![](./images/gsea_download_command.png)
+
+### Docker Installation
+Docker is a virtualization software that allows you to run programs isolated from your current laptop set up.  It eases the burden of installing multiple software requirements and packages.
+
+  1. Please install the latest version of Docker Desktop.
+      * [Windows](https://docs.docker.com/desktop/install/windows-install/)
+      * [OSX](https://docs.docker.com/desktop/install/mac-install/) - make sure to select the version specific for your computer.  Newer macs (later than 2021) will contain the Apple silicon (M1/M2/M3).  Older computers might be intel based.
+      * [Linux](https://docs.docker.com/desktop/install/linux-install/)
+    
+  1. Pull the required images used in the course
+      * Open docker desktop (If docker is already running you can find the docker icon in your task bar.  Right click on the icon and select "Go to Dashboard")
+      * ![](./images/docker_dashboard_open.png)
+      * Find the search bar in the docker desktop dashboard
+      * ![](./images/docker_dashboard_search.png)    
+      * Enter "risserlin/workshop_base_image" into the search bar at the top of the docker desktop dashboard.
+      * ![](./images/docker_dashboard_imagefind.png)
+      * Click on "Pull" to download the image.   
+      * ![](./images/docker_dashboard_imagefind_annot.png)
+      * Enter "risserlin/nest_docker_lymphnode" into the search bar at the top of the docker desktop dashboard.
+      * ![](./images/docker_dashboard_imagefind_nest.png) 
+      * Click on "Pull" to download the image.   
+      * ![](./images/docker_dashboard_imagefind_nest_annot.png)
+      
+  1. You should now see both of your images listed in the docker desktop image section (in the local tab)
+      * ![](./images/docker_dashboard_image_installed.png)
 
 ## Pre-workshop Tutorials
 
 It is in your best interest to complete these before the workshop.
 
 ### Cytoscape Preparation tutorials
+
 Go to : https://github.com/cytoscape/cytoscape-tutorials/wiki and follow :
+
   * [Tour of Cytoscape](https://cytoscape.org/cytoscape-tutorials/protocols/tour-of-cytoscape/#/)
   * [Basic Data Visualization](https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/#/)
+
+### R Tutorial
+
+Use your newly installed docker workshop_base_image to try out R and go through the following tutorial - 
+
+  * [R tutorial](https://genviz.org/module-02-r/0002/02/01/introductionToR/) - There will be instructions on how to install R and RStudio in the tutorial.  Instead of installing use the workshop_base_image docker image that you installed above as follows:
+      * Open docker desktop (If docker is already running you can find the docker icon in your task bar.  Right click on the icon and select "Go to Dashboard")
+      * ![](./images/docker_dashboard_open.png)
+      * Click on Images --> Local --> And find the workshop_base_image.  click on the Play button
+      * ![](./images/docker_launch_image.png)
+      * Expand the 'optional settings'
+      * ![](./images/docker_new_container.png)
+      * Change - 
+        * 'container name' to R_tutorial, 
+        * 'Host Port' to 8787, 
+        * Add environment variable PASSWORD and set value to password
+        * ![](./images/docker_container_settings.png)
+        
+      * Click on 'Run'.  Docker will display a tab with all the information about the container you just launched
+      * ![](./images/docker_container_success.png)
+      * Open a web browser and navigate to localhost:8787
+      * ![](./images/docker_localhost.png)
+      * Username - rstudio, password - password (or whatever you entered as the PASSWORD settting when you launch the container)
+      * You should now have an r studio session running in your web browser
+      * ![](./images/docker_rstudio.png)
+      * When you are finished doing the tutorial remember to turn off your docker container and dacker as they both use up a lot of your computer's resources.
+      * ![](./images/docker_stop.png)      
   
 ### Pre-workshop Readings and Lectures
 
