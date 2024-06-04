@@ -1,0 +1,76 @@
+# Module 6 lab part2: cellPhoneDB {#scRNA-lab1}
+
+**This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
+ 
+
+# Cell-Cell communication in scRNA: CellPhoneDB 
+
+## Presentation
+  1. CellPhoneDB is  a novel repository of ligands, receptors and their interactions. In contrast to other repositories, our database takes into account the subunit architecture of both ligands and receptors, representing heteromeric complexes accurately. We integrated our resource with a statistical framework that predicts enriched cellular interactions between two cell types from single-cell transcriptomics data
+
+  1. public resources to annotate receptors and ligands, as well as manual curation of specific families of proteins involved in cell–cell communication
+
+  1. possibility of using their own list of ligand–receptor interactions 
+
+
+## Method
+  1. CellPhoneDB input data consist of a scRNA-seq counts file and cell-type annotation. 
+
+  1. Enriched receptor–ligand interactions between two cell types are derived on the basis of expression of a receptor by one cell type and a ligand by another cell type. The member of the complex with the minimum average expression is considered for the subsequent statistical analysis. 
+
+  1. We generate a null distribution of the mean of the average ligand and receptor expression in the interacting clusters by randomly permuting the cluster labels of all cells. 
+
+  1. The P value for the likelihood of cell-type specificity of a given receptor–ligand complex is calculated on the basis of the proportion of the means that are as high as or higher than the actual mean. 
+
+  1. Ligand–receptor pairs are ranked on the basis of their total number of significant P values across the cell populations. 
+
+## Dataset 
+Reference paper: PMID: 29227470. Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. Kang et al. Nat Biotechnol. 2018 Jan;36(1):89-94.
+
+Example taken from https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html (21. Cell-cell communication).
+
+The dataset consists of  ~25k PBMCs from 8 lupus patients, each before and after IFN-β stimulation [Kang et al., 2018].
+
+In this case study, we will assume that cell types such as B cells and CD4 T cells carry out a signal mediator role, while others, such as CD8 T cells and Natural Killer cells, are composed of the cells that carry out the response. In other words, we will treat B and CD4 T cells as the sources of CCC signalling, while the latter are the receivers of CCC stimuli. This is of course an oversimplification as signalling sources and receivers are expected to be dynamic and multi-directional, thus the cell types that we treat as which category depends on the hypothesis in mind.
+
+
+## Dataset preprocessing and running CellPhoneDB
+
+Summary of the steps: [do not run during practical lab]
+
+  1. Prepare the scRNA using the method of your choise. Standard preprocessing consists of filtering out cells of bad quality, clustering the cells and annotating them. In this case, the cells are different types of blood cells and they were annotated using specific cell markers of these different blood cell types. 
+  We are downloading the data that have already been annotated (Kang et al., 2018, https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html).
+  
+#Exploring the UMAP
+<img src="./Module3/gsea/images/workflow.png" alt="workflow" width="750" />
+ The UMAP displays all the cells that are clustered based on cell types. 
+
+
+Link to notebook: 
+
+
+
+
+
+
+## Examining Result
+
+screenshot of filtered table
+
+
+
+##Visualization using Cytoscape
+
+
+
+## Visualization usinr R (code)
+
+
+
+
+
+##END References:
+https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html
+
+
+
