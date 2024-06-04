@@ -15,8 +15,10 @@ laptop-setup-instructions
 basic-programs
 cytoscape-installation
 gsea-installation
+docker-installation
 pre-workshop-tutorials
 cytoscape-preparation-tutorials
+r-tutorial
 pre-workshop-readings-and-lectures
 additional-tutorials
 intro

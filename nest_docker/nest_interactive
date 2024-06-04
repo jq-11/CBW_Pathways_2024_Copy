@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+python3 ./server/manage.py migrate
+
+# running the server
+echo "Starting backend. See the logs in run_server.log"
+python3 ./server/manage.py setdata $2 
+nohup python3 ./server/manage.py runserver 0.0.0.0:8000 > ./run_server.log  2>&1 &
+kill_id_1=$!
+
+# running the frontend
+echo "Starting frontend. See the logs in run_front.log"
+nohup python3 -m http.server $1 > ./run_front.log 2>&1 &
+kill_id_2=$! 
+
+#echo "Starting default web browser to view the interactive output. See the logs in browser_open_msg.log"
+#nohup xdg-open http://localhost:$1/HTML%20file/NEST-vis.html > ./browser_open_msg.log &
+
+while true
+do
+  #echo "Write STOP to stop the process: "
+  read varname
+  if [[ $varname == "STOP" ]];
+    then 
+      echo "Killing the backend and fronend processes."
+      kill $kill_id_1
+      kill $kill_id_2
+      break   
+  fi
+done
