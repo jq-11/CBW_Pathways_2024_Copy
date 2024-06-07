@@ -20,8 +20,8 @@ RUN mkdir -p $DockerHOME/NEST_interactive
 RUN git clone https://github.com/schwartzlab-methods/NEST-interactive.git $DockerHOME/NEST_interactive 
 
 #remove the default data that come with NEST-interactive (we are going to add a different set)
-RUN rm -f $DockerHOME/NEST_interactive/server/data/files/*.csv
-RUN rm -f $DockerHOME/NEST_interactive/server/data/files/*.gz
+#RUN rm -f $DockerHOME/NEST_interactive/server/data/files/*.csv
+#RUN rm -f $DockerHOME/NEST_interactive/server/data/files/*.gz
 
 # set environment variables  
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -40,7 +40,7 @@ COPY ./nest_interactive $DockerHOME/NEST_interactive
 COPY ./requirements.txt $DockerHOME  
 
 #our data file to replace the default version that comes with NEST
-COPY ./lymphnode_files/* $DockerHOME/NEST_interactive/server/data/files
+#COPY ./lymphnode_files/* $DockerHOME/NEST_interactive/server/data/files
 
 # run this command to install all dependencies  
 RUN pip install -r requirements.txt  
