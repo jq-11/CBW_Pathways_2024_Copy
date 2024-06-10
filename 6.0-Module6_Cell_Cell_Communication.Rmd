@@ -1,0 +1,37 @@
+# Module 6: Cell Cell Communication  
+
+ *<font color="#827e9c">By Gregory Schwartz, Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font>*
+ 
+## Module 6 lecture : Cell-Cell Communication. Gregory Schwartz
+[Lecture](TOADD)  
+
+  
+## scRNA lab praticals
+
+[scRNA-lab1_PBMC](#scRNA_PBMC)
+
+ - This lab starts from scRNA data from peripheral blood mononuclear cells. 
+
+ - The cells from similar cell types were grouped into clusters. 
+
+ - We extracted the gene lists corresponding to each cluster and run pathway analysis on it using g:Profiler. 
+
+ - We also created pseudobulk from the data, ran GSEA and created an enrichment map.
+
+[scRNAlab2_Glioblastoma](#scRNA_glioblastoma)
+
+ - Similar to lab1, we extracted gene lists from scRNA clustering from glioblastoma data.
+
+ - We created a mastermap by uploading in EnrichmentMap the pathway enrichment results for all the cluster gene lists.
+ 
+[scRNAlab_CellPhoneDB](#scRNA-cellPhoneDB)
+
+ - Similar to lab1 , we start from scRNA data from peripheral blood mononuclear cells and we are going to study the cell-cell communication between different cell types using CellPhoneDB. 
+
+ 
+[scRNAlab_NEST](#scRNA-NEST)
+
+ - In this lab, we are exploring cell-cell communication in spatial trancriptomic of a pancreatic cancer (PDAC) tissue section using the tool NEST.
+
+  
+

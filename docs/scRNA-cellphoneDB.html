@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Module 6 lab 1: scRNA PBMC | Pathway and Network Analysis of -Omics Data ( June 2024 )</title>
+  <title>Module 6 lab part2: cellPhoneDB | Pathway and Network Analysis of -Omics Data ( June 2024 )</title>
   <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Module 6 lab 1: scRNA PBMC | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
+  <meta property="og:title" content="Module 6 lab part2: cellPhoneDB | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Module 6 lab 1: scRNA PBMC | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
+  <meta name="twitter:title" content="Module 6 lab part2: cellPhoneDB | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
   
   <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="module-6-review-of-the-tools.html"/>
-<link rel="next" href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"/>
+<link rel="prev" href="ass_automation.html"/>
+<link rel="next" href="scRNA-NEST.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -420,80 +420,74 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="genemania_web.html"><a href="genemania_web.html#some-definitions"><i class="fa fa-check"></i>SOME DEFINITIONS:</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="module-6-cell-cell-communication.html"><a href="module-6-cell-cell-communication.html"><i class="fa fa-check"></i>Module 6: Cell Cell Communication</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6-cell-cell-communication.html"><a href="module-6-cell-cell-communication.html#module-6-lecture-cell-cell-communication.-gregory-schwartz"><i class="fa fa-check"></i>Module 6 lecture : Cell-Cell Communication. Gregory Schwartz</a></li>
+<li class="chapter" data-level="" data-path="module-6-cell-cell-communication.html"><a href="module-6-cell-cell-communication.html#scrna-lab-praticals"><i class="fa fa-check"></i>scRNA lab praticals</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="module-6-review-of-the-tools.html"><a href="module-6-review-of-the-tools.html"><i class="fa fa-check"></i>Module 6: Review of the tools</a>
 <ul>
 <li class="chapter" data-level="" data-path="module-6-review-of-the-tools.html"><a href="module-6-review-of-the-tools.html#final-slides"><i class="fa fa-check"></i>Final slides</a></li>
-<li class="chapter" data-level="" data-path="module-6-review-of-the-tools.html"><a href="module-6-review-of-the-tools.html#scrna-lab-praticals"><i class="fa fa-check"></i>scRNA lab praticals</a></li>
+<li class="chapter" data-level="" data-path="module-6-review-of-the-tools.html"><a href="module-6-review-of-the-tools.html#scrna-lab-praticals-1"><i class="fa fa-check"></i>scRNA lab praticals</a></li>
 <li class="chapter" data-level="" data-path="module-6-review-of-the-tools.html"><a href="module-6-review-of-the-tools.html#integrated-assignment"><i class="fa fa-check"></i>Integrated assignment</a></li>
 <li class="chapter" data-level="" data-path="module-6-review-of-the-tools.html"><a href="module-6-review-of-the-tools.html#integrated-assignment-bonus"><i class="fa fa-check"></i>Integrated assignment bonus</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html"><i class="fa fa-check"></i>Module 6 lab 1: scRNA PBMC</a>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html"><i class="fa fa-check"></i>Module 6 lab 1: scRNA PBMC</a>
 <ul>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#pmbc3k-seurat-pipeline"><i class="fa fa-check"></i>Pmbc3k Seurat Pipeline</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#load-libraries"><i class="fa fa-check"></i>load libraries</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#load-the-pbmc-dataset"><i class="fa fa-check"></i>Load the PBMC dataset</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#process-the-dataset"><i class="fa fa-check"></i>Process the dataset</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#assign-cell-type-identity-to-clusters"><i class="fa fa-check"></i>Assign cell type identity to clusters</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#find-differentially-expressed-features-cluster-biomarkers"><i class="fa fa-check"></i>Find differentially expressed features (cluster biomarkers)</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#create-gene-list-for-each-cluster-to-use-with-gprofiler-do-not-run-code"><i class="fa fa-check"></i>Create Gene list for each cluster to use with g:Profiler (Do not run code)</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#data-gene-lists-for-each-cluster"><i class="fa fa-check"></i>Data (gene lists for each cluster)</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#run-pathway-enrichment-analysis-using-gprofiler"><i class="fa fa-check"></i>Run pathway enrichment analysis using g:Profiler</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#create-an-enrichment-map-in-cytoscape"><i class="fa fa-check"></i>Create an enrichment map in Cytoscape</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#gsea-from-pseudobulk"><i class="fa fa-check"></i>GSEA from pseudobulk</a>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#pmbc3k-seurat-pipeline"><i class="fa fa-check"></i>Pmbc3k Seurat Pipeline</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#load-libraries"><i class="fa fa-check"></i>load libraries</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#load-the-pbmc-dataset"><i class="fa fa-check"></i>Load the PBMC dataset</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#process-the-dataset"><i class="fa fa-check"></i>Process the dataset</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#assign-cell-type-identity-to-clusters"><i class="fa fa-check"></i>Assign cell type identity to clusters</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#find-differentially-expressed-features-cluster-biomarkers"><i class="fa fa-check"></i>Find differentially expressed features (cluster biomarkers)</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#create-gene-list-for-each-cluster-to-use-with-gprofiler-do-not-run-code"><i class="fa fa-check"></i>Create Gene list for each cluster to use with g:Profiler (Do not run code)</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#data-gene-lists-for-each-cluster"><i class="fa fa-check"></i>Data (gene lists for each cluster)</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#run-pathway-enrichment-analysis-using-gprofiler"><i class="fa fa-check"></i>Run pathway enrichment analysis using g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#create-an-enrichment-map-in-cytoscape"><i class="fa fa-check"></i>Create an enrichment map in Cytoscape</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#gsea-from-pseudobulk"><i class="fa fa-check"></i>GSEA from pseudobulk</a>
 <ul>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#pseudobulk-creation-differential-expression-and-rank-file"><i class="fa fa-check"></i>pseudobulk creation, differential expression and rank file</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#pseudobulk-creation-differential-expression-and-rank-file"><i class="fa fa-check"></i>pseudobulk creation, differential expression and rank file</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#run-gsea"><i class="fa fa-check"></i>run GSEA:</a></li>
-<li class="chapter" data-level="" data-path="scRNA-cellphoneDB.html"><a href="scRNA-cellphoneDB.html#create-an-enrichmentmap"><i class="fa fa-check"></i>Create an EnrichmentMap:</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#run-gsea"><i class="fa fa-check"></i>run GSEA:</a></li>
+<li class="chapter" data-level="" data-path="scRNA_PBMC.html"><a href="scRNA_PBMC.html#create-an-enrichmentmap"><i class="fa fa-check"></i>Create an EnrichmentMap:</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><i class="fa fa-check"></i>Module 6 lab 2- scRNA pathway analysis using g:Profiler {#scRNA gprofiler-lab}</a>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html"><i class="fa fa-check"></i>Module 6 lab 2- scRNA pathway analysis using g:Profiler</a>
 <ul>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#introduction-3"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#goal-of-the-exercise-1-1"><i class="fa fa-check"></i>Goal of the exercise 1</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#data-5"><i class="fa fa-check"></i>Data</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#can-module8-exercise-1"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#introduction-3"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#goal-of-the-exercise-1-1"><i class="fa fa-check"></i>Goal of the exercise 1</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#data-5"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#can-module8-exercise-1"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a>
 <ul>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-1---launch-gprofiler.-1"><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-2---input-query-1"><i class="fa fa-check"></i>Step 2 - input query</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-3---adjust-parameters.-1"><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-4---run-query-1"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-5---explore-the-results.-1"><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-6-expand-the-stats-tab-1"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-7-save-the-results-1"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-8-optional-but-recommended-1"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-1---launch-gprofiler.-1"><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-2---input-query-1"><i class="fa fa-check"></i>Step 2 - input query</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-3---adjust-parameters.-1"><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-4---run-query-1"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-5---explore-the-results.-1"><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-6-expand-the-stats-tab-1"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-7-save-the-results-1"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-8-optional-but-recommended-1"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#exercise-2"><i class="fa fa-check"></i>Exercise 2 - Cytoscape/EnrichmentMap</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#goal-of-the-exercise-6"><i class="fa fa-check"></i>Goal of the exercise</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#data-6"><i class="fa fa-check"></i>Data</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#enrichmentmap-2"><i class="fa fa-check"></i>EnrichmentMap</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#description-of-this-exercise-1"><i class="fa fa-check"></i>Description of this exercise</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#start-the-exercise-3"><i class="fa fa-check"></i>Start the exercise</a>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#exercise-2"><i class="fa fa-check"></i>Exercise 2 - Cytoscape/EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#goal-of-the-exercise-6"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#data-6"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#enrichmentmap-2"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#description-of-this-exercise-1"><i class="fa fa-check"></i>Description of this exercise</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#start-the-exercise-3"><i class="fa fa-check"></i>Start the exercise</a>
 <ul>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-1-2"><i class="fa fa-check"></i>Step 1</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-2-2"><i class="fa fa-check"></i>Step 2</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-3-explore-detailed-results"><i class="fa fa-check"></i>Step 3: Explore Detailed results</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-4-optional-autoannotate-the-enrichment-map"><i class="fa fa-check"></i>Step 4 [OPTIONAL]: AutoAnnotate the enrichment map</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-1-2"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-2-2"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-3-explore-detailed-results"><i class="fa fa-check"></i>Step 3: Explore Detailed results</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-4-optional-autoannotate-the-enrichment-map"><i class="fa fa-check"></i>Step 4 [OPTIONAL]: AutoAnnotate the enrichment map</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#exercise-3"><i class="fa fa-check"></i>Exercise 3 [OPTIONAL]- Cytoscape/EnrichmentMap using multiple datasets</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#goal-of-the-exercise-7"><i class="fa fa-check"></i>Goal of the exercise</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#data-7"><i class="fa fa-check"></i>Data</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#start-the-exercise-4"><i class="fa fa-check"></i>Start the exercise</a>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#exercise-3"><i class="fa fa-check"></i>Exercise 3 [OPTIONAL]- Cytoscape/EnrichmentMap using multiple datasets</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#goal-of-the-exercise-7"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#data-7"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#start-the-exercise-4"><i class="fa fa-check"></i>Start the exercise</a>
 <ul>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-1-3"><i class="fa fa-check"></i>Step 1</a></li>
-<li class="chapter" data-level="" data-path="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html"><a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html#step-2-3"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-1-3"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-2-3"><i class="fa fa-check"></i>Step 2</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html"><i class="fa fa-check"></i>Module 6 lab 3: scRNA ScNetViz</a>
-<ul>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#introduction-4"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#goal-of-the-practical-lab"><i class="fa fa-check"></i>Goal of the practical lab</a></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#data-8"><i class="fa fa-check"></i>Data</a></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#steps"><i class="fa fa-check"></i>Steps</a></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#calculate-differential-expression"><i class="fa fa-check"></i>Calculate differential expression</a></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#pathway-analysis-of-clusters"><i class="fa fa-check"></i>Pathway Analysis of clusters</a></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#automation-for-advanced-users-1"><i class="fa fa-check"></i>Automation (for advanced users)</a></li>
-<li class="chapter" data-level="" data-path="scNetViz-lab.html"><a href="scNetViz-lab.html#scnetviz-references"><i class="fa fa-check"></i>scNetViz References</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="integrated_assignment.html"><a href="integrated_assignment.html"><i class="fa fa-check"></i>Module 6 Integrated Assignment</a>
 <ul>
@@ -522,23 +516,25 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="ass_automation.html"><a href="ass_automation.html#goal-of-the-exercise-8"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="scRNA-lab1.html"><a href="scRNA-lab1.html"><i class="fa fa-check"></i>Module 6 lab part2: cellPhoneDB</a></li>
-<li class="chapter" data-level="" data-path="cell-cell-communication-in-scrna-cellphonedb.html"><a href="cell-cell-communication-in-scrna-cellphonedb.html"><i class="fa fa-check"></i>Cell-Cell communication in scRNA: CellPhoneDB</a>
+<li class="chapter" data-level="" data-path="scRNA-cellPhoneDB.html"><a href="scRNA-cellPhoneDB.html"><i class="fa fa-check"></i>Module 6 lab part2: cellPhoneDB</a>
 <ul>
-<li class="chapter" data-level="" data-path="cell-cell-communication-in-scrna-cellphonedb.html"><a href="cell-cell-communication-in-scrna-cellphonedb.html#presentation"><i class="fa fa-check"></i>Presentation</a></li>
-<li class="chapter" data-level="" data-path="cell-cell-communication-in-scrna-cellphonedb.html"><a href="cell-cell-communication-in-scrna-cellphonedb.html#method"><i class="fa fa-check"></i>Method</a></li>
-<li class="chapter" data-level="" data-path="cell-cell-communication-in-scrna-cellphonedb.html"><a href="cell-cell-communication-in-scrna-cellphonedb.html#dataset"><i class="fa fa-check"></i>Dataset</a></li>
-<li class="chapter" data-level="" data-path="cell-cell-communication-in-scrna-cellphonedb.html"><a href="cell-cell-communication-in-scrna-cellphonedb.html#dataset-preprocessing-and-running-cellphonedb"><i class="fa fa-check"></i>Dataset preprocessing and running CellPhoneDB</a></li>
-<li class="chapter" data-level="" data-path="cell-cell-communication-in-scrna-cellphonedb.html"><a href="cell-cell-communication-in-scrna-cellphonedb.html#examining-result"><i class="fa fa-check"></i>Examining Result</a></li>
-<li class="chapter" data-level="" data-path="cell-cell-communication-in-scrna-cellphonedb.html"><a href="cell-cell-communication-in-scrna-cellphonedb.html#visualization-usinr-r-code"><i class="fa fa-check"></i>Visualization usinr R (code)</a></li>
+<li class="chapter" data-level="" data-path="scRNA-cellPhoneDB.html"><a href="scRNA-cellPhoneDB.html#cell-cell-communication-in-scrna-cellphonedb"><i class="fa fa-check"></i>Cell-Cell communication in scRNA: CellPhoneDB</a>
+<ul>
+<li class="chapter" data-level="" data-path="scRNA-cellPhoneDB.html"><a href="scRNA-cellPhoneDB.html#presentation"><i class="fa fa-check"></i>Presentation</a></li>
+<li class="chapter" data-level="" data-path="scRNA-cellPhoneDB.html"><a href="scRNA-cellPhoneDB.html#method"><i class="fa fa-check"></i>Method</a></li>
+<li class="chapter" data-level="" data-path="scRNA-cellPhoneDB.html"><a href="scRNA-cellPhoneDB.html#dataset-and-references"><i class="fa fa-check"></i>Dataset and references</a></li>
+<li class="chapter" data-level="" data-path="scRNA-cellPhoneDB.html"><a href="scRNA-cellPhoneDB.html#dataset-preprocessing-and-running-cellphonedb"><i class="fa fa-check"></i>Dataset preprocessing and running CellPhoneDB</a></li>
+<li class="chapter" data-level="" data-path="scRNA-cellPhoneDB.html"><a href="scRNA-cellPhoneDB.html#examining-the-results"><i class="fa fa-check"></i>Examining the results</a></li>
+<li class="chapter" data-level="" data-path="scRNA-cellPhoneDB.html"><a href="scRNA-cellPhoneDB.html#visualization-using-cytoscape"><i class="fa fa-check"></i>Visualization using Cytoscape</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="scRNA-lab7.html"><a href="scRNA-lab7.html"><i class="fa fa-check"></i>Module 6 lab part3: NEST</a>
+</ul></li>
+<li class="chapter" data-level="" data-path="scRNA-NEST.html"><a href="scRNA-NEST.html"><i class="fa fa-check"></i>Module 6 lab part3: NEST</a>
 <ul>
-<li class="chapter" data-level="" data-path="scRNA-lab7.html"><a href="scRNA-lab7.html#cell-cell-communication-ccc-in-spatial-transcriptomics-using-nest"><i class="fa fa-check"></i>Cell-Cell Communication (CCC) in spatial transcriptomics using NEST</a>
+<li class="chapter" data-level="" data-path="scRNA-NEST.html"><a href="scRNA-NEST.html#cell-cell-communication-ccc-in-spatial-transcriptomics-using-nest"><i class="fa fa-check"></i>Cell-Cell Communication (CCC) in spatial transcriptomics using NEST</a>
 <ul>
-<li class="chapter" data-level="" data-path="scRNA-lab7.html"><a href="scRNA-lab7.html#presentation-of-nest-neural-network-on-spatial-transcriptomics"><i class="fa fa-check"></i>Presentation of NEST (NEural network on Spatial Transcriptomics)</a></li>
-<li class="chapter" data-level="" data-path="scRNA-lab7.html"><a href="scRNA-lab7.html#how-to-run-nest"><i class="fa fa-check"></i>How to run NEST</a></li>
-<li class="chapter" data-level="" data-path="scRNA-lab7.html"><a href="scRNA-lab7.html#practical-lab-pancreatic-ductal-adenocarcinoma-pdac"><i class="fa fa-check"></i>Practical lab : Pancreatic Ductal Adenocarcinoma (PDAC)</a></li>
+<li class="chapter" data-level="" data-path="scRNA-NEST.html"><a href="scRNA-NEST.html#presentation-of-nest-neural-network-on-spatial-transcriptomics"><i class="fa fa-check"></i>Presentation of NEST (NEural network on Spatial Transcriptomics)</a></li>
+<li class="chapter" data-level="" data-path="scRNA-NEST.html"><a href="scRNA-NEST.html#how-to-run-nest"><i class="fa fa-check"></i>How to run NEST</a></li>
+<li class="chapter" data-level="" data-path="scRNA-NEST.html"><a href="scRNA-NEST.html#practical-lab-pancreatic-ductal-adenocarcinoma-pdac"><i class="fa fa-check"></i>Practical lab : Pancreatic Ductal Adenocarcinoma (PDAC)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="intro-regulatory-networks.html"><a href="intro-regulatory-networks.html"><i class="fa fa-check"></i>Optional Module 7: Regulatory Network Analysis</a>
@@ -587,7 +583,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#exercise-1.-detect-regulons-from-co-expressed-genes"><i class="fa fa-check"></i>Exercise 1. Detect regulons from co-expressed genes</a>
 <ul>
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#skills-learned-in-this-exercise"><i class="fa fa-check"></i>Skills learned in this exercise:</a></li>
-<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#steps-1"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#steps"><i class="fa fa-check"></i>Steps</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#exercise-2.-create-a-metatargetome-using-iregulon-and-merge-2-networks-in-cytoscape."><i class="fa fa-check"></i>Exercise 2. Create a metatargetome using iRegulon and merge 2 networks in Cytoscape.</a>
 <ul>
@@ -598,7 +594,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#exercise-3.-use-enrichr-with-the-prostate-gene-list."><i class="fa fa-check"></i>Exercise 3. Use Enrichr with the prostate gene list.</a>
 <ul>
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#goal-2"><i class="fa fa-check"></i>Goal</a></li>
-<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#steps-2"><i class="fa fa-check"></i>Steps</a></li>
+<li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#steps-1"><i class="fa fa-check"></i>Steps</a></li>
 <li class="chapter" data-level="" data-path="regulatory_network_lab.html"><a href="regulatory_network_lab.html#end-of-practical-lab"><i class="fa fa-check"></i>end of practical lab</a></li>
 </ul></li>
 </ul></li>
@@ -622,296 +618,181 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="scRNA-cellphoneDB" class="section level1 hasAnchor">
-<h1>Module 6 lab 1: scRNA PBMC<a href="scRNA-cellphoneDB.html#scRNA-cellphoneDB" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="scRNA-cellPhoneDB" class="section level1 hasAnchor">
+<h1>Module 6 lab part2: cellPhoneDB<a href="scRNA-cellPhoneDB.html#scRNA-cellPhoneDB" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
-<p><em><font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font></em></p>
-<div id="introduction-2" class="section level2 hasAnchor">
-<h2>Introduction<a href="scRNA-cellphoneDB.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As an example of applying pathway and network analysis using single cell RNASeq, we are using the [Seurat tutorial]((<a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial.html" class="uri">https://satijalab.org/seurat/articles/pbmc3k_tutorial.html</a>) as starting point. This dataset consists of Peripheral Blood Mononuclear Cells (PBMC) and is a freely available dataset from 10X Genomics. There are 2,700 single cells that have been sequenced on the Illumina NextSeq 500 (<a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial.html" class="uri">https://satijalab.org/seurat/articles/pbmc3k_tutorial.html</a>).</p>
-<div class="rmd-note">
-<p>
-The R code in this practical lab was used to produce the gene lists
-to use in the downstream analysis. It is for your reference.
-</p>
-<p>
-<strong>YOU DON’T NEED TO RUN IT FOR THIS PRACTICAL LAB.</strong>
-</p>
-<p>
-<strong>ALL NECESSARY FILES ARE PROVIDED.</strong>
-</p>
-</div>
-</div>
-<div id="pmbc3k-seurat-pipeline" class="section level2 hasAnchor">
-<h2>Pmbc3k Seurat Pipeline<a href="scRNA-cellphoneDB.html#pmbc3k-seurat-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Here is the Seurat pipeline that we followed to prepare data for the practical lab.
-Do not run. This is for you reference only.</p>
-</div>
-<div id="load-libraries" class="section level2 hasAnchor">
-<h2>load libraries<a href="scRNA-cellphoneDB.html#load-libraries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="scRNA-cellphoneDB.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb6-2"><a href="scRNA-cellphoneDB.html#cb6-2" tabindex="-1"></a><span class="fu">library</span>(Seurat)</span>
-<span id="cb6-3"><a href="scRNA-cellphoneDB.html#cb6-3" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div>
-</div>
-<div id="load-the-pbmc-dataset" class="section level2 hasAnchor">
-<h2>Load the PBMC dataset<a href="scRNA-cellphoneDB.html#load-the-pbmc-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="scRNA-cellphoneDB.html#cb7-1" tabindex="-1"></a>pbmc.data <span class="ot">&lt;-</span> <span class="fu">Read10X</span>(<span class="at">data.dir =</span> </span>
-<span id="cb7-2"><a href="scRNA-cellphoneDB.html#cb7-2" tabindex="-1"></a>                       <span class="st">&quot;../data/pbmc3k/filtered_gene_bc_matrices/hg19/&quot;</span>)</span>
-<span id="cb7-3"><a href="scRNA-cellphoneDB.html#cb7-3" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="scRNA-cellphoneDB.html#cb7-4" tabindex="-1"></a><span class="co"># Initialize the Seurat object with the raw (non-normalized data).</span></span>
-<span id="cb7-5"><a href="scRNA-cellphoneDB.html#cb7-5" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">CreateSeuratObject</span>(<span class="at">counts =</span> pbmc.data, <span class="at">project =</span> <span class="st">&quot;pbmc3k&quot;</span>, </span>
-<span id="cb7-6"><a href="scRNA-cellphoneDB.html#cb7-6" tabindex="-1"></a>                                <span class="at">min.cells =</span> <span class="dv">3</span>, <span class="at">min.features =</span> <span class="dv">200</span>)</span>
-<span id="cb7-7"><a href="scRNA-cellphoneDB.html#cb7-7" tabindex="-1"></a>pbmc</span></code></pre></div>
-</div>
-<div id="process-the-dataset" class="section level2 hasAnchor">
-<h2>Process the dataset<a href="scRNA-cellphoneDB.html#process-the-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="scRNA-cellphoneDB.html#cb8-1" tabindex="-1"></a>pbmc[[<span class="st">&quot;percent.mt&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">PercentageFeatureSet</span>(pbmc, <span class="at">pattern =</span> <span class="st">&quot;^MT-&quot;</span>)</span>
-<span id="cb8-2"><a href="scRNA-cellphoneDB.html#cb8-2" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">NormalizeData</span>(pbmc, <span class="at">normalization.method =</span> <span class="st">&quot;LogNormalize&quot;</span>, </span>
-<span id="cb8-3"><a href="scRNA-cellphoneDB.html#cb8-3" tabindex="-1"></a>                      <span class="at">scale.factor =</span> <span class="dv">10000</span>)</span>
-<span id="cb8-4"><a href="scRNA-cellphoneDB.html#cb8-4" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">NormalizeData</span>(pbmc)</span>
-<span id="cb8-5"><a href="scRNA-cellphoneDB.html#cb8-5" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">FindVariableFeatures</span>(pbmc, <span class="at">selection.method =</span> <span class="st">&quot;vst&quot;</span>, </span>
-<span id="cb8-6"><a href="scRNA-cellphoneDB.html#cb8-6" tabindex="-1"></a>                             <span class="at">nfeatures =</span> <span class="dv">2000</span>)</span>
-<span id="cb8-7"><a href="scRNA-cellphoneDB.html#cb8-7" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="scRNA-cellphoneDB.html#cb8-8" tabindex="-1"></a>all.genes <span class="ot">&lt;-</span> <span class="fu">rownames</span>(pbmc)</span>
-<span id="cb8-9"><a href="scRNA-cellphoneDB.html#cb8-9" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">ScaleData</span>(pbmc, <span class="at">features =</span> all.genes)</span>
-<span id="cb8-10"><a href="scRNA-cellphoneDB.html#cb8-10" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">RunPCA</span>(pbmc, <span class="at">features =</span> <span class="fu">VariableFeatures</span>(<span class="at">object =</span> pbmc))</span>
-<span id="cb8-11"><a href="scRNA-cellphoneDB.html#cb8-11" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">FindNeighbors</span>(pbmc, <span class="at">dims =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb8-12"><a href="scRNA-cellphoneDB.html#cb8-12" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">FindClusters</span>(pbmc, <span class="at">resolution =</span> <span class="fl">0.5</span>)</span>
-<span id="cb8-13"><a href="scRNA-cellphoneDB.html#cb8-13" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">RunUMAP</span>(pbmc, <span class="at">dims =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb8-14"><a href="scRNA-cellphoneDB.html#cb8-14" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="scRNA-cellphoneDB.html#cb8-15" tabindex="-1"></a><span class="fu">DimPlot</span>(pbmc, <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>)</span></code></pre></div>
-<p><img src="scRNAlab/images/scRNAlab1.png" alt="generate rank" width="75%" /></p>
-</div>
-<div id="assign-cell-type-identity-to-clusters" class="section level2 hasAnchor">
-<h2>Assign cell type identity to clusters<a href="scRNA-cellphoneDB.html#assign-cell-type-identity-to-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For this dataset, we use canonical markers to match clusters to known cell types:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="scRNA-cellphoneDB.html#cb9-1" tabindex="-1"></a>new.cluster.ids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Naive CD4 T&quot;</span>, <span class="st">&quot;CD14+ Mono&quot;</span>, </span>
-<span id="cb9-2"><a href="scRNA-cellphoneDB.html#cb9-2" tabindex="-1"></a>                     <span class="st">&quot;Memory CD4 T&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;CD8 T&quot;</span>, </span>
-<span id="cb9-3"><a href="scRNA-cellphoneDB.html#cb9-3" tabindex="-1"></a>                      <span class="st">&quot;FCGR3A+ Mono&quot;</span>,<span class="st">&quot;NK&quot;</span>, <span class="st">&quot;DC&quot;</span>, <span class="st">&quot;Platelet&quot;</span>)</span>
-<span id="cb9-4"><a href="scRNA-cellphoneDB.html#cb9-4" tabindex="-1"></a><span class="fu">names</span>(new.cluster.ids) <span class="ot">&lt;-</span> <span class="fu">levels</span>(pbmc)</span>
-<span id="cb9-5"><a href="scRNA-cellphoneDB.html#cb9-5" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">RenameIdents</span>(pbmc, new.cluster.ids)</span>
-<span id="cb9-6"><a href="scRNA-cellphoneDB.html#cb9-6" tabindex="-1"></a><span class="fu">DimPlot</span>(pbmc, <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">pt.size =</span> <span class="fl">0.5</span>) </span>
-<span id="cb9-7"><a href="scRNA-cellphoneDB.html#cb9-7" tabindex="-1"></a>                                                  <span class="sc">+</span> <span class="fu">NoLegend</span>()</span></code></pre></div>
-<p><img src="scRNAlab/images/scRNAlab2.png" alt="generate rank" width="75%" /></p>
-</div>
-<div id="find-differentially-expressed-features-cluster-biomarkers" class="section level2 hasAnchor">
-<h2>Find differentially expressed features (cluster biomarkers)<a href="scRNA-cellphoneDB.html#find-differentially-expressed-features-cluster-biomarkers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Find markers for every cluster compared to the remaining cells and report only the genes with positive scores, ie. genes specific to the cluster and not the rest of the cells. The list of genes specific to each cluster will be used in the downstream analysis.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="scRNA-cellphoneDB.html#cb10-1" tabindex="-1"></a><span class="co">#Use the FindAllMarkers seurat function to find all the genes </span></span>
-<span id="cb10-2"><a href="scRNA-cellphoneDB.html#cb10-2" tabindex="-1"></a><span class="co">#associated with each cluster</span></span>
-<span id="cb10-3"><a href="scRNA-cellphoneDB.html#cb10-3" tabindex="-1"></a>pbmc.markers <span class="ot">&lt;-</span> <span class="fu">FindAllMarkers</span>(pbmc, <span class="at">only.pos =</span> <span class="cn">TRUE</span>, <span class="at">min.pct =</span> <span class="fl">0.25</span>, </span>
-<span id="cb10-4"><a href="scRNA-cellphoneDB.html#cb10-4" tabindex="-1"></a>                                              <span class="at">logfc.threshold =</span> <span class="fl">0.25</span>)</span>
-<span id="cb10-5"><a href="scRNA-cellphoneDB.html#cb10-5" tabindex="-1"></a>pbmc.markers <span class="sc">%&gt;%</span></span>
-<span id="cb10-6"><a href="scRNA-cellphoneDB.html#cb10-6" tabindex="-1"></a>    <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span></span>
-<span id="cb10-7"><a href="scRNA-cellphoneDB.html#cb10-7" tabindex="-1"></a>    <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">2</span>, <span class="at">order_by =</span> avg_log2FC)</span>
-<span id="cb10-8"><a href="scRNA-cellphoneDB.html#cb10-8" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="scRNA-cellphoneDB.html#cb10-9" tabindex="-1"></a><span class="co">#plot graphs for a subset of the genes    </span></span>
-<span id="cb10-10"><a href="scRNA-cellphoneDB.html#cb10-10" tabindex="-1"></a><span class="fu">FeaturePlot</span>(pbmc, <span class="at">features =</span> <span class="fu">c</span>(<span class="st">&quot;MS4A1&quot;</span>, <span class="st">&quot;GNLY&quot;</span>, <span class="st">&quot;CD3E&quot;</span>, </span>
-<span id="cb10-11"><a href="scRNA-cellphoneDB.html#cb10-11" tabindex="-1"></a>                  <span class="st">&quot;CD14&quot;</span>, <span class="st">&quot;FCER1A&quot;</span>, <span class="st">&quot;FCGR3A&quot;</span>, <span class="st">&quot;LYZ&quot;</span>, <span class="st">&quot;PPBP&quot;</span>,<span class="st">&quot;CD8A&quot;</span>))</span>
-<span id="cb10-12"><a href="scRNA-cellphoneDB.html#cb10-12" tabindex="-1"></a>    </span>
-<span id="cb10-13"><a href="scRNA-cellphoneDB.html#cb10-13" tabindex="-1"></a><span class="fu">write.csv</span>(pbmc.markers, <span class="st">&quot;pbmc.markers.csv&quot;</span>)</span></code></pre></div>
-<p><img src="scRNAlab/images/scRNAlab3.png" alt="generate rank" width="75%" /></p>
-</div>
-<div id="create-gene-list-for-each-cluster-to-use-with-gprofiler-do-not-run-code" class="section level2 hasAnchor">
-<h2>Create Gene list for each cluster to use with g:Profiler (Do not run code)<a href="scRNA-cellphoneDB.html#create-gene-list-for-each-cluster-to-use-with-gprofiler-do-not-run-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now that we have the list of genes that are specific to each cluster, it would be useful to perform pathway analysis on each list. It could provide a deeper understanding on each cluster. In some cases, it might help to adjust the labels associated with the clusters using marker genes.</p>
-<p>In order to do that, we have extracted each cluster gene list from the <a href="./scRNAlab/data/Pancancer_pbmc.markers.csv">pbmc.markers.csv</a> file.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="scRNA-cellphoneDB.html#cb11-1" tabindex="-1"></a><span class="co">#modify the names of some of the clusters to get rid of spaces and symbols</span></span>
-<span id="cb11-2"><a href="scRNA-cellphoneDB.html#cb11-2" tabindex="-1"></a>pbmc.markers<span class="sc">$</span>cluster <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&quot;Naive CD4 T&quot;</span>, <span class="st">&quot;Naive_CD4_T&quot;</span>, </span>
-<span id="cb11-3"><a href="scRNA-cellphoneDB.html#cb11-3" tabindex="-1"></a>                            pbmc.markers<span class="sc">$</span>cluster)</span>
-<span id="cb11-4"><a href="scRNA-cellphoneDB.html#cb11-4" tabindex="-1"></a>pbmc.markers<span class="sc">$</span>cluster <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&quot;CD14</span><span class="sc">\\</span><span class="st">+ Mono&quot;</span>, <span class="st">&quot;CD14pMono&quot;</span>, </span>
-<span id="cb11-5"><a href="scRNA-cellphoneDB.html#cb11-5" tabindex="-1"></a>                            pbmc.markers<span class="sc">$</span>cluster)</span>
-<span id="cb11-6"><a href="scRNA-cellphoneDB.html#cb11-6" tabindex="-1"></a>pbmc.markers<span class="sc">$</span>cluster <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&quot;Memory CD4 T&quot;</span>, <span class="st">&quot;Memory_CD4_T&quot;</span>, </span>
-<span id="cb11-7"><a href="scRNA-cellphoneDB.html#cb11-7" tabindex="-1"></a>                            pbmc.markers<span class="sc">$</span>cluster)</span>
-<span id="cb11-8"><a href="scRNA-cellphoneDB.html#cb11-8" tabindex="-1"></a>pbmc.markers<span class="sc">$</span>cluster <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&quot;CD8 T&quot;</span>, <span class="st">&quot;CD8_T&quot;</span>, pbmc.markers<span class="sc">$</span>cluster)</span>
-<span id="cb11-9"><a href="scRNA-cellphoneDB.html#cb11-9" tabindex="-1"></a>pbmc.markers<span class="sc">$</span>cluster <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&quot;FCGR3A</span><span class="sc">\\</span><span class="st">+ Mono&quot;</span>, <span class="st">&quot;FCGR3Ap_Mono&quot;</span>, </span>
-<span id="cb11-10"><a href="scRNA-cellphoneDB.html#cb11-10" tabindex="-1"></a>                            pbmc.markers<span class="sc">$</span>cluster)</span>
-<span id="cb11-11"><a href="scRNA-cellphoneDB.html#cb11-11" tabindex="-1"></a></span>
-<span id="cb11-12"><a href="scRNA-cellphoneDB.html#cb11-12" tabindex="-1"></a><span class="co">#get the set of unique cluster names</span></span>
-<span id="cb11-13"><a href="scRNA-cellphoneDB.html#cb11-13" tabindex="-1"></a>cluster_list <span class="ot">=</span> <span class="fu">unique</span>(pbmc.markers<span class="sc">$</span>cluster)</span>
-<span id="cb11-14"><a href="scRNA-cellphoneDB.html#cb11-14" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="scRNA-cellphoneDB.html#cb11-15" tabindex="-1"></a><span class="co">#go through each cluster and create a file of its associated genes. </span></span>
-<span id="cb11-16"><a href="scRNA-cellphoneDB.html#cb11-16" tabindex="-1"></a><span class="co"># output the genes associated with each cluster into a file named by the </span></span>
-<span id="cb11-17"><a href="scRNA-cellphoneDB.html#cb11-17" tabindex="-1"></a><span class="co"># cluster name</span></span>
-<span id="cb11-18"><a href="scRNA-cellphoneDB.html#cb11-18" tabindex="-1"></a><span class="cf">for</span> (a <span class="cf">in</span> cluster_list){</span>
-<span id="cb11-19"><a href="scRNA-cellphoneDB.html#cb11-19" tabindex="-1"></a>  <span class="fu">print</span>(a)</span>
-<span id="cb11-20"><a href="scRNA-cellphoneDB.html#cb11-20" tabindex="-1"></a>  genelist <span class="ot">=</span> pbmc.markers<span class="sc">$</span>gene[<span class="fu">which</span>( pbmc.markers<span class="sc">$</span>cluster <span class="sc">==</span> a)]</span>
-<span id="cb11-21"><a href="scRNA-cellphoneDB.html#cb11-21" tabindex="-1"></a>  <span class="fu">print</span>(genelist)</span>
-<span id="cb11-22"><a href="scRNA-cellphoneDB.html#cb11-22" tabindex="-1"></a>  <span class="fu">write.table</span>(genelist, <span class="fu">paste0</span>(a, <span class="st">&quot;.txt&quot;</span>), <span class="at">sep=</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">col.names =</span> F, </span>
-<span id="cb11-23"><a href="scRNA-cellphoneDB.html#cb11-23" tabindex="-1"></a>                                              <span class="at">row.names =</span> F, <span class="at">quote=</span>F)</span>
-<span id="cb11-24"><a href="scRNA-cellphoneDB.html#cb11-24" tabindex="-1"></a>}</span></code></pre></div>
-</div>
-<div id="data-gene-lists-for-each-cluster" class="section level2 hasAnchor">
-<h2>Data (gene lists for each cluster)<a href="scRNA-cellphoneDB.html#data-gene-lists-for-each-cluster" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="cell-cell-communication-in-scrna-cellphonedb" class="section level2 hasAnchor">
+<h2>Cell-Cell communication in scRNA: CellPhoneDB<a href="scRNA-cellPhoneDB.html#cell-cell-communication-in-scrna-cellphonedb" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><a href="./scRNAlab/data/Naive_CD4_T.txt">Naive_CD4_T.txt</a></li>
-<li><a href="./scRNAlab/data/CD14pMono.txt">CD14pMono.txt</a></li>
-<li><a href="./scRNAlab/data/Memory_CD4_T.txt">Memory_CD4_T.txt</a></li>
-<li><a href="./scRNAlab/data/B.txt">B.txt</a></li>
-<li><a href="./scRNAlab/data/CD8_T.txt">CD8_T.txt</a></li>
-<li><a href="./scRNAlab/data/FCGR3Ap_Mono.txt">FCGR3Ap_Mono.txt</a></li>
-<li><a href="./scRNAlab/data/NK.txt">NK.txt</a></li>
-<li><a href="./scRNAlab/data/DC.txt">DC.txt</a></li>
-<li><a href="./scRNAlab/data/Platelet.txt">Platelet.txt</a></li>
+<li><strong>Learning objectives</strong>: learn how to take the result of CellPhoneDB and build a Cytoscape network.</li>
+</ul>
+<div id="presentation" class="section level3 hasAnchor">
+<h3>Presentation<a href="scRNA-cellPhoneDB.html#presentation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>CellPhoneDB is a repository of ligands, receptors and their interactions. CellPhoneDB database takes into account the subunit architecture of both ligands and receptors, representing heteromeric complexes accurately. A statistical framework is integrated that predicts enriched cellular interactions between two cell types from single-cell transcriptomics data</p></li>
+<li><p>CellPhoneDB database: public resources to annotate receptors and ligands, as well as manual curation of specific families of proteins involved in cell–cell communication</p></li>
+<li><p>possibility of using own list of ligand–receptor interactions</p></li>
+</ol>
+</div>
+<div id="method" class="section level3 hasAnchor">
+<h3>Method<a href="scRNA-cellPhoneDB.html#method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>CellPhoneDB input data consist of a scRNA-seq counts file and cell-type annotation.</p></li>
+<li><p>Enriched receptor–ligand interactions between two cell types are derived on the basis of expression of a receptor by one cell type and a ligand by another cell type. The member of the complex with the minimum average expression is considered for the subsequent statistical analysis.</p></li>
+<li><p>A null distribution of the mean of the average ligand and receptor expression in the interacting clusters is generated by randomly permuting the cluster labels of all cells.</p></li>
+<li><p>The p value for the likelihood of cell-type specificity of a given receptor–ligand complex is calculated on the basis of the proportion of the means that are as high as or higher than the actual mean (=empirical pvalue).</p></li>
+<li><p>Ligand–receptor pairs are ranked on the basis of their total number of significant p values across the cell populations.</p></li>
+</ol>
+</div>
+<div id="dataset-and-references" class="section level3 hasAnchor">
+<h3>Dataset and references<a href="scRNA-cellPhoneDB.html#dataset-and-references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Reference paper</strong>: PMID: 29227470. Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. Kang et al. Nat Biotechnol. 2018 Jan;36(1):89-94.</p>
+<p>References used to build the Jupyter notebook and run CellPhoneDB:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://pypi.org/project/cellphonedb/" class="uri">https://pypi.org/project/cellphonedb/</a></p></li>
+<li><p><a href="https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt" class="uri">https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt</a></p></li>
+<li><p><a href="https://github.com/ventolab/CellphoneDB" class="uri">https://github.com/ventolab/CellphoneDB</a></p></li>
+<li><p><a href="https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html" class="uri">https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html</a></p></li>
+<li><p><a href="https://zktuong.github.io/ktplots/articles/vignette.html" class="uri">https://zktuong.github.io/ktplots/articles/vignette.html</a></p></li>
+</ol>
+<p>The dataset consists of ~25k peripheral blood mononuclear cell (PBMCs) from 8 pooled lupus patients, each before and after IFN-β stimulation.</p>
+</div>
+<div id="dataset-preprocessing-and-running-cellphonedb" class="section level3 hasAnchor">
+<h3>Dataset preprocessing and running CellPhoneDB<a href="scRNA-cellPhoneDB.html#dataset-preprocessing-and-running-cellphonedb" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="rmd-warning">
+<p>
+Do not run during practical lab. This is for your information
+only.
+</p>
+</div>
+<p>CellPhoneDB is a python package. Running CellPhoneDB is out of score for this lab but the annotated code is included in totality in this Jupyter notebook and is available for download using these links :</p>
+<p><a href="./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.pdf">CellPhoneDB_jupyter_notebook.pdf</a></p>
+<p><a href="./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.ipynb">CellPhoneDB_jupyter_notebook.ipynb</a></p>
+<p>Some installation instructions are placed at the top of the document.</p>
+<p><strong>Summary of the steps</strong>:</p>
+<ul>
+<li><p><strong>Preparing the scRNA using the method of your choice</strong>:
+Standard preprocessing consists of filtering out bad quality cells, normalizing, clustering and annotating the cells. In this case, the cells are different types of blood cells and they were annotated using specific cell markers of these different cell types.</p></li>
+<li><p><strong>Let’s explore the UMAP</strong>:
+<img src="scRNAlab/CPDB_lab/images/cphb_01.png" alt="EM" width="700" /></p></li>
+</ul>
+<p>The UMAP on the right displays all the cells that are clustered based on cell types. UMAP (Uniform Manifold Approximation and Projection) is frequently used in scRNA to display the data in 2 dimensions. It helps visualizing groups of cells that are close together. The colors on the UMAP represent clusters of cells that were annotated into distinct blood cell types.
+The UMAP on the left shows that the cells are coming from different samples: untreated PBMC cells and cells treated with interferon beta (IFN-β). For this exercise, we are only taking the cells IFN-β stimulation.</p>
+<p>The scRNA data is available from the Jupyter notebook but are also here in case it is needed: <a href="./scRNAlab/CPDB_lab/data/scRNA_25PBMC.h5ad">scRNA_25PBMC.h5ad</a></p>
+<ul>
+<li><strong>Running CellPhoneDB</strong>:
+The provided Jupyter notebook contains 2 methods to run CellPhoneDB.
+The first method is to run CellPhoneDB from the Liana package. This has the advantage of some simplicity and the possibility to compare it with other cell-cell communication tools also included in the same package. This is part 1 of the notebook.
+The second approach is to run it directly from the CellPhoneDB package. It offers the advantage to choose the version of the ligand-receptor database and to run it from 3 offered methods: basic, statistical and DEG-based. This is part 2 of the notebook.</li>
+</ul>
+<p>Please consult the CellPhoneDB webpage and gihub links provided at the top of the document as they contain detailed information and tutorials.</p>
+</div>
+<div id="examining-the-results" class="section level3 hasAnchor">
+<h3>Examining the results<a href="scRNA-cellPhoneDB.html#examining-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this case study, we filtered the results to only analyze results where the source are the CD8 T cells sending communication signals to CD4 T and NK cells. We retained significant results at a p-value cutoff of 0.05. This is an arbitrary choice for this lab that was based on the observation of a robust ligant signal of the CD8 T cells. In real life, we suggest that you look at all the possible significant interactions in each pair of cells and consider also the biological question that you need to answer.</p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_03.png" alt="EM" width="850" /></p>
+<ul>
+<li>each row indicates a ligand-receptor pair with a different combination of source and target for each row.</li>
+<li>lr_means (ligand-receptor means) is the average of ligand and receptor expression means.</li>
+<li>The pvalue indicates if this mean is far away from the mean of the null distribution.</li>
+<li>lrs_to_keep indicate rows (ligand-receptor pairs) to keep based on the pvalue</li>
+<li>props: represents the proportion of cells that express the entity</li>
 </ul>
 </div>
-<div id="run-pathway-enrichment-analysis-using-gprofiler" class="section level2 hasAnchor">
-<h2>Run pathway enrichment analysis using g:Profiler<a href="scRNA-cellphoneDB.html#run-pathway-enrichment-analysis-using-gprofiler" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For this practical lab, we will use the platelet gene list to enriched pathways and processes using g:Profiler.</p>
-<ol style="list-style-type: decimal">
-<li>Open the g:Profiler website at <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> in your web browser.</li>
-<li>Open the file (<a href="./scRNAlab/data/Platelet.txt">Platelet.txt</a>) in a simple text editor such as Notepad or Textedit. Select and copy the list of genes.</li>
-<li>Paste the gene list into the Query field in top-left corner of the g:Profiler interface.</li>
-<li>Click on the <em>Advanced options</em> tab to expand it.</li>
-<li>Set <em>Significance threshold</em> to “Benjamini-Hochberg FDR”</li>
-<li>Select 0.05</li>
-<li>Click on the <em>Data sources</em> tab to expand it:</li>
-<li>UnSelect all gene-set databases by clicking the “clear all” button.</li>
-<li>In the <em>Gene Ontology</em> category, check <em>GO Biological Process</em> and <em>No electronic GO annotations</em>.</li>
-<li>In the <em>biological pathways</em> category, check <em>Reactome</em> and check <em>WikiPathways</em>.</li>
-<li>Click on the <em>Run query</em> button to run g:Profiler. <br><img src="scRNAlab/images/scRNAlab4.png" alt="generate rank" width="75%" /></li>
-<li>Save the results<br>
-<ul>
-<li>In the <em>Detailed Results</em> panel, select “GEM” .</li>
-<li>keep the minimum term size set to 10</li>
-<li>set maximum term size to 500</li>
-<li>This will save the results in a text file in the “Generic Enrichment Map” format that we will use to visualize in Cytoscape.<br><img src="scRNAlab/images/scRNAlab5.png" alt="generate rank" width="75%" /></li>
-</ul></li>
-<li>Download the pathway database files.<br>
-<ul>
-<li>Go to the top of the page and expand the “Data sources” tab. Click on the ‘combined name.gmt’ link located at bottom of this tab. It will download a file named <em>combined name.gmt</em> containing a pathway database gmt file with all the available sources.</li>
-</ul></li>
-<li>Rename the file to <a href="./scRNAlab/data/gProfiler_platelet.txt">gProfiler_platelet.txt</a></li>
-</ol>
-</div>
-<div id="create-an-enrichment-map-in-cytoscape" class="section level2 hasAnchor">
-<h2>Create an enrichment map in Cytoscape<a href="scRNA-cellphoneDB.html#create-an-enrichment-map-in-cytoscape" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li>Open Cytoscape</li>
-<li>Go to <strong>Apps</strong> -&gt; <strong>EnrichmentMap</strong></li>
-<li>Select the EnrichmentMap and click on the + sign to open the app.<br><img src="scRNAlab/images/scRNAlab6a.png" alt="generate rank" width="75%" /></li>
-<li>Drag and drop the g:Profiler file (<a href="./scRNAlab/data/gProfiler_platelet.txt">gProfiler_platelet.txt</a>) and the gmt file (<a href="./scRNAlab/data/gprofiler_full_hsapiens.name.gmt">gprofiler_full_hsapiens.name.gmt</a>)</li>
-<li>Set <strong>FDR q-value cutoff</strong> to 0.001</li>
-<li>Click on <strong>Build</strong><br><img src="scRNAlab/images/scRNAlab6.png" alt="generate rank" width="75%" /></li>
-<li>An enrichment map is created:<br><img src="scRNAlab/images/scRNAlab7a.png" alt="generate rank" width="75%" /></li>
-<li>For clarity, you can use the AutoAnnotate app to annotate and cluster the enrichment map.</li>
-<li>In Cytoscape menu , go to <strong>Apps</strong>,–&gt; <strong>AutoAnnotate</strong>,–&gt; <strong>New Annotation Set…</strong></li>
-<li>A dialog box opens, click on <strong>OK</strong><br><img src="scRNAlab/images/scRNAlab8a.png" alt="generate rank" width="100%" /></li>
-</ol>
-<div class="rmd-note">
+<div id="visualization-using-cytoscape" class="section level3 hasAnchor">
+<h3>Visualization using Cytoscape<a href="scRNA-cellPhoneDB.html#visualization-using-cytoscape" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A network is aimed to ease the visualization of relationships between entities.
+We are going to construct a network using the ligand from the CD8 T cells as source and the detected receptors from CD4 T cells and NK cells as targets. The ligand and receptor entities will be represented as nodes on the network and we will color the nodes based on the cell types.
+The edge width will be set proportional to the lr_means which represents the average of ligand and receptor mean expression and which is our measure of interaction strength.</p>
+<p>To create this network, we don’t need any particular Cytoscape app. We will upload the CellPhoneDB result table as a custom network.</p>
+<p><strong>STEPS TO FOLLOW</strong>:</p>
+<div class="rmd-datadownload">
 <p>
-The boxes <strong>Palette</strong>, <strong>Scale Font by cluster
-size</strong> and <strong>Word Wrap</strong> have been selected. The
-clusters have been moved around for clarity.
+The filtered result from the Liana method can be found here: <a
+href="./scRNAlab/CPDB_lab/data/cellphoneDB_source_CD8_target_CD4_NK_p_0_05.csv">cellphoneDB_source_CD8_target_CD4_NK_p_0_05.csv</a>
+Please download the file as you need it to create the network.
 </p>
 </div>
-</div>
-<div id="gsea-from-pseudobulk" class="section level2 hasAnchor">
-<h2>GSEA from pseudobulk<a href="scRNA-cellphoneDB.html#gsea-from-pseudobulk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="pseudobulk-creation-differential-expression-and-rank-file" class="section level3 hasAnchor">
-<h3>pseudobulk creation, differential expression and rank file<a href="scRNA-cellphoneDB.html#pseudobulk-creation-differential-expression-and-rank-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We also can create pseudobulk data from the scRNA data by summing all cells into defined groups. We used the clusters to group the cells and we calculate differential expression using edgeR. We compare the CD4 cells (Naive CD4 T and Memory CD4 T) and the monocytic cells (CD14+ Mono and “FCGR3A+ Mono) .</p>
-<p>As shown in <a href="gsea_mod3.html#gsea_mod3">module 3</a>, in order to perform pathway analysis,we prepare a rank file, run GSEA and create an enrichment map in Cytoscape.</p>
 <ul>
-<li>Data:
-<ul>
-<li>rank file: <a href="./scRNAlab/data/CD4vsMono.rnk">CD4vsMono.rnk</a></li>
-<li>gmt file: <a href="./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt</a></li>
-</ul></li>
+<li>Open Cytoscape.</li>
+<li>Go to the menu bar –&gt; File –&gt; Import –&gt; Network from File …</li>
 </ul>
-</div>
-</div>
-<div id="run-gsea" class="section level2 hasAnchor">
-<h2>run GSEA:<a href="scRNA-cellphoneDB.html#run-gsea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li>Open GSEA</li>
-<li>Select <strong>Load Data</strong></li>
-<li>Drag and Drop the rank <a href="./scRNAlab/data/CD4vsMono.rnk">CD4vsMono.rnk</a> and gmt * <a href="./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt</a> files.</li>
-<li>Click on <strong>Load these files</strong></li>
-<li>Click on <strong>Run GSEAPreranked</strong></li>
-<li>In <strong>Gene sets database</strong>, click on the 3 dots, select <strong>Local GMX/GMT</strong> , select the gmt file, click on OK.</li>
-<li>Set the <strong>Number of permutations</strong> to 100</li>
-<li>Select the rank file: CD4vsMono.rnk</li>
-<li>Expand <strong>Basic Fields</strong></li>
-<li>In the field <strong>Collapse/Remap to gene symbols</strong>, select <strong>No_Collapse</strong></li>
-<li>Add an analysis name of your choice</li>
-<li>Set <strong>Max size</strong> to 200 and <strong>Min size</strong> to 10.</li>
-<li>Click on <strong>Run</strong><br><img src="scRNAlab/images/scRNAlab9.png" alt="generate rank" width="100%" /></li>
-</ol>
-<div class="rmd-tip">
-<p>
-Use 2000 permutations and MAX_Size to 1000 for your own analysis. You
-can decide to further reduce MAX_Size to 500 or 200.
-</p>
-</div>
-</div>
-<div id="create-an-enrichmentmap" class="section level2 hasAnchor">
-<h2>Create an EnrichmentMap:<a href="scRNA-cellphoneDB.html#create-an-enrichmentmap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li>Open Cytoscape</li>
-<li>Go to <strong>Apps</strong> -&gt; <strong>EnrichmentMap</strong></li>
-<li>Select the EnrichmentMap tab, click on the + sign. A <strong>Create Enrichment Map</strong> windows pops up.</li>
-<li>Drag and drop the GSEA folder in the <strong>Data Sets</strong> window. It automatically populates the fields.</li>
-<li>Set the <strong>FDR q-value cutoff</strong> to 0.01</li>
-<li>Click on <strong>Build</strong><br><img src="scRNAlab/images/scRNAlab10.png" alt="generate rank" width="100%" /></li>
-</ol>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_01.png" alt="EM" width="400" /></p>
 <ul>
-<li>The enrichment map is now created. The red nodes are pathways enriched in genes up-regulated in CD4 cells when compared to the monocytic cells. The blue nodes are pathways enriched in genes up-regulated in monocytic cells.<br><img src="scRNAlab/images/scRNAlab11.png" alt="generate rank" width="100%" /></li>
+<li><p>Select the file ‘cellphoneDB_source_CD8_target_CD4_NK_p_0_05.csv’ and click on ‘open’.</p></li>
+<li><p>An ‘Import from Network table’ opens.</p></li>
+<li><p>Set ‘ligand’ as source node.</p></li>
 </ul>
-<p>See code below for your reference ( pseudobulk, differential expression and rank file).</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="scRNA-cellphoneDB.html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb12-2"><a href="scRNA-cellphoneDB.html#cb12-2" tabindex="-1"></a><span class="fu">library</span>(Seurat)</span>
-<span id="cb12-3"><a href="scRNA-cellphoneDB.html#cb12-3" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb12-4"><a href="scRNA-cellphoneDB.html#cb12-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb12-5"><a href="scRNA-cellphoneDB.html#cb12-5" tabindex="-1"></a><span class="fu">library</span>(AUCell)</span>
-<span id="cb12-6"><a href="scRNA-cellphoneDB.html#cb12-6" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb12-7"><a href="scRNA-cellphoneDB.html#cb12-7" tabindex="-1"></a><span class="fu">library</span>(scuttle)</span>
-<span id="cb12-8"><a href="scRNA-cellphoneDB.html#cb12-8" tabindex="-1"></a><span class="fu">library</span>(SingleCellExperiment)</span>
-<span id="cb12-9"><a href="scRNA-cellphoneDB.html#cb12-9" tabindex="-1"></a><span class="fu">library</span>(edgeR)</span>
-<span id="cb12-10"><a href="scRNA-cellphoneDB.html#cb12-10" tabindex="-1"></a><span class="fu">library</span>(affy)</span>
-<span id="cb12-11"><a href="scRNA-cellphoneDB.html#cb12-11" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="scRNA-cellphoneDB.html#cb12-12" tabindex="-1"></a><span class="fu">names</span>(new.cluster.ids) <span class="ot">&lt;-</span> <span class="fu">levels</span>(pbmc)</span>
-<span id="cb12-13"><a href="scRNA-cellphoneDB.html#cb12-13" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">RenameIdents</span>(pbmc, new.cluster.ids)</span>
-<span id="cb12-14"><a href="scRNA-cellphoneDB.html#cb12-14" tabindex="-1"></a>counts <span class="ot">&lt;-</span> pbmc<span class="sc">@</span>assays<span class="sc">$</span>RNA<span class="sc">@</span>counts </span>
-<span id="cb12-15"><a href="scRNA-cellphoneDB.html#cb12-15" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> pbmc<span class="sc">@</span>meta.data</span>
-<span id="cb12-16"><a href="scRNA-cellphoneDB.html#cb12-16" tabindex="-1"></a>sce <span class="ot">&lt;-</span> <span class="fu">SingleCellExperiment</span>(<span class="at">assays =</span> <span class="fu">list</span>(<span class="at">counts =</span> counts), <span class="at">colData =</span> metadata)</span>
-<span id="cb12-17"><a href="scRNA-cellphoneDB.html#cb12-17" tabindex="-1"></a>sum_by <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;seurat_clusters&quot;</span>)</span>
-<span id="cb12-18"><a href="scRNA-cellphoneDB.html#cb12-18" tabindex="-1"></a>summed <span class="ot">&lt;-</span> scuttle<span class="sc">::</span><span class="fu">aggregateAcrossCells</span>(sce, <span class="at">id=</span><span class="fu">colData</span>(sce)[,sum_by])</span>
-<span id="cb12-19"><a href="scRNA-cellphoneDB.html#cb12-19" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">assay</span>(summed, <span class="st">&quot;counts&quot;</span>) </span>
-<span id="cb12-20"><a href="scRNA-cellphoneDB.html#cb12-20" tabindex="-1"></a><span class="fu">colnames</span>(raw) <span class="ot">=</span>   <span class="fu">c</span>(<span class="st">&quot;Naive_CD4_T&quot;</span>, <span class="st">&quot;CD14p_Mono&quot;</span>, <span class="st">&quot;Memory_CD4_T&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;CD8_T&quot;</span>, </span>
-<span id="cb12-21"><a href="scRNA-cellphoneDB.html#cb12-21" tabindex="-1"></a>                    <span class="st">&quot;FCGR3Ap_Mono&quot;</span>,<span class="st">&quot;NK&quot;</span>, <span class="st">&quot;DC&quot;</span>, <span class="st">&quot;Platelet&quot;</span>)</span>
-<span id="cb12-22"><a href="scRNA-cellphoneDB.html#cb12-22" tabindex="-1"></a><span class="fu">saveRDS</span>(raw, <span class="st">&quot;raw.rds&quot;</span>)</span>
-<span id="cb12-23"><a href="scRNA-cellphoneDB.html#cb12-23" tabindex="-1"></a></span>
-<span id="cb12-24"><a href="scRNA-cellphoneDB.html#cb12-24" tabindex="-1"></a>count_mx <span class="ot">=</span> <span class="fu">as.matrix</span>(raw)</span>
-<span id="cb12-25"><a href="scRNA-cellphoneDB.html#cb12-25" tabindex="-1"></a>myGroups <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;CD4&quot;</span>,<span class="st">&quot;Mono&quot;</span> ,<span class="st">&quot;CD4&quot;</span>,<span class="st">&quot;B&quot;</span> , <span class="st">&quot;CD8_T&quot;</span>,<span class="st">&quot;Mono&quot;</span>,<span class="st">&quot;NK&quot;</span>, <span class="st">&quot;DC&quot;</span>,<span class="st">&quot;Platelet&quot;</span> )</span>
-<span id="cb12-26"><a href="scRNA-cellphoneDB.html#cb12-26" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">DGEList</span>(<span class="at">counts=</span>count_mx,<span class="at">group=</span><span class="fu">factor</span>(myGroups))</span>
-<span id="cb12-27"><a href="scRNA-cellphoneDB.html#cb12-27" tabindex="-1"></a>keep <span class="ot">&lt;-</span> <span class="fu">filterByExpr</span>(y)</span>
-<span id="cb12-28"><a href="scRNA-cellphoneDB.html#cb12-28" tabindex="-1"></a>y <span class="ot">&lt;-</span> y[keep,keep.lib.sizes<span class="ot">=</span><span class="cn">FALSE</span>]</span>
-<span id="cb12-29"><a href="scRNA-cellphoneDB.html#cb12-29" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">calcNormFactors</span>(y)</span>
-<span id="cb12-30"><a href="scRNA-cellphoneDB.html#cb12-30" tabindex="-1"></a>design <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span><span class="dv">0</span> <span class="sc">+</span> myGroups )</span>
-<span id="cb12-31"><a href="scRNA-cellphoneDB.html#cb12-31" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">estimateDisp</span>(y,design)</span>
-<span id="cb12-32"><a href="scRNA-cellphoneDB.html#cb12-32" tabindex="-1"></a>my.contrasts <span class="ot">&lt;-</span> <span class="fu">makeContrasts</span>(<span class="at">CD4vsMono=</span>myGroupsCD4<span class="sc">-</span>myGroupsMono, </span>
-<span id="cb12-33"><a href="scRNA-cellphoneDB.html#cb12-33" tabindex="-1"></a>                              <span class="at">levels =</span> design )</span>
-<span id="cb12-34"><a href="scRNA-cellphoneDB.html#cb12-34" tabindex="-1"></a>mycontrast <span class="ot">=</span> <span class="st">&quot;CD4vsMono&quot;</span></span>
-<span id="cb12-35"><a href="scRNA-cellphoneDB.html#cb12-35" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glmQLFit</span>(y,design)</span>
-<span id="cb12-36"><a href="scRNA-cellphoneDB.html#cb12-36" tabindex="-1"></a>qlf <span class="ot">&lt;-</span> <span class="fu">glmQLFTest</span>(fit,<span class="at">coef=</span><span class="dv">2</span>, <span class="at">contrast =</span> my.contrasts[])</span>
-<span id="cb12-37"><a href="scRNA-cellphoneDB.html#cb12-37" tabindex="-1"></a>table2 <span class="ot">=</span> <span class="fu">topTags</span>(qlf, <span class="at">n =</span> <span class="fu">nrow</span>(y))</span>
-<span id="cb12-38"><a href="scRNA-cellphoneDB.html#cb12-38" tabindex="-1"></a>table2 <span class="ot">=</span> table2<span class="sc">$</span>table</span>
-<span id="cb12-39"><a href="scRNA-cellphoneDB.html#cb12-39" tabindex="-1"></a>table2<span class="sc">$</span>score <span class="ot">=</span>  <span class="fu">sign</span>(table2<span class="sc">$</span>logFC) <span class="sc">*</span> <span class="sc">-</span><span class="fu">log10</span>(table2<span class="sc">$</span>PValue)</span>
-<span id="cb12-40"><a href="scRNA-cellphoneDB.html#cb12-40" tabindex="-1"></a>myrank <span class="ot">=</span> <span class="fu">cbind.data.frame</span>(<span class="fu">rownames</span>(table2), table2<span class="sc">$</span>score)</span>
-<span id="cb12-41"><a href="scRNA-cellphoneDB.html#cb12-41" tabindex="-1"></a><span class="fu">colnames</span>(myrank) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;gene&quot;</span>, <span class="st">&quot;score&quot;</span>)</span>
-<span id="cb12-42"><a href="scRNA-cellphoneDB.html#cb12-42" tabindex="-1"></a>myrank <span class="ot">=</span> myrank[ <span class="fu">order</span>(myrank<span class="sc">$</span>score, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
-<span id="cb12-43"><a href="scRNA-cellphoneDB.html#cb12-43" tabindex="-1"></a><span class="fu">write.table</span>(myrank, <span class="fu">paste0</span>(mycontrast, <span class="st">&quot;.rnk&quot;</span>), <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb12-44"><a href="scRNA-cellphoneDB.html#cb12-44" tabindex="-1"></a>            <span class="at">col.names =</span> <span class="cn">FALSE</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<div class="rmd-tip">
-<p>
-Some methods like AddModuleScore or AUCell do pathway enrichment
-analysis of each of cells and the enrichment results are usually display
-on the UMAP using a color code. It involves R coding and is out of the
-scope for this workshop.
-</p>
-</div>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_02.png" alt="EM" width="400" /></p>
+<ul>
+<li>Set ‘receptor’ as target node.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_03.png" alt="EM" width="400" /></p>
+<ul>
+<li>Set source and target as ‘Source Node Attribute’.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_04.png" alt="EM" width="400" /></p>
+<ul>
+<li><p>Click on ‘OK’.</p></li>
+<li><p>The network is created with the default style.</p></li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_05.png" alt="EM" width="400" /></p>
+<ul>
+<li>Go to the ‘Style’ tab and change ‘Style’ from ‘Default’ to ‘Directed’.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_06.png" alt="EM" width="400" /></p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_07.png" alt="EM" width="400" /></p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_09.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Adjust the node style</strong>.</li>
+<li>Go to the ‘Style’ tab and make sure that the ‘Node’ tab is selected.</li>
+<li>Adjust the ‘Fill Color’:
+1. Click on “Fill Color”.
+2. Click on the down arrow.
+3. Set ‘Column’ to ‘target’.
+4. Set ‘Mapping Type’ to “Discrete Mapping’ and click on the blanck space and on the”…” to set a color.</li>
+<li>Set ‘Label Font Size’ to ‘16’.</li>
+<li>Set ‘Size’ to ‘60’.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_08.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Adjust the edge style</strong>.</li>
+<li>Go to the ‘Style’ tab and make sure that the ‘Edge’ tab is selected.</li>
+<li>Set “Label” to “lr_means”.</li>
+<li>Set “Width” to “lr_means”.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_10.png" alt="EM" width="400" /></p>
+<ul>
+<li>Adjust maximum width to 15 and minimum width to 5.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_11.png" alt="EM" width="400" /></p>
+<ul>
+<li>Here is the resulting network:</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_12.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Align the nodes</strong> so that the ligands from the CD8 cells are in the middle and the receptors from NK and CD4 cells on the left and right side.</li>
+<li>You can it manually. Alternatively, you can use the layout tools.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_16.png" alt="EM" width="250" /></p>
+<ul>
+<li>Select the nodes of interest, go to the ‘layout tools’ and click on a align or distribute option.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_13.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Add annotation</strong>:
+<ul>
+<li>Right click on a blank space and add an annotation.
+<img src="scRNAlab/CPDB_lab/images/cpdb_n_14.png" alt="EM" width="400" /></li>
+</ul></li>
+<li>Here is the final result:</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_15.png" alt="EM" width="400" /></p>
+<ul>
+<li>Do not forget to <strong>save your</strong> session. You can also export the network as an image.</li>
+</ul>
 
+</div>
 </div>
 </div>
             </section>
@@ -919,8 +800,8 @@ scope for this workshop.
           </div>
         </div>
       </div>
-<a href="module-6-review-of-the-tools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="module-6-lab-2--scrna-pathway-analysis-using-gprofiler-scrna-gprofiler-lab.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ass_automation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scRNA-NEST.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -955,11 +836,11 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": "https://github.com/BaderLab/CBW_Pathways_2023/commit/master/6.1-Module6_scRNAlab_PBMC.Rmd",
+"link": "https://github.com/BaderLab/CBW_Pathways_2023/commit/master/6.6-Module6_scRNAlab_PBMC2024.Rmd",
 "text": null
 },
 "view": {
-"link": "https://github.com/BaderLab/CBW_Pathways_2023/master/6.1-Module6_scRNAlab_PBMC.Rmd",
+"link": "https://github.com/BaderLab/CBW_Pathways_2023/master/6.6-Module6_scRNAlab_PBMC2024.Rmd",
 "text": null
 },
 "download": ["CBW_Pathways.epub"],

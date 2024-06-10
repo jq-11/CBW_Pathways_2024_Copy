@@ -1,4 +1,4 @@
-# Module 6 lab part3: NEST {#scRNA-lab7}
+# Module 6 lab part3: NEST {#scRNA-NEST}
 
 **This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
  
@@ -173,7 +173,7 @@ On these images, we can see the tissue section with the H&E stain on the left an
   3. Open a terminal window and type the command below to launch NEST interactive:
  
   ```
-  docker run -p 8080:8080 -p 8000:8000 risserlin/nest_docker_lymphnode ###NEED TO CHANGE IT TO PDAC DATA
+  docker run -p 8080:8080 -p 8000:8000 risserlin/nest_docker:pancreatic
   ```
 
   4. Open a web browser and go to http://localhost:8080/HTML%20file/NEST-vis.html
