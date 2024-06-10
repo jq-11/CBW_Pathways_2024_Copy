@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Module 2 lab - g:Profiler | Pathway and Network Analysis of -Omics Data ( June 2024 )</title>
+  <title>Module 6 lab part2: cellPhoneDB | Pathway and Network Analysis of -Omics Data ( June 2024 )</title>
   <meta name="description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Module 2 lab - g:Profiler | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
+  <meta property="og:title" content="Module 6 lab part2: cellPhoneDB | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Module 2 lab - g:Profiler | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
+  <meta name="twitter:title" content="Module 6 lab part2: cellPhoneDB | Pathway and Network Analysis of -Omics Data ( June 2024 )" />
   
   <meta name="twitter:description" content="Course covers the bioinformatics concepts and tools available for interpreting a gene list using pathway and network information." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="module-2-finding-over-represented-pathways-veronique-voisin.html"/>
-<link rel="next" href="gsea-lab.html"/>
+<link rel="prev" href="ass_automation.html"/>
+<link rel="next" href="scRNA_NEST.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -618,474 +618,181 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="gprofiler-lab" class="section level1 hasAnchor">
-<h1>Module 2 lab - g:Profiler<a href="gprofiler-lab.html#gprofiler-lab" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="scRNA_cellPhoneDB" class="section level1 hasAnchor">
+<h1>Module 6 lab part2: cellPhoneDB<a href="scRNA_cellPhoneDB.html#scRNA_cellPhoneDB" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
-<div id="introduction" class="section level2 hasAnchor">
-<h2>Introduction<a href="gprofiler-lab.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Performing Over-Representation Analysis (ORA) with <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>.</p>
-<p>The practical lab contains 2 exercises. The first exercise uses <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> to perform gene-set enrichment analysis.</p>
+<div id="cell-cell-communication-in-scrna-cellphonedb" class="section level2 hasAnchor">
+<h2>Cell-Cell communication in scRNA: CellPhoneDB<a href="scRNA_cellPhoneDB.html#cell-cell-communication-in-scrna-cellphonedb" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>Learning objectives</strong>: learn how to take the result of CellPhoneDB and build a Cytoscape network.</li>
+</ul>
+<div id="presentation" class="section level3 hasAnchor">
+<h3>Presentation<a href="scRNA_cellPhoneDB.html#presentation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>CellPhoneDB is a repository of ligands, receptors and their interactions. CellPhoneDB database takes into account the subunit architecture of both ligands and receptors, representing heteromeric complexes accurately. A statistical framework is integrated that predicts enriched cellular interactions between two cell types from single-cell transcriptomics data</p></li>
+<li><p>CellPhoneDB database: public resources to annotate receptors and ligands, as well as manual curation of specific families of proteins involved in cell–cell communication</p></li>
+<li><p>possibility of using own list of ligand–receptor interactions</p></li>
+</ol>
 </div>
-<div id="goal-of-the-exercise-1" class="section level2 hasAnchor">
-<h2>Goal of the exercise 1<a href="gprofiler-lab.html#goal-of-the-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Learn how to run <em>g:GOSt Functional profiling</em> from the g:Profiler website and explore the results.</p>
+<div id="method" class="section level3 hasAnchor">
+<h3>Method<a href="scRNA_cellPhoneDB.html#method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>CellPhoneDB input data consist of a scRNA-seq counts file and cell-type annotation.</p></li>
+<li><p>Enriched receptor–ligand interactions between two cell types are derived on the basis of expression of a receptor by one cell type and a ligand by another cell type. The member of the complex with the minimum average expression is considered for the subsequent statistical analysis.</p></li>
+<li><p>A null distribution of the mean of the average ligand and receptor expression in the interacting clusters is generated by randomly permuting the cluster labels of all cells.</p></li>
+<li><p>The p value for the likelihood of cell-type specificity of a given receptor–ligand complex is calculated on the basis of the proportion of the means that are as high as or higher than the actual mean (=empirical pvalue).</p></li>
+<li><p>Ligand–receptor pairs are ranked on the basis of their total number of significant p values across the cell populations.</p></li>
+</ol>
 </div>
-<div id="data" class="section level2 hasAnchor">
-<h2>Data<a href="gprofiler-lab.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>g:Profiler requires a list of genes, one per line, in a text file or spreadsheet,
-ready to copy and paste into a web page: for this, we use genes with frequent somatic SNVs identified in TCGA exome sequencing data of 3,200 tumors of 12 types. The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples (Supplementary Table 1, which is derived from column B of Supplementary Table 4 in <a href="https://www.nature.com/articles/nature12634">Kandoth C. et al.</a>. Genes are ranked in decreasing order of significance (FDR Q value) and mutation frequency (not shown).</p>
+<div id="dataset-and-references" class="section level3 hasAnchor">
+<h3>Dataset and references<a href="scRNA_cellPhoneDB.html#dataset-and-references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Reference paper</strong>: PMID: 29227470. Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. Kang et al. Nat Biotechnol. 2018 Jan;36(1):89-94.</p>
+<p>References used to build the Jupyter notebook and run CellPhoneDB:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://pypi.org/project/cellphonedb/" class="uri">https://pypi.org/project/cellphonedb/</a></p></li>
+<li><p><a href="https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt" class="uri">https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt</a></p></li>
+<li><p><a href="https://github.com/ventolab/CellphoneDB" class="uri">https://github.com/ventolab/CellphoneDB</a></p></li>
+<li><p><a href="https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html" class="uri">https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html</a></p></li>
+<li><p><a href="https://zktuong.github.io/ktplots/articles/vignette.html" class="uri">https://zktuong.github.io/ktplots/articles/vignette.html</a></p></li>
+</ol>
+<p>The dataset consists of ~25k peripheral blood mononuclear cell (PBMCs) from 8 pooled lupus patients, each before and after IFN-β stimulation.</p>
 </div>
-<div id="exercise-1" class="section level2 hasAnchor">
-<h2>Exercise 1 - run g:Profiler<a href="gprofiler-lab.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For this exercise, our goal is to run an analysis with g:Profiler. We will copy and paste the list of genes into the g:Profiler web interface, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results.</p>
-<p>g:Profiler performs a gene-set enrichment analysis using a hypergeometric test (Fisher’s exact test) with the option to consider the ranking of the genes in the calculation of the enrichment significance (minimum hypergeometric test). The <a href="http://geneontology.org/">Gene Ontology</a> Biological Process, <a href="https://reactome.org/">Reactome</a> and <a href="https://www.wikipathways.org/">WikiPathways</a> sources are going to be used as pathway databases. The results are displayed as a table or downloadable as an Generic Enrichment Map (GEM) output file.</p>
-<p>Before starting this exercise, download the required files:</p>
+<div id="dataset-preprocessing-and-running-cellphonedb" class="section level3 hasAnchor">
+<h3>Dataset preprocessing and running CellPhoneDB<a href="scRNA_cellPhoneDB.html#dataset-preprocessing-and-running-cellphonedb" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="rmd-warning">
+<p>
+Do not run during practical lab. This is for your information
+only.
+</p>
+</div>
+<p>CellPhoneDB is a python package. Running CellPhoneDB is out of score for this lab but the annotated code is included in totality in this Jupyter notebook and is available for download using these links :</p>
+<p><a href="./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.pdf">CellPhoneDB_jupyter_notebook.pdf</a></p>
+<p><a href="./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.ipynb">CellPhoneDB_jupyter_notebook.ipynb</a></p>
+<p>Some installation instructions are placed at the top of the document.</p>
+<p><strong>Summary of the steps</strong>:</p>
+<ul>
+<li><p><strong>Preparing the scRNA using the method of your choice</strong>:
+Standard preprocessing consists of filtering out bad quality cells, normalizing, clustering and annotating the cells. In this case, the cells are different types of blood cells and they were annotated using specific cell markers of these different cell types.</p></li>
+<li><p><strong>Let’s explore the UMAP</strong>:
+<img src="scRNAlab/CPDB_lab/images/cphb_01.png" alt="EM" width="700" /></p></li>
+</ul>
+<p>The UMAP on the right displays all the cells that are clustered based on cell types. UMAP (Uniform Manifold Approximation and Projection) is frequently used in scRNA to display the data in 2 dimensions. It helps visualizing groups of cells that are close together. The colors on the UMAP represent clusters of cells that were annotated into distinct blood cell types.
+The UMAP on the left shows that the cells are coming from different samples: untreated PBMC cells and cells treated with interferon beta (IFN-β). For this exercise, we are only taking the cells IFN-β stimulation.</p>
+<p>The scRNA data is available from the Jupyter notebook but are also here in case it is needed: <a href="./scRNAlab/CPDB_lab/data/scRNA_25PBMC.h5ad">scRNA_25PBMC.h5ad</a></p>
+<ul>
+<li><strong>Running CellPhoneDB</strong>:
+The provided Jupyter notebook contains 2 methods to run CellPhoneDB.
+The first method is to run CellPhoneDB from the Liana package. This has the advantage of some simplicity and the possibility to compare it with other cell-cell communication tools also included in the same package. This is part 1 of the notebook.
+The second approach is to run it directly from the CellPhoneDB package. It offers the advantage to choose the version of the ligand-receptor database and to run it from 3 offered methods: basic, statistical and DEG-based. This is part 2 of the notebook.</li>
+</ul>
+<p>Please consult the CellPhoneDB webpage and gihub links provided at the top of the document as they contain detailed information and tutorials.</p>
+</div>
+<div id="examining-the-results" class="section level3 hasAnchor">
+<h3>Examining the results<a href="scRNA_cellPhoneDB.html#examining-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this case study, we filtered the results to only analyze results where the source are the CD8 T cells sending communication signals to CD4 T and NK cells. We retained significant results at a p-value cutoff of 0.05. This is an arbitrary choice for this lab that was based on the observation of a robust ligant signal of the CD8 T cells. In real life, we suggest that you look at all the possible significant interactions in each pair of cells and consider also the biological question that you need to answer.</p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_03.png" alt="EM" width="850" /></p>
+<ul>
+<li>each row indicates a ligand-receptor pair with a different combination of source and target for each row.</li>
+<li>lr_means (ligand-receptor means) is the average of ligand and receptor expression means.</li>
+<li>The pvalue indicates if this mean is far away from the mean of the null distribution.</li>
+<li>lrs_to_keep indicate rows (ligand-receptor pairs) to keep based on the pvalue</li>
+<li>props: represents the proportion of cells that express the entity</li>
+</ul>
+</div>
+<div id="visualization-using-cytoscape" class="section level3 hasAnchor">
+<h3>Visualization using Cytoscape<a href="scRNA_cellPhoneDB.html#visualization-using-cytoscape" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A network is aimed to ease the visualization of relationships between entities.
+We are going to construct a network using the ligand from the CD8 T cells as source and the detected receptors from CD4 T cells and NK cells as targets. The ligand and receptor entities will be represented as nodes on the network and we will color the nodes based on the cell types.
+The edge width will be set proportional to the lr_means which represents the average of ligand and receptor mean expression and which is our measure of interaction strength.</p>
+<p>To create this network, we don’t need any particular Cytoscape app. We will upload the CellPhoneDB result table as a custom network.</p>
+<p><strong>STEPS TO FOLLOW</strong>:</p>
 <div class="rmd-datadownload">
 <p>
-Right click on link below and select “Save Link As…”.
-</p>
-<p>
-Place it in the corresponding module directory of your CBW work
-directory.
+The filtered result from the Liana method can be found here: <a
+href="./scRNAlab/CPDB_lab/data/cellphoneDB_source_CD8_target_CD4_NK_p_0_05.csv">cellphoneDB_source_CD8_target_CD4_NK_p_0_05.csv</a>
+Please download the file as you need it to create the network.
 </p>
 </div>
 <ul>
-<li><a href="./Module2/gprofiler/data/Pancancer_genelist.txt">Pancancer_genelist.txt</a></li>
+<li>Open Cytoscape.</li>
+<li>Go to the menu bar –&gt; File –&gt; Import –&gt; Network from File …</li>
 </ul>
-<p>We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.</p>
-<div id="step-1---launch-gprofiler." class="section level3 hasAnchor">
-<h3>Step 1 - Launch g:Profiler.<a href="gprofiler-lab.html#step-1---launch-gprofiler." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Open the g:Profiler website at <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> in your web browser.</p>
-</div>
-<div id="step-2---input-query" class="section level3 hasAnchor">
-<h3>Step 2 - input query<a href="gprofiler-lab.html#step-2---input-query" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Paste the gene list (<a href="./Module2/gprofiler/data/Pancancer_genelist.txt">Pancancer_genelist.txt</a>) into the Query field in top-left corner of the screen.</p>
-<div class="rmd-tip">
-<p>
-Open the file in a simple text editor such as Notepad or Textedit to
-copy the list of genes. <br> Or right click on the file name above and
-select <strong>Open link in new tab</strong>
-</p>
-</div>
-<p><img src="Module2/gprofiler/images/gp1.png" /></p>
-<div class="rmd-note">
-<p>
-The gene list can be space-separated or one per line.<br> The
-organism for the analysis, Homo sapiens, is selected by default.<br> The
-input list can contain a mix of gene and protein IDs, symbols and
-accession numbers.<br> Duplicated and unrecognized IDs will be removed
-automatically, and ambiguous symbols can be refined in an interactive
-dialogue after submitting the query.<br> <strong>Highlight driver terms
-in GO</strong> is a recently (April 2023) added feature that tries to
-reduce the number of GO terms returned by g:Profiler and highlight a
-non-redundant set of GO terms. For more detailed information on this
-feature see <a
-href="https://biit.cs.ut.ee/gprofiler/page/docs#highlighting-description">here</a>
-</p>
-</div>
-</div>
-<div id="step-3---adjust-parameters." class="section level3 hasAnchor">
-<h3>Step 3 - Adjust parameters.<a href="gprofiler-lab.html#step-3---adjust-parameters." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>3a. Click on the <em>Advanced options</em> tab (black rectangle) to expand it.</p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_01.png" alt="EM" width="400" /></p>
 <ul>
-<li><p>Set <em>Significance threshold</em> to “Benjamini-Hochberg FDR”</p></li>
-<li><p><em>User threshold</em> - select 0.05 if you want g:Profiler to return only pathways that are significant (FDR &lt; 0.05).</p></li>
+<li><p>Select the file ‘cellphoneDB_source_CD8_target_CD4_NK_p_0_05.csv’ and click on ‘open’.</p></li>
+<li><p>An ‘Import from Network table’ opens.</p></li>
+<li><p>Set ‘ligand’ as source node.</p></li>
 </ul>
-<div class="rmd-tip">
-<p>
-If g:Profiler does not return any results increase the threshold
-(0.1, then 1) to check that g:Profiler is running successfully but there
-are simply no significant results for your query.
-</p>
-</div>
-<p align="center">
-<img src="Module2/gprofiler/images/gp2.png" alt="workflow" width="50%" />
-</p>
-<div class="rmd-tip">
-<p>
-By default, g:Profiler will only return the sets that pass the
-defined threshold. Often you need the ability to tweak the thresholds in
-the resulting EM beyond the strict FDR &lt; 0.05 threshold and therefore
-require all the results. In order to get all the results, even those
-that don’t pass correction, select <em>All results</em>.
-</p>
-</div>
-<p>3b. Click on the <em>Data sources</em> tab (black rectangle) to expand it.</p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_02.png" alt="EM" width="400" /></p>
 <ul>
-<li>Unselect all gene-set databases by clicking the “clear all” button.</li>
-<li>In the <em>Gene Ontology</em> category, check <em>GO Biological Process</em> and <em>No electronic GO annotations</em>.</li>
-<li>In the <em>biological pathways</em> category, check <em>Reactome</em> and check <em>WikiPathways</em>.</li>
+<li>Set ‘receptor’ as target node.</li>
 </ul>
-<p align="center">
-<img src="Module2/gprofiler/images/gp3.png" alt="workflow" width="50%" />
-</p>
-<div class="rmd-note">
-<p>
-<em>No electronic GO annotations</em> option will discard less
-reliable GO annotations (inferred from electronic annotations (IEAs))
-that are not manually reviewed.
-</p>
-</div>
-<div class="rmd-tip">
-<p>
-if g:Profiler does not return any results uncheck the <em>No
-electronic GO annotation</em> option to expand annotations used in the
-test.
-</p>
-</div>
-</div>
-<div id="step-4---run-query" class="section level3 hasAnchor">
-<h3>Step 4 - Run query<a href="gprofiler-lab.html#step-4---run-query" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Click on the <em>Run query</em> button, below the input parameters, to run g:Profiler.</p>
-<p><img src="Module2/gprofiler/images/gp3a.png" alt="workflow" width="100%" /></p>
-<p>Scroll down page to see results.</p>
-<div class="rmd-tip">
-<p>
-After clicking on <em>Run query</em> button, the analysis completes
-but if there is the following message (above results) - <em>Select the
-Ensembl ID with the most GO annotations (all)</em>, then do the
-following. For each ambiguous gene, select its correct mapping.
-Ambiguous mapping is often caused by multiple Ensembl ids for a given
-gene and are easy to resolve as a user. Rerun query.
-</p>
-</div>
-<p><img src="Module2/gprofiler/images/gp4.png" alt="workflow" width="100%" /></p>
-</div>
-<div id="step-5---explore-the-results." class="section level3 hasAnchor">
-<h3>Step 5 - Explore the results.<a href="gprofiler-lab.html#step-5---explore-the-results." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Step 5a:</p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_03.png" alt="EM" width="400" /></p>
 <ul>
-<li>After the query has run, the results are displayed at the bottom of the page, below the input parameters.</li>
-<li>By default, the “Overview” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for each of the 3 data sources (shown on x-axis) that we have selected - GO Biological Process(GO:BP) and Reactome(REAC) and WikiPathways(WP). Numbers in parentheses indicate the number of gene-sets that passed the threshold.</li>
+<li>Set source and target as ‘Source Node Attribute’.</li>
 </ul>
-<p><img src="Module2/gprofiler/images/gp5.png" alt="workflow" width="100%" /></p>
-<p>Step5b:</p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_04.png" alt="EM" width="400" /></p>
 <ul>
-<li>Click on “Detailed Results” to view the results in more depth. Three tables are displayed, one for each of the data sources selected. (If more than 3 data sources are selected there will be additional tables for each data source). Each row of the table contains:
+<li><p>Click on ‘OK’.</p></li>
+<li><p>The network is created with the default style.</p></li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_05.png" alt="EM" width="400" /></p>
 <ul>
-<li><strong>Term name</strong> - gene-set name</li>
-<li><strong>Term ID</strong> - gene-set identifier</li>
-<li><strong>Padj</strong> - FDR value</li>
-<li><strong>-log10(Padj)</strong> - enrichment score calculated using the formula -log10(padj)</li>
-<li>Variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored. For any data source besides GO, the cell is colored black if the gene is found in the gene-set. For the GO data source cells are colored according to the annotation evidence code. Expand the <em>Legend</em> tab for detailed coloring mapping of GO evidence codes.</li>
+<li>Go to the ‘Style’ tab and change ‘Style’ from ‘Default’ to ‘Directed’.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_06.png" alt="EM" width="400" /></p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_07.png" alt="EM" width="400" /></p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_09.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Adjust the node style</strong>.</li>
+<li>Go to the ‘Style’ tab and make sure that the ‘Node’ tab is selected.</li>
+<li>Adjust the ‘Fill Color’:
+1. Click on “Fill Color”.
+2. Click on the down arrow.
+3. Set ‘Column’ to ‘target’.
+4. Set ‘Mapping Type’ to “Discrete Mapping’ and click on the blanck space and on the”…” to set a color.</li>
+<li>Set ‘Label Font Size’ to ‘16’.</li>
+<li>Set ‘Size’ to ‘60’.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_08.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Adjust the edge style</strong>.</li>
+<li>Go to the ‘Style’ tab and make sure that the ‘Edge’ tab is selected.</li>
+<li>Set “Label” to “lr_means”.</li>
+<li>Set “Width” to “lr_means”.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_10.png" alt="EM" width="400" /></p>
+<ul>
+<li>Adjust maximum width to 15 and minimum width to 5.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_11.png" alt="EM" width="400" /></p>
+<ul>
+<li>Here is the resulting network:</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_12.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Align the nodes</strong> so that the ligands from the CD8 cells are in the middle and the receptors from NK and CD4 cells on the left and right side.</li>
+<li>You can it manually. Alternatively, you can use the layout tools.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_16.png" alt="EM" width="250" /></p>
+<ul>
+<li>Select the nodes of interest, go to the ‘layout tools’ and click on a align or distribute option.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_13.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Add annotation</strong>:
+<ul>
+<li>Right click on a blank space and add an annotation.
+<img src="scRNAlab/CPDB_lab/images/cpdb_n_14.png" alt="EM" width="400" /></li>
 </ul></li>
+<li>Here is the final result:</li>
 </ul>
-<p>The first table displays the gene-sets significantly enriched at FDR 0.05 for the GO:BP database.</p>
-<p><img src="Module2/gprofiler/images/gp6.png" alt="workflow" width="100%" /></p>
-<p>The second table displays the results corresponding to the Reactome database.</p>
-<p><img src="Module2/gprofiler/images/gp7.png" alt="workflow" width="100%" /></p>
-<p>The third table displays the results corresponding to the WikiPathways database.</p>
-<p><img src="Module2/gprofiler/images/gp6a.png" alt="workflow" width="100%" /></p>
-</div>
-<div id="step-6-expand-the-stats-tab" class="section level3 hasAnchor">
-<h3>Step 6: Expand the stats tab<a href="gprofiler-lab.html#step-6-expand-the-stats-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Expand the <em>stats</em> tab by clicking on the double arrow located at the right of the tab.</p>
-<p align="center">
-<img src="Module2/gprofiler/images/gp7a.png" alt="workflow" width="75%" />
-</p>
-<p>It displays the gene set size (T), the size of our gene list (Q) , the number of genes that overlap between our gene list and the tested gene-set (TnQ) as well as the number of genes in the background (U).</p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_15.png" alt="EM" width="400" /></p>
 <ul>
-<li>Above the GO:BP result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size).</li>
-<li>Change the maximum <em>Term size</em> from 10000 to <strong>250</strong> and</li>
-<li>Change the minimum <em>Term size</em> from 1 to <strong>3</strong> and</li>
-<li>Observe the results in the detailed stats panel:</li>
+<li>Do not forget to <strong>save your</strong> session. You can also export the network as an image.</li>
 </ul>
-<p><img src="Module2/gprofiler/images/gp8a.png" alt="workflow" width="100%" /></p>
-<ul>
-<li>Without filtering term size, the top terms were GO terms containing more than 4000 or 5000 genes and often terms located high in the GO hierarchy (parent term).</li>
-<li>With filtering the maximum term size to 250, the top list contains pathways with larger interpretative values. However, please note that the adjusted p-values were calculated using all gene-sets without size filtering.</li>
-</ul>
-</div>
-<div id="step-7-save-the-results" class="section level3 hasAnchor">
-<h3>Step 7: Save the results<a href="gprofiler-lab.html#step-7-save-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>7a. In the <em>Detailed Results</em> panel, select “GEM” . It will save the results in a text file in the “Generic Enrichment Map” format that we will use to visualize using Cytoscape.</p>
-<ul>
-<li>keep the minimum term size set to 3 (for all the three files we create below)</li>
-<li>set maximum term size to 10000 ( = no filtering by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000.gem.txt)
-<p align="center">
-<img src="Module2/gprofiler/images/gp13.png" alt="workflow" width="75%" />
-</p></li>
-<li>set maximum term size to 1000 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_termmin3_max1000.gem.txt)
-<p align="center">
-<img src="Module2/gprofiler/images/gp14.png" alt="workflow" width="75%" />
-</p></li>
-<li>select max term size to 250 ( = filter by gene-set size) and click on the GEM button. A file is downloaded on your computer. (change the name to gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt)
-<p align="center">
-<img src="Module2/gprofiler/images/gp14a.png" alt="workflow" width="75%" />
-</p></li>
-</ul>
-<p>7b: Open the file that you saved using the gene-set threshold of 250 using Microsoft Office Excel or in an equivalent software.</p>
-<p>Observe the results included in this file:</p>
-<ol style="list-style-type: decimal">
-<li>Name of each gene-set</li>
-<li>Description of each gene-set</li>
-<li>Significance of the overlap (pvalue)</li>
-<li>Significance of the overlap (adjusted pvalue/qvalue)</li>
-<li>Phenotype</li>
-<li>Genes included in each gene-set</li>
-</ol>
-<div class="rmd-question">
-<p>
-Which <a href="GO:BP" class="uri">GO:BP</a> term has the best corrected p-value? <br> Which genes in
-our list are included in this term? <br> Observe that some genes can be
-present on several lines (pathways are related when they contain a lof
-of genes in common).
-</p>
-</div>
-<div class="rmd-note">
-<p>
-The table is formatted for the input into Cytoscape EnrichmentMap. It
-is called the <a
-href="https://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#generic-results-files"><em>generic
-format</em></a>. The p-value and FDR columns contain identical values
-because g:Profiler directly outputs the FDR (= corrected p-value)
-meaning that the p-value column is already the FDR. Phenotype 1 means
-that each pathway will be represented by red nodes on the enrichment map
-(presented during next module).
-</p>
-</div>
-<p><img src="Module2/gprofiler/images/gp15.png" alt="workflow" width="100%" /></p>
-<p>The GO:BP term <em>regulation of cell cycle G1/S phase transition</em> is the most significant gene-set (=the lowest FDR value). Many gene-sets from the top of this list are related to each other and have genes in common.</p>
-<hr />
-</div>
-<div id="step-8-optional-but-recommended" class="section level3 hasAnchor">
-<h3>Step 8 (Optional but recommended)<a href="gprofiler-lab.html#step-8-optional-but-recommended" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>8a. Download the pathway database files.</p>
-<ul>
-<li>Go to the top of the page and expand the “Data sources” tab. Click on the ‘combined name.gmt’ link located at bottom of this tab. It will download a file named <em>combined name.gmt</em> containing a pathway database gmt file with all the available sources.</li>
-</ul>
-<p align="center">
-<img src="Module2/gprofiler/images/gp12.png" alt="workflow" width="60%" />
-</p>
-<p>8b. concatenate the GO:BP, Reactome and WikiPathways gmt files:</p>
-<p>If you want to create a smaller gmt file that doesn’t contain all of the g:profiler datasources you can instead download <em>name.gmt.zip</em> that contains each datasource as its own gmt file. You will need to concatenate the sources you require into one gmt file to use for later.</p>
-<div id="option-1-manually-if-you-are-not-familiar-with-unix-commands" class="section level4 hasAnchor">
-<h4>Option 1: manually if you are not familiar with unix commands<a href="gprofiler-lab.html#option-1-manually-if-you-are-not-familiar-with-unix-commands" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<ul>
-<li>open a text editor such a Notepad or equivalent</li>
-<li>open hsapiens.GO:BP.name.gmt using the text editor</li>
-<li>open gmt hsapiens.REAC.name.gmt using the text editor</li>
-<li>copy-paste all the rows from REAC file together with all the rows in GO:BP file.</li>
-<li>open gmt hsapiens.WP.name.gmt using the text editor</li>
-<li>copy-paste all the rows from WP file together with all the rows in GO:BP file.</li>
-<li>save the file as hsapiens.pathways.name.gmt .</li>
-</ul>
-</div>
-<div id="option-2-using-the-cat-command-if-you-are-familiar-with-unix-commands" class="section level4 hasAnchor">
-<h4>Option 2: using the cat command if you are familiar with unix commands<a href="gprofiler-lab.html#option-2-using-the-cat-command-if-you-are-familiar-with-unix-commands" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<ul>
-<li>open your terminal window</li>
-<li>cd to the unzipped gprofiler_hsapiens.name folder</li>
-<li>type the following command:</li>
-</ul>
-<pre><code> cat hsapiens.GO:BP.name.gmt hsapiens.REAC.name.gmt hsapiens.WP.name.gmt &gt; hsapiens.pathways.name.gmt</code></pre>
-<div class="rmd-note">
-<p>
-you will be using this optional hsapiens.pathways.name.gmt file in
-Cytoscape EnrichmentMap.
-</p>
-</div>
-</div>
-</div>
-<div id="step-9-optional-by-recommended" class="section level3 hasAnchor">
-<h3>Step 9 (Optional by recommended)<a href="gprofiler-lab.html#step-9-optional-by-recommended" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol start="9" style="list-style-type: decimal">
-<li>Get and record the version of g:Profiler used in your analysis. It is important to note in your future publication using your enrichment results the methods and the version of software used for any analysis. g:Profiler is updated on a regular basis so you can not simply come back to the webpage at time of publication and get the version. Also, if you ever want to verify the results that you have and re-run the analysis it is important to use the same version as the initial analysis (or your results might differ). g:Profiler maintains an <a href="https://biit.cs.ut.ee/gprofiler/page/archives">archive</a> so it is easy to revisit previous versions.</li>
-</ol>
-<p align="center">
-<img src="Module2/gprofiler/images/gp_archive.png" alt="workflow" width="100%" />
-</p>
-<ul>
-<li>The g:Profiler version can be found in two places -
-<ul>
-<li>At the bottom of overview tab the version is listed
-<p align="center">
-<img src="Module2/gprofiler/images/gp_version1.png" alt="workflow" width="100%" />
-</p></li>
-<li>Or Click on the <em>Query Info</em> tab to see all the parameters, including the g:Profiler version, used for the analysis
-<p align="center">
-<img src="Module2/gprofiler/images/gp_version2.png" alt="workflow" width="100%" />
-</p></li>
-</ul></li>
-</ul>
-<div class="rmd-note">
-<p>
-Deciphering the version from the listed tag e109_eg56_p17_1d3191d
-:<br> * e109 - Ensembl version 109 <br> * eg56 - Ensembl genomes version
-56<br>
-</p>
-</div>
-<div class="rmd-tip">
-<p>
-The version info can be recorded anywhere (for example in your lab
-notebook) but a convenient place is to embed it in the g:Profiler
-geneset file name used for the analysis. <br>Instead of naming the file
-<br> * hsapiens.pathways.name.gmt<br> Name it <br> *
-hsapiens.pathways_e109_eg56_p17_1d3191d.name.gmt<br>
-</p>
-</div>
-<hr />
-</div>
-</div>
-<div id="exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query" class="section level2 hasAnchor">
-<h2>Exercise 2: Load and use a custom .gmt file and run the query<a href="gprofiler-lab.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For this exercise, our goal is to copy and paste the list of genes into g:Profiler, upload a custom gmt file, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results. Uploading a custom gmt file enables us to use alternate pathway data sources not available in g:Profiler.</p>
-<p>We are going to use a gmt file that contains a database of pathway gene sets used for pathway enrichment analysis in the standard GMT format downloaded from <a href="http://baderlab.org/GeneSets" class="uri">http://baderlab.org/GeneSets</a> and updated monthly.</p>
-<p>This file contains pathways from eight data sources:</p>
-<ul>
-<li>GO,</li>
-<li>Reactome,</li>
-<li>Panther,</li>
-<li>NetPath,</li>
-<li>NCI,</li>
-<li>MSigDB curated gene sets (C2 collection, excluding Reactome and
-KEGG),</li>
-<li>MSigDB Hallmark (H collection) and</li>
-<li>HumanCyc.</li>
-</ul>
-<p>A GMT file is a text file in which each line represents a gene set for a single pathway. Each line includes a pathway ID, a name and the list of associated genes in a tab-separated format. This file has been filtered to exlclude gene-sets that contained more than 250 genes as these gene-sets are associated with more general terms.</p>
-<p>Before starting this exercise, download the required files:</p>
-<div class="rmd-datadownload">
-<p>
-Right click on link below and select “Save Link As…”.
-</p>
-<p>
-Place it in the corresponding module directory of your CBW work
-directory.
-</p>
-</div>
-<ul>
-<li><p><a href="./Module2/gprofiler/data/Pancancer_genelist.txt">Pancancer_genelist.txt</a></p></li>
-<li><p><a href="./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Baderlab_genesets.gmt (from April 2023)</a>.</p></li>
-</ul>
-<p>We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.</p>
-<p>STEPS:</p>
-<ul>
-<li><p>Repeat step 1 to 3a from <a href="gprofiler-lab.html#exercise-1">Exercise 1</a> (go back to exercise 1 to get detailed instructions) Briefly:</p>
-<ul>
-<li>Step 1:
-<ul>
-<li>Open g:profiler</li>
-</ul></li>
-<li>Step 2a :
-<ul>
-<li>Copy and paste the gene list in the Query field</li>
-</ul></li>
-<li>Step 2b: Click on the <em>Advanced options</em> tab (black rectangle) to expand it.
-<ul>
-<li>Set <em>Significance threshold</em> to “Benjamini-Hochberg FDR”.</li>
-</ul></li>
-<li>Step 3a: Click on the <em>Data sources</em> tab (black rectangle) to expand it.
-<ul>
-<li><strong>Unselect all choices by clicking the “clear all” button.</strong></li>
-</ul></li>
-<li>Step 4: Click on the <em>Custom GMT</em> tab (black rectangle) to expand it.
-<ul>
-<li>Drag in the box the Baderlab gmt file <a href="./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Baderlab_genesets.gmt</a>.</li>
-<li>Once uploaded successfully, the name of the file is displayed in the “File name used” box.</li>
-</ul></li>
-</ul>
-<p><img src="Module2/gprofiler/images/gp16.png" alt="workflow" width="100%" /></p>
-<ul>
-<li><p>Step 5: Click on <em>Run query</em> .</p></li>
-<li><p>Step 6: Explore the detailed results</p>
-<p><img src="Module2/gprofiler/images/gp17a.png" alt="workflow" width="100%" /></p></li>
-<li><p>Step 7: Save the file as GEM</p></li>
-</ul></li>
-</ul>
-<hr />
-</div>
-<div id="optional-steps" class="section level2 hasAnchor">
-<h2>Optional steps<a href="gprofiler-lab.html#optional-steps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Please follow these optional steps if time permits and/or to explore more g:Profiler parameters.</p>
-<p>Here below are 3 optional steps that cover several options offered by g:Profiler:</p>
-<ol style="list-style-type: decimal">
-<li>test different data sources,</li>
-<li>take the order of the gene list into account,</li>
-<li>use different types of multiple hypothesis correction methods.</li>
-</ol>
-<p>Use the same gene list as used in <a href="gprofiler-lab.html#exercise-1">exercise 1</a> and modify paramters listed above. Observe the results.</p>
-<p align="center">
-<img src="Module2/gprofiler/images/gp18.png" alt="workflow" width="60%" />
-</p>
-<div id="optional-1" class="section level3 hasAnchor">
-<h3><strong>Optional 1</strong>:<a href="gprofiler-lab.html#optional-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If time permits, play with input parameters, e.g. add <em>TRANSFAC </em> and <em>miRTarBase</em> databases, rerun the query and explore the new results.</p>
-<p align="center">
-<img src="Module2/gprofiler/images/gp21.png" alt="workflow" width="60%" />
-</p>
-<div class="rmd-note">
-<p>
-<strong>Transfac</strong> putative transcription factor binding sites
-(TFBSs) from TRANSFAC database are retrieved into g:GOSt through a
-special prediction pipeline. First, TFBSs are found by matching TRANSFAC
-position specific matrices using the program Match on range +/-1kb from
-TSS as provided by APPRIS (Annotating principal splice isoforms) via
-Ensembl biomart. For genes with multiple primary TSS annotations we
-selected one with most TF matches. The matching range for C. elegans, D.
-melanogaster and S. cerevisiae is 1kb upstream from ATG (translation
-start site). A cut-off value to minimize the number of false positive
-matches (provided by TRANSFAC) is then applied to remove spurious
-motifs. Remaining matches are split into two inclusive groups based on
-the amount of matches, i.e TFBSs that have at least 1 match are
-classified as match class 0 and TFBSs that have at least 2 matches per
-gene are classified as match class 1.<br><br>
-<strong>mirTarBase</strong> is a database that holds experimentally
-validated information about genes that are targetted by miRNAs. We
-include all the organisms that are covered by mirTarBase.
-</p>
-</div>
-</div>
-<div id="option-2" class="section level3 hasAnchor">
-<h3><strong>Option 2</strong>:<a href="gprofiler-lab.html#option-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Re-run the g:Profiler using the <strong>ordered</strong> query checked.<br> This will run the minimum hypergeometric test. g:Profiler then performs incremental enrichment analysis with increasingly larger numbers of genes starting from the top of the list. When this option is checked, <strong>it assumes that the genes were preordered by significance with the most significant gene at the top of the list</strong>.<br> Compare the results between “ordered” and non ordered query.</p>
-<div class="rmd-note">
-<p>
-for this practical lab, the genes were ordered by the number of
-mutations found in these genes for all samples. <br>For example, TP53, a
-highly mutated genes is listed at the top.
-</p>
-</div>
-<p align="center">
-<img src="Module2/gprofiler/images/gp20.png" alt="workflow" width="75%" />
-</p>
-</div>
-<div id="option-3" class="section level3 hasAnchor">
-<h3><strong>Option 3</strong> :<a href="gprofiler-lab.html#option-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Re-run g:Profiler and select g:SCS or Bonferonni as method to correct for multiple hypothesis testing. Do you get any significant results?</p>
-<p align="center">
-<img src="Module2/gprofiler/images/gp19.png" alt="workflow" width="75%" />
-</p>
-<div class="rmd-note">
-<p>
-you can get detailed information about these methods at
-<a href="https://biit.cs.ut.ee/gprofiler/page/docs" class="uri">https://biit.cs.ut.ee/gprofiler/page/docs</a> in the section
-<em>Significance threshold</em>.
-</p>
-</div>
-<hr />
-</div>
-</div>
-<div id="bonus---automation." class="section level2 hasAnchor">
-<h2>Bonus - Automation.<a href="gprofiler-lab.html#bonus---automation." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Run analysis directly from R for easy integration into existing pipelines.</p>
-<div class="rmd-bonus">
-<p>
-Instead of using the g:Profiler website g:profiler can be run
-directly from R or python see g:Profiler document for more info at
-<a href="https://biit.cs.ut.ee/gprofiler/page/r" class="uri">https://biit.cs.ut.ee/gprofiler/page/r</a>
-</p>
-<p>
-Follow the step by step instructions on how to run from R here -
-<a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/run-gprofiler-from-r.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/run-gprofiler-from-r.html</a>
-</p>
-<p>
-First, make sure your environment is set up correctly by following
-there instructions -
-<a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html</a>
-</p>
-</div>
 
+</div>
 </div>
 </div>
             </section>
@@ -1093,8 +800,8 @@ there instructions -
           </div>
         </div>
       </div>
-<a href="module-2-finding-over-represented-pathways-veronique-voisin.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="gsea-lab.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ass_automation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scRNA_NEST.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1129,11 +836,11 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": "https://github.com/BaderLab/CBW_Pathways_2023/commit/master/2.1-Module2lab_gprofiler.Rmd",
+"link": "https://github.com/BaderLab/CBW_Pathways_2023/commit/master/6.6-Module6_scRNAlab_PBMC2024.Rmd",
 "text": null
 },
 "view": {
-"link": "https://github.com/BaderLab/CBW_Pathways_2023/master/2.1-Module2lab_gprofiler.Rmd",
+"link": "https://github.com/BaderLab/CBW_Pathways_2023/master/6.6-Module6_scRNAlab_PBMC2024.Rmd",
 "text": null
 },
 "download": ["CBW_Pathways.epub"],

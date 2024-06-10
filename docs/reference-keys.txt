@@ -276,7 +276,7 @@ part-2-genemania
 answers-genemania
 ass_automation
 goal-of-the-exercise-8
-scRNA-cellPhoneDB
+scRNA_cellPhoneDB
 cell-cell-communication-in-scrna-cellphonedb
 presentation
 method
@@ -284,7 +284,7 @@ dataset-and-references
 dataset-preprocessing-and-running-cellphonedb
 examining-the-results
 visualization-using-cytoscape
-scRNA-NEST
+scRNA_NEST
 cell-cell-communication-ccc-in-spatial-transcriptomics-using-nest
 presentation-of-nest-neural-network-on-spatial-transcriptomics
 how-to-run-nest

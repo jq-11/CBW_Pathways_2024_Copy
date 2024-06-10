@@ -24,12 +24,12 @@
 
  - We created a mastermap by uploading in EnrichmentMap the pathway enrichment results for all the cluster gene lists.
  
-[scRNAlab_CellPhoneDB](#scRNA-cellPhoneDB)
+[scRNAlab_CellPhoneDB](#scRNA_cellPhoneDB)
 
  - Similar to lab1 , we start from scRNA data from peripheral blood mononuclear cells and we are going to study the cell-cell communication between different cell types using CellPhoneDB. 
 
  
-[scRNAlab_NEST](#scRNA-NEST)
+[scRNAlab_NEST](#scRNA_NEST)
 
  - In this lab, we are exploring cell-cell communication in spatial trancriptomic of a pancreatic cancer (PDAC) tissue section using the tool NEST.
 
