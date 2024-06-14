@@ -631,13 +631,13 @@ div.csl-indent {
 </div>
 <div id="data-1" class="section level2 hasAnchor">
 <h2>Data<a href="gsea-lab.html#data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples.</p>
-<p>This cohort was previously stratified into four distinct expression subtypes <a href="http://www.ncbi.nlm.nih.gov/pubmed/21720365">PMID:21720365</a> and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.</p>
+<p>The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Pancreatic Ductal Adenocarcinoma samples (TCGA-PAAD).</p>
+<p>This cohort has been previously stratified into many different set of subtypes <a href="https://pubmed.ncbi.nlm.nih.gov/36765128/">PMID:36765128</a> with the <a href="https://pubmed.ncbi.nlm.nih.gov/26343385/">Moffitt</a> Basal vs Classical subtypes compared to demonstrate the GSEA workflow.</p>
 <div id="how-was-the-data-processed" class="section level4 hasAnchor">
 <h4>How was the data processed?<a href="gsea-lab.html#how-was-the-data-processed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
-<li>Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from <a href="http://www.cbioportal.org/data_sets.jsp">cBioPortal for Cancer Genomics</a>.</li>
-<li>Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>.</li>
+<li>Gene expression from the TCGA Pancreatic Ductal Adenocarcinoma RNASeq cohort was downloaded on 2024-06-06 from <a href="https://portal.gdc.cancer.gov/">Genomic Data Commons</a> using the <a href="https://bioconductor.org/packages/release/bioc/html/TCGAbiolinks.html">TCGABiolinks</a> R package.</li>
+<li>Differential expression for all genes between the Basal and Classical groups was estimated using <a href="http://www.ncbi.nlm.nih.gov/pubmed/19910308">edgeR</a>.</li>
 <li>The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the <a href="gsea-lab.html#additional_information"><strong>Additional information</strong></a> section.</li>
 </ul>
 </div>
@@ -658,7 +658,7 @@ div.csl-indent {
 </ol>
 <div id="rank-file" class="section level4 hasAnchor">
 <h4>Rank File<a href="gsea-lab.html#rank-file" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To generate a rank file (.rnk), a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed (i.e associated with a very small pvalue, close to 0) will be assigned a high score.<br>The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC &gt; 0, the score will have a + sign) or lower in mesenchymal (logFC &lt; 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (<strong>all genes have to be included</strong>).</p>
+<p>To generate a rank file (.rnk), a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed (i.e associated with a very small pvalue, close to 0) will be assigned a high score.<br>The sign of the logFC indicates if the gene has an expression which is higher in Basel (logFC &gt; 0, the score will have a + sign) or lower in Classical (logFC &lt; 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (<strong>all genes have to be included</strong>).</p>
 <div class="rmd-caution">
 <p>
 The rank file is going to be provided for the lab, you don’t need to
@@ -680,7 +680,7 @@ generate it.
 </div>
 <div id="pathway-defintion-file" class="section level4 hasAnchor">
 <h4>Pathway defintion file<a href="gsea-lab.html#pathway-defintion-file" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The second file that is needed for GSEA is the pathway database, a file with the .gmt extension. The pathway database (.gmt) used for the GSEA analysis was downloaded from <a href="http://baderlab.org/GeneSets" class="uri">http://baderlab.org/GeneSets</a>. This file contains gene-sets obtained from MsigDB-c2, NCI, Biocarta, IOB, Netpath, HumanCyc, Reactome and the Gene Ontology (GO) databases.</p>
+<p>The second file that is needed for GSEA is the pathway database, a file with the .gmt extension. The pathway database (.gmt) used for the GSEA analysis was downloaded from <a href="http://baderlab.org/GeneSets" class="uri">http://baderlab.org/GeneSets</a>. This file contains gene-sets obtained from MsigDB-c2 and Hallmarks, NCI, Biocarta, IOB, Netpath, HumanCyc, Reactome, Panther, Pathbank, WikiPathways and the Gene Ontology (GO) databases.</p>
 <div class="rmd-caution">
 <p>
 You don’t need to perform this step for the exercise, the .gmt file
@@ -690,10 +690,10 @@ will be given to you. <br>
 <p>Go to:</p>
 <ul>
 <li><a href="http://download.baderlab.org/EM_Genesets/" class="uri">http://download.baderlab.org/EM_Genesets/</a></li>
-<li>Click on April_02_2023/</li>
+<li>Click on June_01_2024/</li>
 <li>Click on Human/</li>
 <li>Click on symbol/</li>
-<li>Save the Human_GOBP_AllPathways_no_GO_iea…gmt file on your computer</li>
+<li>Save the Human_GOBP_AllPathways_noPFOCR_no_GO_iea…gmt file on your computer</li>
 </ul>
 <p><img src="Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="90%" /></p>
 <p>The .gmt is a tab delimited text file which contains one gene-set per row. For each gene-set (row), the first 2 columns contain the name and the description of the gene-set and the remaining columns contain the list of genes included in the gene-set. It is possible to create a custom gene-set using Excel or R.</p>
@@ -714,8 +714,8 @@ directory.
 </p>
 </div>
 <ul>
-<li><a href="./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt</a></li>
-<li><a href="./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk">MesenchymalvsImmunoreactive_edger_ranks.rnk</a></li>
+<li><a href="./Module2/gsea/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</a></li>
+<li><a href="./Module2/gsea/data//TCGA-PAAD_GDC_Subtype_Moffitt_BasalvsClassical_ranks.rnk">TCGA-PAAD_GDC_Subtype_Moffitt_BasalvsClassical_ranks.rnk</a></li>
 </ul>
 </div>
 <div id="step1." class="section level3 hasAnchor">
@@ -727,7 +727,7 @@ If GSEA won’t launch on MacOS.
 </p>
 <p>
 Follow instructions specified on download page: * <img
-src="./Module2/gsea/images/gsea_troubleshooting.png" />
+src="Module2/gsea/images/gsea_troubleshooting.png" />
 </p>
 <ul>
 <li>
@@ -765,7 +765,7 @@ Click on “Open Anyways”
 <p><img src="Module2/gsea/images/GSEAloaddata.png" alt="Load data" width="50%" /></p>
 <p>2b. In the central panel, select ‘<em>Method 1</em>’ and ‘<em>Browse for files</em>’. A new window pops up.</p>
 <p><img src="Module2/gsea/images/GSEAbrowsefile2.png" alt="Browse files" width="100%" /></p>
-<p>2c. Browse your computer to locate and select the 2 files : <strong>Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</strong> and <strong>MesenchymalvsImmunoreactive_edger_ranks.rnk</strong>.</p>
+<p>2c. Browse your computer to locate and select the 2 files : <strong>Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</strong> and <strong>TCGA-PAAD_GDC_Subtype_Moffitt_BasalvsClassical_ranks.rnkk</strong>.</p>
 <p>2d. Click on <strong>Open</strong>. A message pops us when the files are loaded successfully.</p>
 <p><img src="Module2/gsea/images/ORA4.png" alt="Locate files" width="75%" /></p>
 <p>2e. Click on <strong>OK</strong>.</p>
@@ -793,12 +793,12 @@ Alternatively, you can choose <strong>Method 3</strong> to
 <p><img src="Module2/gsea/images/GSEAloadgeneset.png" alt="Gene sets database" width="100%" /></p>
 <ul>
 <li>Use the right arrow in the top field to see the Gene matrix (<em>Local gmx/gmt</em>) tab.</li>
-<li>Click to highlight <strong>Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt</strong>.</li>
+<li>Click to highlight <strong>Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</strong>.</li>
 <li>Click on <strong>OK</strong> at the bottom of the window.</li>
 </ul>
 <p><img src="Module2/gsea/images/ORA8.png" alt="Gene sets database" width="75%" /></p>
 <ul>
-<li><strong>Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt</strong> is now visible in the field corresponding to <strong>Gene sets database</strong>.</li>
+<li><strong>Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</strong> is now visible in the field corresponding to <strong>Gene sets database</strong>.</li>
 </ul>
 <p><img src="Module2/gsea/images/GSEAparameter.png" alt="GSEAparameters" width="100%" /></p>
 <p>3d. Set <strong>Number of permutations</strong> to 100. The number of permutations is the number of times that the gene-sets will be randomized in order to create a null distribution to calculate the FDR.</p>
@@ -810,7 +810,7 @@ Use 2000 when you do it for your own data outside the workshop.
 <p>3e. <strong>Ranked list</strong> - select by clicking on the arrow and highlighting rank file.</p>
 <p>3f. <strong>Collapse/Remap to gene symbols</strong> - Change to <em>No_collapse</em>. (Our rank file already contains the gene symbols so we don’t need GSEA to try and convert probe names to gene symbols)</p>
 <p>3g. Click on <strong>Show</strong> button next to <strong>Basic Fields</strong> to display extra options.</p>
-<p>3h. <strong>Analysis name</strong> – change the default name <strong>my_analysis</strong> to a name that is specific to analysis. For example <em>Mesen_vs_Immuno_edgeR</em>. GSEA will use your specified name as part of the directory of results that it creates.</p>
+<p>3h. <strong>Analysis name</strong> – change the default name <strong>my_analysis</strong> to a name that is specific to analysis. For example <em>Basal_vs_Classical_edgeR</em>. GSEA will use your specified name as part of the directory of results that it creates.</p>
 <p>3i. <strong>Max size</strong>: exclude larger sets – By default GSEA sets the upper limit to 500. In this protocol, the maximum is set to 200 to decrease some of the larger sets in the results.</p>
 <p>3j. <strong>Min size</strong>: exclude smaller sets – By default GSEA sets the lower limit to 15. In this protocol, the minimum is set to 10 to increase some of the smaller sets in the results.</p>
 <p>3k. <strong>Save results in this folder</strong> – navigate to where you want GSEA to put the results folder. By default GSEA will put the results into the directory <em>gsea_home/output/[date]</em> in your home directory.</p>
@@ -879,9 +879,8 @@ If the GSEA application has been closed, you can still see the
 results by opening the result folder and clicking on the
 <strong>index</strong> file – <em>index.html</em>. (see screenshot
 below). The first phenotype corresponds to gene-sets enriched in genes
-up-regulated in the mesenchymal subtype. The second phenotype
-corresponds to gene-sets enriched in genes up-regulated in the
-immunological phenotype.
+up-regulated in the Basal subtype. The second phenotype corresponds to
+gene-sets enriched in genes up-regulated in the Classical phenotype.
 </p>
 </div>
 <p><img src="Module2/gsea/images/ORA13.png" alt="Results1" width="75%" /></p>
@@ -897,13 +896,13 @@ could indicate an issue with identifier mapping.
 <p>5d. Click on <strong>Snapshots</strong> to see the trend for the top 20 genesets. For the positive phenotype the top genesets should show a distribution skewed to the left (positive) i.e. genesets have predominance of up-regulated genes. For the negative phenotype the top geneset should be inverted and skewed to the right (negative) i.e. geneset have predominance of down-regulated genes.</p>
 <p><img src="Module2/gsea/images/ORA14.png" alt="Results2" width="75%" /></p>
 <p>5e. Explore the tabular format of the results.</p>
-<div id="mesenchymal" class="section level4 hasAnchor">
-<h4>Mesenchymal<a href="gsea-lab.html#mesenchymal" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="Module2/gsea/images/ORA17.png" alt="Mesenchymal" width="100%" /></p>
+<div id="basal" class="section level4 hasAnchor">
+<h4>Basal<a href="gsea-lab.html#basal" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="Module2/gsea/images/ORA17.png" alt="Basal" width="100%" /></p>
 </div>
-<div id="immunoreactive" class="section level4 hasAnchor">
-<h4>Immunoreactive<a href="gsea-lab.html#immunoreactive" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="Module2/gsea/images/ORA18.png" alt="Immunoreactive" width="100%" /></p>
+<div id="classical" class="section level4 hasAnchor">
+<h4>Classical<a href="gsea-lab.html#classical" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="Module2/gsea/images/ORA18.png" alt="Classical" width="100%" /></p>
 <p><a href="http://www.baderlab.org/CancerStemCellProject/VeroniqueVoisin/AdditionalResources/GSEA#GSEA_enrichment_scores_and_statistics">Link to information about GSEA results</a></p>
 </div>
 </div>
@@ -921,11 +920,9 @@ could indicate an issue with identifier mapping.
 <div class="rmd-bonus">
 <p>
 Instead of using the GSEA application you can run it directly from R
-using the GSEA java jar that you can download from here -
-<a href="https://www.gsea-msigdb.org/gsea/downloads.jsp" class="uri">https://www.gsea-msigdb.org/gsea/downloads.jsp</a>
-</p>
-<p>
-<img src="images/GSEA_jar_download.png" />
+using the GSEA java jar that can be easily used within the workshop
+docker image (workshop_base_image) that you setup duing your
+prework.
 </p>
 <p>
 Follow the step by step instructions on how to run from R here -

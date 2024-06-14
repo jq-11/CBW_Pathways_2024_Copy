@@ -12,14 +12,14 @@ Learn how to run GSEA and explore the results.
 
 ## Data
 
-The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Ovarian Serous Cystadenocarcinoma samples. 
+The data used in this exercise is gene expression (transcriptomics) obtained from high-throughput RNA sequencing of Pancreatic Ductal Adenocarcinoma samples (TCGA-PAAD). 
 
-This cohort was previously stratified into four distinct expression subtypes [PMID:21720365](http://www.ncbi.nlm.nih.gov/pubmed/21720365) and a subset of the immunoreactive and mesenchymal subtypes are compared to demonstrate the GSEA workflow.
+This cohort has been previously stratified into many different set of subtypes [PMID:36765128](https://pubmed.ncbi.nlm.nih.gov/36765128/) with the [Moffitt](https://pubmed.ncbi.nlm.nih.gov/26343385/) Basal vs Classical subtypes compared to demonstrate the GSEA workflow.
 
 #### How was the data processed?
 
-  * Gene expression from the TCGA Ovarian serous cystadenocarcinoma RNASeq V2 cohort was downloaded on 2015-05-22 from [cBioPortal for Cancer Genomics](http://www.cbioportal.org/data_sets.jsp).
-  * Differential expression for all genes between the mesenchymal and immunoreactive groups was estimated using [edgeR](http://www.ncbi.nlm.nih.gov/pubmed/19910308).
+  * Gene expression from the TCGA Pancreatic Ductal Adenocarcinoma RNASeq cohort was downloaded on 2024-06-06 from [Genomic Data Commons ](https://portal.gdc.cancer.gov/) using the [TCGABiolinks](https://bioconductor.org/packages/release/bioc/html/TCGAbiolinks.html) R package.
+  * Differential expression for all genes between the Basal and Classical groups was estimated using [edgeR](http://www.ncbi.nlm.nih.gov/pubmed/19910308).
   * The R code used to generate the data and the rank file used in GSEA is included at the bottom of the document in the [**Additional information**](#additional_information) section. 
 
 ## Background
@@ -37,7 +37,7 @@ The 2 required files are:
   1. a pathway definition file (.gmt).
 
 #### Rank File
-To generate a rank file (.rnk),  a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed (i.e associated with a very small pvalue, close to 0) will be assigned a high score.<br>The sign of the logFC indicates if the gene has an expression which is higher in mesenchymal (logFC > 0, the score will have a + sign) or lower in mesenchymal (logFC < 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (**all genes have to be included**). 
+To generate a rank file (.rnk),  a score (-log10(pvalue) * sign(logFC)) was calculated from the edgeR differential expression results. A gene that is significantly differentially expressed (i.e associated with a very small pvalue, close to 0) will be assigned a high score.<br>The sign of the logFC indicates if the gene has an expression which is higher in Basel (logFC > 0, the score will have a + sign) or lower in Classical (logFC < 0, the score will have a - sign). It is used to rank the genes from top up-regulated to top down-regulated (**all genes have to be included**). 
 
 
 
@@ -59,7 +59,7 @@ Select the gene names and score columns and save the file as tab delimited with 
 <img src="./Module2/gsea/images/make_rank_file.png" alt="generate rank" width="75%" />
 
 #### Pathway defintion file
-The second file that is needed for GSEA is the pathway database, a file with the .gmt extension. The pathway database (.gmt) used for the GSEA analysis was downloaded from <http://baderlab.org/GeneSets>. This file contains gene-sets obtained from  MsigDB-c2, NCI, Biocarta, IOB, Netpath, HumanCyc, Reactome and the Gene Ontology (GO) databases. 
+The second file that is needed for GSEA is the pathway database, a file with the .gmt extension. The pathway database (.gmt) used for the GSEA analysis was downloaded from <http://baderlab.org/GeneSets>. This file contains gene-sets obtained from  MsigDB-c2 and Hallmarks, NCI, Biocarta, IOB, Netpath, HumanCyc, Reactome, Panther, Pathbank, WikiPathways and the Gene Ontology (GO) databases. 
 
 ```{block, type="rmd-caution"}
 You don't need to perform this step for the exercise, the .gmt file will be given to you. <br>
@@ -69,10 +69,10 @@ You don't need to perform this step for the exercise, the .gmt file will be give
 Go to:
 
   * http://download.baderlab.org/EM_Genesets/
-  * Click on April_02_2023/
+  * Click on June_01_2024/
   * Click on Human/
   * Click on symbol/
-  * Save the Human_GOBP_AllPathways_no_GO_iea...gmt file on your computer
+  * Save the Human_GOBP_AllPathways_noPFOCR_no_GO_iea...gmt file on your computer
 
 <img src="./Module2/gsea/images/saving_gmt.png" alt="saving_gmt" width="90%" />
 
@@ -93,8 +93,8 @@ Right click on link below and select "Save Link As...".
 Place it in the corresponding module directory of your CBW work directory.
 ```
 
-* [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt)
-* [MesenchymalvsImmunoreactive_edger_ranks.rnk](./Module2/gsea/data//MesenchymalvsImmunoreactive_edger_ranks.rnk)
+* [Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt)
+* [TCGA-PAAD_GDC_Subtype_Moffitt_BasalvsClassical_ranks.rnk](./Module2/gsea/data//TCGA-PAAD_GDC_Subtype_Moffitt_BasalvsClassical_ranks.rnk)
 
 
 ### Step1.
@@ -102,7 +102,7 @@ Place it in the corresponding module directory of your CBW work directory.
 Launch GSEA by double clicking on the installed program icon.
 
 ```{block, type="rmd-troubleshooting"}
-If GSEA won't launch on MacOS.
+If GSEA won't launch on MacOS. (This is relevant for MacOS users on older operating systems.  As I am not longer on this operating system I can't regenerate these screenshots so they reflect an older version of GSEA but the steps are still relelvant if you are working on Catalina with the latest version of GSEA)
 
 Follow instructions specified on download page:
   * ![](./Module2/gsea/images/gsea_troubleshooting.png)
@@ -129,7 +129,7 @@ Load Data
 
 <img src="./Module2/gsea/images/GSEAbrowsefile2.png" alt="Browse files" width="100%" />
 
-2c. Browse your computer to locate and select the 2 files : **Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt** and **MesenchymalvsImmunoreactive_edger_ranks.rnk**. 
+2c. Browse your computer to locate and select the 2 files : **Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt** and **TCGA-PAAD_GDC_Subtype_Moffitt_BasalvsClassical_ranks.rnkk**. 
 
 2d. Click on **Open**. A message pops us when the files are loaded successfully. 
 
@@ -163,14 +163,14 @@ Specify the following parameters:
 <img src="./Module2/gsea/images/GSEAloadgeneset.png" alt="Gene sets database" width="100%" />
 
   * Use the right arrow in the top field to see the Gene matrix (*Local gmx/gmt*) tab.
-  * Click to highlight **Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol.gmt**.
+  * Click to highlight **Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt**.
   * Click on **OK** at the bottom of the window.
 
 
 <img src="./Module2/gsea/images/ORA8.png" alt="Gene sets database" width="75%" />
 
 	
-  * **Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt** is now visible in the field corresponding to **Gene sets database**.
+  * **Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt** is now visible in the field corresponding to **Gene sets database**.
 
 <img src="./Module2/gsea/images/GSEAparameter.png" alt="GSEAparameters" width="100%" />
 
@@ -188,7 +188,7 @@ Use 2000 when you do it for your own data outside the workshop.
 
 3g. Click on **Show** button next to **Basic Fields** to display extra options.
 
-3h. **Analysis name** – change the default name **my_analysis** to a name that is specific to analysis. For example *Mesen_vs_Immuno_edgeR*. GSEA will use your specified name as part of the directory of results that it creates.
+3h. **Analysis name** – change the default name **my_analysis** to a name that is specific to analysis. For example *Basal_vs_Classical_edgeR*. GSEA will use your specified name as part of the directory of results that it creates.
 
 3i. **Max size**: exclude larger sets – By default GSEA sets the upper limit to 500. In this protocol, the maximum is set to 200 to decrease some of the larger sets in the results.
 
@@ -244,7 +244,7 @@ Examining the results
 5a. Click on **Success** to launch the results in html format in your default web browser.
 
 ```{block, type="rmd-tip"}
-If the GSEA application has been closed, you can still see the results by opening the result folder and clicking on the **index** file – *index.html*. (see screenshot below). The first phenotype corresponds to gene-sets enriched in genes up-regulated in the mesenchymal subtype. The second phenotype corresponds to gene-sets enriched in genes up-regulated in the immunological phenotype. 
+If the GSEA application has been closed, you can still see the results by opening the result folder and clicking on the **index** file – *index.html*. (see screenshot below). The first phenotype corresponds to gene-sets enriched in genes up-regulated in the Basal subtype. The second phenotype corresponds to gene-sets enriched in genes up-regulated in the Classical phenotype. 
 ```
 
 <img src="./Module2/gsea/images/ORA13.png" alt="Results1" width="75%" />
@@ -268,13 +268,13 @@ When examining the results there are a few things to look for:
 
 5e. Explore the tabular format of the results.
 
-#### Mesenchymal
+#### Basal
 
-<img src="./Module2/gsea/images/ORA17.png" alt="Mesenchymal" width="100%" />
+<img src="./Module2/gsea/images/ORA17.png" alt="Basal" width="100%" />
 
-#### Immunoreactive
+#### Classical
 
-<img src="./Module2/gsea/images/ORA18.png" alt="Immunoreactive" width="100%" />
+<img src="./Module2/gsea/images/ORA18.png" alt="Classical" width="100%" />
 
 [Link to information about GSEA results](http://www.baderlab.org/CancerStemCellProject/VeroniqueVoisin/AdditionalResources/GSEA#GSEA_enrichment_scores_and_statistics)
 
@@ -294,9 +294,7 @@ When examining the results there are a few things to look for:
 Run analysis directly from R for easy integration into existing pipelines.
 
 ```{block, type="rmd-bonus"}
-Instead of using the GSEA application you can run it directly from R using the GSEA java jar that you can download from here - https://www.gsea-msigdb.org/gsea/downloads.jsp
-
-![](./images/GSEA_jar_download.png)
+Instead of using the GSEA application you can run it directly from R using the GSEA java jar that can be easily used within the workshop docker image (workshop_base_image) that you setup duing your prework.
 
 Follow the step by step instructions on how to run from R here - https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/run-gsea-from-within-r.html
 

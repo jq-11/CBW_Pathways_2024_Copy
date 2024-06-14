@@ -62,8 +62,8 @@ step-2.
 step3.
 step-4.
 step-5.
-mesenchymal
-immunoreactive
+basal
+classical
 additional_information
 bonus---automation.-1
 module-3-network-visualization-and-analysis-with-cytoscape
