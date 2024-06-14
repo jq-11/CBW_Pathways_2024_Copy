@@ -102,7 +102,7 @@ Place it in the corresponding module directory of your CBW work directory.
 Launch GSEA by double clicking on the installed program icon.
 
 ```{block, type="rmd-troubleshooting"}
-If GSEA won't launch on MacOS. (This is relevant for MacOS users on older operating systems.  As I am not longer on this operating system I can't regenerate these screenshots so they reflect an older version of GSEA but the steps are still relelvant if you are working on Catalina with the latest version of GSEA)
+If GSEA won't launch on MacOS. (This is relevant for MacOS users on older operating systems.  As I am not longer on this operating system I can't regenerate these screenshots so they reflect an older version of GSEA but the steps are still relelvant if you are working on Catalina with the latest version of GSEA) 
 
 Follow instructions specified on download page:
   * ![](./Module2/gsea/images/gsea_troubleshooting.png)
