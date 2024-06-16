@@ -5,8 +5,11 @@
 *<font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font>*
 
 ## Introduction
-As an example of applying pathway and network analysis using single cell RNASeq, we are using the [Seurat tutorial]((https://satijalab.org/seurat/articles/pbmc3k_tutorial.html) as starting point.  This dataset consists of Peripheral Blood Mononuclear Cells (PBMC) and is a freely available dataset from 10X Genomics. There are 2,700 single cells that have been sequenced on the Illumina NextSeq 500 (https://satijalab.org/seurat/articles/pbmc3k_tutorial.html). 
+As an example of applying pathway and network analysis using single cell RNASeq, we are using the [Seurat tutorial](https://satijalab.org/seurat/articles/pbmc3k_tutorial.html) as starting point.  This dataset consists of Peripheral Blood Mononuclear Cells (PBMC) and is a freely available dataset from 10X Genomics. There are 2,700 single cells that have been sequenced on the Illumina NextSeq 500 (https://satijalab.org/seurat/articles/pbmc3k_tutorial.html). 
 
+
+
+## Pmbc3k Seurat Pipeline 
 ```{block, type="rmd-note"}
 The R code in this practical lab was used to produce the gene lists to use in the downstream analysis.
 It is for your reference. 
@@ -15,10 +18,6 @@ It is for your reference.
 
 **ALL NECESSARY FILES ARE PROVIDED.**
 ```
-
-## Pmbc3k Seurat Pipeline 
-Here is the Seurat pipeline that we followed to prepare data for the practical lab.
-Do not run. This is for you reference only.
 
 ## load libraries
 ```{r eval=FALSE}
@@ -39,6 +38,10 @@ pbmc
 ```
 
 ## Process the dataset
+```{block, type="tip"}
+This is basic processing steps for the purpose of this practical lab. Please look at external tutorials to process scRNA. For example, pre-processing can include methods to remove doublets and ambient RNA. This is out of scope for this meeting.
+```
+
 ```{r eval=FALSE}
 pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
 pbmc <- NormalizeData(pbmc, normalization.method = "LogNormalize", 
@@ -94,7 +97,7 @@ write.csv(pbmc.markers, "pbmc.markers.csv")
 ```
 <img src="./scRNAlab/images/scRNAlab3.png" alt="generate rank" width="75%" />
 
-## Create Gene list for each cluster to use with g:Profiler (Do not run code)
+## Create Gene list for each cluster to use with g:Profiler
 Now that we have the list of genes that are specific to each cluster, it would be useful to perform pathway analysis on each list. It could provide a deeper understanding on each cluster. In some cases, it might help to adjust the labels associated with the clusters using marker genes.
 
 In order to do that, we have extracted each cluster gene list from the [pbmc.markers.csv](./scRNAlab/data/Pancancer_pbmc.markers.csv) file.
@@ -176,6 +179,10 @@ For this practical lab, we will use the platelet gene list to enriched pathways 
 
 ```{block, type="rmd-note"}
 The boxes **Palette**, **Scale Font by cluster size** and **Word Wrap** have been selected. The clusters have been moved around for clarity.
+```
+
+```{block, type="rmd-note"}
+You might have a slightly different network as the notebook might have been prepared using a previous version of g:Profiler. g:Profiler updates its databases regularly. Archived databases can be retrieved here: https://biit.cs.ut.ee/gprofiler/page/archives.
 ```
 
 ## GSEA from pseudobulk

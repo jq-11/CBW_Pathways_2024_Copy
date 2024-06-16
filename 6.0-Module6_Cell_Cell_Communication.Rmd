@@ -2,7 +2,10 @@
 
  *<font color="#827e9c">By Gregory Schwartz, Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font>*
  
-## Module 6 lecture : Cell-Cell Communication. Gregory Schwartz
+## Module 6 lecture : Cell-Cell Communication. 
+
+Gregory Schwartz
+
 [Lecture](TOADD)  
 
   
