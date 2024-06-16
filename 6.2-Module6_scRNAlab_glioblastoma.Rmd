@@ -530,7 +530,7 @@ To get a layout that is not overlapping, you can do:
 
  - 3: macrophage 
 
- - 4: oligodendrocyte 
+ - 4: oligodendrocyte  
  
  - 5: undefined 
 

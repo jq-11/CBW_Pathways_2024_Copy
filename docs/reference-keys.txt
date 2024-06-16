@@ -205,7 +205,7 @@ exercise-3---step-9
 some-definitions
 in-advanced-options-1
 module-6-cell-cell-communication
-module-6-lecture-cell-cell-communication.-gregory-schwartz
+module-6-lecture-cell-cell-communication.
 scrna-lab-praticals
 module-6-review-of-the-tools
 final-slides
@@ -220,7 +220,7 @@ load-the-pbmc-dataset
 process-the-dataset
 assign-cell-type-identity-to-clusters
 find-differentially-expressed-features-cluster-biomarkers
-create-gene-list-for-each-cluster-to-use-with-gprofiler-do-not-run-code
+create-gene-list-for-each-cluster-to-use-with-gprofiler
 data-gene-lists-for-each-cluster
 run-pathway-enrichment-analysis-using-gprofiler
 create-an-enrichment-map-in-cytoscape
@@ -230,9 +230,10 @@ run-gsea
 create-an-enrichmentmap
 scRNA_glioblastoma
 introduction-3
-goal-of-the-exercise-1-1
+goal
 data-5
-can-module8-exercise-1
+overview
+part-1---run-gprofiler-can-module8-exercise-1-optional
 step-1---launch-gprofiler.-1
 step-2---input-query-1
 step-3---adjust-parameters.-1
@@ -241,7 +242,7 @@ step-5---explore-the-results.-1
 step-6-expand-the-stats-tab-1
 step-7-save-the-results-1
 step-8-optional-but-recommended-1
-exercise-2
+part-2---cytoscapeenrichmentmap-exercise-2-optional
 goal-of-the-exercise-6
 data-6
 enrichmentmap-2
@@ -252,13 +253,13 @@ step-2-2
 step-3-explore-detailed-results
 step-4-optional-autoannotate-the-enrichment-map
 exercise-3
-goal-of-the-exercise-7
+goal-1
 data-7
 start-the-exercise-4
 step-1-3
 step-2-3
 integrated_assignment
-goal
+goal-2
 dataset-1
 background-1
 data-processing
@@ -275,7 +276,7 @@ answers-reactome-fi
 part-2-genemania
 answers-genemania
 ass_automation
-goal-of-the-exercise-8
+goal-of-the-exercise-7
 scRNA_cellPhoneDB
 cell-cell-communication-in-scrna-cellphonedb
 presentation
@@ -318,7 +319,7 @@ exercise-6-optional-get-the-iregulon-runx1-targets-and-find-the-mouse-orthologs-
 end-of-lab
 regulatory_network_lab
 iregulon-lab
-goal-1
+goal-3
 exercise-1.-detect-regulons-from-co-expressed-genes
 skills-learned-in-this-exercise
 steps
@@ -329,6 +330,6 @@ notes-about-iregulon
 motif-oriented-view
 notes-about-cytoscape
 exercise-3.-use-enrichr-with-the-prostate-gene-list.
-goal-2
+goal-4
 steps-1
 end-of-practical-lab
