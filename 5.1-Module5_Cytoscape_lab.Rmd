@@ -58,9 +58,9 @@ zoom in and zoom out using trackpad or mouse scrolling up and down.
   <ol start=7 type="1"><li>Locate the *Functions* summary tab in Results Panel. <br><img src="./Module6/genemania/images/GC3.png" alt="GC3.png" width="750" /></ol>
   
   **Questions**:<br>
-    * What are the functions significantly associated with this network?  
-    * GRN is the central node of this network: which function would you predict for GRN? 
-    * How well did GeneMANIA perform? (hints: use GeneCards (<http://www.genecards.org/>) , PubMed (<http://www.ncbi.nlm.nih.gov/pubmed/>))?	
+  * What are the functions significantly associated with this network? <br> 
+  * GRN is the central node of this network: which function would you predict for GRN? <br>
+  * How well did GeneMANIA perform? (hints: use GeneCards (<http://www.genecards.org/>) , PubMed (<http://www.ncbi.nlm.nih.gov/pubmed/>))?	
 
 
 ### ANSWERS
@@ -68,7 +68,7 @@ zoom in and zoom out using trackpad or mouse scrolling up and down.
 **Question** What are the functions significantly associated with this network? <br>
 **Answer** the list of the functions associated with the network are listed in the above screenshot. The top 2 pathways are "vacuolar lumen" and "primary lysosome" and are significant under a FDR threshold less than 0.005. 
 
-**Question** GRN is the central node of this network: which function would you predict for GRN?<br>  
+**Question** GRN is the central node of this network: which function would you predict for GRN? 
 **Answer** : a function related to lysosome and vacuole
 
 **Question** How well did GeneMANIA perform (hints: use GeneCards (http://www.genecards.org/) , PubMed (http://www.ncbi.nlm.nih.gov/pubmed/))?<br>
@@ -172,7 +172,7 @@ The observations of the number of connections makes it easier to understand why 
 
 **Question**:<br>Locate the Functions summary tab in *Results Panel* and look at what functions were significantly enriched with these new settings.	
 
-**Answer** <br>With the new settings, "hormone biosynthetic process" is the new top enriched pathway. <br><img src="./Module6/genemania/images/GC2_11.png" alt="GC2_11.png" width="500" />
+**Answer** <br>With the new settings, "steroid biosynthetic process" is the new top enriched pathway. <br><img src="./Module6/genemania/images/GC2_11.png" alt="GC2_11.png" width="500" />
 
 <ol start=10 type="1"><li>Try to modify additional parameters like *Max Resultant Genes* or *Network Weighting* and look at how the changes you made influenced the results.  </ol>	
 
@@ -208,7 +208,7 @@ For this exercise, you are working on a gene list created by combining 3 user de
 
   1. Locate the Functions summary tab in *Result Panel* and look at functions returned by GeneMANIA.	<br><img src="./Module6/genemania/images/GC3_4.png" alt="GC3_4.png" width="500" />
 
-  1. In the functions summary tab,  check some functions to color genes included in these functions. To follow this tutorial, you can for example color the “response to insulin” , “DNA recombination”  functions.<br><img src="./Module6/genemania/images/GC3_4a.png" alt="GC3_4a.png" width="500" /><br><img src="./Module6/genemania/images/GC3_4b.png" alt="GC3_4b.png" width="500" />
+  1. In the functions summary tab,  check some functions to color genes included in these functions. To follow this tutorial, you can for example color the “DNA recombination” , “response to insulin”  functions.<br><img src="./Module6/genemania/images/GC3_4a.png" alt="GC3_4a.png" width="500" /><br><img src="./Module6/genemania/images/GC3_4b.png" alt="GC3_4b.png" width="500" />
 
 
   1. Color genes according to their GeneMANIA defined functions:
@@ -319,22 +319,29 @@ Let's use the prostate cancer gene list that we used in exercise 1.
 **Steps**:<br>
 
   1. Open Cytoscape 
-  1. Make sure strinApp is installed. Go to menu, Apps, App Manager. Go to 'Install Apps' if necessary.
-  1. In Cytoscape, locate the **Network** tab and select **STRING**, **STRING: protein query** by clicking the down arrow.<br><img src="./Module6/stringlab/SL1.png" alt="start" width="70%" />
+  1. Make sure stringApp is installed. Go to menu, Apps, App Store, Show App Store. Install the app if necessary.
+  1. In Cytoscape, locate the **Network** tab and select **STRING**, **STRING: protein query** by clicking the down arrow.<br>
+  
+<img src="./Module6/stringlab/SL1.png" alt="start" width="70%" />
 
-  1. Copy and paste the [30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt) in the blank field and click on the search button.<br><img src="./Module6/stringlab/SL2.png" alt="start" width="70%" />
+  1. Copy and paste the [30_prostate_cancer_genes.txt](./Module6/genemania/data/30_prostate_cancer_genes.txt) in the blank field and click on the search button.<br>
 
-  1. Observe the network that has been created. The genes from our list are connected by predicted protein-protein interactions.<br><img src="./Module6/stringlab/SL3.png" alt="start" width="70%" />
+ 
+  1. Observe the network that has been created. The genes from our list are connected by predicted protein-protein interactions.<br><img src="./Module6/stringlab/string1.png" alt="start" width="70%" /> 
 
-  1. On the right side of the Cytoscape window, locate and expand the *STRING* tab.
-  1. Make sure that the **Nodes** tab is selected.
-       * Play with parameters on the top fields: *Glass ball effect*, *STRING style labels*, etc... and observe the changes on the network.
+  1. On the right side of the Cytoscape window, locate and expand the *STRING* tab.<br> 
+       * Make sure that the **Nodes** tab is selected.<br>
+       * Play with parameters on the top fields: *Glass ball effect*, *STRING style labels*, etc... and observe the changes on the network.<br><img src="./Module6/stringlab/string2.png" alt="start" width="70%" /> 
+
+  1. Optimize the layout. In Cytoscape, go to the menu bar, Layout, yFiles Organic Layout.<img src="./Module6/stringlab/string3.png" alt="start" width="40%" />    
+       
+  1. Go back to the STRING Note tab on the right side:      
        * Select a node and look at the gene details in the **Selected nodes** tab.
-       * Try the **Functional enrichment** and observe the resuls in the **STRING Enrichment** table located below the network.<br><img src="./Module6/stringlab/SL4.png" alt="start" width="70%" />
+       * Try the **Functional enrichment** and observe the resuls in the **STRING Enrichment** table located below the network.<br><img src="./Module6/stringlab/string4.png" alt="start" width="70%" />
   
   1. Select the **Edges** tab.
       * The **score** slide bar enables to select the interactions with the strongest prediction scores.
-      * The **Subscore** table traces the source of the predicted interactions using several evidence scores.<br><img src="./Module6/stringlab/SL5.png" alt="start" width="70%" />
+      * The **Subscore** table traces the source of the predicted interactions using several evidence scores.<br><img src="./Module6/stringlab/string5.png" alt="start" width="70%" />
   
 ## More STRING information and tutorials:
 * Reference: https://apps.cytoscape.org/apps/stringapp
