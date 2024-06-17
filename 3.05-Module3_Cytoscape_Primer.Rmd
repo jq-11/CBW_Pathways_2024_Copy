@@ -241,19 +241,7 @@ We will select the bait protein VPR and all its associated prey proteins to use 
 </ol>
   i. This will bring up an EM options panel with very limited parameter adjustments.  You can only change the name of the network and the connectivity threshold.  You have already specified the p-value threshold when you originally performed the analysis.  If you want to create your network with a more permissive q-value you need to go back to the EnrichmentTable search panel. Click on **OK**<br>  <img src="./Module3/cytoscape_primer/images/enrichment_table_em_params.png" width="75%" />
   i. This will create an Enrichment Map in a new network and represents all the *Gene Ontology Biological Process*, *Reactome*, *Wikipathways* terms enriched for the VPR and its prey protein set. <br> <img src="./Module3/cytoscape_primer/images/enrichment_table_em.png" width="75%" />
-  
-<ol start=8 type="1">
-<li> To annotate the original PPI network with the top 5 enriched terms you can use the enhanced graphic integration in EnrichmentTable. **You need to have enhancedGraphics app installed in order to use this feature.  To install it, go to the Apps --> App Manager... and install EnhancedGraphics App** </li>
-</ol>
-  i. Navigate back to the original PPI network.  Click on the **Network** tab in the **Control Panel**.  Select the network **HIV - human - PPI** <br> <img src="./Module3/cytoscape_primer/images/enhanced_graphics_network_select.png" width="75%" />
-  i. Select EnrichmentTable in the Table Panel <br> <img src="./Module3/cytoscape_primer/images/enrichment_table_reselect.png" width="75%" />
-  i. Unfortunately it will not have remembered your filtering setting so you will need to refilter your results.
-  i. Filter the EnrichmentTable results to show only GO&#58;BP, Reactome and Wikipathway, similiar to what we used in Module 2.
-  i. Click on the filter icon in the top left hand corner of the enrichment table results. <br> <img src="./Module3/cytoscape_primer/images/enrichment_table_filter.png" width="75%" />
-  i. Next to **Select Categories** select *Gene Ontology Biological Process*, *Reactome*, *Wikipathways*.  To select multiple options click and hold *command* key on Mac or *Shift* on Windows. <br> <img src="./Module3/cytoscape_primer/images/enrichment_table_filter_options.png" width="75%" />
-  i. click on **OK**
-  i. The EnrichmentTable will update to only include the sets from  *Gene Ontology Biological Process*, *Reactome*, *Wikipathways*.<br> <img src="./Module3/cytoscape_primer/images/enrichment_table_filter_results.png" width="75%" />
-  
+ 
 
 ## Exercise 4 - Load network from NDex
 

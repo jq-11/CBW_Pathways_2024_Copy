@@ -706,7 +706,7 @@ directory.
 <li>This file can be downloaded directly or can be been created by concatenating the hsapiens.GO/BP.name.gmt, hsapiens.WP.namt.gmt and the hsapiens.REAC.name.gmt files contained in the g:Profiler gprofiler_hsapiens.name folder.</li>
 </ul>
 <ol start="5" style="list-style-type: decimal">
-<li>Pathway database 2: <a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt</a></li>
+<li>Pathway database 2: <a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt</a></li>
 </ol>
 </div>
 <div id="exercise-1a---compare-different-gprofiler-geneset-size-results" class="section level2 hasAnchor">
@@ -747,7 +747,8 @@ specify a common gmt file to be used by all datasets.
 </p>
 <ul>
 <li>
-Click on <em>Common Files (included in all datasets)</em>
+Click <em>+Add…</em> and select <em>Add Common Files</em>
+<img src="Module3/gprofiler/images/common_gmt1.png" alt="workflow" width="100%" />
 </li>
 <li>
 On the right side, go to the <em>GMT file</em> field, click on the 3
@@ -764,12 +765,36 @@ This can also be done for a shared expression file.
 </p>
 </div>
 <p>2h. Click on <em>Build</em>.</p>
+<div class="rmd-tip">
+<p>
+If you have specified common files this info box will appear
+</p>
+<p>
+<img src="Module3/gprofiler/images/common_gmt_msg.png" alt="workflow" width="100%" />
+* Click on <em>Continue to build</em>
+</p>
+</div>
 <ul>
 <li>A status bar should pop up showing progress of the Enrichment map build.</li>
 </ul>
 <p align="center">
 <img src="Module3/gprofiler/images/gem3.png" alt="workflow" width="60%"/>
 </p>
+<div class="rmd-tip">
+<p>
+There might be multiple messages that appear when you first create an
+enrichment map. You can choose to silence them if you want (Although the
+yfiles message will continue to appear every two weeks).
+</p>
+<p>
+<img src="Module3/gprofiler/images/aa_msg.png" alt="workflow" width="100%" />
+* Click on <em>OK</em>
+</p>
+<p>
+<img src="Module3/gprofiler/images/yfiles_msg.png" alt="workflow" width="100%" />
+* Click on <em>OK</em>
+</p>
+</div>
 </div>
 <div id="step3-explore-the-results" class="section level3 hasAnchor">
 <h3>Step3: Explore the results:<a href="gprofiler_mod3.html#step3-explore-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -892,7 +917,7 @@ gene-set names.
 <p>Create an enrichment map from the results of g:Profiler generated using the custom Baderlab gene-set file. <br>
 To get a map that is easy to read and that does not display too many gene-sets, one option is to focus the analysis on gene-sets (pathways) that contain 250 genes or less. We prefiltered our pathway database prior to upload it into g:Profiler so that FDR is calculated only on these gene-sets (as opposed to exercise 1a where the FDR was calculated on all gene-sets and then some gene-sets &gt; 250 genes were excluded from the result file). For this exercise, we will use:</p>
 <ul>
-<li><p>Filtered gmt file: <a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt</a>.</p></li>
+<li><p>Filtered gmt file: <a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt</a>.</p></li>
 <li><p>We have uploaded this file as a custom gmt file in g:Profiler and run the query. (in Module 2 lab)</p></li>
 <li><p>To create an enrichment map of these results:</p></li>
 <li><p>Go to Control Panel and select the EnrichmentMap tab.</p></li>
@@ -900,9 +925,10 @@ To get a map that is easy to read and that does not display too many gene-sets, 
 <p align="center">
 <p><img src="Module3/gprofiler/images/gem7.png" alt="workflow" width="50%" /></p>
 </p></li>
-<li><p>Drag the file that we created in Module 2 lab <a href="./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250.gem.txt">gProfiler_hsapiens_Baderlab_max250.gem.txt</a> and the filtered gmt file (<a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt</a> into the Datasets box on Enrichment map panel.</p></li>
+<li><p>Click on <em>Reset</em> to reset the Enrichment map panel</p></li>
+<li><p>Drag the file that we created in Module 2 lab <a href="./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250.gem.txt">gProfiler_hsapiens_Baderlab_max250.gem.txt</a> and the filtered gmt file (<a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt</a> into the Datasets box on Enrichment map panel.</p></li>
 <li><p>In the white box, select the “<em>gProfiler_hsapiens_Baderlab_max250.gem.txt (Generic/gProfiler)</em>” file</p></li>
-<li><p>Locate the GMT field and upload the file “<em>Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt</em>”.</p></li>
+<li><p>Locate the GMT field and upload the file “<em>Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt</em>”.</p></li>
 <li><p>Set the <strong>FDR q-value cutoff</strong> to 0.001 and set the <strong>Connectivity</strong> slide bar to second level.</p></li>
 </ul>
 <p><img src="Module3/gprofiler/images/gem9.png" alt="workflow" width="100%" /></p>
