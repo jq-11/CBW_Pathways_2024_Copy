@@ -138,7 +138,7 @@ The top functions predicted by GeneMANIA for GRN were related to lysosome and va
 
 ### Exercise 1 - STEP 11 (save an image) 	
 
-<img src="./Module6/genemania/images/GM10.png" alt="start" width="60%" />
+<img src="./Module6/genemania/images/GM35_2.png" alt="start" width="60%" />
 
 
 **Notes** about biological interpretation of the results: 
@@ -371,13 +371,9 @@ Drug-interactions and miRNA-target-predictions nodes are displayed in gray. The 
 
 <img src="./Module6/genemania/images/GM29.png" alt="start" width="60%" />
 
-### Exercise 3 - STEP 4
+### Exercise 3 - STEP 4/ STEP5
 
-<img src="./Module6/genemania/images/GM30.png" alt="start" width="60%" />
-
-### Exercise 3 - STEP 5
-
-<img src="./Module6/genemania/images/GM31.png" alt="start" width="60%" />
+<img src="./Module6/genemania/images/GM31_v2.png" alt="start" width="60%" />
 
 ### Exercise 3 - STEPS 6 
 
@@ -392,7 +388,9 @@ Drug-interactions and miRNA-target-predictions nodes are displayed in gray. The 
 
 ### Exercise 3 - STEP 8
 
-<img src="./Module6/genemania/images/GM35.png" alt="start" width="60%" />
+<img src="./Module6/genemania/images/GM35_2.png" alt="start" width="60%" />
+
+
 
 <img src="./Module6/genemania/images/GM36.png" alt="start" width="60%" />
 
