@@ -1,6 +1,6 @@
-#install.packages("ActivePathways")
+install.packages("ActivePathways")
 
-filename <- "Human_GOBP_AllPathways_no_GO_iea_September_01_2020_symbol"
+filename <- "Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol"
 
 #read in the gmt file
 gmt_file <- file.path(getwd(),"Module2","gprofiler",

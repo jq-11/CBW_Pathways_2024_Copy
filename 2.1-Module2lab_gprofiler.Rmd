@@ -120,7 +120,7 @@ After clicking on *Run query* button, the analysis completes but if there is the
 Step 5a:
 
 * After the query has run, the results are displayed at the bottom of the page, below the input parameters.
-* By default, the "Overview" tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for each of the 3 data sources (shown on x-axis) that we have selected - GO Biological Process(GO&#58;BP) and Reactome(REAC) and WikiPathways(WP). Numbers in parentheses indicate the number of gene-sets that passed the threshold.
+* By default, the "Overview" tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for each of the 3 data sources (shown on x-axis) that we have selected - GO Biological Process(GO:BP) and Reactome(REAC) and WikiPathways(WP). Numbers in parentheses indicate the number of gene-sets that passed the threshold.
 
 <img src="./Module2/gprofiler/images/gp5.png" alt="workflow" width="100%" />
 
@@ -155,7 +155,7 @@ The third table displays the results corresponding to the WikiPathways database.
  It displays the gene set size (T), the size of our gene list (Q) , the number of genes that overlap between our gene list and the tested gene-set (TnQ) as well as the number of genes in the background (U). 
  
 
- * Above the GO&#58;BP result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size). 
+ * Above the GO:BP result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size). 
  * Change the maximum *Term size* from 10000 to **250** and 
  * Change the minimum *Term size* from 1 to **3** and 
  * Observe the results in the detailed stats panel:
@@ -265,9 +265,9 @@ you will be using this optional hsapiens.pathways.name.gmt file in Cytoscape Enr
         </p>
 
 ```{block, type="rmd-note"}
-Deciphering the version from the listed tag e109_eg56_p17_1d3191d :<br>
-  * e109 - Ensembl version 109 <br>
-  * eg56 - Ensembl genomes version 56<br>
+Deciphering the version from the listed tag e111_eg58_p18_b51d8f08 :<br>
+  * e111 - Ensembl version 111 <br>
+  * eg56 - Ensembl genomes version 58<br>
   
 ```
 
@@ -275,7 +275,7 @@ Deciphering the version from the listed tag e109_eg56_p17_1d3191d :<br>
 The version info can be recorded anywhere (for example in your lab notebook) but a convenient place is to embed it in the g:Profiler geneset file name used for the analysis.  <br>Instead of naming the file <br>
   * hsapiens.pathways.name.gmt<br>
 Name it <br>
-  * hsapiens.pathways_e109_eg56_p17_1d3191d.name.gmt<br>
+  * hsapiens.pathways_e111_eg58_p18_b51d8f08.name.gmt<br>
 ```
  
 ---
@@ -311,7 +311,7 @@ Place it in the corresponding module directory of your CBW work directory.
 
 * [Pancancer_genelist.txt](./Module2/gprofiler/data/Pancancer_genelist.txt)
 
-*  [Baderlab_genesets.gmt (from April 2023)](./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt).
+*  [Baderlab_genesets.gmt (from June 2024)](./Module2/gprofiler/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt).
 
 
 We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.
@@ -328,7 +328,7 @@ STEPS:
    * Step 3a: Click on the *Data sources* tab (black rectangle) to expand it.
      * **Unselect all choices by clicking the "clear all" button.**
    * Step 4:  Click on the *Custom GMT* tab (black rectangle) to expand it.
-     * Drag in the box the Baderlab gmt file [Baderlab_genesets.gmt](./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt).
+     * Drag in the box the Baderlab gmt file [Baderlab_genesets.gmt](./Module2/gprofiler/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt).
      * Once uploaded successfully, the name of the file is displayed in the "File name used" box. 
     
     <img src="./Module2/gprofiler/images/gp16.png" alt="workflow" width="100%" />
@@ -339,7 +339,7 @@ STEPS:
    
      <img src="./Module2/gprofiler/images/gp17a.png" alt="workflow" width="100%" />
    
-   * Step 7: Save the file as GEM
+   * Step 7: Save the file as GEM (rename file to gProfiler_hsapiens_Baderlab_max250.gem.txt)
 
 ---
 

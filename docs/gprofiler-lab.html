@@ -759,7 +759,7 @@ gene and are easy to resolve as a user. Rerun query.
 <p>Step 5a:</p>
 <ul>
 <li>After the query has run, the results are displayed at the bottom of the page, below the input parameters.</li>
-<li>By default, the “Overview” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for each of the 3 data sources (shown on x-axis) that we have selected - GO Biological Process(GO:BP) and Reactome(REAC) and WikiPathways(WP). Numbers in parentheses indicate the number of gene-sets that passed the threshold.</li>
+<li>By default, the “Overview” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for each of the 3 data sources (shown on x-axis) that we have selected - GO Biological Process(<a href="GO:BP" class="uri">GO:BP</a>) and Reactome(REAC) and WikiPathways(WP). Numbers in parentheses indicate the number of gene-sets that passed the threshold.</li>
 </ul>
 <p><img src="Module2/gprofiler/images/gp5.png" alt="workflow" width="100%" /></p>
 <p>Step5b:</p>
@@ -788,7 +788,7 @@ gene and are easy to resolve as a user. Rerun query.
 </p>
 <p>It displays the gene set size (T), the size of our gene list (Q) , the number of genes that overlap between our gene list and the tested gene-set (TnQ) as well as the number of genes in the background (U).</p>
 <ul>
-<li>Above the GO:BP result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size).</li>
+<li>Above the <a href="GO:BP" class="uri">GO:BP</a> result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size).</li>
 <li>Change the maximum <em>Term size</em> from 10000 to <strong>250</strong> and</li>
 <li>Change the minimum <em>Term size</em> from 1 to <strong>3</strong> and</li>
 <li>Observe the results in the detailed stats panel:</li>
@@ -913,9 +913,9 @@ Cytoscape EnrichmentMap.
 </ul>
 <div class="rmd-note">
 <p>
-Deciphering the version from the listed tag e109_eg56_p17_1d3191d
-:<br> * e109 - Ensembl version 109 <br> * eg56 - Ensembl genomes version
-56<br>
+Deciphering the version from the listed tag e111_eg58_p18_b51d8f08
+:<br> * e111 - Ensembl version 111 <br> * eg56 - Ensembl genomes version
+58<br>
 </p>
 </div>
 <div class="rmd-tip">
@@ -924,7 +924,7 @@ The version info can be recorded anywhere (for example in your lab
 notebook) but a convenient place is to embed it in the g:Profiler
 geneset file name used for the analysis. <br>Instead of naming the file
 <br> * hsapiens.pathways.name.gmt<br> Name it <br> *
-hsapiens.pathways_e109_eg56_p17_1d3191d.name.gmt<br>
+hsapiens.pathways_e111_eg58_p18_b51d8f08.name.gmt<br>
 </p>
 </div>
 <hr />
@@ -959,7 +959,7 @@ directory.
 </div>
 <ul>
 <li><p><a href="./Module2/gprofiler/data/Pancancer_genelist.txt">Pancancer_genelist.txt</a></p></li>
-<li><p><a href="./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Baderlab_genesets.gmt (from April 2023)</a>.</p></li>
+<li><p><a href="./Module2/gprofiler/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt">Baderlab_genesets.gmt (from June 2024)</a>.</p></li>
 </ul>
 <p>We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.</p>
 <p>STEPS:</p>
@@ -984,7 +984,7 @@ directory.
 </ul></li>
 <li>Step 4: Click on the <em>Custom GMT</em> tab (black rectangle) to expand it.
 <ul>
-<li>Drag in the box the Baderlab gmt file <a href="./Module2/gprofiler/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol_max250.gmt">Baderlab_genesets.gmt</a>.</li>
+<li>Drag in the box the Baderlab gmt file <a href="./Module2/gprofiler/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt">Baderlab_genesets.gmt</a>.</li>
 <li>Once uploaded successfully, the name of the file is displayed in the “File name used” box.</li>
 </ul></li>
 </ul>
@@ -993,7 +993,7 @@ directory.
 <li><p>Step 5: Click on <em>Run query</em> .</p></li>
 <li><p>Step 6: Explore the detailed results</p>
 <p><img src="Module2/gprofiler/images/gp17a.png" alt="workflow" width="100%" /></p></li>
-<li><p>Step 7: Save the file as GEM</p></li>
+<li><p>Step 7: Save the file as GEM (rename file to gProfiler_hsapiens_Baderlab_max250.gem.txt)</p></li>
 </ul></li>
 </ul>
 <hr />
