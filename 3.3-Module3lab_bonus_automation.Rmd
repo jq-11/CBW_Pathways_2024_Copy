@@ -206,9 +206,9 @@ Make sure that you have mapped a volume on your computer to a volume in your con
 
 ## Start using automation
     
-2. Download example R notebooks from https://github.com/BaderLab/Cytoscape_workflows.
+2. Download example R notebooks from https://github.com/risserlin/CBW_pathways_workshop_R_notebooks.
 
-  * This repository contains example R Notebooks that automate the enrichment map pipeline.  
+  * This repository contains example R Notebooks that automate the CBW pipeline.  
   * There are two ways you can download this collection:
 
     a. If you are familiar with git then we recommend you fork the repo and use it like you would use any github repo. 
@@ -222,6 +222,14 @@ Make sure that you have mapped a volume on your computer to a volume in your con
 ```{block, type="rmd-tip"}
 If you are new to git and want to learn more about code versioning then we recommend you read the following [tutorial](https://guides.github.com/introduction/git-handbook/)
 And check out [Github Desktop](https://desktop.github.com/) - a desktop application to communicate with github. 
+```
+
+## Running example notebooks in local RStudio
+
+```{block, type="rmd-caution"}
+
+Highly recommended to use docker instead of local RStudio.  If you are using local RStudio, versions of R and associated packages may be different than the ones used in the example notebooks and might require installing updated versions and additional packages.  
+
 ```
 
 ### Step 1 - launch RStudio
@@ -246,66 +254,38 @@ And check out [Github Desktop](https://desktop.github.com/) - a desktop applicat
 
   <img src="./Module3/automation/images/Rproject_open_proj.png" alt="open project" width="50%"/>
   
-### Step 3 - Open example up RNotebook 
+### Step 3 - Open example RNotebook 
 
-  * Open the RNotebook **Protocol2_createEM.Rmd**
+  * Open the RNotebook **07-Create_EM_from_GSEA_results.Rmd**
 
     * Go to File --> Open File ...
 
       <img src="./Module3/automation/images/Rproject_openfile.png" alt="open project" width="50%"/>
-    * Click on **Protocol2_createEM.Rmd**
+    * Click on **07-Create_EM_from_GSEA_results.Rmd**
 
 ```{block, type="rmd-tip"}
 If the file is not found in the first directory that RStudio opens up then go back and make sure that you created an Rproject from an "Existing directory" in the previous step. 
 ```
 
-### Step 4 - Define Notebook parameters
 
-```{block, type="rmd-tip"}
-Setting up Notebooks with parameters allows you to re-run the same notebook with different datasets very easily.  Whereever possible create notebooks with parameters so you can re-use them 
-```
-
-
-<img src="./Module3/automation/images/Rproject_notebook_params.png" alt="open project"/>
-
-Descriptions of each of the parameters:
-
-  1. **analysis_name** - change this field to whatever you want your analysis to be called.  GSEA directories generated will be named using this string.  It will have additional characters added to it as GSEA generates a random number that it associates with each of its output directories.
-  1. **working_dir** - path to directory containing the data files we will be analyzing. 
-  1. **rnk_file** - NOT Optional.  This notebook runs GSEA preranked and this is the only file that is required.  for details on the specifications of this file see [Module 3 - gsea lab](#gsea_lab). 
-  1. **class_file** - (Optional) this file is a GSEA specific data file and is used for better visualization in the heat map viewer of enrichment map. For details of the creation of this file see - [GSEA documentation - class files](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#Phenotype_Data_Formats) 
-  1. **expression_file** - (Optional) this file contains the expression values for each of the experiments used in to create your rank file.  It is used for better visualization in the heat map viewer of enrichment map.
-  1. **run_gsea** - set to yes or no.  This variable specifies whether the notebook should run GSEA. GSEA can take a while to run so if you have already performed the GSEA analysis and simply want to create an enrichment map you can set this variable to "no".  **If this variable is set to no then you need to specify the path and the name of the GSEA directory in "gsea_directory" parameter.**
-  1. **gsea_jar** - full path to the gsea jar.  In the latest version of GSEA this is actually a bat(for windows users) or a sh (for moc and linux users) script.  If using GSEA 3.0 or older set this variable to the full path to the gsea.jar **We do not recommend using GSEA 3.0 or older versions**
-  1. **gsea_directory** - full path to gsea results directory.  Only populate if run_gsea is set to "no".
-  1. **fdr_threshold** - FDR threshold used to create enrichment map
-  1. **pval_thresho** - pvalue threshold used to create enrichment map
-  1. **java_version** - for backwards compatibility.  For users using previous version of GSEA and older versions of java. 
-  
-For this initial analysis change:
-
-  1. **gsea_jar** - change to the full path to the gsea jar that you were instructed to download in your pre-workshop setup instructions
-  
-```{block, type="rmd-caution"}
-This is not the same as the GSEA application that we used in Module 2 gsea lab.
-<img src="./Module3/automation/images/gsea_command_jar.png" alt="open project" width="50%"/>
-```
-
-
-```{block, type="rmd-tip"}
-If you are using the **docker** implementation GSEA is already in the docker and you don't need to downlaod anything else.  Just set this parameter as:<br>
-
-**gsea_jar: /home/rstudio/GSEA_4.1.0/gsea-cli.sh**
-
-```  
-
-### Step 5 - Step through notebook to run the analysis
+### Step 4 - Step through notebook to run the analysis
 
 The RNotebook is a mixture of markdown text and code blocks.  
 
 Read through the notebook to understand what each section is doing and sequentially run the code blocks by clicking on the play button at the top right of each code block.
 
 <img src="./Module3/automation/images/rnotebook_play.png" alt="play" width="50%"/>
+
+
+Run analysis directly from R for easy integration into existing pipelines.
+
+Instead of creating an Enrichment map manually through the user interface you can create an enrichment map directly using the [RCy3 bioconductor package](https://www.bioconductor.org/packages/release/bioc/html/RCy3.html) or through direct rest calls with [Cytoscape cyrest](https://apps.cytoscape.org/apps/cyrest).  
+
+Follow the step by step instructions on how to run from R here - https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gsea-results.html
+
+First, make sure your environment is set up correctly by following there instructions - https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html
+
+
 
 ### Exercises
 

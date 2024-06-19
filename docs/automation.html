@@ -325,13 +325,13 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#start-coding"><i class="fa fa-check"></i>Start coding!</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#start-using-automation"><i class="fa fa-check"></i>Start using automation</a>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#start-using-automation"><i class="fa fa-check"></i>Start using automation</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#running-example-notebooks-in-local-rstudio"><i class="fa fa-check"></i>Running example notebooks in local RStudio</a>
 <ul>
 <li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-1---launch-rstudio"><i class="fa fa-check"></i>Step 1 - launch RStudio</a></li>
 <li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-2---create-a-new-project"><i class="fa fa-check"></i>Step 2 - create a new project</a></li>
-<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-3---open-example-up-rnotebook"><i class="fa fa-check"></i>Step 3 - Open example up RNotebook</a></li>
-<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-4---define-notebook-parameters"><i class="fa fa-check"></i>Step 4 - Define Notebook parameters</a></li>
-<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-5---step-through-notebook-to-run-the-analysis"><i class="fa fa-check"></i>Step 5 - Step through notebook to run the analysis</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-3---open-example-rnotebook"><i class="fa fa-check"></i>Step 3 - Open example RNotebook</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-4---step-through-notebook-to-run-the-analysis"><i class="fa fa-check"></i>Step 4 - Step through notebook to run the analysis</a></li>
 <li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#additional-resources"><i class="fa fa-check"></i>Additional resources</a></li>
 </ul></li>
@@ -898,10 +898,10 @@ directory.
 <div id="start-using-automation" class="section level2 hasAnchor">
 <h2>Start using automation<a href="automation.html#start-using-automation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol start="2" style="list-style-type: decimal">
-<li>Download example R notebooks from <a href="https://github.com/BaderLab/Cytoscape_workflows" class="uri">https://github.com/BaderLab/Cytoscape_workflows</a>.</li>
+<li>Download example R notebooks from <a href="https://github.com/risserlin/CBW_pathways_workshop_R_notebooks" class="uri">https://github.com/risserlin/CBW_pathways_workshop_R_notebooks</a>.</li>
 </ol>
 <ul>
-<li><p>This repository contains example R Notebooks that automate the enrichment map pipeline.<br />
+<li><p>This repository contains example R Notebooks that automate the CBW pipeline.<br />
 </p></li>
 <li><p>There are two ways you can download this collection:</p>
 <ol style="list-style-type: lower-alpha">
@@ -920,6 +920,17 @@ then we recommend you read the following <a
 href="https://guides.github.com/introduction/git-handbook/">tutorial</a>
 And check out <a href="https://desktop.github.com/">Github Desktop</a> -
 a desktop application to communicate with github.
+</p>
+</div>
+</div>
+<div id="running-example-notebooks-in-local-rstudio" class="section level2 hasAnchor">
+<h2>Running example notebooks in local RStudio<a href="automation.html#running-example-notebooks-in-local-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-caution">
+<p>
+Highly recommended to use docker instead of local RStudio. If you are
+using local RStudio, versions of R and associated packages may be
+different than the ones used in the example notebooks and might require
+installing updated versions and additional packages.
 </p>
 </div>
 <div id="step-1---launch-rstudio" class="section level3 hasAnchor">
@@ -947,14 +958,14 @@ a desktop application to communicate with github.
 </ul>
 <p><img src="Module3/automation/images/Rproject_open_proj.png" alt="open project" width="50%"/></p>
 </div>
-<div id="step-3---open-example-up-rnotebook" class="section level3 hasAnchor">
-<h3>Step 3 - Open example up RNotebook<a href="automation.html#step-3---open-example-up-rnotebook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="step-3---open-example-rnotebook" class="section level3 hasAnchor">
+<h3>Step 3 - Open example RNotebook<a href="automation.html#step-3---open-example-rnotebook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>Open the RNotebook <strong>Protocol2_createEM.Rmd</strong></p>
+<li><p>Open the RNotebook <strong>07-Create_EM_from_GSEA_results.Rmd</strong></p>
 <ul>
 <li><p>Go to File –&gt; Open File …</p>
 <p><img src="Module3/automation/images/Rproject_openfile.png" alt="open project" width="50%"/></p></li>
-<li><p>Click on <strong>Protocol2_createEM.Rmd</strong></p></li>
+<li><p>Click on <strong>07-Create_EM_from_GSEA_results.Rmd</strong></p></li>
 </ul></li>
 </ul>
 <div class="rmd-tip">
@@ -965,57 +976,15 @@ then go back and make sure that you created an Rproject from an
 </p>
 </div>
 </div>
-<div id="step-4---define-notebook-parameters" class="section level3 hasAnchor">
-<h3>Step 4 - Define Notebook parameters<a href="automation.html#step-4---define-notebook-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="rmd-tip">
-<p>
-Setting up Notebooks with parameters allows you to re-run the same
-notebook with different datasets very easily. Whereever possible create
-notebooks with parameters so you can re-use them
-</p>
-</div>
-<p><img src="Module3/automation/images/Rproject_notebook_params.png" alt="open project"/></p>
-<p>Descriptions of each of the parameters:</p>
-<ol style="list-style-type: decimal">
-<li><strong>analysis_name</strong> - change this field to whatever you want your analysis to be called. GSEA directories generated will be named using this string. It will have additional characters added to it as GSEA generates a random number that it associates with each of its output directories.</li>
-<li><strong>working_dir</strong> - path to directory containing the data files we will be analyzing.</li>
-<li><strong>rnk_file</strong> - NOT Optional. This notebook runs GSEA preranked and this is the only file that is required. for details on the specifications of this file see <a href="#gsea_lab">Module 3 - gsea lab</a>.</li>
-<li><strong>class_file</strong> - (Optional) this file is a GSEA specific data file and is used for better visualization in the heat map viewer of enrichment map. For details of the creation of this file see - <a href="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#Phenotype_Data_Formats">GSEA documentation - class files</a></li>
-<li><strong>expression_file</strong> - (Optional) this file contains the expression values for each of the experiments used in to create your rank file. It is used for better visualization in the heat map viewer of enrichment map.</li>
-<li><strong>run_gsea</strong> - set to yes or no. This variable specifies whether the notebook should run GSEA. GSEA can take a while to run so if you have already performed the GSEA analysis and simply want to create an enrichment map you can set this variable to “no”. <strong>If this variable is set to no then you need to specify the path and the name of the GSEA directory in “gsea_directory” parameter.</strong></li>
-<li><strong>gsea_jar</strong> - full path to the gsea jar. In the latest version of GSEA this is actually a bat(for windows users) or a sh (for moc and linux users) script. If using GSEA 3.0 or older set this variable to the full path to the gsea.jar <strong>We do not recommend using GSEA 3.0 or older versions</strong></li>
-<li><strong>gsea_directory</strong> - full path to gsea results directory. Only populate if run_gsea is set to “no”.</li>
-<li><strong>fdr_threshold</strong> - FDR threshold used to create enrichment map</li>
-<li><strong>pval_thresho</strong> - pvalue threshold used to create enrichment map</li>
-<li><strong>java_version</strong> - for backwards compatibility. For users using previous version of GSEA and older versions of java.</li>
-</ol>
-<p>For this initial analysis change:</p>
-<ol style="list-style-type: decimal">
-<li><strong>gsea_jar</strong> - change to the full path to the gsea jar that you were instructed to download in your pre-workshop setup instructions</li>
-</ol>
-<div class="rmd-caution">
-<p>
-This is not the same as the GSEA application that we used in Module 2
-gsea lab.
-<img src="Module3/automation/images/gsea_command_jar.png" alt="open project" width="50%"/>
-</p>
-</div>
-<div class="rmd-tip">
-<p>
-If you are using the <strong>docker</strong> implementation GSEA is
-already in the docker and you don’t need to downlaod anything else. Just
-set this parameter as:<br>
-</p>
-<p>
-<strong>gsea_jar: /home/rstudio/GSEA_4.1.0/gsea-cli.sh</strong>
-</p>
-</div>
-</div>
-<div id="step-5---step-through-notebook-to-run-the-analysis" class="section level3 hasAnchor">
-<h3>Step 5 - Step through notebook to run the analysis<a href="automation.html#step-5---step-through-notebook-to-run-the-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="step-4---step-through-notebook-to-run-the-analysis" class="section level3 hasAnchor">
+<h3>Step 4 - Step through notebook to run the analysis<a href="automation.html#step-4---step-through-notebook-to-run-the-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The RNotebook is a mixture of markdown text and code blocks.</p>
 <p>Read through the notebook to understand what each section is doing and sequentially run the code blocks by clicking on the play button at the top right of each code block.</p>
 <p><img src="Module3/automation/images/rnotebook_play.png" alt="play" width="50%"/></p>
+<p>Run analysis directly from R for easy integration into existing pipelines.</p>
+<p>Instead of creating an Enrichment map manually through the user interface you can create an enrichment map directly using the <a href="https://www.bioconductor.org/packages/release/bioc/html/RCy3.html">RCy3 bioconductor package</a> or through direct rest calls with <a href="https://apps.cytoscape.org/apps/cyrest">Cytoscape cyrest</a>.</p>
+<p>Follow the step by step instructions on how to run from R here - <a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gsea-results.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gsea-results.html</a></p>
+<p>First, make sure your environment is set up correctly by following there instructions - <a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html</a></p>
 </div>
 <div id="exercises" class="section level3 hasAnchor">
 <h3>Exercises<a href="automation.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>

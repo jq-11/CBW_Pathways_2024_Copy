@@ -126,11 +126,11 @@ macos-linux
 create-your-first-notebook-using-docker
 start-coding
 start-using-automation
+running-example-notebooks-in-local-rstudio
 step-1---launch-rstudio
 step-2---create-a-new-project
-step-3---open-example-up-rnotebook
-step-4---define-notebook-parameters
-step-5---step-through-notebook-to-run-the-analysis
+step-3---open-example-rnotebook
+step-4---step-through-notebook-to-run-the-analysis
 exercises
 additional-resources
 module-4-in-depth-analysis-of-networks-and-pathways
