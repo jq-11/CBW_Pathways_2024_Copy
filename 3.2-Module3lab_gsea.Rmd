@@ -277,11 +277,11 @@ if you ran step 5, <br>
 **Alternately, in the Enrichment Map Input Panel in the Datasets box, un-select "Human_Drugbank_approved_symbol_June_01_2024_selected" to hide the post analysis nodes.** 
 ```
 
-The "annotations" are shown as larger node labels.
+The "annotations" are hidden but the node of each computed cluster that has the most significant FDR value is shown with a larger node label.
 
 <img src="./Module3/gsea/images/EM13.png" alt="EM" width="750" />
 
-**6a**. To modify these precomputed annotations find the Auto annotate Display panel on the right or Auto annotate input panel left.
+**6a**. To modify these precomputed annotations find the Auto annotate display panel on the right or Auto annotate input panel on the left.  The right panel will contain all the different settings you can set for the annotations.  By default the annotations and their labels are hidden.  The left panel allows you to see all the different clusters and their labels.  You can select one of many of them, change their labels or recompute the clusters with predefined clusters or one of many avaialble methods amoungst other settings.  See the [docs](https://autoannotate.readthedocs.io/en/latest/) for all the available features.  
 
 
 <img src="./Module3/gsea/images/EM12.png" alt="EM" width="750" />
@@ -303,6 +303,8 @@ The network is now subdivided into clusters that are represented by ellipses. Ea
 **Tip 2**: The AutoAnnotate window on the left side in Result Panel contains the list of all clusters. Clicking on a cluster label will highlight in yellow all nodes in this cluster. It is then easy to move the nodes using the mouse to avoid cluster overlaps. 
 ```
 
+<img src="./Module3/gsea/images/EM15.png" alt="EM" width="750" />
+
 
 ## Exercise 4 (Optional) - Explore results in GeneMANIA or STRING
 
@@ -318,10 +320,10 @@ Visualize genes in a pathway/node of interest using the apps STRING and GeneMANI
 
 **7a**: Click on an individual node of interest.
 
-For this example, you could use *cellular response to BMP*. 
+For this example, you could use *xenobiotic metabolic process*. 
 
 ```{block, type="rmd-tip"}
-If you are unable to locate *cellular response to BMP*, type "cellular response to BMP" in the search box (quotes are important).  The selected node appears yellow (or highlighted) in the network. If you have annotated your network, it should be included in the *restricted smad bmp* cluster.
+If you are unable to locate *xenobiotic metabolic process*, type "xenobiotic metabolic process" in the search box (quotes are important).  The selected node appears yellow (or highlighted) in the network. If you have annotated your network, it should be included in the *response xenobiotic stimulus* cluster.
 ```
 
 **7b**: Right Click on the node of interest to diplay the option menu. Select *Apps*,--> *EnrichmentMap - Show in STRING*<br>
@@ -356,7 +358,7 @@ Explore the features and data of each Cytoscape app.<br>What happens to the netw
 <img src="./Module3/gsea/images/find_network.png" alt="workflow" width="500" />
 
 
-**7d**: Search again for the node labelled *cellular response to BMP* as in Step 7a. 
+**7d**: Search again for the node labelled *xenobiotic metabolic process* (if it is not still selected) as in Step 7a. 
 
 * Right Click on the node of interest to diplay the option menu. Select *Apps*,--> *EnrichmentMap - Show in GeneMANIA*<br>
 

@@ -886,9 +886,9 @@ Datasets box, un-select
 analysis nodes.</strong>
 </p>
 </div>
-<p>The “annotations” are shown as larger node labels.</p>
+<p>The “annotations” are hidden but the node of each computed cluster that has the most significant FDR value is shown with a larger node label.</p>
 <p><img src="Module3/gsea/images/EM13.png" alt="EM" width="750" /></p>
-<p><strong>6a</strong>. To modify these precomputed annotations find the Auto annotate Display panel on the right or Auto annotate input panel left.</p>
+<p><strong>6a</strong>. To modify these precomputed annotations find the Auto annotate display panel on the right or Auto annotate input panel on the left. The right panel will contain all the different settings you can set for the annotations. By default the annotations and their labels are hidden. The left panel allows you to see all the different clusters and their labels. You can select one of many of them, change their labels or recompute the clusters with predefined clusters or one of many avaialble methods amoungst other settings. See the <a href="https://autoannotate.readthedocs.io/en/latest/">docs</a> for all the available features.</p>
 <p><img src="Module3/gsea/images/EM12.png" alt="EM" width="750" /></p>
 <p>Unhide labels and shapes to see the underlying annotation for the network.</p>
 <p><img src="Module3/gsea/images/EM14.png" alt="EM" width="750" /></p>
@@ -919,6 +919,7 @@ label will highlight in yellow all nodes in this cluster. It is then
 easy to move the nodes using the mouse to avoid cluster overlaps.
 </p>
 </div>
+<p><img src="Module3/gsea/images/EM15.png" alt="EM" width="750" /></p>
 </div>
 </div>
 <div id="exercise-4-optional---explore-results-in-genemania-or-string" class="section level2 hasAnchor">
@@ -933,14 +934,14 @@ easy to move the nodes using the mouse to avoid cluster overlaps.
 <h3>Step 7<a href="gsea_mod3.html#step-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Visualize genes in a pathway/node of interest using the apps STRING and GeneMANIA. This will create a protein-protein interaction network using the genes included in the pathway. Note: We will go more in depth into <a href="genemania_cytoscape.html#genemania_cytoscape">GeneMANIA in module 5</a></p>
 <p><strong>7a</strong>: Click on an individual node of interest.</p>
-<p>For this example, you could use <em>cellular response to BMP</em>.</p>
+<p>For this example, you could use <em>xenobiotic metabolic process</em>.</p>
 <div class="rmd-tip">
 <p>
-If you are unable to locate <em>cellular response to BMP</em>, type
-“cellular response to BMP” in the search box (quotes are important). The
-selected node appears yellow (or highlighted) in the network. If you
-have annotated your network, it should be included in the <em>restricted
-smad bmp</em> cluster.
+If you are unable to locate <em>xenobiotic metabolic process</em>,
+type “xenobiotic metabolic process” in the search box (quotes are
+important). The selected node appears yellow (or highlighted) in the
+network. If you have annotated your network, it should be included in
+the <em>response xenobiotic stimulus</em> cluster.
 </p>
 </div>
 <p><strong>7b</strong>: Right Click on the node of interest to diplay the option menu. Select <em>Apps</em>,–&gt; <em>EnrichmentMap - Show in STRING</em><br></p>
@@ -976,7 +977,7 @@ cutoff</em> or <em>Max Additional interactors</em> <br><br>
 <li>In Control Panel (left side of the window), select the “Network” tab and click on the Enrichment Map network as shown in below screenshot.</li>
 </ul>
 <p><img src="Module3/gsea/images/find_network.png" alt="workflow" width="500" /></p>
-<p><strong>7d</strong>: Search again for the node labelled <em>cellular response to BMP</em> as in Step 7a.</p>
+<p><strong>7d</strong>: Search again for the node labelled <em>xenobiotic metabolic process</em> (if it is not still selected) as in Step 7a.</p>
 <ul>
 <li>Right Click on the node of interest to diplay the option menu. Select <em>Apps</em>,–&gt; <em>EnrichmentMap - Show in GeneMANIA</em><br></li>
 </ul>
