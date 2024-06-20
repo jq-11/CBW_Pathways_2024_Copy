@@ -9,15 +9,19 @@ As an example of applying pathway and network analysis using single cell RNASeq,
 
 
 
-## Pmbc3k Seurat Pipeline 
+## Pmbc3k Seurat Pipeline
 ```{block, type="rmd-note"}
-The R code in this practical lab was used to produce the gene lists to use in the downstream analysis.
+The R code below was used to generate the gene lists used in the downstream analysis.
 It is for your reference. 
 
-**YOU DON'T NEED TO RUN IT FOR THIS PRACTICAL LAB.** 
+**YOU DON'T NEED TO RUN THIS CODE FOR THE PRACTICAL LAB.** 
 
-**ALL NECESSARY FILES ARE PROVIDED.**
+**ALL NECESSARY FILES ARE PROVIDED IN THE DATA SECTION BELOW.**
 ```
+
+---
+
+**Start of R code example** - [Jump to Tutorial start](#tutorial_start)
 
 ## load libraries
 ```{r eval=FALSE}
@@ -129,7 +133,12 @@ for (a in cluster_list){
 }
 ```
 
-## Data (gene lists for each cluster)
+
+**End of R code example**
+
+---
+
+## Data (gene lists for each cluster)  {#tutorial_start}
 
  * [Naive_CD4_T.txt](./scRNAlab/data/Naive_CD4_T.txt)
  * [CD14pMono.txt](./scRNAlab/data/CD14pMono.txt)
