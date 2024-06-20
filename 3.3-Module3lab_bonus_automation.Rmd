@@ -250,7 +250,7 @@ Highly recommended to use docker instead of local RStudio.  If you are using loc
 
   <img src="./Module3/automation/images/Rproject_browse.png" alt="browse" width="50%" />
 
-  * Navigate to the EnrichmentMapPipeline directory that is found in the directory you downloaded and unzipped from github.  (for example, if it is still in your downloads directory go to ~/Downloads/Cytoscape_workflows/EnrichmentMapPipelines)
+  * Navigate to the CBW_pathways_workshop_R_notebooks directory that is found in the directory you downloaded and unzipped from github.  (for example, if it is still in your downloads directory go to ~/Downloads/Cytoscape_workflows/CBW_pathways_workshop_R_notebooks)
 
   <img src="./Module3/automation/images/Rproject_open_proj.png" alt="open project" width="50%"/>
   
