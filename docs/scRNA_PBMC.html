@@ -804,23 +804,15 @@ This is out of scope for this meeting.
 <li>Set <strong>FDR q-value cutoff</strong> to 0.001</li>
 <li>Click on <strong>Build</strong><br><img src="scRNAlab/images/scRNAlab6.png" alt="generate rank" width="75%" /></li>
 <li>An enrichment map is created:<br><img src="scRNAlab/images/scRNAlab7a.png" alt="generate rank" width="75%" /></li>
-<li>For clarity, you can use the AutoAnnotate app to annotate and cluster the enrichment map.</li>
-<li>In Cytoscape menu , go to <strong>Apps</strong>,–&gt; <strong>AutoAnnotate</strong>,–&gt; <strong>New Annotation Set…</strong></li>
-<li>A dialog box opens, click on <strong>OK</strong><br><img src="scRNAlab/images/scRNAlab8a.png" alt="generate rank" width="100%" /></li>
+<li>For clarity, show annotations for the clustes in the enrichment map.</li>
+<li>Find the Autoannotate and AutoAnnotate Display panels on the left and right side panels, respectively,</li>
+<li>Unhide the shapes and labels to more clearly see the groupings. Adjust settings to your liking.<br><img src="scRNAlab/images/scRNAlab8a.png" alt="generate rank" width="100%" /></li>
 </ol>
 <div class="rmd-note">
 <p>
 The boxes <strong>Palette</strong>, <strong>Scale Font by cluster
 size</strong> and <strong>Word Wrap</strong> have been selected. The
 clusters have been moved around for clarity.
-</p>
-</div>
-<div class="rmd-note">
-<p>
-You might have a slightly different network as the notebook might
-have been prepared using a previous version of g:Profiler. g:Profiler
-updates its databases regularly. Archived databases can be retrieved
-here: <a href="https://biit.cs.ut.ee/gprofiler/page/archives" class="uri">https://biit.cs.ut.ee/gprofiler/page/archives</a>.
 </p>
 </div>
 </div>
@@ -834,7 +826,7 @@ here: <a href="https://biit.cs.ut.ee/gprofiler/page/archives" class="uri">https:
 <li>Data:
 <ul>
 <li>rank file: <a href="./scRNAlab/data/CD4vsMono.rnk">CD4vsMono.rnk</a></li>
-<li>gmt file: <a href="./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt</a></li>
+<li>gmt file: <a href="./Module2/gsea/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</a></li>
 </ul></li>
 </ul>
 </div>
@@ -844,7 +836,7 @@ here: <a href="https://biit.cs.ut.ee/gprofiler/page/archives" class="uri">https:
 <ol style="list-style-type: decimal">
 <li>Open GSEA</li>
 <li>Select <strong>Load Data</strong></li>
-<li>Drag and Drop the rank <a href="./scRNAlab/data/CD4vsMono.rnk">CD4vsMono.rnk</a> and gmt * <a href="./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt</a> files.</li>
+<li>Drag and Drop the rank <a href="./scRNAlab/data/CD4vsMono.rnk">CD4vsMono.rnk</a> and gmt * <a href="./Module2/gsea/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</a> files.</li>
 <li>Click on <strong>Load these files</strong></li>
 <li>Click on <strong>Run GSEAPreranked</strong></li>
 <li>In <strong>Gene sets database</strong>, click on the 3 dots, select <strong>Local GMX/GMT</strong> , select the gmt file, click on OK.</li>

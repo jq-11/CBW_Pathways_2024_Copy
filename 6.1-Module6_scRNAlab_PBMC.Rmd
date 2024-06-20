@@ -182,16 +182,12 @@ For this practical lab, we will use the platelet gene list to enriched pathways 
   1. Set **FDR q-value cutoff** to 0.001
   1. Click on **Build**<br><img src="./scRNAlab/images/scRNAlab6.png" alt="generate rank" width="75%" />
   1. An enrichment map is created:<br><img src="./scRNAlab/images/scRNAlab7a.png" alt="generate rank" width="75%" />
-  1. For clarity, you can use the AutoAnnotate app to annotate and cluster the enrichment map.
-  1. In Cytoscape menu , go to **Apps**,--> **AutoAnnotate**,--> **New Annotation Set...**
-  1. A dialog box opens, click on **OK**<br><img src="./scRNAlab/images/scRNAlab8a.png" alt="generate rank" width="100%" />
+  1. For clarity, show annotations for the clustes in the enrichment map.
+  1. Find the Autoannotate and AutoAnnotate Display panels on the left and right side panels, respectively, 
+  1. Unhide the shapes and labels to more clearly see the groupings.  Adjust settings to your liking.<br><img src="./scRNAlab/images/scRNAlab8a.png" alt="generate rank" width="100%" />
 
 ```{block, type="rmd-note"}
 The boxes **Palette**, **Scale Font by cluster size** and **Word Wrap** have been selected. The clusters have been moved around for clarity.
-```
-
-```{block, type="rmd-note"}
-You might have a slightly different network as the notebook might have been prepared using a previous version of g:Profiler. g:Profiler updates its databases regularly. Archived databases can be retrieved here: https://biit.cs.ut.ee/gprofiler/page/archives.
 ```
 
 ## GSEA from pseudobulk
@@ -203,12 +199,12 @@ As shown in [module 3](#gsea_mod3), in order to perform pathway analysis,we prep
 
 * Data:
   * rank file: [CD4vsMono.rnk](./scRNAlab/data/CD4vsMono.rnk)
-  * gmt file:  [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt)
+  * gmt file:  [Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt](./Module2/gsea/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt)
  
 ## run GSEA:
   1. Open GSEA
   1. Select **Load Data**
-  1. Drag and Drop the rank  [CD4vsMono.rnk](./scRNAlab/data/CD4vsMono.rnk) and gmt * [Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_no_GO_iea_April_02_2023_symbol.gmt) files.
+  1. Drag and Drop the rank  [CD4vsMono.rnk](./scRNAlab/data/CD4vsMono.rnk) and gmt * [Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt](./Module2/gsea/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt) files.
   1. Click on **Load these files**
   1. Click on **Run GSEAPreranked**
   1. In **Gene sets database**, click on the 3 dots, select **Local GMX/GMT** , select the gmt file, click on OK.
