@@ -26,78 +26,41 @@
 
   1. Ligand–receptor pairs are ranked on the basis of their total number of significant p values across the cell populations. 
 
-### Dataset and references 
-**Reference paper**: PMID: 29227470. Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. Kang et al. Nat Biotechnol. 2018 Jan;36(1):89-94.
-
-References used to build the Jupyter notebook and run CellPhoneDB:
-
-  1. https://pypi.org/project/cellphonedb/
-  
-  1. https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt
-  
-  1. https://github.com/ventolab/CellphoneDB
-  
-  1. https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html
-  
-  1. https://zktuong.github.io/ktplots/articles/vignette.html
-
-The dataset consists of ~25k peripheral blood mononuclear cell (PBMCs) from 8 pooled lupus patients, each before and after IFN-β stimulation.
-
-
-### Dataset preprocessing and running CellPhoneDB 
-
-```{block, type="rmd-warning"}
-Do not run during practical lab. This is for your information only.
-```
-
-CellPhoneDB is a python package. Running CellPhoneDB is out of score for this lab but the annotated code is included in totality in this Jupyter notebook and is available for download using these links :
-
-[CellPhoneDB_jupyter_notebook.pdf](./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.pdf) 
- 
-[CellPhoneDB_jupyter_notebook.ipynb](./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.ipynb) 
-
-Some installation instructions are placed at the top of the document.
 
 **Summary of the steps**: 
 
- - **Preparing the scRNA using the method of your choice**:
-  Standard preprocessing consists of filtering out bad quality cells, normalizing, clustering and annotating the cells. In this case, the cells are different types of blood cells and they were annotated using specific cell markers of these different cell types. 
+The dataset consists of ~25k peripheral blood mononuclear cell (PBMCs) from 8 pooled lupus patients, each before and after IFN-β stimulation.
+
+ - **Preparing the scRNA using your method of choice**:
+  Standard preprocessing consists of filtering out bad quality cells, normalizing, clustering and annotating the cells. In this case, the cells are different types of blood cells and they were annotated using specific cell markers for these different cell types. 
  
  - **Let's explore the UMAP**:
 <img src="./scRNAlab/CPDB_lab/images/cphb_01.png" alt="EM" width="700" />
 
- The UMAP on the right displays all the cells that are clustered based on cell types. UMAP (Uniform Manifold Approximation and Projection) is frequently used in scRNA to display the data in 2 dimensions. It helps visualizing groups of cells that are close together. The colors on the UMAP represent clusters of cells that were annotated into distinct blood cell types. 
-The UMAP on the left shows that the cells are coming from different samples: untreated PBMC cells and cells treated with interferon beta (IFN-β). For this exercise, we are only taking the cells IFN-β stimulation.
+ UMAP (Uniform Manifold Approximation and Projection) is frequently used in scRNA to display the data in 2 dimensions.  The UMAP on the right displays all the cells that are clustered based on cell types.  It helps visualizing groups of cells that are close together. The colors on the UMAP represent clusters of cells that were annotated into distinct blood cell types. 
+The UMAP on the left shows that the cells are coming from different samples: untreated PBMC cells and cells treated with interferon beta (IFN-β). For this exercise, we are only examinig the cells that are IFN-β stimulation (labelled as stim the above UMAP).
  
  The scRNA data is available from the Jupyter notebook but are also here in case it is needed: [scRNA_25PBMC.h5ad](./scRNAlab/CPDB_lab/data/scRNA_25PBMC.h5ad)
- 
- - **Running CellPhoneDB**:
- The provided Jupyter notebook contains 2 methods to run CellPhoneDB.
- The first method is to run CellPhoneDB from the Liana package. This has the advantage of some simplicity and the possibility to compare it with other cell-cell communication tools also included in the same package. This is part 1 of the notebook. 
- The second approach is to run it directly from the CellPhoneDB package. It offers the advantage to choose the version of the ligand-receptor database and to run it from 3 offered methods: basic, statistical and DEG-based. This is part 2 of the notebook.
- 
- Please consult the CellPhoneDB webpage and gihub links provided at the top of the document as they contain detailed information and tutorials.
-
 
 ### Examining the results
 
-In this case study, we filtered the results to only analyze results where the source are the CD8 T cells sending communication signals to CD4 T and NK cells. We retained significant results at a p-value cutoff of 0.05. This is an arbitrary choice for this lab that was based on the observation of a robust ligant signal of the CD8 T cells. In real life, we suggest that you look at all the possible significant interactions in each pair of cells and consider also the biological question that you need to answer. 
+In this case study, we filtered the results to include only interactions where the source are the CD8 T cells sending communication signals to CD4 T and NK cells. We retained significant results with p-value less than 0.05. The choice to include just CD4 and NK cells only was an arbitrary threshold for this lab that was based on the observation of robust ligand signals for the CD8 T cells. In real life, we suggest that you look at all the possible significant interactions in each pair of cells and also consider the biological question under investigation. 
 
 
 <img src="./scRNAlab/CPDB_lab/images/cpdb_03.png" alt="EM" width="850" />
 
- - each row indicates a ligand-receptor pair with a different combination of source and target for each row. 
- - lr_means (ligand-receptor means) is the average of ligand and receptor expression means. 
- - The pvalue indicates if this mean is far away from the mean of the null distribution.
- - lrs_to_keep indicate rows (ligand-receptor pairs) to keep based on the pvalue
- - props: represents the proportion of cells that express the entity 
+ - each row contains a ligand-receptor pair with a different combination of source and target for each row. 
+ - *lr_means* : (ligand-receptor means) is the average of ligand and receptor expression means. 
+ - *pvalue* : indicates if this mean is far away from the mean of the null distribution.
+ - *lrs_to_keep* : indicates rows (ligand-receptor pairs) to keep based on the pvalue
+ - *props* : represents the proportion of cells that express the entity 
 
 
 ### Visualization using Cytoscape
 
 A network is aimed to ease the visualization of relationships between entities. 
-We are going to construct a network using the ligand from the CD8 T cells as source and the detected receptors from CD4 T cells and NK cells as targets. The ligand and receptor entities will be represented as nodes on the network and we will color the nodes based on the cell types.
-The edge width will be set proportional to the lr_means which represents the average of ligand and receptor mean expression and which is our measure of interaction strength. 
+We will construct a directed network using the ligands from the CD8 T cells as source nodes and the detected receptors from CD4 T cells and NK cells as target nodes. The ligand and receptor entities will be represented as nodes on the network and we will color the nodes based on the cell types.
+The edge width will be proportional to the lr_means which represents the average of ligand and receptor mean expression and which is our measure of interaction strength. 
 
 To create this network, we don't need any particular Cytoscape app. We will upload the CellPhoneDB result table as a custom network.
 
@@ -148,10 +111,12 @@ Please download the file as you need it to create the network.
   * **Adjust the node style**.
    * Go to the 'Style' tab and make sure that the 'Node' tab is selected.
    * Adjust the 'Fill Color':
-    1. Click on "Fill Color".
-    2. Click on the down arrow.
-    3. Set 'Column' to 'target'. 
-    4. Set 'Mapping Type' to "Discrete Mapping' and click on the blanck space and on the "..." to set a color.
+   
+     1. Click on "Fill Color".
+     2. Click on the down arrow.
+     3. Set 'Column' to 'target'. 
+     4. Set 'Mapping Type' to "Discrete Mapping' and click on the blanck space and on the "..." to set a color.
+
    * Set 'Label Font Size' to '16'.
    * Set 'Size' to '60'.
  
@@ -161,19 +126,26 @@ Please download the file as you need it to create the network.
    * Go to the 'Style' tab and make sure that the 'Edge' tab is selected.
    * Set "Label" to "lr_means".
    * Set "Width" to "lr_means".
+   * Set "Width" - "Mapping type" to 'Continuous Mapping'
 
 <img src="./scRNAlab/CPDB_lab/images/cpdb_n_10.png" alt="EM" width="400" />
 
-   * Adjust maximum width to 15 and minimum width to 5.
+   * Double click on the chart that shows up to adjust the parameters.  
+   * Adjust minimum width to 5 adn maximum width to 15  - 
+   * Click on the top arrow and then set the edge width to 5. Press enter to register the change.  
    
-<img src="./scRNAlab/CPDB_lab/images/cpdb_n_11.png" alt="EM" width="400" />
+<img src="./scRNAlab/CPDB_lab/images/cpdb_n_11a.png" alt="EM" width="400" />
+   
+   * Click on the top right arrow and then set the edge width to 15. Press enter to register the change.
+   
+<img src="./scRNAlab/CPDB_lab/images/cpdb_n_11b.png" alt="EM" width="400" />
 
    * Here is the resulting network:
    
 <img src="./scRNAlab/CPDB_lab/images/cpdb_n_12.png" alt="EM" width="400" />
 
   * **Align the nodes** so that the ligands from the CD8 cells are in the middle and the receptors from NK and CD4 cells on the left and right side.
-  *  You can it manually. Alternatively, you can use the layout tools.
+  *  You can do it manually. Alternatively, you can use the layout tools.
    
    <img src="./scRNAlab/CPDB_lab/images/cpdb_n_16.png" alt="EM" width="250" />
    
@@ -191,5 +163,43 @@ Please download the file as you need it to create the network.
 
   *  Do not forget to **save your** session. You can also export the network as an image.
 
+
+### Dataset and references 
+**Reference paper**: Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. [Kang et al. Nat Biotechnol. 2018 Jan;36(1):89-94.](https://www.nature.com/articles/nbt.4042), [PMID: 29227470](https://pubmed.ncbi.nlm.nih.gov/29227470/)
+
+References used to build the Jupyter notebook and run CellPhoneDB:
+
+  1. https://pypi.org/project/cellphonedb/
+  
+  1. https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt
+  
+  1. https://github.com/ventolab/CellphoneDB
+  
+  1. https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html
+  
+  1. https://zktuong.github.io/ktplots/articles/vignette.html
+
+
+### Dataset preprocessing and running CellPhoneDB  {#dataset_prep}
+
+```{block, type="rmd-warning"}
+Do not run during practical lab. This is for your information only.
+```
+
+CellPhoneDB is a python package. Running CellPhoneDB is out of score for this lab but the annotated code is included in totality in this Jupyter notebook and is available for download using these links :
+
+[CellPhoneDB_jupyter_notebook.pdf](./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.pdf) 
+ 
+[CellPhoneDB_jupyter_notebook.ipynb](./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.ipynb) 
+
+Some installation instructions are placed at the top of the document.
+
+
+ - **Running CellPhoneDB**:
+ The provided Jupyter notebook contains 2 methods to run CellPhoneDB.
+ The first method is to run CellPhoneDB using the Liana package. This method is simple and allows for the comparison with other cell-cell communication tools also included in the Liana package. (See part 1 of the notebook). 
+ The second approach is to run it directly from the CellPhoneDB package. It offers the advantage to choose the version of the ligand-receptor database and to run it from 3 offered methods: basic, statistical and DEG-based. This is part 2 of the notebook.
+ 
+ Please consult the CellPhoneDB webpage and gihub links provided at the top of the document as they contain detailed information and tutorials.
 
 

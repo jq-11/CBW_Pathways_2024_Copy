@@ -227,7 +227,7 @@ introduction-3
 goal
 data-5
 overview
-part-1---run-gprofiler-can-module8-exercise-1-optional
+can-module8-exercise-1
 step-1---launch-gprofiler.-1
 step-2---input-query-1
 step-3---adjust-parameters.-1
@@ -236,7 +236,7 @@ step-5---explore-the-results.-1
 step-6-expand-the-stats-tab-1
 step-7-save-the-results-1
 step-8-optional-but-recommended-1
-part-2---cytoscapeenrichmentmap-exercise-2-optional
+exercise-2
 goal-of-the-exercise-6
 data-6
 enrichmentmap-2
@@ -256,10 +256,10 @@ scRNA_cellPhoneDB
 cell-cell-communication-in-scrna-cellphonedb
 presentation
 method
-dataset-and-references
-dataset-preprocessing-and-running-cellphonedb
 examining-the-results
 visualization-using-cytoscape
+dataset-and-references
+dataset_prep
 scRNA_NEST
 cell-cell-communication-ccc-in-spatial-transcriptomics-using-nest
 presentation-of-nest-neural-network-on-spatial-transcriptomics

@@ -452,7 +452,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#data-5"><i class="fa fa-check"></i>Data</a></li>
 <li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#overview"><i class="fa fa-check"></i>Overview</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#part-1---run-gprofiler-can-module8-exercise-1-optional"><i class="fa fa-check"></i>Part 1 - run g:Profiler {#can-module8-exercise-1} [OPTIONAL]</a>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#can-module8-exercise-1"><i class="fa fa-check"></i>Part 1 - run g:Profiler [OPTIONAL]</a>
 <ul>
 <li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-1---launch-gprofiler.-1"><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
 <li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-2---input-query-1"><i class="fa fa-check"></i>Step 2 - input query</a></li>
@@ -463,7 +463,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-7-save-the-results-1"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
 <li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#step-8-optional-but-recommended-1"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#part-2---cytoscapeenrichmentmap-exercise-2-optional"><i class="fa fa-check"></i>Part 2 - Cytoscape/EnrichmentMap {#exercise-2} [OPTIONAL]</a>
+<li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#exercise-2"><i class="fa fa-check"></i>Part 2 - Cytoscape/EnrichmentMap [OPTIONAL]</a>
 <ul>
 <li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#goal-of-the-exercise-6"><i class="fa fa-check"></i>Goal of the exercise</a></li>
 <li class="chapter" data-level="" data-path="scRNA_glioblastoma.html"><a href="scRNA_glioblastoma.html#data-6"><i class="fa fa-check"></i>Data</a></li>
@@ -490,10 +490,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="scRNA_cellPhoneDB.html"><a href="scRNA_cellPhoneDB.html#presentation"><i class="fa fa-check"></i>Presentation</a></li>
 <li class="chapter" data-level="" data-path="scRNA_cellPhoneDB.html"><a href="scRNA_cellPhoneDB.html#method"><i class="fa fa-check"></i>Method</a></li>
-<li class="chapter" data-level="" data-path="scRNA_cellPhoneDB.html"><a href="scRNA_cellPhoneDB.html#dataset-and-references"><i class="fa fa-check"></i>Dataset and references</a></li>
-<li class="chapter" data-level="" data-path="scRNA_cellPhoneDB.html"><a href="scRNA_cellPhoneDB.html#dataset-preprocessing-and-running-cellphonedb"><i class="fa fa-check"></i>Dataset preprocessing and running CellPhoneDB</a></li>
 <li class="chapter" data-level="" data-path="scRNA_cellPhoneDB.html"><a href="scRNA_cellPhoneDB.html#examining-the-results"><i class="fa fa-check"></i>Examining the results</a></li>
 <li class="chapter" data-level="" data-path="scRNA_cellPhoneDB.html"><a href="scRNA_cellPhoneDB.html#visualization-using-cytoscape"><i class="fa fa-check"></i>Visualization using Cytoscape</a></li>
+<li class="chapter" data-level="" data-path="scRNA_cellPhoneDB.html"><a href="scRNA_cellPhoneDB.html#dataset-and-references"><i class="fa fa-check"></i>Dataset and references</a></li>
+<li class="chapter" data-level="" data-path="scRNA_cellPhoneDB.html"><a href="scRNA_cellPhoneDB.html#dataset_prep"><i class="fa fa-check"></i>Dataset preprocessing and running CellPhoneDB</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="scRNA_NEST.html"><a href="scRNA_NEST.html"><i class="fa fa-check"></i>Module 6 lab 4: NEST</a>
@@ -645,67 +645,35 @@ div.csl-indent {
 <li><p>The p value for the likelihood of cell-type specificity of a given receptor–ligand complex is calculated on the basis of the proportion of the means that are as high as or higher than the actual mean (=empirical pvalue).</p></li>
 <li><p>Ligand–receptor pairs are ranked on the basis of their total number of significant p values across the cell populations.</p></li>
 </ol>
-</div>
-<div id="dataset-and-references" class="section level3 hasAnchor">
-<h3>Dataset and references<a href="scRNA_cellPhoneDB.html#dataset-and-references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Reference paper</strong>: PMID: 29227470. Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. Kang et al. Nat Biotechnol. 2018 Jan;36(1):89-94.</p>
-<p>References used to build the Jupyter notebook and run CellPhoneDB:</p>
-<ol style="list-style-type: decimal">
-<li><p><a href="https://pypi.org/project/cellphonedb/" class="uri">https://pypi.org/project/cellphonedb/</a></p></li>
-<li><p><a href="https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt" class="uri">https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt</a></p></li>
-<li><p><a href="https://github.com/ventolab/CellphoneDB" class="uri">https://github.com/ventolab/CellphoneDB</a></p></li>
-<li><p><a href="https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html" class="uri">https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html</a></p></li>
-<li><p><a href="https://zktuong.github.io/ktplots/articles/vignette.html" class="uri">https://zktuong.github.io/ktplots/articles/vignette.html</a></p></li>
-</ol>
-<p>The dataset consists of ~25k peripheral blood mononuclear cell (PBMCs) from 8 pooled lupus patients, each before and after IFN-β stimulation.</p>
-</div>
-<div id="dataset-preprocessing-and-running-cellphonedb" class="section level3 hasAnchor">
-<h3>Dataset preprocessing and running CellPhoneDB<a href="scRNA_cellPhoneDB.html#dataset-preprocessing-and-running-cellphonedb" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="rmd-warning">
-<p>
-Do not run during practical lab. This is for your information
-only.
-</p>
-</div>
-<p>CellPhoneDB is a python package. Running CellPhoneDB is out of score for this lab but the annotated code is included in totality in this Jupyter notebook and is available for download using these links :</p>
-<p><a href="./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.pdf">CellPhoneDB_jupyter_notebook.pdf</a></p>
-<p><a href="./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.ipynb">CellPhoneDB_jupyter_notebook.ipynb</a></p>
-<p>Some installation instructions are placed at the top of the document.</p>
 <p><strong>Summary of the steps</strong>:</p>
+<p>The dataset consists of ~25k peripheral blood mononuclear cell (PBMCs) from 8 pooled lupus patients, each before and after IFN-β stimulation.</p>
 <ul>
-<li><p><strong>Preparing the scRNA using the method of your choice</strong>:
-Standard preprocessing consists of filtering out bad quality cells, normalizing, clustering and annotating the cells. In this case, the cells are different types of blood cells and they were annotated using specific cell markers of these different cell types.</p></li>
+<li><p><strong>Preparing the scRNA using your method of choice</strong>:
+Standard preprocessing consists of filtering out bad quality cells, normalizing, clustering and annotating the cells. In this case, the cells are different types of blood cells and they were annotated using specific cell markers for these different cell types.</p></li>
 <li><p><strong>Let’s explore the UMAP</strong>:
 <img src="scRNAlab/CPDB_lab/images/cphb_01.png" alt="EM" width="700" /></p></li>
 </ul>
-<p>The UMAP on the right displays all the cells that are clustered based on cell types. UMAP (Uniform Manifold Approximation and Projection) is frequently used in scRNA to display the data in 2 dimensions. It helps visualizing groups of cells that are close together. The colors on the UMAP represent clusters of cells that were annotated into distinct blood cell types.
-The UMAP on the left shows that the cells are coming from different samples: untreated PBMC cells and cells treated with interferon beta (IFN-β). For this exercise, we are only taking the cells IFN-β stimulation.</p>
+<p>UMAP (Uniform Manifold Approximation and Projection) is frequently used in scRNA to display the data in 2 dimensions. The UMAP on the right displays all the cells that are clustered based on cell types. It helps visualizing groups of cells that are close together. The colors on the UMAP represent clusters of cells that were annotated into distinct blood cell types.
+The UMAP on the left shows that the cells are coming from different samples: untreated PBMC cells and cells treated with interferon beta (IFN-β). For this exercise, we are only examinig the cells that are IFN-β stimulation (labelled as stim the above UMAP).</p>
 <p>The scRNA data is available from the Jupyter notebook but are also here in case it is needed: <a href="./scRNAlab/CPDB_lab/data/scRNA_25PBMC.h5ad">scRNA_25PBMC.h5ad</a></p>
-<ul>
-<li><strong>Running CellPhoneDB</strong>:
-The provided Jupyter notebook contains 2 methods to run CellPhoneDB.
-The first method is to run CellPhoneDB from the Liana package. This has the advantage of some simplicity and the possibility to compare it with other cell-cell communication tools also included in the same package. This is part 1 of the notebook.
-The second approach is to run it directly from the CellPhoneDB package. It offers the advantage to choose the version of the ligand-receptor database and to run it from 3 offered methods: basic, statistical and DEG-based. This is part 2 of the notebook.</li>
-</ul>
-<p>Please consult the CellPhoneDB webpage and gihub links provided at the top of the document as they contain detailed information and tutorials.</p>
 </div>
 <div id="examining-the-results" class="section level3 hasAnchor">
 <h3>Examining the results<a href="scRNA_cellPhoneDB.html#examining-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In this case study, we filtered the results to only analyze results where the source are the CD8 T cells sending communication signals to CD4 T and NK cells. We retained significant results at a p-value cutoff of 0.05. This is an arbitrary choice for this lab that was based on the observation of a robust ligant signal of the CD8 T cells. In real life, we suggest that you look at all the possible significant interactions in each pair of cells and consider also the biological question that you need to answer.</p>
+<p>In this case study, we filtered the results to include only interactions where the source are the CD8 T cells sending communication signals to CD4 T and NK cells. We retained significant results with p-value less than 0.05. The choice to include just CD4 and NK cells only was an arbitrary threshold for this lab that was based on the observation of robust ligand signals for the CD8 T cells. In real life, we suggest that you look at all the possible significant interactions in each pair of cells and also consider the biological question under investigation.</p>
 <p><img src="scRNAlab/CPDB_lab/images/cpdb_03.png" alt="EM" width="850" /></p>
 <ul>
-<li>each row indicates a ligand-receptor pair with a different combination of source and target for each row.</li>
-<li>lr_means (ligand-receptor means) is the average of ligand and receptor expression means.</li>
-<li>The pvalue indicates if this mean is far away from the mean of the null distribution.</li>
-<li>lrs_to_keep indicate rows (ligand-receptor pairs) to keep based on the pvalue</li>
-<li>props: represents the proportion of cells that express the entity</li>
+<li>each row contains a ligand-receptor pair with a different combination of source and target for each row.</li>
+<li><em>lr_means</em> : (ligand-receptor means) is the average of ligand and receptor expression means.</li>
+<li><em>pvalue</em> : indicates if this mean is far away from the mean of the null distribution.</li>
+<li><em>lrs_to_keep</em> : indicates rows (ligand-receptor pairs) to keep based on the pvalue</li>
+<li><em>props</em> : represents the proportion of cells that express the entity</li>
 </ul>
 </div>
 <div id="visualization-using-cytoscape" class="section level3 hasAnchor">
 <h3>Visualization using Cytoscape<a href="scRNA_cellPhoneDB.html#visualization-using-cytoscape" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A network is aimed to ease the visualization of relationships between entities.
-We are going to construct a network using the ligand from the CD8 T cells as source and the detected receptors from CD4 T cells and NK cells as targets. The ligand and receptor entities will be represented as nodes on the network and we will color the nodes based on the cell types.
-The edge width will be set proportional to the lr_means which represents the average of ligand and receptor mean expression and which is our measure of interaction strength.</p>
+We will construct a directed network using the ligands from the CD8 T cells as source nodes and the detected receptors from CD4 T cells and NK cells as target nodes. The ligand and receptor entities will be represented as nodes on the network and we will color the nodes based on the cell types.
+The edge width will be proportional to the lr_means which represents the average of ligand and receptor mean expression and which is our measure of interaction strength.</p>
 <p>To create this network, we don’t need any particular Cytoscape app. We will upload the CellPhoneDB result table as a custom network.</p>
 <p><strong>STEPS TO FOLLOW</strong>:</p>
 <div class="rmd-datadownload">
@@ -746,15 +714,17 @@ Please download the file as you need it to create the network.
 <p><img src="scRNAlab/CPDB_lab/images/cpdb_n_07.png" alt="EM" width="400" /></p>
 <p><img src="scRNAlab/CPDB_lab/images/cpdb_n_09.png" alt="EM" width="400" /></p>
 <ul>
-<li><strong>Adjust the node style</strong>.</li>
-<li>Go to the ‘Style’ tab and make sure that the ‘Node’ tab is selected.</li>
-<li>Adjust the ‘Fill Color’:
-1. Click on “Fill Color”.
-2. Click on the down arrow.
-3. Set ‘Column’ to ‘target’.
-4. Set ‘Mapping Type’ to “Discrete Mapping’ and click on the blanck space and on the”…” to set a color.</li>
-<li>Set ‘Label Font Size’ to ‘16’.</li>
-<li>Set ‘Size’ to ‘60’.</li>
+<li><p><strong>Adjust the node style</strong>.</p></li>
+<li><p>Go to the ‘Style’ tab and make sure that the ‘Node’ tab is selected.</p></li>
+<li><p>Adjust the ‘Fill Color’:</p>
+<ol style="list-style-type: decimal">
+<li>Click on “Fill Color”.</li>
+<li>Click on the down arrow.</li>
+<li>Set ‘Column’ to ‘target’.</li>
+<li>Set ‘Mapping Type’ to “Discrete Mapping’ and click on the blanck space and on the”…” to set a color.</li>
+</ol></li>
+<li><p>Set ‘Label Font Size’ to ‘16’.</p></li>
+<li><p>Set ‘Size’ to ‘60’.</p></li>
 </ul>
 <p><img src="scRNAlab/CPDB_lab/images/cpdb_n_08.png" alt="EM" width="400" /></p>
 <ul>
@@ -762,19 +732,27 @@ Please download the file as you need it to create the network.
 <li>Go to the ‘Style’ tab and make sure that the ‘Edge’ tab is selected.</li>
 <li>Set “Label” to “lr_means”.</li>
 <li>Set “Width” to “lr_means”.</li>
+<li>Set “Width” - “Mapping type” to ‘Continuous Mapping’</li>
 </ul>
 <p><img src="scRNAlab/CPDB_lab/images/cpdb_n_10.png" alt="EM" width="400" /></p>
 <ul>
-<li>Adjust maximum width to 15 and minimum width to 5.</li>
+<li>Double click on the chart that shows up to adjust the parameters.<br />
+</li>
+<li>Adjust minimum width to 5 adn maximum width to 15 -</li>
+<li>Click on the top arrow and then set the edge width to 5. Press enter to register the change.</li>
 </ul>
-<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_11.png" alt="EM" width="400" /></p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_11a.png" alt="EM" width="400" /></p>
+<ul>
+<li>Click on the top right arrow and then set the edge width to 15. Press enter to register the change.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_11b.png" alt="EM" width="400" /></p>
 <ul>
 <li>Here is the resulting network:</li>
 </ul>
 <p><img src="scRNAlab/CPDB_lab/images/cpdb_n_12.png" alt="EM" width="400" /></p>
 <ul>
 <li><strong>Align the nodes</strong> so that the ligands from the CD8 cells are in the middle and the receptors from NK and CD4 cells on the left and right side.</li>
-<li>You can it manually. Alternatively, you can use the layout tools.</li>
+<li>You can do it manually. Alternatively, you can use the layout tools.</li>
 </ul>
 <p><img src="scRNAlab/CPDB_lab/images/cpdb_n_16.png" alt="EM" width="250" /></p>
 <ul>
@@ -793,6 +771,38 @@ Please download the file as you need it to create the network.
 <ul>
 <li>Do not forget to <strong>save your</strong> session. You can also export the network as an image.</li>
 </ul>
+</div>
+<div id="dataset-and-references" class="section level3 hasAnchor">
+<h3>Dataset and references<a href="scRNA_cellPhoneDB.html#dataset-and-references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Reference paper</strong>: Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. <a href="https://www.nature.com/articles/nbt.4042">Kang et al. Nat Biotechnol. 2018 Jan;36(1):89-94.</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/29227470/">PMID: 29227470</a></p>
+<p>References used to build the Jupyter notebook and run CellPhoneDB:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://pypi.org/project/cellphonedb/" class="uri">https://pypi.org/project/cellphonedb/</a></p></li>
+<li><p><a href="https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt" class="uri">https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt</a></p></li>
+<li><p><a href="https://github.com/ventolab/CellphoneDB" class="uri">https://github.com/ventolab/CellphoneDB</a></p></li>
+<li><p><a href="https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html" class="uri">https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html</a></p></li>
+<li><p><a href="https://zktuong.github.io/ktplots/articles/vignette.html" class="uri">https://zktuong.github.io/ktplots/articles/vignette.html</a></p></li>
+</ol>
+</div>
+<div id="dataset_prep" class="section level3 hasAnchor">
+<h3>Dataset preprocessing and running CellPhoneDB<a href="scRNA_cellPhoneDB.html#dataset_prep" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="rmd-warning">
+<p>
+Do not run during practical lab. This is for your information
+only.
+</p>
+</div>
+<p>CellPhoneDB is a python package. Running CellPhoneDB is out of score for this lab but the annotated code is included in totality in this Jupyter notebook and is available for download using these links :</p>
+<p><a href="./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.pdf">CellPhoneDB_jupyter_notebook.pdf</a></p>
+<p><a href="./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.ipynb">CellPhoneDB_jupyter_notebook.ipynb</a></p>
+<p>Some installation instructions are placed at the top of the document.</p>
+<ul>
+<li><strong>Running CellPhoneDB</strong>:
+The provided Jupyter notebook contains 2 methods to run CellPhoneDB.
+The first method is to run CellPhoneDB using the Liana package. This method is simple and allows for the comparison with other cell-cell communication tools also included in the Liana package. (See part 1 of the notebook).
+The second approach is to run it directly from the CellPhoneDB package. It offers the advantage to choose the version of the ligand-receptor database and to run it from 3 offered methods: basic, statistical and DEG-based. This is part 2 of the notebook.</li>
+</ul>
+<p>Please consult the CellPhoneDB webpage and gihub links provided at the top of the document as they contain detailed information and tutorials.</p>
 
 </div>
 </div>
