@@ -4,7 +4,7 @@
   
   [Lecture](./lectures/Pathways_2023_Module2_ORA_VV.pdf) 
   
-  [Introduction to practical lab](./lectures/Pathways_2023_Module2_lab_introduction_RI.pdf)  
+  [Introduction to practical lab](./lectures/Pathways_2024_Module2_lab_introduction_RI.pdf)  
 
   [Lab practical part 1 (g:Profiler)](#gprofiler-lab)    
 
