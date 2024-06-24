@@ -622,7 +622,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="integrated_assignment" class="section level1 hasAnchor">
 <h1>Module 7 Integrated Assignment<a href="integrated_assignment.html#integrated_assignment" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><em><font color="#827e9c">Veronique Voisin</font></em></p>
+<p><em><font color="#827e9c">Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font></em></p>
 <p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
 <div id="goal-2" class="section level2 hasAnchor">
 <h2>Goal<a href="integrated_assignment.html#goal-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -651,7 +651,7 @@ those shown here.
 </div>
 <div id="data-processing" class="section level2 hasAnchor">
 <h2>Data processing<a href="integrated_assignment.html#data-processing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Affymetrix data are stored in the Gene Expression Omnibus (GEO) repository under the accession number GSE39491 <a href="http://www.ncbi.nlm.nih.gov/pubmed/24714516">PMID:24714516</a>. The RMA (Robust Multichip Average) normalized data were downloaded from GEO and further processed using the Bioconductor package limma to estimate differential expression between the groups. The results of the limma t-tests were corrected for multiple hypothesis testing using the Benjamini-HochBerg method (FDR).</p>
+<p>The Affymetrix data are stored in the Gene Expression Omnibus (GEO) repository under the accession number <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE39491">GSE39491</a> <a href="http://www.ncbi.nlm.nih.gov/pubmed/24714516">PMID:24714516</a>. The RMA (Robust Multichip Average) normalized data were downloaded from GEO and further processed using the Bioconductor package limma to estimate differential expression between the groups. The results of the limma t-tests were corrected for multiple hypothesis testing using the Benjamini-HochBerg method (FDR).</p>
 <p><img src="IntegratedAssignment/images/in2.png" alt="IN2" width="750" /></p>
 <p>For g:Profiler, genes with a FDR equal or less than 0.0001 and a logFC of 2 were retrieved and stored in a text file. For GSEA, a rank file has been created by ranking the genes from the highest t statistics value (up-regulated in BE compared to NE) to the lowest t values (down-regulated in BE compared to NE). The code used to process the data is available from this <a href="./IntegratedAssignment/data/code_integrated_assignment_BEvsNE.R">link</a>. Please feel free to adapt it and use it with your own data.</p>
 </div>
@@ -659,8 +659,8 @@ those shown here.
 <h2>PART 1: run g:Profiler<a href="integrated_assignment.html#part-1-run-gprofiler" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>Open g:Profiler</p></li>
-<li><p>In <strong>Options</strong>, make sure <strong>All results</strong> is <strong>not</strong> checked (this keeps significant results only)</p></li>
-<li><p>In <strong>Advanced option</strong>, Set Benjamini-Hochberg in the ‘Significance threshold’ box.</p></li>
+<li><p>In <strong>Advanced options</strong>, make sure <strong>All results</strong> is <strong>not</strong> checked (this keeps significant results only)</p></li>
+<li><p>In <strong>Advanced options</strong>, Set <strong>Benjamini-Hochberg</strong> in the <strong>Significance threshold</strong> box.</p></li>
 <li><p>In <strong>Data sources</strong> , select <strong>GO molecular function</strong>, <strong>No electronic GO annotations</strong>, and Reactome.</p></li>
 <li><p>Run analysis of the genes differentially altered between BE and normal: copy and paste the gene list into the g:Profiler input window <a href="./IntegratedAssignment/data/BEonly_genelist_v2.txt">BEonly_genelist.txt</a>.</p></li>
 </ol>
@@ -672,11 +672,12 @@ those shown here.
 </div>
 <div id="part-2-save-as-generic-enrichment-map-output-be" class="section level2 hasAnchor">
 <h2>PART 2: save as Generic Enrichment Map output (BE)<a href="integrated_assignment.html#part-2-save-as-generic-enrichment-map-output-be" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now we have to generate an output from the enrichment analysis and save it in appropriate format for EnrichmentMap. Set the maximum term size to 1000. Scroll down, select the tab for <em>Detailed results</em>, and export the data in Generic EnrichmentMap (GEM) format and save it on your computer. We will need this file to create an enrichment map.</p>
+<p>Now we have to generate an output from the enrichment analysis and save it in appropriate format for EnrichmentMap. Select the tab for <em>Detailed results</em> and set the maximum term size to 1000. Export the data in Generic EnrichmentMap (GEM) format and save it on your computer. We will need this file to create an enrichment map.</p>
 </div>
 <div id="part-3-save-as-generic-enrichment-map-output-ne" class="section level2 hasAnchor">
 <h2>PART 3: save as Generic Enrichment Map output (NE)<a href="integrated_assignment.html#part-3-save-as-generic-enrichment-map-output-ne" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Generate and save the Generic EnrichmentMap for genes in <a href="./IntegratedAssignment/data/NEonly_genelist.txt">NConly_genelist.txt</a> (i.e., delete the old gene list and copy/paste the new gene list in the box). It contains the genes specific of the normal tissue samples. Run g:Profiler with this list using same options as in PART 1 and again save the output as a Generic Enrichment Map (GEM) format. We will need this file for EnrichmentMap.</p>
+<p>** Make sure to rename your g:Profiler results so you know which one is BE and which one is NE. **</p>
 </div>
 <div id="part-4-create-an-enrichment-map" class="section level2 hasAnchor">
 <h2>PART 4: create an enrichment map<a href="integrated_assignment.html#part-4-create-an-enrichment-map" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -693,8 +694,8 @@ those shown here.
 <li><p>Annotate the network using the AutoAnnotate Apps.</p></li>
 </ol>
 <p><img src="IntegratedAssignment/images/gprofiler_EMinput.png" alt="gprofiler_EMinput.png" width="750" /></p>
-<p><img src="IntegratedAssignment/images/IAgprofiler1_2021.png" alt="IAgprofiler1_2021.png" width="750" /></p>
-<p><img src="IntegratedAssignment/images/IAgprofiler2_2021.png" alt="IAgprofiler2_2021.png" width="750" /></p>
+<p><img src="IntegratedAssignment/images/IAgprofiler1_2024.png" alt="IAgprofiler1_2024.png" width="750" /></p>
+<p><img src="IntegratedAssignment/images/IAgprofiler2_2024.png" alt="IAgprofiler2_2024.png" width="750" /></p>
 <ol start="10" style="list-style-type: decimal">
 <li><p>Try different layouts if you’d like. Zoom in and move nodes around to be able to read the labels.</p></li>
 <li><p>Select a node of your choice. When the node is highlighted, the ‘EM Heat Map’ in ‘Table Panel’ will display the genes in this pathway that are overlapping with your input gene list. A gray square means that the gene is absent in the dataset.
@@ -708,9 +709,9 @@ Note: you also could create and upload an expression file when you build the enr
 <div id="answers-gprofiler" class="section level2 hasAnchor">
 <h2>Answers g:Profiler<a href="integrated_assignment.html#answers-gprofiler" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Question</strong>: What is the most significant <a href="GO:term" class="uri">GO:term</a>? What is the p-value for this <a href="GO:term" class="uri">GO:term</a></p>
-<p><img src="IntegratedAssignment/images/gprofilerresultGOv2.png" alt="gprofilerresultGOv2.png" width="750" />
+<p><img src="IntegratedAssignment/images/gprofilerresultGO_2024.png" alt="gprofilerresultGO_2024.png" width="750" />
 Note: you might get slightly different results compared to the screenshot if the pathway database has been updated.</p>
-<p><strong>Answer</strong>: digestion</p>
+<p><strong>Answer</strong>: extracellular matrix structural constituent</p>
 <p><strong>Question</strong>: Is this p-value already corrected for multiple testing? What type of correction is used for your current analysis?</p>
 <p><strong>Answer</strong>: yes, it is already corrected for multiple hypothesis testing. I set the Significance threshold box to “Benjaminin-Hochberg FDR”.</p>
 <p>Re-run the analysis with User p-value threshold set to 0.0001.</p>
@@ -726,7 +727,7 @@ Note: you might get slightly different results compared to the screenshot if the
 <h2>PART 5: GSEA (run and create an enrichment map)<a href="integrated_assignment.html#part-5-gsea-run-and-create-an-enrichment-map" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>Launch GSEA.</p></li>
-<li><p>Run GSEA using the rank file that has been created from the differential expression test comparing BE vs NE <a href="./IntegratedAssignment/data/BEvsNE_ranks.rnk">BEvsNE_ranks.rnk</a> and the pathway file <a href="./IntegratedAssignment/data/Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt">Human_GOBP_AllPathways_no_GO_iea_July_01_2020_symbol.gmt</a>.</p></li>
+<li><p>Run GSEA using the rank file that has been created from the differential expression test comparing BE vs NE <a href="./IntegratedAssignment/data/BEvsNE_ranks.rnk">BEvsNE_ranks.rnk</a> and the pathway file <a href="./IntegratedAssignment/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</a>.</p></li>
 </ol>
 <ul>
 <li>open GSEA and first import the files using the “Load data” window: upload the .rnk and .gmt files (the gmt file can be found by clicking the three dots next to ‘Gene sets database’ and clicking on ’Gene matrix (local gmx/gmt) ).</li>
@@ -772,36 +773,38 @@ Note: you may get slightly different results as 100 permutations is not enough t
 <li>An ‘Import Network From Table’ window opens and in the table preview, make sure that the ‘Gene’ column is the source node (green dot). Click on ‘OK’. A ‘Confirmation’ dialog box saying that ‘No edges will be created in the network’ opens. Click on ‘Yes’.</li>
 </ul>
 <p><img src="IntegratedAssignment/images/IA_iregulon1.png" alt="IA_iregulon1.png" width="750" /></p>
+<ul>
+<li>If successful, you should see a grid of gray nodes. If you are zoomed out, they might be very faint. Zoom in until you see them, then zoom out until you see all the nodes and select them all using the mouse.</li>
+</ul>
 <ol start="3" style="list-style-type: decimal">
 <li>Select nodes and run iRegulon.</li>
 </ol>
 <ul>
-<li>If successful, you should see a grid of gray nodes. If you are zoomed out, they might be very faint. Zoom in until you see them, then zoom out until you see all the nodes and select them all using the mouse.</li>
 <li>Go the Cytoscape menu and select ‘Apps’, ‘iRegulon’, ‘Predict regulators and targets’.</li>
 <li>Click on ‘Submit’.</li>
 <li>Observe the iRegulon results in the Results Panel.</li>
 </ul>
-<p><img src="IntegratedAssignment/images/IA_iregulon2.png" alt="IA_iregulon2.png" width="400" /></p>
-<p><img src="IntegratedAssignment/images/IA_iregulon3.png" alt="IA_iregulon3.png" width="750" /></p>
+<p><img src="./IntegratedAssignment/images/IA-iregulon2.png" alt="IA-iregulon2.png" width="400" /></p>
+<p><img src="IntegratedAssignment/images/IA-iregulon3.png" alt="IA-iregulon3.png" width="750" /></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Add TCF12 and BATF to the network.</li>
+<li>Add TCF12 and AVEN to the network.</li>
 </ol>
 <ul>
 <li>Go to the “Transcription Factors’ tab and click on the first hit (TCF12) to select it.</li>
 <li>Add it to the network using the green ‘+’ button .</li>
-<li>Execute the same steps for the second hit (BATF).</li>
-<li>If successful, you should see targets of TCF12 and BATF linked to these 2 genes by edges (lines).</li>
+<li>Execute the same steps for the second hit (AVEN).</li>
+<li>If successful, you should see targets of TCF12 and AVEN linked to these 2 genes by edges (lines).</li>
 </ul>
 <ol start="5" style="list-style-type: decimal">
-<li>Create a subnetwork with all nodes connected to TCF12 and BATF.</li>
+<li>Create a subnetwork with all nodes connected to TCF12 and AVEN</li>
 </ol>
 <ul>
-<li>using the mouse select TCF12 and all edges around this node and pressing the shift key, select also BATF and all the edges around this node. All selected edges should now be highlighted in red and the 2 transcription factors in yellow.</li>
+<li>using the mouse select TCF12 and all edges around this node and pressing the shift key, select also AVEN and all the edges around this node. All selected edges should now be highlighted in red and the 2 transcription factors in yellow.</li>
 <li>In the Cytoscape menu bar, go to Select, Nodes, Nodes connected by selected edges. More nodes should be selected now and the edges still highlighted in red.</li>
 <li>Select the subnetwork icon (‘New Network from Selection (all edges)’)from the Cytoscape toolbar. If successful, you should have created a subnetwork containing only the targeted genes and the two transcription factors.</li>
 </ul>
 <ol start="6" style="list-style-type: decimal">
-<li>Arrange the network such that we can distinguish genes linked to TCF12 only , linked to BATF only or linked to both transcription factors.</li>
+<li>Arrange the network such that we can distinguish genes linked to TCF12 only , linked to AVEN only or linked to both transcription factors.</li>
 </ol>
 <ul>
 <li>go to the Cytoscape menu, Layout, Circular Layout, all Nodes. Feel free to use your own strategy.</li>
@@ -832,8 +835,8 @@ Note: you may get slightly different results as 100 permutations is not enough t
 <li>Choose App -&gt; Reactome FI -&gt; Gene set/mutation analysis</li>
 <li>Upload STAD_MutSig.txt and built a network without linkers:</li>
 </ol>
-<p>Note: Choose <strong>2019</strong> to get results comparable to those shown below but use the most uptodate version when analyzing your own data!</p>
-<p><img src="IntegratedAssignment/images/reactome1_2021.png" alt="reactome1_2021.png" width="400" /></p>
+<p>Note: Choose <strong>2024</strong> to get results comparable to those shown below but use the most uptodate version when analyzing your own data!</p>
+<p><img src="IntegratedAssignment/images/IA_reactome_input.png" alt="IA_reactome_input.png" width="400" /></p>
 <div class="rmd-note">
 <p>
 The network may look slightly different compared to below screenshot
@@ -849,10 +852,9 @@ field.
 </div>
 <p><img src="IntegratedAssignment/images/IA_reactome_map.png" alt="IA_reactome_map.png" width="750" /></p>
 <ol start="4" style="list-style-type: decimal">
-<li><p>Fetch FI annotation (Hint: right click on a blank space, Reactome FI, Fetch FI Annotations). You should see arrows (directed graph).</p></li>
-<li><p>Run Pathway enrichment (Hint: right click on the network panel and select Reactome FI &gt; Analyze network functions &gt; Pathway enrichment).
+<li><p>Run Pathway enrichment (Hint: right click anywhere on the blank space and select Reactome FI &gt; Analyze network functions &gt; Pathway enrichment).
 <strong>Question</strong> What is the pathway with the lowest (best) FDR?</p></li>
-<li><p>Do a subnetwork of Endometrial cancer (K).</p></li>
+<li><p>Do a subnetwork of Pathways in cancer (K).</p></li>
 </ol>
 <div class="rmd-tip">
 <p>
@@ -865,21 +867,18 @@ yellow. Use the subnetwork icon on the Cytoscape tool bar to create it
 <p><img src="IntegratedAssignment/images/IA_reactome_subnetwork2.png" alt="reactomeFI_viz_subnetwork2.png" width="750" /></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Go back to the full network (in the Control panel on the left, click the highest level of ‘STAD_MutSig’). Cluster the network and perform pathway enrichment on the network.
-<strong>Questions</strong> How many clusters did the analysis retrieve? What is the FDR value of the most significant pathway of module 0</li>
+<strong>Questions</strong> How many clusters did the analysis retrieve?</li>
 </ol>
 <p><img src="IntegratedAssignment/images/IA_reactome_cluster.png" alt="IA_reactome_cluster.png" width="750" /></p>
 <div id="answers-reactome-fi" class="section level3 hasAnchor">
 <h3>Answers REACTOME FI<a href="integrated_assignment.html#answers-reactome-fi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Pathway enrichment on the whole network.</p>
 <p><strong>Question</strong> What is the pathway with the lowest (best) FDR?</p>
-<p><strong>Answer</strong> The pathway with the lowest FDR is Endometrial cancer (K) .</p>
+<p><strong>Answer</strong> The pathway with the lowest FDR is Pathways in cancer (K) .</p>
 <p><img src="IntegratedAssignment/images/IA_reactome_pathway.png" alt="IA_reactome_pathway.png" width="750" /></p>
 <p>Cluster the network and perform pathway enrichment on the network.</p>
 <p><strong>Question</strong> How many clusters did the analysis retrieve?</p>
-<p><strong>Answer</strong> The analysis retrieved 9 clusters named module 0 to module 8.</p>
-<p><strong>Question</strong> What is the FDR value of the most significant pathway of module 0?</p>
-<p><strong>Answer</strong> FLT3 signaling (first row)</p>
-<p><img src="IntegratedAssignment/images/IA_reactome_cluster2.png" alt="IA_reactome_cluster2.png" width="750" /></p>
+<p><strong>Answer</strong> The analysis retrieved 11 clusters named module 0 to module 10.</p>
 </div>
 </div>
 <div id="part-2-genemania" class="section level2 hasAnchor">
@@ -894,6 +893,7 @@ yellow. Use the subnetwork icon on the Cytoscape tool bar to create it
 <li>Choose Homo sapiens from the list of supported organisms</li>
 <li>Copy and paste the gene list <a href="./IntegratedAssignment/data/STAD_MutSig.txt">STAD_MutSig.txt</a> in the field.</li>
 <li><strong>Locate the “More Options…” button at the right side of the field and only select ‘Physical interactions’ as ‘Interaction Networks’ and set 0 to the ‘Max Resultant Genes’. </strong></li>
+<li>Click on “More Options” button so it disappears.</li>
 <li>Click the “Search Network” button</li>
 </ul>
 <div class="rmd-note">
@@ -906,13 +906,7 @@ taken.
 <p><img src="IntegratedAssignment/images/IAgenemaniasearch2.png" alt="IAgenemaniasearch.png" width="750" /></p>
 <p><img src="IntegratedAssignment/images/genemaniaIP2.png" alt="genemaniaIP2.png" width="750" /></p>
 <p>Screenshot of the output:</p>
-<p><img src="IntegratedAssignment/images/IN_genemania_output.png" alt="genemania_output.png" width="500" /></p>
-<div class="rmd-note">
-<p>
-the screenshot only includes nodes connected to other nodes.
-Singletons are not part of the screenshot.
-</p>
-</div>
+<p><img src="IntegratedAssignment/images/IN_genemania_output.png" alt="IN_genemania_output.png" width="500" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Explore the functions in the GeneMANIA Results Panel.</li>
 </ol>
@@ -927,12 +921,12 @@ Hint: you can click on a function of your choice to see corresponding nodes high
 <li>Color nodes by function.
 <ul>
 <li>In Control Panel, select the ‘Style’ tab and go to the ‘Node’ panel.</li>
-<li>Expand the ‘Fill Color’ field using the down arrow and set ‘Column’ to ‘annotation name’ which is the top field (/! not ‘annotations’). Select one annotation of your choice by clicking on the white space and choose a color. Repeat for 2 more annotation names. For the current example, we have selected “transmembrane receptor protein kinase activity”, “regulation of protein kinase” , “signaling cell-matrix adhesion”. Hint: the annotation names are displayed in alphabetical order.</li>
+<li>Expand the ‘Fill Color’ field using the down arrow and set ‘Column’ to ‘annotation name’ which is the top field (/! not ‘annotations’). Select one annotation of your choice by clicking on the white space and choose a color. Repeat for 2 more annotation names. For the current example, we have selected “transmembrane receptor protein kinase activity” and “regulation of protein kinase”. Hint: the annotation names are displayed in alphabetical order.</li>
 </ul></li>
 <li>Edge width (optional). In Control Panel, go to the ‘Edge’ panel. Expand the ‘Width’ field using the down arrow. A grah is displayed. Double click on the graph to select it and move the left and right handles up. Look at the changes on the network (suggested values are approximately 3 for the left handle and approximately 18 for the right handle). Click on OK.</li>
 </ul>
 <p><img src="IntegratedAssignment/images/IAgenemaniahandle.png" alt="IAgenemaniahandle.png" width="400" /></p>
-<p><img src="IntegratedAssignment/images/genemaniaresult1b.png" alt="genemaniaIP2.png" width="750" /></p>
+<p><img src="IntegratedAssignment/images/genemaniaresult1b.png" alt="genemaniaresult1b.png" width="750" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Create a subnetwork containing CTNNB1 and connected genes</li>
 </ol>
@@ -942,7 +936,7 @@ Hint: you can click on a function of your choice to see corresponding nodes high
 <li>How many nodes do contain this subnetwork? Hint: Go to Control Panel, Network and look at the number of nodes corresponding to your subnetwork.</li>
 </ul>
 <p><img src="IntegratedAssignment/images/IAgenemania2.png" alt="IAgenemania2.png" width="500" /></p>
-<p><img src="IntegratedAssignment/images/genemaniaresult2.png" alt="genemaniaIP2.png" width="500" /></p>
+<p><img src="IntegratedAssignment/images/genemaniaresult2.png" alt="genemaniaresult2.png" width="500" /></p>
 <hr />
 <div id="answers-genemania" class="section level3 hasAnchor">
 <h3>Answers GeneMANIA<a href="integrated_assignment.html#answers-genemania" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -978,7 +972,7 @@ query, e.g input gene list size greater than 100 or resulting network
 containing more than 200 nodes.
 </p>
 </div>
-<p><img src="IntegratedAssignment/images/IN_genemania_input.png" alt="genemania_input.png" width="750" /></p>
+<p><img src="IntegratedAssignment/images/IN_genemania_input.png" alt="IN_genemania_input.png" width="750" /></p>
 <p>The network and predicted functions should be the same as the ones obtained in part 2. Feel free to explore the network or follow the same steps as part 2.</p>
 <hr />
 <p><strong>Optional part 2: Use STRING from the Network Search Bar</strong></p>
@@ -990,8 +984,8 @@ containing more than 200 nodes.
 <li>Click the “Search Network” button</li>
 <li>Explore the network!</li>
 </ul>
-<p><img src="IntegratedAssignment/images/stringinput.png" alt="string.png" width="750" /></p>
-<p><img src="IntegratedAssignment/images/string.png" alt="string_2021.png" width="500" /></p>
+<p><img src="IntegratedAssignment/images/stringinput.png" alt="stringinput.png" width="750" /></p>
+<p><img src="IntegratedAssignment/images/string.png" alt="string.png" width="500" /></p>
 <p>–</p>
 <p>Congratulations! You have reached the end of the integrated assignment.</p>
 
