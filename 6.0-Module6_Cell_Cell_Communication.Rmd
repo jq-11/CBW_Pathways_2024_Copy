@@ -6,7 +6,7 @@
 
 Gregory Schwartz
 
-[Lecture](TOADD)  
+[Lecture](./lectures/Pathways_2024_module6_Schwartz.pdf)
 
   
 ## scRNA lab praticals

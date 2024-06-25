@@ -3,14 +3,14 @@
  *<font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font>*
  
 ## Final slides
-[Lecture](./lectures/Pathways_2023_finalslides.pdf)  
+[Lecture](./lectures/Pathways_2024_finalslides.pdf)  
 
   
 ## scRNA lab praticals
 
 [scRNA-lab1_PBMC](#scRNA-lab1)
 
- - This lab starts from scRNA data from peripheral blood mononuclear cells. 
+ - This lab starts from scRNA data from peripheral blood mononuclear cells.  
 
  - The cells from similar cell types were grouped into clusters. 
 
