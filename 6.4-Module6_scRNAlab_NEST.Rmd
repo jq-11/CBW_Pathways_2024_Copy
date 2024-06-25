@@ -9,55 +9,55 @@ Authors: Veronique Voisin, Ruth Isserlin, Chaitra Sarathy, Fatema Zohora and Gre
 
 
 ```{block, type="rmd-note"}
-The presentation and processing of spatial transcriptomics is out of scope for this lab. Please refer to the [CBW Spatial Transcriptomics workshop](https://bioinformatics.ca/workshops-all/2024-introductory-spatial-omics-analysis-toronto-on/) or to this [review article](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01075-1) or [this one] (https://nature.com/articles/s41576-021-00370-8) for additional information. 
+The presentation and processing of spatial transcriptomics is out of scope for this lab. Please refer to the [CBW Spatial Transcriptomics workshop](https://bioinformatics.ca/workshops-all/2024-introductory-spatial-omics-analysis-toronto-on/) or to this [review article](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01075-1) or [this one](https://nature.com/articles/s41576-021-00370-8) for additional information. 
 ```
 
 
-This lab uses examples from the 10X Visium technology :https://www.10xgenomics.com/products/spatial-gene-expression.
+This lab uses examples from the [10X Visium technology](https://www.10xgenomics.com/products/spatial-gene-expression)
 
- <img src="./scRNAlab/NEST_figures/nest00.png" alt="EM" width="400" />
+ <img src="./scRNAlab/NEST_figures/nest00.png" alt="EM" width="500" />
 
 
-### Presentation of NEST (NEural network on Spatial Transcriptomics)
+### NEST (NEural network on Spatial Transcriptomics)
 
 [NEST reference paper (bioRXIv)](https://www.biorxiv.org/content/10.1101/2024.03.19.585796v1): Spatially-mapped cell-cell communication patterns using a deep learning-based attention mechanism: 
 
-  1. Cells can communicate in 3 ways: through direct contact, local chemical signaling or long-distance hormonal signaling. Paracring signaling acts on nearby cells, endocrine signaling uses the circulatory system to transport ligands, and autocrine signaling acts on the signaling cells.
+  1. Cells can communicate in 3 ways through direct contact, local chemical signaling or long-distance hormonal signaling. Paracrine signaling acts on nearby cells, endocrine signaling uses the circulatory system to transport ligands, and autocrine signaling acts on the signaling cells.
   
-  1. Cell cell communication (CCC) between neighbouring cells occur via soluble signals. Cells utilize a system of surface-bound protein receptors and ligand pairs to communicate. The ligand from Cell A (source) will bind on the receptor of Cell B (target). It will trigger a signaling cascade that helps Cell B to adapt to its environment. 
+  1. Cell-cell communication (CCC) between neighbouring cells occur via soluble signals. Cells utilize a system of surface-bound protein receptors and ligand pairs to communicate. The ligand from Cell A (source) will bind to the receptor of Cell B (target). It will trigger a signaling cascade that helps Cell B to adapt to its environment. <br><p align="center"><img src="./scRNAlab/NEST_figures/nest01.png" alt="EM" width="200" /></p>
   
- <img src="./scRNAlab/NEST_figures/nest01.png" alt="EM" width="200" />
- 
-  
-  1. Spatial transcriptomics offers an advantage for studying cell-cell communication as it preserves cellular neighborhoods and tissue microenvironments. 
-  
- <img src="./scRNAlab/NEST_figures/nest02.png" alt="EM" width="500" />
+  1. Spatial transcriptomics offers an advantage for studying cell-cell communication as it preserves cellular neighborhoods and tissue microenvironments. <br><p align="center"><img src="./scRNAlab/NEST_figures/nest02.png" alt="EM" width="500" /></p>
  
   1. The goal of NEST is to predict probable cell cell communication interactions using a deep learning approach. It uses ligand-receptor pairs information and  NEST goal is to discover re-occuring CCC patterns in the data.
  
-  1. It uses a graph attention network (GAT) paired with an unsupervised contrastive learning approach to decipher patterns of communication while retaining the strength of each signal. It then uses Depth for Search (DFS) to define subgraphs to be retained after filtering the top edges using the attention score from GAT.
+  1. It uses a graph attention network (GAT) paired with an unsupervised contrastive learning approach to decipher patterns of communication while retaining the strength of each signal. It then uses Depth first Search (DFS) to define subgraphs to be retained after filtering the top edges using the attention score from GAT.
   
-The final knowledge-graph (=network) is composed of cells (or spots) that are represented as vertices (nodes) and edges which represent different types of neighborhood relations (cell cell communication interaction).
-  
- <img src="./scRNAlab/NEST_figures/nest03.png" alt="EM" width="400" />
+The final knowledge-graph (=network) is composed of cells (or spots) that are represented as vertices (nodes) and edges which represent different types of neighborhood relations (cell cell communication interaction).<br><p align="center"><img src="./scRNAlab/NEST_figures/nest03.png" alt="EM" width="400" /></p>
   
 
  * Input data:
 <img src="./scRNAlab/NEST_figures/nest1.png" alt="EM" width="750" />
- NEST needs 2 information as input data. The first one is the transcriptomics data with the spatial information from our biological sample (left side). It is composed of the feature matrix containing the gene expression raw count and the second is the postion matrix of the cells or spots. The second one is a database of all known ligand-receptor pairs. This is precomputed by NEST, we don't need to worry about this part. 
+ NEST needs two types of information as input data: 
+   * The first is the transcriptomics data with the spatial information from our biological sample (left side) and is composed of a feature matrix containing the gene expression raw counts and the postion matrix of the cells or spots. 
+   * The second is a database of all known ligand-receptor pairs. This database is precomputed by NEST.
 
  * Step1:
 <img src="./scRNAlab/NEST_figures/nest2.png" alt="EM" width="750" />
-After the second step which is the preprocessing step [filtering cells/spots + quantile normalization], 2 majors information are collected. The physical distance between all cells are collected and if 2 cells are close to each other, they are linked by an edge on the network. The second information is the presence of ligand-receptor interaction for each pair of cells. The graph (network)  connect all cells that are physically close and this edge stores the ligand-receptor information between the 2 cells.
+The first step is preprocessing step which includes filtering cells/spots and quantile normalization. 
 
  * Step2:
-<img src="./scRNAlab/NEST_figures/nest3.png" alt="EM" width="750" />
-The third step involves the deep learning step that will output the final graph.  The final graph retains only the edges that passed a certain threshold of the attention score. Top 20 edges are retained by default. Then this graph is divided into subgraphs by the DFS algorithm. The subgraphs are represented by different colors and it can be interpreted as regions of cells that are communicating a lot between each others.  
+Two important pieces information are collected:
+   * The physical distance between all cells are collected and  if 2 cells are close to each other, they are linked by an edge in the resulting network. 
+   * the presence of ligand-receptor interaction for each pair of cells. The graph (network)connects all cells that are physically close and this edge stores the ligand-receptor information between the 2 cells.
 
  * Step3:
+<img src="./scRNAlab/NEST_figures/nest3.png" alt="EM" width="750" />
+The third step involves the deep learning step that will output the final graph.  The final graph retains only the edges that pass a certain threshold of the attention score. Top 20 edges are retained by default. This graph is then divided into subgraphs by the DFS algorithm. The subgraphs are represented by different colors and can be interpreted as regions of cells that are communicating a lot.  
+
+ * Step4:
 <img src="./scRNAlab/NEST_figures/nest4.png" alt="EM" width="750" />
 
-The last step is the visualization of the results of the final graph with all the ligand-receptor pairs that are the most probable cell cell communication interactions in the data under study. This is the step that what we are going to try in the lab using the NEST-interactive tool.
+The last step is the visualization of the results of the final graph with all the ligand-receptor pairs that are the most probable cell cell communication interactions in the data under study. This is the step that we are going to explore in the lab using the NEST-interactive tool.
 
 On the left, we see the reconstruction of the tumor section (Visium output)), the squares represent tumor cells and open circles represent stromal cells and the arrows represent the communication between the cells (ligand-receptor pairs). The different colors represent the subgraphs from the final graph of step 2.
 On the right, we see the histogram representing the top 20% ligand-receptor pairs that are the most represented in this dataset and evaluated by NEST and the colors are related to the subgraphs.
@@ -68,14 +68,18 @@ On the right, we see the histogram representing the top 20% ligand-receptor pair
 **NOTICE!**
 
 **Do not run this part during the workshop.** 
-NEST requires a graphical processing unit (GPU) to run and it is best to run it on a supercomputer (cluster). Running time and memory usage depend on the input data size. 
-NEST run on 79,795 edges (each representing a relation through ligand-receptor pair) and 1,406 vertices (each representing a Visium spot), took 5 hours with 2.44 GB memory for each run. NEST is typicall run 5 times. 
 
-Below are the information for you to be able to run it after the workshop. This information is taken from the [NEST github page](https://github.com/schwartzlab-methods/NEST). 
+NEST requires a graphical processing unit (GPU) to run and it is best to run it on a supercomputer (cluster). Running time and memory usage depend on the input data size. 
+
+NEST was run with 79,795 edges (each representing a ligand-receptor pair) and 1,406 vertices (each representing a Visium spot), and took 5 hours with 2.44 GB memory for each run. NEST is typically run 5 times. 
+
+Below is the information to be able to run NEST on your own after the workshop. This information is taken from the [NEST github page](https://github.com/schwartzlab-methods/NEST). 
 ```
 
 
-NEST is written in the python language. NEST is offered as a [Singularity image](https://docs.sylabs.io/guides/2.6/user-guide/introduction.html) to install NEST. Similar to Docker, it makes it more simple to get NEST working as the whole required environment and python packages are already included in the image. Furthermore, Singularity is usually installed on supercomputer/cluster system.
+NEST is written in the python language. 
+
+NEST is available as a [Singularity image](https://docs.sylabs.io/guides/2.6/user-guide/introduction.html). Similar to Docker, it enables easy usage of NEST without set up of required environment and python packages. Furthermore, Singularity is usually installed on supercomputer/cluster system.
 
 Steps that you would follow to run NEST:
 
@@ -90,7 +94,7 @@ mkdir nest_container
 cd nest_container
 singularity pull nest_image.sif library://fatema/collection/nest_image.sif:latest
 
-First time running NEST, go to NEST directory and run:
+#First time running NEST, go to NEST directory and run:
 sudo bash setup.sh
 ```
   
@@ -99,9 +103,9 @@ NEST takes 2 inputs:
 
    -  [ligand-receptor database](https://github.com/schwartzlab-methods/NEST/blob/main/database/NEST_database.csv):  The default database provided by the model is a combination of the CellChat and NicheNET databases, totaling 12,605 ligand-receptor pairs. You can upload your own custom database if you are working with a different model organism.
    
-   -  a spatial transcriptomic data containing:
+   -  a spatial transcriptomic data set containing:
      * the spatial data that contains the image and the spot localization
-     * the feature matrix that contain the gene expression in each spot (in h5 format)
+     * the feature matrix that contains the gene expression in each spot (in h5 format)
      
  <img src="./scRNAlab/NEST_figures/data01.png" alt="EM" width="300" />    
  <img src="./scRNAlab/NEST_figures/data02.png" alt="EM" width="350" />    
@@ -140,7 +144,7 @@ Please follow the [NEST github page](https://github.com/schwartzlab-methods/NEST
 
 
 ```{block, type="rmd-note"}
-We are going to visualize the result using NEST-interactive but please note that a command line for visualization if also available in NEST:
+We are going to visualize the result using NEST-interactive but please note that a command line for visualization is also available in NEST:
 
 nest visualize --data_name='V1_Human_Lymph_Node_spatial' --model_name='NEST_V1_Human_Lymph_Node_spatial'
 
@@ -160,9 +164,9 @@ A PDAC tumor microenvironment is heterogeneous and consists of tumor, stromal an
 On these images, we can see the tissue section with the H&E stain on the left and we can see the Visium output on the right. The tumor regions were labelled classical (blue) and basal (red) based on some gene markers. In the middle of the tissue section,  regions of stroma are colored in grey. 
 
 **Goal and learning objective**: 
- - Learn how to run NEST-interactive and how to make biological inferences from the cell cell communication graph coming from the NEST output.
- - We will explore cell cell communication subgraphs that are localized to different regions of the tissue section: stroma, classical or basal regions.
- - We will explore some specific ligand-receptor pairs.
+  - Learn how to run NEST-interactive and how to make biological inferences from the cell cell communication graph coming from the NEST output.
+  - We will explore cell cell communication subgraphs that are localized to different regions of the tissue section: stroma, classical or basal regions.
+  - We will explore some specific ligand-receptor pairs.
 
 
  * **LAUNCH THE DOCKER**:
@@ -214,7 +218,7 @@ On the right, the histogram represents the frequency of each ligand-receptor pai
   
   <img src="./scRNAlab/NEST_figures/NEST_interactive04.png" alt="EM" width="750" />
  
-    What it remarkable is that this CCC subgraph colocalizes with the Classical subtype. 
+   - What is remarkable is that this CCC subgraph colocalizes with the Classical subtype. 
  
   5. Now, let's see which CCCs are happening there in component 10. 
    -  We go to the histogram plot and click on the histogram which has the same color as component 10. Let's pick the first most abundant CCC: PLXNB2-MET (most abundant because a bigger proportion of this CCC is associated with component 10). 

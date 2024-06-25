@@ -262,7 +262,7 @@ dataset-and-references
 dataset_prep
 scRNA_NEST
 cell-cell-communication-ccc-in-spatial-transcriptomics-using-nest
-presentation-of-nest-neural-network-on-spatial-transcriptomics
+nest-neural-network-on-spatial-transcriptomics
 how-to-run-nest
 practical-lab-pancreatic-ductal-adenocarcinoma-pdac
 module-7-review-of-the-tools
