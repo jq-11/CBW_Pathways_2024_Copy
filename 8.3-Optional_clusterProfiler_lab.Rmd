@@ -1,0 +1,386 @@
+# Optional Module 8 Lab 3: Automated Enrichment and Visualisation Lab using `clusterProfiler`
+
+**This work is licensed 
+under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
+
+*<font color="#827e9c">By Chaitra Sarathy</font>*
+
+## `clusterProfiler` lab
+
+`clusterProfiler` is an R package that implements methods to perform both functional annotation and visualization of genes and gene clusters. 
+  * It can accept data from a variety of experimental sources such as DNA-seq, RNA-seq, microarray, Mass spectometry, meRIP-seq, m6A-seq, ATAC-seq and ChIP-seq and thus can be applied in diverse scenarios. 
+  * It provides a tidy interface to access, manipulate, and visualize enrichment results to help users achieve efficient data interpretation. 
+
+[clusterProfiler](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html) is released within the [Bioconductor project](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html) and the source code is hosted on [GitHub.](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html)
+
+
+## Goal
+
+  * Learn how to write R scripts for going from gene list to enriched pathways
+  * Learn how to run over representation analysis and gene set enrichment analysis using functions in the [clusterProfiler](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html) R package
+  * Explore results of enrichment analysis using various visualisation options in clusterProfiler
+
+
+## Supported Analysis
+
+For functional annotation, `clusterprofiler` provides R functions to perform
+
++ Over Representation Analysis
++ Gene Set Enrichment Analysis
++ Biological theme comparison
+
+In this practical, we will be learning how to run Over Representation Analysis and Gene Set Enrichment Analysis in 2 exercises. Follow the step-by-step checklist. 
+
+Before starting the exercises, make sure that `clusterProfiler` and other required packages are installed and loaded. Run "prework_module8_clusterprofiler.R"
+before following this module.
+
+## Install and load packages
+
+Please specify the correct location
+
+```{r}
+source("prework_module8_clusterprofiler.R")
+```
+
+
+## Exercise 1a. Over representation analysis
+
+`clusterProfiler` supports over representation analysis against various sources such as GO annotation, KEGG pathway, MSigDB to name a few. For the full list please refer [this link.](https://guangchuangyu.github.io/software/clusterProfiler/)
+
+In this exercise, we will learn over representation analysis using the gene ontology annotations. This is implemented in the function `enrichGO()`.
+
+# Data for enrichment using `clusterProfiler`
+
+Let us start with loading the dataset `geneList` that is provided by the package `DOSE`. 
+
+```{block, type="rmd-note"}
+DOSE provides an example dataset `geneList`. It comes from analysis of a [breast cancer dataset](https://bioconductor.org/packages/release/data/experiment/html/breastCancerMAINZ.html) that had 200 samples, including 29 samples in grade I, 136 samples in grade II and 35 samples in grade III. The ratios of geometric means of grade III samples versus geometric means of grade I samples were computed. Logarithm of these ratios (base 2) are stored in `geneList` dataset.
+```
+
+```{r}
+data(geneList, package="DOSE")
+```
+
+A variable called `geneList` should be loaded in your R environment. What does it look like?
+
+```{r}
+head(geneList)
+```
+
+```{block, type="rmd-note"}
+As you can see, first line of output has names of genes in Entrez gene ID format and the second line has fold change values of genes.
+```
+### Data for over representation analysis using `clusterProfiler`
+
+For running an over representation analysis, we need only a list of gene names or IDs. Let us extract out the genes which had an expression value >2 or <-2 using the function `names()`
+
+```{r}
+gene <- names(geneList)[abs(geneList) > 2]
+
+head(gene)
+```
+`gene` has a list of 207 genes. 
+
+### Perform GO over representation analysis
+
+Now, run `enrichGO()` with this list of genes and examine the results
+
+```{r}
+ego <- enrichGO(gene          = gene,
+                universe      = names(geneList),
+                OrgDb         = org.Hs.eg.db,
+                ont           = "ALL",
+                pAdjustMethod = "BH",
+                pvalueCutoff  = 0.01,
+                qvalueCutoff  = 0.05,
+                readable      = TRUE)
+
+```
+
+### Results of GO over representation analysis
+
+Examine the results. Do you notice any similarities or differences between this output format and your results from **Module 2** `gProfiler`?
+
+The output table is stored in `ego@result`. In this example, 152 processes were significantly enriched.
+
+```{r}
+head(ego)
+```
+
+```{r}
+nrow(ego@result)
+```
+
+### Input options for `enrichGO()`: 
+
+```{block, type="rmd-note"}
+ * The default option for `gene` is entrez gene ID, but other gene ID formats are supported in GO analyses. You should specify the `keyType` parameter to specify the input gene ID type (More details below)
+ * We have selected all genes measured in the experiment as our `universe.` 
+ * You can specify subontology using the argument `ont`. It takes one option among - "BP", "MF", "CC" or "ALL" for biological process, molecular function, cellular co-localization or all subontologies respectively.
+ * If `readable` is set to `TRUE`, the input gene IDs will be converted to gene symbols.
+
+Gene IDs can be converted to different formats using `bitr()` function.
+```
+
+```{r}
+# convert from entrez gene ID to ensembl ID and gene symbols
+gene.df <- bitr(gene, 
+                fromType = "ENTREZID",
+                toType = c("ENSEMBL", "SYMBOL"),
+                OrgDb = org.Hs.eg.db)
+head(gene.df)
+```
+
+```{block, type="rmd-note"}
+Various options for `keyType` can be found using `keytypes(<name of organism annotation>)`. For example: `keytypes(org.Hs.eg.db)`
+```
+
+### Simplify `enrichGO()` results
+
+GO enrichment typically contains redundant terms. You **may** use the `simplify()` function to reduce redundancy of enriched GO terms using the default parameters. Please note that simplifying is not always a necessary step. You can choose to omit it, based on the nature of your result tables.
+
+```{r}
+ego.sim = clusterProfiler::simplify(ego)
+nrow(ego.sim)
+```
+
+## Exercise 1b. Visualise the results of GO over representation analysis
+
+### Barplot
+
+Bar plot is the most widely used method to visualize enriched terms. It shows the enrichment scores (e.g. p values) and gene count or ratio as bar height and color. You can specify the number of terms (most significant) to display via the `showCategory` parameter.
+
+```{r, fig.height=9, fig.width=7}
+barplot(ego.sim, showCategory=20) + ggtitle("ORA barplot (top 20)")
+```
+You can plot other variables such as `log10(p.adjust)` by modifying using `mutate()` from the `tidyverse` package
+
+```{r, fig.height=9, fig.width=7}
+mutate(ego.sim, qscore = -log(p.adjust, base=10)) %>% 
+    barplot(x="qscore", showCategory=20) + ggtitle("ORA barplot - qvalue (top 20)")
+```
+
+### Dotplot
+
+Dot plot is very similar to bar plot. It has additional capability to encode another score as dot size.
+
+```{r, fig.height=9, fig.width=7}
+dotplot(ego.sim, showCategory=20) + ggtitle("Dotplot for ORA (top 20)")
+```
+
+### Enrichment Map
+Enrichment map organizes enriched terms into a network with edges connecting overlapping gene sets. In this way, mutually overlapping gene sets are tend to cluster together, making it easy to identify functional module. Before making the map, similarity must be calculated. This can be done using `pairwise_termsim()`
+
+```{r, fig.height=9}
+edo <- pairwise_termsim(ego.sim)
+emapplot(edo)+ ggtitle("ORA Enrichment Map")
+```
+
+### Upset plot
+
+The upsetplot is for visualizing the complex association between genes and gene sets. It emphasizes the gene overlapping among different gene sets.
+
+```{r}
+upsetplot(edo, n=5) + ggtitle("ORA upset plot (top 5)")
+```
+
+### Details about the input arguments for `enrichGO()`
+
+`gene` a vector of entrez gene ID. 
+`OrgDb`	OrgDb
+`keyType` keytype of input gene
+`ont`	One of "BP", "MF", and "CC" subontologies, or "ALL" for all three
+`pvalueCutoff`	adjusted pvalue cutoff on enrichment tests to report
+`pAdjustMethod`	one of "holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"
+`universe`	background genes. If missing, the all genes listed in the database (eg TERM2GENE table) will be used as background
+`qvalueCutoff`	qvalue cutoff on enrichment tests to report as significant. Tests must pass i) pvalueCutoff on unadjusted pvalues, ii) pvalueCutoff on adjusted pvalues and iii) qvalueCutoff on qvalues to be reported
+`minGSSize`	minimal size of genes annotated by Ontology term for testing
+`maxGSSize`	maximal size of genes annotated for testing
+`readable`	whether mapping gene ID to gene Name
+
+
+
+## Exercise 2a: Gene set enrichment analysis
+
+### Data for running gene set enrichment analysis in `clusterProfiler`
+
+GSEA analysis requires a ranked gene list, which contains three features:
+
+   * numeric vector: fold change or other type of numerical variable
+   * named vector: every number has a name, the corresponding gene ID
+   * sorted vector: number should be sorted in decreasing order
+
+Since `geneList` is already in the desired format, we will use it for this exercise. If you haven't loaded it, use the command below to import the data. Please see the above section "Data for enrichment using `clusterProfiler`" for details regarding the dataset. 
+
+```{r}
+data(geneList, package="DOSE")
+head(geneList)
+```
+
+### Perform GO gene set enrichment analysis
+
+The `clusterProfiler` package provides the `gseGO()` function for gene set enrichment analysis using gene ontology. You can run GSEA as below:
+
+```{r}
+egsea <- gseGO(geneList     = geneList,
+               OrgDb        = org.Hs.eg.db,
+               ont          = "ALL",
+               minGSSize    = 100,
+               maxGSSize    = 500,
+               pvalueCutoff = 0.05,
+               pAdjustMethod = "BH",
+               eps = 0,
+               verbose      = FALSE)
+```
+
+### Results of GO gene set enrichment analysis
+
+Examine the results. Do you notice any similarities or differences between this output format and your results from **Module 2** `GSEA`?
+
+The output table is stored in `egsea@result`. In this example, 512 processes were significantly enriched.
+
+
+```{r}
+head(egsea)
+```
+```{r}
+nrow(egsea@result)
+```
+
+
+### Input options for `gseGO()`
+
+```{block, type="rmd-note"}
+ * Note that only gene sets having the size within [`minGSSize`, `maxGSSize`] will be tested.
+ * Similar to `enrichGO()`, you can specify subontology using the argument `ont`. It takes one option among - "BP", "MF", "CC" or "ALL" for biological process, molecular function, cellular co-localization or all subontologies respectively
+ * `pvalueCutoff` defines the cutoff for pvalue that is used for determining significant processes
+ * Setting `eps` to zero improves estimation.
+ * `pAdjustMethod` can be	one of "holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"
+```
+
+
+### Details about the input arguments for `gseGO()`
+
+`geneList`	order ranked geneList
+`ont`	one of "BP", "MF", and "CC" subontologies, or "ALL" for all three
+`OrgDb` OrgDb
+`keyType`	keytype of gene
+`exponent` weight of each step
+`minGSSize` minimal size of each geneSet for analyzing
+`maxGSSize`	maximal size of genes annotated for testing
+`eps`	This parameter sets the boundary for calculating the p value
+`pvalueCutoff`	pvalue Cutoff
+`pAdjustMethod`	`pAdjustMethod`	one of "holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"
+`verbose`	print message or not
+`seed`	logical
+`by`	one of 'fgsea' or 'DOSE'
+
+## Exercise 2b. Visualise the results of gene set enrichment analysis
+
+### Dotplot
+
+You can use the function `dotplot()` to summarise GSEA results.
+
+```{r, fig.height=9, fig.width=7}
+dotplot(egsea, showCategory=20) + ggtitle("Dotplot for GSEA (top 20)")
+```
+
+### Ridgeline plot 
+
+The function `ridgeplot()` will visualize expression distributions of core enriched genes for GSEA enriched categories. It helps you to interpret up/down-regulated pathways.
+
+```{r, fig.height=10, fig.width=7}
+ridgeplot(egsea, showCategory = 20) + ggtitle("Ridgeplot for GSEA (top 20)")
+```
+
+### Running score and preranked list of GSEA result
+
+Running score and preranked list are traditional methods for visualizing GSEA result. You are familiar with these visualisations from Module 2. The function `gseaplot()` supports visualising both the distribution of the gene set and the enrichment score.
+
+```{r}
+gseaplot(egsea, geneSetID = 1, by = "runningScore", title = egsea$Description[1])
+```
+
+```{r}
+gseaplot(egsea, geneSetID = 1, by = "preranked", title = egsea$Description[1])
+```
+
+Another method to plot GSEA result is the `gseaplot2` function:
+
+```{r}
+gseaplot2(egsea, geneSetID = 1, title = egsea$Description[1])
+```
+
+
+### Enrichment Map
+The function `emapplot` also supports visualising results of GSEA. As we did before, let us first calculate similarity using `pairwise_termsim()`
+
+```{r, fig.height=9}
+edo2 <- pairwise_termsim(egsea)
+emapplot(edo2)+ ggtitle("GSEA Enrichment Map")
+```
+```
+## What next? 
+
+This figure gives a complete overview of functionalities of `clusterProfiler`
+
+
+## Explore other features of `clusterProfiler`
+
+For other functionalities in `clusterProfiler` please refer to detailed examples in this [book](https://yulab-smu.top/biomedical-knowledge-mining-book/index.html)
+
+### Bonus - Try it yourself: 
+```{block, type="rmd-bonus"}
+Using your knowledge of `clusterProfiler`, write scripts to perform the following analysis. Use the `geneList` dataset.
+ 
+ * Run ORA against **GO molecular function** by converting `gene` to **uniprot IDs**
+ * Run ORA against **KEGG pathways**, **Reactome** and **Wikipathways** databases
+ * Run GSEA against **KEGG pathways**, **Reactome** and **Wikipathways** databases
+ * Use your data to run ORA and GSEA using `clusterProfiler`
+ 
+Hint: `clusterProfiler` provides different functions for testing against multiple databases. Refer the [book](https://yulab-smu.top/biomedical-knowledge-mining-book/index.html) for complete list.
+```
+
+### Ontologies and pathway databases supported by `clusterProfiler`
+
++ Disease Ontology (via [DOSE](https://www.bioconductor.org/packages/DOSE))
++ [Network of Cancer Gene](http://ncg.kcl.ac.uk/) (via [DOSE](https://www.bioconductor.org/packages/DOSE))
++ [DisGeNET](http://www.disgenet.org/web/DisGeNET/menu/home) (via [DOSE](https://www.bioconductor.org/packages/DOSE))
++ Gene Ontology (supports many species with GO annotation query online via [AnnotationHub](https://bioconductor.org/packages/AnnotationHub/))
++ KEGG Pathway and Module with latest online data (supports more than 4000 species listed in <http://www.genome.jp/kegg/catalog/org_list.html>)
++ Reactome Pathway (via [ReactomePA](https://www.bioconductor.org/packages/ReactomePA))
++ DAVID (via [RDAVIDWebService](https://www.bioconductor.org/packages/RDAVIDWebService))
++ [Molecular Signatures Database](http://software.broadinstitute.org/gsea/msigdb)
+	* hallmark gene sets
+	* positional gene sets
+	* curated gene sets
+	* motif gene sets
+	* computational gene sets
+	* GO gene sets
+	* oncogenic signatures
+	* immunologic signatures
++ Other Annotations
+	* from other sources (e.g. [DisGeNET](http://www.disgenet.org/web/DisGeNET/menu/home) as [an example](https://guangchuangyu.github.io/2015/05/use-clusterprofiler-as-an-universal-enrichment-analysis-tool/))
+	* user's annotation
+	* customized ontology
+	* and many others
+
+
+### All publications describing `clusterProfiler` can be found here: 
+
+1. T Wu<sup>#</sup>, E Hu<sup>#</sup>, S Xu, M Chen, P Guo, Z Dai, T Feng, L Zhou, W Tang, L Zhan, X Fu, S Liu, X Bo<sup>\*</sup>, **G Yu**<sup>\*</sup>. clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. **_The Innovation_**. 2021, 2(3):100141.
+doi: [10.1016/j.xinn.2021.100141](https://doi.org/10.1016/j.xinn.2021.100141)
+2. __G Yu__^\*^. Gene Ontology Semantic Similarity Analysis Using GOSemSim. In: Kidder B. (eds) Stem Cell Transcriptional Networks. __*Methods in Molecular Biology*__. 2020, 2117:207-215. Humana, New York, NY.
+doi: [10.1007/978-1-0716-0301-7_11](https://doi.org/10.1007/978-1-0716-0301-7_11)
+3. __G Yu__^\*^. Using meshes for MeSH term enrichment and semantic analyses. __*Bioinformatics*__. 2018, 34(21):3766–3767.
+doi: [10.1093/bioinformatics/bty410](https://doi.org/10.1093/bioinformatics/bty410)
+4. __G Yu__, QY He^\*^. ReactomePA: an R/Bioconductor package for reactome pathway analysis and visualization. __*Molecular BioSystems*__. 2016, 12(2):477-479.
+doi: [10.1039/C5MB00663E](https://doi.org/10.1039/C5MB00663E)
+5. __G Yu__^\*^, LG Wang, and QY He^\*^. ChIPseeker: an R/Bioconductor package for ChIP peak annotation, comparison and visualization. __*Bioinformatics*__. 2015, 31(14):2382-2383.
+doi: [10.1093/bioinformatics/btv145](https://doi.org/10.1093/bioinformatics/btv145)
+6. __G Yu__^\*^, LG Wang, GR Yan, QY He^\*^. DOSE: an R/Bioconductor package for Disease Ontology Semantic and Enrichment analysis. __*Bioinformatics*__. 2015, 31(4):608-609.
+doi: [10.1093/bioinformatics/btu684](https://doi.org/10.1093/bioinformatics/btu684)
+7. __G Yu__, LG Wang, Y Han and QY He^\*^. clusterProfiler: an R package for comparing biological themes among gene clusters. __*OMICS: A Journal of Integrative Biology*__. 2012, 16(5):284-287.
+doi: [10.1089/omi.2011.0118](https://doi.org/10.1089/omi.2011.0118)
+8. __G Yu__, F Li, Y Qin, X Bo^\*^, Y Wu, S Wang^\*^. GOSemSim: an R package for measuring semantic similarity among GO terms and gene products. __*Bioinformatics*__. 2010, 26(7):976-978.
+doi: [10.1093/bioinformatics/btq064](https://doi.org/10.1093/bioinformatics/btq064)
