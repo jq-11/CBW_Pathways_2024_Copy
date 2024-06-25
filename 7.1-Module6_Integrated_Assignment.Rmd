@@ -185,7 +185,7 @@ Note: you may get slightly different results as 100 permutations is not enough t
    * Click on 'Submit'.
    * Observe the iRegulon results in the Results Panel.
    
-<img src="./IntegratedAssignment/images/IA-iregulon2.png" alt="IA-iregulon2.png" width="400" />
+<img src="./IntegratedAssignment/images/IA_iregulon2.png" alt="IA-iregulon2.png" width="400" />
 
 <img src="./IntegratedAssignment/images/IA-iregulon3.png" alt="IA-iregulon3.png" width="750" />
   
