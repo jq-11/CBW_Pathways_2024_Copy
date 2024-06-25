@@ -322,7 +322,7 @@ Here are the steps if you need to change the colors of the module to create a fi
 
 - The resulting network
 
-   <p align="center">
+   <p align="center"> 
  <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_30_2024.png" alt="start" width="100%" />
  </p>
 
