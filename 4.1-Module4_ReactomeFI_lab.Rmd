@@ -341,7 +341,7 @@ As we have the mutation frequencies for several cancer types, it would be useful
 
  
    <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_33v2_2024.png" alt="start" width="70%" />
+ <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_33.png" alt="start" width="70%" />
  </p>
  
  
