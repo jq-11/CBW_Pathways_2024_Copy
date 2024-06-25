@@ -3,15 +3,15 @@
 **This work is licensed 
 under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
 
-*<font color="#827e9c">By Veronique Voisin </font>*
+*<font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font>*
 
 ## iRegulon lab
 
 ## Goal
 
-  * Import a Cytoscape network and apply iRegulon on all the selected nodes. 
-  * Explore and understand the main output features of iRegulon such as the Transcription target view. 
-  * Learn how to display predicted targets of a specific transcription factor by creating its metatargetome.
+ * Import a Cytoscape network and apply iRegulon on all the selected nodes. 
+ * Explore and understand the main output features of iRegulon such as the Transcription target view. 
+ * Learn how to display predicted targets of a specific transcription factor by creating its metatargetome.
 
 This practical consists of 2 exercises. Follow the step-by-step checklist through the exercises. Some notes about iRegulon and information about the output values are written at the end of the document. 
 
@@ -75,7 +75,7 @@ If you only see gray nodes, go to Style and choose default style.
 3)	Improve the layout.
       * In the menu bar, select Layout > yFiles Organic Layout ( you need to install the yFiles layout algorithms app in Cytoscape app manager)<br>![gp1_3a](./Module5/iregulon/images/gp1_3a.png) <br>![gp1_3b](./Module5/iregulon/images/gp1_3b.png) 
 
-4)	Select all nodes in the network. To do this using the mouse, click shift and drag from an empty space to the left of and above every node to an empty space to the right of and beneath every node. The selected nodes are now colored yellow.	
+4)	Select all nodes in the network. Click anywhere on the blank space and press ⌘+A (Mac) or Ctrl+A (Windows). Or you can also do this using the mouse. Click shift and drag from an empty space to the left of and above every node to an empty space to the right of and beneath every node. The selected nodes are now colored yellow.	
 
 
 <img src="./Module5/iregulon/images/gp1_4.png" alt="workflow" width="60%" />
@@ -448,7 +448,7 @@ Before starting the exercise, download the files:
       * The nodes are the transcription factor gene-sets. You can click on a node to see the genes that are the targets of these transcription factors. Transcription factors are connected by edges if they have target genes in common. 
 
 12) Modify the visual style
-      * In the EnrichmentMap tab on the right, locate 'Style' and set "Chart Data" to '--None--'.
+      * In the EnrichmentMap tab on the left, locate 'Style' and set "Chart Data" to '--None--'.
 ![enrichr8.png](./Module5/iregulon/images/enrichr8.png) 
 
 13) Import a file

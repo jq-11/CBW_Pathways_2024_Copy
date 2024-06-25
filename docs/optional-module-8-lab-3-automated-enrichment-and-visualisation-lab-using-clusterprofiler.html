@@ -979,7 +979,7 @@ You can plot other variables such as <code>log10(p.adjust)</code> by modifying u
 <p>Enrichment map organizes enriched terms into a network with edges connecting overlapping gene sets. In this way, mutually overlapping gene sets are tend to cluster together, making it easy to identify functional module. Before making the map, similarity must be calculated. This can be done using <code>pairwise_termsim()</code></p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="optional-module-8-lab-3-automated-enrichment-and-visualisation-lab-using-clusterprofiler.html#cb70-1" tabindex="-1"></a>edo <span class="ot">&lt;-</span> <span class="fu">pairwise_termsim</span>(ego.sim)</span>
 <span id="cb70-2"><a href="optional-module-8-lab-3-automated-enrichment-and-visualisation-lab-using-clusterprofiler.html#cb70-2" tabindex="-1"></a><span class="fu">emapplot</span>(edo)<span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;ORA Enrichment Map&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: ggrepel: 11 unlabeled data points (too many overlaps). Consider
+<pre><code>## Warning: ggrepel: 12 unlabeled data points (too many overlaps). Consider
 ## increasing max.overlaps</code></pre>
 <p><img src="CBW_Pathways_files/figure-html/unnamed-chunk-214-1.png" width="672" /></p>
 </div>
@@ -1039,35 +1039,35 @@ You can plot other variables such as <code>log10(p.adjust)</code> by modifying u
 <p>The output table is stored in <code>egsea@result</code>. In this example, 512 processes were significantly enriched.</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="optional-module-8-lab-3-automated-enrichment-and-visualisation-lab-using-clusterprofiler.html#cb76-1" tabindex="-1"></a><span class="fu">head</span>(egsea)</span></code></pre></div>
 <pre><code>##            ONTOLOGY         ID                          Description setSize
-## GO:0051276       BP GO:0051276              chromosome organization     473
 ## GO:0007059       BP GO:0007059               chromosome segregation     319
+## GO:0051276       BP GO:0051276              chromosome organization     473
 ## GO:0098813       BP GO:0098813       nuclear chromosome segregation     238
 ## GO:0000819       BP GO:0000819         sister chromatid segregation     185
 ## GO:0000070       BP GO:0000070 mitotic sister chromatid segregation     152
 ## GO:0000280       BP GO:0000280                     nuclear division     327
 ##            enrichmentScore      NES       pvalue     p.adjust       qvalue rank
-## GO:0051276       0.5201824 2.547464 3.003742e-31 4.265314e-28 2.513658e-28 1374
-## GO:0007059       0.5847891 2.780654 1.057436e-30 7.507796e-28 4.424535e-28 1374
-## GO:0098813       0.6333337 2.932108 2.848175e-29 1.348136e-26 7.944909e-27  449
-## GO:0000819       0.6606162 2.964823 1.109087e-27 3.937258e-25 2.320326e-25  449
-## GO:0000070       0.6861425 2.950469 3.448138e-26 9.792713e-24 5.771095e-24  532
-## GO:0000280       0.5414575 2.579302 2.096054e-24 4.960660e-22 2.923443e-22 1246
+## GO:0007059       0.5847891 2.739660 8.091456e-31 7.178957e-28 4.188168e-28 1374
+## GO:0051276       0.5201824 2.538201 1.011121e-30 7.178957e-28 4.188168e-28 1374
+## GO:0098813       0.6333337 2.865170 2.711887e-30 1.283626e-27 7.488614e-28  449
+## GO:0000819       0.6606162 2.923575 1.720409e-26 6.107453e-24 3.563058e-24  449
+## GO:0000070       0.6861425 2.953043 5.810131e-26 1.650077e-23 9.626470e-24  532
+## GO:0000280       0.5414575 2.525539 8.291794e-25 1.962391e-22 1.144849e-22 1246
 ##                              leading_edge
-## GO:0051276 tags=24%, list=11%, signal=22%
 ## GO:0007059 tags=27%, list=11%, signal=25%
+## GO:0051276 tags=24%, list=11%, signal=22%
 ## GO:0098813  tags=23%, list=4%, signal=22%
 ## GO:0000819  tags=25%, list=4%, signal=24%
 ## GO:0000070  tags=29%, list=4%, signal=28%
 ## GO:0000280 tags=26%, list=10%, signal=24%
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             core_enrichment
-## GO:0051276 8318/55143/991/9493/1062/4605/10403/7153/23397/9787/11065/55355/220134/51203/22974/10460/4751/55839/983/4085/9837/81930/81620/332/3832/2146/7272/64151/9212/51659/9319/9055/3833/146909/891/24137/4174/9232/4171/9928/11004/990/5347/29127/26255/701/9156/11130/57405/10615/3159/79075/2491/8438/9700/5888/898/3149/11339/9134/4175/4173/2237/22948/5984/9918/1058/84296/2643/699/4609/1063/5111/64785/9401/26271/55055/641/1763/54892/8357/3024/4176/3148/3006/4436/5982/9735/908/23310/8607/3008/10051/10576/3009/4172/9631/83990/5885/11200/2072/84722/51115/7283/5983/4678/5588/54908/10592/51377/4683/54069
 ## GO:0007059                                                                                                                            55143/991/9493/1062/4605/9133/10403/7153/23397/259266/9787/11065/55355/220134/51203/22974/10460/4751/79019/55839/983/4085/81930/81620/332/3832/7272/64151/9212/9319/9055/3833/146909/6790/891/24137/9232/9928/11004/990/5347/29127/26255/701/11130/79682/57405/10615/1894/2491/9700/898/11339/4288/54801/9134/29899/9918/699/6491/1063/26271/55055/54892/29901/79980/9735/55732/81624/23310/292/10051/1104/5359/83990/5885/11200/203068/84722/51115/7283/51647/54908/10592/6732/54069
+## GO:0051276 8318/55143/991/9493/1062/4605/10403/7153/23397/9787/11065/55355/220134/51203/22974/10460/4751/55839/983/4085/9837/81930/81620/332/3832/2146/7272/64151/9212/51659/9319/9055/3833/146909/891/24137/4174/9232/4171/9928/11004/990/5347/29127/26255/701/9156/11130/57405/10615/3159/79075/2491/8438/9700/5888/898/3149/11339/9134/4175/4173/2237/22948/5984/9918/1058/84296/2643/699/4609/1063/5111/64785/9401/26271/55055/641/1763/54892/8357/3024/4176/3148/3006/4436/5982/9735/908/23310/8607/3008/10051/10576/3009/4172/9631/83990/5885/11200/2072/84722/51115/7283/5983/4678/5588/54908/10592/51377/4683/54069
 ## GO:0098813                                                                                                                                                                                                                                                                                                                   55143/991/9493/1062/4605/9133/10403/7153/23397/259266/9787/11065/220134/51203/22974/10460/4751/983/4085/81930/81620/332/3832/7272/64151/9212/9319/9055/3833/146909/6790/891/24137/9232/9928/11004/990/5347/29127/26255/701/11130/57405/10615/1894/2491/9700/898/9134/9918/699/1063/26271/55055
 ## GO:0000819                                                                                                                                                                                                                                                                                                                                                             55143/991/9493/1062/4605/10403/7153/23397/9787/11065/220134/51203/22974/10460/4751/983/4085/81930/81620/332/3832/7272/64151/9212/9319/9055/3833/146909/891/24137/9928/11004/990/5347/29127/701/11130/57405/10615/2491/9700/9918/699/1063/26271/55055
 ## GO:0000070                                                                                                                                                                                                                                                                                                                                                                      55143/991/9493/1062/4605/10403/23397/9787/11065/220134/51203/22974/4751/983/4085/81930/81620/332/3832/7272/64151/9212/9319/9055/3833/146909/891/24137/9928/11004/5347/29127/701/11130/57405/10615/2491/9700/9918/699/1063/26271/55055/54892
 ## GO:0000280                                                                                                                                              55143/991/9493/1062/4605/9133/10403/7153/23397/259266/9787/11065/220134/51203/22974/4751/10635/27338/983/4085/81930/81620/332/3832/7272/64151/9212/1111/9319/9055/3833/146909/6790/891/24137/9232/9928/1164/11004/4603/5347/29127/26255/701/11130/57405/10615/2491/8438/9700/5888/898/4288/9134/2175/91646/994/9918/699/1063/26271/55055/54892/5902/9585/9735/23310/2253/8877/9088/995/10051/79703/1104/79866/83990/5885/11200/2072/940/1761/84722/51115/7283/80010</code></pre>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="optional-module-8-lab-3-automated-enrichment-and-visualisation-lab-using-clusterprofiler.html#cb78-1" tabindex="-1"></a><span class="fu">nrow</span>(egsea<span class="sc">@</span>result)</span></code></pre></div>
-<pre><code>## [1] 504</code></pre>
+<pre><code>## [1] 532</code></pre>
 </div>
 <div id="input-options-for-gsego" class="section level3 hasAnchor">
 <h3>Input options for <code>gseGO()</code><a href="optional-module-8-lab-3-automated-enrichment-and-visualisation-lab-using-clusterprofiler.html#input-options-for-gsego" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1126,7 +1126,7 @@ Setting <code>eps</code> to zero improves estimation.
 <h3>Ridgeline plot<a href="optional-module-8-lab-3-automated-enrichment-and-visualisation-lab-using-clusterprofiler.html#ridgeline-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The function <code>ridgeplot()</code> will visualize expression distributions of core enriched genes for GSEA enriched categories. It helps you to interpret up/down-regulated pathways.</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="optional-module-8-lab-3-automated-enrichment-and-visualisation-lab-using-clusterprofiler.html#cb81-1" tabindex="-1"></a><span class="fu">ridgeplot</span>(egsea, <span class="at">showCategory =</span> <span class="dv">20</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Ridgeplot for GSEA (top 20)&quot;</span>)</span></code></pre></div>
-<pre><code>## Picking joint bandwidth of 0.293</code></pre>
+<pre><code>## Picking joint bandwidth of 0.294</code></pre>
 <p><img src="CBW_Pathways_files/figure-html/unnamed-chunk-222-1.png" width="672" /></p>
 </div>
 <div id="running-score-and-preranked-list-of-gsea-result" class="section level3 hasAnchor">
@@ -1145,8 +1145,6 @@ Setting <code>eps</code> to zero improves estimation.
 <p>The function <code>emapplot</code> also supports visualising results of GSEA. As we did before, let us first calculate similarity using <code>pairwise_termsim()</code></p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="optional-module-8-lab-3-automated-enrichment-and-visualisation-lab-using-clusterprofiler.html#cb86-1" tabindex="-1"></a>edo2 <span class="ot">&lt;-</span> <span class="fu">pairwise_termsim</span>(egsea)</span>
 <span id="cb86-2"><a href="optional-module-8-lab-3-automated-enrichment-and-visualisation-lab-using-clusterprofiler.html#cb86-2" tabindex="-1"></a><span class="fu">emapplot</span>(edo2)<span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;GSEA Enrichment Map&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: ggrepel: 9 unlabeled data points (too many overlaps). Consider
-## increasing max.overlaps</code></pre>
 <p><img src="CBW_Pathways_files/figure-html/unnamed-chunk-226-1.png" width="672" />
 ```</p>
 </div>
