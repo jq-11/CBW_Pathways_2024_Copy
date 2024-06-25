@@ -3,7 +3,7 @@
  *<font color="#827e9c">By Veronique Voisin, Chaitra Sarathy and Ruth Isserlin</font>*
  
 ## Final slides
-[Lecture](./lectures/Pathways_2024_finalslides.pdf)  
+[Lecture](./lectures/Pathways_2024_finalslides.pdf)   
 
   
 ## scRNA lab praticals
