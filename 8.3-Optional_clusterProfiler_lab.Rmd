@@ -1,24 +1,24 @@
-# Optional Module 8 Lab 3: Automated Enrichment and Visualisation Lab using `clusterProfiler`
+# Optional Module 8 Lab 3: Automated Enrichment and Visualisation Lab using `clusterProfiler`  
 
-**This work is licensed 
-under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
+**This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US). This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.**
 
 *<font color="#827e9c">By Chaitra Sarathy</font>*
 
 ## `clusterProfiler` lab
 
 `clusterProfiler` is an R package that implements methods to perform both functional annotation and visualization of genes and gene clusters. 
-  * It can accept data from a variety of experimental sources such as DNA-seq, RNA-seq, microarray, Mass spectometry, meRIP-seq, m6A-seq, ATAC-seq and ChIP-seq and thus can be applied in diverse scenarios. 
-  * It provides a tidy interface to access, manipulate, and visualize enrichment results to help users achieve efficient data interpretation. 
+  
+* It can accept data from a variety of experimental sources such as DNA-seq, RNA-seq, microarray, Mass spectometry, meRIP-seq, m6A-seq, ATAC-seq and ChIP-seq and thus can be applied in diverse scenarios. 
+* It provides a tidy interface to access, manipulate, and visualize enrichment results to help users achieve efficient data interpretation. 
 
 [clusterProfiler](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html) is released within the [Bioconductor project](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html) and the source code is hosted on [GitHub.](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html)
 
 
 ## Goal
 
-  * Learn how to write R scripts for going from gene list to enriched pathways
-  * Learn how to run over representation analysis and gene set enrichment analysis using functions in the [clusterProfiler](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html) R package
-  * Explore results of enrichment analysis using various visualisation options in clusterProfiler
+* Learn how to write R scripts for going from gene list to enriched pathways
+* Learn how to run over representation analysis and gene set enrichment analysis using functions in the [clusterProfiler](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html) R package
+* Explore results of enrichment analysis using various visualisation options in clusterProfiler
 
 
 ## Supported Analysis
@@ -49,7 +49,7 @@ source("prework_module8_clusterprofiler.R")
 
 In this exercise, we will learn over representation analysis using the gene ontology annotations. This is implemented in the function `enrichGO()`.
 
-# Data for enrichment using `clusterProfiler`
+### Data for enrichment using `clusterProfiler`
 
 Let us start with loading the dataset `geneList` that is provided by the package `DOSE`. 
 
@@ -206,9 +206,9 @@ upsetplot(edo, n=5) + ggtitle("ORA upset plot (top 5)")
 
 GSEA analysis requires a ranked gene list, which contains three features:
 
-   * numeric vector: fold change or other type of numerical variable
-   * named vector: every number has a name, the corresponding gene ID
-   * sorted vector: number should be sorted in decreasing order
+ * numeric vector: fold change or other type of numerical variable
+ * named vector: every number has a name, the corresponding gene ID
+ * sorted vector: number should be sorted in decreasing order
 
 Since `geneList` is already in the desired format, we will use it for this exercise. If you haven't loaded it, use the command below to import the data. Please see the above section "Data for enrichment using `clusterProfiler`" for details regarding the dataset. 
 
@@ -320,6 +320,7 @@ edo2 <- pairwise_termsim(egsea)
 emapplot(edo2)+ ggtitle("GSEA Enrichment Map")
 ```
 ```
+
 ## What next? 
 
 This figure gives a complete overview of functionalities of `clusterProfiler`
