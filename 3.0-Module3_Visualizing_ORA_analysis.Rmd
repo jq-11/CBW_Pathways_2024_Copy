@@ -2,17 +2,25 @@
 
  *<font color="#827e9c">Ruth Isserlin</font>*
  
- [Lecture part 1](./lectures/Pathways_2024_Module3-part1-Cytoscape-RI.pdf)
-    
- [Lecture part 2](./lectures/Pathways_2024_Module3-part2-EM-RI.pdf) 
+ **Module 3 Cytoscape** 
  
-**Module 3 Lab**
+ [Cytoscape - Lecture](./lectures/Pathways_2024_Module3-part1-Cytoscape-RI.pdf)
  
- *<font color="#827e9c">Ruth Isserlin</font>*  
+ **Module 3 Cytoscape Lab**
 
-[Introduction to practical Lab](./lectures/Pathways_2024_Module3_lab_introduction_RI.pdf)
+[Introduction to practical Cytoscape Lab (slides)](./lectures/Pathways_2024_Module3_cytoscape_lab_introduction_RI.pdf)
 
 [Lab practical Cytoscape Primer](#cytoscape_mod3) 
+ 
+---- 
+ 
+ **Module 3 Enrichment Map** 
+    
+[Enrichment Map Lecture](./lectures/Pathways_2024_Module3-part2-EM-RI.pdf) 
+ 
+ **Module 3 Enrichment Map Lab**
+
+[Introduction to practical EM Lab (slides)](./lectures/Pathways_2024_Module3_EM_lab_introduction_RI.pdf)
  
 [Lab practical part 1 (g:Profiler)](#gprofiler_mod3)   
 
