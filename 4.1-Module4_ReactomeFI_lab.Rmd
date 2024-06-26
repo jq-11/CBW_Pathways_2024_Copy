@@ -339,12 +339,7 @@ As we have the mutation frequencies for several cancer types, it would be useful
  
   i. They are now placed in the **Selected Columns** window. Click on **Apply**.<img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_33.png" alt="start" width="75%" />
 
- 
-   <p align="center">
- <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_33.png" alt="start" width="70%" />
- </p>
- 
- 
+
  ```{block, type="rmd-tip"}
  Expanding **Customize** will open a tab that shows the color legend for the pie chart. All colours of the pie chart are customizable. 
  ```
