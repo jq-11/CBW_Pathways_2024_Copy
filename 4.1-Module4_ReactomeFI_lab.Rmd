@@ -289,8 +289,8 @@ Our gene list contains the genes with high frequency in several cancers. Table  
 
   i. Set the first pivot **Handle Position** to 30 and the second pivot **Handle Position** to 100.  To set the pivot click on the arrow you would like to set and then adjust the value specified next to Node Size.  Make sure to press enter once you have updated the value in order for it to be registered.
   
-  i. Click OK
- 
+  i. Click OK 
+
  
    <p align="center">
  <img src="./Module4/Reactome/images/lab2/ReactomeFI_ex2_23.png" alt="start" width="50%" />
