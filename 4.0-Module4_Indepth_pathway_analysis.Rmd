@@ -2,7 +2,7 @@
 
   *<font color="#827e9c">Lincoln Stein</font>*
   
-  [Lecture](./lectures/Pathways_2021_Module4_lecture_RH.pdf)   
+  [Lecture](./lectures/Pathways_2024_Module_4_Lecture.pdf)   
   
   [Lab Lecture](./lectures/Pathways_2024_Module_4_lab_VV.pdf)
   
