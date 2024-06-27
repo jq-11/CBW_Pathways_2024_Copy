@@ -17,7 +17,7 @@
 ## Goal
 
 * Learn how to write R scripts for going from gene list to enriched pathways
-* Learn how to run over representation analysis and gene set enrichment analysis using functions in the [clusterProfiler](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html) R package
+* Learn how to run over representation analysis (ORA) and gene set enrichment analysis (GSEA) using functions in the [clusterProfiler](https://www.bioconductor.org/packages/release/bioc/html/clusterProfiler.html) R package
 * Explore results of enrichment analysis using various visualisation options in clusterProfiler
 
 
@@ -34,14 +34,27 @@ In this practical, we will be learning how to run Over Representation Analysis a
 Before starting the exercises, make sure that `clusterProfiler` and other required packages are installed and loaded. Run "prework_module8_clusterprofiler.R"
 before following this module.
 
+
 ## Install and load packages
 
-Please specify the correct location
+To run enrichment analysis using `clusterProfiler`, we need a few additional packages `org.Hs.eg.db`, `DOSE`, `tidyverse`, `enrichplot`, `ggupset`. Install and load all necessary packages using this code:
 
 ```{r}
-source("prework_module8_clusterprofiler.R")
+# install and load the package  manager
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+# list the required bioconductor packages 
+bio.pkgs = c("clusterProfiler", "org.Hs.eg.db", "DOSE", "tidyverse", "enrichplot", "ggupset")
+
+# install
+BiocManager::install(bio.pkgs)
+
+# load all at once
+invisible(lapply(bio.pkgs, function(x) library(x, character.only=TRUE, quietly = T)))
 ```
 
+Once all packages are loaded, we can get started with exercises.
 
 ## Exercise 1a. Over representation analysis
 
@@ -70,6 +83,7 @@ head(geneList)
 ```{block, type="rmd-note"}
 As you can see, first line of output has names of genes in Entrez gene ID format and the second line has fold change values of genes.
 ```
+
 ### Data for over representation analysis using `clusterProfiler`
 
 For running an over representation analysis, we need only a list of gene names or IDs. Let us extract out the genes which had an expression value >2 or <-2 using the function `names()`
@@ -118,6 +132,7 @@ nrow(ego@result)
  * We have selected all genes measured in the experiment as our `universe.` 
  * You can specify subontology using the argument `ont`. It takes one option among - "BP", "MF", "CC" or "ALL" for biological process, molecular function, cellular co-localization or all subontologies respectively.
  * If `readable` is set to `TRUE`, the input gene IDs will be converted to gene symbols.
+ * OrgDb is the genome annotation database of organism that your gene list is coming from. Since our `geneList` is from human breast cancer, we have provided human OrgDb object (`org.Hs.eg.db`). See the section  "A note on supported organisms" for more details.
 
 Gene IDs can be converted to different formats using `bitr()` function.
 ```
@@ -187,7 +202,7 @@ upsetplot(edo, n=5) + ggtitle("ORA upset plot (top 5)")
 ### Details about the input arguments for `enrichGO()`
 
 `gene` a vector of entrez gene ID. 
-`OrgDb`	OrgDb
+`OrgDb`	OrgDb object
 `keyType` keytype of input gene
 `ont`	One of "BP", "MF", and "CC" subontologies, or "ALL" for all three
 `pvalueCutoff`	adjusted pvalue cutoff on enrichment tests to report
@@ -198,7 +213,9 @@ upsetplot(edo, n=5) + ggtitle("ORA upset plot (top 5)")
 `maxGSSize`	maximal size of genes annotated for testing
 `readable`	whether mapping gene ID to gene Name
 
+## A note on supported organisms
 
+GO analyses in `clusterProfiler` support organisms that have an `OrgDb` object available. `OrgDb` (organism databases) objects are databases that contain genome annotations and thus, they are best for converting gene IDs or obtaining GO information for current genome builds.A list of organism databases can be found [here](https://www.bioconductor.org/packages/release/BiocViews.html#___OrgDb)
 
 ## Exercise 2a: Gene set enrichment analysis
 
@@ -222,6 +239,7 @@ head(geneList)
 The `clusterProfiler` package provides the `gseGO()` function for gene set enrichment analysis using gene ontology. You can run GSEA as below:
 
 ```{r}
+set.seed(100)
 egsea <- gseGO(geneList     = geneList,
                OrgDb        = org.Hs.eg.db,
                ont          = "ALL",
@@ -243,6 +261,7 @@ The output table is stored in `egsea@result`. In this example, 512 processes wer
 ```{r}
 head(egsea)
 ```
+
 ```{r}
 nrow(egsea@result)
 ```
@@ -290,7 +309,7 @@ dotplot(egsea, showCategory=20) + ggtitle("Dotplot for GSEA (top 20)")
 The function `ridgeplot()` will visualize expression distributions of core enriched genes for GSEA enriched categories. It helps you to interpret up/down-regulated pathways.
 
 ```{r, fig.height=10, fig.width=7}
-ridgeplot(egsea, showCategory = 20) + ggtitle("Ridgeplot for GSEA (top 20)")
+enrichplot::ridgeplot(egsea, showCategory = 20) + ggtitle("Ridgeplot for GSEA (top 20)")
 ```
 
 ### Running score and preranked list of GSEA result
@@ -325,6 +344,7 @@ emapplot(edo2)+ ggtitle("GSEA Enrichment Map")
 
 This figure gives a complete overview of functionalities of `clusterProfiler`
 
+![1](./Module5/clusterprofiler/images/clusterProfiler-functions.png) 
 
 ## Explore other features of `clusterProfiler`
 
