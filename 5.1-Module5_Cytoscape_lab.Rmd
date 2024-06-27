@@ -81,9 +81,9 @@ The top functions predicted by GeneMANIA for GRN were related to lysosome and va
 These genes are the largest nodes in the network. 	
 
 ```
-**Answer is SLP1 and SORT1**
+**Answer is SLPI and SORT1**
 
-<ol start=9 type="1"><li>Re-run an analysis by adding SORT1, SLP1 to the search.   Type 'SORT1' and 'SLP1' in the search box that already contains 'GRN' (one gene per line).  Click on the search button.</ol>  <br><img src="./Module6/genemania/images/gc_1.9.png" alt="gc_1.9.png" width="750" />
+<ol start=9 type="1"><li>Re-run an analysis by adding SORT1, SLPI to the search.   Type 'SORT1' and 'SLPI' in the search box that already contains 'GRN' (one gene per line).  Click on the search button.</ol>  <br><img src="./Module6/genemania/images/gc_1.9.png" alt="gc_1.9.png" width="750" />
   
 **Question**:Which functions are associated with this new network?
 
