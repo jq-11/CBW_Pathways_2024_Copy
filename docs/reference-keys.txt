@@ -267,9 +267,9 @@ how-to-run-nest
 practical-lab-pancreatic-ductal-adenocarcinoma-pdac
 module-7-review-of-the-tools
 final-slides
-scrna-lab-praticals-1
 integrated-assignment
 integrated-assignment-bonus
+clusterprofiler
 integrated_assignment
 goal-2
 dataset-1
@@ -332,7 +332,7 @@ exercise-3.-use-enrichr-with-the-prostate-gene-list.
 goal-4
 steps-1
 end-of-practical-lab
-optional-module-8-lab-3-automated-enrichment-and-visualisation-lab-using-clusterprofiler
+clusterprofiler_optionallab
 clusterprofiler-lab
 goal-5
 supported-analysis
